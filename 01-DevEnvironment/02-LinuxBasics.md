@@ -54,7 +54,7 @@ On this system Apache writes log files to /var/log/apache2. For this example I o
 * ````cd / && locate access.log````
 
 
-* ````grep```` - Globably Search a Regular Expression and Print (Uses Regular Expressions (regex) to search inside of files)
+* ````grep```` - Globally Search a Regular Expression and Print (Uses Regular Expressions (regex) to search inside of files)
 * ````* - wildcard````
 * ````/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/```` - check an ip address regex in code.
 
