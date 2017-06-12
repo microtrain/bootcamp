@@ -2,7 +2,7 @@
 
 This section is intended to provide a reference for the basic commands needed to navigate a Linux system from the command line. We will take a deeper dive and use these commands in later lessons. While we call these commands, they are really programs. In other words, when you type a command in Linux, you are really invoking a program. Most programs can be invoked with out any additional arguments (aka parameters), but in most cases, you will want to pass additional arguments into the program.
 
-For example ````vim filename.txt```` would use an editor called vim to open a file that is nammed filename.txt. Some programs expect arguments to  be passed in a specific order while others have predefined arguments. All Linux programs predefine ````--help```` so you might type ````chown --help```` to learn how to use the chown command (or program).
+For example ````vim filename.txt```` would use an editor called vim to open a file that is named filename.txt. Some programs expect arguments to  be passed in a specific order while others have predefined arguments. All Linux programs predefine ````--help```` so you might type ````chown --help```` to learn how to use the chown command (or program).
 
 * ````[command] --help```` - returns a help file for any command (or program).
 * ````sudo```` - super-user do (elevates privs to admin)
@@ -48,7 +48,7 @@ tip: Use tab expansions to auto-complete a command or an asterisk as a wild card
 * ````find -name [x]```` find all file for whom the name matches x
 * ````find -name [x]```` print|less find all files for which the name matches x and print them to a paginated CLI
 
-On this system Apache writes log files to /var/log/apache2. For this example I only want to retreive a list of the error logs.
+On this system Apache writes log files to /var/log/apache2. For this example I only want to retrieve a list of the error logs.
 * ````cd /var/log/apache2```` find /*error.log.*
 
 * ````cd / && locate access.log````
@@ -68,9 +68,9 @@ $valid = preg_match('/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/', $string);
 
 * ````grep '\s404\s' access*|less```` - find all 404 errors in the access logs, this is 404 surounded by whitespace
 
-* ````grep '^127' access*|less```` - find everyline that begins with 127 (access logs begin with an IP)
+* ````grep '^127' access*|less```` - find every line that begins with 127 (access logs begin with an IP)
 
-* ````sudo grep -ir error /var/log | less```` - find all errors (-i case insensitve) in all logs, we sudo because some log files are only accessable to root.
+* ````sudo grep -ir error /var/log | less```` - find all errors (-i case insensitive) in all logs, we sudo because some log files are only accessible to root.
 
 * ````cat /etc/passwd|less```` - a nice hack to get a list of all users on a system.
 
