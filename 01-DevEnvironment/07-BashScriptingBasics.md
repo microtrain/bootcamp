@@ -129,5 +129,7 @@ Lab 1 - Improved validation
 * [Bash Guide for Beginners](http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf)
 * [Advanced Bash-Scripting Guide](http://www.tldp.org/LDP/abs/abs-guide.pdf)
 * [service](http://manpages.ubuntu.com/manpages/precise/man8/service.8.html)
+* [Better Bash Scripting in 15 Minutes](http://robertmuth.blogspot.com/2012/08/better-bash-scripting-in-15-minutes.html)
+* [Better Bash Scripting in 15 Minutes (Discussion)](https://news.ycombinator.com/item?id=7595499)
 
 [Next: PHP Basics](07-PHPBasics.md)
