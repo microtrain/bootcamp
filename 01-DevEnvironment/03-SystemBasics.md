@@ -1,8 +1,7 @@
 # System Basics
-_In this section we will learn some basic Linux commands and install a few basic
-software packages._
+In this section we will learn use some of the basic Linux commands from the previous section to install a few basic software packages.
 
-Now you're ready to setup the  system. Login in to your system and open a terminal window using ````Ctrl + Alt + T````. Then type the following commands. Pressing enter after each command.
+Login in to your system and open a terminal window using ````Ctrl + Alt + T````. Then type the following commands. Pressing enter after each command.
 
 ````
 sudo apt-get update
