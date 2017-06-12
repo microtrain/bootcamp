@@ -34,3 +34,5 @@ Now open Atom and click on the file menu. Choose _Add Project Folder..._ and add
 * If your new to git you should review the [documentation](https://git-scm.com/book/en/v2)
 * [ProGit](https://git-scm.com/book/en/v2). A free EBook
 * (3 Git Commands I use every day)https://jason.pureconcepts.net/2016/11/3-everyday-git-commands/
+
+[Next: Git](08-Git.md)
