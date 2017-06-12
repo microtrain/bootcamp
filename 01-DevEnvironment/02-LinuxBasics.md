@@ -72,7 +72,13 @@ $valid = preg_match('/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/', $string);
 
 * ````sudo grep -ir error /var/log | less```` - find all errors (-i case insensitive) in all logs, we sudo because some log files are only accessible to root.
 
-* ````cat /etc/passwd|less```` - a nice hack to get a list of all users on a system.
+* ````pgrep```` - Returns a list of process id(s) for given processes. The process can be requested using regex.
+
+* ````pgrep chrome```` - Returns a list of all chrome process ids.
+
+* ````pgrep chrome | xargs kill -9```` - Kills all running chrome processes.
+
+* ````cat /etc/passwd|less```` - A nice hack to get a list of all users on a system.
 
 ## Additional Reading
 * [Ten Steps to Linux Survival](http://dullroar.com/book/TenStepsToLinuxSurvival.pdf)
