@@ -164,6 +164,87 @@ For our program the only acceptable values for the second argument are reload an
 * Send a message to the user that states the input was in error and includes list of the valid commands.
 * Stop the execution of the program.
 
+## Exercise 3 - Loops
+
+````
+COMMANDS=( reload restart )
+
+# Iterate the list of commands and inject them in to the user feedback
+for i in "${COMMANDS[@]}"
+do
+  echo $i
+done
+````
+
+````
+VHOSTS_PATH=/etc/apache2/sites-available/*.conf
+for FILENAME in $VHOSTS_PATH
+do
+  echo $FILENAME
+done
+````
+
+## LAB 2
+
+````
+#!/bin/bash
+
+CONFIG="$1"
+COMMAND="$2"
+
+if [ $# -ne 2 ]
+then
+
+        COMMANDS=( reload restart )
+        COMMAND_STRING=''
+
+        # Iterate the list of commands and inject them in to the user feedback
+        for i in "${COMMANDS[@]}"
+        do
+
+                # If $COMMAND_STRING is not empty, print a seperator
+                if [ ! -z  "$COMMAND_STRING" ]
+                then
+                        i=" | ${i}"
+                fi
+
+                COMMAND_STRING="${COMMAND_STRING}${i}"
+        done
+
+
+        VHOSTS_STRING=''
+        VHOSTS_PATH=/etc/apache2/sites-available/*.conf
+        for FILENAME in $VHOSTS_PATH
+        do
+                # Strip the file extension
+                FILE=${FILENAME##*/}
+
+                # Strip the base path
+                VHOST=${FILE%.*}
+
+                # If $COMMAND_STRING is not empty, print a seperator
+                if [ ! -z  "$VHOSTS_STRING" ]
+                then
+                        VHOST=" | ${VHOST}"
+                fi
+
+                VHOSTS_STRING="${VHOSTS_STRING}${VHOST}"
+        done
+
+        echo "Load a target vhost configuration"
+        echo "Usage: $0 { $VHOSTS_STRING } { $COMMAND_STRING }"
+        exit 1
+
+fi
+
+# Disable the existing hosts configuration
+sudo a2dissite $CONFIG
+sudo service apache2 $COMMAND
+
+# Enable the existing hosts configuration
+sudo a2ensite $CONFIG
+sudo service apache2 $COMMAND
+````
 
 ## Additional Reading
 * [Bash Guide for Beginners](http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf)
