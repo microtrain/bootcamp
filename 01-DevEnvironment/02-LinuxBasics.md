@@ -49,7 +49,9 @@ tip: Use tab expansions to auto-complete a command or an asterisk as a wild card
 * ````find -name [x]```` Print|less find all files for which the name matches x and print them to a paginated CLI.
 
 On this system Apache writes log files to /var/log/apache2. For this example I only want to retrieve a list of the error logs.
-* ````cd /var/log/apache2```` find /*error.log.*
+* ````cd /var/log/apache2````
+
+* ````find *error.log.*````
 
 * ````cd / && locate access.log````
 
