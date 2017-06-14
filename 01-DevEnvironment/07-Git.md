@@ -54,7 +54,43 @@ Now use the ````ls```` command to verify the existence of mtbc. If you open your
 
 ![Index](/img/git/base_index.png)
 
-Now open Atom and click on the file menu. Choose _Add Project Folder..._ drill down to /var/www and choose the _mtbc_ directory. Now click on the file README.md the raw file should be human readable but if you want a formatted version choose _Markdown Preview_ open a file and click ````Shift + Ctrl + M````
+
+## Exercise 2 - Commit a Code Change
+Now open Atom and click on the file menu. A use the key combo ````Shift + Ctrl + A````, this will raise an _Open Folder_ dialog. Navigate to _/var/www/mtbc_ and press ````OK````.
+
+![Create a New Project](/img/git/new_project.png)
+
+Now click on the file README.md from the _mtbc_ project folder. README files are a best practice in software development. REMDME files are human readable files that contain information about other files in a directory or archive. The information in these files range from basic infomation about the project team to build instructions for source code. A emerging defacto standard is to write in a format called Markdown (.md). A raw Markdown file should be human readable but if you want a formatted version you can use Atom's _Markdown Preview_ by opening the file and pressing ````Shift + Ctrl + M````.
+
+Open the file README.md from the mtbc project folder in the Atom sidebar and open the _Markdown Preview_. Change the content of the level 1 heading ````#```` to _# MicroTrain's Dev Boot Camp_. Save your changes with the keyboard shortcut _Ctrl + S_.# MicroTrain's Dev Boot Camp
+
+Open a terminal (command line or CLI) and navigate to the mtbc directory.
+
+````
+cd /var/www/mtbc
+````
+
+Check your repository for changes.
+
+````
+git status
+````
+You will see a message that indicates the README.md file has been changed.
+
+![Modified](/img/git/modify.png)
+
+````
+git commit README.md
+````
+
+![Modified](/img/git/push.png)
+
+This will open an editor window that ask you to enter a commit message. Enter _Changed the header_ and save the file. Finally, push your changes to GitHub.
+
+````
+git push origin master
+````
+
 
 ## Additional Reading
 * [Documentation](https://git-scm.com/book/en/v2)
