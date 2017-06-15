@@ -77,7 +77,7 @@ git status
 ````
 You will see a message that indicates the README.md file has been changed.
 
-![Modified](/img/git/modify.png)
+![Modified](/img/git/status.png)
 
 ````
 git commit README.md
