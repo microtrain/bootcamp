@@ -83,13 +83,17 @@ You will see a message that indicates the README.md file has been changed.
 git commit README.md
 ````
 
-![Modified](/img/git/push.png)
+This will open an editor window that ask you to enter a commit message. Enter _Changed the header_ and save the file. You will see a message that indicates the changes to README.md file have been committed.
 
-This will open an editor window that ask you to enter a commit message. Enter _Changed the header_ and save the file. Finally, push your changes to GitHub.
+![Modified](/img/git/commit.png)
+
+Finally, push your changes to GitHub.
 
 ````
 git push origin master
 ````
+
+![Modified](/img/git/push.png)
 
 
 ## Additional Reading
