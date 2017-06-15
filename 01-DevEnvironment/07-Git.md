@@ -129,6 +129,8 @@ git merge dev
 1 ````git merge dev```` - Once you have a clean pull, merge your changes into master.
 1 ````git push origin master```` - Push your new changes to the repository.
 
+There is no right way to use git. The only real wrong way to use git is to deviate from that projects branching model. [The Diaspora* Project](https://wiki.diasporafoundation.org/Git_workflow) has a very well defined branching model that is typical of what you will see in the real world. I had to come up with one and only one rule it would be to never build on the master branch.
+
 
 ## Additional Reading
 * [Documentation](https://git-scm.com/book/en/v2)
