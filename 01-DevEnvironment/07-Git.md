@@ -95,6 +95,21 @@ git push origin master
 
 ![Modified](/img/git/push.png)
 
+In the previous example we committed our code changes directly to the master branch. In practice you will never work on a master branch. At the very least you should have a develop branch (we call it dev). I like to create branches as follows.
+
+````
+git checkout -B dev
+````
+
+You will see the message _Switched to a new branch 'dev'_.
+
+* ````checkout```` - This tells git to switch to a different branch.
+* ````-B```` - When following the _checkout_ command this tells git to create a new branch. This is a copy of the branch you are currently on.
+* ````dev```` - The name of the new branch.
+
+In plain English ````git checkout -B dev```` says make a copy of the branch I am on, name it _dev_ and switch me to that branch.
+
+
 
 ## Additional Reading
 * [Documentation](https://git-scm.com/book/en/v2)
