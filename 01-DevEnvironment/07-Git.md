@@ -109,6 +109,25 @@ You will see the message _Switched to a new branch 'dev'_.
 
 In plain English ````git checkout -B dev```` says make a copy of the branch I am on, name it _dev_ and switch me to that branch.
 
+If your are working directly on your dev branch and wanted to push those changes into master it might look like this.
+
+````
+git checkout master
+git pull origin master
+git checkout dev
+git rebase master
+git checkout master
+git merge dev
+````
+
+1 ````git checkout master```` - Switch to the master branch.
+1 ````git pull origin master```` - Pull any new changes into master.
+1 ````git checkout dev```` - Switch back to the dev branch.
+1 ````git rebase master```` - Apply outside changes from master into the dev branch. This will rewind the branch and apply the outside changes. All commits you made after branch deviation will applied on top of the branch deviation.
+1 ````git checkout master```` - Move back to the master branch.
+1 ````git pull origin master```` - Recheck for changes, if any new changes have been applied return to step 3 and repeat.
+1 ````git merge dev```` - Once you have a clean pull, merge your changes into master.
+1 ````git push origin master```` - Push your new changes to the repository.
 
 
 ## Additional Reading
