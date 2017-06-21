@@ -51,6 +51,7 @@ sudo vim /etc/environment
 ````
 
 Once you have added the that line, you will want to reload the file.
+
 ````
 source /etc/environment
 ````
@@ -80,7 +81,9 @@ export PATH=$PATH:/opt/gradle/gradle-3.4.1/bin
 ````
 
 ### Restart .bashrc
-````. ~/.bashrc````
+````
+. ~/.bashrc
+````
 
 ## Install the Android SDK
 If you were to build an Android application from scratch, this is what you would use. Cordova needs access to the SDK for it's builds and we need access to the emualtors. You will use Cordova to write the code, but you will used Android Studio to build you emulators.
@@ -90,22 +93,32 @@ Download Android Studio
 https://developer.android.com/studio/index.html
 
 cd ~/Downloads
-````sudo unzip android-studio-ide-162.3934792-linux.zip -d /usr/local````
+
+````
+sudo unzip android-studio-ide-162.3934792-linux.zip -d /usr/local
+````
 
 cd /usr/local/android-studio/bin
-````./studio.sh````
+
+````
+./studio.sh
+````
 
 Install with the standard features
 
 Install additional 32 bit libraries
-````sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386````
+````
+sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+````
 
 Create a new project called Hello World
 - Choose create with no activity
 
 Go to Tools and choose _create a desktop entry_
 
-````vim ~/bashrc````
+````
+vim ~/.bashrc
+````
 
 add the following lines
 
@@ -114,12 +127,14 @@ export ANDROID_HOME=/home/jason/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ````
 
-reload the bashrc file
+reload the .bashrc file
+
 ````
 . ~/.bashrc
 ````
 
 ## Hello World
+
 Now let's get started with Cordova. We will start with the classic Hello World example. We will create our Hello World application is a package called hello.
 
 ````
