@@ -5,20 +5,28 @@ We will be using Apache Cordova to build a hybrid web and mobile application. Ou
 
 Cordova is built on top of Nodejs so the install is just a call to npm.
 
-````sudo npm install -g cordova````
+````
+sudo npm install -g cordova
+````
 
 ## Install the JavaSDK
 Since Android runs on top of Java (and Java compatible APIs) we will need to install Java so we can compile our web based build into Java. We will use Oracle's JDK for this (there are rumors that Google will switch future build to Open-JDK).
 
 Start by adding Oracle's PPA.
 
-````sudo add-apt-repository ppa:webupd8team/java````
+````
+sudo add-apt-repository ppa:webupd8team/java
+````
 
 Update your apt repos list
-````sudo apt-get update````
+````
+sudo apt-get update
+````
 
 Install the JDK
-````sudo apt-get install oracle-java8-installer````
+````
+sudo apt-get install oracle-java8-installer
+````
 
 Choose the desired installation
 Run the command ````sudo update-alternatives --config java```` and chose from the resulting menu, which should be similar to the following. In this case, I selected option 0 _auto mode_
@@ -32,14 +40,20 @@ Run the command ````sudo update-alternatives --config java```` and chose from th
 
 You will need to set your JAVA_HOME Environment Variable (so that running programs can  find Java). To do this you will need to find your Java path; do this with the following command (the result of which will contain your Java path).
 
-````sudo update-alternatives --config java````
+````
+sudo update-alternatives --config java
+````
 
 Now set the path using your favorite editor. In my case the path is at _/usr/lib/jvm/java-8-oracle/jre/bin/java_ so I will add this line ````JAVA_HOME="/usr/lib/jvm/java-8-oracle/jre/bin/java"```` to the environment file.
 
-````sudo vim /etc/environment````
+````
+sudo vim /etc/environment
+````
 
 Once you have added the that line, you will want to reload the file.
-````source /etc/environment````
+````
+source /etc/environment
+````
 
 ## Install Gradle
 In short Gradle is a the build system used by Android. Stack Overflow has a [more detailed answer](https://stackoverflow.com/questions/16754643/what-is-gradle-in-android-studio). You can install this using Apt, but the Ubuntu repos are a little behind on this one, so it's better to install it manually.
