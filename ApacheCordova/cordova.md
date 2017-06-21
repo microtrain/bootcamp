@@ -44,7 +44,8 @@ Once you have added the that line, you will want to reload the file.
 ## Install Gradle
 In short Gradle is a the build system used by Android. Stack Overflow has a [more detailed answer](https://stackoverflow.com/questions/16754643/what-is-gradle-in-android-studio). You can install this using Apt, but the Ubuntu repos are a little behind on this one, so it's better to install it manually.
 
-### Download and Ungit pack Gradle
+### Download and Unpack Gradle
+
 `````
 cd ~/Downloads
 wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip
