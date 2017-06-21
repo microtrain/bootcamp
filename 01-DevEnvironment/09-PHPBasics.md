@@ -11,23 +11,16 @@ sudo vim /etc/php/7.0/apache2/php.ini
 Find the ````display_errors```` directive by typing ````display_errors =```` in vim. This will be around line 426 enter insert mode and change ````display_errors = On```` to ````display_errors = Off```` then restart Apache.
 
 
-From your command line navigate /var/www and create a folder called php.
+## Exercise 1
+From Atom's side navigation create the path _/var/www/mtbc/php/hello.php_. Then open the hello.php file.
 
-````
-cd /var/www && mkdir php
-````
-
-Now open Atom and add the php directory as a project folder in Atom. From Atom's sidebar click right click on the php folder and choose _New File_ from the context menu.
-
-In the dialog type _hello.php_ and press enter. If the hello.php file is not already open open it by clicking the file name from the sidebar.
-
-Type the following lines
+Add the following lines to _/var/www/mtbc/php/hello.php_
 
 ````php
 <?php
 //Greets the user with the current date and time.
 
-//Create a date object http://php.net/manual/en/book.datetime.php
+//Create a date object http://php.net/manual/en/book.datetime.php from PHP's built
 $date = new DateTime();
 
 //Format the date http://php.net/manual/en/datetime.formats.date.php
@@ -35,6 +28,16 @@ $formattedDate = $date->format('Y-m-d h:i:s');
 
 echo "Hello it is {$formattedDate}";
 ````
+
+PHP tags denote which part of a file is to be parsed as PHP ````<?php //php code goes here ?>````. The closing tag ````?>```` is only required if the last line of a file is not PHP. As a best practice ["The closing ````?>```` tag MUST be omitted from files containing only PHP."](http://www.php-fig.org/psr/psr-2/)
+
+PHP has three types of comments.
+* ````// Comment here````
+* ````# Comment here````
+* ````/* Comment here */
+
+Variable in PHP are denoted by a dollar sign. Unlike bash, the dollar sign MUST always be present.
+
 
 Open a browser and navigate to https://localhost/php/hello.php. You will see the string _Hello it is x_ where x is the current date and time.
 
