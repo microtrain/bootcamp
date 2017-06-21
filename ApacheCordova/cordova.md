@@ -19,11 +19,13 @@ sudo add-apt-repository ppa:webupd8team/java
 ````
 
 Update your apt repos list
+
 ````
 sudo apt-get update
 ````
 
 Install the JDK
+
 ````
 sudo apt-get install oracle-java8-installer
 ````
@@ -57,6 +59,7 @@ source /etc/environment
 ````
 
 ## Install Gradle
+
 In short Gradle is a the build system used by Android. Stack Overflow has a [more detailed answer](https://stackoverflow.com/questions/16754643/what-is-gradle-in-android-studio). You can install this using Apt, but the Ubuntu repos are a little behind on this one, so it's better to install it manually.
 
 ### Download and Unpack Gradle
@@ -70,6 +73,7 @@ sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
 ````
 
 ### Add an Environmental Variable on Startup
+
 ````
 vim ~/.bashrc
 ````
@@ -86,25 +90,19 @@ export PATH=$PATH:/opt/gradle/gradle-3.4.1/bin
 ````
 
 ## Install the Android SDK
+
 If you were to build an Android application from scratch, this is what you would use. Cordova needs access to the SDK for it's builds and we need access to the emualtors. You will use Cordova to write the code, but you will used Android Studio to build you emulators.
 
 Download Android Studio
 
 https://developer.android.com/studio/index.html
 
+````
 cd ~/Downloads
-
-````
 sudo unzip android-studio-ide-162.3934792-linux.zip -d /usr/local
-````
-
 cd /usr/local/android-studio/bin
-
-````
 ./studio.sh
 ````
-
-Install with the standard features
 
 Install additional 32 bit libraries
 ````
@@ -112,7 +110,7 @@ sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-
 ````
 
 Create a new project called Hello World
-- Choose create with no activity
+* Choose create with no activity
 
 Go to Tools and choose _create a desktop entry_
 
