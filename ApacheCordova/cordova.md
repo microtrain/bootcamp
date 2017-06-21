@@ -67,7 +67,6 @@ In short Gradle is a the build system used by Android. Stack Overflow has a [mor
 `````
 cd ~/Downloads
 wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip
-
 sudo mkdir /opt/gradle
 sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
 ````
