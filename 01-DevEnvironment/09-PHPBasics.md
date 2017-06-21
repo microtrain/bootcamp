@@ -18,34 +18,26 @@ Add the following lines to _/var/www/mtbc/php/hello.php_
 
 ````php
 <?php
-//Greets the user with the current date and time.
+/**
+ * Greets the user with the current date and time.
+ */
 
 //Create a date object http://php.net/manual/en/book.datetime.php from PHP's built
 $date = new DateTime();
 
-//Format the date http://php.net/manual/en/datetime.formats.date.php
+#Format the date http://php.net/manual/en/datetime.formats.date.php
 $formattedDate = $date->format('Y-m-d h:i:s');
 
 echo "Hello it is {$formattedDate}";
 ````
 
-PHP tags denote which part of a file is to be parsed as PHP ````<?php //php code goes here ?>````. The closing tag ````?>```` is only required if the last line of a file is not PHP. As a best practice ["The closing ````?>```` tag MUST be omitted from files containing only PHP."](http://www.php-fig.org/psr/psr-2/)
-
-PHP has three types of comments.
-* ````// Comment here````
-* ````# Comment here````
-* ````/* Comment here */
-
-Variable in PHP are denoted by a dollar sign. Unlike bash, the dollar sign MUST always be present.
-
-
 Open a browser and navigate to https://localhost/php/hello.php. You will see the string _Hello it is x_ where x is the current date and time.
 
-Now lets have a look at what we wrote, don't worry if you do not get this, we will go over it all again when we dive into the programming lessons.
+Now lets have another look at what we wrote, don't worry if you do not get this, we will go over it all again when we dive into the programming lessons.
 
 The first line is ````<?php````, this tells the server to begin interpreting PHP. PHP tags open with ````<?php```` and close with ````?>```` if there is no closing tag it is assumed all text after ````<?php```` is PHP.
 
-Line two is a comment ````//Greets...```` in PHP single line comments start with either ````//```` or ````#```` the PHP interpreter ingores everything between ````//```` or ````#```` and the end of the line. Comments are user to communicate with other programmers and to remind yourself why did something. PHP also supports multi-line comments with an opening and closing tag ````/* this is a comment */````
+Line two is a comment ````//Greets...```` in PHP single line comments start with either ````//```` or ````#```` the PHP interpreter ignores everything between ````//```` or ````#```` and the end of the line. Comments are user to communicate with other programmers and to remind yourself why did something. PHP also supports multi-line comments with an opening and closing tag ````/* this is a comment */````
 
 Line 4 creates an object, in the case the object is an instance of the date class ````$date = new DateTime();````
 
