@@ -4,7 +4,7 @@
 
 Let's break this down by taking a look at [https://www.google.com/search?q=anatomy+of+a+URI#jump](https://www.google.com/search?q=anatomy+of+a+URI).
 
-![The Anatomy of a URI](img/url.png)
+![The Anatomy of a URI](../img/url.png)
 
 <table>
   <tr>
@@ -12,7 +12,7 @@ Let's break this down by taking a look at [https://www.google.com/search?q=anato
     <th>DOMAIN</th>
     <th>PORT</th>
     <th>PATH</th>
-    <th>QUERY PARAMS</th>
+    <th>QUERY STRING</th>
     <th>FRAGMENT</th>
   </tr>
   <tr>

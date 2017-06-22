@@ -50,10 +50,7 @@ Line 4 creates an object<sup>1</sup>, in the case the object is an instance of t
 
 Line 7 stores the result of an operation in a variable called ````$formattedDate````.
 
-A method is a property of an object in PHP we can access a propery of an object using an arrow ````->````. ````format()```` is a method (a type of property) of the ````DateTime()```` class.
-Here the operation is simply formatting the current Unix timestamp to a human
-readable format. ````$date->format('Y-m-d h:i:s')```` says I want to call the _format()_
-method of the _$date_ object with the following parameters ````'Y-m-d h:i:s'````.
+A method is a property of an object in PHP we can access a propery of an object using an arrow ````->````. ````format()```` is a method (a type of property) of the ````DateTime()```` class. Here the operation is simply formatting the current Unix timestamp to a human readable format. ````$date->format('Y-m-d h:i:s')```` says I want to call the _format()_ method of the _$date_ object with the following parameters ````'Y-m-d h:i:s'````.
 
 * ````$formattedDate```` - A variable that holds a formatted date string.
 * ````=```` - Sets the value of the left to that of the right.
