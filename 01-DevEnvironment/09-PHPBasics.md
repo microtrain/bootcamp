@@ -35,9 +35,12 @@ Open a browser and navigate to https://localhost/php/hello.php. You will see the
 
 Now lets have another look at what we wrote, don't worry if you do not get this, we will go over it all again when we dive into the programming lessons.
 
-The first line is ````<?php````, this tells the server to begin interpreting PHP. PHP tags open with ````<?php```` and close with ````?>```` if there is no closing tag it is assumed all text after ````<?php```` is PHP.
+The first line is ````<?php````, this tells the server to begin interpreting PHP. PHP tags open with ````<?php```` and close with ````?>```` if there is no closing tag it is assumed all text after the opening PHP tag is to interpreted as PHP.
 
-Line two is a comment ````//Greets...```` in PHP single line comments start with either ````//```` or ````#```` the PHP interpreter ignores everything between ````//```` or ````#```` and the end of the line. Comments are user to communicate with other programmers and to remind yourself why did something. PHP also supports multi-line comments with an opening and closing tag ````/* this is a comment */````
+Line two is a comment there are three types of comments in PHP.
+* ````# This is a comment````
+* ````// This is a comment ````  
+* ````/* this is a comment */````
 
 Line 4 creates an object, in the case the object is an instance of the date class ````$date = new DateTime();````
 
