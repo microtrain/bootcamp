@@ -1,16 +1,25 @@
 # Apache Cordova
-We will be using Apache Cordova to build a hybrid web and mobile application. Our mobile application. In order to build for mobile we need to be able to emulate that environment. let's start with Android; in addition to Cordova we will need to install Java, Gradle, the Android SDK and few 32 bit binaries.
+[Apache Cordova](https://cordova.apache.org/) is a free and open source environment that allows to use web technologies that target multiple platforms with a single code base. This is used primarily for mobile development. While we are able to write the code using web technologies, we still need access to that platforms build environment. Cordova provides a mechanism to compile technology into native application code but it still needs the native environment to build and test that package. If you want to compile your application into an iOS app you will still need access to a MAC running the latest version of xCode. Android on the other hand can build on Windows, MAC or Linux as a result we will focus our build on Android. For the most part, anything you build in Cordova for Android should run on iOS save for the occasional tweaks.
+
+[Android Studio](https://developer.android.com/studio/index.html) is the offical IDE (Integrated Dev Environment) for building Andorid applicators, this provides everything you will need to build Android applications. There are however a few dependencies.
+
+In this lesson we will install
+* Apache Cordova
+* Java
+* Gradle
+* Android studio
+* A few 32 bit binaries.
 
 ## Install Apache Cordova
 
-Cordova is built on top of Nodejs so the install is just a call to npm.
+Cordova is built on top of Node; we will use npm to do a global install.
 
 ````
 sudo npm install -g cordova
 ````
 
-## Install the JavaSDK
-Since Android runs on top of Java (and Java compatible APIs) we will need to install Java so we can compile our web based build into Java. We will use Oracle's JDK for this (there are rumors that Google will switch future build to Open-JDK).
+## Install the Java SDK
+Android runs on top of Java (and Java compatible APIs) we will need to install Java so we can compile our web based build into Java. We will use Oracle's JDK for this (there are rumors that Google will switch future build to Open-JDK).
 
 Start by adding Oracle's PPA.
 
@@ -73,28 +82,37 @@ sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
 
 ### Add an Environmental Variable on Startup
 
+Open the _.bashrc_ file
+
 ````
 vim ~/.bashrc
 ````
 
-add the following line
+add the following lines, the first is for Gradle, the others you will need later so add them now. Replace _[your-user-name]_ with the user name you use to login to your system.
 
 ````
 export PATH=$PATH:/opt/gradle/gradle-3.4.1/bin
+export ANDROID_HOME=/home/[your-user-name]/Android/Sdk
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ````
 
 ### Restart .bashrc
+
 ````
 . ~/.bashrc
 ````
 
+Install additional 32 bit libraries
+
+````
+sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+````
+
 ## Install the Android SDK
 
-If you were to build an Android application from scratch, this is what you would use. Cordova needs access to the SDK for it's builds and we need access to the emualtors. You will use Cordova to write the code, but you will used Android Studio to build you emulators.
+If you were to build an Android application from scratch, this is what you would use. Cordova needs access to the SDK for it's builds and we need access to the emulators. You will use Cordova to write the code, Cordova will use the Android SDK to build your applications and you will use Android Studio to build your emulators.
 
-Download Android Studio
-
-https://developer.android.com/studio/index.html
+[Download Android Studio](https://developer.android.com/studio/index.html)
 
 ````
 cd ~/Downloads
@@ -103,36 +121,28 @@ cd /usr/local/android-studio/bin
 ./studio.sh
 ````
 
-Install additional 32 bit libraries
-````
-sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
-````
+Follow the prompts and keep choosing next. If you get prompted to install the Android SDK restart your _.bashrc_ file ````. ~/.bashrc````.
 
+_
+At some point you will be asked to create or import a new project. This is required but we will not use it. When prompted to do so, go ahead and create a project.
 Create a new project called Hello World
 * Choose create with no activity
+_
 
-Go to Tools and choose _create a desktop entry_
+You should now have a running instance of  Android Studio. Add a desktop entry _Tools > Create desktop entry..._ and lock Android Studio to your launcher.  
 
-````
-vim ~/.bashrc
-````
+Now it's time to create an AVD (this is an emulator)
 
-add the following lines
-
-````
-export ANDROID_HOME=/home/jason/Android/Sdk
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-````
-
-reload the .bashrc file
-
-````
-. ~/.bashrc
-````
+Tools > Android > AVD Manager
+Click the _Create Virtual Device_ button
+Choose Nexus 5x
+Click on the _x86 images_ tab and choose _Nougat 25 x86_64_ (Download if required)
+Choose the default options from the AVD screen and click _Finish_
+From the _Your Virtual Devices_ dialog click the green arrow beside our new device.
 
 ## Hello World
 
-Now let's get started with Cordova. We will start with the classic Hello World example. We will create our Hello World application is a package called hello.
+Now let's get started with Cordova. We will start with the classic Hello World example. We will create our Hello World application is a package called hello. This will create a starter package with a few lines of source code to get your started.
 
 ````
 cd ~
@@ -148,26 +158,45 @@ Check your list of platforms
 cordova platform ls
 ````
 
-Open Android studio and create an AVD (this is an emulator)
-
-Tools > Android > AVD Manager
-Click Create Virtual Device
-Choose Nexus 5C
-Download Nougat (if required)
-Choose Nougat as your system image
-
-use "Software" in the Emulated Performance Graphics option, in the AVD settings
-
-Start an emulator.
+Add the Android platform to your project.
 
 ````
 cordova platform add android
+````
+
+Build and Android package from source code.
+
+````
 cordova build android
+````
+
+Start the emulator
+
+````
 cordova emulate android
 ````
 
+Close the emulator.
+
+## Debugging with Logcat.
+[Logcat](https://developer.android.com/studio/command-line/logcat.html) is the default android debugger, we can use this for tracking down issues in our web code. To do this we will want to add the [console plugin](https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-console/) to our Cordova app.
+
 ````
-cordova platform add browser
-cordova build browser
-cordova emulate browser
+cordova plugin add cordova-plugin-console
 ````
+
+Start your emulator and in another terminal start logcat
+````
+cordova emulate android
+
+adb logcat
+````
+
+You will lots of stuff writing to the console. By default Logcat is to verbose to be useful, so your will want to run it with filters. We will use the regex filter to only return messages that have contain the string _INFO:CONSOLE_.
+
+````
+adb logcat ActivityManager:I Cam:V -e INFO:CONSOLE*
+````
+
+Camera Plugin
+https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-camera/
