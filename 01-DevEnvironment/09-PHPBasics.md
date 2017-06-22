@@ -8,7 +8,7 @@ Since this is a dev environment we want to able to debug errors. Lets tell Apach
 sudo vim /etc/php/7.0/apache2/php.ini
 ````
 
-Find the ````display_errors```` directive by typing ````display_errors =```` in vim. This will be around line 426 enter insert mode and change ````display_errors = On```` to ````display_errors = Off```` then restart Apache.
+Find the _display_errors_ directive by typing _\display_errors =_ in vim. This will be around line 426 enter insert mode and change _display_errors = On_ to _display_errors = Off_ then restart Apache.
 
 
 ## Exercise 1
