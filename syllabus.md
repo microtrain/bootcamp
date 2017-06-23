@@ -14,13 +14,14 @@ Programming Basics
 * PHP Basics
 * HTML Basics
 * CSS Basics
+* npm intro
+* less and sass
 
 Week 2 JavaScript and jQuery, AJAX (with Apache and PHP and bootstrap?)
 * Programming Basics with JavaScript
 
-
-
 Week 3 MySQL and PHP (more HTML, CSS and JavaScript)
+* Data Models - Third Normal Form
 
 Week 4 Apache Cordova (more HTML, CSS and JavaScript/jQuery)
 

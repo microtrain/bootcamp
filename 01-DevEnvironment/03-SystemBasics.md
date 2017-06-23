@@ -89,6 +89,14 @@ for matching all characters and strings. ````rm ~/Downloads/*```` will remove ev
 
 Now typing ````ls ~/Downloads```` into the command line will return an empty result set.
 
+## [Meld](http://meldmerge.org/)
+
+Meld is a visual diff tool. This is the default tool called by Atom when doing a file comparison.
+
+````
+sudo apt-get install meld
+````
+
 ## [Filezilla](https://filezilla-project.org/)
 
 Filezilla is my goto [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol) client. While FTP by itself is insecure and not recommended, running FTP over [SSH](https://en.wikipedia.org/wiki/Secure_Shell) is secure and Filezilla allows us to do just that. We work with FTP and SSH in later lessons.
