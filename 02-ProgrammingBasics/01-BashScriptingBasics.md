@@ -312,6 +312,7 @@ sudo service apache2 $COMMAND
 ````
 
 ## Additional Reading
+* [A Few Words on Shell Scripts](https://jasonsnider.com/posts/view/a-few-words-on-shell-scripts)
 * [Bash Guide for Beginners](http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf)
 * [Advanced Bash-Scripting Guide](http://www.tldp.org/LDP/abs/abs-guide.pdf)
 * [service](http://manpages.ubuntu.com/manpages/precise/man8/service.8.html)
