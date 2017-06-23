@@ -2,9 +2,9 @@
 
 Programming is little more that reading data and piecing together statements that take action on that data. Every language will have it's own set of control structures. For most languages a given set of control structures will be almost identical. In the Bash lesson we learned only a control structures most of which exist in PHP.
 
-## Exercise 2
+## Exercise 2 - If, Else If, Else
 
-Add the following to the path /var/www/mtbc/php/exercise2.php.
+Add the following to the path _/var/www/mtbc/php/if_else.php_.
 ````
 <?php
 
@@ -71,3 +71,95 @@ Finally we will print some output back to the screen. This time we will wrap the
 ````
 echo "<div style=\"color:{$color}\">The color is {$label}</div>";
 ````
+
+## Exercise 3 - For Loop
+
+Add the following to the path _/var/www/mtbc/php/for.php_.
+
+<?php
+
+$items = array(
+  'for',
+  'foreach',
+  'while',
+  'do-while'
+);
+
+echo 'PHP Supports ' . count($items) . ' of loops.';
+
+$li = '';
+for($i=0; $i<count($items); $i++){
+  $li .= "<li>{$items[$i]}</li>";
+}
+
+echo "<ul>{$li}</ul>";
+
+
+## Exercise 4 - Foreach Loop
+
+Add the following to the path _/var/www/mtbc/php/foreach.php_.
+
+<?php
+
+$items = array(
+  'for',
+  'foreach',
+  'while',
+  'do-while'
+);
+
+echo 'PHP Supports ' . count($items) . ' of loops.';
+
+$li = '';
+foreach($items as $item){
+  $li .= "<li>{$item}</li>";
+}
+
+echo "<ul>{$li}</ul>";
+
+
+## Exercise 5 - While Loop
+
+<?php
+
+$items = [
+  'for',
+  'foreach',
+  'while',
+  'do-while'
+];
+
+$count = count($items);
+
+echo "PHP Supports {$count} of loops.";
+
+$i = 0;
+$li=null;
+while ($i < $count) {
+  $li .= "<li>{$items[$i]}</li>";
+  $i++;
+}
+
+echo "<ul>{$li}</ul>";
+
+
+## Exercise 6 - Do While Loop
+
+Add the following to the path _/var/www/mtbc/php/do_while.php_.
+
+<?php
+
+$items = [
+  'for',
+  'foreach',
+  'while',
+  'do-while'
+];
+
+echo 'PHP Supports ' . count($items) . ' of loops.';
+
+$i = 0;
+$li=null;
+do {
+  $li .= "<li>{$items[$i++]}</li>";
+} while ($i > 0);

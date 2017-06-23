@@ -11,8 +11,8 @@ sudo vim /etc/php/7.0/apache2/php.ini
 Find the _display_errors_ directive by typing _\display_errors =_ in vim. This will be around line 426 enter insert mode and change _display_errors = On_ to _display_errors = Off_ then restart Apache.
 
 
-## Exercise 1
-From Atom's side navigation create the path _/var/www/mtbc/php/exercise1.php_. Then open the hello.php file.
+## Exercise 1 - Hello World
+From Atom's side navigation create the path _/var/www/mtbc/php/hello.php_. Then open the hello.php file.
 
 Add the following lines to _/var/www/mtbc/php/exercise1.php_
 
@@ -28,7 +28,7 @@ $date = new DateTime();
 #Format the date http://php.net/manual/en/datetime.formats.date.php
 $formattedDate = $date->format('Y-m-d h:i:s');
 
-echo "Hello it is {$formattedDate}";
+echo "Hello World it is {$formattedDate}";
 ````
 
 Open a browser and navigate to https://localhost/mtbc/php/exercise1.php. You will see the string _Hello it is x_ where x is the current date and time.
