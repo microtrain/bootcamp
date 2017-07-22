@@ -20,22 +20,24 @@ Programming Basics
 Week 2 JavaScript and jQuery, AJAX (with Apache and PHP and bootstrap?)
 * Programming Basics with JavaScript
 
-Week 3 MySQL and PHP (more HTML, CSS and JavaScript)
-* Data Models - Third Normal Form
+Week 3 Database
+* Data Models
+* MySQL
+* MongoDB
 
-Week 4 Apache Cordova (more HTML, CSS and JavaScript/jQuery)
+Week 4 Node.JS
 
-Week 5 NodeJS
+Week 5 Angular
 
-Week 6 MongoDB
+Week 6 Apache Cordova and Ionic (more HTML, CSS and JavaScript/jQuery)
 
-Week 7 Chat Client (Twilio API)
+Week 7 Chat Client (Twilio API)?
 
 Week 8 Production Web Site?
 
-Week 9 Angular
+Week 9
 
-Week 10 Project
+Week 10
 
 Lessons
 * Lecture
