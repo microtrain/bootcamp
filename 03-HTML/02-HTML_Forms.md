@@ -11,7 +11,7 @@ Create the following paths.
 /var/www/mtbc/exercises/php/forms/form.php
 ````
 
-/var/www/mtbc/html/forms/form.html
+/var/www/mtbc/exercises/html/forms/form.html
 ````
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +46,7 @@ Create the following paths.
 
 ````
 
-/var/www/mtbc/php/forms/form.php
+/var/www/mtbc/exercises/php/forms/form.php
 ````
 <?php
 
@@ -100,7 +100,7 @@ Create the following paths.
 
 ````
 
-/var/www/mtbc/php/forms/regex_form.php
+/var/www/mtbc/php/exercises/forms/regex_form.php
 ````
 <?php
 //Create a RegEx pattern to determine the validity of the use submitted email
@@ -146,6 +146,7 @@ Regular Expressions are extremely powerful, flexible and worth learning.having s
 _Never trust user input. User input is anything come into the server from the client. Even if you have written client side JavaScript to filter out malicious code, the filtered input is still left alone with the client and can be manipulated prior to transit (or even in transit). If it has ever existed outside of the server it CANNOT be trusted._
 
 ## Single Page App with a Validation Class
+/var/www/mtbc/exercises/php/forms/spa.php
 ````
 <?php
 
@@ -277,6 +278,14 @@ if(!empty($input)){
 </html>
 ````
 
+## LAB 1
+Copy the path _/var/www/mtbc/exercises/php/forms/spa.php_ to _/var/www/mtbc/labss/php/forms/spa.php_
+
+Modify _/var/www/mtbc/labss/php/forms/spa.php_.
+* Add a form field for entering URLs.
+* Add a validation method for the URL field.
+* Update the email and URL validation method to return true when the input passes validation OR when the field is empty.
+* The MUST reject an empty email but allow an empty URL.
 
 ## Additional Reading
 * [Email RegEx Examples](http://emailregex.com/)
