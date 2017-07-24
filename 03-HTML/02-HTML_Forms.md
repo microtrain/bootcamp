@@ -285,7 +285,7 @@ Modify _/var/www/mtbc/labss/php/forms/spa.php_.
 * Add a form field for entering URLs.
 * Add a validation method for the URL field.
 * Update the email and URL validation method to return true when the input passes validation OR when the field is empty.
-* The MUST reject an empty email but allow an empty URL.
+* The MUST reject an empty email but allow an empty URL so that the field is not required but will be validated when not empty.
 
 ## Additional Reading
 * [Email RegEx Examples](http://emailregex.com/)
