@@ -1,4 +1,4 @@
-# HTML Forms
+# HTML Forms with PHP Validation
 
 Traditionally, forms have been the most common way to collect data from a user. A form submission is the simplest way to post data to a server. This section will start with a simple POST request and end with complex processing.
 
