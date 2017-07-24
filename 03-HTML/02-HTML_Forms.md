@@ -148,7 +148,6 @@ _Never trust user input. User input is anything come into the server from the cl
 ## Single Page App with a Validation Class
 ````
 <?php
-<?php
 
 class Validate{
 
