@@ -30,7 +30,15 @@ Simply stated a website is a program accessed through using a series of web prot
 
 ## GET and POST parameters
 
+When dealing with web applications the most common types of requests are GET and POST. These types of requests the user to pass data to the server either through the URL (a GET request) or through a form submission (a POST request). Modern web platforms and programming languages will provide an interface for dealing with the data passed through either of these request types.
+
+PHP provides access through the use of [superglobals](http://php.net/manual/en/language.variables.superglobals.php) ````$_GET['email']```` and ````$_POST['email']````. CakePHP and MVC framework written in PHP uses a [request class](https://book.cakephp.org/2.0/en/controllers/request-response.html) ````$this->request->params->named['email']```` and ````$this->request->data['email']````. If your running Express on top of Node.JS you'll use something like the following ````req.query.email```` (GET) ````req.body.email```` (POST).
+
+It would be common to refer to these practices as retrieving GET parameters (params) and retrieving POST data.
+
 ## Additional Reading
 
 * [The Difference Between URLs and URIs](https://danielmiessler.com/study/url-uri/#gs.IU_=BhI)
 * [Uniform Resource Identifier (URI)](https://tools.ietf.org/html/rfc3986)
+* [StackOverflow: Node.JS GET Params](https://stackoverflow.com/questions/6912584/how-to-get-get-query-string-variables-in-express-js-on-node-js)
+* [StackOverflow: Node.JS POST Data](https://stackoverflow.com/questions/4295782/how-do-you-extract-post-data-in-node-js)
