@@ -142,7 +142,7 @@ var_dump($errors);
 
 Regular Expressions are extremely powerful, flexible and worth learning.having said that there are a million and one libraries for validating form submissions. I would advise finding well supported library that meets your projects needs. As of PHP5 [data filters](http://php.net/manual/en/book.filter.php) have been natively supported by the language.
 
-*Security Check Point*
+**Security Check Point**
 _Never trust user input. User input is anything come into the server from the client. Even if you have written client side JavaScript to filter out malicious code, the filtered input is still left alone with the client and can be manipulated prior to transit (or even in transit). If it has ever existed outside of the server it CANNOT be trusted._
 
 ## Single Page App with a Validation Class
