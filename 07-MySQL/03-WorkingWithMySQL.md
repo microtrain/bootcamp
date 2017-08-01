@@ -18,3 +18,20 @@ As you may have guessed; by entering the aforementioned command you will be prom
 
 Upon connection you will be presented with a MySQL prompt.
 ![Connected](/img/mysql/connected.png)
+
+At the prompt type the command
+````
+show databases;
+````
+
+You should see something similar to the following.
+````
++----------------------+
+| Database             |
++----------------------+
+| information_schema   |
+| mysql                |
+| performance_schema   |
++----------------------+
+3 rows in set (0.03 sec)
+````
