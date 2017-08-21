@@ -38,7 +38,7 @@ You will see something similar to the following. By default MySQL installs a few
 
 Now let's create a databases.
 ````
-create database bootcamp;
+CREATE DATABASE bootcamp;
 ````
 
 You should get something similar to the following response. What you are really looking for is an affected row count.
@@ -48,13 +48,13 @@ Query OK, 1 row affected (0.00 sec)
 
 Now verify the database has been created. Run the following command and you will see _bootcamp_ in the list of databases.
 ````
-show databases;
+SHOW DATABASES;
 ````
 
 Now lets use our new database.
 ````
-use bootcamp;
-show tables;
+USE bootcamp;
+SHOW TABLES;
 ````
 
 _show tables;_ shows a list of tables from the current database. After running this command the DBMS should respond with _Empty set (0.00 sec)_.
@@ -63,20 +63,38 @@ Let's say we were going to build our own blogging software in the form of a web 
 * As a blogger I need to be able to create blog posts.
 * As a web site owner I need to assure that only authorized people can post to the blog.
 
-From a data perspective the first item can be achieved with a table named _posts_ the second with a table named _users_.
+From a data perspective the first item can be achieved with a table named _users_ the second with a table named _posts_.
+
+Tables are created using the _CREATE TABLE_ command. ````CREATE TABLE _tablename_()```` where _tablename_ is the name of the table to be created. The columns in your table are passed into the parentheses as comma separated values.
+
+Add the following table to your bootcamp database.
 
 ````
 CREATE TABLE users (
     id VARCHAR(36) PRIMARY KEY COMMENT 'Primary Key UUID',
-    first_name VARCHAR(35) DEFAULT NULL COMMENT 'The users first name',
-    last_name VARCHAR(35) DEFAULT NULL COMMENT 'The users last name',
+    first_name VARCHAR(40) DEFAULT NULL COMMENT 'The users first name',
+    last_name VARCHAR(40) DEFAULT NULL COMMENT 'The users last name',
     email VARCHAR(200) DEFAULT NULL COMMENT 'A unique identifies for a user',
-    password VARCHAR(60) COMMENT 'A salted hash of the password',
-    salt VARCHAR(128) COMMENT 'User specific salt',
     created DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'When the post was created',
     modified DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'When the post was last edited'
 ) ENGINE=INNODB;
 ````
+
+We already talked about _CREATE TABLE_ now lets look at the columns definitions. _id VARCHAR(36) PRIMARY KEY COMMENT 'Primary Key UUID'_
+
+* id - This is the name of the column. Most tables will have an id column.
+* VARCHAR(36) - This allows any character on the keyboard but caps the length at 36 characters. This is usually indicative of a UUID or GUID.
+* PRIMARY KEY - Every table SHOULD have a primary id. This serves as a unique index for that table.
+* COMMENT 'Primary Key UUID' - A short description about the purpose of this column. In practice I wouldn't comment obvious fields.
+
+Lets jump to the modified column _modified DATETIME DEFAULT CURRENT&#95;TIMESTAMP ON UPDATE CURRENT&#95;TIMESTAMP_
+
+* modified - The name of the column.
+* DATETIME - Sets the datatype to a mysql time stamp _YYYY-MM-DD HH:MM:SS_
+* DEFAULT CURRENT_TIMESTAMP - When a new row is created the modified column will default to the time of creation.
+* ON UPDATE CURRENT_TIMESTAMP - When a new row is created the modified column will change to the time of update.
+
+Now let's create the table for holding our blog posts.
 
 ````
 CREATE TABLE posts (
@@ -86,18 +104,79 @@ CREATE TABLE posts (
     keywords VARCHAR(255) COMMENT 'Meta data for SEO',
     description VARCHAR(255) COMMENT 'Meta data for SEO',
     body TEXT COMMENT 'The content of the blog post',
-    created_user_id VARCHAR(36) COMMENT 'The creator of the blog post',
+    user_id VARCHAR(36) COMMENT 'The creator of the blog post',
     created DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'When the post was created',
-    modified_user_id VARCHAR(36) COMMENT 'The last user to edit the post',
     modified DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'When the post was last edited',
-    CONSTRAINT created_by FOREIGN KEY (created_user_id)
-    REFERENCES users(id),
-    CONSTRAINT modified_by FOREIGN KEY (modified_user_id)
-    REFERENCES users(id)
 ) ENGINE=INNODB;
+````
+
+Now let's take a look at our data structure.
+
+````
+USE bootcamp;
+SHOW TABLES;
+
+SHOW COLUMNS FROM users;
+DESCRIBE posts;
+````
+
+Now that we have created a couple of tables. Let's add some data. Run the following command from your bootcamp database replacing xxxx with you information.
+
+````INSERT INTO users SET id=UUID(), first_name='xxxx', last_name='xxxx', email='xxxx';````
+
+Now let's look up your user record.
+
+````SELECT * FROM users WHERE email='xxxx';````
+
+
+What if only want a list of names?
+
+_NOTE: As queries get longer this style may be easier to read._
+
+````SELECT
+  first_name,
+  last_name
+FROM
+  users
+WHERE
+  email='xxxx';
+````
+
+Id rather see the user's name in a single column formatted as _last, first_
+````SELECT
+  CONCAT('last_name', ', ', first_name) AS user
+FROM
+  users
+WHERE
+  email='xxxx';
+````
+
+Add another user.
+````INSERT INTO
+  users
+SET
+  id=UUID(),
+  first_name='Bob',
+  last_name='Smith',
+  email='bsmith@exampl.com
+````
+
+Let's find all users with a _.com_ and sort in ascending order by last name.
+````SELECT
+  CONCAT('last_name', ' ', first_name) AS user
+FROM
+  users
+WHERE
+  email LIKE '%.com'
+ORDER BY last_name ASC
 ````
 
 
 INSERT INTO posts SET id=UUID(), slug='hello', title='Hello';
 INSERT INTO posts SET id=UUID(), slug='hello', title='Hello', created_user_id = '1a804677-7953-11e7-8397-180373ae98cc', modified_user_id='1a804677-7953-11e7-8397-180373ae98cc';
 SELECT * FROM posts, users WHERE posts.created_user_id = users.id ;
+
+
+Later we all add the password and salt columns
+password VARCHAR(60) COMMENT 'A salted hash of the password',
+salt VARCHAR(128) COMMENT 'User specific salt',
