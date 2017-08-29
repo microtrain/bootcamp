@@ -21,7 +21,7 @@ Create the following paths.
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <form method="post" action="http://localhost/mtbc/exercises/php/forms/form.php">
+    <form method="post">
 
       <div>
         <label for="firstName">First Name</label><br>
@@ -46,9 +46,30 @@ Create the following paths.
 
 ````
 
+Now, lets inspect a post request.
+* Open the Chrome browser and navigate to [http://localhost/mtbc/exercises/html/forms/form.html](http://localhost/mtbc/exercises/html/forms/form.html).
+* Press the [f12] key to open Chrome's developer tools.
+* Click on the network tab.
+* Refresh the page.
+* Find and click on form.html
+* The headers tab should now be highlighted.
+
+![Installation type](/img/devtools/devtools.png)
+
+* Fill out the web form and submit the data.
+* Once again, find and click on form.html from the network panel.
+* Under the headers tab you will see the contents of your web form as key to value pairs. This is how the data will be given to the server.s
+
+![Installation type](/img/devtools/form_data.png)
+
+
+
+Find the opening form tag and set the action attribute as follows.
+````action="http://localhost/mtbc/exercises/php/forms/form.php"````
+
 /var/www/mtbc/exercises/php/forms/form.php
-````
-<?php
+
+````<?php
 
 $data = $_POST;
 
@@ -66,8 +87,8 @@ Create the following paths.
 ````
 
 /var/www/mtbc/html/forms/regex_form.html
-````
-<!DOCTYPE html>
+
+````<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -101,8 +122,8 @@ Create the following paths.
 ````
 
 /var/www/mtbc/php/exercises/forms/regex_form.php
-````
-<?php
+
+````<?php
 //Create a RegEx pattern to determine the validity of the use submitted email
 //allow up to two strings with dot concatenation any letter, any case any number with _- before the @
 //require @
@@ -147,6 +168,7 @@ _Never trust user input. User input is anything come into the server from the cl
 
 ## Single Page App with a Validation Class
 /var/www/mtbc/exercises/php/forms/spa.php
+
 ````
 <?php
 
@@ -236,6 +258,7 @@ if(!empty($input)){
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -279,9 +302,9 @@ if(!empty($input)){
 ````
 
 ## LAB 1
-Copy the path _/var/www/mtbc/exercises/php/forms/spa.php_ to _/var/www/mtbc/labss/php/forms/spa.php_
+Copy the path _/var/www/mtbc/exercises/php/forms/spa.php_ to _/var/www/mtbc/labs/php/forms/spa.php_
 
-Modify _/var/www/mtbc/labss/php/forms/spa.php_.
+Modify _/var/www/mtbc/labs/php/forms/spa.php_.
 * Add a form field for entering URLs.
 * Add a validation method for the URL field.
 * Update the email and URL validation method to return true when the input passes validation OR when the field is empty.
