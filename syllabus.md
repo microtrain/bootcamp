@@ -41,6 +41,8 @@ The class is 40 hours a week for 10 weeks. It is comprised of working lectures, 
 ## Week 3 MySQL and CakePHP
 * MySQL
 * CakePHP
+* Unit Testing
+* Automated Code Review with Code Climate.
 
 **Output**
 * A working knowledge of MySQL.
