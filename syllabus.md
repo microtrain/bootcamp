@@ -31,12 +31,16 @@ The class is 40 hours a week for 10 weeks. It is comprised of working lectures, 
 
 ## Week 2 JavaScript and jQuery, AJAX (with Apache and PHP and bootstrap?)
 * Programming Basics with JavaScript
+* DOM
+* Canvas
 * jQuery Basics
 * Ajax
 * Introduction to Bootstrap
 
 **Output**
 * Typing test
+* Draw Program
+* Gaming Intro
 
 ## Week 3 MySQL and CakePHP
 * MySQL
