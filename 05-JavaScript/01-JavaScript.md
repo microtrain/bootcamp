@@ -1,5 +1,5 @@
 # JavaScript
-JavaScript is simple programming language created by Netscape's Brendan Eich in 1995. The goal was to make web pages more interactive by allowing the browser to execute native code without the need of a plugin. JavaScript was standardized by the ECMA allowing it to be implemented by other vendors. While we still call it JavaScript the reference standard is [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
+JavaScript is simple programming language created by Netscape's Brendan Eich in 1995. The goal was to make web pages more interactive by allowing the browser to execute native code without the need of a plugin. JavaScript was standardized by ECMA  thus providing a standard implementation reference. While we still call it JavaScript the reference standard is [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
 
 ## Exercises
 Modern browsers make use of DevTools (aka Web Console). While Chrome, FireFox and Edge have similar definitions for their DevTools, I'll steal this line from Chrome's documentation "Use the DevTools to iterate, debug, and profile your site".
