@@ -32,8 +32,7 @@ git rebase master
 git checkout -B bash/ex
 ````
 
-Create a file with a path of _/etc/apache2/sites-available/re.sh_.
-
+Create a file with a path of _/var/www/mtbc/exercises/bash/re.sh_
 ````
 mkdir -p /var/www/mtbc/exercises/bash
 touch /var/www/mtbc/exercises/bash/re.sh
@@ -149,36 +148,8 @@ sudo a2ensite $CONFIG
 sudo service apache2 $COMMAND
 ````
 
-_/etc/apache2/sites-available/re.sh_
-````
-#!/bin/bash
+Commit your changes to _bash/ex_. Your commit message should be something like _Added the ability to specify virtual hosts and service commands_.
 
-CONFIG="$1"
-COMMAND="$2"
-
-if [ $# -ne 2 ]
-then
-        echo "Usage: $0 {virtual-host} {restart|reload}"
-        echo "Reloads a target virtual host"
-        exit 1
-fi
-
-# Disable the existing hosts configuration
-sudo a2dissite $CONFIG
-sudo service apache2 $COMMAND
-
-# Enable the existing hosts configuration
-sudo a2ensite $CONFIG
-sudo service apache2 $COMMAND
-````
-
-Commit your changes to _bash/ex_. Your commit message should be something like _Added the ability to specify vhosts and service commands_.
-
-## Lab 1 - Improved validation (30 Minutes)
-For our program the only acceptable values for the second argument are reload and restart. Using conditional statements determine if the value of the second parameter is one of the allowed values. If it is not
-* Send a message to the user that states the input was in error and includes list of the valid commands.
-* Stop the execution of the program.
-* Commit your changes to your _bash/ex_ branch.
 
 ## Exercise 3 - Loops
 
@@ -247,68 +218,6 @@ do
 done
 
 echo $STRING
-````
-
-## LAB 2 - Providing the right options
-
-````
-#!/bin/bash
-
-CONFIG="$1"
-COMMAND="$2"
-
-if [ $# -ne 2 ]
-then
-
-        COMMANDS=( reload restart )
-        COMMAND_STRING=''
-
-        # Iterate the list of commands and inject them in to the user feedback
-        for COMMAND in "${COMMANDS[@]}"
-        do
-
-                # If $COMMAND_STRING is not empty, print a separator
-                if [ ! -z  "$COMMAND_STRING" ]
-                then
-                         COMMAND=" | ${i}"
-                fi
-
-                COMMAND_STRING="${COMMAND_STRING}${COMMAND}"
-        done
-
-
-        VHOSTS_STRING=''
-        VHOSTS_PATH=/etc/apache2/sites-available/*.conf
-        for FILENAME in $VHOSTS_PATH
-        do
-                # Strip the file extension
-                FILE=${FILENAME##*/}
-
-                # Strip the base path
-                VHOST=${FILE%.*}
-
-                # If $COMMAND_STRING is not empty, print a seperator
-                if [ ! -z  "$VHOSTS_STRING" ]
-                then
-                        VHOST=" | ${VHOST}"
-                fi
-
-                VHOSTS_STRING="${VHOSTS_STRING}${VHOST}"
-        done
-
-        echo "Load a target vhost configuration"
-        echo "Usage: $0 { $VHOSTS_STRING } { $COMMAND_STRING }"
-        exit 1
-
-fi
-
-# Disable the existing hosts configuration
-sudo a2dissite $CONFIG
-sudo service apache2 $COMMAND
-
-# Enable the existing hosts configuration
-sudo a2ensite $CONFIG
-sudo service apache2 $COMMAND
 ````
 
 ## Additional Reading
