@@ -63,7 +63,7 @@ sudo service apache2 restart
 Now we want to make sure the file is executable by adding the executable flag.
 
 ````
-sudo chmod +x /var/www/mtbc/exercises/bash/re.sh
+sudo chmod +x /var/www/mtbc/exercises/bash/exercise-1.sh
 ````
 
 We can test this by simply typing the full path into a CLI or by navigating to the parent directory and entering the file name
@@ -150,8 +150,43 @@ sudo service apache2 $COMMAND
 
 Commit your changes to _bash/ex_. Your commit message should be something like _Added the ability to specify virtual hosts and service commands_.
 
+## Exercise 3 - Reject unwanted service commands
 
-## Exercise 3 - Loops
+The product owner has requested that we only be allowed to pass *reload* or *restart* into the service command. To accomplish this, lets add a new variable to the top of our script called OK and lets set that to false.
+
+````
+OK=false
+````
+We can then test the against the $COMMAND argument to make sure it is in the approved list. If it is we will change the value of OK to true. Add the following lines after the current block that checks for the proper number of arguments.
+
+````
+
+# reload is allowed
+if [ "$COMMAND" == "reload" ]
+then
+  OK=true
+fi
+
+# restart is allowed
+if [ "$COMMAND" == "restart" ]
+then
+  OK=true
+fi
+
+````
+
+Finally, we MUST to exit the program if OK has NOT been set to true. Add the following after the block that checks fro a restart.
+
+````
+# reject any service command that was not white listed
+if [ "$OK" == false ]
+then
+  echo "Usage: $0 $CONFIG {restart|reload}"
+  exit 1
+fi
+````
+
+## Exercise 4 - Loop through an Array
 
 When I think of a loop I'm usually thinking about iterating over or parsing out some sort of a list. This might be an array of service commands or all of the configuration files in the _/etc/apache2/sites-available/_ directory.
 
@@ -166,6 +201,7 @@ do
 done
 ````
 
+## Exercise 5 - Loop through an Directory
 For each file in VHOSTS_PATH array where a file is defined by FILENAME, if an element exists (meaning we have not iterated past the end of the list) ````do```` echo the value of FILENAME back to the user otherwise ````break```` the loop or _do echo the value of FILENAME until the list is done_.
 
 ````
@@ -182,7 +218,7 @@ Create an executable shell at _/var/www/mtbc/exercises/bash/loops.sh_ and add ex
 
 String concatenation is the addition of one string to another typically through the use of variables.
 
-## Exercise 4 - Strings
+## Exercise 6 - Strings
 Create an executable file _string.sh_ with the following code and commit it to your _bash/ex_ branch.
 
 ````
@@ -193,7 +229,7 @@ echo "${STRING1} ${STRING2}"
 
 The [comparison operator](http://tldp.org/LDP/abs/html/comparison-ops.html) -z returns true if a string has a length of zero. _!_ is the operator for not so _if [ ! -z  "$STRING" ]_ equates to true if the string contains any characters.
 
-## Exercise 5 - Not Empty
+## Exercise 7 - Not Empty
 
 While string is not equal to _Hello World_ do stuff until it is. If string is empty change string to _Hello_ otherwise append and blank space and _World_ to the the end of the string.
 
