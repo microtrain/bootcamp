@@ -20,25 +20,14 @@ sudo a2ensite d*
 sudo service apache2 restart
 ````
 
-From a command line navigate to your webroot's mtbc directory and create a new branch called _bash/ex_. This must be created from the dev branch.
+[Create a fork](https://help.github.com/articles/fork-a-repo/) of [Restart Apache](https://github.com/microtrain/restart_apache) project from MicroTrain's GitHub repository.
 
 ````
-cd /var/www/mtbc
-git checkout master
-git pull master
-git checkout dev
-git pull origin dev
-git rebase master
-git checkout -B bash/ex
+cd ~
+git clone https://github.com/YOUR-USERNAME/restart_apache
 ````
 
-Create a file with a path of _/var/www/mtbc/exercises/bash/re.sh_
-````
-mkdir -p /var/www/mtbc/exercises/bash
-touch /var/www/mtbc/exercises/bash/re.sh
-````
-
-From your Atom sidebar find and open the re.sh file from the mtbc project.
+Add the *~restart_apache* as a [project folder](http://blog.atom.io/2015/04/15/multi-folder-projects.html) to your Atom sidebar. Then open the file re.sh
 
 By default, Ubuntu executes shell scripts using the Dash interpreter. Dash is faster than Bash by virtue of a lack of features and limited syntax making it ideal for quickly parsing out a large number of simple start up scripts. Bash is better suited for interactive scripts, since these are typically run as one off programs, the performance hit is a non-issue. We will have our script invoke the bash shell.
 
@@ -52,43 +41,40 @@ Add the following to the end of the file. In Bash any line that begins with a _#
 
 ````
 # Disable a vhost configuration
-sudo a2dissite default-ssl
+sudo a2dissite *
 sudo service apache2 restart
 
 # Enable a vhost configuration
-sudo a2ensite default-ssl
+sudo a2ensite *
 sudo service apache2 restart
 ````
 
 Now we want to make sure the file is executable by adding the executable flag.
 
 ````
-sudo chmod +x /var/www/mtbc/exercises/bash/exercise-1.sh
+sudo chmod +x ~/restart_apache/re.sh
 ````
 
 We can test this by simply typing the full path into a CLI or by navigating to the parent directory and entering the file name
 
 ````
-/var/www/mtbc/exercises/bash/re.sh
-
-cd /var/www/mtbc/exercises/bash && ./re.sh
-
-cd /var/www/mtbc/exercises/bash
+cd ~/restart_apache/re.sh
+sudo cp re.sh /etc/apache2/sites-available/re.sh
 ./re.sh
 ````
 
-Regardless of the way you choose to execute the file you will likely be prompted for a password (on the first run). If all is good you will see something like the following. If you do not get any warnings or error messages then the configuration has been reloaded.
+Regardless of the way you choose to execute the file you will likely be prompted for a password (on the first run). If all is good you will see something like the following. If you do not get any warnings or error messages (other than *ERROR: Site re.sh does not exist!*) then the configuration has been reloaded.
 
 ````
 Site default-ssl disabled.
 To activate the new configuration, you need to run:
   service apache2 reload
-Enabling site default-ssl.
+  Enabling site 000-default.
+  Enabling site default-ssl.
+  ERROR: Site re.sh does not exist!
 To activate the new configuration, you need to run:
   service apache2 reload
 ````
-
-Commit your changes to _bash/ex_. Your commit message should be something like _Proof of concept_ or _Base implementation_.
 
 ## Arguments and conditionals.
 
@@ -96,11 +82,13 @@ Commit your changes to _bash/ex_. Your commit message should be something like _
 
 A conditional (aka if-then-else) is a programming construct that uses equality to make decisions.
 Examples of equality given the variable a is equal to one and the variable b is equal to 2.
-* a == b (a -eq 0 )//false
-* a < b (a -lt 0 )//true
+
+* a == b (a -eq 0 ) //false
+* a < b (a -lt 0 ) //true
 * a > b (a -gt 0 ) //false
 * a == 0 (a -eq 0 ) //false
 * a >= 0 (a -gte 0 ) //true
+* a <= 0 (a -lte 0 ) //false
 
 ### [Arguments](https://stackoverflow.com/questions/7252812/what-is-an-argument)
 
@@ -112,13 +100,21 @@ Examples
 * Check.word('random') - This passes _random_ as an argument into the word method of the (fictitious) Check class. Perhaps we are checking the spelling of the word _random_ or maybe this is an argument that tells the method to return a random word.
 
 ## Exercise 2 - Working with Arguments and Conditionals
-We have reduced four repetitive commands down to a single command, but there is a problem. This only works with a single immutable configuration file and a immutable single service directive. It would be far more useful if I could specify which vhost configuration and which service directive I wanted to use. Lets rewrite re.sh to take some arguments.
 
-Our new shell will take two arguments; the target vhost configuration and the service directive. Bash accepts arguments using a numeric index which starts at zero, zero however, is the name of the script so the argument that sits at index one will access the first parameter. In Bash, the value of stored variables are accessed using a dollar sign. Combining a dollar sign with a number ````"$1"```` will allow you to access a given argument.
+In this exercise we will work with the file *~/restart_apache/re.sh* on a *branch called feature/arguments*.
+Create a branch called _feature/arguments_.
+````
+cd ~/restart_apache
+git checkout -B feature/arguments
+````
+
+We have reduced four repetitive commands down to a single command, but there is a problem. This only works with a single immutable configuration and an immutable single service directive. It would be far more useful if we could specify which virtual host configuration and which service directive we wanted to use. Lets rewrite re.sh to take some arguments.
+
+Our new shell will take two arguments; the target virtual host configuration and the service directive. Bash accepts arguments using a numeric index which starts at zero, zero however, is the name of the script so the argument that sits at index one will access the first parameter. In Bash, the value of stored variables are accessed using a dollar sign. Combining a dollar sign with a number ````"$1"```` will allow you to access a given argument.
 
 Our first argument will be the vhost configuration we want to work with and the second argument will be the service command. We will set these to an aptly named variable to make them easier to work with. We will store the first argument in a variable called _VHOST_ and the second in a variable called _COMMAND_.
 
-Add the following lines right after _#!/bin/bash_. This will copy the first input parameter into a variable called _CONFIG_ and the second input parameter and a variable called _COMMAND_.
+Add the following lines right after _#!/bin/bash_. This will copy the first input parameter into a variable called _CONFIG_ and the second input parameter and a variable called _COMMAND_. When referencing a variable in bash it advisable to always [quote the varaible](http://tldp.org/LDP/abs/html/quotingvar.html).
 
 ````
 CONFIG="$1"
@@ -141,16 +137,39 @@ fi
 Finally, replace the _ssl-default_ with a call to the _CONFIG_ variable by prefixing CONFIG with a dollar sign _$CONFIG_ and do the same for _COMMAND_
 
 ````
-sudo a2dissite $CONFIG
-sudo service apache2 $COMMAND
+sudo a2dissite "$CONFIG"
+sudo service apache2 "$COMMAND"
 
-sudo a2ensite $CONFIG
-sudo service apache2 $COMMAND
+sudo a2ensite "$CONFIG"
+sudo service apache2 "$COMMAND"
 ````
 
-Commit your changes to _bash/ex_. Your commit message should be something like _Added the ability to specify virtual hosts and service commands_.
+Test your changes like we did after forking the repository.
+
+````
+cd ~/restart_apache/re.sh
+sudo cp re.sh /etc/apache2/sites-available/re.sh
+./re.sh
+````
+
+Commit your changes to _feature/arguments_. Your commit message should be something like _Added the ability to specify virtual hosts and service command_.
+
+Merge you changes into master
+
+````
+git checkout master
+git merge -B feature/arguments
+````
+
+Now on master update the README.md file to explain how to use the latest version of the program and commit that change with an appropriate message. Then open VERSION.txt and move the version to 0.2.0 and commit with a message of *Version 0.2.0*. Push your changes to master.
+
+````
+git push origin master
+````
 
 ## Exercise 3 - Reject unwanted service commands
+
+For this exercise, create a branch called *feature/validate*. When you are finished increment the version to 0.2.1 and push to master.
 
 The product owner has requested that we only be allowed to pass *reload* or *restart* into the service command. To accomplish this, lets add a new variable to the top of our script called OK and lets set that to false.
 
@@ -254,6 +273,114 @@ do
 done
 
 echo $STRING
+````
+
+## Lab
+
+````
+#!/bin/bash
+
+# The first user supplied argument
+CONFIG="$1"
+
+# The second user supplied argument
+COMMAND="$2"
+
+# If true, execute the service commands
+OK=false
+
+# Holds a list of cmaands
+COMMAND_STRING=''
+
+# Holds a list of vhosts
+VHOSTS_STRING=''
+
+# An array of all vhosts files
+VHOSTS_PATH=/etc/apache2/sites-available/*.conf
+
+# User feedback
+USAGE_STRING=''
+
+# Whitelisted services commands
+COMMANDS=( start stop graceful-stop restart reload force-reload )
+
+# Return non zero if a given $1 exists in the list of vhosts
+IN_VHOST_PATH=$(echo ${VHOSTS_PATH[@]} | grep -o "$CONFIG" | wc -w)
+
+# Return non zero if a given $2 is in the service command whitelist
+IN_COMMAND=$(echo ${COMMANDS[@]} | grep -o "$COMMAND" | wc -w)
+
+# Iterate over the whitelist of commands and inject them in to the user feedback
+for COM in "${COMMANDS[@]}"
+do
+
+    # If $COMMAND_STRING is not empty, print a line break
+    if [ ! -z  "$COMMAND_STRING" ]
+    then
+        COM="\n * ${COM}"
+    fi
+
+    COMMAND_STRING="${COMMAND_STRING}${COM}"
+
+done
+
+# If the user did not supply a config file, return a list of files to
+# the user
+
+for FILENAME in $VHOSTS_PATH
+do
+    # Strip the file extension
+    FILE=${FILENAME##*/}
+
+    # Strip the base path
+    VHOST=${FILE%.*}
+
+    # If $VHOST_STRING is not empty, print a seperator
+    if [ ! -z  "$VHOSTS_STRING" ]
+    then
+        VHOST="\n * ${VHOST}"
+    fi
+
+    VHOSTS_STRING="${VHOSTS_STRING}${VHOST}"
+done
+
+USAGE_STRING="Usage: $0 vhost command  \nPlease choose one of the following vhosts\n * $VHOSTS_STRING \nPlease choose from the following commands\n * $COMMAND_STRING \n"
+
+if [ $# -ne 2 ]
+then
+
+    printf "$USAGE_STRING"
+    exit 1
+
+fi
+
+if [ "$IN_VHOST_PATH" -gt 0 ]
+then
+    OK=true
+fi
+
+if [ "$IN_COMMAND" -gt 0  ]  && [ "$OK" == true ]
+then
+    OK=true
+else
+    OK=false
+fi
+
+# Reject any service command that has not been whitelisted
+if [ "$OK" == false ]
+then
+    printf "$USAGE_STRING"
+    exit 1
+fi
+
+# Disable the existing hosts configuration
+sudo a2dissite "$CONFIG"
+sudo service apache2 "$COMMAND"
+
+# Enable the existing hosts configuration
+sudo a2ensite "$CONFIG"
+sudo service apache2 "$COMMAND"
+exit 1
 ````
 
 ## Additional Reading
