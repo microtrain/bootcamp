@@ -22,7 +22,7 @@ VHOSTS_PATH=/etc/apache2/sites-available/*.conf
 USAGE_STRING=''
 
 # Whitelisted services commands
-COMMANDS=( reload restart )
+COMMANDS=( start stop graceful-stop restart reload force-reload )
 
 # Return non zero if a given $1 exists in the list of vhosts
 IN_VHOST_PATH=$(echo ${VHOSTS_PATH[@]} | grep -o "$CONFIG" | wc -w)
@@ -94,10 +94,10 @@ then
 fi
 
 # Disable the existing hosts configuration
-sudo a2dissite $CONFIG
-sudo service apache2 $COMMAND
+sudo a2dissite "$CONFIG"
+sudo service apache2 "$COMMAND"
 
 # Enable the existing hosts configuration
-sudo a2ensite $CONFIG
-sudo service apache2 $COMMAND
+sudo a2ensite "$CONFIG"
+sudo service apache2 "$COMMAND"
 exit 1
