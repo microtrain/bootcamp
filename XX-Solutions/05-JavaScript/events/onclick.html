@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>onClick()</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div id="demo"></div>
+    <button id="time">What time is it?</button>
+    <script>
+      function showDate(element) {
+         document.getElementById(element).innerHTML = Date();
+      }
+
+      // Function to add event listener to button#time
+      var btn = document.getElementById("time");
+      btn.addEventListener("click", ()=>{showDate('demo')}, false);
+    </script>
+  </body>
+</html>

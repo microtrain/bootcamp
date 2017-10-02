@@ -84,8 +84,8 @@ function setValue(element) {
 }
 
 // Function to add event listener to button#time
-var btn = document.getElementById("options");
-btn.addEventListener("change", ()=>{setValue('demo')}, false);
+var list = document.getElementById("options");
+list.addEventListener("change", ()=>{setValue('demo')}, false);
 ````
 ## Intervals
 

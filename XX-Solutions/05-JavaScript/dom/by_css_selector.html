@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Basic Form Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+
+    <div id="a">The <span class="blue">quick</span> brown fox jumps over the lazy dog.</div>
+    <div class="b">Mist <span class="blue">enveloped</span> the ship three hours out from port.</div>
+    <div class="b">The recorded voice scratched in the <span id="bold">speaker</span>.</div>
+    <script>
+
+    //Find the element with an id of bold
+    var bold = document.querySelector('#bold');
+    //Make it bold
+    bold.style = 'font-weight: bold;';
+
+    //Find all elements with a class of blue
+    var blues = document.querySelectorAll('.blue');
+    //Loop through all of the matching elements
+    for (var i=0; i<blues.length; i++) {
+      //Make them blue
+      blues[i].style = 'color: #0000FF;';
+    }
+    </script>
+  </body>
+</html>
