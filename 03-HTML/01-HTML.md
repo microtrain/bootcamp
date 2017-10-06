@@ -313,4 +313,4 @@ As you learn more, return to this project to add more content and style to your 
 
 ## Lab 2 - Your About Me Page
 
-Building off of the exercises in this section build out *http://localhost/about/index.html* so that
+Building off of the exercises in this section build out *http://localhost/about/index.html* so that it shows an avatar and tells a little about yourself. Link this to your GitHub and LinkedIn profiles.
