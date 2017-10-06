@@ -310,6 +310,11 @@ Modify _/var/www/mtbc/labs/php/forms/spa.php_.
 * Update the email and URL validation method to return true when the input passes validation OR when the field is empty.
 * The MUST reject an empty email but allow an empty URL so that the field is not required but will be validated when not empty.
 
+## LAB 2 - Send with MailGun - they provide a sandbox account right?
+
+## LAB 3 - Recaptcha
+
+
 ## Additional Reading
 * [Email RegEx Examples](http://emailregex.com/)
 * [HTML Purifier](http://htmlpurifier.org/)

@@ -29,25 +29,32 @@ In programming, comments are strings of text that are not processed by a compile
 
 ### Exercise 1 - Hello World, Getting Started With HTML 5
 
-1. Create the file path */var/www/bootcamp/exercises/html/hello.html*.
-2. Open a browser and navigate to [http://localhost/bootcamp/exercises/html/ex1.html](http://localhost/bootcamp/exercises/html/hello.html) (At this point you will see a blank page).
-3. Now open Atom and add a new project folder; choose the path ````/var/www/bootcamp```` and drill down to the newly created ex1.html file.
-4. Now open the file and paste the above mark markup into the file.
-5. Change the title element to ````<title>Hello World</title>````
-6. Add an ````h1```` element to the body of the page which also reads _Hello World_ ````<h1>Hello Wolrd</h1>````.  
-7. Now refresh your browser and you will see the text _Hello World_.
-
-The result will be as follows
+1. [Create a repo on GitHub](https://help.github.com/articles/create-a-repo/) called about.
+1.  Clone the repo into the top level of your Apache server */var/www*
+  * From a command line
 ````
-<!DOCTYPE html>
-<html>
-    <head>
-       <title>Hello World</title>
-    </head>
-    <body>
-        <h1>Hello World</h1>
-    </body>
-</html>
+cd /var/www/
+git clone https://github.com/YOUR-USERNAME/about
+cd /var/www/about
+````
+1. From Atom's navigation pane add a file named _index.html_ to the about project.
+1. Open a browser and navigate to [http://localhost/about/index.html](http://localhost/about/index.html) (At this point you will see a blank page).
+1. Now open the file and paste the above mark markup into the file.
+1. Change the title element to ````<title>Hello World</title>````
+1. Add an ````h1```` element to the body of the page which also reads _Hello World_ ````<h1>Hello Wolrd</h1>````.  
+1. Now refresh your browser and you will see the text _Hello World_.
+1. Commit your changes and push to master.
+Stage new files to be committed, in this case index.html.
+````
+git add .
+````
+Commit all files, you'll be asked for a commit message say something like *Initial page structure*.
+````
+git commit -a
+````
+Then push your changes to master.
+````
+git push origin master
 ````
 
 ### Exersice 2 - HTML Validation
@@ -154,21 +161,124 @@ Update hello.html as follows. I hope you type this out rather than copy and past
 </html>
 ````
 
+### [HTML Global Attributes](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html#global-attributes)
 
-#### Lab 1 - Your HTML Resume
+Attributes bring your markup to life. Attributes allow for programming hooks, style and meta-data to be applied to your web page. While HTML has defined a number of standard attributes it allows for custom attributes to be defined.
 
-[Create a repo on GitHub](https://help.github.com/articles/create-a-repo/) called resume.
+### Image Tag
 
-Clone the repo into the top level of your Apache server */var/www*
+When it comes to working with attributes, the image (img) element is a great place to start. Image is a self-closing tag. Self-closing tags do not require a closing tag because they do not contain any content, they only use attributes to mark content to the screen.
 
-From a command lin
+Image has two required attributes src and alt ````<img src="..." alt="...">````. Src tells the document where to find the image to be displayed while alt displays alternative text in case the image cannot be displayed. In most cases an attribute will always have a value, this is written as attribute="Some Value". This is often referred to as a key-value pair. The attribute or left side of the equation is the key and the right side of the equation is the value (conceptually speaking it's key="value").
+
+Before you can add an image, you will need an image to link to. Lets use a Gravatar. Gravatar is a free service that allows a user to upload an avatar that will follow them from site to site by hashing the users email address into the name of a file. This is popular in the dev community and used by other services such as GitHub.
+
+[Head over to Gravatar](https://en.gravatar.com/) and create a profile and use the provided URL, if you do not want to create a Gravatar account use the following URL.
+
+* *https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm*
+
+You would mark this up as:
 ````
-cd /var/www/
-git clone https://github.com/YOUR-USERNAME/resume
-cd /var/www/resume
+<img src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm" alt="My Avatar">
 ````
 
-Add the path _/var/www/resume_ as a project in Atom. From Atom's navigation pane add a file named _index.html_ to the project and add the following markup.
+### Exercise 5 - Add an Image
+
+Create the path */var/www/mtbc/exercises/html/iam.html*.
+
+* Markup a valid HTML 5 template.
+* The title tag should read *Hello, I am YOUR-NAME*
+* Add an H1 element to the body of the document.
+  * The contents of this tag SHOULD read *Hello I am YOUR-NAME*
+* Add an image element to below the H1 element.
+  * The src attribute MUST point to a Gravatar image
+  * The value of alt attribute SHOULD be YOUR-NAME
+
+### The Style Attribute
+
+Cascading Style Sheets (CSS) is a language for describing the style of an element. The style attribute in HTML allows you to add a CSS description to a single HTML element. Describing a font's color is a common use of CSS. In CSS we describe style using property's which are key to value pairs separated by a colon [key]:[value]. Using the color property will allow me to describe the font color of an element.
+
+### Exercise 6 - Style an Element
+
+Change the */var/www/mtbc/exercises/html/iam.html* so that:
+* The font color of the top level header is orange.
+* The image is presented as a circle.
+
+````
+<h1 style="color: #ff9900;">Hello, I am YOUR-NAME</h1>
+<img src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm" alt="My Avatar" style="border-radius: 50%;">
+````
+
+### The Class Attribute
+
+Another way to apply a CSS definition to an HTML element is by by defining selectors in a CSS document. A CSS document can be in its own file or you can define a CSS document by adding a style element to the head of an HTML document. We will discuss CSS in detail in later, for now lets apply a quick example.
+
+### Exercise 7 - Style an Element Using Classes
+
+Change the */var/www/mtbc/exercises/html/iam.html* so that:
+* The style tags are converted to CSS definitions in the head of the document.
+* The style attributes are replaced with calls to the classes.
+
+Add the following to the head element:
+````
+<style>
+    .header{
+      color: #ff9900;
+    }
+
+    .img-circle{
+      border-radius: 50%;
+    }
+</style>
+````
+
+Update the body of the document as follows:
+````
+<h1 class="header">Hello, I am YOUR-NAME</h1>
+<img src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm" alt="My Avatar" class="img-circle">
+````
+
+### The Title Attribute
+
+In modern browsers, the title attribute provides a tooltip. Hovering your cursor over an element will show the contents of the title attribute.
+
+### Exercise 8 - Add a Tooltip
+
+Change the */var/www/mtbc/exercises/html/iam.html* so that:
+* Hover over the image element MUST show your name in a tooltip.
+
+Add the following attribute to the image element, where YOUR-NAME is _your name_:
+````
+title="YOUR-NAME"
+````
+
+### The ID Attribute
+
+The _id_ attribute provides a unique identifier for a given HTML element. No two elements in a single document are permitted to have the same id. We will work with the id attribute in later lessons.
+
+
+### Event Handler Attributes
+
+Event Handler Attributes (UI Events) allow a user to interact with a web page. These interactions are commonly achieved through the use of an event listener. The W3C specification refers to these as [UI Events](https://www.w3.org/TR/uievents/). A common example is the __click event__ which corresponds to the ````onclick```` attribute. ````onclick```` serves as an event handler for JavaScript meaning it listens for a click event click event and executes the attributes value. For example ````<a onclick="alert('I was clicked!')">Click Me</a>```` would cause an alert declaring _"I was clicked!"_ to be displayed on the screen. When using frameworks such as Angular.js you will see custom attributes such as ````ng-click```` in which case Angular.js has custom listeners that are designed to listen specifically for the ````ng-```` prefix. We work with JavaScript in great detail in later lessons. For now, lets apply a quick example.
+
+### Exercise 9 - A Little JavaScript
+
+Change the */var/www/mtbc/exercises/html/iam.html* so that:
+* Clicking a button on the page MUST change the color of the H1 tag to red.
+
+Give the h1 element an id of header.
+````
+<h1 id="header" class="header">
+````
+
+Add a button to the bottom of the page that uses the onclick attribute to invoke a line of JavaScript.
+````
+<button onclick="document.getElementById('header').style="color: #ff0000;">Click Me</button>
+````
+
+## Lab 1 - Your HTML Resume
+
+From Atom's navigation pane add a file named _resume.html_ to the about project and add the following markup.
 
 ````
 <!DOCTYPE html>
@@ -197,44 +307,10 @@ git commit -m 'Added basic HTML structure'
 git push origin master
 ````
 
-Using the knowledge you gained thus far create an HTML version of your resume. Be sure the apply your markup between the opening and closing body tags. You can see your changes by opening a browser and navigating to http://localhost/resume/index.html. Make incremental commits with relevant messages and push the changes to GitHub as you progress through this lab.
+Using the knowledge you gained thus far create an HTML version of your resume. Be sure the apply your markup between the opening and closing body tags. You can see your changes by opening a browser and navigating to http://localhost/about/resume.html. Make incremental commits with relevant messages and push the changes to GitHub as you progress through this lab.
 
 As you learn more, return to this project to add more content and style to your resume.
 
-### [HTML Global Attributes](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html#global-attributes)
+## Lab 2 - Your About Me Page
 
-Attributes bring your markup to life. Attributes allow for programming hooks, style and meta-data to be applied to your web page. While HTML has defined a number of standard attributes it allows for custom attributes to be defined.
-
-#### Image Tag
-
-When it comes to working with attributes, the image (img) element is a great place to start. Image is a self-closing tag. Self-closing tags do not require a closing tag because they do not contain any content, they only use attributes to mark content to the screen.
-
-Image has two required attributes src and alt ````<img src="..." alt="...">````. Src tells the document where to find the image to be displayed while alt displays alternative text in case the image cannot be displayed. In most cases an attribute will always have a value, this is written as attribute="Some Value". This is often referred to as a key-value pair. The attribute or left side of the equation is the key and the right side of the equation is the value (conceptually speaking it's key="value").
-
-Before you can add an image, you will need an image to link to. Lets use a Gravatar. Gravatar is a free service that allows a user to upload an avatar that will follow them from site to site by hashing the users email address into the name of a file. This is popular in the dev community and used by other services such as GitHub.
-
-[Head over to Gravatar](https://en.gravatar.com/) and create a profile and use the provided URL, if you do not want to create a Gravatar account use the following URL.
-
-* *https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm*
-
-You would mark this up as:
-````
-<img src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm" alt="My Avatar">
-````
-
-## Exercise 5 - Add an Image
-
-Create the path */var/www/bootcamp/exercises/html/iam.html*.
-
-* Markup a valid HTML 5 template.
-* The title tag should read *Hello I am YOUR-NAME*
-* Add an H1 element to the body of the document.
-  * The contents of this tag SHOULD read *Hello I am YOUR-NAME*
-* Add an image element to below the H1 element.
-  * The src attribute MUST point to a Gravatar image
-  * The value of alt attribute SHOULD be YOUR-NAME
-
-
-### Event Handler Attributes
-
-Event Handler Attributes (UI Events) allow a user to interact with a web page. These interactions are commonly achieved through the use of an event listener. The W3C specification refers to these as [UI Events](https://www.w3.org/TR/uievents/). A common example is the __click event__ which corresponds to the ````onclick```` attribute. ````onclick```` serves as an event handler for JavaScript meaning it listens for a click event click event and executes the attributes value. For example ````<a onclick="alert('I was clicked!')">Click Me</a>```` would cause an alert declaring _"I was clicked!"_ to be displayed on the screen. When using frameworks such as Angular.js you will see custom attributes such as ````ng-click```` in which case Angular.js has custom listeners that are designed to listen specifically for the ````ng-```` prefix.
+Building off of the exercises in this section build out *http://localhost/about/index.html* so that
