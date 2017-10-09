@@ -79,10 +79,6 @@ Update ex1.html so that
 * The charset is declared as _UTF-8_.
 * The view port is declared as _content="width=device-width, initial-scale=1.0_.
 
-#### Notes
-[Choosing a Language Tag](https://www.w3.org/International/questions/qa-choosing-language-tags)
-[IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
-
 ## [HTML Elements](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html)
 
 HTML elements more commonly know as tags are bits of markup that provide semantic
@@ -314,3 +310,7 @@ As you learn more, return to this project to add more content and style to your 
 ## Lab 2 - Your About Me Page
 
 Building off of the exercises in this section build out *http://localhost/about/index.html* so that it shows an avatar and tells a little about yourself. Link this to your GitHub and LinkedIn profiles.
+
+## Additional Reading
+[Choosing a Language Tag](https://www.w3.org/International/questions/qa-choosing-language-tags)
+[IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
