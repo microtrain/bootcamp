@@ -1,12 +1,6 @@
 # HTML5
 
-Hypertext Markup Language (HTML) is a system of elements and attributes that
-defines the layout of a web page. This system uses markup tags to represent
-elements
-(````<p>This is a paragraph.</p>````) and
-attributes (````<p style="color: blue;">This is a paragraph with blue text.</p>````)
-to further describe these elements; to define the context of text and
-objects on a page.
+Hypertext Markup Language (HTML) is a system of elements and attributes that defines the layout of a web page. This system uses markup tags to represent elements (````<p>This is a paragraph.</p>````) and attributes (````<p style="color: blue;">This is a paragraph with blue text.</p>````) to further describe these elements; to define the context of text and objects on a page.
 
 ## [HTML Comments](https://www.w3.org/TR/html5/syntax.html#comments)
 In programming, comments are strings of text that are not processed by a compiler or an interpretor. Comments are for human consumption and are used to help humans follow the flow of source code. Most languages will define their own special syntax for presenting a comment. In HTML, comments are wrapped in comment tags ````<!-- this is a comment -->````.
@@ -28,6 +22,8 @@ In programming, comments are strings of text that are not processed by a compile
 ````
 
 ### Exercise 1 - Hello World, Getting Started With HTML 5
+
+*The exercises in this section will focus on building an about us section for a personal web site.*
 
 1. [Create a repo on GitHub](https://help.github.com/articles/create-a-repo/) called about.
 1.  Clone the repo into the top level of your Apache server */var/www*
@@ -81,20 +77,7 @@ Update ex1.html so that
 
 ## [HTML Elements](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html)
 
-HTML elements more commonly know as tags are bits of markup that provide semantic
-meaning to text and objects. This markup is interpreted by outside programs (such
-as browsers, bots, spiders, crawlers, etc) which will often act on your content
-based on that contents markup. For example ````<h1>title</h1><h2>Sub Title</h2>```` tells
-the program reading your page that _Sub Title_ belongs to _title_ and that
-_title_ should be treated as title of the page (or all content until the next
-````<h1>```` tag is encountered) while __Sub Title__ identifies the next block of
-or all content until the next ````<h2>```` or ````<h1>```` tag is encountered.
-The original goal of HTML was to provide a common format in which we could send
-academic research papers over the wire. In short, HTML was designed to mimic a word
-processor. The body of one of those documents may resemble the following. In
-most cases your HTML elements will have both an opening and a closing tag. Elements
-open with ````<[element]>```` and close with ````</[element]>```` the difference
-here is ````<```` vs ````</````.
+HTML elements more commonly know as tags are bits of markup that provide semantic meaning to text and objects. This markup is interpreted by outside programs (such as browsers, bots, spiders, crawlers, etc) which will often act on your content based on that contents markup. For example ````<h1>title</h1><h2>Sub Title</h2>```` tells the program reading your page that _Sub Title_ belongs to _title_ and that _title_ should be treated as title of the page (or all content until the next ````<h1>```` tag is encountered) while __Sub Title__ identifies the next block of or all content until the next ````<h2>```` or ````<h1>```` tag is encountered. The original goal of HTML was to provide a common format in which we could send academic research papers over the wire. In short, HTML was designed to mimic a word processor. The body of one of those documents may resemble the following. In most cases your HTML elements will have both an opening and a closing tag. Elements open with ````<[element]>```` and close with ````</[element]>```` the difference here is ````<```` vs ````</````.
 
 ````
 <h1>HTML Elements</h1>
@@ -180,7 +163,7 @@ You would mark this up as:
 
 ### Exercise 5 - Add an Image
 
-Create the path */var/www/mtbc/exercises/html/iam.html*.
+Create the path */var/www/about/index.html*.
 
 * Markup a valid HTML 5 template.
 * The title tag should read *Hello, I am YOUR-NAME*
@@ -196,7 +179,7 @@ Cascading Style Sheets (CSS) is a language for describing the style of an elemen
 
 ### Exercise 6 - Style an Element
 
-Change the */var/www/mtbc/exercises/html/iam.html* so that:
+Change the */var/www/about/index.html* so that:
 * The font color of the top level header is orange.
 * The image is presented as a circle.
 
@@ -211,7 +194,7 @@ Another way to apply a CSS definition to an HTML element is by by defining selec
 
 ### Exercise 7 - Style an Element Using Classes
 
-Change the */var/www/mtbc/exercises/html/iam.html* so that:
+Change the */var/www/about/index.html* so that:
 * The style tags are converted to CSS definitions in the head of the document.
 * The style attributes are replaced with calls to the classes.
 
@@ -240,7 +223,7 @@ In modern browsers, the title attribute provides a tooltip. Hovering your cursor
 
 ### Exercise 8 - Add a Tooltip
 
-Change the */var/www/mtbc/exercises/html/iam.html* so that:
+Change the */var/www/about/index.html* so that:
 * Hover over the image element MUST show your name in a tooltip.
 
 Add the following attribute to the image element, where YOUR-NAME is _your name_:
@@ -259,7 +242,7 @@ Event Handler Attributes (UI Events) allow a user to interact with a web page. T
 
 ### Exercise 9 - A Little JavaScript
 
-Change the */var/www/mtbc/exercises/html/iam.html* so that:
+Change the */var/www/about/index.html* so that:
 * Clicking a button on the page MUST change the color of the H1 tag to red.
 
 Give the h1 element an id of header.
@@ -271,45 +254,6 @@ Add a button to the bottom of the page that uses the onclick attribute to invoke
 ````
 <button onclick="document.getElementById('header').style="color: #ff0000;">Click Me</button>
 ````
-
-## Lab 1 - Your HTML Resume
-
-From Atom's navigation pane add a file named _resume.html_ to the about project and add the following markup.
-
-````
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title><!-- Your Name Here --></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <!-- Your Resume Here -->
-  </body>
-</html>
-````
-
-Commit your changes and push them to the repository.
-
-Stage new files to be committed, in this case _index.html_.
-````
-git add .
-````
-
-Commit the files with a message and push them to master.
-````
-git commit -m 'Added basic HTML structure'
-git push origin master
-````
-
-Using the knowledge you gained thus far create an HTML version of your resume. Be sure the apply your markup between the opening and closing body tags. You can see your changes by opening a browser and navigating to http://localhost/about/resume.html. Make incremental commits with relevant messages and push the changes to GitHub as you progress through this lab.
-
-As you learn more, return to this project to add more content and style to your resume.
-
-## Lab 2 - Your About Me Page
-
-Building off of the exercises in this section build out *http://localhost/about/index.html* so that it shows an avatar and tells a little about yourself. Link this to your GitHub and LinkedIn profiles.
 
 ## Additional Reading
 [Choosing a Language Tag](https://www.w3.org/International/questions/qa-choosing-language-tags)

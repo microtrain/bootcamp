@@ -130,6 +130,13 @@ sudo service apache2 restart
 
 Open a browser and type _localhost/phpmyadmin_ into the address bar. If you see a login page for phpmyadmin then the configuration was successful. Let's go ahead and login using MySQL's root credentials. Smile, you just installed and configured your first web application. While this configuration is fine for a dev environment, you will not want to run this configuration in a production environment. Checkout my post for hardening your phpMyAdmin [PhpMyAdmin Post Configuration](https://jasonsnider.com/posts/view/phpmyadmin-post-configuration)
 
+# [Composer](https://getcomposer.org/)
+
+Composer is package manager for PHP libraries. We will git into the details later, for now, let's just install it.
+````
+sudo apt-get install composer
+````
+
 We have installed several packages, this will be a good time to make sure all of out repositories are still up to date.
 
 ````

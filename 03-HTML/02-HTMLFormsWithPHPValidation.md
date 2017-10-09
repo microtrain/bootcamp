@@ -1,28 +1,31 @@
-# HTML Forms with PHP Validation
+# [HTML Forms](https://www.w3.org/TR/html401/interact/forms.html) with PHP Validation
 
 Traditionally, forms have been the most common way to collect data from a user. A form submission is the simplest way to post data to a server. This section will start with a simple POST request and end with complex processing.
 
+Form tags ````<form></form>```` are used for creating forms in HTML. Every form should have at least two attributes _action_ and _method_.
 
-## Simple Form
+* action - the web address to which the form data will be sent.
+* method - the type of request the form should make (probably GET or POST).
 
-Create the following paths.
+## Exercise 10 - Create and Inspect a Contact Form
+
+Create the following path.
 ````
-/var/www/mtbc/exercises/html/forms/form.html
-/var/www/mtbc/exercises/php/forms/form.php
+/var/www/about/contact.php
 ````
 
-/var/www/mtbc/exercises/html/forms/form.html
+_/var/www/about/contact.php_
 ````
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Basic Form Example</title>
+    <title>Contact Me - YOUR-NAME</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+    <h1>Contact YOUR-NAME</h1>
     <form method="post">
-
       <div>
         <label for="firstName">First Name</label><br>
         <input type="text" name="first_name" id="firstName">
@@ -38,20 +41,29 @@ Create the following paths.
         <input type="text" name="email">
       </div>
 
+      <div>
+        <label for="subject" id="subject">Subject</label><br>
+        <input type="text" name="subject">
+      </div>
+
+      <div>
+        <label for="message" id="message">Message</label><br>
+        <textarea name="message"></textarea>
+      </div>
+
       <input type="submit">
 
     </form>
   </body>
 </html>
-
 ````
 
 Now, lets inspect a post request.
-* Open the Chrome browser and navigate to [http://localhost/mtbc/exercises/html/forms/form.html](http://localhost/mtbc/exercises/html/forms/form.html).
+* Open the Chrome browser and navigate to [http://localhost/mtbc/exercises/html/forms/form.php](http://localhost/about/contact.html).
 * Press the [f12] key to open Chrome's developer tools.
 * Click on the network tab.
 * Refresh the page.
-* Find and click on form.html
+* Find and click on contact.php
 * The headers tab should now be highlighted.
 
 ![Installation type](/img/devtools/devtools.png)
@@ -63,72 +75,42 @@ Now, lets inspect a post request.
 ![Installation type](/img/devtools/form_data.png)
 
 
-
 Find the opening form tag and set the action attribute as follows.
-````action="http://localhost/mtbc/exercises/php/forms/form.php"````
+*action="contact.php"*
 
-/var/www/mtbc/exercises/php/forms/form.php
-
-````<?php
+Add the following to the top of the document, above the DOCTYPE declaration.
+````
+<?php
 
 $data = $_POST;
 
 foreach($data as $key => $value){
   echo "{$key} = {$value}";
 }
+?>
 ````
 
 ## Validation and Basic RegEx
 
-Create the following paths.
+Regular Expressions (RegEx) are strings of text that describe a search pattern. You may be familiar with wild cards in which a search for _b*_ would return all words that start with the letter b. Now lets say you want your wild card search to still return all words starting with the letter b but only if the word does not contain a number; this is where RegEx comes in ````\b(b)+([a-z])*\b````.
+
+* ````\b```` - a word boundary, the beginning of a word. This would return all words.
+* ````\b(b)*```` - MUST start with the letter b. This would return all words starting with the letter b.
+* ````\b(b)+([a-z])*```` - MAY also contain any lower case letters after the first letter.
+* ````\b(b)+([a-z])*\b```` - Stops each match at the end of a word
+
+[Try It](https://regex101.com/r/dGXnCZ/3/)
+
+##Exercise 11 - RegEx
+
+_/var/www/about/contact.php_
 ````
-/var/www/mtbc/exercises/html/forms/regex_form.html
-/var/www/mtbc/exercises/php/forms/regex_form.php
-````
-
-/var/www/mtbc/html/forms/regex_form.html
-
-````<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Basic Form Example</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-    <form method="post" action="http://localhost/mtbc/exercises/php/forms/regex_form.php">
-
-      <div>
-        <label for="firstName">First Name</label><br>
-        <input type="text" name="first_name" id="firstName">
-      </div>
-
-      <div>
-        <label for="lastName" id="lastName">Last Name</label><br>
-        <input type="text" name="last_name">
-      </div>
-
-      <div>
-        <label for="email" id="email">Email</label><br>
-        <input type="text" name="email">
-      </div>
-
-      <input type="submit">
-
-    </form>
-  </body>
-</html>
-
-````
-
-/var/www/mtbc/php/exercises/forms/regex_form.php
-
-````<?php
+<?php
 //Create a RegEx pattern to determine the validity of the use submitted email
-//allow up to two strings with dot concatenation any letter, any case any number with _- before the @
-//require @
-//allow up to two strings with dot concatenation any letter, any case any number with - after the at
-//require at least 2 letters and only letters for the domain
+// - allow up to two strings with dot concatenation any letter, any case any number with _- before the @
+// - require @
+// - allow up to two strings with dot concatenation any letter, any case any number with - after the at
+// - require at least 2 letters and only letters for the domain
 $validEmail = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/";
 
 //Extract $_POST to a data array
@@ -159,16 +141,16 @@ foreach($data as $key => $value){
 }
 
 var_dump($errors);
+?>
 ````
 
-Regular Expressions are extremely powerful, flexible and worth learning.having said that there are a million and one libraries for validating form submissions. I would advise finding well supported library that meets your projects needs. As of PHP5 [data filters](http://php.net/manual/en/book.filter.php) have been natively supported by the language.
+RegEx is extremely powerful, flexible and worth learning. Having said that there are a million and one libraries for validating form submissions. I would advise finding a well supported library that meets your projects needs. As of PHP5 [data filters](http://php.net/manual/en/book.filter.php) have been natively supported by the language.
 
 **Security Check Point**
 _Never trust user input. User input is anything come into the server from the client. Even if you have written client side JavaScript to filter out malicious code, the filtered input is still left alone with the client and can be manipulated prior to transit (or even in transit). If it has ever existed outside of the server it CANNOT be trusted._
 
-## Single Page App with a Validation Class
-/var/www/mtbc/exercises/php/forms/spa.php
-
+##Exercise 12 - Adding a Validation Class
+Replace the contents of _/var/www/about/contact.php_ with the following.
 ````
 <?php
 
@@ -250,6 +232,14 @@ if(!empty($input)){
                 'rule'=>'notEmpty',
                 'message'=>'Please enter an email'
         ]],
+        'subject'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please enter a subject'
+        ]],
+        'message'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please add a message'
+        ]],
     ];
 
 
@@ -274,7 +264,7 @@ if(!empty($input)){
       <div>You page has errors.</div>
     <?php endif; ?>
 
-    <form method="post" action="spa.php">
+    <form method="post" action="contact.php">
 
       <div>
         <label for="firstName">First Name</label><br>
@@ -294,6 +284,18 @@ if(!empty($input)){
         <div style="color: #ff0000;"><?php echo $valid->error('email'); ?></div>
       </div>
 
+      <div>
+        <label for="subject" id="subject">Subject</label><br>
+        <input type="text" name="subject">
+        <div style="color: #ff0000;"><?php echo $valid->error('subject'); ?></div>
+      </div>
+
+      <div>
+        <label for="message" id="message">Message/label><br>
+        <textarea name="message"></textarea>
+        <div style="color: #ff0000;"><?php echo $valid->error('message'); ?></div>
+      </div>
+
       <input type="submit">
 
     </form>
@@ -301,22 +303,9 @@ if(!empty($input)){
 </html>
 ````
 
-## LAB 1
-Copy the path _/var/www/mtbc/exercises/php/forms/spa.php_ to _/var/www/mtbc/labs/php/forms/spa.php_
-
-Modify _/var/www/mtbc/labs/php/forms/spa.php_.
-* Add a form field for entering URLs.
-* Add a validation method for the URL field.
-* Update the email and URL validation method to return true when the input passes validation OR when the field is empty.
-* The MUST reject an empty email but allow an empty URL so that the field is not required but will be validated when not empty.
-
-## LAB 2 - Send with MailGun - they provide a sandbox account right?
-
-## LAB 3 - Recaptcha
-
-
 ## Additional Reading
 * [Email RegEx Examples](http://emailregex.com/)
+* [RegEx 101](https://regex101.com/)
 * [HTML Purifier](http://htmlpurifier.org/)
 * [Yahoo's HTML Purify](https://github.com/yahoo/html-purify)
 * [Google Caja](https://code.google.com/archive/p/google-caja/wikis/JsHtmlSanitizer.wiki)
