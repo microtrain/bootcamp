@@ -27,17 +27,17 @@ cd ~
 git clone https://github.com/YOUR-USERNAME/restart_apache
 ````
 
-Add the *~/restart_apache* as a [project folder](http://blog.atom.io/2015/04/15/multi-folder-projects.html) to your Atom sidebar. Then open the file re.sh
+Add the *~/restart_apache* as a [project folder](http://blog.atom.io/2015/04/15/multi-folder-projects.html) to your Atom sidebar and open the file re.sh.
 
-By default, Ubuntu executes shell scripts using the Dash interpreter. Dash is faster than Bash by virtue of a lack of features and limited syntax making it ideal for quickly parsing out a large number of simple start up scripts. Bash is better suited for interactive scripts, since these are typically run as one off programs, the performance hit is a non-issue. We will have our script invoke the bash shell.
+By default, Ubuntu executes shell scripts using the Dash interpreter. Dash is faster than Bash by virtue of a lack of features and limited syntax making it ideal for quickly parsing out a large number of simple start up scripts. Bash is better suited for interactive scripts, since these are typically run as one off programs the performance hit is a non-issue. Our scripts will invoke the Bash shell.
 
-A shebang ````#!```` followed by a path is used to invoke an interpreter, this must be the first line of the file. Add the following line to _re.sh_.
+A shebang ````#!```` followed by a path is used to invoke an interpreter, this must be the first line of the file.
 
 ````
 #!/bin/bash
 ````
 
-Add the following to the end of the file. In Bash any line that begins with a _#_ denotes a comment and does not processed by the interpreter. Comments are used to explain the program to other humans.
+In Bash any line that begins with a _#_ denotes a comment and does not processed by the interpreter. Comments are used to explain the program to other humans.
 
 ````
 # Disable a vhost configuration
@@ -52,18 +52,21 @@ sudo service apache2 restart
 Now we want to make sure the file is executable by adding the executable flag.
 
 ````
+cd ~/restart_apache
 sudo chmod +x ~/restart_apache/re.sh
 ````
 
-We can test this by simply typing the full path into a CLI or by navigating to the parent directory and entering the file name
+This script will attempt to treat all files in the current working directory (CWD) as virtual hosts. To test this shell we will want to move to the sites-available directory. Then we can invoke the file.
 
 ````
 cd ~/restart_apache/re.sh
 sudo cp re.sh /etc/apache2/sites-available/re.sh
+
+cd /etc/apache2/sites-available
 ./re.sh
 ````
 
-Regardless of the way you choose to execute the file you will likely be prompted for a password (on the first run). If all is good you will see something like the following. If you do not get any warnings or error messages (other than *ERROR: Site re.sh does not exist!*) then the configuration has been reloaded.
+After invoking the script you will likely be prompted for a password (on the first run). If all is good you will see something like the following. If you do not get any warnings or error messages (other than *ERROR: Site re.sh does not exist!*) then the configuration has been reloaded.
 
 ````
 Site default-ssl disabled.
@@ -102,7 +105,7 @@ Examples
 ## Exercise 2 - Working with Arguments and Conditionals
 
 In this exercise we will work with the file *~/restart_apache/re.sh* on a *branch called feature/arguments*.
-Create a branch called _feature/arguments_.
+Create a [feature branch](https://www.atlassian.com/agile/branching) called _feature/arguments_.
 ````
 cd ~/restart_apache
 git checkout -B feature/arguments
@@ -112,25 +115,25 @@ We have reduced four repetitive commands down to a single command, but there is 
 
 Our new shell will take two arguments; the target virtual host configuration and the service directive. Bash accepts arguments using a numeric index which starts at zero, zero however, is the name of the script so the argument that sits at index one will access the first parameter. In Bash, the value of stored variables are accessed using a dollar sign. Combining a dollar sign with a number ````"$1"```` will allow you to access a given argument.
 
-Our first argument will be the vhost configuration we want to work with and the second argument will be the service command. We will set these to an aptly named variable to make them easier to work with. We will store the first argument in a variable called _VHOST_ and the second in a variable called _COMMAND_.
+Our first argument will be the virtual host configuration we want to work with and the second argument will be the service command. We will set these to an aptly named variable to make them easier to work with. We will store the first argument in a variable called _CONFG_ and the second in a variable called _COMMAND_. When referencing a variable in bash it advisable to always [quote the varaible](http://tldp.org/LDP/abs/html/quotingvar.html).
 
-Add the following lines right after _#!/bin/bash_. This will copy the first input parameter into a variable called _CONFIG_ and the second input parameter and a variable called _COMMAND_. When referencing a variable in bash it advisable to always [quote the varaible](http://tldp.org/LDP/abs/html/quotingvar.html).
+Add the following lines right after _#!/bin/bash_.
 
 ````
 CONFIG="$1"
 COMMAND="$2"
 ````
 
-The first thing we want out program to do is to verify we have the correct number of arguments. We will do this with an equality check (if-then-else). In bash ````$#```` will return the number of input parameters (starting at index number one). We can check this with an if/then statement _if [ $# -ne 2 ] then_. In this context _-ne_ translates to _not equal_ or in plain English _if the number of input parameters is not equal to 2 then do something_. In our case we will want to provide the user feedback about the expected arguments and exit the program.
+The first thing we want our program to do is to verify we have the correct number of arguments. We will do this with an equality check (if-then-else). In Bash ````$#```` will return the number of input parameters (starting at index number one). We can check this with an if/then statement _if [ $# -ne 2 ] then_. In this context _-ne_ translates to _not equal_ or in plain English _if the number of input parameters is not equal to 2 then do something_. In our case we will want to provide the user feedback about the expected arguments and exit the program.
 
-Add the following lines to the file. Bellow the CONFIG and COMMAND variable but above the lines from the previous example. In bash ````echo```` is a command that writes it arguments to the standard output while ````exit```` stops the execution of the program and returns control back to the caller. In this case both the standard output and the caller would be the terminal.
+Add the following lines to the file. Bellow the CONFIG and COMMAND variables but above the lines from the previous example. In bash ````echo```` is a command that writes it arguments to the standard output while ````exit```` stops the execution of the program and returns control back to the caller. In this case both the standard output and the caller would be the terminal.
 
 ````
 if [ $# -ne 2 ]
 then
-        echo "Usage: $0 {virtual-host} {restart|reload}"
-        echo "Reloads a target virtual host"
-        exit 1
+    echo "Usage: $0 {virtual-host} {restart|reload}"
+    echo "Reloads a target virtual host"
+    exit 1
 fi
 ````
 
@@ -147,8 +150,12 @@ sudo service apache2 "$COMMAND"
 Test your changes like we did after forking the repository.
 
 ````
+sudo rm /etc/apache2/sites-available/re.sh
+
 cd ~/restart_apache/re.sh
 sudo cp re.sh /etc/apache2/sites-available/re.sh
+
+cd /etc/apache2/sites-available
 ./re.sh
 ````
 
@@ -169,14 +176,14 @@ git push origin master
 
 ## Exercise 3 - Reject unwanted service commands
 
-For this exercise, create a branch called *feature/validate*. When you are finished increment the version to 0.2.1 and push to master.
+For this exercise, create a feature branch called *feature/validate*. When you are finished increment the version to 0.2.1 and push to master.
 
 The product owner has requested that we only be allowed to pass *reload* or *restart* into the service command. To accomplish this, lets add a new variable to the top of our script called OK and lets set that to false.
 
 ````
 OK=false
 ````
-We can then test the against the $COMMAND argument to make sure it is in the approved list. If it is we will change the value of OK to true. Add the following lines after the current block that checks for the proper number of arguments.
+We can then test against the value of the $COMMAND argument to make sure it is in the approved list. If it is we will change the value of OK to true. Add the following lines after the current block that checks for the proper number of arguments.
 
 ````
 
@@ -210,7 +217,22 @@ fi
 When I think of a loop I'm usually thinking about iterating over or parsing out some sort of a list. This might be an array of service commands or all of the configuration files in the _/etc/apache2/sites-available/_ directory.
 
 For each element in the COMMANDS array where an element is defined by the variable COMMAND, if an element exists (meaning we have not iterated past the end of the list) ````do```` echo the value of COMMAND back to the user otherwise ````break```` the loop or _do echo the value of COMMAND until the list is done_.
+
+Create the file *~/bash/loop.sh* and make it executable
+
 ````
+mkdir -p ~/bash
+cd ~/bash
+touch loop.sh
+chmod +x ./loop.sh
+vim loop.sh
+````
+
+Add the following lines and execute the file.
+
+````
+#!/bin/bash
+
 # A list of service commands
 COMMANDS=( reload restart )
 
@@ -223,6 +245,8 @@ done
 ## Exercise 5 - Loop through an Directory
 For each file in VHOSTS_PATH array where a file is defined by FILENAME, if an element exists (meaning we have not iterated past the end of the list) ````do```` echo the value of FILENAME back to the user otherwise ````break```` the loop or _do echo the value of FILENAME until the list is done_.
 
+Update *~/bash/loop.sh* with the following.
+
 ````
 # List all of the configuration files in the _/etc/apache2/sites-available/_ directory
 VHOSTS_PATH=/etc/apache2/sites-available/*.conf
@@ -233,12 +257,10 @@ do
 done
 ````
 
-Create an executable shell at _/var/www/mtbc/exercises/bash/loops.sh_ and add execute the above code snippets. Commit this to your _bash/ex_ branch with a message like _Added an example of for-in loops in bash_
-
 String concatenation is the addition of one string to another typically through the use of variables.
 
 ## Exercise 6 - Strings
-Create an executable file _string.sh_ with the following code and commit it to your _bash/ex_ branch.
+Create an executable Bash file at _~/bash/string.sh_ and add the following code.
 
 ````
 STRING1 = 'Hello'
@@ -250,9 +272,9 @@ The [comparison operator](http://tldp.org/LDP/abs/html/comparison-ops.html) -z r
 
 ## Exercise 7 - Not Empty
 
-While string is not equal to _Hello World_ do stuff until it is. If string is empty change string to _Hello_ otherwise append and blank space and _World_ to the the end of the string.
+_-z_ is an equality check for zero.
 
-Create an executable file _/var/www/mtbc/exercises/bash/z.sh_ with the following code and commit it to your _bash/ex_ branch.
+Create an executable Bash file at _~/bash/notEmpty.sh_ and add the following logic.
 
 * While the variable STRING is not equal to _"Hello World"_ continually check the value of string.
 * If STRING has a length of zero change the value of STRING to _"Hello"_.
@@ -272,116 +294,18 @@ do
     fi
 done
 
-echo $STRING
+echo "$STRING"
 ````
 
-## Lab
+## Questions
 
-````
-#!/bin/bash
+1. In Bash, why should you quote variables when referencing them?
+1. In Bash, what is *-z*?
+1. In Bash, when do you prefix a variable with a dollar sign?
+1. How many ways can you come up with to create an array in Bash.
+1. What is an array?
+1. What does the _*_ in _/etc/apache2/sites-available/*.conf_ do?
 
-# The first user supplied argument
-CONFIG="$1"
-
-# The second user supplied argument
-COMMAND="$2"
-
-# If true, execute the service commands
-OK=false
-
-# Holds a list of cmaands
-COMMAND_STRING=''
-
-# Holds a list of vhosts
-VHOSTS_STRING=''
-
-# An array of all vhosts files
-VHOSTS_PATH=/etc/apache2/sites-available/*.conf
-
-# User feedback
-USAGE_STRING=''
-
-# Whitelisted services commands
-COMMANDS=( start stop graceful-stop restart reload force-reload )
-
-# Return non zero if a given $1 exists in the list of vhosts
-IN_VHOST_PATH=$(echo ${VHOSTS_PATH[@]} | grep -o "$CONFIG" | wc -w)
-
-# Return non zero if a given $2 is in the service command whitelist
-IN_COMMAND=$(echo ${COMMANDS[@]} | grep -o "$COMMAND" | wc -w)
-
-# Iterate over the whitelist of commands and inject them in to the user feedback
-for COM in "${COMMANDS[@]}"
-do
-
-    # If $COMMAND_STRING is not empty, print a line break
-    if [ ! -z  "$COMMAND_STRING" ]
-    then
-        COM="\n * ${COM}"
-    fi
-
-    COMMAND_STRING="${COMMAND_STRING}${COM}"
-
-done
-
-# If the user did not supply a config file, return a list of files to
-# the user
-
-for FILENAME in $VHOSTS_PATH
-do
-    # Strip the file extension
-    FILE=${FILENAME##*/}
-
-    # Strip the base path
-    VHOST=${FILE%.*}
-
-    # If $VHOST_STRING is not empty, print a seperator
-    if [ ! -z  "$VHOSTS_STRING" ]
-    then
-        VHOST="\n * ${VHOST}"
-    fi
-
-    VHOSTS_STRING="${VHOSTS_STRING}${VHOST}"
-done
-
-USAGE_STRING="Usage: $0 vhost command  \nPlease choose one of the following vhosts\n * $VHOSTS_STRING \nPlease choose from the following commands\n * $COMMAND_STRING \n"
-
-if [ $# -ne 2 ]
-then
-
-    printf "$USAGE_STRING"
-    exit 1
-
-fi
-
-if [ "$IN_VHOST_PATH" -gt 0 ]
-then
-    OK=true
-fi
-
-if [ "$IN_COMMAND" -gt 0  ]  && [ "$OK" == true ]
-then
-    OK=true
-else
-    OK=false
-fi
-
-# Reject any service command that has not been whitelisted
-if [ "$OK" == false ]
-then
-    printf "$USAGE_STRING"
-    exit 1
-fi
-
-# Disable the existing hosts configuration
-sudo a2dissite "$CONFIG"
-sudo service apache2 "$COMMAND"
-
-# Enable the existing hosts configuration
-sudo a2ensite "$CONFIG"
-sudo service apache2 "$COMMAND"
-exit 1
-````
 
 ## Additional Reading
 * [A Few Words on Shell Scripts](https://jasonsnider.com/posts/view/a-few-words-on-shell-scripts)

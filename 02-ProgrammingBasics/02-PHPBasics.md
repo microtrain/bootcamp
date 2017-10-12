@@ -8,14 +8,18 @@ Since this is a dev environment we want to able to debug errors. Lets tell Apach
 sudo vim /etc/php/7.0/apache2/php.ini
 ````
 
-Find the _display_errors_ directive by typing _\display_errors =_ in vim. This will be around line 426 enter insert mode and change _display_errors = Off_ to _display_errors = On_ then restart Apache.
+Find the _display_errors_ directive by typing _\display_errors =_ in vim. This will be around line 426 enter insert mode and change *display_errors = Off* to *display_errors = On* then restart Apache.
 
 **Security Check Point**
 _It is never advisable to show errors in a productions environment. This provides information to hackers that can be used to compromise your system._
 
+## Hello World
+
+Since you can mix PHP and HTML in the same file the parser will need a way to know if it is being asked to parse PHP or HTML. We tell the parser what to expect by using PHP tags ````<?php ?>```` where ````<?php```` in the opening tag and ````?>```` is the closing tag. Any text outside of the  
 
 ## Exercise 1 - Hello World
-From Atom's side navigation create the path _/var/www/mtbc/php/hello.php_. Then open the hello.php file.
+Create the path _/var/www/php_ and that as a project to Atom's side bar. Then from Atom create the file *hello.php*. Add the following lines.
+
 ````
 <?php
 /**
@@ -31,7 +35,7 @@ $formattedDate = $date->format('Y-m-d h:i:s');
 echo "Hello World it is {$formattedDate}";
 ````
 
-Open a browser and navigate to https://localhost/mtbc/php/exercise1.php. You will see the string _Hello it is x_ where x is the current date and time.
+Open a browser and navigate to *https://localhost/php/hello.php*. You will see the string _Hello it is x_ where x is the current date and time.
 
 Now lets have another look at what we wrote, don't worry if you do not get this, we will go over it all again when we dive into the programming lessons.
 
@@ -70,6 +74,89 @@ be printed.
 * ````$formattedDate```` - The formatted date string.
 * ````{}```` - Not required, but makes it easier to separate variables from strings.
 
+
+## PHP Classes
+
+### Exercise 2 - Hello Class
+Create the path */var/www/php/hello_class*.
+
+````
+<?php
+
+/**
+ * A mock up of session data
+ */
+class Session
+{
+  /**
+   * Returns the current user session
+   * @return array Session Data
+   */
+  public function read()
+  {
+    return ['id'=>'1234', 'name'=>'YOUR-NAME'];
+  }
+}
+
+/**
+ * Returns a greeting to a given user
+ */
+class Hello
+{
+  /**
+   * An instance variable to hold the name of the user
+   * @var string
+   */
+  private $who;
+
+  /**
+   * A constructor method - Constructor injection with type hinting. Constructor injection is a form of type hinting.
+   * @param  Object $session A user session
+   */
+  public function __construct(Session $session) {
+
+    $sessionData = $session->read();
+
+    $this->setWho($sessionData['name']);
+  }
+
+  /**
+   * A setter method for Hello::who
+   * @param String $who - The name of a given user
+   */
+  public function setWho($who)
+  {
+    $this->who = $who;
+  }
+
+  /**
+   * Returns a greeting to a target user
+   * @param  {[type]} $message [description]
+   * @return {[type]}          [description]
+   */
+  public function greet($message)
+  {
+    return "{$message} {$this->who}";
+  }
+
+}
+
+//Instantiate the Session class
+$session = new Session();
+
+//Instantiate the Hello class. Inject the $session object into the constructor.
+$greeting = new Hello($session);
+
+//Provide a message for the user using Ternary Logic - https://davidwalsh.name/php-shorthand-if-else-ternary-operators
+$message = 'Good ' . (date("H")<12?'Morning':(date("H")<17?'After Noon':'Evening'));
+
+echo $greeting->greet($message);
+````
+
+## Additional Reading
+* [Object Oriented PHP for Beginners](https://www.killerphp.com/tutorials/object-oriented-php/)
+* [PHP Shorthand If/Else Using Ternary Operators (?:)](https://davidwalsh.name/php-shorthand-if-else-ternary-operators)
+* [Dependency Injection in PHP](https://codeinphp.github.io/post/dependency-injection-in-php/)
 
 ## Footnotes
 <sup>1</sup> PHP supports both procedural (functional) programming and object oriented programming (OOP). In OOP an instantiated class is an object. A class could be considered a blue print for an object. PHP has a built in class for working with dates called _DateTime_. PHP instantiates classes with the ````new```` operator. The line ````$date = new DateTime();```` stores an instance of the _ DateTime_ object in a variable called _$date_. PHP uses an arrow  ````->```` as it's [Object Operator](https://stackoverflow.com/questions/2588149/what-is-the-php-operator-called-and-how-do-you-say-it-when-reading-code-out). To access the _format_ method of the _DateTime_ class you would say ````$date->format();````. In this case we are storing the formatted date in the variable _formattedDate_. As in Bash, PHP uses _echo_ to write content to the screen. In this case, a web page.
