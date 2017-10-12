@@ -1,6 +1,6 @@
 # Tentative Syllabus
 
-The class is 40 hours a week for 10 weeks. It is comprised of working lectures, exercises and labs. The goal of this class is to provide a working knowledge of web and mobile application development. This course is intended to provide a working foundation that will allow you to hit the ground running and give you a knowledge base upon which to build a career.
+The class is 40 hours a week for 10 weeks. It is comprised of working lectures with lots of exercises and labs. The goal of this class is to provide a working knowledge of web and mobile application development. This course is intended to provide a working foundation that will allow you to hit the ground running and give you a knowledge base upon which to build a career. In most cases you will get a light introduction to a topic; typically with in a specific context. We will build on these topics as we progress through the course.
 
 ## Week 1 Dev Environment, HTML, CSS (with Apache and PHP)
 
@@ -26,8 +26,8 @@ The class is 40 hours a week for 10 weeks. It is comprised of working lectures, 
 * Become familiar with a web server
 * A light into the languages you will use for the remainder of the course.
 * Understand how URLs and DNS work.
-* Build and process user submitted data.
-* Build an HTML web site with a home page, resume and an HTML form
+* Build an HTML web site with a home page, resume and a contact form.
+* Process the contact form and work with back end APIs.
 
 ## Week 2 JavaScript and jQuery, AJAX (with Apache and PHP and bootstrap?)
 * Programming Basics with JavaScript

@@ -4,6 +4,14 @@ Cascading Style Sheets (CSS) is a language that describes the style of a web pag
 
 Selectors correspond to HTML elements, there attributes, decedents and and siblings.
 
+## Common Selectors
+
+These are the most common selectors. While there are many more
+
+* Class Selector ````.danger```` - *(.) + (CLASS-NAME)*
+* Tag Selector ````p```` - *(TAG-NAME)*
+* ID Selector ````#mastHead```` - *(#) - (ID-NAME)*
+
 ````
 /* All paragraph elements have a blue font */
 p{
@@ -37,5 +45,16 @@ p,
 div > *.info{
   color: blue;
 }
-
 ````
+
+## Layouts
+
+* display (inline|block|inline-block|none)
+* float
+* flex
+* clear
+* width
+* height
+* display-box
+* margin
+* padding
