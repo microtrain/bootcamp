@@ -27,7 +27,7 @@ cd ~
 git clone https://github.com/YOUR-USERNAME/restart_apache
 ````
 
-Add the *~restart_apache* as a [project folder](http://blog.atom.io/2015/04/15/multi-folder-projects.html) to your Atom sidebar. Then open the file re.sh
+Add the *~/restart_apache* as a [project folder](http://blog.atom.io/2015/04/15/multi-folder-projects.html) to your Atom sidebar. Then open the file re.sh
 
 By default, Ubuntu executes shell scripts using the Dash interpreter. Dash is faster than Bash by virtue of a lack of features and limited syntax making it ideal for quickly parsing out a large number of simple start up scripts. Bash is better suited for interactive scripts, since these are typically run as one off programs, the performance hit is a non-issue. We will have our script invoke the bash shell.
 

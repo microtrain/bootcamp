@@ -16,9 +16,6 @@ _It is never advisable to show errors in a productions environment. This provide
 
 ## Exercise 1 - Hello World
 From Atom's side navigation create the path _/var/www/mtbc/php/hello.php_. Then open the hello.php file.
-
-Add the following lines to _/var/www/mtbc/php/exercise1.php_
-
 ````
 <?php
 /**
