@@ -49,6 +49,6 @@ Modify _/var/www/about/contact.php_ so that:
 
 ## LAB 4 - Submit the Contact Form with Mailgun
 
+Modify _/var/www/about/contact.php_ so that:
 
-
-## LAB 5 - Recaptcha
+* If validation passes it sends you an email with the contents of the form.

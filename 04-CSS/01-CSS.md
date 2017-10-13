@@ -47,14 +47,105 @@ div > *.info{
 }
 ````
 
-## Layouts
+# Layout
 
-* display (inline|block|inline-block|none)
-* float
-* flex
-* clear
-* width
-* height
-* display-box
-* margin
-* padding
+````
+<html lang="en">
+<html>
+    <head>
+       <meta charset="UTF-8">
+       <title>About Jason Snider</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+       <style>
+
+         /* apply a natural box layout model to all elements, but allowing components to change */
+         /* https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+         html {
+           box-sizing: border-box;
+         }
+
+         *, *:before, *:after {
+           box-sizing: inherit;
+         }
+
+         body{
+           font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+         }
+
+         /* clear floats */
+         /* https://www.w3schools.com/howto/howto_css_clearfix.asp */
+         .clearfix:after{
+             content: "";
+             display: table;
+             clear: both;
+         }
+
+         /* the main content */
+         .wrapper{
+           width: 1170px;
+           margin: 0 auto;
+         }
+
+         /* All columns should float to the left */
+         .col {
+             float: left;
+             min-height: 300px;
+             padding: 1em;
+         }
+
+         /* The left and right columns will have the same width */
+         .left,
+         .right {
+           width: 220px;
+           background: #cdcdcd;
+         }
+
+         /* The middle column will have a fixed width of the remainder of the wrapper */
+         .middle {
+           width: 730px;
+         }
+
+
+         /* Center the test in the main nav bar */
+         nav.top-nav{
+           text-align: center;
+           background: #ededed;
+         }
+
+         /* style the anchor tags */
+         nav.top-nav a{
+           display: inline-block;
+           text-align: center;
+           padding: 8px 20px;
+           text-decoration: none;
+           color: #444;
+           font-weight: bold;
+         }
+
+       </style>
+    </head>
+    <body>
+
+      <div class="wrapper">
+
+        <nav class="top-nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.php">Contact</a>
+        </nav>
+
+        <div class="row">
+          <div class="col left"></div>
+          <div class="col middle">
+            <h1>Hello World</h1>
+            <p>Welcome to my web site.</p>
+          </div>
+          <div class="col right"></div>
+        </div>
+
+      </div>
+
+    </body>
+</html>
+````

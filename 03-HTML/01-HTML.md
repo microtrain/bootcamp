@@ -23,22 +23,23 @@ In programming, comments are strings of text that are not processed by a compile
 
 ### Exercise 1 - Hello World, Getting Started With HTML 5
 
-*The exercises in this section will focus on building an about us section for a personal web site.*
+*The exercises in this section will focus on building an example.com us section for a personal web site.*
 
-1. [Create a repo on GitHub](https://help.github.com/articles/create-a-repo/) called about.
+1. [Create a repo on GitHub](https://help.github.com/articles/create-a-repo/) called example.com.
 1.  Clone the repo into the top level of your Apache server */var/www*
   * From a command line
 ````
 cd /var/www/
-git clone https://github.com/YOUR-USERNAME/about
-cd /var/www/about
+git clone https://github.com/YOUR-USERNAME/example.com
+cd /var/www/example.com
 ````
-1. From Atom's navigation pane add a file named _index.html_ to the about project.
-1. Open a browser and navigate to [http://localhost/about/index.html](http://localhost/about/index.html) (At this point you will see a blank page).
+1. From Atom's navigation pane add a file named _index.html_ to the example.com project.
+1. Open a browser and navigate to [http://localhost/example.com/index.html](http://localhost/example.com/index.html) (At this point you will see a blank page).
 1. Now open the file and paste the above mark markup into the file.
 1. Change the title element to ````<title>Hello World</title>````
-1. Add an ````h1```` element to the body of the page which also reads _Hello World_ ````<h1>Hello Wolrd</h1>````.  
+1. Add an ````h1```` element to the body of the page which also reads _Hello World_ ````<h1>Hello World</h1>````.  
 1. Now refresh your browser and you will see the text _Hello World_.
+1. Add a paragraph tag below the top level header that reads ````<p>Welcome to my web site.</p>````
 1. Commit your changes and push to master.
 Stage new files to be committed, in this case index.html.
 ````
@@ -61,7 +62,7 @@ Sometimes our pages do not display as we expect, this is often due to invalid HT
 3. Copy and paste your HTML5 document code into the window and click _Check_.
 
 ## Meta Data
-Meta data is data about data. For a typical web page, the data is the content that falls between the head and body tags. Meta data helps to describe and classify that data and/or the functionality of your web page. Meta data can be an attribute of a single element or added to the ````head```` of a document in the form of a meta tag.
+Meta data is data example.com data. For a typical web page, the data is the content that falls between the head and body tags. Meta data helps to describe and classify that data and/or the functionality of your web page. Meta data can be an attribute of a single element or added to the ````head```` of a document in the form of a meta tag.
 
 Best practices are things that ought to be done given there is not a good reason not to and provided their is not an alternative that better suits a given situation. If I had to pick three pieces of meta data that should always be implemented, they would be as follows.
 
@@ -69,7 +70,7 @@ Best practices are things that ought to be done given there is not a good reason
 * ````<meta charset="UTF-8">```` - Defines the character set you are using so that there will be no confusion between your source code and the rendering engine. For a data driven web site you will want your websites encoding to match that of your database; UTF-8 is the most common encoding.
 * ````<meta name="viewport" content="width=device-width, initial-scale=1.0">```` - Used by the browser to allow the developer of the site to declare how the site should be viewed across devices.
 
-### Exersice 3 - Meta Data Best Practices
+### Exercise 3 - Meta Data Best Practices
 Update ex1.html so that
 * The language is declared as _English_.
 * The charset is declared as _UTF-8_.
@@ -123,9 +124,10 @@ Update hello.html as follows. I hope you type this out rather than copy and past
   </head>
   <body>
     <h1>Hello World</h1>
+    <p>Welcome to my web site.</p>
     <h2>HTML Elements</h2>
     <p>
-    To paraphrase the lesson text [...] For example &lt;h1&gt;h1&lt;h2&gt;title&lt;/h1&gt;... Notice the use of charatcer entities when wanting show the tags in HTML.
+    To paraphrase the lesson text [...] For example &lt;h1&gt;h1&lt;h2&gt;title&lt;/h1&gt;... Notice the use of character entities when wanting show the tags in HTML.
     </p>
     <h2>Character Entities</h2>
     <p>Since the keyboard does not have a &copy; key we need a way to reference this so we say &amp;copy;. Additionally, greater than and less than are interpreted as HTML tags. These are examples of symbols that we may want to display but will not be able to with out a work around. This is where character entities come into play. </p>
@@ -163,7 +165,7 @@ You would mark this up as:
 
 ### Exercise 5 - Add an Image
 
-Create the path */var/www/about/index.html*.
+Create the path */var/www/example.com/about.html*.
 
 * Markup a valid HTML 5 template.
 * The title tag should read *Hello, I am YOUR-NAME*
@@ -179,7 +181,7 @@ Cascading Style Sheets (CSS) is a language for describing the style of an elemen
 
 ### Exercise 6 - Style an Element
 
-Change the */var/www/about/index.html* so that:
+Change the */var/www/example.com/about.html* so that:
 * The font color of the top level header is orange.
 * The image is presented as a circle.
 
@@ -194,7 +196,7 @@ Another way to apply a CSS definition to an HTML element is by by defining selec
 
 ### Exercise 7 - Style an Element Using Classes
 
-Change the */var/www/about/index.html* so that:
+Change the */var/www/example.com/about.html* so that:
 * The style tags are converted to CSS definitions in the head of the document.
 * The style attributes are replaced with calls to the classes.
 
@@ -223,7 +225,7 @@ In modern browsers, the title attribute provides a tooltip. Hovering your cursor
 
 ### Exercise 8 - Add a Tooltip
 
-Change the */var/www/about/index.html* so that:
+Change the */var/www/example.com/about.html* so that:
 * Hover over the image element MUST show your name in a tooltip.
 
 Add the following attribute to the image element, where YOUR-NAME is _your name_:
@@ -242,7 +244,7 @@ Event Handler Attributes (UI Events) allow a user to interact with a web page. T
 
 ### Exercise 9 - A Little JavaScript
 
-Change the */var/www/about/index.html* so that:
+Change the */var/www/example.com/about.html* so that:
 * Clicking a button on the page MUST change the color of the H1 tag to red.
 
 Give the h1 element an id of header.
@@ -253,6 +255,17 @@ Give the h1 element an id of header.
 Add a button to the bottom of the page that uses the onclick attribute to invoke a line of JavaScript.
 ````
 <button onclick="document.getElementById('header').style="color: #ff0000;">Click Me</button>
+````
+
+
+### Exercise 10 - Navigation
+
+Change */var/www/example.com/index.html* so that:
+* All pages MUST link to each other
+
+Create a nav element and link all of the pages togeather. Place this at the top of _index.html_ and _about.html_.
+````
+<nav><a href="/">Home</a> | <a href="/about">About</a></nav>
 ````
 
 ## Additional Reading

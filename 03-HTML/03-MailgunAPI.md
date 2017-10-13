@@ -6,7 +6,7 @@ An Application Programming Interface (API) is a means of providing programming h
 
 ### Exercise 1 - Getting Started with Mailgun.
 
-Go to mailgun.org and create a free account. You may choose not to add a credit card as we will be working with the sandbox. You will need to activate your account via email and SMS, this requires a phone number that receive texts. If you do not have one try creating a Google Voice account.
+Go to [mailgun.com](https://www.mailgun.com/) and create a free account. You may choose not to add a credit card as we will be working with the sandbox. You will need to activate your account via email and SMS, this requires a phone number that receive texts. If you do not have one try creating a Google Voice account.
 
 The landing page will provide you the details you need need to send a test email. Start by creating a shell script and pasting the curl example into the shell.
 

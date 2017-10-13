@@ -7,7 +7,7 @@ Form tags ````<form></form>```` are used for creating forms in HTML. Every form 
 * action - the web address to which the form data will be sent.
 * method - the type of request the form should make (probably GET or POST).
 
-## Exercise 10 - Create and Inspect a Contact Form
+## Exercise 11 - Create and Inspect a Contact Form
 
 Create the following path.
 ````
@@ -101,7 +101,7 @@ Regular Expressions (RegEx) are strings of text that describe a search pattern. 
 
 [Try It](https://regex101.com/r/dGXnCZ/3/)
 
-##Exercise 11 - RegEx
+##Exercise 12 - RegEx
 
 _/var/www/about/contact.php_
 ````
@@ -149,7 +149,7 @@ RegEx is extremely powerful, flexible and worth learning. Having said that there
 **Security Check Point**
 _Never trust user input. User input is anything come into the server from the client. Even if you have written client side JavaScript to filter out malicious code, the filtered input is still left alone with the client and can be manipulated prior to transit (or even in transit). If it has ever existed outside of the server it CANNOT be trusted._
 
-##Exercise 12 - Adding a Validation Class
+##Exercise 13 - Adding a Validation Class
 Replace the contents of _/var/www/about/contact.php_ with the following.
 ````
 <?php

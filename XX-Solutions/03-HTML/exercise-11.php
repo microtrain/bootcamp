@@ -1,39 +1,9 @@
 <?php
-//Create a RegEx pattern to determine the validity of the use submitted email
-// - allow up to two strings with dot concatenation any letter, any case any number with _- before the @
-// - require @
-// - allow up to two strings with dot concatenation any letter, any case any number with - after the at
-// - require at least 2 letters and only letters for the domain
-$validEmail = "/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/";
-
-//Extract $_POST to a data array
 $data = $_POST;
 
-//Create an empty array to hold any error we detect
-$errors = [];
-
 foreach($data as $key => $value){
-  echo "{$key} = {$value}<br><br>";
-
-  //Use a switch statement to change your behavior based upon the form field
-  switch($key){
-      case 'email':
-        if(preg_match($validEmail, $value)!==1){
-            $errors[$key] = "Invalid email";
-        }
-
-      break;
-
-      default:
-        if(empty($value)){
-            $errors[$key] = "Invalid {$key}";
-        }
-      break;
-  }
-
+  echo "{$key} = {$value}";
 }
-
-var_dump($errors);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,8 +13,14 @@ var_dump($errors);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="about.html">About</a> |
+      <a href="contact.php">Contact</a>
+    </nav>
     <h1>Contact YOUR-NAME</h1>
-    <form method="post" action="contact.php">
+    <form method="post" action="contact.php"
+    >
       <div>
         <label for="firstName">First Name</label><br>
         <input type="text" name="first_name" id="firstName">
