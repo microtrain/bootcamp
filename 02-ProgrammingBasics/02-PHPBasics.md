@@ -59,12 +59,10 @@ A method is a property of an object in PHP we can access a propery of an object 
 * ````$formattedDate```` - A variable that holds a formatted date string.
 * ````=```` - Sets the value of the left to that of the right.
 * ````$date```` - The instantiated date object.
-* ````->```` - Object operator, this is used to request properties from an
-instantiated object. In most languages use dot concatenation ```` . ````.
+* ````->```` - Object operator, this is used to request properties from an instantiated object. In most languages use dot concatenation ```` . ````.
 * ````format()```` - A method of the DateTime() class, a property of the instantiated
 object.
-* ````'Y-m-d h:i:s'```` - A parameter for the format method. In this case we are
-providing a string representation of what we want the formatted date to look like.
+* ````'Y-m-d h:i:s'```` - A parameter for the format method. In this case we are providing a string representation of what we want the formatted date to look like.
 
 In the final line we are printing results to the screen.
 
@@ -77,8 +75,76 @@ be printed.
 
 ## PHP Classes
 
+Object Oriented Programming (OOP) has been supportes by PHP (at least in some fashion) since version 4. OOP support has improved with each version. Generally speaking a class is blue print for an object. If we were to compare this to the physical world the source code contained in the class would be akin to an architects blue prints say for a house. Upon instantiation the class is used to build the object. In short, you could view a house as an instantiation of a set of blue prints. I give the blue prints to the builder (in this case a compiler) and the builder goes of and does its thing. The end result is that builders interpretation of the blue prints.
+
+A class has properties comprised of instance variables, methods. A class may be dependent on other classes, this is known as a dependency and is often dealt with using dependency injection. A class may inherit from other classes this is known as either a parent class to a child class or super class to sub class.
+
+The classic example of a class and class properties is to think of a person. A person class would have properties such as a head, arms, legs, etc. I prefer to think in terms of completing work as this is really what we want our classes to do. For example if I were to have a class for reading and writing to and from the database I might call it DBWorker. Now the question is what do I need DBWorker to do?
+
+I'll need my DBWorker class to
+
+* connect to the database
+* know which table to access
+* write new records to the database
+* read records in from the database
+* update records in the database
+* delete records from the database
+
+So far my properties would be as follows
+
+* Instance Variable - *table*
+* Method - *connect()*
+* Method - *create()*
+* Method - *read()*
+* Method - *update()*
+* Method - *delete()*
+
+In PHP this might look like the following
+````
+class DBWorker
+{
+    private $table = null;
+
+    public function __construct($connection, $table) {
+      $this->connect($connection);
+      $this->$table = $table;
+    }
+
+    private function connect($connection){//do something}
+
+    public function create($data) {//do something}
+
+    public function read($whereClause) {//do something}
+
+    public function update($data, $whereClause) {//do something}
+
+    public function delete($whereClause) {//do something}
+
+}
+
+````
+
+Instantiation may look like this
+````
+// This would probably be in a config file somewhere.
+$config = [];
+$config['db'] = '{'db':sample_db', 'user':'sample_user', 'password':'123456', 'host':'localhost'}';
+
+// Instantiate DBWorker with a given db configuration.
+$dbw = new DBWorker($config['db'], 'People');
+
+// Read from the database with given parameters.
+$results = $dbw->read('{'email':'%@example.com'}');
+
+//Process the results
+foreach($results as $result){
+  //do something
+}
+
+````
+
 ### Exercise 2 - Hello Class
-Create the path */var/www/php/hello_class*.
+Create the path */var/www/php/hello_class.php*.
 
 ````
 <?php
@@ -147,8 +213,8 @@ $session = new Session();
 //Instantiate the Hello class. Inject the $session object into the constructor.
 $greeting = new Hello($session);
 
-//Provide a message for the user using Ternary Logic - https://davidwalsh.name/php-shorthand-if-else-ternary-operators
-$message = 'Good ' . (date("H")<12?'Morning':(date("H")<17?'After Noon':'Evening'));
+//Provide a message for the user (Ternary Logic)
+$message = 'Good ' . (date("H")<12?'Morning':(date("H")<17?'Afternoon':'Evening'));
 
 echo $greeting->greet($message);
 ````
