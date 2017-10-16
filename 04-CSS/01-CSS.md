@@ -49,103 +49,190 @@ div > *.info{
 
 # Layout
 
+
+###Exercise
+
+Replace */var/www/about/index.php* with the following.
+
 ````
+<!DOCTYPE html>
 <html lang="en">
-<html>
-    <head>
-       <meta charset="UTF-8">
-       <title>About Jason Snider</title>
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+      <meta charset="UTF-8">
+      <title>About Jason Snider</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-       <style>
+      <style>
 
-         /* apply a natural box layout model to all elements, but allowing components to change */
-         /* https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
-         html {
-           box-sizing: border-box;
-         }
+          /* apply a natural box layout model to all elements, but allowing components to change */
+          /* https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+          html {
+              box-sizing: border-box;
+              background: #efefef;
+          }
 
-         *, *:before, *:after {
-           box-sizing: inherit;
-         }
+          *,
+          *:before,
+          *:after {
+              box-sizing: inherit;
+          }
 
-         body{
-           font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-         }
+          body {
+              font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+              margin: 0;
+          }
 
-         /* clear floats */
-         /* https://www.w3schools.com/howto/howto_css_clearfix.asp */
-         .clearfix:after{
-             content: "";
-             display: table;
-             clear: both;
-         }
+          /* clear floats */
+          /* https://www.w3schools.com/howto/howto_css_clearfix.asp */
+          .clearfix:after {
+              content: "";
+              display: table;
+              clear: both;
+          }
 
-         /* the main content */
-         .wrapper{
-           width: 1170px;
-           margin: 0 auto;
-         }
+          /* All columns should float to the left */
+          .col {
+              float: left;
+              min-height: 300px;
+              padding: 1em;
+          }
 
-         /* All columns should float to the left */
-         .col {
-             float: left;
-             min-height: 300px;
-             padding: 1em;
-         }
+          .pull-left {
+              float: left;
+          }
 
-         /* The left and right columns will have the same width */
-         .left,
-         .right {
-           width: 220px;
-           background: #cdcdcd;
-         }
+          .pull-right {
+              float: right;
+          }
 
-         /* The middle column will have a fixed width of the remainder of the wrapper */
-         .middle {
-           width: 730px;
-         }
+          /* Center the test in the main nav bar */
+          nav.top-nav {
+              text-align: center;
+              background: #aaa;
+          }
 
+          /* Reset list elements for navigation */
+          ul.nav-inline {
+              list-style: none;
+          }
 
-         /* Center the test in the main nav bar */
-         nav.top-nav{
-           text-align: center;
-           background: #ededed;
-         }
+          ul.nav,
+          ul.nav li,
+          ul.nav-inline,
+          ul.nav-inline li {
+              margin: 0;
+              padding: 0;
+              border: 0;
+              font-size: 100%;
+              font: inherit;
+              vertical-align: baseline;
+          }
 
-         /* style the anchor tags */
-         nav.top-nav a{
-           display: inline-block;
-           text-align: center;
-           padding: 8px 20px;
-           text-decoration: none;
-           color: #444;
-           font-weight: bold;
-         }
+          ul.nav-inline li {
+              display: inline-block;
+          }
 
-       </style>
-    </head>
-    <body>
+          /* Allow the div padding to control the first h1 element's top padding */
+          h1:first-of-type {
+              margin-top: 0;
+          }
 
-      <div class="wrapper">
+          /* style the anchor tags */
+          nav.top-nav a,
+          #Footer a {
+              display: inline-block;
+              text-align: center;
+              padding: 8px 20px;
+              text-decoration: none;
+              color: #444;
+              font-weight: bold;
+          }
 
-        <nav class="top-nav">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="contact.php">Contact</a>
-        </nav>
+          #Footer a {
+              color: #fff;
+              padding: 0 0 0 1em;
+              font-size: smaller;
+          }
 
-        <div class="row">
-          <div class="col left"></div>
-          <div class="col middle">
-            <h1>Hello World</h1>
-            <p>Welcome to my web site.</p>
+          /* the main content */
+          #Wrapper {
+              width: 1170px;
+              margin: 0 auto;
+              padding: 0;
+          }
+
+          /* The left and right columns will have the same width */
+          #Sidebar {
+              width: 440px;
+              background: #cdcdcd;
+          }
+
+          /* The middle column will have a fixed width of the remainder of the wrapper */
+          #Content {
+              width: 730px;
+              background: #fff;
+          }
+
+          #Footer {
+              background: #000;
+              color: #fff;
+              padding: 1em;
+              margin: 0;
+          }
+      </style>
+  </head>
+
+  <body>
+
+      <div id="Wrapper">
+
+          <nav class="top-nav clearfix">
+              <a href="index.html" class="pull-left" href="/">Site Logo</a>
+              <ul class="nav-inline pull-right" role="navigation">
+                  <li><a href="/">Home</a></li>
+                  <li><a href="about.html">About</a></li>
+                  <li><a href="contact.php">Contact</a></li>
+              </ul>
+          </nav>
+
+          <div class="row clearfix">
+              <div id="Content" class="col">
+                  <h1>Hello World</h1>
+                  <p>Welcome to my web site.</p>
+              </div>
+              <div id="Sidebar" class="col"></div>
           </div>
-          <div class="col right"></div>
-        </div>
 
+          <div id="Footer" class="clearfix">
+              <small>&copy; 2017 - MyAwesomeSite.com</small>
+              <ul class="nav-inline pull-right" role="navigation">
+                  <li><a href="terms.html">Terms</a></li>
+                  <li><a href="privacy.html">Privacy</a></li>
+              </ul>
+          </div>
       </div>
 
-    </body>
+  </body>
+
 </html>
+
 ````
+
+## Linking to style sheets
+
+
+###Exercise
+
+Create the path */var/www/about/css/dist/main.css* and open that file in Atom. Copy the contents of the style element from index.html into the new file and replace the style element with a reference to the style sheet.
+
+````
+<link rel="stylesheet" type="text/css" href="css/dist/main.css">
+````
+
+
+
+
+## Additional Reading
+* [Why do navigation bars in HTML5 as lists?](https://stackoverflow.com/questions/36811224/why-do-navigation-bars-in-html5-as-lists)
+* [Nav Element](http://w3c.github.io/html/sections.html#the-nav-element)
+* [Bad Design vs. Good Design](https://www.interaction-design.org/literature/article/bad-design-vs-good-design-5-examples-we-can-learn-frombad-design-vs-good-design-5-examples-we-can-learn-from-130706)
