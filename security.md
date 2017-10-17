@@ -3,7 +3,6 @@
 * Monitor [OWASP Top Ten](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project)
 * Monitor [SOSS Reports](https://www.veracode.com/resources/state-of-software-security)
 * Unit Testing
-* Code Ccanning
 * Code Quality
 * Ensure sensitive data is always properly encoded and encrypted.
 * Use access control and permissions to limit user capabilities.
@@ -14,3 +13,6 @@
 * Do not hard code credentials or cryptographic keys.
 * Authentication + authorization.
 * Comprehensive but realistic security policies.
+
+## Additional Reading
+* [15 Security Tips for LAMP Stack](https://tecadmin.net/security-tips-for-lamp-stack-on-linux/)
