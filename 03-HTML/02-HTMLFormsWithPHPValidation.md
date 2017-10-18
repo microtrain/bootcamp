@@ -303,6 +303,56 @@ if(!empty($input)){
 </html>
 ````
 
+## Include Files and Namespaces
+
+So far we have a lot of code in the what would typically be considered a *view* (the presentation layer) which should be separated from from data and logic as much as possible. In this lesson we will create include and class files that will help us keep out views clean.
+
+[PHP Fig](http://www.php-fig.org/) is a working group aimed at developing interoperability standards for PHP libraries. This will help us build a standardized directory structure.
+* [PSR 0](http://www.php-fig.org/psr/psr-0/)
+* [PSR 4](http://www.php-fig.org/psr/psr-4/)
+
+### Include Files
+An include file is a file that contains a snippet of code that is referenced by another file. In PHP include files can be accessed using  [include](http://php.net/manual/en/function.include.php), [include _once](http://php.net/manual/en/function.include_once.php), [require](http://php.net/manual/en/function.require.php) or [require_once](http://php.net/manual/en/function.require_once.php) functions along with a relative or absolute file path.
+
+````
+// relative include
+include util.php;
+
+// absolute include
+include /var/www/about/util.php;
+````
+
+### Namespace
+At the end of the day a name space is simply a way to disambiguate name collisions. Earlier we created a class called Validate(). Validation classes are fairly common and let's say you liked specific methods from two different vendors both of who named the class Validate, suddenly you have a collision.
+
+Lets say we have two vendors Sally and Bob and I like Sally's email method and Bob's phone method. I want to load this class from both vendors but without a name space the autoloader would not know which class to load into a given object. I might try to include then instantiate but there is no guarantee this will work as classes tend to get cached.
+
+````
+include 'vendor/Sally/src/Validation/Validate.php';
+$v1 = new Validate();
+$v1->Validate->email($email); //This will probably work
+
+include 'vendor/Bob/src/Validate/Validate.php';
+$v2 = new Validate();
+$v2->Validate->phone($phone); //Sally's version of the class may or may not be cached so the method we want may or may not be there.
+````
+
+With name spaces.
+````
+// You can probably use an autoloader so you will not have to worry about this.
+include 'vendor/Sally/src/Validation/Validate.php';
+include 'vendor/Bob/src/Validate/Validate.php';
+
+// The namespace disambiguates class names so $v2's object will have the target class.
+$v1 = new \Sally\Validation\Validate();
+$v2 = new \Bob\Validate\Validate();
+
+$v1->Validate->email($email);
+$v2->Validate->phone($phone);
+````
+
+
+
 ## Additional Reading
 * [Email RegEx Examples](http://emailregex.com/)
 * [RegEx 101](https://regex101.com/)

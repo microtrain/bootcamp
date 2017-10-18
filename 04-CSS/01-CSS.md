@@ -90,11 +90,17 @@ Replace */var/www/about/index.php* with the following.
               clear: both;
           }
 
+          /* By default we want equal column heights */
+          .row {
+            display: flex;
+          }
+
           /* All columns should float to the left */
           .col {
               float: left;
               min-height: 300px;
               padding: 1em;
+              flex: 1;
           }
 
           .pull-left {

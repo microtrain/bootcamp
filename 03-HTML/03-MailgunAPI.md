@@ -127,18 +127,25 @@ _Never push a key to a public repository, use a key file the exists outside of t
 
 Create a key file
 ````
-mkdir -p /var/www/conf
-vim /var/www/conf/keys.php
+mkdir -p /var/www/about/config
+vim /var/www/about/config/keys.php
 ````
+
+Add the following line to your .gitignore file and commit your changes to the *feature/mailgun* branch.
+
+````
+/config/keys.php
+````
+
 Add the following (Where YOUR-KEY-HERE is the key provided by Mailgun):
 ````
 <?php
-define(MG_KEY, 'YOUR-KEY-HERE');
-define(MG_DOMAIN, 'YOUR-DOMAIN-HERE');
+define('MG_KEY', 'dYOUR-KEY-HERE');
+define('MG_DOMAIN', 'YOUR-DOMAIN-HERE');
 ````
 Add the following to the top of *http://localhost/about/test.php*
 ````
-require '/var/www/conf/keys.php';
+require '/var/www/about/config/keys.php';
 ````
 
 Change
