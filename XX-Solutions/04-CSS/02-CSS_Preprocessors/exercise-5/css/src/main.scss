@@ -1,0 +1,158 @@
+/* mixins */
+
+/* clear floats */
+@mixin clearfix() {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/* apply a natural box layout model to all elements, but allowing components to change */
+/* https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+    box-sizing: border-box;
+    background: #efefef;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+}
+
+/* clear floats */
+/* https://www.w3schools.com/howto/howto_css_clearfix.asp */
+.clearfix {
+    @include clearfix();
+}
+
+.row {
+    display: flex;
+    @include clearfix();
+}
+
+/* All columns should float to the left */
+.col {
+    float: left;
+    padding: 1em;
+    /* All columns should have the same height but allow for different widths */
+    flex: 1 1 auto;
+}
+.pull-left {
+    float: left;
+}
+
+.pull-right {
+    float: right;
+}
+
+/* Reset list elements for navigation */
+ul.nav-inline {
+    list-style: none;
+}
+
+ul.nav,
+ul.nav li,
+ul.nav-inline,
+ul.nav-inline li {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+ul.nav-inline li {
+    display: inline-block;
+}
+
+/* Allow the div padding to control the first h1 element's top padding */
+h1:first-of-type {
+    margin-top: 0;
+}
+
+/* Center the test in the main nav bar */
+nav.top-nav {
+    text-align: center;
+    background: #aaa;
+    @include clearfix();
+}
+
+.top-nav ul[role="navigation"]{
+  @extend .nav-inline;
+  @extend .pull-right;
+}
+
+/* style the anchor tags */
+nav.top-nav a,
+#Footer a {
+    display: inline-block;
+    text-align: center;
+    padding: 8px 20px;
+    text-decoration: none;
+    color: #444;
+    font-weight: bold;
+}
+
+#Footer a {
+    color: #fff;
+    padding: 0 0 0 1em;
+    font-size: smaller;
+}
+
+/* the main content */
+#Wrapper {
+    width: 1170px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* The left and right columns will have the same width */
+#Sidebar {
+    width: 340px;
+    background: #cdcdcd;
+    @extend .col;
+}
+
+/* The middle column will have a fixed width of the remainder of the wrapper */
+#Content {
+    width: 830px;
+    background: #fff;
+    @extend .col;
+}
+
+#Footer {
+    background: #000;
+    color: #fff;
+    padding: 1em;
+    margin: 0;
+    @include clearfix();
+}
+
+#Footer ul[role="navigation"] {
+  @extend .nav-inline;
+  @extend .pull-right;
+}
+
+#AboutMe {
+  text-align: center;
+}
+
+#AboutMe > .header {
+  display: block;
+  font-weight: bold;
+  color: #ff9900;
+  margin: 0 0 1em;
+}
+
+.img-circle{
+  border-radius: 50%;
+}

@@ -147,6 +147,11 @@ Then change the style declarations for to *.clearfix*, *.top-nav* and *#Footer* 
     @include clearfix();
 }
 
+.row() {
+  display: flex;
+  @include clearfix();
+}
+
 nav.top-nav {
     text-align: center;
     background: #aaa;
@@ -163,15 +168,14 @@ nav.top-nav {
 ````
 
 ## Extend/Inheritance
-Another example of calling multiple classes is in the footer navigation.
-
+Other examples of calling multiple classes is in the footer navigation as well as the #Content and #Sidebar divs.
 ````
 <ul class="nav-inline pull-right" role="navigation">
 ````
 
 Another method of reuse in SASS is *@extend* so ````.sample{@extend .example;}```` would apply the *.example*'s style declaration to *.sample*.
 
-### Exercise 4
+### Exercise 5
 Remove the class declaration from the from the footer navigation element then add the following to the bottom of */var/www/about/css/src/main.scss*.
 ````
 #Footer ul[role="navigation"] {
@@ -179,7 +183,21 @@ Remove the class declaration from the from the footer navigation element then ad
   @extend .pull-right;
 }
 ````
-
 Repeat this process for the navigation inside of *.top-nav*.
+
+Update ````#Sidebar```` and ````#Content```` to the following.
+````
+#Sidebar {
+    width: 340px;
+    background: #cdcdcd;
+    @extend .col;
+}
+
+#Content {
+    width: 830px;
+    background: #fff;
+    @extend .col;
+}
+````
 
 [SASS Reference](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)

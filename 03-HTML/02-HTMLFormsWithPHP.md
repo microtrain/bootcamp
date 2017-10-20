@@ -7,7 +7,7 @@ Form tags ````<form></form>```` are used for creating forms in HTML. Every form 
 * action - the web address to which the form data will be sent.
 * method - the type of request the form should make (probably GET or POST).
 
-## Exercise 11 - Create and Inspect a Contact Form
+## Exercise 1 - Create and Inspect a Contact Form
 
 Create the following path.
 ````
@@ -101,7 +101,7 @@ Regular Expressions (RegEx) are strings of text that describe a search pattern. 
 
 [Try It](https://regex101.com/r/dGXnCZ/3/)
 
-##Exercise 12 - RegEx
+##Exercise 2 - RegEx
 
 _/var/www/about/contact.php_
 ````
@@ -149,8 +149,11 @@ RegEx is extremely powerful, flexible and worth learning. Having said that there
 **Security Check Point**
 _Never trust user input. User input is anything come into the server from the client. Even if you have written client side JavaScript to filter out malicious code, the filtered input is still left alone with the client and can be manipulated prior to transit (or even in transit). If it has ever existed outside of the server it CANNOT be trusted._
 
-##Exercise 13 - Adding a Validation Class
+##Exercise 3 - Adding a Validation Class
 Replace the contents of _/var/www/about/contact.php_ with the following.
+
+Explain the code to the class.
+
 ````
 <?php
 
@@ -209,41 +212,9 @@ class Validate{
         return false;
     }
 
-}
-
-$valid = new Validate();
-
-$input = filter_input_array(INPUT_POST);
-if(!empty($input)){
-
-    $valid->validation = [
-        'first_name'=>[[
-            'rule'=>'notEmpty',
-            'message'=>'Please enter your first name'
-        ]],
-        'last_name'=>[[
-            'rule'=>'notEmpty',
-            'message'=>'Please enter your last name'
-        ]],
-        'email'=>[[
-                'rule'=>'email',
-                'message'=>'Please enter a valid email'
-            ],[
-                'rule'=>'notEmpty',
-                'message'=>'Please enter an email'
-        ]],
-        'subject'=>[[
-            'rule'=>'notEmpty',
-            'message'=>'Please enter a subject'
-        ]],
-        'message'=>[[
-            'rule'=>'notEmpty',
-            'message'=>'Please add a message'
-        ]],
-    ];
-
-
-    $valid->check($input);
+    public function userInput($key){
+        return (!empty($this->data[$key])?$this->data[$key]:null);
+    }
 }
 
 
@@ -349,6 +320,16 @@ $v2 = new \Bob\Validate\Validate();
 
 $v1->Validate->email($email);
 $v2->Validate->phone($phone);
+````
+
+## Exercise 4
+Create the path */var/www/about/core/About/src/Validation/Validate.php* and copy the Validates class into the file. Add a name space declaration as the first line of the file.
+
+````
+<?php
+
+namespace About\Validation;
+
 ````
 
 

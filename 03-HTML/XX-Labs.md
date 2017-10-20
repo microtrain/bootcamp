@@ -48,7 +48,6 @@ Modify _/var/www/about/contact.php_ so that:
 * This MUST allow an empty URL but reject an invalid one (Not required but valid if not empty).
 
 ## LAB 4 - Submit the Contact Form with Mailgun
-
-Modify _/var/www/about/contact.php_ so that:
+Using */var/www/about/test.php* as a reference modify */var/www/about/contact.php* and/or */var/www/about/processContactForm.php* so that:
 
 * If validation passes it sends you an email with the contents of the form.

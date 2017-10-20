@@ -165,7 +165,7 @@ You would mark this up as:
 
 ### Exercise 5 - Add an Image
 
-Create the path */var/www//about.html*.
+Create the path */var/www/index.html*.
 
 * Markup a valid HTML 5 template.
 * The title tag should read *Hello, I am YOUR-NAME*
@@ -181,7 +181,7 @@ Cascading Style Sheets (CSS) is a language for describing the style of an elemen
 
 ### Exercise 6 - Style an Element
 
-Change the */var/www//about.html* so that:
+Change the */var/www//index.html* so that:
 * The font color of the top level header is orange.
 * The image is presented as a circle.
 
@@ -196,7 +196,7 @@ Another way to apply a CSS definition to an HTML element is by by defining selec
 
 ### Exercise 7 - Style an Element Using Classes
 
-Change the */var/www//about.html* so that:
+Change the */var/www//index.html* so that:
 * The style tags are converted to CSS definitions in the head of the document.
 * The style attributes are replaced with calls to the classes.
 
@@ -225,7 +225,7 @@ In modern browsers, the title attribute provides a tooltip. Hovering your cursor
 
 ### Exercise 8 - Add a Tooltip
 
-Change the */var/www//about.html* so that:
+Change the */var/www//index.html* so that:
 * Hover over the image element MUST show your name in a tooltip.
 
 Add the following attribute to the image element, where YOUR-NAME is _your name_:
@@ -244,7 +244,7 @@ Event Handler Attributes (UI Events) allow a user to interact with a web page. T
 
 ### Exercise 9 - A Little JavaScript
 
-Change the */var/www//about.html* so that:
+Change the */var/www//index.html* so that:
 * Clicking a button on the page MUST change the color of the H1 tag to red.
 
 Give the h1 element an id of header.
@@ -263,9 +263,9 @@ Add a button to the bottom of the page that uses the onclick attribute to invoke
 Change */var/www//index.html* so that:
 * All pages MUST link to each other
 
-Create a nav element and link all of the pages togeather. Place this at the top of _index.html_ and _about.html_.
+Create a nav element and link all of the pages togeather. Place this at the top of _index.html_ and _index.html_.
 ````
-<nav><a href="/">Home</a> | <a href="/about">About</a></nav>
+<nav><a href="index.html">Home</a> | <a href="contact.php">Contact</a></nav>
 ````
 
 ## Additional Reading

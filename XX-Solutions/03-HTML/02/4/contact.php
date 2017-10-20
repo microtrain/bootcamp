@@ -1,65 +1,13 @@
 <?php
+// Include non-vendor files
+require 'core/About/src/Validation/Validate.php';
 
-class Validate{
+//Declare Namespaces
+use About\Validation;
 
-    public $validation = [];
-
-    public $errors = [];
-
-    private $data = [];
-
-    public function notEmpty($value){
-
-        if(!empty($value)){
-            return true;
-        }
-
-        return false;
-
-    }
-
-    public function email($value){
-
-        if(filter_var($value, FILTER_VALIDATE_EMAIL)){
-            return true;
-        }
-
-        return false;
-
-    }
-
-    public function check($data){
-
-        $this->data = $data;
-
-        foreach(array_keys($this->validation) as $fieldName){
-            $this->rules($fieldName);
-        }
-
-    }
-
-    public function rules($field){
-        foreach($this->validation[$field] as $rule){
-            if($this->{$rule['rule']}($this->data[$field]) === false){
-                $this->errors[$field] = $rule;
-            }
-        }
-    }
-
-    public function error($field){
-        if(!empty($this->errors[$field])){
-            return $this->errors[$field]['message'];
-        }
-
-        return false;
-    }
-
-}
-
-$valid = new Validate();
-
+//Validate Declarations
+$valid = new About\Validation\Validate();
 $input = filter_input_array(INPUT_POST);
-
 if(!empty($input)){
 
     $valid->validation = [
@@ -92,6 +40,11 @@ if(!empty($input)){
     $valid->check($input);
 }
 
+if(empty($valid->errors) && !empty($input)){
+    $message = "<div>Success!</div>";
+}else{
+    $message = "<div>Error!</div>";
+}
 
 ?>
 
@@ -99,7 +52,7 @@ if(!empty($input)){
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Single Page App with a Validation Class</title>
+    <title>Contact Me - YOUR-NAME</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
