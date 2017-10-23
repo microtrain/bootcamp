@@ -1,0 +1,99 @@
+# MetaData
+
+MetaData comes in many forms from the ````meta```` elements in the the document head to microdata and aria attributes applied directly to your HTML tags or even in a separate text file.
+
+## Improve SEO with ````<meta>````
+
+Search Engine Optimization (SEO) is the practice of improving your site compatibility with a search engine which, in theory, should help to increase your traffic. Meta data is one ingredient. We will start with the classics *description* and *keywords*. When writing a site description your looking to sum up a page in 25 words or less the description MUST be relevant to the content on the page. The same idea applies to keywords 25 or less comma separated words or short phrases that are relevant to the page in question. Google will penalize you if you try to cheat. In both cases we will use the meta tag with the name and description attributes.
+
+The name attribute denotes the type of meta data while the content attribute contains the description, keywords, etc.
+````
+<meta name="description" content="The best thing about hello world is the greeting">
+<meta name="keywords" content="">
+````
+
+Since meta tags belong in the document we will want to add them to the template. We will need to be able to set these on a page by page basis so these should be passed as a variable from the page in question.
+````
+$meta = [];
+$meta['description'] = "The best thing about hello world is the greeting";
+$meta['keywords'] = "hello world, hello, world";
+
+<meta name="description" content="<?php echo $meta['description']; ?>">
+<meta name="keywords" content="<?php echo $meta['keywords']; ?>">
+````
+
+For example *contact.php* might read as follows. Rather than an array, perhaps a herdoc containing any meta tags you want to include would be preferred.
+````
+<?php
+
+require 'core/processContactForm.php';
+
+//Build the page metadata
+$meta = [];
+$meta['description'] = "The best thing about hello world is the greeting";
+$meta['keywords'] = "hello world, hello, world";
+
+//Build the page content
+$content = <<<EOT
+<form method="post" action="contact.php">
+  {$message} ...
+EOT;
+
+require 'core/layout.php';
+````
+
+## MicroData
+
+A search engine is the most common classifier of web pages. Typically, web pages are classified using seed data against a machine learning type of algo. Some of these are very good while others are not. Applying a micro data schema to your pages markup can help these algos better classify your data. Typically these will be waited against some sort of AI as a means of fraud detection. For instance, Google will likely honor meta data so long as it doesn't think you you are trying to game the system, if it detects something of that sort, it may de-index your site.
+
+A good example would be a [job posting](http://schema.org/JobPosting). If I'm posing job ads I would want to apply this schema assuming other services are interested in pull in job ads and making use of its data.  
+
+## Aria
+
+Accessible Rich Internet Applications (ARIA) is a standard for helping a web page work with a screen reader. You saw a sample of this earlier with ````role="navigation"````.  
+
+## .txt
+
+[robots.txt](http://www.robotstxt.org/) is a file that sits in your sites root directory. This tells allows you to provide a set of preferences to well behaved search engines. At the very least you should allow all bots until you have a reason not to. Bad bots will ignore this so trying to keep those out using a robots.txt file is pointless, keep it simple and assume all bots are good. This will prevent you from making mistakes that block the good bots.
+
+### Exercise
+Create the path */var/www/robots.txt* and add the following lines.
+````
+User-agent: *
+Disallow:
+````
+
+[humnas.txt](http://humanstxt.org/) is a file that gives credit to the sites creators. While it is not required it's a nice touch and if they solve the spam problem they will give you a way to submit your site to there directory, which is a link back so that is always good.
+
+### Exercise
+Add the following meta tag to your sites template
+````
+<link rel="author" href="humans.txt" />
+````
+
+Create the path */var/www/robots.txt* and add as much or as little of the following content as you choose.
+````
+/* TEAM */
+Your title: Your name.
+Site: email, link to a contact form, etc.
+Twitter: your Twitter username.
+Location: City, Country.
+
+/* THANKS */
+Name: name or url
+
+/* SITE */
+Last update: YYYY/MM/DD
+Standards: HTML5, CSS3,..
+Components: Modernizr, jQuery, etc.
+Software: Software used for the development
+````
+[security.txt](https://securitytxt.org/) let security researchers know how to get hold of you should an issue be found.
+
+## Additional Reading
+* [What’s in the head? Metadata in HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
+* [Steps to a Google-friendly site](https://support.google.com/webmasters/answer/40349?hl=en)
+* [The Beginner's Guide to SEO](https://moz.com/beginners-guide-to-seo)
+* [How to write meta descriptions for SEO](https://searchenginewatch.com/2016/05/26/how-to-write-meta-descriptions-for-seo-with-good-and-bad-examples/)
+* [Getting started with schema.org using Microdata](http://schema.org/docs/gs.html)
+* [WAI-ARIA Overview](https://www.w3.org/WAI/intro/aria)

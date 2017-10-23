@@ -1,3 +1,0 @@
-# Templates
-
-Now that we have all of our styles into a single style sheet, it is time use a single template for managing our layout. This will allow us to store out sites main layout in a single file while the page it self will only hold the content specific to that page. This is a huge win once your site exceeds more that a few pages. HTML does not offer such a system so we will either need to choose a template engine such as [Pug](https://pugjs.org/api/getting-started.html) or build a template using a programming language. We will learn about Pug once we get into the section about the MEAN stack. For now we will use PHP.
