@@ -269,7 +269,7 @@ Create a nav element and link all of the pages togeather. Place this at the top 
 ````
 
 ## Additional Resources
-[MDN - HTML][https://developer.mozilla.org/en-US/docs/Web/HTML]
+[MDN - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
 ## Additional Reading
 [Choosing a Language Tag](https://www.w3.org/International/questions/qa-choosing-language-tags)
