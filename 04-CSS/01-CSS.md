@@ -257,7 +257,9 @@ Create the path */var/www/about/css/dist/main.css* and open that file in Atom. C
 ````
 
 
+## Additional Resources
 
+(CSS Tricks)[https://css-tricks.com/]
 
 ## Additional Reading
 * [Why do navigation bars in HTML5 as lists?](https://stackoverflow.com/questions/36811224/why-do-navigation-bars-in-html5-as-lists)
