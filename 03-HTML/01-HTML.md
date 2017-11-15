@@ -268,6 +268,9 @@ Create a nav element and link all of the pages togeather. Place this at the top 
 <nav><a href="index.html">Home</a> | <a href="contact.php">Contact</a></nav>
 ````
 
+## Additional Resources
+[MDN - HTML][https://developer.mozilla.org/en-US/docs/Web/HTML]
+
 ## Additional Reading
 [Choosing a Language Tag](https://www.w3.org/International/questions/qa-choosing-language-tags)
 [IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
