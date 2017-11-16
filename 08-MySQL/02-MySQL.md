@@ -4,7 +4,7 @@
 
 Much like SQL Server, Oracle or PostgreSQL, MySQL is client-server software. This means the database and database management software is running on a server. Even if your running a local instance of MySQL, your running a server. The client is the software you interact with. When you interact with the software, the software makes a request to the server on your behalf. Some common clients are the [MySQL CLI](https://dev.mysql.com/doc/refman/5.7/en/mysql.html), [phpMyAdmin](https://www.phpmyadmin.net/) and [MySQL Workbench](https://www.mysql.com/products/workbench/). Even programming languages act as clients; for example PHP uses the [PDO library](http://php.net/manual/en/book.pdo.php) to interact with a DBMS. [ORMs](https://en.wikipedia.org/wiki/Object-relational_mapping) are another type of client package; an example of this would be [Doctrine](http://www.doctrine-project.org/projects/orm.html) for PHP.
 
-## Core Cpncepts of an RDBMS
+## Core Concepts of an RDBMS
 
 ### Table Structure
 
