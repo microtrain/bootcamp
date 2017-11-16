@@ -4,6 +4,56 @@
 
 Much like SQL Server, Oracle or PostgreSQL, MySQL is client-server software. This means the database and database management software is running on a server. Even if your running a local instance of MySQL, your running a server. The client is the software you interact with. When you interact with the software, the software makes a request to the server on your behalf. Some common clients are the [MySQL CLI](https://dev.mysql.com/doc/refman/5.7/en/mysql.html), [phpMyAdmin](https://www.phpmyadmin.net/) and [MySQL Workbench](https://www.mysql.com/products/workbench/). Even programming languages act as clients; for example PHP uses the [PDO library](http://php.net/manual/en/book.pdo.php) to interact with a DBMS. [ORMs](https://en.wikipedia.org/wiki/Object-relational_mapping) are another type of client package; an example of this would be [Doctrine](http://www.doctrine-project.org/projects/orm.html) for PHP.
 
+## Core Cpncepts of an RDBMS
+
+### Table Structure
+
+A data base is made up of tables which are defined by columns, rows, data types and values. Conceptually you can think of a table in the same way you think of a spreadsheet. 
+
+My customers table might look like the following.
+
+             COLUMNS     
+id | firstname | lastname | dob            
+--- ----------- ---------- -------------      
+1  | sally     | smith    | 1977-01-22     R
+--- ----------- ---------- -------------   O
+2  | frank     | brown    | 1951-04-01     W
+--- ----------- ---------- -------------   S
+3  | bob       | gray     | 2004-08-17     
+--- ----------- ---------- -------------   
+
+### Keys and Indicies
+
+#### Index
+An index provides a faster means of lookup for an SQL query. A good rule of thumb is to create an index for every column that appears in a WHERE clause. You should not create an index for a column that is not used for looking up data.
+
+#### Primary Key (Unique Index)
+A primary key in MySQL is both an index and a unique identifier for a given column. Typcially an aut-incrementing integer or a [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). In the above example the id column would be my primary key.
+
+#### Forgien Key (Index)
+
+This is a column that links one table to another. For example if I have an address table that I want to link to my customers table I would add a column called customer_id and the value of this column would match an id in the customers table. In this case customer_id is said to be a forgien_key.
+
+#### Unique Keys (Unique Index)
+
+This is an indexed column that requires a unique value for every row in the table. 
+
+#### Composite Keys (Unique Index)
+
+This is an indexed key pair that can uniquely identify a row in the table.
+
+#### FullText Index (Unique Index)
+
+This is a special type of index that allows various configurations string searches against rows containing large amounts of text.
+  
+### Relationships
+
+#### One-to-many
+
+#### One-to-one
+
+#### Many-to-many
+
 ## Additional Reading
 * [PDO Library](http://php.net/manual/en/book.pdo.php)
 * [MySQL for NodeJS](https://www.npmjs.com/package/mysql)
