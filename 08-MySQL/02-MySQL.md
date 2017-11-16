@@ -8,19 +8,12 @@ Much like SQL Server, Oracle or PostgreSQL, MySQL is client-server software. Thi
 
 ### Table Structure
 
-A data base is made up of tables which are defined by columns, rows, data types and values. Conceptually you can think of a table in the same way you think of a spreadsheet. 
+A data base is made up of tables which are defined by columns, rows, data types and values. Conceptually you can think of a table in the same way you think of a spreadsheet.
 
 My customers table might look like the following.
 
-             COLUMNS     
-id | firstname | lastname | dob            
---- ----------- ---------- -------------      
-1  | sally     | smith    | 1977-01-22     R
---- ----------- ---------- -------------   O
-2  | frank     | brown    | 1951-04-01     W
---- ----------- ---------- -------------   S
-3  | bob       | gray     | 2004-08-17     
---- ----------- ---------- -------------   
+![Table Structure](/img/mysql/table.png)
+
 
 ### Keys and Indicies
 
@@ -36,7 +29,7 @@ This is a column that links one table to another. For example if I have an addre
 
 #### Unique Keys (Unique Index)
 
-This is an indexed column that requires a unique value for every row in the table. 
+This is an indexed column that requires a unique value for every row in the table.
 
 #### Composite Keys (Unique Index)
 
@@ -45,7 +38,7 @@ This is an indexed key pair that can uniquely identify a row in the table.
 #### FullText Index (Unique Index)
 
 This is a special type of index that allows various configurations string searches against rows containing large amounts of text.
-  
+
 ### Relationships
 
 #### One-to-many
