@@ -158,6 +158,10 @@ ctx.fillRect (30, 30, 55, 50);
 
 Add the following to _/var/www/draw/src/css/main.css_.
 ````
+html {
+  font-family: sans-serif;
+}
+
 .wrapper {
   display: flex;
 }
@@ -181,6 +185,18 @@ nav ul {
 nav ul li {
   padding: 0;
   margin: 0;
+
+}
+
+nav ul li span,
+nav ul li button {
+  display: block;
+  padding: 1em;
+  text-align: center;
+}
+
+nav ul li button {
+  width: 100%;
 }
 ````
 
@@ -211,69 +227,602 @@ As you move your mouse around the canvas you'll notice the x,y cords now appear 
 So far all of our code has been written out in the global name space which means the data also lives in the global name space. It is considered good practice to restrict access to you program data and methods (functions) to a non-global scope. For this we will use a
 (closure)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures]. To me more precise we will use a [closure that emulates private data](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#Emulating_private_methods_with_closures).
 
-Replace
+Replace your JavaScript with the following closure.
 ````
 var draw = (function() {
 
-  //// This section emulates a public API
-
   //Get the height and width of the main we will use this set canvas to the full
   //size of the main element.
-  var mWidth = document.querySelector('main').offsetWidth;
-  var mHeight = document.querySelector('main').offsetHeight;
+  var mWidth = document.querySelector('main').offsetWidth,
+    mHeight = document.querySelector('main').offsetHeight,
 
-  //Create the canvas
-  var canvas = document.createElement("canvas");
+    //Create the canvas
+    canvas = document.createElement("canvas"),
 
-  //Create the context
-  var ctx = canvas.getContext("2d");
+    //Create the context
+    ctx = canvas.getContext("2d"),
 
-  //// This section emulates a public API
+    //Create the initial bounding rectangle
+    rect = canvas.getBoundingClientRect(),
+
+    //current x,y position
+    x=0,
+    y=0;
+
   return {
-    writeXY: function(x,y) {
+    //Set the x,y coords based on current event data
+    setXY: function(evt) {
+      x = (evt.clientX - rect.left) - canvas.offsetLeft;
+      y = (evt.clientY - rect.top) - canvas.offsetTop;
+    },
+
+    //Write the x,y coods to the target div
+    writeXY: function() {
       document.getElementById('trackX').innerHTML = 'X: ' + x;
       document.getElementById('trackY').innerHTML = 'Y: ' + y;
     },
 
-    // Builds the initial canvas and context
-    init: function() {
+    //Draw a rectangle
+    drawRect: function() {
+      //Draw some sample rectsangles
+      ctx.fillStyle = "rgb(200,0,0)";
+      ctx.fillRect (10, 10, 55, 50);
+    },
 
+    getCanvas: function(){
+      return canvas;
+    },
+
+    //Initialize the object, this must be called before anything else
+    init: function() {
       canvas.width = mWidth;
       canvas.height = mHeight;
       document.querySelector('main').appendChild(canvas);
 
-    },
-
-    drawRect: function() {
-      //Draw some sample rectangles
-      ctx.fillStyle = "rgb(200,0,0)";
-      ctx.fillRect (10, 10, 55, 50);
-
-      ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
-      ctx.fillRect (30, 30, 55, 50);
-    },
-
-    //Grants public access to the initialized canvas
-    getCanvas: function(){
-      return canvas;
     }
   };
 
 })();
 
+//Initialize draw
 draw.init();
 
-var canvas = draw.getCanvas();
+//Add a mousemove listener to the canvas
+//When the mouse reports a change of position use the event data to
+//set and report the x,y position on the mouse.
+draw.getCanvas().addEventListener('mousemove', function(evt) {
+  draw.setXY(evt);
+  draw.writeXY();
+}, false);
 
-//Track the x,y position
-canvas.addEventListener('mousemove', function(evt) {
-  //Calculate the x,y cords.
-  let rect = canvas.getBoundingClientRect();
-  let x = evt.clientX - rect.left;
-  let y = evt.clientY - rect.top;
-  draw.writeXY(x,y);
+//draw a sample rectangle
+draw.drawRect();
+````
+
+The previous code creates a draw object which will love on the global name space. The advantage is that the objects data and methods are encapsulated within the closure so they are protected from manipulation from any code that might share a common property name. For example, ````x```` might be a variable name in a third party library you have included in your project, the value of that libraries x could interfere (or collide) with the value of your programs x. Encapsulating as draw.x reduces the chance of collision; treating this a private property protects this even further. You could further protect the draw method by creating a namespace. Reversing your domain name is a common practice for namespacing. The real goal is to try and create something that is as unique as possible, a domain name you own should accomplish this, but it is not required. For the sake of this exercise we will forgo the use of a namespace.
+````
+var com.example.app = com.example.app || {};  
+com.example.app.draw = (function() {});
+````
+
+So far we have created a draw object which creates a canvas, draws a rectangle and reports any mouse movement that occurs on the canvas. It's time to let the user decide what to draw. We will start by removing the command to draw the red rectangle.
+
+Remove the following from your JavaScript
+````
+//draw a sample rectangle
+draw.drawRect();
+````
+
+In order to draw a rectangle we need to know the x,y coordinates of the top left corner as well as the desired height and width. The ````mousemove```` event tells us where we are on the canvas but we need to know where the user wants to draw the triangle and how big they want it. We can figure this out by using two more events ````mousedown```` and ````mouseup````. This will give us the starting and ending points of a mouse drag. ````mousedown```` gives us the starting x,y coordinates or x1,y1. ````mouseup```` gives us the ending x,y coordinates or x2,y2. from tis we can calculate the height and width as _width=x2-x1_ and _h=y2-y1_
+
+We will start by adding variables for x1,y1,x2,y2.
+
+Change
+````
+//current x,y position
+x=0,
+y=0;
+````
+
+to
+````
+//current x,y
+x=0,
+y=0,
+
+//starting x,y
+x1=0,
+y1=0,
+
+//ending x,y
+x2=0,
+y2=0;
+````
+
+Update the drawRect() method as follows.
+````
+drawRect: function(x,y,h,w) {
+
+  //Start by using random fill colors.
+  ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+
+  ctx.fillRect (x1,y1,(x2-x1),(y2-y1));
+
+}
+````
+
+Now we need to add two methods to set the starting and ending coordinates. Add the following bellow the writeXY() function. In OOP this knod of method is typically referred to a setter. In that the purpose of this method is to set/change the value of a property, typically a private property.
+````
+setStart: function() {
+  x1=x;
+  y1=y;
+},
+
+setEnd: function() {
+  x2=x;
+  y2=y;
+},
+````
+
+That covers the draw object's implementation details for drawing a rectangle, now all that is left is for us to allow our user to draw the rectangle. We will start by adding a ````mousdown```` listener to the canvas. When this event is triggered we simply call the ````setStart()```` method to record the starting position, this defines the top left corner of the triangle. Add the following to the end of your JavaScript.
+````
+//Set the starting positon
+draw.getCanvas().addEventListener('mousedown', function() {
+  draw.setStart();
+}, false);
+
+````
+
+To get the ending position we add a ````mouseup```` listener to the canvas and call the ````setEnd()```` method. At this point x1,y1,x2 and y2 are all set, this all we need to draw the rectangle, so we will also call the ````drawRect()```` function. Add the following to the end of your JavaScript.
+````
+draw.getCanvas().addEventListener('mouseup', function() {
+  draw.setEnd();
+  draw.drawRect();
 }, false);
 ````
+
+At this point your JavaScript should read as follows.
+````
+var draw = (function() {
+
+  //Get the height and width of the main we will use this set canvas to the full
+  //size of the main element.
+  var mWidth = document.querySelector('main').offsetWidth,
+    mHeight = document.querySelector('main').offsetHeight,
+
+    //Create the canvas
+    canvas = document.createElement("canvas"),
+
+    //Create the context
+    ctx = canvas.getContext("2d"),
+
+    //Create the initial bounding rectangle
+    rect = canvas.getBoundingClientRect(),
+
+    //current x,y position
+    x=0,
+    y=0,
+
+    //starting x,y
+    x1=0,
+    y1=0,
+
+    //ending x,y
+    x2=0,
+    y2=0;
+
+  return {
+    //Set the x,y coords based on current event data
+    setXY: function(evt) {
+      x = (evt.clientX - rect.left) - canvas.offsetLeft;
+      y = (evt.clientY - rect.top) - canvas.offsetTop;
+    },
+
+    //Write the x,y coods to the target div
+    writeXY: function() {
+      document.getElementById('trackX').innerHTML = 'X: ' + x;
+      document.getElementById('trackY').innerHTML = 'Y: ' + y;
+    },
+
+    //Set the x1,y1
+    setStart: function() {
+      x1=x;
+      y1=y;
+    },
+
+    //Set the x2,y2
+    setEnd: function() {
+      x2=x;
+      y2=y;
+    },
+
+    //Draw a rectangle
+    drawRect: function() {
+      //Start by using random fill colors.
+      ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+      ctx.fillRect (x1,y1,(x2-x1),(y2-y1));
+    },
+
+    getCanvas: function(){
+      return canvas;
+    },
+
+    //Initialize the object, this must be called before anything else
+    init: function() {
+      canvas.width = mWidth;
+      canvas.height = mHeight;
+      document.querySelector('main').appendChild(canvas);
+
+    }
+  };
+
+})();
+
+//Initialize draw
+draw.init();
+
+//Add a mousemove listener to the canvas
+//When the mouse reports a change of position use the event data to
+//set and report the x,y position on the mouse.
+draw.getCanvas().addEventListener('mousemove', function(evt) {
+  draw.setXY(evt);
+  draw.writeXY();
+}, false);
+
+//Add a mousedown listener to the canvas
+//Set the starting position
+draw.getCanvas().addEventListener('mousedown', function() {
+  draw.setStart();
+}, false);
+
+//Add a mouseup listener to the canvas
+//Set the end position and draw the rectangle
+draw.getCanvas().addEventListener('mouseup', function() {
+  draw.setEnd();
+  draw.drawRect();
+}, false);
+````
+
+At some point we want to draw shapes other than a rectangle. Let's start by creating a button that allows to choose a rectangle then we can add more buttons for more shapes. Let's by adding a rectangle button to the navigation list. We will give this button an id of _btnRect_.
+````
+<li><button id="btnRect">Rectangle</button></li>
+````
+
+We will need to two things to make this work (1) wire the button up to an ````onclick```` event listener and (2) wire that ````onclick```` event up draw object so that the object knows what to do. Let's start by adding a shape variable as a private property of the draw object.
+
+Let's change
+````
+//ending x,y
+x2=0,
+y2=0;
+````
+
+to
+````
+//ending x,y
+x2=0,
+y2=0,
+
+//What shape are we drawing?
+shape='';
+````
+
+Now we will need a setter, add the following below the setEnd() method.
+````
+//Sets the shape to be drawn
+setShape: function(shp) {
+  shape = shp;
+},
+````
+
+Now add a listener to the bottom of the JavaScript file. This is listen for a ````click```` on _btnRect_.
+````
+document.getElementById('btnRect').addEventListener('click',function(){
+    draw.setShape('rectangle');
+}, false);
+````
+
+Now that we have set the shape, we need it to cause an effect in the draw object. Add the following below the ````setShape()```` method.
+````
+draw: function() {
+  if('shape'==='rectangle')
+  {
+    this.drawRect();
+  } else {
+    alert('Please choose a shape');
+  }
+},
+````
+
+and replace the call to ````draw.drawRect()```` in the  ````mouseup```` listener with ````draw.draw()```` as follows.
+````
+draw.getCanvas().addEventListener('mouseup', function() {
+  draw.setEnd();
+  draw.draw();
+}, false);
+````
+
+Since drawing on the canvas can change the underlying grid it is a good practice to reset the grid before the next item is drawn on the canvas. This is easily achieved using ````ctx.restore()```` and ````ctx.save()````. The most efficient way to implement this is by adding it to the draw method, that way all future shapes will automatically perform these tasks. You can read more about save and restore [here](https://html5.litten.com/understanding-save-and-restore-for-the-canvas-context/).
+````
+//Draws the selected shape
+draw: function() {
+  ctx.restore();
+  if(shape==='rectangle')
+  {
+    this.drawRect();
+  } else {
+    alert('Please choose a shape');
+  }
+  ctx.save();
+},
+````
+
+Now we want to add more shapes, let's start with a [line](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo). To begin drawing a line you need to begin a path, set x1,y1 and x2,y2, then call the stroke method to draw the line. Which looks like the following.
+````
+ctx.beginPath();
+ctx.moveTo(x1, y1);
+ctx.lineTo(x2, y2);
+ctx.stroke();
+````
+
+We will start by creating a drawLine() method and adding it to our draw method add the following below the ````draw()```` method.
+````
+//Draw a line
+drawLine: function() {
+  //Start by using random fill colors.
+  ctx.strokeStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+  ctx.beginPath();
+  ctx.moveTo(x1, y1);
+  ctx.lineTo(x2, y2);
+  ctx.stroke();
+},
+````
+
+and change the draw method as follows.
+````
+//Draws the selected shape
+draw: function() {
+  ctx.restore();
+  if(shape==='rectangle')
+  {
+    this.drawRect();
+  } else if(shape==='line') {
+    this.drawLine();
+  } else {
+    alert('Please choose a shape');
+  }
+  ctx.save();
+},
+````
+
+Add a line button the the nav list.
+````
+<li><button id="btnLine">Line</button></li>
+````
+
+Then a listener for the click event.
+````
+document.getElementById('btnLine').addEventListener('click',function(){
+    draw.setShape('line');
+}, false);
+`````
+
+Repeat the previous steps but in the context of drawing a circle. The ````drawCircle()```` will simply create an ````alert()```` stating it doesn't do anything. At this point your JavaScript should read as follows.
+````
+var draw = (function() {
+
+  //Get the height and width of the main we will use this set canvas to the full
+  //size of the main element.
+  var mWidth = document.querySelector('main').offsetWidth,
+    mHeight = document.querySelector('main').offsetHeight,
+
+    //Create the canvas
+    canvas = document.createElement("canvas"),
+
+    //Create the context
+    ctx = canvas.getContext("2d"),
+
+    //Create the initial bounding rectangle
+    rect = canvas.getBoundingClientRect(),
+
+    //current x,y position
+    x=0,
+    y=0,
+
+    //starting x,y
+    x1=0,
+    y1=0,
+
+    //ending x,y
+    x2=0,
+    y2=0,
+
+    //What shape are we drawing?
+    shape='';
+
+  return {
+    //Set the x,y coords based on current event data
+    setXY: function(evt) {
+      x = (evt.clientX - rect.left) - canvas.offsetLeft;
+      y = (evt.clientY - rect.top) - canvas.offsetTop;
+    },
+
+    //Write the x,y coods to the target div
+    writeXY: function() {
+      document.getElementById('trackX').innerHTML = 'X: ' + x;
+      document.getElementById('trackY').innerHTML = 'Y: ' + y;
+    },
+
+    //Set the x1,y1
+    setStart: function() {
+      x1=x;
+      y1=y;
+    },
+
+    //Set the x2,y2
+    setEnd: function() {
+      x2=x;
+      y2=y;
+    },
+
+    //Sets the shape to be drawn
+    setShape: function(shp) {
+      shape = shp;
+    },
+
+    //Draws the selected shape
+    draw: function() {
+      ctx.restore();
+      if(shape==='rectangle')
+      {
+        this.drawRect();
+      } else if( shape==='line' ) {
+        this.drawLine();
+      } else if( shape==='circle' ) {
+        this.drawCircle();
+      } else {
+        alert('Please choose a shape');
+      }
+      ctx.save();
+    },
+
+
+    //Draw a circle
+    drawCircle: function() {
+      alert('I don\'t do anything yet.');
+    },
+
+    //Draw a line
+    drawLine: function() {
+      //Start by using random fill colors.
+      ctx.strokeStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+    },
+
+    //Draw a rectangle
+    drawRect: function() {
+      //Start by using random fill colors.
+      ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+      ctx.fillRect (x1,y1,(x2-x1),(y2-y1));
+    },
+
+    getCanvas: function(){
+      return canvas;
+    },
+
+    //Initialize the object, this must be called before anything else
+    init: function() {
+      canvas.width = mWidth;
+      canvas.height = mHeight;
+      document.querySelector('main').appendChild(canvas);
+
+    }
+  };
+
+})();
+
+//Initialize draw
+draw.init();
+
+//Add a mousemove listener to the canvas
+//When the mouse reports a change of position use the event data to
+//set and report the x,y position on the mouse.
+draw.getCanvas().addEventListener('mousemove', function(evt) {
+  draw.setXY(evt);
+  draw.writeXY();
+}, false);
+
+//Add a mousedown listener to the canvas
+//Set the starting position
+draw.getCanvas().addEventListener('mousedown', function() {
+  draw.setStart();
+}, false);
+
+//Add a mouseup listener to the canvas
+//Set the end position and draw the rectangle
+draw.getCanvas().addEventListener('mouseup', function() {
+  draw.setEnd();
+  draw.draw();
+}, false);
+
+document.getElementById('btnRect').addEventListener('click', function(){
+    draw.setShape('rectangle');
+}, false);
+
+document.getElementById('btnLine').addEventListener('click', function(){
+    draw.setShape('line');
+}, false);
+
+document.getElementById('btnCircle').addEventListener('click', function(){
+    draw.setShape('circle');
+}, false);
+
+````
+
+and the HTML
+````
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       <meta charset="UTF-8">
+       <title>Draw</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+       <link rel="stylesheet" href="src/css/main.css">
+    </head>
+    <body>
+      <div class="wrapper">
+        <nav>
+          <ul>
+            <li><span id="trackX"></span></li>
+            <li><span id="trackY"></span></li>
+            <li><button id="btnRect">Rectangle</button></li>
+            <li><button id="btnLine">Line</button></li>
+            <li><button id="btnCircle">Circle</button></li>
+          </ul>
+        </nav>
+        <main></main>
+      </div>
+      <script src="src/js/main.js"></script>
+    </body>
+</html>
+````
+
+We have everything we need to draw a [circle](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc) which in this context is a 360 degree arc. Our starting x,y position (x1, y1) represents the center of the circle our stopping point (x2,y2) rests on the circumference of the circle. With these two points we can use Pythagoreans theorem A<sup>2</sup> + B<sup>2</sup> = C<sup>2</sup> to calculate the radius of the circle.
+
+In code this might look like.
+````
+let a = (x1-x2)
+let b = (y1-y2)
+let radius = Math.sqrt( a*a + b*b );
+````
+
+I think the first three arguments in the ````arc()```` method are pretty clear _x,y,radius_. _x,y_ defines the center of the circle and of course _radius_ is what we just calculated. That leaves us with _startAngle_ and _endAngle_. Since we are drawing a complete circle the angle will always start where it ends. This is represented as 0 and 2 times pi ````2*Math.PI````.
+
+Update your ````drawCircle()```` method to the following.
+````
+//Draw a circle
+drawCircle: function() {
+
+  ctx.strokeStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+  ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+
+  let a = (x1-x2)
+  let b = (y1-y2)
+  let radius = Math.sqrt( a*a + b*b );
+
+  ctx.beginPath();
+  ctx.arc(x1, y1, radius, 0, 2*Math.PI);
+  ctx.stroke();
+  ctx.fill();
+},
+````
+
+
+
 
 ## Additional Resources
 * [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
@@ -281,4 +830,5 @@ canvas.addEventListener('mousemove', function(evt) {
 * [Pythagorean Theorem](https://www.khanacademy.org/math/basic-geo/basic-geometry-pythagorean-theorem/geo-pythagorean-theorem/v/the-pythagorean-theorem)
 
 ## Additional Reading
+* [Understanding save() and restore() for the Canvas Context](https://html5.litten.com/understanding-save-and-restore-for-the-canvas-context/)
 * [Random Hex Color Code Generator in JavaScript](https://www.paulirish.com/2009/random-hex-color-code-snippets/)
