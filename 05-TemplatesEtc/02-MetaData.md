@@ -71,7 +71,7 @@ Add the following meta tag to your sites template
 <link rel="author" href="humans.txt" />
 ````
 
-Create the path */var/www/robots.txt* and add as much or as little of the following content as you choose.
+Create the path */var/www/about/robots.txt* and add as much or as little of the following content as you choose.
 ````
 /* TEAM */
 Your title: Your name.
@@ -89,6 +89,42 @@ Components: Modernizr, jQuery, etc.
 Software: Software used for the development
 ````
 [security.txt](https://securitytxt.org/) let security researchers know how to get hold of you should an issue be found.
+# Images
+
+[favicon.ico](https://en.wikipedia.org/wiki/Favicon) This is the image that appears in the browser tab beside the title. This is found in your websites root directory.
+
+[browserconfig.xml](https://msdn.microsoft.com/library/dn455106.aspx) For creating custome tiles in windows.
+*/var/www/about/browserconfig.xml*
+````
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Please read: https://msdn.microsoft.com/en-us/library/ie/dn455106.aspx -->
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square70x70logo src="tile.png"/>
+            <square150x150logo src="tile.png"/>
+            <wide310x150logo src="tile-wide.png"/>
+            <square310x310logo src="tile.png"/>
+        </tile>
+    </msapplication>
+</browserconfig>
+````
+* tile.png
+* tile-wide.png
+* icon.png
+
+[manifest.json](https://developer.mozilla.org/en-US/docs/Web/Manifest)
+*/var/www/about/manifest.json*
+````
+{
+    "icons": [{
+        "src": "icon.png",
+        "sizes": "192x192",
+        "type": "image/png"
+    }],
+    "start_url": "/"
+}
+````
 
 ## Additional Reading
 * [What’s in the head? Metadata in HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
