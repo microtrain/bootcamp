@@ -821,8 +821,435 @@ drawCircle: function() {
 },
 ````
 
+### Drawing Paths
+
+We will define a path as a line the follows your cursor during a _mousedown_ (drag) event. There is no context method for this so we will need to create one. How would we define this in code? We start by understanding what it is we want to do.
+
+1. Select a shape called _path_ this will tell the object that we want to draw a path.
+1. On _mousedown_ we will start drawing.
+1. On _mouseup_ we will stop drawing.
+1. Between the _mouseup_ and _mousedown_ we will draw a line every time the mouse reports a move event.
+  1. This line will connect the previously reported coordinates to the current coordinates.
+    * OR you could say we a drawing a one pixel by one pixel line everytime the mouse moves by one pixel in any direction.
+
+We will start by adding a new button and listener for drawing the path.
+
+The button
+````
+<li><button id="btnPath">Path</button></li>
+````
+
+and the listener.
+````
+document.getElementById('btnPath').addEventListener('click', function(){
+    draw.setShape('path');
+}, false);
+````
+
+As in the previous example we will add a ````drawPath()```` method and add ````drawPath()```` to the draw method.
+
+_drawPath()_
+````
+drawPath: function() {
+  alert('I don\'t do anything yet.');
+},
+````
+
+_draw()_
+````
+//Draws the selected shape
+draw: function() {
+  ctx.restore();
+  if(shape==='rectangle')
+  {
+    this.drawRect();
+  } else if( shape==='line' ) {
+    this.drawLine();
+  } else if( shape==='circle' ) {
+    this.drawCircle();
+  } else {
+    alert('Please choose a shape');
+  }
+  ctx.save();
+},
+````
+
+At this point, for all previous draw* methods we would complete our implementation details by hooking a few context methods and we would be done with it. For this method to work we need to track the previous x,y state and draw on _mousemove_ instead of _mouseup_ which means we also need to capture a drawing state (we will call that _isDrawing_).
+
+Lets start with by tracking the previous coordinates, we will call these lx,ly (short hand for _last x_ and _last y_).
+
+Add the following variables to as private properties.
+````
+//Tracks the last x,y state
+lx = false,
+ly = false,
+````
+
+Update your setXY() method so that it updates lx,ly.
+````
+//Set the x,y coords based on current event data
+setXY: function(evt) {
+
+  //Track the last x,y position before setting the current position.
+  lx=x;
+  ly=y;
+
+  //Set the current x,y position
+  x = (evt.clientX - rect.left) - canvas.offsetLeft;
+  y = (evt.clientY - rect.top) - canvas.offsetTop;
+},
+````
+
+Now we need to call the draw method from our _mousemove_ listener but only if we have chosen to draw a path. This means we need to expose the private _path_ property through a public api we will call this _getShape()_.
+````
+getShape: function() {
+  return shape;
+},
+````
+
+Now that the draw object has a way to report its shape we can use that call the _draw()_ method from the _mousemove_ listener.
+````
+draw.getCanvas().addEventListener('mousemove', function(evt) {
+  draw.setXY(evt);
+  draw.writeXY();
+  if(draw.getShape()=='path') {
+    draw.draw();
+  }
+}, false);
+````
+
+Now lets implement our _drawPath()_ method. This is almost identical to the _drawLine()_ method. Instead of drawing from x1,y1 to x2,y2 we will draw from lx,ly to x,y.  
+````
+drawPath: function() {
+  //Start by using random fill colors.
+  ctx.strokeStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+  ctx.beginPath();
+  ctx.moveTo(lx, ly);
+  ctx.lineTo(x, y);
+  ctx.stroke();
+},
+````
+
+Now choosing the path shape and mousing over the canvas will start drawing with out a mouse click. We want a drag to define weather or not the mouse movement should draw we will do this by capturing a state called _isDrawing_.
+
+Add the a  _isDrawing_ variable as a private property.
+````
+isDrawing=false;
+````
+
+Now we will create a setter and getter to allow us access through a public interface.
+````
+setIsDrawing: function(bool) {
+  isDrawing = bool;
+},
+
+getIsDrawing: function() {
+  return isDrawing;
+},
+````
+
+Now that we have an accessible _isDrawing_ property that we can be toggled from true to false we can use this with our _mousedown_ and _mouseup_ events to control the when and how the path is drawn.
+````
+draw.getCanvas().addEventListener('mousemove', function(evt) {
+  draw.setXY(evt);
+  draw.writeXY();
+  if(draw.getShape()=='path' && draw.getIsDrawing()===true) {
+    draw.draw();
+  }
+}, false);
+````
+
+At this point your JavaScript should appear as follows.
+````
+var draw = (function() {
+
+  //Get the height and width of the main we will use this set canvas to the full
+  //size of the main element.
+  var mWidth = document.querySelector('main').offsetWidth,
+    mHeight = document.querySelector('main').offsetHeight,
+
+    //Create the canvas
+    canvas = document.createElement("canvas"),
+
+    //Create the context
+    ctx = canvas.getContext("2d"),
+
+    //Create the initial bounding rectangle
+    rect = canvas.getBoundingClientRect(),
+
+    //current x,y position
+    x=0,
+    y=0,
+
+    //starting x,y
+    x1=0,
+    y1=0,
+
+    //ending x,y
+    x2=0,
+    y2=0,
+
+    //Tracks the last x,y state
+    lx = false,
+    ly = false,
+
+    //What shape are we drawing?
+    shape='',
+
+    //Are we drawimg a path?
+    isDrawing=false;
+
+  return {
+
+    //Set the x,y coords based on current event data
+    setXY: function(evt) {
+
+      //Track last x,y position before setting the current posiiton.
+      lx=x;
+      ly=y;
+
+      //Set the current x,y position
+      x = (evt.clientX - rect.left) - canvas.offsetLeft;
+      y = (evt.clientY - rect.top) - canvas.offsetTop;
+    },
+
+    //Write the x,y coods to the target div
+    writeXY: function() {
+      document.getElementById('trackX').innerHTML = 'X: ' + x;
+      document.getElementById('trackY').innerHTML = 'Y: ' + y;
+    },
+
+    //Set the x1,y1
+    setStart: function() {
+      x1=x;
+      y1=y;
+    },
+
+    //Set the x2,y2
+    setEnd: function() {
+      x2=x;
+      y2=y;
+    },
+
+    //Sets the shape to be drawn
+    setShape: function(shp) {
+      shape = shp;
+    },
+
+    getShape: function() {
+      return shape;
+    },
+
+    setIsDrawing: function(bool) {
+      isDrawing = bool;
+    },
+
+    getIsDrawing: function() {
+      return isDrawing;
+    },
+
+    //Draws the selected shape
+    draw: function() {
+      ctx.restore();
+      if(shape==='rectangle')
+      {
+        this.drawRect();
+      } else if( shape==='line' ) {
+        this.drawLine();
+      } else if( shape==='path' ) {
+        this.drawPath();
+      } else if( shape==='circle' ) {
+        this.drawCircle();
+      } else {
+        alert('Please choose a shape');
+      }
+      ctx.save();
+    },
+
+    //Draw a circle
+    drawCircle: function() {
+
+      ctx.strokeStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+      ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+
+      let a = (x1-x2)
+      let b = (y1-y2)
+      let radius = Math.sqrt( a*a + b*b );
+
+      ctx.beginPath();
+      ctx.arc(x1, y1, radius, 0, 2*Math.PI);
+      ctx.stroke();
+      ctx.fill();
+    },
+
+    //Draw a line
+    drawLine: function() {
+      //Start by using random fill colors.
+      ctx.strokeStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+      ctx.beginPath();
+      ctx.moveTo(x1, y1);
+      ctx.lineTo(x2, y2);
+      ctx.stroke();
+    },
 
 
+    drawPath: function() {
+      //console.log({x1:x,y1:y,x2:x2,y2:y2});
+      //Start by using random fill colors.
+      ctx.strokeStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+      ctx.beginPath();
+      ctx.moveTo(lx, ly);
+      ctx.lineTo(x, y);
+      ctx.stroke();
+    },
+
+    //Draw a rectangle
+    drawRect: function() {
+      //Start by using random fill colors.
+      ctx.fillStyle = '#'+Math.floor(Math.random()*16777215).toString(16);
+      ctx.fillRect (x1,y1,(x2-x1),(y2-y1));
+    },
+
+    getCanvas: function(){
+      return canvas;
+    },
+
+    //Initialize the object, this must be called before anything else
+    init: function() {
+      canvas.width = mWidth;
+      canvas.height = mHeight;
+      document.querySelector('main').appendChild(canvas);
+
+    }
+  };
+
+})();
+
+//Initialize draw
+draw.init();
+
+//Add a mousemove listener to the canvas
+//When the mouse reports a change of position use the event data to
+//set and report the x,y position on the mouse.
+draw.getCanvas().addEventListener('mousemove', function(evt) {
+  draw.setXY(evt);
+  draw.writeXY();
+  if(draw.getShape()=='path' && draw.getIsDrawing()===true) {
+    draw.draw();
+  }
+}, false);
+
+//Add a mousedown listener to the canvas
+//Set the starting position
+draw.getCanvas().addEventListener('mousedown', function() {
+  draw.setStart();
+  draw.setIsDrawing(true);
+}, false);
+
+//Add a mouseup listener to the canvas
+//Set the end position and draw the rectangle
+draw.getCanvas().addEventListener('mouseup', function() {
+  draw.setEnd();
+  draw.draw();
+  draw.setIsDrawing(false);
+}, false);
+
+document.getElementById('btnRect').addEventListener('click', function(){
+    draw.setShape('rectangle');
+}, false);
+
+document.getElementById('btnLine').addEventListener('click', function(){
+    draw.setShape('line');
+}, false);
+
+document.getElementById('btnCircle').addEventListener('click', function(){
+    draw.setShape('circle');
+}, false);
+
+document.getElementById('btnPath').addEventListener('click', function(){
+    draw.setShape('path');
+}, false);
+````
+
+your HTML should read as follows
+````
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+       <meta charset="UTF-8">
+       <title>Draw</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+       <link rel="stylesheet" href="src/css/main.css">
+    </head>
+    <body>
+      <div class="wrapper">
+        <nav>
+          <ul>
+            <li><span id="trackX"></span></li>
+            <li><span id="trackY"></span></li>
+            <li><button id="btnRect">Rectangle</button></li>
+            <li><button id="btnLine">Line</button></li>
+            <li><button id="btnCircle">Circle</button></li>
+            <li><button id="btnPath">Path</button></li>
+          </ul>
+        </nav>
+        <main></main>
+      </div>
+      <script src="src/js/main.js"></script>
+    </body>
+</html>
+````
+and your CSS
+````
+html {
+  font-family: sans-serif;
+}
+
+.wrapper {
+  display: flex;
+}
+
+nav {
+  flex: 0 0 300px;
+  background: #ccc;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  padding: 0;
+  margin: 0;
+
+}
+
+nav ul li span,
+nav ul li button {
+  display: block;
+  padding: 1em;
+  text-align: center;
+}
+
+nav ul li button {
+  width: 90%;
+  margin: 0 auto;
+}
+````
+
+## LAB
+Now that you can add basic shapes to the canvas lets work on the colors.
+* Add color pickers that will allow the user to select the stroke and fill colors for various objects they are using.
+  * Hint: HTML5 has a built in form element that spawns a color picker.
+* Can you figure out how to draw a triangle.
 
 ## Additional Resources
 * [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
