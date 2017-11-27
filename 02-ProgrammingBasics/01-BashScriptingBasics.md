@@ -242,7 +242,7 @@ do
 done
 ````
 
-## Exercise 5 - Loop through an Directory
+## Exercise 5 - Loop through all files in a Directory
 For each file in VHOSTS_PATH array where a file is defined by FILENAME, if an element exists (meaning we have not iterated past the end of the list) ````do```` echo the value of FILENAME back to the user otherwise ````break```` the loop or _do echo the value of FILENAME until the list is done_.
 
 Update *~/bash/loop.sh* with the following.
@@ -297,6 +297,11 @@ done
 echo "$STRING"
 ````
 
+## Lab
+
+Update the shell script restart apache project so that if the user does not provide valid options a list of available commands and apache configuration files is returned to the user.  
+
+
 ## Questions
 
 1. In Bash, why should you quote variables when referencing them?
@@ -308,6 +313,7 @@ echo "$STRING"
 
 
 ## Additional Reading
+
 * [A Few Words on Shell Scripts](https://jasonsnider.com/posts/view/a-few-words-on-shell-scripts)
 * [Bash Guide for Beginners](http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf)
 * [Advanced Bash-Scripting Guide](http://www.tldp.org/LDP/abs/abs-guide.pdf)

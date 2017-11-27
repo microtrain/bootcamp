@@ -29,16 +29,16 @@ git commit -m 'Added basic HTML structure'
 git push origin master
 ````
 
-Using the knowledge you gained thus far create an HTML version of your resume. Be sure the apply your markup between the opening and closing body tags. You can see your changes by opening a browser and navigating to *http://localhost/about/resume.html*. Make incremental commits with relevant messages and push the changes to GitHub as you progress through this lab.
+Using the knowledge you gained thus far create an HTML version of your resume. Be sure the apply your markup between the opening and closing body tags. You can see your changes by opening a browser and navigating to *http://localhost/YOUR-PROJECT-NAME/resume.html*. Make incremental commits with relevant messages and push the changes to GitHub as you progress through this lab.
 
 As you learn more, return to this project to add more content and style to your resume.
 
 ## Lab 2 - Your About Me Page
 
-Building off of the exercises in this section build out *http://localhost/about/index.html* so that it shows an avatar and tells a little about yourself. Link this to your GitHub and LinkedIn profiles. Commit changes accordingly.
+Building off of the exercises in this section build out *http://localhost/YOUR-PROJECT-NAME/index.html* so that it shows an avatar and tells a little about yourself. Link this to your GitHub and LinkedIn profiles. Commit changes accordingly.
 
 ## LAB 3 - Contact Form
-Modify _/var/www/about/contact.php_ so that:
+Modify _/var/www/YOUR-PROJECT-NAME/contact.php_ so that:
 * Add a form field for entering URLs.
 * Add notEmpty validation for subject.
 * Add notEmpty validation for message.
@@ -48,6 +48,6 @@ Modify _/var/www/about/contact.php_ so that:
 * This MUST allow an empty URL but reject an invalid one (Not required but valid if not empty).
 
 ## LAB 4 - Submit the Contact Form with Mailgun
-Using */var/www/about/test.php* as a reference modify */var/www/about/contact.php* and/or */var/www/about/processContactForm.php* so that:
+Using */var/www/YOUR-PROJECT-NAME/test.php* as a reference modify */var/www/YOUR-PROJECT-NAME/contact.php* and/or */var/www/YOUR-PROJECT-NAME/processContactForm.php* so that:
 
 * If validation passes it sends you an email with the contents of the form.

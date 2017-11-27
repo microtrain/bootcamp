@@ -1249,7 +1249,7 @@ nav ul li button {
 Now that you can add basic shapes to the canvas lets work on the colors.
 * Add color pickers that will allow the user to select the stroke and fill colors for various objects they are using.
   * Hint: HTML5 has a built in form element that spawns a color picker.
-* Can you figure out how to draw a triangle.
+* Can you figure out how to draw a triangle?
 
 ## Additional Resources
 * [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)

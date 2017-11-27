@@ -2,6 +2,8 @@
 
 Hypertext Markup Language (HTML) is a system of elements and attributes that defines the layout of a web page. This system uses markup tags to represent elements (````<p>This is a paragraph.</p>````) and attributes (````<p style="color: blue;">This is a paragraph with blue text.</p>````) to further describe these elements; to define the context of text and objects on a page.
 
+The offical HTML documentation is available from the [W3C](https://www.w3.org/TR/html/) this is the standards version of the documentation. The [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML) in my opinion is a better practical source of documentation.
+
 ## [HTML Comments](https://www.w3.org/TR/html5/syntax.html#comments)
 In programming, comments are strings of text that are not processed by a compiler or an interpretor. Comments are for human consumption and are used to help humans follow the flow of source code. Most languages will define their own special syntax for presenting a comment. In HTML, comments are wrapped in comment tags ````<!-- this is a comment -->````.
 
@@ -23,18 +25,18 @@ In programming, comments are strings of text that are not processed by a compile
 
 ### Exercise 1 - Hello World, Getting Started With HTML 5
 
-*The exercises in this section will focus on building an  us section for a personal web site.*
+*The exercises in this section will focus on building a website personal web site tailored to developing a personal brand, building a portfolio, etc.*
 
 1. [Create a repo on GitHub](https://help.github.com/articles/create-a-repo/) called .
 1.  Clone the repo into the top level of your Apache server */var/www*
   * From a command line
 ````
 cd /var/www/
-git clone https://github.com/YOUR-USERNAME/
+git clone https://github.com/YOUR-USERNAME/YOUR_PROJECT-NAME
 cd /var/www/
 ````
 1. From Atom's navigation pane add a file named _index.html_ to the  project.
-1. Open a browser and navigate to [http://localhost//index.html](http://localhost//index.html) (At this point you will see a blank page).
+1. Open a browser and navigate to [http://localhost/YOUR-PROJECT-NAME/index.html](http://localhost//index.html) (At this point you will see a blank page).
 1. Now open the file and paste the above mark markup into the file.
 1. Change the title element to ````<title>Hello World</title>````
 1. Add an ````h1```` element to the body of the page which also reads _Hello World_ ````<h1>Hello World</h1>````.  
@@ -181,7 +183,7 @@ Cascading Style Sheets (CSS) is a language for describing the style of an elemen
 
 ### Exercise 6 - Style an Element
 
-Change the */var/www//index.html* so that:
+Change the */var/www/YOUR-PROJECT-NAME/index.html* so that:
 * The font color of the top level header is orange.
 * The image is presented as a circle.
 
@@ -196,7 +198,7 @@ Another way to apply a CSS definition to an HTML element is by by defining selec
 
 ### Exercise 7 - Style an Element Using Classes
 
-Change the */var/www//index.html* so that:
+Change the */var/www/YOUR-PROJECT-NAME/index.html* so that:
 * The style tags are converted to CSS definitions in the head of the document.
 * The style attributes are replaced with calls to the classes.
 
@@ -225,7 +227,7 @@ In modern browsers, the title attribute provides a tooltip. Hovering your cursor
 
 ### Exercise 8 - Add a Tooltip
 
-Change the */var/www//index.html* so that:
+Change the */var/www/YOUR-PROJECT-NAME/index.html* so that:
 * Hover over the image element MUST show your name in a tooltip.
 
 Add the following attribute to the image element, where YOUR-NAME is _your name_:
@@ -244,7 +246,7 @@ Event Handler Attributes (UI Events) allow a user to interact with a web page. T
 
 ### Exercise 9 - A Little JavaScript
 
-Change the */var/www//index.html* so that:
+Change the */var/www/YOUR-PROJECT-NAME/index.html* so that:
 * Clicking a button on the page MUST change the color of the H1 tag to red.
 
 Give the h1 element an id of header.
@@ -260,7 +262,7 @@ Add a button to the bottom of the page that uses the onclick attribute to invoke
 
 ### Exercise 10 - Navigation
 
-Change */var/www//index.html* so that:
+Change */var/www/YOUR-PROJECT-NAME/index.html* so that:
 * All pages MUST link to each other
 
 Create a nav element and link all of the pages togeather. Place this at the top of _index.html_ and _index.html_.
@@ -272,5 +274,6 @@ Create a nav element and link all of the pages togeather. Place this at the top 
 [MDN - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 
 ## Additional Reading
+[Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
 [Choosing a Language Tag](https://www.w3.org/International/questions/qa-choosing-language-tags)
 [IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)

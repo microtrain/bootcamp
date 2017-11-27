@@ -91,7 +91,7 @@ git commit -m 'Added mailgun lib'
 git push origin feature/mailgun
 ````
 
-Create the file */var/www/about/test.php* and copy and paste the PHP sample code from the Mailgun landing page. Below the pasted code add the line ````var_dump($reults);````.
+Create the file */var/www/YOUR-PROJECT-NAME/test.php* and copy and paste the PHP sample code from the Mailgun landing page. Below the pasted code add the line ````var_dump($reults);````.
 
 ````
 <?php
@@ -113,7 +113,7 @@ $result = $mgClient->sendMessage("$domain",
 var_dump($reults);
 ````
 
-From a browser window, navigate to *http://localhost/about/test.php* and you should get a json string similar to:
+From a browser window, navigate to *http://localhost/YOUR-PROJECT-NAME/test.php* and you should get a json string similar to:
 ````
 object(stdClass)#24 (2) { ["http_response_body"]=> object(stdClass)#19 (2) { ["id"]=> string(91) "<20171009164718.79178.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org>" ["message"]=> string(18) "Queued. Thank you." } ["http_response_code"]=> int(200) }
 ````
@@ -127,8 +127,8 @@ _Never push a key to a public repository, use a key file the exists outside of t
 
 Create a key file
 ````
-mkdir -p /var/www/about/config
-vim /var/www/about/config/keys.php
+mkdir -p /var/www/YOUR-PROJECT-NAME/config
+vim /var/www/YOUR-PROJECT-NAME/config/keys.php
 ````
 
 Add the following line to your .gitignore file and commit your changes to the *feature/mailgun* branch.
@@ -143,9 +143,9 @@ Add the following (Where YOUR-KEY-HERE is the key provided by Mailgun):
 define('MG_KEY', 'dYOUR-KEY-HERE');
 define('MG_DOMAIN', 'YOUR-DOMAIN-HERE');
 ````
-Add the following to the top of *http://localhost/about/test.php*
+Add the following to the top of *http://localhost/YOUR-PROJECT-NAME/test.php*
 ````
-require '/var/www/about/config/keys.php';
+require '/var/www/YOUR-PROJECT-NAME/config/keys.php';
 ````
 
 Change
@@ -182,4 +182,4 @@ $result = $mgClient->sendMessage(
     )
 );
 ````
-From a browser window, navigate to *http://localhost/about/test.php* and check your email.
+From a browser window, navigate to *http://localhost/YOUR-PROJECT-NAME/test.php* and check your email.
