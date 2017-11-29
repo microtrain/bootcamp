@@ -110,6 +110,7 @@ for (var i=0; i<blues.length; i++) {
   blues[i].style = 'color: #0000FF;';
 }
 ````
-## Additional Reading   
-
-<sup>1</sup>[Collections](https://www.w3.org/TR/dom/#concept-collection)
+## Additional Resources  
+* <sup>1</sup>[Collections](https://www.w3.org/TR/dom/#concept-collection)
+### Udemy
+[Javascript Intermediate level 1 - Mastering the DOM](https://microtrain.udemy.com/javascript-intermediate-mastering-the-dom/)

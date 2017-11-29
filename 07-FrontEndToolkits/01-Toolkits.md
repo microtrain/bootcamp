@@ -4,6 +4,10 @@ Utilizing a toolkit can reduce the time it takes to get your product to market. 
 
 ## [HTML Boilerplate](https://html5boilerplate.com/)
 
+I would describe HTML5 Boilerplate as a collection of good practices, especially for those using Apache and it comes with a nice .htacces file that explains each setting in great detail.
+
 ## [Material Design Light](https://getmdl.io/)
+Material Design is Google's take on UI.
 
 ## [Bootstrap](http://getbootstrap.com/)
+A responsive, mobile first front end library.
