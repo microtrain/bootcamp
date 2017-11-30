@@ -20,7 +20,6 @@ Lets start by creating a basic minimal Bootstrap layout that loads the Bootstrap
   </head>
 
   <body>
-
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
@@ -42,4 +41,4 @@ Lets center the content by adding a container.
 
 ## LAB
 
-Add a _bootsrap_ branch to you personal website and rebuild using bootstrap. If you prefer Bootstrap to your native code then create a branch called _vanilla_ to backup that work. Push that branch to GitHub and merge Bootstrap into your master branch (should you so desire).
+Add a _bootstrap_ branch to you personal website and rebuild using bootstrap. If you prefer Bootstrap to your native code then create a branch called _vanilla_ to backup that work. Push that branch to GitHub and merge Bootstrap into your master branch (should you so desire).

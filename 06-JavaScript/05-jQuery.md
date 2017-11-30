@@ -35,12 +35,12 @@ $( "#colorChanger" ).on( "click", function( event ) {
 ## Exercise - NASA API
 
 * Get an [API KEY from NASA](https://api.nasa.gov/index.html#getting-started) by filling out the form and checking your email.
-* Create the path _/var/www/nasa_.
+* Create _nasa_ as a git hub project and clone it to _/var/www/_.
   * Create _nasa_ as a GitHub project.
 * Create the following directory structure
-  * _/var/www/nasa/index.html_
-  * _/var/www/nasa/src/css/main.css_
-  * _/var/www/nasa/src/js/main.js_
+  * _/var/www/nasa/jquery/index.html_
+  * _/var/www/nasa/jquery/src/css/main.css_
+  * _/var/www/nasa/jquery/src/js/main.js_
 
 Create a basic HTML structure and add it to _index.html_. For this example, lets use NPM and those types of tools???
 ````
@@ -49,31 +49,177 @@ Create a basic HTML structure and add it to _index.html_. For this example, lets
   <head>
     <meta charset="utf-8">
     <title>NASA - Planet of the Day</title>
-    <script src="/src/css/main.css"></script>
+    <link rel="stylesheet" href="src/css/main.css">
   </head>
   <body>
 
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
-    <script src="/src/js/main.js"></script>
+    <script src="src/js/main.js"></script>
   </body>
 </html>
 ````
 
+Let's create an object (and clodure) called apod (Astronomy Picture of the Day). We will make an AJAX call to the API which will return a JSON string, this is what we will use to build the program. We will test our API access by returning the result of the AJAX request to a console log. Press [F12] and find the console tab in your browsers developer tools.
+Add the following to _/var/www/nasa/jquery/src/js/main.js_.
 ````
-var url = "https://api.nasa.gov/planetary/apod?api_key=YOUR_API_KEY";
+var apod = {
+    // Application Constructor
+    init: function() {
 
-$.ajax({
-  url: url,
-  success: function(result){
-    console.log(result);
+        var url = "https://api.nasa.gov/planetary/apod?api_key=YOUR-KEY-HERE";
+
+        $.ajax({
+            url: url,
+            success: function(result){
+              console.log(result);
+            }
+        });
+    },
+};
+
+apod.init();
+````
+
+and add the follow to _main.css_.
+````
+body {
+  padding: 0;
+  margin: 0;
+}
+
+main {
+  width: 720px;
+  margin: 0 auto;
+}
+
+#apodImg {
+  max-width: 100%
+}
+
+div[id^=apod] {
+  padding: .6rem 0;
+  font-size: 20px;
+}
+````
+
+If eveything worked you will see results similar to the following.
+![results](/img/jquery/results.png)
+
+In looking at the JSON data you'll notice a date field. By default only pull today's picture, looking at the query parameters section in the [API documentation](https://api.nasa.gov/api.html#apod) I see I can pass a date in the form of _YYYY-MM-DDD_ as an additional GET parameter. To make things interesting lets add pass a random date every time we call the API.
+
+Add a random date function to the apod object. A good place to start would be [MDN's date documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). A qucik Google search will return [this gist](https://gist.github.com/miguelmota/5b67e03845d840c949c4) which provides us a good randomizer for an unformatted date in between a given start and date. This is important because the date cannot be greater than today or less that the first apod _June 16, 1995_.
+````
+//Create a random date
+randomDate: function(start, end) {
+  //Randomize the date https://gist.github.com/miguelmota/5b67e03845d840c949c4
+  let date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+
+  //Format the date
+  let d = date.getDate();
+  let m = date.getMonth() + 1; //In JS months start at 0
+  let y = date.getFullYear();
+
+  //Change the maonth and day strings so that they match the documented format.
+  if(m < 10){
+    m = '0'+m
   }
-});
+
+  if(d < 10){
+    m = '0'+d
+  }
+
+  return `${y}-${m}-${d}`;
+},
+````
+
+Update the init() method as follows.
+````
+let date = this.randomDate(new Date(1995, 5, 16), new Date());
+var url = "https://api.nasa.gov/planetary/apod?api_key=LcGRMR8ReXp7B91eLkhqcSag0JYHQKh2Y5MAAXHY&date=" + date;
+````
+
+Now when you refresh the page you will see different JSON strings.
+
+At this point your JS should resemble the following.
+````
+var apod = {
+    //Create a random date
+    randomDate: function(start, end) {
+      //Randomize the date https://gist.github.com/miguelmota/5b67e03845d840c949c4
+      let date = new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+
+      //Format the date
+      let d = date.getDate();
+      let m = date.getMonth() + 1; //In JS months start at 0
+      let y = date.getFullYear();
+
+      //Change the maonth and day strings so that they match the documented format.
+      if(m < 10){
+        m = '0'+m
+      }
+
+      if(d < 10){
+        m = '0'+d
+      }
+
+      return `${y}-${m}-${d}`;
+    },
+
+    // Application Constructor
+    init: function() {
+        let date = this.randomDate(new Date(1995, 5, 16), new Date());
+        var url = "https://api.nasa.gov/planetary/apod?api_key=LcGRMR8ReXp7B91eLkhqcSag0JYHQKh2Y5MAAXHY&date=" + date;
+
+        $.ajax({
+            url: url,
+            success: function(result){
+              $("#apodImg").attr("src", result.url);
+              $("#apodCopyright").text("Copyright: " + result.copyright);
+              $("#apodDate").text("Date: " + date);
+              $("#apodDesc").text(result.explanation);
+            }
+        });
+    },
+};
+````
+
+Now it's time to build the UI. We will start by deciding what we want to show on the page. For this exercise we will use the _result.url_ (to show the image), _result.copyright_ to give proper attribution, _result.date_, _apodTitle_ and _result.explanation_.
+
+Replace the success callback in your AJAX call with the following. This assumes the DOM has an element for each of the following ids.
+* [.attr()](http://api.jquery.com/attr/)
+* [.text()](http://api.jquery.com/text/)
+````
+success: function(result){
+  $("#apodTitle").text(result.title);
+  $("#apodImg").attr("src", result.url).attr('alt', result.title);
+  $("#apodCopyright").text("Copyright: " + result.copyright);
+  $("#apodDate").text("Date: " + date);
+  $("#apodDesc").text(result.explanation);
+}
+````
+
+Update _index.html_ with the following.
+````
+<h1 id="apodTitle"></h1>
+<img id="apodImg">
+<div id="apodCopyright"></div>
+<div id="apodDate"></div>
+<div id="apodDesc"></div>
+````
+
+Hard code the date _6/6/2013_ as follows and you will notice there is no image. That is because the picture of the day for this date is a video. In this situation we will want to tell our program how to render a video.
+````
+let date = new Date(2013,6,6);//new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 ````
 
 ## LAB - NASA API in Vanilla JS
+* Create the following directory structure
+  * _/var/www/nasa/vanilla/index.html_
+  * _/var/www/nasa/vanilla/src/css/main.css_
+  * _/var/www/nasa/vanilla/src/js/main.js_
 
 Using the jQuery based code from the previous example as a guide, create the same functionality using vanilla JS. This will give you experience in writing AJAX logic using both jQuery and Vanilla JS.
 
