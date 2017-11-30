@@ -29,6 +29,58 @@ $( "#colorChanger" ).on( "click", function( event ) {
 });
 ````
 
+````
+//Show an AJAX example
+````
+## Exercise - NASA API
+
+* Get an [API KEY from NASA](https://api.nasa.gov/index.html#getting-started) by filling out the form and checking your email.
+* Create the path _/var/www/nasa_.
+  * Create _nasa_ as a GitHub project.
+* Create the following directory structure
+  * _/var/www/nasa/index.html_
+  * _/var/www/nasa/src/css/main.css_
+  * _/var/www/nasa/src/js/main.js_
+
+Create a basic HTML structure and add it to _index.html_. For this example, lets use NPM and those types of tools???
+````
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>NASA - Planet of the Day</title>
+    <script src="/src/css/main.css"></script>
+  </head>
+  <body>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script src="/src/js/main.js"></script>
+  </body>
+</html>
+````
+
+````
+var url = "https://api.nasa.gov/planetary/apod?api_key=YOUR_API_KEY";
+
+$.ajax({
+  url: url,
+  success: function(result){
+    console.log(result);
+  }
+});
+````
+
+## LAB - NASA API in Vanilla JS
+
+Using the jQuery based code from the previous example as a guide, create the same functionality using vanilla JS. This will give you experience in writing AJAX logic using both jQuery and Vanilla JS.
+
+
+## Lab
+Recreate the draw program using jQuery
+
 ## Udemy Modules
 [Up and Running with jQuery](https://microtrain.udemy.com/up-and-running-with-jquery/learn/v4/overview)
 

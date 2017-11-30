@@ -1250,6 +1250,7 @@ Now that you can add basic shapes to the canvas lets work on the colors.
 * Add color pickers that will allow the user to select the stroke and fill colors for various objects they are using.
   * Hint: HTML5 has a built in form element that spawns a color picker.
 * Can you figure out how to draw a triangle?
+* A value of 0 should load the the _trackX_ and _trackY_ divs when at page render. 
 
 ## Additional Resources
 * [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
