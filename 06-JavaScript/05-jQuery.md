@@ -103,6 +103,23 @@ div[id^=apod] {
   padding: .6rem 0;
   font-size: 20px;
 }
+
+/* https://alistapart.com/article/creating-intrinsic-ratios-for-video */
+/* 9/16 = 56.2
+.video {
+	position: relative;
+	padding-bottom: 56.25%; /* Assumes a 16:9 ratio */
+	padding-top: 25px;
+	height: 0;
+}
+
+.video iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 ````
 
 If eveything worked you will see results similar to the following.
@@ -215,6 +232,26 @@ Hard code the date _6/6/2013_ as follows and you will notice there is no image. 
 let date = new Date(2013,6,6);//new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 ````
 
+If we refer to the JSON string produced by the API we see that there is a _media_type_ field. We can use this to tell our application how to handle the url.
+
+````
+//If the media type is video hide the image elements and display a video.
+if(result.media_type === 'video') {
+  $("#apodImage").hide();
+  $("#apodVideo > iframe").attr("src", result.url).show();
+}else{
+  $("#apodVideo").hide();
+  $("#apodImg").attr("src", result.url).attr('alt', result.title).show();
+}
+````
+
+Add the following markup either above or below _apodImg__. Refer to the CSS to see how the video class helps us properly size a video.
+````
+<div class="video" id="apodVideo">
+  <iframe frameborder="0" allowfullscreen></iframe>
+</div>
+````
+
 ## LAB - NASA API in Vanilla JS
 * Create the following directory structure
   * _/var/www/nasa/vanilla/index.html_
@@ -227,9 +264,9 @@ Using the jQuery based code from the previous example as a guide, create the sam
 ## Lab
 Recreate the draw program using jQuery
 
-## Udemy Modules
-[Up and Running with jQuery](https://microtrain.udemy.com/up-and-running-with-jquery/learn/v4/overview)
-
 ## Additional Resources
 * [jQuery](https://jquery.com/)
 * [jQuery vs document.querySelectorAll](https://stackoverflow.com/questions/11503534/jquery-vs-document-queryselectorall)
+* [Creating Intrinsic Ratios for Video](https://alistapart.com/article/creating-intrinsic-ratios-for-video)
+### Udemy
+[Up and Running with jQuery](https://microtrain.udemy.com/up-and-running-with-jquery/learn/v4/overview)
