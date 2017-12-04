@@ -47,7 +47,7 @@ This is a special type of index that allows various configurations string search
 
 #### Many-to-many
 
-## Additional Reading
+## Additional Resources
 * [PDO Library](http://php.net/manual/en/book.pdo.php)
 * [MySQL for NodeJS](https://www.npmjs.com/package/mysql)
 * [MySQL Client Programs](https://dev.mysql.com/doc/refman/5.7/en/programs-client.html)

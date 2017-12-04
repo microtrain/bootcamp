@@ -272,8 +272,6 @@ Create a nav element and link all of the pages togeather. Place this at the top 
 
 ## Additional Resources
 [MDN - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-
-## Additional Reading
 [Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
 [Choosing a Language Tag](https://www.w3.org/International/questions/qa-choosing-language-tags)
 [IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)

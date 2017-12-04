@@ -219,7 +219,7 @@ $message = 'Good ' . (date("H")<12?'Morning':(date("H")<17?'Afternoon':'Evening'
 echo $greeting->greet($message);
 ````
 
-## Additional Reading
+## Additional Resources
 * [Object Oriented PHP for Beginners](https://www.killerphp.com/tutorials/object-oriented-php/)
 * [PHP Shorthand If/Else Using Ternary Operators (?:)](https://davidwalsh.name/php-shorthand-if-else-ternary-operators)
 * [Dependency Injection in PHP](https://codeinphp.github.io/post/dependency-injection-in-php/)

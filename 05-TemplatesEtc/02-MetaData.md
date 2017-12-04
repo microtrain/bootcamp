@@ -126,7 +126,7 @@ Software: Software used for the development
 }
 ````
 
-## Additional Reading
+## Additional Resources
 * [What’s in the head? Metadata in HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)
 * [Steps to a Google-friendly site](https://support.google.com/webmasters/answer/40349?hl=en)
 * [The Beginner's Guide to SEO](https://moz.com/beginners-guide-to-seo)

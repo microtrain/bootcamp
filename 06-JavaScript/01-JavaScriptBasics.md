@@ -113,6 +113,6 @@ Inside the script tags, write some JavaScript that will read the content of _MyT
 ##### Notes
 The ````innerHTML```` property hold the content of a target element.
 
-## Additional Reading
+## Additional Resources
 * [Eloquent_JavaScript](http://eloquentjavascript.net/Eloquent_JavaScript.pdf)
 * [Douglas Crawford](http://javascript.crockford.com/)

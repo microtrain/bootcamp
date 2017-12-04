@@ -28,8 +28,6 @@ __Security Checkpoint__
 
 _I have seen a number of systems that ask for sensitive data such as social security or employer identification numbers simply because that is the only way they could think of not to risk duplicate data. Think twice before doing this, if your business does not absolutely require this sort of information do not even think about storing it. If it is required, please consult a security professional._
 
-
-
 ## Additional Resources
 * [NoSQL Not Only SQL](http://searchdatamanagement.techtarget.com/definition/NoSQL-Not-Only-SQL)
 * [Naming Conventions: Stack Overflow Discussion](https://stackoverflow.com/questions/7662/database-table-and-column-naming-conventions)

@@ -312,8 +312,7 @@ Update the shell script restart apache project so that if the user does not prov
 1. What does the _*_ in _/etc/apache2/sites-available/*.conf_ do?
 
 
-## Additional Reading
-
+## Additional Resources
 * [A Few Words on Shell Scripts](https://jasonsnider.com/posts/view/a-few-words-on-shell-scripts)
 * [Bash Guide for Beginners](http://www.tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf)
 * [Advanced Bash-Scripting Guide](http://www.tldp.org/LDP/abs/abs-guide.pdf)

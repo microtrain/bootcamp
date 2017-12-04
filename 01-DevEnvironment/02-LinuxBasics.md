@@ -81,7 +81,7 @@ $valid = preg_match('/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/', $string);
 
 * ````cat /etc/passwd|less```` - A nice hack to get a list of all users on a system.
 
-## Additional Reading
+## Additional Resources
 * [Ten Steps to Linux Survival](http://dullroar.com/book/TenStepsToLinuxSurvival.pdf)
 * [Linux Fundamentals](http://linux-training.be/files/books/LinuxFun.pdf)
 

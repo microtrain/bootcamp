@@ -14,5 +14,5 @@
 * Authentication + authorization.
 * Comprehensive but realistic security policies.
 
-## Additional Reading
+## Additional Resources
 * [15 Security Tips for LAMP Stack](https://tecadmin.net/security-tips-for-lamp-stack-on-linux/)

@@ -29,5 +29,5 @@ Add the following line. This will attempt a certificate renewal every day at 10p
 0 22 * * * certbot renew
 ````
 
-## Additional Reading
+## Additional Resources
 [Install Certbot on Ubuntu](https://certbot.eff.org/#ubuntutrusty-apache)

@@ -334,7 +334,7 @@ namespace About\Validation;
 
 
 
-## Additional Reading
+## Additional Resources
 * [Email RegEx Examples](http://emailregex.com/)
 * [RegEx 101](https://regex101.com/)
 * [HTML Purifier](http://htmlpurifier.org/)

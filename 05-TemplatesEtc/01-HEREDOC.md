@@ -179,6 +179,6 @@ require 'core/layout.php';
 Navigate to *https://localhost/about/contact.php* and submit the form. The functionality should not have changed in anyway but the code is now cleaner and easier to maintain this is know as a [refactoring](https://martinfowler.com/books/refactoring.html).
 
 
-## Additional Reading
+## Additional Resources
 * [Web template system](https://en.wikipedia.org/wiki/Web_template_system)
 * [Output Buffering Control](http://php.net/manual/en/book.outcontrol.php)

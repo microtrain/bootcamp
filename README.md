@@ -21,14 +21,11 @@ Lecture will cover the material presented in this repository. The root level of 
 ### Exercises
 Think of these as a guided lab in which the instructor walks the student solving common development problems relating to the topic at hand.
 
-### Additional Reading
-Each topic will provide an additional reading section. These sections are comprised of links to free ebooks and articles. These will not be covered in class, it is expected that the student will review these links outside of lecture.
-
 ## Labs
 The best way to learn is by solving real problems. Labs are designed to build upon the current topic and previous lessons. Students may split up into pairs or solve the problem independently. If a pairs approach is chosen each student is still expected to submit their own source code.
 
-## Additional Tutorials
-Like additional reading these are links to third party tutorials. These may be completed during normal lab time if time permits or independently. Either way the student is expected to review and complete these tutorials.
+## Additional Resources
+Each topic will provide an additional reading section. These sections are comprised of links to free ebooks and articles. These will not be covered in class, it is expected that the student will review these links outside of lecture. Like additional reading these are links to third party tutorials. These may be completed during normal lab time if time permits or independently. Either way the student is expected to review and complete these tutorials.
 
 ## Prereading
 [How To Become A Hacker](http://www.catb.org/esr/faqs/hacker-howto.html)

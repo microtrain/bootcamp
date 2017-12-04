@@ -101,7 +101,7 @@ sudo apt-get install meld
 
 Filezilla is my goto [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol) client. While FTP by itself is insecure and not recommended, running FTP over [SSH](https://en.wikipedia.org/wiki/Secure_Shell) is secure and Filezilla allows us to do just that. We work with FTP and SSH in later lessons.
 
-## Additional Reading
+## Additional Resources
 * [VIM Book](ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf)
 * [Chrome Dev Tools](https://developer.chrome.com/devtools)
 * [Atom Flight Manual](http://flight-manual.atom.io/)

@@ -262,7 +262,7 @@ Create the path */var/www/about/css/dist/main.css* and open that file in Atom. C
 (CSS Tricks)[https://css-tricks.com/]
 (MDN - CSS)[https://developer.mozilla.org/en-US/docs/Web/CSS]
 
-## Additional Reading
+## Additional Resources
 * [Why do navigation bars in HTML5 as lists?](https://stackoverflow.com/questions/36811224/why-do-navigation-bars-in-html5-as-lists)
 * [Nav Element](http://w3c.github.io/html/sections.html#the-nav-element)
 * [Bad Design vs. Good Design](https://www.interaction-design.org/literature/article/bad-design-vs-good-design-5-examples-we-can-learn-frombad-design-vs-good-design-5-examples-we-can-learn-from-130706)

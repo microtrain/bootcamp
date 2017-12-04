@@ -36,8 +36,7 @@ PHP provides access through the use of [superglobals](http://php.net/manual/en/l
 
 It would be common to refer to these practices as retrieving GET parameters (params) and retrieving POST data.
 
-## Additional Reading
-
+## Additional Resources
 * [The Difference Between URLs and URIs](https://danielmiessler.com/study/url-uri/#gs.IU_=BhI)
 * [Uniform Resource Identifier (URI)](https://tools.ietf.org/html/rfc3986)
 * [StackOverflow: Node.JS GET Params](https://stackoverflow.com/questions/6912584/how-to-get-get-query-string-variables-in-express-js-on-node-js)

@@ -120,7 +120,7 @@ var btn = document.getElementById("GrowBtn");
 btn.addEventListener("click", function(){new Grower()}, false);
 ````
 
-## Additional Reading
+## Additional Resources
 [Arrow Functions for Beginners](https://codeburst.io/javascript-arrow-functions-for-beginners-926947fc0cdc)
 [Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 [Mastering the Module Pattern](https://toddmotto.com/mastering-the-module-pattern/)
