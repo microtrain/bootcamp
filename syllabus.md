@@ -1,6 +1,25 @@
 # Tentative Syllabus
+The class is 40 hours a week for 10 weeks. It is comprised of working lectures with lots of exercises and labs. The goal of this class is to provide a working knowledge of web and mobile application development. This course is not a deep dive on any one topic, rather it is intended to provide a working foundation that will allow you to hit the ground running and give you a knowledge base upon which to build a career. In most cases you will get a light introduction to a topic; typically with in a specific context. We will build on these topics as we progress through the course.
 
-The class is 40 hours a week for 10 weeks. It is comprised of working lectures with lots of exercises and labs. The goal of this class is to provide a working knowledge of web and mobile application development. This course is intended to provide a working foundation that will allow you to hit the ground running and give you a knowledge base upon which to build a career. In most cases you will get a light introduction to a topic; typically with in a specific context. We will build on these topics as we progress through the course.
+Each section contains
+## Lectures
+An overview of the topic(s) at hand.
+
+## Exercises
+Guided application of the topic(s) at hand.
+
+## Labs
+The work you are expected to do on your own. Lectures and and exercises should take roughly 40% - 50% of the class time with the rest of the time being spent in labs. If you get ahead it is expected tha
+
+## Additional Resources
+This section provides links to additional reading, conversation, ebooks, videos online courses ect. While not required it is encouraged and expected that you will spend some time reviewing this material.
+
+### Udemy
+We use Udemy as supplemental material. While it is not required it is encouraged to at least review the courses provided in the Additional Resources section. You will have access to Udemy for one year from today so event after this course is finished you can continue to learn in a structured environment.
+
+### Khan Academy
+This provides free online learning for various topics. This is mostly included as a review of Algebra, Geometry, etc. We do not get to heavy with these topics but any one wanting a review can do so through the links provided.
+
 
 ## Week 1 Dev Environment, HTML, CSS (with Apache and PHP)
 
@@ -38,9 +57,9 @@ The class is 40 hours a week for 10 weeks. It is comprised of working lectures w
 * Introduction to Bootstrap
 
 **Output**
-* Typing test
 * Draw Program
-* Gaming Intro
+* NASA APIs
+* Typing test
 
 ## Week 3 MySQL and CakePHP
 * MySQL

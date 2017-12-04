@@ -72,10 +72,11 @@ var apod = {
         var url = "https://api.nasa.gov/planetary/apod?api_key=YOUR-KEY-HERE";
 
         $.ajax({
-            url: url,
-            success: function(result){
-              console.log(result);
-            }
+            url: url
+        }).done(function(result){
+          console.log(result);
+        }).fail(function(result){
+          console.log(result);
         });
     },
 };
@@ -191,13 +192,14 @@ var apod = {
         var url = "https://api.nasa.gov/planetary/apod?api_key=LcGRMR8ReXp7B91eLkhqcSag0JYHQKh2Y5MAAXHY&date=" + date;
 
         $.ajax({
-            url: url,
-            success: function(result){
-              $("#apodImg").attr("src", result.url);
-              $("#apodCopyright").text("Copyright: " + result.copyright);
-              $("#apodDate").text("Date: " + date);
-              $("#apodDesc").text(result.explanation);
-            }
+            url: url
+        }).done(function(result){
+          $("#apodImg").attr("src", result.url);
+          $("#apodCopyright").text("Copyright: " + result.copyright);
+          $("#apodDate").text("Date: " + date);
+          $("#apodDesc").text(result.explanation);
+        }).fail(function(data){
+          console.log(data);
         });
     },
 };
@@ -209,13 +211,13 @@ Replace the success callback in your AJAX call with the following. This assumes 
 * [.attr()](http://api.jquery.com/attr/)
 * [.text()](http://api.jquery.com/text/)
 ````
-success: function(result){
+.done(function(result){
   $("#apodTitle").text(result.title);
   $("#apodImg").attr("src", result.url).attr('alt', result.title);
   $("#apodCopyright").text("Copyright: " + result.copyright);
   $("#apodDate").text("Date: " + date);
   $("#apodDesc").text(result.explanation);
-}
+}).
 ````
 
 Update _index.html_ with the following.
@@ -252,7 +254,114 @@ Add the following markup either above or below _apodImg__. Refer to the CSS to s
 </div>
 ````
 
-## LAB - NASA API in Vanilla JS
+##  Single Responsibility Principle
+
+The Single Responsibility Principle is the notion that a class, module, method, etc should only be responsible for one thing. For instance a method called _writeName()_ might be expected to write a name to something. If the method were written as follows, it would be a good example of single responsibility.
+````
+writeName(name) {
+  $('#firstName').text(name);
+}
+````
+
+If however, I were to write the following
+````
+writeName(id) {
+  let db = new DB{'user': 'root', 'password':'1234', 'db':'crm'});
+  let results = db.sql('SELECT `name` FROM `contacts` WHERE contact.id=' + id);
+  $('#firstName').text(results.name);
+}
+````
+it would be a bad example of single responsibility in that the _writeName()_ method is now responsible for
+* Connecting to a database
+* Executing a query to to find the name of the desired user.
+* Then writing the users name to the DOM.
+And we have not even mentioned error handling yet.
+
+As you can see based on a few comments, trying to d o to much on a single method can get out of hand pretty quickly.
+````
+writeName(id) {
+  let db = new DB{'user': 'root', 'password':'1234', 'db':'crm'});
+  //If you cannot connect the the DB
+  //Create an error message
+  //Figure out the best way to present that error to the user
+  ////that would probably have something todo with calling a messaging object or else you'll have even more responsibility in this method
+  let results = db.sql('SELECT `name` FROM `contacts` WHERE contact.id=' + id);
+  //rinse and repeat
+  $('#firstName').text(results.name);
+}
+````
+
+In our current implementation we are asking a lot of out _init()_ method.
+
+* It makes an AJAX request
+* Processes the results
+* Deals with errors (kind of)
+* Rebuilds the DOM on success
+* It initializes the page onload
+* Rebuilds the page onclick
+
+My original intent for the _init()_ method was to build the page onload. It's sole responsibility then should be to call the methods required to make that happen.
+
+Straight away I see at least to new methods that get me object closer to SRP.
+* _buildDOM()_
+* _getRequest()_
+
+````
+//Injects the results of the API call into the DOM
+buildDOM: function(result) {
+  $("#apodTitle").text(result.title);
+
+  if(result.media_type === 'video') {
+    $("#apodImage").hide();
+    $("#apodVideo > iframe").attr("src", result.url).show();
+  }else{
+    $("#apodVideo").hide();
+    $("#apodImg").attr("src", result.url).attr('alt', result.title).show();
+  }
+
+  $("#apodCopyright").text("Copyright: " + result.copyright);
+  $("#apodDate").text("Date: " + result.date);
+  $("#apodDesc").text(result.explanation);
+},
+
+//Executes an AJAX call to an API.
+getRequest: function() {
+  let _this = this;
+  let date = this.randomDate(new Date(1995, 5, 16), new Date());
+  let url = "https://api.nasa.gov/planetary/apod?api_key=LcGRMR8ReXp7B91eLkhqcSag0JYHQKh2Y5MAAXHY&date=" + date;
+  $.ajax({
+      url: url
+  }).done(function(result){
+      _this.buildDOM(result);
+  }).fail(function(result){
+    console.log(result);
+  });
+},
+
+// Initialization method.
+init: function() {
+  this.getRequest();
+},
+````
+
+This may cause my execution to change as follows. You could also call _apod.gerRequest()_ onload or call _apod.init()_ on click. This is a simple example so the _init()_ method may make a little less sense, in a more complex example the page load would likely have different responsibilities than the click event. In this case one might argue that calling a set of responsibilities in an _init()_ method violates SRP and that these methods should be called individually in a script and I could not argue. At some point you have to make a decision and go with it.
+
+````
+apod.init();
+
+/* https://learn.jquery.com/using-jquery-core/document-ready/ */
+$(function() {
+    $('#btnRandApod').on('click',function(){
+      apod.getRequest();
+    });
+});
+````
+
+## Lab 1 - SRP
+Our code now has a pretty good break down, but I see a couple of more things that could be generalized. Review the code and see if you can break some methods down a little further.
+
+## LAB 2 - Convert to Vanilla JS
+NASA API in Vanilla JS
 * Create the following directory structure
   * _/var/www/nasa/vanilla/index.html_
   * _/var/www/nasa/vanilla/src/css/main.css_
@@ -260,13 +369,16 @@ Add the following markup either above or below _apodImg__. Refer to the CSS to s
 
 Using the jQuery based code from the previous example as a guide, create the same functionality using vanilla JS. This will give you experience in writing AJAX logic using both jQuery and Vanilla JS.
 
-
-## Lab
+## Lab 3 - Port to jQuery
 Recreate the draw program using jQuery
+
+## Lab 4 - Learn Vue.js on your own.
+[vue.js](https://vuejs.org/v2/guide/) is a popular front end MVC framework in the same class as react or angular. See if you port the NASA API into vue.js with nothing more than the knowledge acquired thus far and Google. If you don't get through it you can come back to it later. I do recommend trying to get through this at some point as learning new technologies on your own is a major part of this industry.
 
 ## Additional Resources
 * [jQuery](https://jquery.com/)
 * [jQuery vs document.querySelectorAll](https://stackoverflow.com/questions/11503534/jquery-vs-document-queryselectorall)
 * [Creating Intrinsic Ratios for Video](https://alistapart.com/article/creating-intrinsic-ratios-for-video)
+* [JavaScript Object Basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
 ### Udemy
 [Up and Running with jQuery](https://microtrain.udemy.com/up-and-running-with-jquery/learn/v4/overview)

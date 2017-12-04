@@ -2,6 +2,100 @@
 
 An Application Programming Interface (API) is a means of providing programming hooks into a larger system. For example ````document.getElementById('el').style```` is a programming hook that allows a JavaScript programmer to work with the browser. Some APIs are open to the public and others are closed and accessible only by those who have been granted special access. Some APIs are accessible over Internet protocols.
 
+## JSON
+
+Before we dive into the Mailgun API we should take a moment to talk about JavaScript Object Notation (JSON). This is the notation used by JavaScript for creating objects it is a string of key pairs (similar to an array) and in recent years has become the defacto standard for interacting with API. Since we are using PHP to interact with JSON we will use [````json_decode()````](http://php.net/manual/en/function.json-decode.php) and [````json_encode()````](http://php.net/manual/en/function.json-encode.php) to convert a JSON string into an array and vice versa.
+
+
+Curly braces _{}_ encapsulates a JSON string (creates an object in JS)
+
+Colons _:_ separate key to value pairs, fields are comma separated (aka CSV or comma separated values).
+````
+{
+  '_id':1234,
+  'firstname':'Sally',
+  'lastname':'Smith'
+}
+````
+
+A company with multiple addresses (in this case an array of addresses)
+````
+{
+  '_id'':1,
+  'company':'MicroTrain Technologies',
+  'addresses':[
+    {
+      'street':'200 W Adams Suite 410',
+      'city':'Chicago',
+      'state':'IL',
+      'zip':60606
+    },
+    {
+      'street':'720 E Butterfield Rd Suite 100',
+      'city':'Lombard',
+      'state':'IL',
+      'zip':60148
+    },
+  ]
+}
+````
+
+One JSON string with multiple company objects
+````
+{
+  {
+    '_id'':1,
+    'company':'42 North Group, Inc,
+    'addresses':[
+      {
+        'street':'720 E Butterfield Rd Suite 100',
+        'city':'Lombard',
+        'state':'IL',
+        'zip':60148
+      },
+    ]
+  },
+  {
+    '_id'':2,
+    'company':'TheProfessional.Me',
+    'addresses':[
+      {
+        'street':'200 W Adams Suite 410',
+        'city':'Chicago',
+        'state':'IL',
+        'zip':60606
+      },
+      {
+        'street':'720 E Butterfield Rd Suite 100',
+        'city':'Lombard',
+        'state':'IL',
+        'zip':60148
+      },
+    ]
+  }
+}
+````
+
+In any case PHP will convert this to an array and you would parse out the array to find your desired value. So the first example would appear as.
+````
+array(
+  '_id' => 1234,
+  'firstname' => 'Sally',
+  'lastname' => 'Smith'
+)
+````
+
+Let's this was returned via a fictitious _User->get(1234)_ method (in which User is a class and get() is a member (property/method) of that class) you might access _firstname_ as follows.
+````
+$users = new User();
+$user = $users->get(1234);
+
+//Writes Sally to the screen
+echo $user['firstname'];
+````
+
+The Mailgun SDK abstracts most of the JSON interaction away from us, so we are left working mostly with PHP objects. JSON will come up again so this seems a good time introduce it.
+
 ## Mailgun API
 
 ### Exercise 1 - Getting Started with Mailgun.
@@ -183,3 +277,9 @@ $result = $mgClient->sendMessage(
 );
 ````
 From a browser window, navigate to *http://localhost/YOUR-PROJECT-NAME/test.php* and check your email.
+
+## Additions Resources
+* [JSON](http://www.json.org/)
+* [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
+### Udemy
+* [JSON and APIs](https://microtrain.udemy.com/json-course/)

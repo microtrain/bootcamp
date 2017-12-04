@@ -1,9 +1,7 @@
 # SQL
-
-Structure Query Language (SQL) is language designed specifically for working with databases. SQL is an open standard maintained by the American National Standards Institute (ANSI). Despite being an actively maintained open standard you'll most likely alot of time working with vendor specific variants. These differences are typically subtle and quick Google search will typically get you around them. For instance if you're used to working with Oracle's ````TO_DATE()```` and now you're working with MySQL; ````TO_DATE()```` will not work. Google somthing like _TO_DATE in mysql_ and one of the first results will liekly point to MySQL's ````STR_TO_DATE()```` method. Point being, learning any vendor variant of SQL will be enough to allow you to work with just about any vendor variant. The same Google tricks can even be used for NoSQL databases which we will learn about later.
+Structure Query Language (SQL) is language designed specifically for working with databases. SQL is an open standard maintained by the American National Standards Institute (ANSI). Despite being an actively maintained open standard you'll most likely alot of time working with vendor specific variants. These differences are typically subtle and quick Google search will typically get you around them. For instance if you're used to working with Oracle's ````TO_DATE()```` and now you're working with MySQL; ````TO_DATE()```` will not work. Google somthing like _TO_DATE in mysql_ and one of the first results will liekly point to MySQL's ````STR_TO_DATE()```` method. Point being, learning any vendor variant of SQL will be enough to allow you to work with just about any vendor variant. The same Google tricks can even be used for NoSQL databases which we will learn about later. Knowledge of SQL is desired in many industries outside of tech as it is considered to be the _English_ of the data world. Understanding SQL helps you understand other data paradigms such as _noSQL_.
 
 ## Database
-
 Not to be confused with a Database Management System (DBMS) is a container. This may be a file or a set files, it really doesn't matter as you will likely never see the data. You will be working exclusively with the DBMS. The DBMS is the software that works with the database. For example products such as Oracle, MySQL, SQL Server and even MongoDB are all database management systems. The first three are also known as a Relation Database management System (RDBMS) while the latter is a NoSQL DBMS.
 
 ## Schema
@@ -32,8 +30,10 @@ _I have seen a number of systems that ask for sensitive data such as social secu
 
 
 
-## Additional Reading
+## Additional Resources
 * [NoSQL Not Only SQL](http://searchdatamanagement.techtarget.com/definition/NoSQL-Not-Only-SQL)
 * [Naming Conventions: Stack Overflow Discussion](https://stackoverflow.com/questions/7662/database-table-and-column-naming-conventions)
+###
+https://microtrain.udemy.com/sql-for-beginners-course/
 
 [Next: MySQL](02-MySQL.md)
