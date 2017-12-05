@@ -1,8 +1,9 @@
 # Tentative Syllabus
-The class is 40 hours a week for 10 weeks. It is comprised of working lectures with lots of exercises and labs. The goal of this class is to provide a working knowledge of web and mobile application development. This course is not a deep dive on any one topic, rather it is intended to provide a working foundation that will allow you to hit the ground running and give you a knowledge base upon which to build a career. In most cases you will get a light introduction to a topic; typically with in a specific context. We will build on these topics as we progress through the course.
+The class is 40 hours a week for 10 weeks. It is comprised of a series of units working lectures with lots of exercises, labs and additional resources. The goal of this class is to provide a working knowledge of web and mobile application development. This course is not a deep dive on any one topic, rather it is intended to provide a working foundation that will allow you to hit the ground running and give you a knowledge base upon which to build a career. In most cases you will get a light introduction to a topic; typically with in a specific context. We will build on these topics as we progress through the course. The syllabus is tentative and may be adjusted to the pace of the class as a whole. The last two weeks of class are open and is currently slated for a or multiple projects.
 
-Each section contains
-## Lectures
+Each unit contains
+
+## A Lecture
 An overview of the topic(s) at hand.
 
 ## Exercises
@@ -40,15 +41,15 @@ This provides free online learning for various topics. This is mostly included a
 * JavaScript
 * Type Script
 
-**Output/Projects**
+**Output**
 * Build a Linux machine with a fully functional LAMP stack. You'll use this machine for the remainder of the course.
 * Become familiar with a web server
-* A light into the languages you will use for the remainder of the course.
+* A light intro to some of the languages and technologies you will use for the remainder of the course.
 * Understand how URLs and DNS work.
 * Build an HTML web site with a home page, resume and a contact form.
 * Process the contact form and work with back end APIs.
 
-## Week 2 JavaScript and jQuery, AJAX (with Apache and PHP and bootstrap?)
+## Week 2 JavaScript, jQuery, AJAX and Bootstrap
 * Programming Basics with JavaScript
 * Walking the DOM
 * Canvas
@@ -59,7 +60,7 @@ This provides free online learning for various topics. This is mostly included a
 **Output**
 * Draw Program
 * NASA APIs
-* Typing test
+* Typing Test
 
 ## Week 3 MySQL and CakePHP
 * MySQL

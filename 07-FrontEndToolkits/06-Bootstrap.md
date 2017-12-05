@@ -2,13 +2,7 @@
 
 Bootstrap is a front end component library designed to allow for rapid front end development of responsive websites.
 
-## Additional Resources
-[Bootstrap](https://getbootstrap.com/)
-### Udemy
-[Learn Bootstrap 4 by Example](https://microtrain.udemy.com/learn-bootstrap-4-by-example)
-
 Lets start by creating a basic minimal Bootstrap layout that loads the Bootstrap assets from a CDN. Create the path and add the following _/var/www/bootstrap/index.html_.
-
 ````
 <DOCTYPE html>
 <html lang="en">
@@ -39,6 +33,32 @@ Lets center the content by adding a container.
 </div>
 ````
 
-## LAB
+Grid layout
 
-Add a _bootstrap_ branch to you personal website and rebuild using bootstrap. If you prefer Bootstrap to your native code then create a branch called _vanilla_ to backup that work. Push that branch to GitHub and merge Bootstrap into your master branch (should you so desire).
+Add the following to the _.container_ div below the paragraph. View this in both full screen and in phone mode to see how various view ports change the display.
+````
+<div class="row">
+  <div class="col-md-4">Left Column</div>
+  <div class="col-md-4">Center Column</div>
+  <div class="col-md-4">Right Column</div>
+</div>
+````
+
+Add a navigation bar with a logo (just your name is fine).
+
+Add navigation links.
+
+Add a fly out menu to a navigation link.
+
+## LAB - Personal Website
+
+Add a _bootstrap_ directory to your personal website and redesign the UI using bootstrap.
+
+## LAB - Learn a front end library
+
+Using the documentation [Material Design Light](https://getmdl.io/) (and Google) add an _mdl_ directory to your personal website and build an MDL version of your personal web site.
+
+## Additional Resources
+[Bootstrap](https://getbootstrap.com/)
+### Udemy
+[Learn Bootstrap 4 by Example](https://microtrain.udemy.com/learn-bootstrap-4-by-example)
