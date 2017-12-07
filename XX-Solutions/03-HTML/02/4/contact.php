@@ -1,6 +1,6 @@
 <?php
 // Include non-vendor files
-require 'core/About/src/Validation/Validate.php';
+require '../core/About/src/Validation/Validate.php';
 
 //Declare Namespaces
 use About\Validation;
@@ -57,8 +57,7 @@ if(empty($valid->errors) && !empty($input)){
   </head>
   <body>
     <nav>
-      <a href="index.html">Home</a> |
-      <a href="about.html">About</a> |
+      <a href="/">index</a> |
       <a href="contact.php">Contact</a>
     </nav>
     <h1>Contact YOUR-NAME</h1>
@@ -96,7 +95,7 @@ if(empty($valid->errors) && !empty($input)){
       </div>
 
       <div>
-        <label for="message" id="message">Message/label><br>
+        <label for="message" id="message">Message</label><br>
         <textarea name="message"></textarea>
         <div style="color: #ff0000;"><?php echo $valid->error('message'); ?></div>
       </div>

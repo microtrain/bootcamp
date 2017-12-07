@@ -1,5 +1,7 @@
 # HTML5
 
+This unit will focus on building a personal website aimed at personal branding.
+
 Hypertext Markup Language (HTML) is a system of elements and attributes that defines the layout of a web page. This system uses markup tags to represent elements (````<p>This is a paragraph.</p>````) and attributes (````<p style="color: blue;">This is a paragraph with blue text.</p>````) to further describe these elements; to define the context of text and objects on a page.
 
 The offical HTML documentation is available from the [W3C](https://www.w3.org/TR/html/) this is the standards version of the documentation. The [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML) in my opinion is a better practical source of documentation.
@@ -36,7 +38,7 @@ git clone https://github.com/YOUR-USERNAME/example.com/
 cd /var/www/
 ````
 1. From Atom's navigation pane add the path named _public/index.html_ to the  project.
-1. Open a browser and navigate to [http://localhost/example.com/public/index.html](http://localhost/example.com/public/public/index.html) (At this point you will see a blank page).
+1. Open a browser and navigate to [http://localhost/example.com/public/index.html](http://localhost/example.com/public/index.html) (At this point you will see a blank page).
 1. Now open the file and paste the above mark markup into the file.
 1. Change the title element to ````<title>Hello World</title>````
 1. Add an ````h1```` element to the body of the page which also reads _Hello World_ ````<h1>Hello World</h1>````.  
@@ -64,7 +66,50 @@ For a simple site like this you can usally get away with the above URL, for a mo
 
 ````
 cd /etc/apache2/sites-available
+sudo vim example.com.conf
 ````
+
+Add the following
+````
+<VirtualHost 127.0.0.30:80>
+
+        ServerName loc.example.com
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/example.com/public
+
+        # Allow an .htaccess file to ser site directives.
+        <Directory /var/www/example.com/public/>
+                AllowOverride All
+        </Directory>
+
+        # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+        # error, crit, alert, emerg.
+        # It is also possible to configure the loglevel for particular
+        # modules, e.g.
+        #LogLevel info ssl:warn
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+````
+Open your local hosts files
+````
+sudo vim /etc/hosts
+````
+
+Add the following line
+````
+127.0.0.30      loc.example.com
+````
+
+Load the configuration and restart the server
+````
+sudo a2ensite example.com && sudo service apache2 restart
+````
+
+Navigate to you new local new domain
 * [http://loc.example.com](http://loc.example.com)
 
 
@@ -183,7 +228,7 @@ You would mark this up as:
 
 ### Exercise 5 - Add an Image
 
-Create the path */var/www/example.com/ndex.html*.
+Create the path */var/www/example.com/public/index.html*.
 
 * Markup a valid HTML 5 template.
 * The title tag should read *Hello, I am YOUR-NAME*
@@ -281,9 +326,11 @@ Add a button to the bottom of the page that uses the onclick attribute to invoke
 Change */var/www/example.com/public/index.html* so that:
 * All pages MUST link to each other
 
+Create the path */var/www/example.com/public/contact.php*
+
 Create a nav element and link all of the pages togeather. Place this at the top of _public/index.html_ and _public/index.html_.
 ````
-<nav><a href="public/index.html">Home</a> | <a href="contact.php">Contact</a></nav>
+<nav><a href="/">Home</a> | <a href="contact.php">Contact</a></nav>
 ````
 
 ## Additional Resources

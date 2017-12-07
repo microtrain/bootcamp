@@ -217,7 +217,7 @@ class Validate{
     }
 }
 
-
+$valid = new Validate();
 ?>
 
 <!DOCTYPE html>
@@ -228,7 +228,7 @@ class Validate{
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-
+    <nav><a href="/">Home</a> | <a href="contact.php">Contact</a></nav>
     <?php if(empty($valid->errors) && !empty($input)): ?>
       <div>Success!</div>
     <?php else: ?>
@@ -262,7 +262,7 @@ class Validate{
       </div>
 
       <div>
-        <label for="message" id="message">Message/label><br>
+        <label for="message" id="message">Message</label><br>
         <textarea name="message"></textarea>
         <div style="color: #ff0000;"><?php echo $valid->error('message'); ?></div>
       </div>
@@ -323,18 +323,153 @@ $v2->Validate->phone($phone);
 ````
 
 ## Exercise 4
-Create the path */var/www/example.com/core/YOUR-PROJECT-NAME/src/Validation/Validate.php* and copy the Validates class into the file. Add a name space declaration as the first line of the file.
+Create the path */var/www/example.com/core/About/src/Validation/Validate.php* and copy the Validates class into the file. Add a name space declaration as the first line of the file.
 
+*/var/www/example.com/core/About/src/Validation/Validate.php*
 ````
 <?php
 
 namespace About\Validation;
 
+class Validate{
+
+    public $validation = [];
+
+    public $errors = [];
+
+    private $data = [];
+
+    public function notEmpty($value){
+
+        if(!empty($value)){
+            return true;
+        }
+
+        return false;
+
+    }
+
+    public function email($value){
+
+        if(filter_var($value, FILTER_VALIDATE_EMAIL)){
+            return true;
+        }
+
+        return false;
+
+    }
+
+    public function check($data){
+
+        $this->data = $data;
+
+        foreach(array_keys($this->validation) as $fieldName){
+
+            $this->rules($fieldName);
+        }
+
+    }
+
+    public function rules($field){
+        foreach($this->validation[$field] as $rule){
+            if($this->{$rule['rule']}($this->data[$field]) === false){
+                $this->errors[$field] = $rule;
+            }
+        }
+
+        //Make sure the array is empty if no errosrs are detected.
+        if(count($this->errors) == 0){
+            $this->errors = [];
+        }
+    }
+
+    /**
+     * Detects and returns an error message for a given field
+     * @param  string $field
+     * @return mixed
+     */
+    public function error($field){
+        if(!empty($this->errors[$field])){
+            return $this->errors[$field]['message'];
+        }
+
+        return false;
+    }
+
+    /**
+     * Returns the user submitted value for a give key
+     * @param  string $key
+     * @return string
+     */
+    public function userInput($key){
+        return (!empty($this->data[$key])?$this->data[$key]:null);
+    }
+}
+````
+
+Since we have pulled the validation logic into a library all we need to do in the contact form is call the class and process it.
+*/var/www/example.com/public/contact.php*
+````
+<?php
+// Include non-vendor files
+require '../core/About/src/Validation/Validate.php';
+
+//Declare Namespaces
+use About\Validation;
+
+//Validate Declarations
+$valid = new About\Validation\Validate();
+$input = filter_input_array(INPUT_POST);
+if(!empty($input)){
+
+    $valid->validation = [
+        'first_name'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please enter your first name'
+        ]],
+        'last_name'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please enter your last name'
+        ]],
+        'email'=>[[
+                'rule'=>'email',
+                'message'=>'Please enter a valid email'
+            ],[
+                'rule'=>'notEmpty',
+                'message'=>'Please enter an email'
+        ]],
+        'subject'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please enter a subject'
+        ]],
+        'message'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please add a message'
+        ]],
+    ];
+
+
+    $valid->check($input);
+}
+
+if(empty($valid->errors) && !empty($input)){
+    $message = "<div>Success!</div>";
+}else{
+    $message = "<div>Error!</div>";
+}
+
+?>
+
+<!DOCTYPE html>
+...
+
 ````
 
 
-
 ## Additional Resources
+* [PSR-0: Autoloading Standard](http://www.php-fig.org/psr/psr-0/)
+* [PHP filter_input_array()](http://php.net/manual/en/function.filter-var.php)
+* [PHP filter_var()](http://php.net/manual/en/function.filter-input-array.php)
 * [Email RegEx Examples](http://emailregex.com/)
 * [RegEx 101](https://regex101.com/)
 * [HTML Purifier](http://htmlpurifier.org/)
