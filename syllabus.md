@@ -30,16 +30,17 @@ This provides free online learning for various topics. This is mostly included a
 * Install dev tools
 * Install the LAMP stack
 * Configure the Apache Web Server
+* NPM
+* Git
 
 ### Programming Basics
-* Shell Scripting Basics
-* PHP Basics
-* HTML Basics
-* CSS Basics
-* npm intro
-* less and sass
-* JavaScript
-* Type Script
+* Bash (Shell Scripting)
+* PHP
+* The Anatomy of a URL
+* HTML
+* CSS/Preprocessors
+  * Less
+  * SASS
 
 **Output**
 * Build a Linux machine with a fully functional LAMP stack. You'll use this machine for the remainder of the course.

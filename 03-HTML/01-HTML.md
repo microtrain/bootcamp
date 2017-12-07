@@ -27,23 +27,23 @@ In programming, comments are strings of text that are not processed by a compile
 
 *The exercises in this section will focus on building a website personal web site tailored to developing a personal brand, building a portfolio, etc.*
 
-1. [Create a repo on GitHub](https://help.github.com/articles/create-a-repo/) called .
+1. [Create a repo on GitHub](https://help.github.com/articles/create-a-repo/) called _example.com_.
 1.  Clone the repo into the top level of your Apache server */var/www*
   * From a command line
 ````
 cd /var/www/
-git clone https://github.com/YOUR-USERNAME/YOUR_PROJECT-NAME
+git clone https://github.com/YOUR-USERNAME/example.com/
 cd /var/www/
 ````
-1. From Atom's navigation pane add a file named _index.html_ to the  project.
-1. Open a browser and navigate to [http://localhost/YOUR-PROJECT-NAME/index.html](http://localhost//index.html) (At this point you will see a blank page).
+1. From Atom's navigation pane add the path named _public/index.html_ to the  project.
+1. Open a browser and navigate to [http://localhost/example.com/public/index.html](http://localhost/example.com/public/public/index.html) (At this point you will see a blank page).
 1. Now open the file and paste the above mark markup into the file.
 1. Change the title element to ````<title>Hello World</title>````
 1. Add an ````h1```` element to the body of the page which also reads _Hello World_ ````<h1>Hello World</h1>````.  
 1. Now refresh your browser and you will see the text _Hello World_.
 1. Add a paragraph tag below the top level header that reads ````<p>Welcome to my web site.</p>````
 1. Commit your changes and push to master.
-Stage new files to be committed, in this case index.html.
+Stage new files to be committed, in this case _public/public/index.html_.
 ````
 git add .
 ````
@@ -51,10 +51,22 @@ Commit all files, you'll be asked for a commit message say something like *Initi
 ````
 git commit -a
 ````
-Then push your changes to master.
+
+Add a comment like _Added the initial home page._ then [esc] _:x_ [enter] to save. Then push your changes to master.
 ````
 git push origin master
 ````
+
+Now you can access your page through the following URL.
+* [http://localhost/example.com/public/index.html](http://localhost/example.com/public/index.html)
+
+For a simple site like this you can usally get away with the above URL, for a more complicated site however it's better to work through a domain name. I like to localize my domain names so that I can still get to the production site. I do this with the _loc_ prefix so that _example.com_ becomes _loc.example.com_.
+
+````
+cd /etc/apache2/sites-available
+````
+* [http://loc.example.com](http://loc.example.com)
+
 
 ### Exersice 2 - HTML Validation
 Sometimes our pages do not display as we expect, this is often due to invalid HTML. You can check the validity of your HTML using the W3C Markup Validation Service.
@@ -75,8 +87,12 @@ Best practices are things that ought to be done given there is not a good reason
 ### Exercise 3 - Meta Data Best Practices
 Update ex1.html so that
 * The language is declared as _English_.
+  * Commit with the  message _Set the default langauge to English_
 * The charset is declared as _UTF-8_.
+  * Commit with the  message _Set the default encoding to utf-8_
 * The view port is declared as _content="width=device-width, initial-scale=1.0_.
+  * Commit with the  message _Added a responsive viewport_
+* Push all changes to master
 
 ## [HTML Elements](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html)
 
@@ -167,7 +183,7 @@ You would mark this up as:
 
 ### Exercise 5 - Add an Image
 
-Create the path */var/www/index.html*.
+Create the path */var/www/example.com/ndex.html*.
 
 * Markup a valid HTML 5 template.
 * The title tag should read *Hello, I am YOUR-NAME*
@@ -183,7 +199,7 @@ Cascading Style Sheets (CSS) is a language for describing the style of an elemen
 
 ### Exercise 6 - Style an Element
 
-Change the */var/www/YOUR-PROJECT-NAME/index.html* so that:
+Change the */var/www/example.com/public/index.html* so that:
 * The font color of the top level header is orange.
 * The image is presented as a circle.
 
@@ -198,7 +214,7 @@ Another way to apply a CSS definition to an HTML element is by by defining selec
 
 ### Exercise 7 - Style an Element Using Classes
 
-Change the */var/www/YOUR-PROJECT-NAME/index.html* so that:
+Change the */var/www/example.com/public/index.html* so that:
 * The style tags are converted to CSS definitions in the head of the document.
 * The style attributes are replaced with calls to the classes.
 
@@ -227,7 +243,7 @@ In modern browsers, the title attribute provides a tooltip. Hovering your cursor
 
 ### Exercise 8 - Add a Tooltip
 
-Change the */var/www/YOUR-PROJECT-NAME/index.html* so that:
+Change the */var/www/example.com/public/index.html* so that:
 * Hover over the image element MUST show your name in a tooltip.
 
 Add the following attribute to the image element, where YOUR-NAME is _your name_:
@@ -246,7 +262,7 @@ Event Handler Attributes (UI Events) allow a user to interact with a web page. T
 
 ### Exercise 9 - A Little JavaScript
 
-Change the */var/www/YOUR-PROJECT-NAME/index.html* so that:
+Change the */var/www/example.com/public/index.html* so that:
 * Clicking a button on the page MUST change the color of the H1 tag to red.
 
 Give the h1 element an id of header.
@@ -262,12 +278,12 @@ Add a button to the bottom of the page that uses the onclick attribute to invoke
 
 ### Exercise 10 - Navigation
 
-Change */var/www/YOUR-PROJECT-NAME/index.html* so that:
+Change */var/www/example.com/public/index.html* so that:
 * All pages MUST link to each other
 
-Create a nav element and link all of the pages togeather. Place this at the top of _index.html_ and _index.html_.
+Create a nav element and link all of the pages togeather. Place this at the top of _public/index.html_ and _public/index.html_.
 ````
-<nav><a href="index.html">Home</a> | <a href="contact.php">Contact</a></nav>
+<nav><a href="public/index.html">Home</a> | <a href="contact.php">Contact</a></nav>
 ````
 
 ## Additional Resources
@@ -275,3 +291,6 @@ Create a nav element and link all of the pages togeather. Place this at the top 
 [Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
 [Choosing a Language Tag](https://www.w3.org/International/questions/qa-choosing-language-tags)
 [IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
+[Why Character Entities](https://stackoverflow.com/questions/1016080/why-are-html-character-entities-necessary)
+[XML and HTML Entieis](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references])
+[The W3C Reference](https://dev.w3.org/html5/html-author/charref])

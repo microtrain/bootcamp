@@ -185,7 +185,7 @@ git commit -m 'Added mailgun lib'
 git push origin feature/mailgun
 ````
 
-Create the file */var/www/YOUR-PROJECT-NAME/test.php* and copy and paste the PHP sample code from the Mailgun landing page. Below the pasted code add the line ````var_dump($reults);````.
+Create the file */var/www/example.com/test.php* and copy and paste the PHP sample code from the Mailgun landing page. Below the pasted code add the line ````var_dump($reults);````.
 
 ````
 <?php
@@ -221,8 +221,8 @@ _Never push a key to a public repository, use a key file the exists outside of t
 
 Create a key file
 ````
-mkdir -p /var/www/YOUR-PROJECT-NAME/config
-vim /var/www/YOUR-PROJECT-NAME/config/keys.php
+mkdir -p /var/www/example.com/config
+vim /var/www/example.com/config/keys.php
 ````
 
 Add the following line to your .gitignore file and commit your changes to the *feature/mailgun* branch.
@@ -239,7 +239,7 @@ define('MG_DOMAIN', 'YOUR-DOMAIN-HERE');
 ````
 Add the following to the top of *http://localhost/YOUR-PROJECT-NAME/test.php*
 ````
-require '/var/www/YOUR-PROJECT-NAME/config/keys.php';
+require '/var/www/example.com/config/keys.php';
 ````
 
 Change

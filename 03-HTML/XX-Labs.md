@@ -38,7 +38,7 @@ As you learn more, return to this project to add more content and style to your 
 Building off of the exercises in this section build out *http://localhost/YOUR-PROJECT-NAME/index.html* so that it shows an avatar and tells a little about yourself. Link this to your GitHub and LinkedIn profiles. Commit changes accordingly.
 
 ## LAB 3 - Contact Form
-Modify _/var/www/YOUR-PROJECT-NAME/contact.php_ so that:
+Modify _/var/www/example.com/contact.php_ so that:
 * Add a form field for entering URLs.
 * Add notEmpty validation for subject.
 * Add notEmpty validation for message.
@@ -48,6 +48,6 @@ Modify _/var/www/YOUR-PROJECT-NAME/contact.php_ so that:
 * This MUST allow an empty URL but reject an invalid one (Not required but valid if not empty).
 
 ## LAB 4 - Submit the Contact Form with Mailgun
-Using */var/www/YOUR-PROJECT-NAME/test.php* as a reference modify */var/www/YOUR-PROJECT-NAME/contact.php* and/or */var/www/YOUR-PROJECT-NAME/processContactForm.php* so that:
+Using */var/www/example.com/test.php* as a reference modify */var/www/example.com/contact.php* and/or */var/www/example.com/processContactForm.php* so that:
 
 * If validation passes it sends you an email with the contents of the form.

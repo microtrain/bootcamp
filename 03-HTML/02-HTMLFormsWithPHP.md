@@ -11,10 +11,10 @@ Form tags ````<form></form>```` are used for creating forms in HTML. Every form 
 
 Create the following path.
 ````
-/var/www/YOUR-PROJECT-NAME/contact.php
+/var/www/example.com/contact.php
 ````
 
-_/var/www/YOUR-PROJECT-NAME/contact.php_
+_/var/www/example.com/contact.php_
 ````
 <!DOCTYPE html>
 <html lang="en">
@@ -103,7 +103,7 @@ Regular Expressions (RegEx) are strings of text that describe a search pattern. 
 
 ##Exercise 2 - RegEx
 
-_/var/www/YOUR-PROJECT-NAME/contact.php_
+_/var/www/example.com/contact.php_
 ````
 <?php
 //Create a RegEx pattern to determine the validity of the use submitted email
@@ -150,7 +150,7 @@ RegEx is extremely powerful, flexible and worth learning. Having said that there
 _Never trust user input. User input is anything come into the server from the client. Even if you have written client side JavaScript to filter out malicious code, the filtered input is still left alone with the client and can be manipulated prior to transit (or even in transit). If it has ever existed outside of the server it CANNOT be trusted._
 
 ##Exercise 3 - Adding a Validation Class
-Replace the contents of _/var/www/YOUR-PROJECT-NAME/contact.php_ with the following.
+Replace the contents of _/var/www/example.com/contact.php_ with the following.
 
 Explain the code to the class.
 
@@ -290,7 +290,7 @@ An include file is a file that contains a snippet of code that is referenced by 
 include util.php;
 
 // absolute include
-include /var/www/YOUR-PROJECT-NAME/util.php;
+include /var/www/example.com/util.php;
 ````
 
 ### Namespace
@@ -323,7 +323,7 @@ $v2->Validate->phone($phone);
 ````
 
 ## Exercise 4
-Create the path */var/www/YOUR-PROJECT-NAME/core/YOUR-PROJECT-NAME/src/Validation/Validate.php* and copy the Validates class into the file. Add a name space declaration as the first line of the file.
+Create the path */var/www/example.com/core/YOUR-PROJECT-NAME/src/Validation/Validate.php* and copy the Validates class into the file. Add a name space declaration as the first line of the file.
 
 ````
 <?php
