@@ -45,7 +45,7 @@ Then clone your fork onto your local machine. After creating your repository you
 
 Now we will clone this repository into the root directory of our web server. This will allow us to access all of our work through the browser by way of _localhost_.
 
-```
+```sh
 cd /var/www
 git clone https://github.com/[your-github-user-name]/mtbc
 ```
@@ -66,20 +66,20 @@ Open the file README.md from the mtbc project folder in the Atom sidebar and ope
 
 Open a terminal (command line or CLI) and navigate to the mtbc directory.
 
-```
+```sh
 cd /var/www/mtbc
 ```
 
 Check your repository for changes.
 
-```
+```sh
 git status
 ```
 You will see a message that indicates the README.md file has been changed.
 
 ![Modified](/img/git/status.png)
 
-```
+```sh
 git commit README.md
 ```
 
@@ -89,7 +89,7 @@ This will open an editor window that ask you to enter a commit message. Enter _C
 
 Finally, push your changes to GitHub.
 
-```
+```sh
 git push origin master
 ```
 
@@ -97,7 +97,7 @@ git push origin master
 
 In the previous example we committed our code changes directly to the master branch. In practice you will never work on a master branch. At the very least you should have a develop branch (we call it dev). I like to create branches as follows.
 
-```
+```sh
 git checkout -B dev
 ```
 
@@ -111,7 +111,7 @@ In plain English ```git checkout -B dev``` says make a copy of the branch I am o
 
 If your are working directly on your dev branch and wanted to push those changes into master it might look like this.
 
-```
+```sh
 git checkout master
 git pull origin master
 git checkout dev
@@ -137,4 +137,4 @@ There is no right way to use git. The only real wrong way to use git is to devia
 * [ProGit](https://git-scm.com/book/en/v2).
 * (3 Git Commands I use every day)https://jason.pureconcepts.net/2016/11/3-everyday-git-commands/
 
-[Next: Git](08-Git.md)
+[Next: Programming Basics](/02-Programming Basics)
