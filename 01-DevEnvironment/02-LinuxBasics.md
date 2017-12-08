@@ -60,7 +60,7 @@ On this system Apache writes log files to /var/log/apache2. For this example I o
 * ```/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/``` - Check an ip address regex in code.
 
 Beyond Linux: Regex in code.
-```
+```php
 //Returns 1 if $string matches a valid IP, returns 0 if it does not.
 $valid = preg_match('/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/', $string);
 ```
