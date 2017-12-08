@@ -4,7 +4,7 @@ PHP (the P in LAMP stack) is a popular server side scripting language. Once you 
 
 Since this is a dev environment we want to able to debug errors. Lets tell Apache to show us errors when accessing PHP files.
 
-```
+```sh
 sudo vim /etc/php/7.0/apache2/php.ini
 ```
 
@@ -20,7 +20,7 @@ Since you can mix PHP and HTML in the same file the parser will need a way to kn
 ## Exercise 1 - Hello World
 Create the path _/var/www/php_ and that as a project to Atom's side bar. Then from Atom create the file *hello.php*. Add the following lines.
 
-```
+```php
 <?php
 /**
  * Greets the user with the current date and time.
@@ -100,7 +100,7 @@ So far my properties would be as follows
 * Method - *delete()*
 
 In PHP this might look like the following
-```
+```php
 class DBWorker
 {
     private $table = null;
@@ -125,7 +125,7 @@ class DBWorker
 ```
 
 Instantiation may look like this
-```
+```php
 // This would probably be in a config file somewhere.
 $config = [];
 $config['db'] = '{'db':sample_db', 'user':'sample_user', 'password':'123456', 'host':'localhost'}';
@@ -146,7 +146,7 @@ foreach($results as $result){
 ### Exercise 2 - Hello Class
 Create the path */var/www/php/hello_class.php*.
 
-```
+```php
 <?php
 
 /**
