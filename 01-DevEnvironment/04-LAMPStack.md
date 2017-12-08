@@ -2,7 +2,7 @@
 
 The LAMP stack (Linux, Apache, MySQL, PHP) is one of the oldest and most mature and popular technology stacks on the web. Ubuntu allows you to install the entire stack with a single command.
 
-```
+```sh
 sudo apt-get install lamp-server^
 ```
 
@@ -14,7 +14,7 @@ To test the server open a browser window and type localhost into the address bar
 
 The Apache web server will create a path called ```/var/www/``` this is the default path for all of your web application(s). By default root owns this path. Lets make sure we are able to work with path with out requiring elevated privileges.
 
-```
+```sh
 ls -l /var
 total 52
 drwxr-xr-x  2 root root     4096 Feb 16 15:09 backups
@@ -48,7 +48,7 @@ Since you will be the one updating the files on the server, change the ownership
 
 We dive deeper into Apache throughout this course. For now, bookmark [Apache's official documentation](https://httpd.apache.org/docs/2.4/)
 
-```
+```sh
 sudo chown username:usergroup -fR /var/www
 ```
 
@@ -58,7 +58,7 @@ Now if you run ```ls -l``` and you will see yourself as the owner of the path.
 
 PHP was installed as a part of ```lamp-server^``` give this a quick test. Open a terminal and type ```php -v```
 
-```
+```sh
 php -v
 
 PHP 7.0.13-0ubuntu0.16.04.1 (cli) ( NTS )
@@ -73,7 +73,7 @@ Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
 ## [MySQL](https://www.phpmyadmin.net/)
 Now Apache is up and running we want to be able to work with our database. We will start by invoking MySQL from the command line.
 
-```
+```sh
 mysql -u root -p -h localhost
 ```
 
@@ -84,7 +84,7 @@ mysql -u root -p -h localhost
 
 When prompted type _password_ or whatever password you entered during setup into the command line. If successful you will be presented with a MySQL prompt.
 
-```
+```sh
 mysql>
 ```
 
@@ -94,7 +94,7 @@ We will work with MySQL later in the course, for now bookmark the [MySQL Referen
 
 PhpMyAdmin is a webbased admin tool for MySQL. This is written in PHP and runs on the Apache webserver. We will work with phpMyAdmin throughout this course Here is the [offical documentation](https://docs.phpmyadmin.net/en/latest/) for your convenience. Let's start by installing the software.
 
-```
+```sh
 sudo apt-get install phpmyadmin
 ```
 
@@ -106,14 +106,14 @@ As the installer is running you will be presented with several prompts. Arrows k
 
 At this point phpMyAdmin is installed but it is not accessible. Now we will configure Apache to grant us access to phpMyAdmin. The following command will use ```vim``` to open an Apache config file with root level privs.
 
-```
+```sh
 sudo vim /etc/apache2/apache2.conf
 ```
 Type ```Shift + G``` to move to the bottom of the file. Use the _Up Arrow_ to move the cursor to the next to the last line (directly above the line beginning with _# vim:..._).
 
 Now enter insert mode by typing the letter i, if you see _--insert--_ in the bottom left hand corner enter the following.
 
-```
+```apache
 # Include the phpmyadmin configuration
 Include /etc/phpmyadmin/apache.conf
 ```
@@ -122,7 +122,7 @@ The first line is just a comment so that you or future dev, admin's, etc will kn
 
 
 Now you will want to restart Apache to upadate the configuration.
-```
+```sh
 sudo service apache2 restart
 ```
 
@@ -133,7 +133,7 @@ Open a browser and type _localhost/phpmyadmin_ into the address bar. If you see 
 # [Composer](https://getcomposer.org/)
 
 Composer is package manager for PHP libraries. We will git into the details later, for now, let's just install it.
-```
+```sh
 sudo apt-get install composer
 ```
 
