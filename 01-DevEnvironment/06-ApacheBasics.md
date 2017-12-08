@@ -130,4 +130,4 @@ RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]
 In a browser navigate to _http://localhost/ _ and you will be redirected to
 _https://localhost/ _
 
-[Next: Bash Scripting Basics](07-Git.md)
+[Next: NPM](07-NPM.md)
