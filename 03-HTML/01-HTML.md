@@ -97,17 +97,17 @@ Add the following
 </VirtualHost>
 ```
 Open your local hosts files
-```
+```sh
 sudo vim /etc/hosts
 ```
 
 Add the following line
-```
+```sh
 127.0.0.30      loc.example.com
 ```
 
 Load the configuration and restart the server
-```
+```sh
 sudo a2ensite example.com && sudo service apache2 restart
 ```
 
@@ -145,7 +145,7 @@ Update ex1.html so that
 
 HTML elements more commonly know as tags are bits of markup that provide semantic meaning to text and objects. This markup is interpreted by outside programs (such as browsers, bots, spiders, crawlers, etc) which will often act on your content based on that contents markup. For example ```<h1>title</h1><h2>Sub Title</h2>``` tells the program reading your page that _Sub Title_ belongs to _title_ and that _title_ should be treated as title of the page (or all content until the next ```<h1>``` tag is encountered) while __Sub Title__ identifies the next block of or all content until the next ```<h2>``` or ```<h1>``` tag is encountered. The original goal of HTML was to provide a common format in which we could send academic research papers over the wire. In short, HTML was designed to mimic a word processor. The body of one of those documents may resemble the following. In most cases your HTML elements will have both an opening and a closing tag. Elements open with ```<[element]>``` and close with ```</[element]>``` the difference here is ```<``` vs ```</```.
 
-```
+```html
 <h1>HTML Elements</h1>
 <p>HTML elements more commonly know as tags are bits of markup...</p>
 <h2>HTML Global Attributes</h2>
@@ -179,7 +179,7 @@ REFerence)](https://www.w3schools.com/tags/att_href.asp) attribute ```<a href="h
 
 ### Exersice 4 - More Elements
 Update hello.html as follows. I hope you type this out rather than copy and pasting the entire blob. Read up on character entities by following the links you will be embedding in the page.
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -224,7 +224,7 @@ Before you can add an image, you will need an image to link to. Lets use a Grava
 * *https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm*
 
 You would mark this up as:
-```
+```html
 <img src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm" alt="My Avatar">
 ```
 
@@ -250,7 +250,7 @@ Change the */var/www/example.com/public/index.html* so that:
 * The font color of the top level header is orange.
 * The image is presented as a circle.
 
-```
+```html
 <h1 style="color: #ff9900;">Hello, I am YOUR-NAME</h1>
 <img src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm" alt="My Avatar" style="border-radius: 50%;">
 ```
@@ -266,7 +266,7 @@ Change the */var/www/example.com/public/index.html* so that:
 * The style attributes are replaced with calls to the classes.
 
 Add the following to the head element:
-```
+```css
 <style>
     .header{
       color: #ff9900;
@@ -279,7 +279,7 @@ Add the following to the head element:
 ```
 
 Update the body of the document as follows:
-```
+```html
 <h1 class="header">Hello, I am YOUR-NAME</h1>
 <img src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm" alt="My Avatar" class="img-circle">
 ```
@@ -294,7 +294,7 @@ Change the */var/www/example.com/public/index.html* so that:
 * Hover over the image element MUST show your name in a tooltip.
 
 Add the following attribute to the image element, where YOUR-NAME is _your name_:
-```
+```htm
 title="YOUR-NAME"
 ```
 
@@ -313,12 +313,12 @@ Change the */var/www/example.com/public/index.html* so that:
 * Clicking a button on the page MUST change the color of the H1 tag to red.
 
 Give the h1 element an id of header.
-```
+```html
 <h1 id="header" class="header">
 ```
 
 Add a button to the bottom of the page that uses the onclick attribute to invoke a line of JavaScript.
-```
+```html
 <button onclick="document.getElementById('header').style="color: #ff0000;">Click Me</button>
 ```
 
@@ -331,7 +331,7 @@ Change */var/www/example.com/public/index.html* so that:
 Create the path */var/www/example.com/public/contact.php*
 
 Create a nav element and link all of the pages togeather. Place this at the top of _public/index.html_ and _public/index.html_.
-```
+```html
 <nav><a href="/">Home</a> | <a href="contact.php">Contact</a></nav>
 ```
 
