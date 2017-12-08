@@ -98,9 +98,9 @@ Regular Expressions (RegEx) are strings of text that describe a search pattern. 
 
 [Try It](https://regex101.com/r/dGXnCZ/3/)
 
-##Exercise 2 - RegEx
+## Exercise 2 - RegEx
 
-_/var/www/example.com/contact.php_
+*/var/www/example.com/contact.php*
 ```php
 <?php
 //Create a RegEx pattern to determine the validity of the use submitted email
