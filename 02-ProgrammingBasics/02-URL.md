@@ -41,3 +41,5 @@ It would be common to refer to these practices as retrieving GET parameters (par
 * [Uniform Resource Identifier (URI)](https://tools.ietf.org/html/rfc3986)
 * [StackOverflow: Node.JS GET Params](https://stackoverflow.com/questions/6912584/how-to-get-get-query-string-variables-in-express-js-on-node-js)
 * [StackOverflow: Node.JS POST Data](https://stackoverflow.com/questions/4295782/how-do-you-extract-post-data-in-node-js)
+
+[Next: PHP Basics](03-PHPBasics.md)
