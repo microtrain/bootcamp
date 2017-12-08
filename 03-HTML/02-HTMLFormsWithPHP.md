@@ -9,12 +9,9 @@ Form tags ```<form></form>``` are used for creating forms in HTML. Every form sh
 
 ## Exercise 1 - Create and Inspect a Contact Form
 
-Create the following path.
-```
-/var/www/example.com/contact.php
-```
+Create the path ```/var/www/example.com/contact.php```
 
-_/var/www/example.com/contact.php_
+*/var/www/example.com/contact.php*
 ```html
 <!DOCTYPE html>
 <html lang="en">
