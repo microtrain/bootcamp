@@ -10,11 +10,11 @@ Selectors correspond to HTML elements, there attributes, decedents and and sibli
 
 These are the most common selectors. While there are many more
 
-* Class Selector ````.danger```` - *(.) + (CLASS-NAME)*
-* Tag Selector ````p```` - *(TAG-NAME)*
-* ID Selector ````#mastHead```` - *(#) - (ID-NAME)*
+* Class Selector ```.danger``` - *(.) + (CLASS-NAME)*
+* Tag Selector ```p``` - *(TAG-NAME)*
+* ID Selector ```#mastHead``` - *(#) - (ID-NAME)*
 
-````
+```
 /* All paragraph elements have a blue font */
 p{
   color: blue;
@@ -47,7 +47,7 @@ p,
 div > *.info{
   color: blue;
 }
-````
+```
 
 # Layout
 
@@ -56,7 +56,7 @@ div > *.info{
 
 Replace */var/www/about/index.html* with the following.
 
-````
+```
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -243,7 +243,7 @@ Replace */var/www/about/index.html* with the following.
   </body>
 
 </html>
-````
+```
 
 ## Linking to style sheets
 
@@ -252,9 +252,9 @@ Replace */var/www/about/index.html* with the following.
 
 Create the path */var/www/about/css/dist/main.css* and open that file in Atom. Copy the contents of the style element from index.html into the new file and replace the style element with a reference to the style sheet.
 
-````
+```
 <link rel="stylesheet" type="text/css" href="css/dist/main.css">
-````
+```
 
 
 ## Additional Resources

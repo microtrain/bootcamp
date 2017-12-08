@@ -2,17 +2,17 @@
 
 This unit will focus on building a personal website aimed at personal branding.
 
-Hypertext Markup Language (HTML) is a system of elements and attributes that defines the layout of a web page. This system uses markup tags to represent elements (````<p>This is a paragraph.</p>````) and attributes (````<p style="color: blue;">This is a paragraph with blue text.</p>````) to further describe these elements; to define the context of text and objects on a page.
+Hypertext Markup Language (HTML) is a system of elements and attributes that defines the layout of a web page. This system uses markup tags to represent elements (```<p>This is a paragraph.</p>```) and attributes (```<p style="color: blue;">This is a paragraph with blue text.</p>```) to further describe these elements; to define the context of text and objects on a page.
 
 The offical HTML documentation is available from the [W3C](https://www.w3.org/TR/html/) this is the standards version of the documentation. The [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML) in my opinion is a better practical source of documentation.
 
 ## [HTML Comments](https://www.w3.org/TR/html5/syntax.html#comments)
-In programming, comments are strings of text that are not processed by a compiler or an interpretor. Comments are for human consumption and are used to help humans follow the flow of source code. Most languages will define their own special syntax for presenting a comment. In HTML, comments are wrapped in comment tags ````<!-- this is a comment -->````.
+In programming, comments are strings of text that are not processed by a compiler or an interpretor. Comments are for human consumption and are used to help humans follow the flow of source code. Most languages will define their own special syntax for presenting a comment. In HTML, comments are wrapped in comment tags ```<!-- this is a comment -->```.
 
 ## The Markup
 [HTML5](https://www.w3.org/TR/html5/)
 
-````
+```
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,7 +23,7 @@ In programming, comments are strings of text that are not processed by a compile
         <!-- layout and content goes here-->
     </body>
 </html>
-````
+```
 
 ### Exercise 1 - Hello World, Getting Started With HTML 5
 
@@ -32,45 +32,45 @@ In programming, comments are strings of text that are not processed by a compile
 1. [Create a repo on GitHub](https://help.github.com/articles/create-a-repo/) called _example.com_.
 1.  Clone the repo into the top level of your Apache server */var/www*
   * From a command line
-````
+```
 cd /var/www/
 git clone https://github.com/YOUR-USERNAME/example.com/
 cd /var/www/
-````
+```
 1. From Atom's navigation pane add the path named _public/index.html_ to the  project.
 1. Open a browser and navigate to [http://localhost/example.com/public/index.html](http://localhost/example.com/public/index.html) (At this point you will see a blank page).
 1. Now open the file and paste the above mark markup into the file.
-1. Change the title element to ````<title>Hello World</title>````
-1. Add an ````h1```` element to the body of the page which also reads _Hello World_ ````<h1>Hello World</h1>````.  
+1. Change the title element to ```<title>Hello World</title>```
+1. Add an ```h1``` element to the body of the page which also reads _Hello World_ ```<h1>Hello World</h1>```.  
 1. Now refresh your browser and you will see the text _Hello World_.
-1. Add a paragraph tag below the top level header that reads ````<p>Welcome to my web site.</p>````
+1. Add a paragraph tag below the top level header that reads ```<p>Welcome to my web site.</p>```
 1. Commit your changes and push to master.
 Stage new files to be committed, in this case _public/public/index.html_.
-````
+```
 git add .
-````
+```
 Commit all files, you'll be asked for a commit message say something like *Initial page structure*.
-````
+```
 git commit -a
-````
+```
 
 Add a comment like _Added the initial home page._ then [esc] _:x_ [enter] to save. Then push your changes to master.
-````
+```
 git push origin master
-````
+```
 
 Now you can access your page through the following URL.
 * [http://localhost/example.com/public/index.html](http://localhost/example.com/public/index.html)
 
 For a simple site like this you can usally get away with the above URL, for a more complicated site however it's better to work through a domain name. I like to localize my domain names so that I can still get to the production site. I do this with the _loc_ prefix so that _example.com_ becomes _loc.example.com_.
 
-````
+```
 cd /etc/apache2/sites-available
 sudo vim example.com.conf
-````
+```
 
 Add the following
-````
+```
 <VirtualHost 127.0.0.30:80>
 
         ServerName loc.example.com
@@ -93,21 +93,21 @@ Add the following
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
-````
+```
 Open your local hosts files
-````
+```
 sudo vim /etc/hosts
-````
+```
 
 Add the following line
-````
+```
 127.0.0.30      loc.example.com
-````
+```
 
 Load the configuration and restart the server
-````
+```
 sudo a2ensite example.com && sudo service apache2 restart
-````
+```
 
 Navigate to you new local new domain
 * [http://loc.example.com](http://loc.example.com)
@@ -121,13 +121,13 @@ Sometimes our pages do not display as we expect, this is often due to invalid HT
 3. Copy and paste your HTML5 document code into the window and click _Check_.
 
 ## Meta Data
-Meta data is data  data. For a typical web page, the data is the content that falls between the head and body tags. Meta data helps to describe and classify that data and/or the functionality of your web page. Meta data can be an attribute of a single element or added to the ````head```` of a document in the form of a meta tag.
+Meta data is data  data. For a typical web page, the data is the content that falls between the head and body tags. Meta data helps to describe and classify that data and/or the functionality of your web page. Meta data can be an attribute of a single element or added to the ```head``` of a document in the form of a meta tag.
 
 Best practices are things that ought to be done given there is not a good reason not to and provided their is not an alternative that better suits a given situation. If I had to pick three pieces of meta data that should always be implemented, they would be as follows.
 
-* ````<html lang="en">```` - Defines the language of the web page. This would most likely be used by assistive technologies such as screen readers or an automated translator.
-* ````<meta charset="UTF-8">```` - Defines the character set you are using so that there will be no confusion between your source code and the rendering engine. For a data driven web site you will want your websites encoding to match that of your database; UTF-8 is the most common encoding.
-* ````<meta name="viewport" content="width=device-width, initial-scale=1.0">```` - Used by the browser to allow the developer of the site to declare how the site should be viewed across devices.
+* ```<html lang="en">``` - Defines the language of the web page. This would most likely be used by assistive technologies such as screen readers or an automated translator.
+* ```<meta charset="UTF-8">``` - Defines the character set you are using so that there will be no confusion between your source code and the rendering engine. For a data driven web site you will want your websites encoding to match that of your database; UTF-8 is the most common encoding.
+* ```<meta name="viewport" content="width=device-width, initial-scale=1.0">``` - Used by the browser to allow the developer of the site to declare how the site should be viewed across devices.
 
 ### Exercise 3 - Meta Data Best Practices
 Update ex1.html so that
@@ -141,9 +141,9 @@ Update ex1.html so that
 
 ## [HTML Elements](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html)
 
-HTML elements more commonly know as tags are bits of markup that provide semantic meaning to text and objects. This markup is interpreted by outside programs (such as browsers, bots, spiders, crawlers, etc) which will often act on your content based on that contents markup. For example ````<h1>title</h1><h2>Sub Title</h2>```` tells the program reading your page that _Sub Title_ belongs to _title_ and that _title_ should be treated as title of the page (or all content until the next ````<h1>```` tag is encountered) while __Sub Title__ identifies the next block of or all content until the next ````<h2>```` or ````<h1>```` tag is encountered. The original goal of HTML was to provide a common format in which we could send academic research papers over the wire. In short, HTML was designed to mimic a word processor. The body of one of those documents may resemble the following. In most cases your HTML elements will have both an opening and a closing tag. Elements open with ````<[element]>```` and close with ````</[element]>```` the difference here is ````<```` vs ````</````.
+HTML elements more commonly know as tags are bits of markup that provide semantic meaning to text and objects. This markup is interpreted by outside programs (such as browsers, bots, spiders, crawlers, etc) which will often act on your content based on that contents markup. For example ```<h1>title</h1><h2>Sub Title</h2>``` tells the program reading your page that _Sub Title_ belongs to _title_ and that _title_ should be treated as title of the page (or all content until the next ```<h1>``` tag is encountered) while __Sub Title__ identifies the next block of or all content until the next ```<h2>``` or ```<h1>``` tag is encountered. The original goal of HTML was to provide a common format in which we could send academic research papers over the wire. In short, HTML was designed to mimic a word processor. The body of one of those documents may resemble the following. In most cases your HTML elements will have both an opening and a closing tag. Elements open with ```<[element]>``` and close with ```</[element]>``` the difference here is ```<``` vs ```</```.
 
-````
+```
 <h1>HTML Elements</h1>
 <p>HTML elements more commonly know as tags are bits of markup...</p>
 <h2>HTML Global Attributes</h2>
@@ -158,26 +158,26 @@ HTML elements more commonly know as tags are bits of markup that provide semanti
 </ul>
 <h2>Summary</h2>
 <p>In summation...</p>
-````
+```
 Lets review some of these tags.
 * h1, h2, h3, h4, h5, h6 - HTML supports 6 header levels, these should always be nested.
 * p - Identifies text as a paragraph.
 * ul - Identifies an unorganized list. This will create a bulleted list. An
-unorganized MUST contain one or more list items ````<li>````.
+unorganized MUST contain one or more list items ```<li>```.
 * ol - Identifies an organized list. This will create a numbered list. An
-organized MUST contain one or more list items ````<li>````.
+organized MUST contain one or more list items ```<li>```.
 * li - A list item, represents an item in either an unorganized or organized list.
-This MUST be wrapped in a ````<ul>```` or ````<li>```` element.
+This MUST be wrapped in a ```<ul>``` or ```<li>``` element.
 * div - Divs are block level elements that are used to represent divisions in an
 HTML document. These are typically used to divide a page into sections. These may
 be used for a logical page division or as anchor to apply style and attributes.
 * a - An anchor tag. This is used to create links and is arguably the foundation
 of the World Wide Web. An anchor tag becomes a link by adding a href [(Hypertext
-REFerence)](https://www.w3schools.com/tags/att_href.asp) attribute ````<a href="https:\\www.">Example</a>````.
+REFerence)](https://www.w3schools.com/tags/att_href.asp) attribute ```<a href="https:\\www.">Example</a>```.
 
 ### Exersice 4 - More Elements
 Update hello.html as follows. I hope you type this out rather than copy and pasting the entire blob. Read up on character entities by following the links you will be embedding in the page.
-````
+```
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -203,7 +203,7 @@ Update hello.html as follows. I hope you type this out rather than copy and past
     <p>In summation...</p>
   </body>
 </html>
-````
+```
 
 ### [HTML Global Attributes](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html#global-attributes)
 
@@ -213,7 +213,7 @@ Attributes bring your markup to life. Attributes allow for programming hooks, st
 
 When it comes to working with attributes, the image (img) element is a great place to start. Image is a self-closing tag. Self-closing tags do not require a closing tag because they do not contain any content, they only use attributes to mark content to the screen.
 
-Image has two required attributes src and alt ````<img src="..." alt="...">````. Src tells the document where to find the image to be displayed while alt displays alternative text in case the image cannot be displayed. In most cases an attribute will always have a value, this is written as attribute="Some Value". This is often referred to as a key-value pair. The attribute or left side of the equation is the key and the right side of the equation is the value (conceptually speaking it's key="value").
+Image has two required attributes src and alt ```<img src="..." alt="...">```. Src tells the document where to find the image to be displayed while alt displays alternative text in case the image cannot be displayed. In most cases an attribute will always have a value, this is written as attribute="Some Value". This is often referred to as a key-value pair. The attribute or left side of the equation is the key and the right side of the equation is the value (conceptually speaking it's key="value").
 
 Before you can add an image, you will need an image to link to. Lets use a Gravatar. Gravatar is a free service that allows a user to upload an avatar that will follow them from site to site by hashing the users email address into the name of a file. This is popular in the dev community and used by other services such as GitHub.
 
@@ -222,9 +222,9 @@ Before you can add an image, you will need an image to link to. Lets use a Grava
 * *https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm*
 
 You would mark this up as:
-````
+```
 <img src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm" alt="My Avatar">
-````
+```
 
 ### Exercise 5 - Add an Image
 
@@ -248,10 +248,10 @@ Change the */var/www/example.com/public/index.html* so that:
 * The font color of the top level header is orange.
 * The image is presented as a circle.
 
-````
+```
 <h1 style="color: #ff9900;">Hello, I am YOUR-NAME</h1>
 <img src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm" alt="My Avatar" style="border-radius: 50%;">
-````
+```
 
 ### The Class Attribute
 
@@ -264,7 +264,7 @@ Change the */var/www/example.com/public/index.html* so that:
 * The style attributes are replaced with calls to the classes.
 
 Add the following to the head element:
-````
+```
 <style>
     .header{
       color: #ff9900;
@@ -274,13 +274,13 @@ Add the following to the head element:
       border-radius: 50%;
     }
 </style>
-````
+```
 
 Update the body of the document as follows:
-````
+```
 <h1 class="header">Hello, I am YOUR-NAME</h1>
 <img src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm" alt="My Avatar" class="img-circle">
-````
+```
 
 ### The Title Attribute
 
@@ -292,9 +292,9 @@ Change the */var/www/example.com/public/index.html* so that:
 * Hover over the image element MUST show your name in a tooltip.
 
 Add the following attribute to the image element, where YOUR-NAME is _your name_:
-````
+```
 title="YOUR-NAME"
-````
+```
 
 ### The ID Attribute
 
@@ -303,7 +303,7 @@ The _id_ attribute provides a unique identifier for a given HTML element. No two
 
 ### Event Handler Attributes
 
-Event Handler Attributes (UI Events) allow a user to interact with a web page. These interactions are commonly achieved through the use of an event listener. The W3C specification refers to these as [UI Events](https://www.w3.org/TR/uievents/). A common example is the __click event__ which corresponds to the ````onclick```` attribute. ````onclick```` serves as an event handler for JavaScript meaning it listens for a click event click event and executes the attributes value. For example ````<a onclick="alert('I was clicked!')">Click Me</a>```` would cause an alert declaring _"I was clicked!"_ to be displayed on the screen. When using frameworks such as Angular.js you will see custom attributes such as ````ng-click```` in which case Angular.js has custom listeners that are designed to listen specifically for the ````ng-```` prefix. We work with JavaScript in great detail in later lessons. For now, lets apply a quick example.
+Event Handler Attributes (UI Events) allow a user to interact with a web page. These interactions are commonly achieved through the use of an event listener. The W3C specification refers to these as [UI Events](https://www.w3.org/TR/uievents/). A common example is the __click event__ which corresponds to the ```onclick``` attribute. ```onclick``` serves as an event handler for JavaScript meaning it listens for a click event click event and executes the attributes value. For example ```<a onclick="alert('I was clicked!')">Click Me</a>``` would cause an alert declaring _"I was clicked!"_ to be displayed on the screen. When using frameworks such as Angular.js you will see custom attributes such as ```ng-click``` in which case Angular.js has custom listeners that are designed to listen specifically for the ```ng-``` prefix. We work with JavaScript in great detail in later lessons. For now, lets apply a quick example.
 
 ### Exercise 9 - A Little JavaScript
 
@@ -311,14 +311,14 @@ Change the */var/www/example.com/public/index.html* so that:
 * Clicking a button on the page MUST change the color of the H1 tag to red.
 
 Give the h1 element an id of header.
-````
+```
 <h1 id="header" class="header">
-````
+```
 
 Add a button to the bottom of the page that uses the onclick attribute to invoke a line of JavaScript.
-````
+```
 <button onclick="document.getElementById('header').style="color: #ff0000;">Click Me</button>
-````
+```
 
 
 ### Exercise 10 - Navigation
@@ -329,9 +329,9 @@ Change */var/www/example.com/public/index.html* so that:
 Create the path */var/www/example.com/public/contact.php*
 
 Create a nav element and link all of the pages togeather. Place this at the top of _public/index.html_ and _public/index.html_.
-````
+```
 <nav><a href="/">Home</a> | <a href="contact.php">Contact</a></nav>
-````
+```
 
 ## Additional Resources
 [MDN - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)

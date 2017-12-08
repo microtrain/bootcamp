@@ -2,7 +2,7 @@
 
 The Document Object Model (DOM) is an API  that treats markup languages (xml, xhtml, html, ect) as a tree structures. A easier way to think of this might be as an interface that allows a programmer to access tags and the attributes of tags. Later we will learn about jQuery; a library for querying the DOM (among other things). First we will learn basic manipulation using straight JavaScript.
 
-In the previous lesson we used ````document.getElementById();```` this method queries the DOM for an element with a matching id. There are many similar methods.
+In the previous lesson we used ```document.getElementById();``` this method queries the DOM for an element with a matching id. There are many similar methods.
 
 ## [Collection Live vs Static (not live)](https://www.w3.org/TR/dom/#concept-collection)
 
@@ -27,10 +27,10 @@ Return a element object.
 
 Navigate to http://localhost/mtbc/exercises/javascript/dom/by_id.html, then open the source file in your editor. Add the following lines to the script tags then refresh the page and note the changes.
 
-````
+```
 var elem = document.getElementById("a"); // Get the elements
 elem.style = 'color: #FF0000;'; // change color to red
-````
+```
 
 ## By Tag
 
@@ -40,10 +40,10 @@ Return a live HTMLCollection (an array of matching elements).
 
 The tag_name is "div", "span", "p", etc. Navigate to http://localhost/mtbc/exercises/javascript/dom/by_tag_name.html, then open the source file in your editor. Add the following lines to the script tags then refresh the page and note the changes.
 
-````
+```
 var list = document.getElementsByTagName('blockquote'); // get all p elements
 list[0].style = 'color: #FF0000;';
-````
+```
 
 ## By Class
 
@@ -53,7 +53,7 @@ Return a live HTMLCollection.
 
 The class_values can be multiple classes separated by space. For example: "a b" and it'll get elements, where each element is in both class “a” and “b”. Navigate to http://localhost/mtbc/exercises/javascript/dom/by_class_name.html, then open the source file in your editor. Add the following lines to the script tags then refresh the page and note the changes.
 
-````
+```
 // get all elements of class a
 var list = document.getElementsByClassName('b');
 
@@ -65,7 +65,7 @@ var list2 = document.getElementsByClassName('a b');
 
 //Make them bold and apply the color from list[0]
 list2[0].style = 'font-weight: bold; color:' + list[0].style.color;
-````
+```
 
 ## By Name
 
@@ -74,7 +74,7 @@ Return a live HTMLCollection, of all elements that have the name="name_value" at
 
 Navigate to http://localhost/mtbc/exercises/javascript/dom/by_name.html, then open the source file in your editor. Add the following lines to the script tags then refresh the page and note the changes.
 
-````
+```
 //Get all elements with a name of a
 var list = document.getElementsByName('a');
 
@@ -83,7 +83,7 @@ for (var i=0; i<list.length; i++) {
   //Make them red
   list[i].style = 'color: #FF0000;';
 }
-````
+```
 
 
 ## By CSS Selector
@@ -94,7 +94,7 @@ Return a non-live HTMLCollection, of the first element that match the CSS select
 
 Navigate to http://localhost/mtbc/exercises/javascript/dom/by_css_selector.html, then open the source file in your editor. Add the following lines to the script tags then refresh the page and note the changes.
 
-````
+```
 //Find the element with an id of bold
 var bold = document.querySelector('#bold');
 
@@ -109,7 +109,7 @@ for (var i=0; i<blues.length; i++) {
   //Make them blue
   blues[i].style = 'color: #0000FF;';
 }
-````
+```
 ## Additional Resources  
 * <sup>1</sup>[Collections](https://www.w3.org/TR/dom/#concept-collection)
 ### Udemy

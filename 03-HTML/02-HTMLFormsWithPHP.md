@@ -89,12 +89,12 @@ foreach($data as $key => $value){
 
 ## Validation and Basic RegEx
 
-Regular Expressions (RegEx) are strings of text that describe a search pattern. You may be familiar with wild cards in which a search for _b*_ would return all words that start with the letter b. Now lets say you want your wild card search to still return all words starting with the letter b but only if the word does not contain a number; this is where RegEx comes in ````\b(b)+([a-z])*\b````.
+Regular Expressions (RegEx) are strings of text that describe a search pattern. You may be familiar with wild cards in which a search for _b*_ would return all words that start with the letter b. Now lets say you want your wild card search to still return all words starting with the letter b but only if the word does not contain a number; this is where RegEx comes in ```\b(b)+([a-z])*\b```.
 
-* ````\b```` - a word boundary, the beginning of a word. This would return all words.
-* ````\b(b)*```` - MUST start with the letter b. This would return all words starting with the letter b.
-* ````\b(b)+([a-z])*```` - MAY also contain any lower case letters after the first letter.
-* ````\b(b)+([a-z])*\b```` - Stops each match at the end of a word
+* ```\b``` - a word boundary, the beginning of a word. This would return all words.
+* ```\b(b)*``` - MUST start with the letter b. This would return all words starting with the letter b.
+* ```\b(b)+([a-z])*``` - MAY also contain any lower case letters after the first letter.
+* ```\b(b)+([a-z])*\b``` - Stops each match at the end of a word
 
 [Try It](https://regex101.com/r/dGXnCZ/3/)
 
@@ -408,7 +408,7 @@ Since we have pulled the validation logic into a library all we need to do in th
 */var/www/example.com/public/contact.php*
 ```php
 <?php
-// Include non-vendor files
+//Include non-vendor files
 require '../core/About/src/Validation/Validate.php';
 
 //Declare Namespaces

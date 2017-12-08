@@ -5,13 +5,13 @@
 
 Before you can work with MySQL you need to make a connection; we will start with the CLI. If you followed the setup instructions in section 01-04 you should have a local instance of the DBMS running with the credentials of root:password and this will be running on localhost
 
-````
+```
 mysql -u root -p -h localhost
-````
-* ````mysql```` - invokes the MySQL CLI
-* ````-u root```` - _-u_ is the user argument _-u root_ says login to MySQL as the user root
-* ````-p```` - _-p_ is the password argument. You do not want the enter the password here, so this tells the client to prompt you for a password.
-* ````-h```` - _-h_ host; locally this will be localhost a remote connection would likely be an IP address or a URL.
+```
+* ```mysql``` - invokes the MySQL CLI
+* ```-u root``` - _-u_ is the user argument _-u root_ says login to MySQL as the user root
+* ```-p``` - _-p_ is the password argument. You do not want the enter the password here, so this tells the client to prompt you for a password.
+* ```-h``` - _-h_ host; locally this will be localhost a remote connection would likely be an IP address or a URL.
 
 As you may have guessed; by entering the aforementioned command you will be prompted a password.
 ![Connecting](/img/mysql/connect.png)
@@ -20,12 +20,12 @@ Upon connection you will be presented with a MySQL prompt.
 ![Connected](/img/mysql/connected.png)
 
 At the prompt the following command to get a list of databases.
-````
+```
 show databases;
-````
+```
 
 You will see something similar to the following. By default MySQL installs a few system databases that it uses for it's own purposes. It is unlikely you ever need to access these yourselves. Just be sure not to delete them.
-````
+```
 +----------------------+
 | Database             |
 +----------------------+
@@ -34,28 +34,28 @@ You will see something similar to the following. By default MySQL installs a few
 | performance_schema   |
 +----------------------+
 3 rows in set (0.03 sec)
-````
+```
 
 Now let's create a databases.
-````
+```
 CREATE DATABASE bootcamp;
-````
+```
 
 You should get something similar to the following response. What you are really looking for is an affected row count.
-````
+```
 Query OK, 1 row affected (0.00 sec)
-````
+```
 
 Now verify the database has been created. Run the following command and you will see _bootcamp_ in the list of databases.
-````
+```
 SHOW DATABASES;
-````
+```
 
 Now lets use our new database.
-````
+```
 USE bootcamp;
 SHOW TABLES;
-````
+```
 
 _show tables;_ shows a list of tables from the current database. After running this command the DBMS should respond with _Empty set (0.00 sec)_.
 
@@ -65,11 +65,11 @@ Let's say we were going to build our own blogging software in the form of a web 
 
 From a data perspective the first item can be achieved with a table named _users_ the second with a table named _posts_.
 
-Tables are created using the _CREATE TABLE_ command. ````CREATE TABLE _tablename_()```` where _tablename_ is the name of the table to be created. The columns in your table are passed into the parentheses as comma separated values.
+Tables are created using the _CREATE TABLE_ command. ```CREATE TABLE _tablename_()``` where _tablename_ is the name of the table to be created. The columns in your table are passed into the parentheses as comma separated values.
 
 Add the following table to your bootcamp database.
 
-````
+```
 CREATE TABLE users (
     id VARCHAR(36) PRIMARY KEY COMMENT 'Primary Key UUID',
     first_name VARCHAR(40) DEFAULT NULL COMMENT 'The users first name',
@@ -78,7 +78,7 @@ CREATE TABLE users (
     created DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'When the post was created',
     modified DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'When the post was last edited'
 ) ENGINE=INNODB;
-````
+```
 
 We already talked about _CREATE TABLE_ now lets look at the columns definitions. _id VARCHAR(36) PRIMARY KEY COMMENT 'Primary Key UUID'_
 
@@ -96,7 +96,7 @@ Lets jump to the modified column _modified DATETIME DEFAULT CURRENT&#95;TIMESTAM
 
 Now let's create the table for holding our blog posts.
 
-````
+```
 CREATE TABLE posts (
     id VARCHAR(36) PRIMARY KEY COMMENT 'Primary Key UUID',
     title VARCHAR(255) COMMENT 'The title of the blog post',
@@ -108,68 +108,68 @@ CREATE TABLE posts (
     created DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'When the post was created',
     modified DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'When the post was last edited',
 ) ENGINE=INNODB;
-````
+```
 
 Now let's take a look at our data structure.
 
-````
+```
 USE bootcamp;
 SHOW TABLES;
 
 SHOW COLUMNS FROM users;
 DESCRIBE posts;
-````
+```
 
 Now that we have created a couple of tables. Let's add some data. Run the following command from your bootcamp database replacing xxxx with you information.
 
-````INSERT INTO users SET id=UUID(), first_name='xxxx', last_name='xxxx', email='xxxx';````
+```INSERT INTO users SET id=UUID(), first_name='xxxx', last_name='xxxx', email='xxxx';```
 
 Now let's look up your user record.
 
-````SELECT * FROM users WHERE email='xxxx';````
+```SELECT * FROM users WHERE email='xxxx';```
 
 
 What if only want a list of names?
 
 _NOTE: As queries get longer this style may be easier to read._
 
-````SELECT
+```SELECT
   first_name,
   last_name
 FROM
   users
 WHERE
   email='xxxx';
-````
+```
 
 Id rather see the user's name in a single column formatted as _last, first_
-````SELECT
+```SELECT
   CONCAT('last_name', ', ', first_name) AS user
 FROM
   users
 WHERE
   email='xxxx';
-````
+```
 
 Add another user.
-````INSERT INTO
+```INSERT INTO
   users
 SET
   id=UUID(),
   first_name='Bob',
   last_name='Smith',
   email='bsmith@exampl.com
-````
+```
 
 Let's find all users with a _.com_ and sort in ascending order by last name.
-````SELECT
+```SELECT
   CONCAT('last_name', ' ', first_name) AS user
 FROM
   users
 WHERE
   email LIKE '%.com'
 ORDER BY last_name ASC
-````
+```
 
 
 INSERT INTO posts SET id=UUID(), slug='hello', title='Hello';

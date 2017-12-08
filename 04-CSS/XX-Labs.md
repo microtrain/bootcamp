@@ -6,7 +6,7 @@ Apply the new theme to all pages under _/var/www/about_.
 
 Add the following classes to main.scss update the style declarations so that redundant values are called as a variable. Apply these class to error and success messages produced after the form submit in contact.php.
 
-````
+```
 .text-success {
   color: #3c763d;
 }
@@ -43,4 +43,4 @@ Add the following classes to main.scss update the style declarations so that red
   border-color: #a94442;
   color: #a94442;
 }
-````
+```

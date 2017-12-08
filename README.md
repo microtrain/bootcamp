@@ -6,10 +6,10 @@ Resources for MicroTrain's Developer Bootcamp.
 [Code examples and starter files](https://github.com/microtrain/mtbc)
 
 Assuming you have installed Apache on a Linux machine.
-````
+```
 cd /var/www
 git clone https://github.com/microtrain/mtbc
-````
+```
 The open a browser and navigate to http://localhost/mtbc/
 
 ## Structure

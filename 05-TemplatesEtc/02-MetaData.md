@@ -1,29 +1,29 @@
 # MetaData
 
-MetaData comes in many forms from the ````meta```` elements in the the document head to microdata and aria attributes applied directly to your HTML tags or even in a separate text file.
+MetaData comes in many forms from the ```meta``` elements in the the document head to microdata and aria attributes applied directly to your HTML tags or even in a separate text file.
 
-## Improve SEO with ````<meta>````
+## Improve SEO with ```<meta>```
 
 Search Engine Optimization (SEO) is the practice of improving your site compatibility with a search engine which, in theory, should help to increase your traffic. Meta data is one ingredient. We will start with the classics *description* and *keywords*. When writing a site description your looking to sum up a page in 25 words or less the description MUST be relevant to the content on the page. The same idea applies to keywords 25 or less comma separated words or short phrases that are relevant to the page in question. Google will penalize you if you try to cheat. In both cases we will use the meta tag with the name and description attributes.
 
 The name attribute denotes the type of meta data while the content attribute contains the description, keywords, etc.
-````
+```
 <meta name="description" content="The best thing about hello world is the greeting">
 <meta name="keywords" content="">
-````
+```
 
 Since meta tags belong in the document we will want to add them to the template. We will need to be able to set these on a page by page basis so these should be passed as a variable from the page in question.
-````
+```
 $meta = [];
 $meta['description'] = "The best thing about hello world is the greeting";
 $meta['keywords'] = "hello world, hello, world";
 
 <meta name="description" content="<?php echo $meta['description']; ?>">
 <meta name="keywords" content="<?php echo $meta['keywords']; ?>">
-````
+```
 
 For example *contact.php* might read as follows. Rather than an array, perhaps a herdoc containing any meta tags you want to include would be preferred.
-````
+```
 <?php
 
 require 'core/processContactForm.php';
@@ -40,7 +40,7 @@ $content = <<<EOT
 EOT;
 
 require 'core/layout.php';
-````
+```
 
 ## MicroData
 
@@ -50,7 +50,7 @@ A good example would be a [job posting](http://schema.org/JobPosting). If I'm po
 
 ## Aria
 
-Accessible Rich Internet Applications (ARIA) is a standard for helping a web page work with a screen reader. You saw a sample of this earlier with ````role="navigation"````.  
+Accessible Rich Internet Applications (ARIA) is a standard for helping a web page work with a screen reader. You saw a sample of this earlier with ```role="navigation"```.  
 
 ## .txt
 
@@ -58,21 +58,21 @@ Accessible Rich Internet Applications (ARIA) is a standard for helping a web pag
 
 ### Exercise
 Create the path */var/www/robots.txt* and add the following lines.
-````
+```
 User-agent: *
 Disallow:
-````
+```
 
 [humnas.txt](http://humanstxt.org/) is a file that gives credit to the sites creators. While it is not required it's a nice touch and if they solve the spam problem they will give you a way to submit your site to there directory, which is a link back so that is always good.
 
 ### Exercise
 Add the following meta tag to your sites template
-````
+```
 <link rel="author" href="humans.txt" />
-````
+```
 
 Create the path */var/www/about/robots.txt* and add as much or as little of the following content as you choose.
-````
+```
 /* TEAM */
 Your title: Your name.
 Site: email, link to a contact form, etc.
@@ -87,7 +87,7 @@ Last update: YYYY/MM/DD
 Standards: HTML5, CSS3,..
 Components: Modernizr, jQuery, etc.
 Software: Software used for the development
-````
+```
 [security.txt](https://securitytxt.org/) let security researchers know how to get hold of you should an issue be found.
 # Images
 
@@ -95,7 +95,7 @@ Software: Software used for the development
 
 [browserconfig.xml](https://msdn.microsoft.com/library/dn455106.aspx) For creating custome tiles in windows.
 */var/www/about/browserconfig.xml*
-````
+```
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Please read: https://msdn.microsoft.com/en-us/library/ie/dn455106.aspx -->
 <browserconfig>
@@ -108,14 +108,14 @@ Software: Software used for the development
         </tile>
     </msapplication>
 </browserconfig>
-````
+```
 * tile.png
 * tile-wide.png
 * icon.png
 
 [manifest.json](https://developer.mozilla.org/en-US/docs/Web/Manifest)
 */var/www/about/manifest.json*
-````
+```
 {
     "icons": [{
         "src": "icon.png",
@@ -124,7 +124,7 @@ Software: Software used for the development
     }],
     "start_url": "/"
 }
-````
+```
 
 ## Additional Resources
 * [What’s in the head? Metadata in HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/The_head_metadata_in_HTML)

@@ -2,9 +2,9 @@
 
 The LAMP stack (Linux, Apache, MySQL, PHP) is one of the oldest and most mature and popular technology stacks on the web. Ubuntu allows you to install the entire stack with a single command.
 
-````
+```
 sudo apt-get install lamp-server^
-````
+```
 
 When prompted; enter the Password for the MySQL root user. Since this is a local development environment just enter _password_. On a side note, __NEVER__ do this on a public facing machine server.
 
@@ -12,9 +12,9 @@ When prompted; enter the Password for the MySQL root user. Since this is a local
 
 To test the server open a browser window and type localhost into the address bar. If your see a page the says _Apache2 Ubuntu Default Page_ your Apache web server is up and running.
 
-The Apache web server will create a path called ````/var/www/```` this is the default path for all of your web application(s). By default root owns this path. Lets make sure we are able to work with path with out requiring elevated privileges.
+The Apache web server will create a path called ```/var/www/``` this is the default path for all of your web application(s). By default root owns this path. Lets make sure we are able to work with path with out requiring elevated privileges.
 
-````
+```
 ls -l /var
 total 52
 drwxr-xr-x  2 root root     4096 Feb 16 15:09 backups
@@ -32,7 +32,7 @@ drwxr-xr-x  2 root root     4096 Apr 19  2016 snap
 drwxr-xr-x  7 root root     4096 Apr 20  2016 spool
 drwxrwxrwt  5 root root     4096 Feb 16 16:00 tmp
 drwxr-xr-x  3 root root     4096 Feb 16 16:06 www
-````
+```
 Note the last line of the result set, the one ending with _www_. That is the path we are interested in.
 
 Lets break the result set down by column
@@ -48,17 +48,17 @@ Since you will be the one updating the files on the server, change the ownership
 
 We dive deeper into Apache throughout this course. For now, bookmark [Apache's official documentation](https://httpd.apache.org/docs/2.4/)
 
-````
+```
 sudo chown username:usergroup -fR /var/www
-````
+```
 
-Now if you run ````ls -l```` and you will see yourself as the owner of the path.
+Now if you run ```ls -l``` and you will see yourself as the owner of the path.
 
 ### [PHP](http://php.net/)
 
-PHP was installed as a part of ````lamp-server^```` give this a quick test. Open a terminal and type ````php -v````
+PHP was installed as a part of ```lamp-server^``` give this a quick test. Open a terminal and type ```php -v```
 
-````
+```
 php -v
 
 PHP 7.0.13-0ubuntu0.16.04.1 (cli) ( NTS )
@@ -66,27 +66,27 @@ Copyright (c) 1997-2016 The PHP Group
 Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
     with Zend OPcache v7.0.13-0ubuntu0.16.04.1, Copyright (c) 1999-2016, by Zend Technologies
     with Xdebug v2.4.0, Copyright (c) 2002-2016, by Derick Rethans
-````
+```
 
-* ````php -v```` This one is pretty simple, we are just asking PHP for it's version number. If you see something begining with _PHP 7._ then is up and running. Make a note of [PHP's documentation](http://php.net/manual/en/intro-whatis.php) to review at your leisure.
+* ```php -v``` This one is pretty simple, we are just asking PHP for it's version number. If you see something begining with _PHP 7._ then is up and running. Make a note of [PHP's documentation](http://php.net/manual/en/intro-whatis.php) to review at your leisure.
 
 ## [MySQL](https://www.phpmyadmin.net/)
 Now Apache is up and running we want to be able to work with our database. We will start by invoking MySQL from the command line.
 
-````
+```
 mysql -u root -p -h localhost
-````
+```
 
-* ````mysql```` - tells the system to launch a program called mysql.
-* ````-u root```` - the MySQL user that will be logging into the system. _root_ is the default user and has the highest level of privilege.
-* ````-p```` - tells MySQL to provide a password prompt.
-* ````-h localhost```` - the host to which MySQL will connect, in this case it is the local machine.
+* ```mysql``` - tells the system to launch a program called mysql.
+* ```-u root``` - the MySQL user that will be logging into the system. _root_ is the default user and has the highest level of privilege.
+* ```-p``` - tells MySQL to provide a password prompt.
+* ```-h localhost``` - the host to which MySQL will connect, in this case it is the local machine.
 
 When prompted type _password_ or whatever password you entered during setup into the command line. If successful you will be presented with a MySQL prompt.
 
-````
+```
 mysql>
-````
+```
 
 We will work with MySQL later in the course, for now bookmark the [MySQL Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/). You'll want to familiarize yourself with this guide.
 
@@ -94,9 +94,9 @@ We will work with MySQL later in the course, for now bookmark the [MySQL Referen
 
 PhpMyAdmin is a webbased admin tool for MySQL. This is written in PHP and runs on the Apache webserver. We will work with phpMyAdmin throughout this course Here is the [offical documentation](https://docs.phpmyadmin.net/en/latest/) for your convenience. Let's start by installing the software.
 
-````
+```
 sudo apt-get install phpmyadmin
-````
+```
 
 As the installer is running you will be presented with several prompts. Arrows keys allow you to navigate the the option menus, the space bar is used to select and de-select while enter accepts your selected option.
 
@@ -104,44 +104,44 @@ As the installer is running you will be presented with several prompts. Arrows k
 * Choose apache2
 * Choose YES to db-common
 
-At this point phpMyAdmin is installed but it is not accessible. Now we will configure Apache to grant us access to phpMyAdmin. The following command will use ````vim```` to open an Apache config file with root level privs.
+At this point phpMyAdmin is installed but it is not accessible. Now we will configure Apache to grant us access to phpMyAdmin. The following command will use ```vim``` to open an Apache config file with root level privs.
 
-````
+```
 sudo vim /etc/apache2/apache2.conf
-````
-Type ````Shift + G```` to move to the bottom of the file. Use the _Up Arrow_ to move the cursor to the next to the last line (directly above the line beginning with _# vim:..._).
+```
+Type ```Shift + G``` to move to the bottom of the file. Use the _Up Arrow_ to move the cursor to the next to the last line (directly above the line beginning with _# vim:..._).
 
 Now enter insert mode by typing the letter i, if you see _--insert--_ in the bottom left hand corner enter the following.
 
-````
+```
 # Include the phpmyadmin configuration
 Include /etc/phpmyadmin/apache.conf
-````
+```
 
 The first line is just a comment so that you or future dev, admin's, etc will know/remember why that line is there.
 
 
 Now you will want to restart Apache to upadate the configuration.
-````
+```
 sudo service apache2 restart
-````
+```
 
-* [````service````](http://manpages.ubuntu.com/manpages/zesty/man8/service.8.html) - Apache runs a service so all this command does is tell the system to restart the Apache service.
+* [```service```](http://manpages.ubuntu.com/manpages/zesty/man8/service.8.html) - Apache runs a service so all this command does is tell the system to restart the Apache service.
 
 Open a browser and type _localhost/phpmyadmin_ into the address bar. If you see a login page for phpmyadmin then the configuration was successful. Let's go ahead and login using MySQL's root credentials. Smile, you just installed and configured your first web application. While this configuration is fine for a dev environment, you will not want to run this configuration in a production environment. Checkout my post for hardening your phpMyAdmin [PhpMyAdmin Post Configuration](https://jasonsnider.com/posts/view/phpmyadmin-post-configuration)
 
 # [Composer](https://getcomposer.org/)
 
 Composer is package manager for PHP libraries. We will git into the details later, for now, let's just install it.
-````
+```
 sudo apt-get install composer
-````
+```
 
 We have installed several packages, this will be a good time to make sure all of out repositories are still up to date.
 
-````
+```
 sudo apt-get update
 sudo apt-get upgrade
-````
+```
 
 [Next: Apache Basics](06-ApacheBasics.md)

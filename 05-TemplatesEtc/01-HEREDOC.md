@@ -21,21 +21,21 @@ The general flow is as follows.
 
 A heredoc allows large amount of text to be written as a string without the need of escaping. Heredoc will process any PHP code it encounters, which makes it a subtitle candidate for our simple use case. I should note this a very simple example of a template system and is intended simply as an introduction to the concept. We will discuss more complex examples in later lessons.
 
-In previous lessons we used ````echo```` to write the value of some variables into an HTML document. This is a good way to view a template system. This is something that allows you to have a single or a select few templates that treat the contents in which the content of a page is being passed as a variable onto the template.
+In previous lessons we used ```echo``` to write the value of some variables into an HTML document. This is a good way to view a template system. This is something that allows you to have a single or a select few templates that treat the contents in which the content of a page is being passed as a variable onto the template.
 
-The basic idea is as follows. We are simply passing the variable ````$content```` into an HTML document using PHP's echo statement.
+The basic idea is as follows. We are simply passing the variable ```$content``` into an HTML document using PHP's echo statement.
 
-````
+```
 $content="<h1>Hello World</h1><p>Welcome to my web page.</p>";
 
 <html>
   <head></head>
   <body><?php echo $content; ?></body>
 </html>
-````
+```
 
 The previous example works for simple strings, but what about a page that has tens if not hundreds of lines of HTML? Writing all of that as a PHP string is tedious and prone to error, this is where the heredoc syntax can help.
-````
+```
 <?php
 $who = 'World';
 $content = <<<EOT
@@ -47,14 +47,14 @@ EOT;
   <head></head>
   <body><?php echo $content; ?></body>
 </html>
-````
+```
 
-A heredoc string start by declaring a variable and setting a delimiter. PHP uses ````<<<```` to declare a delimiter. In our case ````<<<EOT```` (End of Text) is our delimiter. When a delimiter is encountered followed by a semicolon with no spaces around it the string is terminated.
+A heredoc string start by declaring a variable and setting a delimiter. PHP uses ```<<<``` to declare a delimiter. In our case ```<<<EOT``` (End of Text) is our delimiter. When a delimiter is encountered followed by a semicolon with no spaces around it the string is terminated.
 
 The previous example passes the content into an HTML string but it still requires the entire document to be embedded in every page. Let's push the HTML document into an include file.
 
 *contact.php*
-````
+```
 <?php
 $who = 'World';
 $content = <<<EOT
@@ -63,15 +63,15 @@ $content = <<<EOT
 EOT;
 
 require 'layout.php';
-````
+```
 
 *layout.php*
-````
+```
 <html>
   <head></head>
   <body><?php echo $content; ?></body>
 </html>
-````
+```
 
 Now we only have to include the layout on each page of our site. The advantage is we will only need to change a single file to cascade [Look and Feel](https://en.wikipedia.org/wiki/Look_and_feel) changes across the entire website.
 
@@ -79,7 +79,7 @@ Now we only have to include the layout on each page of our site. The advantage i
 
 Create the path */var/www/about/core/layout.php* and add the following lines.
 
-````
+```
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -125,11 +125,11 @@ Create the path */var/www/about/core/layout.php* and add the following lines.
 
 </html>
 
-````
+```
 
-Change the path */var/www/about/contact.php* to the following. Pay special attenention to the echo statements, these are now treated as variables being passed into a string such that ````<?php echo $valid->userInput('first_name'); ?>```` becomes ````{$valid->userInput('first_name')}````.
+Change the path */var/www/about/contact.php* to the following. Pay special attenention to the echo statements, these are now treated as variables being passed into a string such that ```<?php echo $valid->userInput('first_name'); ?>``` becomes ```{$valid->userInput('first_name')}```.
 
-````
+```
 <?php
 
 require 'core/processContactForm.php';
@@ -174,7 +174,7 @@ $content = <<<EOT
 EOT;
 
 require 'core/layout.php';
-````
+```
 
 Navigate to *https://localhost/about/contact.php* and submit the form. The functionality should not have changed in anyway but the code is now cleaner and easier to maintain this is know as a [refactoring](https://martinfowler.com/books/refactoring.html).
 

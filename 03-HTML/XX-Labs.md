@@ -2,7 +2,7 @@
 
 From Atom's navigation pane add a file named _resume.html_ to the about project and add the following markup.
 
-````
+```
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -14,20 +14,20 @@ From Atom's navigation pane add a file named _resume.html_ to the about project 
     <!-- Your Resume Here -->
   </body>
 </html>
-````
+```
 
 Commit your changes and push them to the repository.
 
 Stage new files to be committed, in this case _index.html_.
-````
+```
 git add .
-````
+```
 
 Commit the files with a message and push them to master.
-````
+```
 git commit -m 'Added basic HTML structure'
 git push origin master
-````
+```
 
 Using the knowledge you gained thus far create an HTML version of your resume. Be sure the apply your markup between the opening and closing body tags. You can see your changes by opening a browser and navigating to *http://localhost/YOUR-PROJECT-NAME/resume.html*. Make incremental commits with relevant messages and push the changes to GitHub as you progress through this lab.
 

@@ -30,9 +30,9 @@ Customer data with one or many phone numbers stored in a single row.
 </tr>
 </table>
 
-````
+```
 SELECT phone FROM customers WHERE id = 123
-````
+```
 
 1 result
 (555) 861-2025, (555) 122-1111
