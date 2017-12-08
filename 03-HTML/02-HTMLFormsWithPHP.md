@@ -15,7 +15,7 @@ Create the following path.
 ````
 
 _/var/www/example.com/contact.php_
-````
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -56,7 +56,7 @@ _/var/www/example.com/contact.php_
     </form>
   </body>
 </html>
-````
+```
 
 Now, lets inspect a post request.
 * Open the Chrome browser and navigate to [http://localhost/mtbc/exercises/html/forms/form.php](http://localhost/YOUR-PROJECT-NAME/contact.html).
@@ -79,7 +79,7 @@ Find the opening form tag and set the action attribute as follows.
 *action="contact.php"*
 
 Add the following to the top of the document, above the DOCTYPE declaration.
-````
+```php
 <?php
 
 $data = $_POST;
@@ -88,7 +88,7 @@ foreach($data as $key => $value){
   echo "{$key} = {$value}";
 }
 ?>
-````
+```
 
 ## Validation and Basic RegEx
 
