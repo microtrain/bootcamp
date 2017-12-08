@@ -4,7 +4,7 @@ Open a browser and navigate to http://localhost and you will land on your machin
 
 First, open a command line an navigate to sites-available. On Debian based systems this is where Apache stores per site configurations also known as vhost (virtual host) files, on non-Debian systems these may be part of a larger configuration file. Once in the sites-available directory run the command to list the directory contents.
 
-```
+```sh
 cd /etc/apache2/sites-available
 
 ls
@@ -12,20 +12,20 @@ ls
 
 The ls command should yield the following results.
 
-```
+```sh
 000-default.conf  default-ssl.conf
 ```
 
 000-default.conf is the default configuration for Apache on Debian based systems. Let's take a look at it's contents. You can read this file without sudo but we want to make some changes to it, so lets ```sudo```.
 
-```
+```sh
 sudo vim 000-default.conf
 ```
 
 You will notice a few default settings more commonly called directives in Apache terms. Right now we are only concerned with the ```DocumentRoot``` directive.   Move your cursor down to line 12 and remove _/html_ from the end of this line. Remember ```i``` enters insert mode and ```Esc``` followed by ```:x``` saves the file.
 
 The final result will be.
-```
+```apache
 DocumentRoot /var/www
 ```
 
@@ -36,13 +36,13 @@ Now we want to tell apache to reload the configuration. This is a four step proc
 * Reload Apache ```sudo service apache2 reload```
 
 You can execute all four commands at once with the following.
-```
+```sh
 sudo a2dissite 0* && sudo service apache2 reload && sudo a2ensite 0* && sudo service apache2 reload
 ```
 
 ```&&``` appends two commands running them one after the other. For example
 
-```
+```sh
 cd /etc/apache2/sites-available && vim 0*
 ```
 
@@ -56,7 +56,7 @@ Mod_ssl extends the Apache webserver allowing it to work with TLS (Trainsit Laye
 
 In your browser navigate to _https://localhost _ notice the _s_ in _https_ this tells the Apache we want to request a secure version of the website. The page should crash, this is because we haven't told Apache we want to enable a secure version of the site. Now lets open the other configuration in the sites-available directory.
 
-```
+```sh
 cd /etc/apache2/sites-available
 sudo vim default-ssl.conf
 ```
@@ -66,7 +66,7 @@ As in the  previous configuration we are only concerned with the ```DocumentRoot
  While the ```DocumentRoot``` is all we need to change lets take another look at the file. Reopen the file but this time with out ```sudo```. Around line 25 you will see the ```SSLEngine``` directive is set to on. This tells Apache that this configuration wants to use the SSL module, which we have not enabled yet.
 Notice lines 32 and 33
 
-```
+```apache
 SSLCertificateFile      /etc/ssl/certs/ssl-cert-snakeoil.pem
 SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
 ```
@@ -75,13 +75,13 @@ These directives tell Apache where to find information about out SSL certificate
 
 Now that you have returned to the command line load ```mod_ssl``` (the SSL module).
 
-```
+```sh
 sudo a2enmod ssl
 ```
 
 Now load the new configuration and restart apache. This time we will enable the site using _restart_ instead of _reload_. Reload is a graceful restart that allows minor configuration without killing existing connections. Restart is a hard restart of the server that kills all existing connections. Restart covers reload but reload does not cover restart.
 
-```
+```sh
 sudo a2dissite d* && sudo service apache2 reload && sudo a2ensite d* && sudo service apache2 restart
 ```
 
@@ -93,26 +93,26 @@ Mod_rewrite provide a rules based rewriting engine to Apache. This allows the se
 
 Be sure the mod_rewrite is enabled
 
-```
+```sh
 sudo a2enmod rewrite
 ```
 
 Open the Apache's default configuration.
 
-```
+```sh
 cd /etc/apache2/sites-available && sudo vim 000-default.conf
 ```
 
 Find the following lines
 
-```
+```apache
 ServerAdmin webmaster@localhost
 DocumentRoot /var/www
 ```
 
 and change them to
 
-```
+```apache
 ServerAdmin webmaster@localhost
 
 RewriteEngine On
