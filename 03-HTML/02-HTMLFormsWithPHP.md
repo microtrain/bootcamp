@@ -2,7 +2,7 @@
 
 Traditionally, forms have been the most common way to collect data from a user. A form submission is the simplest way to post data to a server. This section will start with a simple POST request and end with complex processing.
 
-Form tags ````<form></form>```` are used for creating forms in HTML. Every form should have at least two attributes _action_ and _method_.
+Form tags ```<form></form>``` are used for creating forms in HTML. Every form should have at least two attributes _action_ and _method_.
 
 * action - the web address to which the form data will be sent.
 * method - the type of request the form should make (probably GET or POST).
@@ -10,9 +10,9 @@ Form tags ````<form></form>```` are used for creating forms in HTML. Every form 
 ## Exercise 1 - Create and Inspect a Contact Form
 
 Create the following path.
-````
+```
 /var/www/example.com/contact.php
-````
+```
 
 _/var/www/example.com/contact.php_
 ```html
@@ -104,7 +104,7 @@ Regular Expressions (RegEx) are strings of text that describe a search pattern. 
 ##Exercise 2 - RegEx
 
 _/var/www/example.com/contact.php_
-````
+```php
 <?php
 //Create a RegEx pattern to determine the validity of the use submitted email
 // - allow up to two strings with dot concatenation any letter, any case any number with _- before the @
@@ -142,7 +142,7 @@ foreach($data as $key => $value){
 
 var_dump($errors);
 ?>
-````
+```
 
 RegEx is extremely powerful, flexible and worth learning. Having said that there are a million and one libraries for validating form submissions. I would advise finding a well supported library that meets your projects needs. As of PHP5 [data filters](http://php.net/manual/en/book.filter.php) have been natively supported by the language.
 
@@ -154,7 +154,7 @@ Replace the contents of _/var/www/example.com/contact.php_ with the following.
 
 Explain the code to the class.
 
-````
+```php
 <?php
 
 class Validate{
@@ -272,7 +272,7 @@ $valid = new Validate();
     </form>
   </body>
 </html>
-````
+```
 
 ## Include Files and Namespaces
 
@@ -285,20 +285,20 @@ So far we have a lot of code in the what would typically be considered a *view* 
 ### Include Files
 An include file is a file that contains a snippet of code that is referenced by another file. In PHP include files can be accessed using  [include](http://php.net/manual/en/function.include.php), [include _once](http://php.net/manual/en/function.include_once.php), [require](http://php.net/manual/en/function.require.php) or [require_once](http://php.net/manual/en/function.require_once.php) functions along with a relative or absolute file path.
 
-````
+```php
 // relative include
 include util.php;
 
 // absolute include
 include /var/www/example.com/util.php;
-````
+```
 
 ### Namespace
 At the end of the day a name space is simply a way to disambiguate name collisions. Earlier we created a class called Validate(). Validation classes are fairly common and let's say you liked specific methods from two different vendors both of who named the class Validate, suddenly you have a collision.
 
 Lets say we have two vendors Sally and Bob and I like Sally's email method and Bob's phone method. I want to load this class from both vendors but without a name space the autoloader would not know which class to load into a given object. I might try to include then instantiate but there is no guarantee this will work as classes tend to get cached.
 
-````
+```php
 include 'vendor/Sally/src/Validation/Validate.php';
 $v1 = new Validate();
 $v1->Validate->email($email); //This will probably work
@@ -306,10 +306,10 @@ $v1->Validate->email($email); //This will probably work
 include 'vendor/Bob/src/Validate/Validate.php';
 $v2 = new Validate();
 $v2->Validate->phone($phone); //Sally's version of the class may or may not be cached so the method we want may or may not be there.
-````
+```
 
 With name spaces.
-````
+```php
 // You can probably use an autoloader so you will not have to worry about this.
 include 'vendor/Sally/src/Validation/Validate.php';
 include 'vendor/Bob/src/Validate/Validate.php';
@@ -320,13 +320,13 @@ $v2 = new \Bob\Validate\Validate();
 
 $v1->Validate->email($email);
 $v2->Validate->phone($phone);
-````
+```
 
 ## Exercise 4
 Create the path */var/www/example.com/core/About/src/Validation/Validate.php* and copy the Validates class into the file. Add a name space declaration as the first line of the file.
 
 */var/www/example.com/core/About/src/Validation/Validate.php*
-````
+```php
 <?php
 
 namespace About\Validation;
@@ -405,11 +405,11 @@ class Validate{
         return (!empty($this->data[$key])?$this->data[$key]:null);
     }
 }
-````
+```
 
 Since we have pulled the validation logic into a library all we need to do in the contact form is call the class and process it.
 */var/www/example.com/public/contact.php*
-````
+```php
 <?php
 // Include non-vendor files
 require '../core/About/src/Validation/Validate.php';
@@ -463,7 +463,7 @@ if(empty($valid->errors) && !empty($input)){
 <!DOCTYPE html>
 ...
 
-````
+```
 
 
 ## Additional Resources
