@@ -3,7 +3,7 @@ In this section we will learn use some of the basic Linux commands from the prev
 
 Login in to your system and open a terminal window using ```Ctrl + Alt + T```. Then type the following commands. Pressing enter after each command.
 
-```
+```sh
 sudo apt-get update
 sudo apt-get upgrade
 ```
@@ -16,7 +16,7 @@ Lets look at these commands a little closer.
 ## [Terminator](https://gnometerminator.blogspot.com/p/introduction.html)
 Terminator is a terminal emulator that allows for multiple tabs and split screens. This makes life a lot easier when you are dealing with several command line applications and background processes all at once.
 
-```
+```sh
 sudo apt-get install terminator
 ```
 Now close your terminal window and use [Dash](https://help.ubuntu.com/lts/ubuntu-help/unity-dash-intro.html) to find and open Terminator. Open Dash ```Super + F``` and type _terminator_ into the search field. Click the Terminator icon to launch Terminator. You'll notice the Terminator icon is now in the [Launcher](https://help.ubuntu.com/stable/ubuntu-help/unity-launcher-intro.html) right click the Terminator icon and select _Lock to Launcher_ from the context menu.
@@ -24,14 +24,14 @@ Now close your terminal window and use [Dash](https://help.ubuntu.com/lts/ubuntu
 ## [VIM](http://www.vim.org/)
 An old school command line text editor. This is really nice to know when you need to edit files on a server or directly on a command line.
 
-```
+```sh
 sudo apt-get install vim
 ```
 ## [Google Chrome](https://support.google.com/chrome/?hl=en#topic=3227046)
 
 Download Google Chrome from [https://www.google.com/chrome/browser/desktop/index.html](https://www.google.com/chrome/browser/desktop/index.html) be sure to save the file. If this returns no errors then your good to go, however, this sometimes fails and if it does you can clean it up with using Apt.
 
-```
+```sh
 cd ~/Downloads
 ```
 
@@ -41,13 +41,13 @@ Tilde Expansion in this case it's a short cut to the home directory (~ evaluates
 
 You will have downloaded a file called google-chrome-stable_current_amd64.deb. [```.deb```](https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html) files are software packages designed for Debian based Linus distros.
 
-```
+```sh
 sudo dpkg --install google-chrome-stable_current_amd64.deb
 ```
 
 * [```dpkg```](https://help.ubuntu.com/lts/serverguide/dpkg.html) - A package manager for Debian based systems. Primarily used to work with locally installed .deb packages.
 
-```
+```sh
 sudo apt-get install -f
 ```
 
@@ -60,14 +60,14 @@ Atom is the text editor or pseudo IDE we will be using to write code. Install At
 ## Cleanup
 Check the contents of your Downloads directory by typing [```ls```](http://manpages.ubuntu.com/manpages/zesty/man1/ls.1.html) at the command prompt. You should see the two files we just downloaded and installed.
 
-```
+```sh
 ls ~/Downloads
 atom-amd64.deb  google-chrome-stable_current_amd64.deb
 ```
 
 Now type ```ls -l``` and note the difference between the two result sets.
 
-```
+```sh
 $ ls -l
 total 129080
 -rw-rw-r-- 1 jason jason 86270030 Feb 16 16:11 atom-amd64.deb
@@ -76,7 +76,7 @@ total 129080
 
 Since the have been installed we no longer the files lets remove them from the system.
 
-```
+```sh
 rm ~/Downloads/*
 ```
 
@@ -93,7 +93,7 @@ Now typing ```ls ~/Downloads``` into the command line will return an empty resul
 
 Meld is a visual diff tool. This is the default tool called by Atom when doing a file comparison.
 
-```
+```sh
 sudo apt-get install meld
 ```
 
