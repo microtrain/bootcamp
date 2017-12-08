@@ -12,7 +12,7 @@ In programming, comments are strings of text that are not processed by a compile
 ## The Markup
 [HTML5](https://www.w3.org/TR/html5/)
 
-```
+```html
 <!DOCTYPE html>
 <html>
     <head>
@@ -32,11 +32,13 @@ In programming, comments are strings of text that are not processed by a compile
 1. [Create a repo on GitHub](https://help.github.com/articles/create-a-repo/) called _example.com_.
 1.  Clone the repo into the top level of your Apache server */var/www*
   * From a command line
-```
+
+```sh
 cd /var/www/
 git clone https://github.com/YOUR-USERNAME/example.com/
 cd /var/www/
 ```
+
 1. From Atom's navigation pane add the path named _public/index.html_ to the  project.
 1. Open a browser and navigate to [http://localhost/example.com/public/index.html](http://localhost/example.com/public/index.html) (At this point you will see a blank page).
 1. Now open the file and paste the above mark markup into the file.
@@ -46,16 +48,16 @@ cd /var/www/
 1. Add a paragraph tag below the top level header that reads ```<p>Welcome to my web site.</p>```
 1. Commit your changes and push to master.
 Stage new files to be committed, in this case _public/public/index.html_.
-```
+```sh
 git add .
 ```
 Commit all files, you'll be asked for a commit message say something like *Initial page structure*.
-```
+```sh
 git commit -a
 ```
 
 Add a comment like _Added the initial home page._ then [esc] _:x_ [enter] to save. Then push your changes to master.
-```
+```sh
 git push origin master
 ```
 
@@ -64,13 +66,13 @@ Now you can access your page through the following URL.
 
 For a simple site like this you can usally get away with the above URL, for a more complicated site however it's better to work through a domain name. I like to localize my domain names so that I can still get to the production site. I do this with the _loc_ prefix so that _example.com_ becomes _loc.example.com_.
 
-```
+```sh
 cd /etc/apache2/sites-available
 sudo vim example.com.conf
 ```
 
 Add the following
-```
+```apache
 <VirtualHost 127.0.0.30:80>
 
         ServerName loc.example.com
