@@ -135,6 +135,6 @@ There is no right way to use git. The only real wrong way to use git is to devia
 ## Additional Resources
 * [Documentation](https://git-scm.com/book/en/v2)
 * [ProGit](https://git-scm.com/book/en/v2).
-* (3 Git Commands I use every day)https://jason.pureconcepts.net/2016/11/3-everyday-git-commands/
+* [3 Git Commands I use every day](https://jason.pureconcepts.net/2016/11/3-everyday-git-commands/)
 
 [Next: Programming Basics](../02-Programming Basics)
