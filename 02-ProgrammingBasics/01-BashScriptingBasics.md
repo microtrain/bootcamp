@@ -7,13 +7,13 @@ In the previous lesson you learned the four commands for reloading virtual-host 
 Write a bash script that will replace all four commands for restarting a website with a single command.
 
 In the previous lesson we used the following four command to reload a vhost configuration and restart the Apache web server.
-```
+```sh
 sudo a2dissite d* && sudo service apache2 reload && sudo a2ensite d* && sudo service apache2 restart
 ```
 
 That single line equates to the following four lines.
 
-```
+```sh
 sudo a2dissite d*
 sudo service apache2 reload
 sudo a2ensite d*
@@ -22,7 +22,7 @@ sudo service apache2 restart
 
 [Create a fork](https://help.github.com/articles/fork-a-repo/) of [Restart Apache](https://github.com/microtrain/restart_apache) project from MicroTrain's GitHub repository.
 
-```
+```sh
 cd ~
 git clone https://github.com/YOUR-USERNAME/restart_apache
 ```
@@ -33,13 +33,13 @@ By default, Ubuntu executes shell scripts using the Dash interpreter. Dash is fa
 
 A shebang ```#!``` followed by a path is used to invoke an interpreter, this must be the first line of the file.
 
-```
+```sh
 #!/bin/bash
 ```
 
 In Bash any line that begins with a _#_ denotes a comment and does not processed by the interpreter. Comments are used to explain the program to other humans.
 
-```
+```sh
 # Disable a vhost configuration
 sudo a2dissite *
 sudo service apache2 restart
@@ -51,14 +51,14 @@ sudo service apache2 restart
 
 Now we want to make sure the file is executable by adding the executable flag.
 
-```
+```sh
 cd ~/restart_apache
 sudo chmod +x ~/restart_apache/re.sh
 ```
 
 This script will attempt to treat all files in the current working directory (CWD) as virtual hosts. To test this shell we will want to move to the sites-available directory. Then we can invoke the file.
 
-```
+```sh
 cd ~/restart_apache/re.sh
 sudo cp re.sh /etc/apache2/sites-available/re.sh
 
@@ -68,7 +68,7 @@ cd /etc/apache2/sites-available
 
 After invoking the script you will likely be prompted for a password (on the first run). If all is good you will see something like the following. If you do not get any warnings or error messages (other than *ERROR: Site re.sh does not exist!*) then the configuration has been reloaded.
 
-```
+```sh
 Site default-ssl disabled.
 To activate the new configuration, you need to run:
   service apache2 reload
@@ -106,7 +106,7 @@ Examples
 
 In this exercise we will work with the file *~/restart_apache/re.sh* on a *branch called feature/arguments*.
 Create a [feature branch](https://www.atlassian.com/agile/branching) called _feature/arguments_.
-```
+```sh
 cd ~/restart_apache
 git checkout -B feature/arguments
 ```
@@ -119,7 +119,7 @@ Our first argument will be the virtual host configuration we want to work with a
 
 Add the following lines right after _#!/bin/bash_.
 
-```
+```sh
 CONFIG="$1"
 COMMAND="$2"
 ```
@@ -128,7 +128,7 @@ The first thing we want our program to do is to verify we have the correct numbe
 
 Add the following lines to the file. Bellow the CONFIG and COMMAND variables but above the lines from the previous example. In bash ```echo``` is a command that writes it arguments to the standard output while ```exit``` stops the execution of the program and returns control back to the caller. In this case both the standard output and the caller would be the terminal.
 
-```
+```sh
 if [ $# -ne 2 ]
 then
     echo "Usage: $0 {virtual-host} {restart|reload}"
@@ -139,7 +139,7 @@ fi
 
 Finally, replace the _ssl-default_ with a call to the _CONFIG_ variable by prefixing CONFIG with a dollar sign _$CONFIG_ and do the same for _COMMAND_
 
-```
+```sh
 sudo a2dissite "$CONFIG"
 sudo service apache2 "$COMMAND"
 
@@ -149,7 +149,7 @@ sudo service apache2 "$COMMAND"
 
 Test your changes like we did after forking the repository.
 
-```
+```sh
 sudo rm /etc/apache2/sites-available/re.sh
 
 cd ~/restart_apache/re.sh
@@ -163,14 +163,14 @@ Commit your changes to _feature/arguments_. Your commit message should be someth
 
 Merge you changes into master
 
-```
+```sh
 git checkout master
 git merge -B feature/arguments
 ```
 
 Now on master update the README.md file to explain how to use the latest version of the program and commit that change with an appropriate message. Then open VERSION.txt and move the version to 0.2.0 and commit with a message of *Version 0.2.0*. Push your changes to master.
 
-```
+```sh
 git push origin master
 ```
 
@@ -180,11 +180,10 @@ For this exercise, create a feature branch called *feature/validate*. When you a
 
 The product owner has requested that we only be allowed to pass *reload* or *restart* into the service command. To accomplish this, lets add a new variable to the top of our script called OK and lets set that to false.
 
-```
+```sh
 OK=false
 ```
 We can then test against the value of the $COMMAND argument to make sure it is in the approved list. If it is we will change the value of OK to true. Add the following lines after the current block that checks for the proper number of arguments.
-
 ```
 
 # reload is allowed
@@ -203,7 +202,7 @@ fi
 
 Finally, we MUST to exit the program if OK has NOT been set to true. Add the following after the block that checks fro a restart.
 
-```
+```sh
 # reject any service command that was not white listed
 if [ "$OK" == false ]
 then
@@ -220,7 +219,7 @@ For each element in the COMMANDS array where an element is defined by the variab
 
 Create the file *~/bash/loop.sh* and make it executable
 
-```
+```sh
 mkdir -p ~/bash
 cd ~/bash
 touch loop.sh
@@ -230,7 +229,7 @@ vim loop.sh
 
 Add the following lines and execute the file.
 
-```
+```sh
 #!/bin/bash
 
 # A list of service commands
@@ -247,7 +246,7 @@ For each file in VHOSTS_PATH array where a file is defined by FILENAME, if an el
 
 Update *~/bash/loop.sh* with the following.
 
-```
+```sh
 # List all of the configuration files in the _/etc/apache2/sites-available/_ directory
 VHOSTS_PATH=/etc/apache2/sites-available/*.conf
 
@@ -262,7 +261,7 @@ String concatenation is the addition of one string to another typically through 
 ## Exercise 6 - Strings
 Create an executable Bash file at _~/bash/string.sh_ and add the following code.
 
-```
+```sh
 STRING1 = 'Hello'
 STRING2 = 'World'
 echo "${STRING1} ${STRING2}"
@@ -280,7 +279,7 @@ Create an executable Bash file at _~/bash/notEmpty.sh_ and add the following log
 * If STRING has a length of zero change the value of STRING to _"Hello"_.
 * If STRING has anything other than a zero length append _" World"_ to the current value.
 
-```
+```sh
 #!/bin/bash
 
 STRING=''
