@@ -1,6 +1,6 @@
 # LESS and SASS
 
-LESS and SASS CSS are the two leading preprocessors. A CSS preprocessor is a superset of CSS which means anything that is written in raw CSS will run under both LESS and SASS. LESS and SASS extends CSS with programming like capabilities; basically variables and limited control statements. This is adventurousness especially when building large front-end frameworks such [Bootstrap](http://getbootstrap.com/) or creating a product with a customizable theme. For example, Bootstrap has a common color for showing danger or errors _#a94442_. If we were to change that color globally we would have to track down every instance of the color and change it manually or we could make a single change to the variable that holds that color.
+LESS and SASS (SCSS) are the two leading preprocessors. A CSS preprocessor is a superset of CSS which means anything that is written in raw CSS will run under both LESS and SASS. LESS and SASS extends CSS with programming like capabilities; basically variables and limited control statements. This is adventurousness especially when building large front-end frameworks such [Bootstrap](http://getbootstrap.com/) or creating a product with a customizable theme. For example, Bootstrap has a common color for showing danger or errors _#a94442_. If we were to change that color globally we would have to track down every instance of the color and change it manually or we could make a single change to the variable that holds that color.
 
 
 ## [Less](http://lesscss.org/)
