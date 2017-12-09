@@ -1,4 +1,4 @@
-# [PHP Control Structures](http://php.net/manual/en/language.control-structures.php)
+# [JavaScript Control Structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
 
 Programming is little more that reading data and piecing together statements that take action on that data. Every language will have it's own set of control structures. For most languages a given set of control structures will be almost identical. In the Bash and PHP lessons we learned a few control structures most of which exist in JavaScript. While the syntax may be a little different, the logic remains the same.
 
@@ -242,3 +242,4 @@ document.write(msg);
 
 ## Additional Resources
 * [Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
+* []()
