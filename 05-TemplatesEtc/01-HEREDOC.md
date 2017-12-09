@@ -25,7 +25,7 @@ In previous lessons we used ```echo``` to write the value of some variables into
 
 The basic idea is as follows. We are simply passing the variable ```$content``` into an HTML document using PHP's echo statement.
 
-```
+```php
 $content="<h1>Hello World</h1><p>Welcome to my web page.</p>";
 
 <html>
@@ -35,7 +35,7 @@ $content="<h1>Hello World</h1><p>Welcome to my web page.</p>";
 ```
 
 The previous example works for simple strings, but what about a page that has tens if not hundreds of lines of HTML? Writing all of that as a PHP string is tedious and prone to error, this is where the heredoc syntax can help.
-```
+```php
 <?php
 $who = 'World';
 $content = <<<EOT
@@ -54,7 +54,7 @@ A heredoc string start by declaring a variable and setting a delimiter. PHP uses
 The previous example passes the content into an HTML string but it still requires the entire document to be embedded in every page. Let's push the HTML document into an include file.
 
 *contact.php*
-```
+```php
 <?php
 $who = 'World';
 $content = <<<EOT
@@ -66,7 +66,7 @@ require 'layout.php';
 ```
 
 *layout.php*
-```
+```php
 <html>
   <head></head>
   <body><?php echo $content; ?></body>
@@ -79,7 +79,7 @@ Now we only have to include the layout on each page of our site. The advantage i
 
 Create the path */var/www/about/core/layout.php* and add the following lines.
 
-```
+```php
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -129,7 +129,7 @@ Create the path */var/www/about/core/layout.php* and add the following lines.
 
 Change the path */var/www/about/contact.php* to the following. Pay special attenention to the echo statements, these are now treated as variables being passed into a string such that ```<?php echo $valid->userInput('first_name'); ?>``` becomes ```{$valid->userInput('first_name')}```.
 
-```
+```php
 <?php
 
 require 'core/processContactForm.php';
