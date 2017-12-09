@@ -20,7 +20,7 @@ Upon connection you will be presented with a MySQL prompt.
 ![Connected](/img/mysql/connected.png)
 
 At the prompt the following command to get a list of databases.
-```
+```sql
 show databases;
 ```
 
