@@ -26,7 +26,7 @@ In previous lessons we used ```echo``` to write the value of some variables into
 The basic idea is as follows. We are simply passing the variable ```$content``` into an HTML document using PHP's echo statement.
 
 ```php
-$content="<h1>Hello World</h1><p>Welcome to my web page.</p>";
+<?php $content="<h1>Hello World</h1><p>Welcome to my web page.</p>"; ?>
 
 <html>
   <head></head>
