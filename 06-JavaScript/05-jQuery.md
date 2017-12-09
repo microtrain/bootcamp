@@ -12,7 +12,7 @@ According to the jQuery website "jQuery is a fast, small, and feature-rich JavaS
 
 jQuery allows you to simply manipulate the DOM by calling CSS selectors. This is a little more consitent than the native [_querySelector_](https://stackoverflow.com/questions/11503534/jquery-vs-document-queryselectorall). Legacy browsers do not support _querySelector()_ but that is less of a problem now-a-days.
 
-```
+```js
 // When an element with the id of _colorChanger_ is clicked apply a red font to all _paragraphs_
 $( "#colorChanger" ).on( "click", function( event ) {
   $('p').attr('style', 'color: #ff9900');
@@ -29,7 +29,7 @@ $( "#colorChanger" ).on( "click", function( event ) {
 });
 ```
 
-```
+```js
 //Show an AJAX example
 ```
 ## Exercise - NASA API
@@ -43,7 +43,7 @@ $( "#colorChanger" ).on( "click", function( event ) {
   * _/var/www/nasa/jquery/src/js/main.js_
 
 Create a basic HTML structure and add it to _index.html_. For this example, lets use NPM and those types of tools???
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -64,7 +64,7 @@ Create a basic HTML structure and add it to _index.html_. For this example, lets
 
 Let's create an object (and clodure) called apod (Astronomy Picture of the Day). We will make an AJAX call to the API which will return a JSON string, this is what we will use to build the program. We will test our API access by returning the result of the AJAX request to a console log. Press [F12] and find the console tab in your browsers developer tools.
 Add the following to _/var/www/nasa/jquery/src/js/main.js_.
-```
+```js
 var apod = {
     // Application Constructor
     init: function() {
@@ -85,7 +85,7 @@ apod.init();
 ```
 
 and add the follow to _main.css_.
-```
+```css
 body {
   padding: 0;
   margin: 0;
@@ -129,7 +129,7 @@ If eveything worked you will see results similar to the following.
 In looking at the JSON data you'll notice a date field. By default only pull today's picture, looking at the query parameters section in the [API documentation](https://api.nasa.gov/api.html#apod) I see I can pass a date in the form of _YYYY-MM-DDD_ as an additional GET parameter. To make things interesting lets add pass a random date every time we call the API.
 
 Add a random date function to the apod object. A good place to start would be [MDN's date documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). A qucik Google search will return [this gist](https://gist.github.com/miguelmota/5b67e03845d840c949c4) which provides us a good randomizer for an unformatted date in between a given start and date. This is important because the date cannot be greater than today or less that the first apod _June 16, 1995_.
-```
+```js
 //Create a random date
 randomDate: function(start, end) {
   //Randomize the date https://gist.github.com/miguelmota/5b67e03845d840c949c4
@@ -154,7 +154,7 @@ randomDate: function(start, end) {
 ```
 
 Update the init() method as follows.
-```
+```js
 let date = this.randomDate(new Date(1995, 5, 16), new Date());
 var url = "https://api.nasa.gov/planetary/apod?api_key=LcGRMR8ReXp7B91eLkhqcSag0JYHQKh2Y5MAAXHY&date=" + date;
 ```
@@ -162,7 +162,7 @@ var url = "https://api.nasa.gov/planetary/apod?api_key=LcGRMR8ReXp7B91eLkhqcSag0
 Now when you refresh the page you will see different JSON strings.
 
 At this point your JS should resemble the following.
-```
+```js
 var apod = {
     //Create a random date
     randomDate: function(start, end) {
@@ -210,7 +210,7 @@ Now it's time to build the UI. We will start by deciding what we want to show on
 Replace the success callback in your AJAX call with the following. This assumes the DOM has an element for each of the following ids.
 * [.attr()](http://api.jquery.com/attr/)
 * [.text()](http://api.jquery.com/text/)
-```
+```js
 .done(function(result){
   $("#apodTitle").text(result.title);
   $("#apodImg").attr("src", result.url).attr('alt', result.title);
@@ -221,7 +221,7 @@ Replace the success callback in your AJAX call with the following. This assumes 
 ```
 
 Update _index.html_ with the following.
-```
+```html
 <h1 id="apodTitle"></h1>
 <img id="apodImg">
 <div id="apodCopyright"></div>
@@ -230,13 +230,13 @@ Update _index.html_ with the following.
 ```
 
 Hard code the date _6/6/2013_ as follows and you will notice there is no image. That is because the picture of the day for this date is a video. In this situation we will want to tell our program how to render a video.
-```
+```js
 let date = new Date(2013,6,6);//new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 ```
 
 If we refer to the JSON string produced by the API we see that there is a _media_type_ field. We can use this to tell our application how to handle the url.
 
-```
+```js
 //If the media type is video hide the image elements and display a video.
 if(result.media_type === 'video') {
   $("#apodImage").hide();
@@ -248,7 +248,7 @@ if(result.media_type === 'video') {
 ```
 
 Add the following markup either above or below _apodImg__. Refer to the CSS to see how the video class helps us properly size a video.
-```
+```html
 <div class="video" id="apodVideo">
   <iframe frameborder="0" allowfullscreen></iframe>
 </div>
@@ -257,14 +257,14 @@ Add the following markup either above or below _apodImg__. Refer to the CSS to s
 ##  Single Responsibility Principle
 
 The Single Responsibility Principle is the notion that a class, module, method, etc should only be responsible for one thing. For instance a method called _writeName()_ might be expected to write a name to something. If the method were written as follows, it would be a good example of single responsibility.
-```
+```js
 writeName(name) {
   $('#firstName').text(name);
 }
 ```
 
 If however, I were to write the following
-```
+```js
 writeName(id) {
   let db = new DB{'user': 'root', 'password':'1234', 'db':'crm'});
   let results = db.sql('SELECT `name` FROM `contacts` WHERE contact.id=' + id);
@@ -278,7 +278,7 @@ it would be a bad example of single responsibility in that the _writeName()_ met
 And we have not even mentioned error handling yet.
 
 As you can see based on a few comments, trying to d o to much on a single method can get out of hand pretty quickly.
-```
+```js
 writeName(id) {
   let db = new DB{'user': 'root', 'password':'1234', 'db':'crm'});
   //If you cannot connect the the DB
@@ -306,7 +306,7 @@ Straight away I see at least to new methods that get me object closer to SRP.
 * _buildDOM()_
 * _getRequest()_
 
-```
+```js
 //Injects the results of the API call into the DOM
 buildDOM: function(result) {
   $("#apodTitle").text(result.title);
@@ -346,7 +346,7 @@ init: function() {
 
 This may cause my execution to change as follows. You could also call _apod.gerRequest()_ onload or call _apod.init()_ on click. This is a simple example so the _init()_ method may make a little less sense, in a more complex example the page load would likely have different responsibilities than the click event. In this case one might argue that calling a set of responsibilities in an _init()_ method violates SRP and that these methods should be called individually in a script and I could not argue. At some point you have to make a decision and go with it.
 
-```
+```js
 apod.init();
 
 /* https://learn.jquery.com/using-jquery-core/document-ready/ */
