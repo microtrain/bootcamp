@@ -14,7 +14,7 @@ These are the most common selectors. While there are many more
 * Tag Selector ```p``` - *(TAG-NAME)*
 * ID Selector ```#mastHead``` - *(#) - (ID-NAME)*
 
-```
+```css
 /* All paragraph elements have a blue font */
 p{
   color: blue;
@@ -56,7 +56,7 @@ div > *.info{
 
 Replace */var/www/about/index.html* with the following.
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -252,7 +252,7 @@ Replace */var/www/about/index.html* with the following.
 
 Create the path */var/www/about/css/dist/main.css* and open that file in Atom. Copy the contents of the style element from index.html into the new file and replace the style element with a reference to the style sheet.
 
-```
+```html
 <link rel="stylesheet" type="text/css" href="css/dist/main.css">
 ```
 

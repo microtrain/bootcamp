@@ -10,7 +10,7 @@ Before we dive into the Mailgun API we should take a moment to talk about JavaSc
 Curly braces _{}_ encapsulates a JSON string (creates an object in JS)
 
 Colons _:_ separate key to value pairs, fields are comma separated (aka CSV or comma separated values).
-```
+```json
 {
   '_id':1234,
   'firstname':'Sally',
@@ -19,7 +19,7 @@ Colons _:_ separate key to value pairs, fields are comma separated (aka CSV or c
 ```
 
 A company with multiple addresses (in this case an array of addresses)
-```
+```json
 {
   '_id'':1,
   'company':'MicroTrain Technologies',
@@ -41,7 +41,7 @@ A company with multiple addresses (in this case an array of addresses)
 ```
 
 One JSON string with multiple company objects
-```
+```json
 {
   {
     '_id'':1,
@@ -77,7 +77,7 @@ One JSON string with multiple company objects
 ```
 
 In any case PHP will convert this to an array and you would parse out the array to find your desired value. So the first example would appear as.
-```
+```php
 array(
   '_id' => 1234,
   'firstname' => 'Sally',
@@ -86,7 +86,7 @@ array(
 ```
 
 Let's this was returned via a fictitious _User->get(1234)_ method (in which User is a class and get() is a member (property/method) of that class) you might access _firstname_ as follows.
-```
+```php
 $users = new User();
 $user = $users->get(1234);
 
@@ -104,13 +104,13 @@ Go to [mailgun.com](https://www.mailgun.com/) and create a free account. You may
 
 The landing page will provide you the details you need need to send a test email. Start by creating a shell script and pasting the curl example into the shell.
 
-```
+```sh
 vim ~/mailgun.sh
 ```
 
 Add the line
 
-```
+```sh
 #!/bin/bash
 ```
 
@@ -119,13 +119,14 @@ Then
 * Make the file executable.
 * Execute the script.
 
-```
+```sh
 chmod +x mailgun.sh
 ./mailgun.sh
 ```
 
 If you see a [json](http://www.json.org/) response similar to this, your sand box account is working.
-```
+
+```json
 {
   "id": "<20171009154755.125901.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org>",
   "message": "Queued. Thank you."
@@ -138,48 +139,48 @@ The first thing you will want to do is [Mailgun's PHP](https://github.com/mailgu
 
 Let's start by creating a feature branch. This will allow us to keep any changes separate from our production code until we are ready for it.
 
-```
+```sh
 cd /var/www/about
 git checkout -B feature/mailgun
 ```
 
 If you get the message *Switched to a new branch 'feature/mailgun'* you are ready to proceed.
-```
+```sh
 composer require mailgun/mailgun-php php-http/curl-client guzzlehttp/psr7
 ```
 
 This may take a minute or so. The install was successful if you see a series of *Installing* messages ending with
-```
+```sh
 Writing lock file
 Generating autoload files
 ```
 
 Now, let's see what was installed.
-```
+```sh
 git status
 ```
 
 You should see something like the following.
-```
+```sh
 composer.json
 composer.lock
 vendor/
 ```
 
 We do not want to commit the vendor directory to our repo. So we will create a *.gitignore* file. From you Atom sidebar create a file called *.gitignore* under the about project (Do not forget the preceding dot) and add the following line.
-```
+```sh
 /vendor/
 ```
 
 Now if you run ```git status``` you will see the following.
-```
+```sh
 .gitignore
 composer.json
 composer.lock
 ```
 
 Commit these files and push to the new feature branch.
-```
+```sh
 git add .
 git commit -m 'Added mailgun lib'
 git push origin feature/mailgun
@@ -187,7 +188,7 @@ git push origin feature/mailgun
 
 Create the file */var/www/example.com/test.php* and copy and paste the PHP sample code from the Mailgun landing page. Below the pasted code add the line ```var_dump($reults);```.
 
-```
+```sh
 <?php
 # Include the Autoloader (see "Libraries" for install instructions)
 require 'vendor/autoload.php';
@@ -208,7 +209,7 @@ var_dump($reults);
 ```
 
 From a browser window, navigate to *http://localhost/YOUR-PROJECT-NAME/test.php* and you should get a json string similar to:
-```
+``php
 object(stdClass)#24 (2) { ["http_response_body"]=> object(stdClass)#19 (2) { ["id"]=> string(91) "<20171009164718.79178.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org>" ["message"]=> string(18) "Queued. Thank you." } ["http_response_code"]=> int(200) }
 ```
 Then check your email to see if it worked.
@@ -220,37 +221,37 @@ _Never push a key to a public repository, use a key file the exists outside of t
 ## Exercise 2 - Pass Variables into the API Call
 
 Create a key file
-```
+```sh
 mkdir -p /var/www/example.com/config
 vim /var/www/example.com/config/keys.php
 ```
 
 Add the following line to your .gitignore file and commit your changes to the *feature/mailgun* branch.
 
-```
+```sh
 /config/keys.php
 ```
 
 Add the following (Where YOUR-KEY-HERE is the key provided by Mailgun):
-```
+```php
 <?php
 define('MG_KEY', 'dYOUR-KEY-HERE');
 define('MG_DOMAIN', 'YOUR-DOMAIN-HERE');
 ```
 Add the following to the top of *http://localhost/YOUR-PROJECT-NAME/test.php*
-```
+```php
 require '/var/www/example.com/config/keys.php';
 ```
 
 Change
-```
+```php
 $mgClient = new Mailgun('key-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
 $domain = 'sandboxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org';
 
 $from = 'Mailgun Sandbox <postmaster@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org>';
 ```
 to
-```
+```php
 $mgClient = new Mailgun(MG_KEY);
 $domain = MG_DOMAIN;
 
@@ -261,7 +262,7 @@ Instead of passing static values into the method pass variables.
 * Replace the existing method call with the following.
 * Remove the var_dump($results);
 
-```
+```php
 $from = "Mailgun Sandbox <postmaster@{$domain}>";
 $to = 'YOUR-NAME <YOUR-EMAIL-ADDRESS>';
 $subject = 'Hello YOUR-NAME';

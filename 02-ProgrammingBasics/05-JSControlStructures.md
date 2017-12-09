@@ -211,7 +211,7 @@ document.write(msg);
 </script>
 ```
 
-## Exercise 7 - Do...While
+## Exercise - Do...While
 
 Add the following to the path _/var/www/php/do_while.php_.
 ```html
@@ -240,6 +240,53 @@ document.write(msg);
 </script>
 ```
 
+## Exercise - Switch Statement
+
+```html
+<script>
+
+var color = null;
+var GET = {};
+
+//parse the GET params out of the URL
+if(document.location.toString().indexOf('?') !== -1) {
+    var query = document.location
+       .toString()
+       // get the query string
+       .replace(/^.*?\?/, '')
+       // and remove any existing hash string (thanks, @vrijdenker)
+       .replace(/#.*$/, '')
+       .split('&');
+
+    for(var i=0, l=query.length; i<l; i++) {
+       var aux = decodeURIComponent(query[i]).split('=');
+       GET[aux[0]] = aux[1];
+    }
+}
+
+//Check for get parameters
+if(GET['color'] !== 'undefined'){
+    color = `#${GET['color']}`;
+}
+
+switch (color) {
+  case 'ff9900':
+    console.log('The color is red');
+    break;
+  case '00ff00':
+    console.log('The color is green');
+    break;
+  case '0000ff':
+    console.log('The color is blue');
+    break;
+  default:
+    console.log('Sorry, I cannot determine the color');
+}
+
+</script>
+```
+
 ## Additional Resources
+* [Control Flow and Error Handling](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
 * [Loops and iteration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration)
-* []()
+* [Switch](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)

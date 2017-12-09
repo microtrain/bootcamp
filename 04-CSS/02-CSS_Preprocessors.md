@@ -7,7 +7,7 @@ LESS and SASS CSS are the two leading preprocessors. A CSS preprocessor is a sup
 
 Install less, since less is written in Node.JS we will use npm.
 
-```
+```sh
 sudo npm install -g less
 ```
 
@@ -16,7 +16,7 @@ Variables in less. Less denotes variable with an _@_ at symbol. Less files must 
 ### Exercise 2 - Less Variables
 
 Create the path _~/less/var.less_ and add the following lines.
-```
+```less
 @font-stack:    "Helvetica Neue",Helvetica,Arial,sans-serif;
 @primary-color: #333;
 
@@ -27,12 +27,12 @@ body {
 ```
 
 Then run the less compiler against that file.
-```
+```sh
 lessc ~/var/less/var.less
 ```
 
 You will see the following output in the console.
-```
+```css
 body {
   font: 100% "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #333;
@@ -44,13 +44,13 @@ body {
 
 Install sass, since less is written in ruby we will use gem for the install. Start by installing ruby.
 
-```
+```sh
 sudo apt-get install ruby
 sudo su -c "gem install sass"
 ```
 OR
 
-```
+```sh
 sudo apt-get install ruby-sass
 ```
 
@@ -59,7 +59,7 @@ Variables in Sass. Sass denotes variables with a _$_ dollar sign. For these less
 ### Exercise 2 - Sass Variables
 
 Create the path _~/scss/var.scss_ and add the following lines.
-```
+```scss
 $font-stack:    "Helvetica Neue",Helvetica,Arial,sans-serif;
 $primary-color: #333;
 
@@ -69,11 +69,11 @@ body {
 }
 ```
 
-```
+```sh
 sass ~/scss/var.scss ~/scss/var.css
 ```
 You will see the following output in the console.
-```
+```css
 body {
   font: 100% "Helvetica Neue",Helvetica,Arial,sans-serif;
   color: #333; }
@@ -83,12 +83,12 @@ body {
 
 The down side to a preprocessor is the compilation step. This takes time and slows down development. We remedy this by creating a *watcher* this watches a target file for changes and rebuilds it's CSS version in the background. This is one less thing you need to think about which can help keep you in flow. Open a split console window and run the following command in one of the panels.
 
-```
+```sh
 sass --watch ~/scss/var.scss:~/scss/var.css
 ```
 
 You will see the following output
-```
+```sh
 >>> Sass is watching for changes. Press Ctrl-C to stop.
   directory ~/scss
       write ~/scss/var.css
@@ -98,7 +98,7 @@ You will see the following output
 
 In the second panel open the scss file in vim, make a change and save it using [esc] then ```:x```; You'll notice a change in the first console window with the following output.
 
-```
+```sh
 >>> Change detected to: var.scss
       write ~/scss/var.css
       write ~/scss/var.css.map
@@ -111,14 +111,14 @@ Open the file *~/scss/var.css* amd verify your changes.
 
 Move */var/www/about/css/dist/main.css* to */var/www/about/css/src/main.scss*
 
-```
+```sh
 mkdir -p /var/www/about/css/src
 mv /var/www/about/css/dist/main.css /var/www/about/css/src/main.scss
 ```
 
 Then compile the sass file
 
-```
+```sh
 sass /var/www/about/css/src/main.scss /var/www/about/css/dist/main.css
 ```
 
@@ -129,7 +129,7 @@ Later we will learn about the Bootstrap framework. Bootstrap is among the most p
 ## Exercise 4
 
 Create a mix for clearfix by adding the following to the top of */var/www/about/css/src/main.scss*.
-```
+```scss
 /* mixins */
 /* clear floats */
 @mixin clearfix() {
@@ -142,7 +142,7 @@ Create a mix for clearfix by adding the following to the top of */var/www/about/
 ```
 
 Then change the style declarations for to *.clearfix*, *.top-nav* and *#Footer* to the following.
-```
+```scss
 .clearfix {
     @include clearfix();
 }
@@ -177,7 +177,7 @@ Another method of reuse in SASS is *@extend* so ```.sample{@extend .example;}```
 
 ### Exercise 5
 Remove the class declaration from the from the footer navigation element then add the following to the bottom of */var/www/about/css/src/main.scss*.
-```
+```scss
 #Footer ul[role="navigation"] {
   @extend .nav-inline;
   @extend .pull-right;
@@ -186,7 +186,7 @@ Remove the class declaration from the from the footer navigation element then ad
 Repeat this process for the navigation inside of *.top-nav*.
 
 Update ```#Sidebar``` and ```#Content``` to the following.
-```
+```css
 #Sidebar {
     width: 340px;
     background: #cdcdcd;
@@ -201,3 +201,4 @@ Update ```#Sidebar``` and ```#Content``` to the following.
 ```
 
 [SASS Reference](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
+[Less Reference](http://lesscss.org/#)
