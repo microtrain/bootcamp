@@ -25,7 +25,7 @@ show databases;
 ```
 
 You will see something similar to the following. By default MySQL installs a few system databases that it uses for it's own purposes. It is unlikely you ever need to access these yourselves. Just be sure not to delete them.
-```
+```sh
 +----------------------+
 | Database             |
 +----------------------+
