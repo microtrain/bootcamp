@@ -8,7 +8,7 @@ Events allow a user to interact with a web page. Listeners are used to detect an
 In your browser navigate to http://localhost/mtbc/exercises/javascript/events/onclick.html and open to corresponding file in your editor. Add the following to the body tag of the document and refresh the page.
 
 ### Exercise 1 - Catch the Click
-```
+```html
 <div id="demo"></div>
 <button onclick="document.getElementById('demo').innerHTML = Date()">What time is it?</button>
 ```
@@ -19,7 +19,7 @@ The tag _div#demo_ loads with no content. The button's on click attribute is an 
 
 You can execute JavaScript directly in the HTML tag but this is considered bad practice. Let's Add some script tags and function that accepts the target element as an argument.
 
-```
+```html
 <button onclick="showDate('demo');">What time is it?</button>
 <script>
   function showDate(element) {
@@ -30,7 +30,7 @@ You can execute JavaScript directly in the HTML tag but this is considered bad p
 
 This is looking pretty good but some circles even argue against using the HTML elements onclick attribute. Let's write a listner in JavaScript.
 
-```
+```html
 <button id="time">What time is it?</button>
 <script>
   function showDate(element) {
@@ -45,7 +45,7 @@ This is looking pretty good but some circles even argue against using the HTML e
 
 Now let's change this to an arrow function. Arrow functions use shorter syntax and do not bind *this*.
 
-```
+```html
 <button id="time">What time is it?</button>
 <script>
   function showDate(element) {
@@ -67,7 +67,7 @@ A change event listens for a change to a target element. Change events are typic
 In your browser navigate to http://localhost/mtbc/exercises/javascript/events/onchange.html and open to corresponding file in your editor. Add the following to the body tag of the document and refresh the page.
 
 Add the following to the form tag. Be sure to start the list with an empty option.
-```
+```html
 <select id="options">
   <option>--Pick an Option--</option>
   <option value="a">A</option>
@@ -77,7 +77,7 @@ Add the following to the form tag. Be sure to start the list with an empty optio
 ```
 
 Add the following to the script tag.
-```
+```html
 function setValue(element) {
    let option = document.getElementById('options').value;
    document.getElementById(element).innerHTML = option;
@@ -92,7 +92,7 @@ list.addEventListener("change", ()=>{setValue('demo')}, false);
 While an interval is not techincally and event, it does provide a trigger for an interaction to occur. In this case we will use it with a click event to grow another form element on the screen.
 
 In your browser navigate to https://localhost/mtbc/exercises/javascript/events/interval.html and open to corresponding file in your editor. Add the following to the script tags of the document and refresh the page. Be sure to read the comments and understand the reasoning behind each lie of code.
-```
+```html
 function Grower() {
   //Get current width of the target element
   this.width  = document.getElementById('demo').offsetWidth;
