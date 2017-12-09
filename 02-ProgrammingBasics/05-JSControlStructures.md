@@ -139,7 +139,7 @@ document.write(msg);
 ## Exercise - For...in Loop
 
 Add the following to the path _/var/www/js/forin.html_.
-```js
+```html
 <script>
 var items = {
   0:'for',
@@ -164,7 +164,7 @@ document.write(msg);
 ## Exercise - For...of Loop
 
 Add the following to the path _/var/www/js/forof.html_.
-```js
+```html
 <script>
 var items = [
   'for',
@@ -188,7 +188,7 @@ document.write(msg);
 
 ## Exercise  - While Loop
 
-```js
+```html
 <script>
 var items = [
   'for',
@@ -214,7 +214,7 @@ document.write(msg);
 ## Exercise 7 - Do...While
 
 Add the following to the path _/var/www/php/do_while.php_.
-```js
+```html
 <script>
 var items = [
   'for',
