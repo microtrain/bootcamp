@@ -69,7 +69,7 @@ Tables are created using the _CREATE TABLE_ command. ```CREATE TABLE _tablename_
 
 Add the following table to your bootcamp database.
 
-```
+```sql
 CREATE TABLE users (
     id VARCHAR(36) PRIMARY KEY COMMENT 'Primary Key UUID',
     first_name VARCHAR(40) DEFAULT NULL COMMENT 'The users first name',
