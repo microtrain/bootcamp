@@ -72,27 +72,31 @@ This provides free online learning for various topics. This is mostly included a
 **Output**
 * A working knowledge of MySQL.
 * A working knowledge of CakePHP and Composer
-* A web hosted (LAMP Stack) blog.
+* A working blog with user management (LAMP Stack).
 
-## Week 4 MongoDB, Express and Digital Ocean (intro to cloud)
+## Week 4 Angular
+
+**Output**
+* A working knowledge of Angular
+* A front end application that can talk to a given API.
+* Another version of the NASA app
+* Integration into the week 3 project
+  * A stand alone application that talks to a JSON API.
+
+## Week 5 MongoDB, Express
 * MongoDB
 * Express
 
 **Output**
 * A working knowledge of MongoDB.
-* A working knowledge of Express and Composer.
-* A web hosted (MEAN Stack) blog.
+* A working knowledge of Express, NPM, and PUG.
+* A working blog with user management (MEAN Stack).
 
-## Week 5 - Introduction to the Cloud
+## Week 6 - Introduction to the Cloud
 * Launch a production site to Digital Ocean on your preferred tech stack (MEAN or LAMP).
 
 **Output**
 Your personal production site on Digital Ocean on your preferred tech stack (MEAN or LAMP).
-
-## Week 6 Angular
-
-**Output**
-* A working knowledge of Angular
 
 ## Week 7 Apache Cordova and Ionic
 * Learn how to build mobile device emulators.
