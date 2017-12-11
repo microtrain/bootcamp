@@ -1,12 +1,12 @@
 ## Lab 1 - Restyle All Pages
 
-Apply the new theme to all pages under _/var/www/about_.
+Apply the new theme to all pages under _/var/www/example.com/public_.
 
 ## Lab 2 - Add Response Classes
 
 Add the following classes to main.scss update the style declarations so that redundant values are called as a variable. Apply these class to error and success messages produced after the form submit in contact.php.
 
-```
+```scss
 .text-success {
   color: #3c763d;
 }

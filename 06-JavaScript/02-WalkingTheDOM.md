@@ -27,7 +27,7 @@ Return a element object.
 
 Navigate to http://localhost/mtbc/exercises/javascript/dom/by_id.html, then open the source file in your editor. Add the following lines to the script tags then refresh the page and note the changes.
 
-```
+```js
 var elem = document.getElementById("a"); // Get the elements
 elem.style = 'color: #FF0000;'; // change color to red
 ```
@@ -40,7 +40,7 @@ Return a live HTMLCollection (an array of matching elements).
 
 The tag_name is "div", "span", "p", etc. Navigate to http://localhost/mtbc/exercises/javascript/dom/by_tag_name.html, then open the source file in your editor. Add the following lines to the script tags then refresh the page and note the changes.
 
-```
+```js
 var list = document.getElementsByTagName('blockquote'); // get all p elements
 list[0].style = 'color: #FF0000;';
 ```
@@ -53,7 +53,7 @@ Return a live HTMLCollection.
 
 The class_values can be multiple classes separated by space. For example: "a b" and it'll get elements, where each element is in both class “a” and “b”. Navigate to http://localhost/mtbc/exercises/javascript/dom/by_class_name.html, then open the source file in your editor. Add the following lines to the script tags then refresh the page and note the changes.
 
-```
+```js
 // get all elements of class a
 var list = document.getElementsByClassName('b');
 
@@ -74,7 +74,7 @@ Return a live HTMLCollection, of all elements that have the name="name_value" at
 
 Navigate to http://localhost/mtbc/exercises/javascript/dom/by_name.html, then open the source file in your editor. Add the following lines to the script tags then refresh the page and note the changes.
 
-```
+```js
 //Get all elements with a name of a
 var list = document.getElementsByName('a');
 
@@ -94,7 +94,7 @@ Return a non-live HTMLCollection, of the first element that match the CSS select
 
 Navigate to http://localhost/mtbc/exercises/javascript/dom/by_css_selector.html, then open the source file in your editor. Add the following lines to the script tags then refresh the page and note the changes.
 
-```
+```js
 //Find the element with an id of bold
 var bold = document.querySelector('#bold');
 

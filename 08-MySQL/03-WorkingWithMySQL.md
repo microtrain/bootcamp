@@ -5,7 +5,7 @@
 
 Before you can work with MySQL you need to make a connection; we will start with the CLI. If you followed the setup instructions in section 01-04 you should have a local instance of the DBMS running with the credentials of root:password and this will be running on localhost
 
-```
+```sh
 mysql -u root -p -h localhost
 ```
 * ```mysql``` - invokes the MySQL CLI
@@ -20,12 +20,12 @@ Upon connection you will be presented with a MySQL prompt.
 ![Connected](/img/mysql/connected.png)
 
 At the prompt the following command to get a list of databases.
-```
+```sql
 show databases;
 ```
 
 You will see something similar to the following. By default MySQL installs a few system databases that it uses for it's own purposes. It is unlikely you ever need to access these yourselves. Just be sure not to delete them.
-```
+```sh
 +----------------------+
 | Database             |
 +----------------------+
@@ -37,22 +37,22 @@ You will see something similar to the following. By default MySQL installs a few
 ```
 
 Now let's create a databases.
-```
+```sql
 CREATE DATABASE bootcamp;
 ```
 
 You should get something similar to the following response. What you are really looking for is an affected row count.
-```
+```sh
 Query OK, 1 row affected (0.00 sec)
 ```
 
 Now verify the database has been created. Run the following command and you will see _bootcamp_ in the list of databases.
-```
+```sql
 SHOW DATABASES;
 ```
 
 Now lets use our new database.
-```
+```sql
 USE bootcamp;
 SHOW TABLES;
 ```
@@ -69,7 +69,7 @@ Tables are created using the _CREATE TABLE_ command. ```CREATE TABLE _tablename_
 
 Add the following table to your bootcamp database.
 
-```
+```sql
 CREATE TABLE users (
     id VARCHAR(36) PRIMARY KEY COMMENT 'Primary Key UUID',
     first_name VARCHAR(40) DEFAULT NULL COMMENT 'The users first name',
@@ -96,7 +96,7 @@ Lets jump to the modified column _modified DATETIME DEFAULT CURRENT&#95;TIMESTAM
 
 Now let's create the table for holding our blog posts.
 
-```
+```sql
 CREATE TABLE posts (
     id VARCHAR(36) PRIMARY KEY COMMENT 'Primary Key UUID',
     title VARCHAR(255) COMMENT 'The title of the blog post',
@@ -112,7 +112,7 @@ CREATE TABLE posts (
 
 Now let's take a look at our data structure.
 
-```
+```sql
 USE bootcamp;
 SHOW TABLES;
 
@@ -122,18 +122,23 @@ DESCRIBE posts;
 
 Now that we have created a couple of tables. Let's add some data. Run the following command from your bootcamp database replacing xxxx with you information.
 
-```INSERT INTO users SET id=UUID(), first_name='xxxx', last_name='xxxx', email='xxxx';```
+```sql
+INSERT INTO users SET id=UUID(), first_name='xxxx', last_name='xxxx', email='xxxx';
+```
 
 Now let's look up your user record.
 
-```SELECT * FROM users WHERE email='xxxx';```
+```sql
+SELECT * FROM users WHERE email='xxxx';
+```
 
 
 What if only want a list of names?
 
 _NOTE: As queries get longer this style may be easier to read._
 
-```SELECT
+```sql
+SELECT
   first_name,
   last_name
 FROM
@@ -143,7 +148,8 @@ WHERE
 ```
 
 Id rather see the user's name in a single column formatted as _last, first_
-```SELECT
+```sql
+SELECT
   CONCAT('last_name', ', ', first_name) AS user
 FROM
   users
@@ -152,7 +158,8 @@ WHERE
 ```
 
 Add another user.
-```INSERT INTO
+```sql
+INSERT INTO
   users
 SET
   id=UUID(),
@@ -162,7 +169,8 @@ SET
 ```
 
 Let's find all users with a _.com_ and sort in ascending order by last name.
-```SELECT
+```sql
+SELECT
   CONCAT('last_name', ' ', first_name) AS user
 FROM
   users
@@ -171,11 +179,11 @@ WHERE
 ORDER BY last_name ASC
 ```
 
-
+```sql
 INSERT INTO posts SET id=UUID(), slug='hello', title='Hello';
 INSERT INTO posts SET id=UUID(), slug='hello', title='Hello', created_user_id = '1a804677-7953-11e7-8397-180373ae98cc', modified_user_id='1a804677-7953-11e7-8397-180373ae98cc';
 SELECT * FROM posts, users WHERE posts.created_user_id = users.id ;
-
+```
 
 Later we all add the password and salt columns
 password VARCHAR(60) COMMENT 'A salted hash of the password',

@@ -9,7 +9,7 @@ Modern browsers make use of DevTools (aka Web Console). While Chrome, FireFox an
 * [Edge](https://docs.microsoft.com/en-us/microsoft-edge/f12-devtools-guide/console)
 
 Create the file ```/var/www/bootcamp/js/ex1.html``` that contains the following markup.
-```
+```html
 <!DOCTYPE html>
 <html>
   <head>
@@ -39,7 +39,7 @@ While not required, most function (or method) calls will accept an argument. In 
 #### Exercise 1.2 - Pass a variable as an argument
 Modify the contents of the script tags to read as follows.
 
-```
+```js
 var msg = 'Hello World';
 console.log(msg);
 ```
@@ -49,7 +49,7 @@ In this exercise we are creating the variable msg (which is a common variable na
 #### Exercise 1.3 - Working with strings
 Modify the contents of the script tags to read as follows.
 
-```
+```js
 var greeting =  'Hello';
 var who = 'World';
 var msg = greeting + ' ' + who;
@@ -62,7 +62,7 @@ In this example we are combining the value of two variables and assigning the re
 #### Exercise 1.4 - Working with numbers
 Modify the contents of the script tags to read as follows.
 
-```
+```js
 var num1 =  35;
 var num2 = 7;
 var result = num1 + num2;
@@ -78,7 +78,7 @@ Notice we are not adding quotes to the value of these variables. That is because
 #### Exercise 1.4 - Working with mixed data types
 Modify the contents of the script tags to read as follows.
 
-```
+```js
 var num1 =  '35';
 var num2 = 7;
 var result = num1 + num2;
@@ -97,7 +97,7 @@ Using the js.html file from the previous example add an element of type ```div``
 #### Exercise 2.1 - Working with mixed data types
 Replace the contents of the script tags with the following.
 
-```
+```js
 var msg = 'Hello World';
 
 document.getElementById('MyText').innerHTML = msg;
