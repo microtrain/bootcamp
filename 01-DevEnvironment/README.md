@@ -11,5 +11,5 @@ In this section you will
 
 
 ```sh
-sudo apt-get install terminator && vim && meld && filezilla && composer && lamp-server^
+sudo apt-get install terminator vim meld filezilla composer lamp-server^
 ```
