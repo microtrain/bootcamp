@@ -8,3 +8,8 @@ In this section you will
   * The Apache Web Server
   * NPM
   * Git
+
+
+```sh
+sudo apt-get install terminator && vim && meld && filezilla && composer && lamp-server^
+```
