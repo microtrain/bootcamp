@@ -6,7 +6,7 @@ The LAMP stack (Linux, Apache, MySQL, PHP) is one of the oldest and most mature 
 sudo apt-get install lamp-server^
 ```
 
-When prompted; enter the Password for the MySQL root user. Since this is a local development environment just enter _password_. On a side note, __NEVER__ do this on a public facing machine server.
+**DO NOT LEAVE THE PASSWORD FIELD BLANK**,when prompted; enter the Password for the MySQL root user. Since this is a local development environment just enter _password_; **NEVER** do this on a public facing server.
 
 ## [Apache](https://httpd.apache.org/)
 
