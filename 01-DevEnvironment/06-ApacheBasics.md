@@ -127,7 +127,7 @@ RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]
 * \# DocumentRoot /var/www - Comment out the DocumentRoot directive. While not required it would gaurentee no files get served should the redirect fails (in theory).
 
 
-In a browser navigate to _http://localhost/ _ and you will be redirected to
-_https://localhost/ _
+In a browser navigate to *http://localhost/* and you will be redirected to
+*https://localhost/*
 
 [Next: NPM](07-NPM.md)
