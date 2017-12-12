@@ -90,7 +90,7 @@ mysql>
 
 We will work with MySQL later in the course, for now bookmark the [MySQL Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/). You'll want to familiarize yourself with this guide.
 
-## (phpyMyAdmin)[https://www.phpmyadmin.net/]
+## [phpyMyAdmin](https://www.phpmyadmin.net/)
 
 PhpMyAdmin is a webbased admin tool for MySQL. This is written in PHP and runs on the Apache webserver. We will work with phpMyAdmin throughout this course Here is the [offical documentation](https://docs.phpmyadmin.net/en/latest/) for your convenience. Let's start by installing the software.
 
