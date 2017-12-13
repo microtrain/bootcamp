@@ -28,5 +28,5 @@ The best way to learn is by solving real problems. Labs are designed to build up
 Each topic will provide an additional reading section. These sections are comprised of links to free ebooks and articles. These will not be covered in class, it is expected that the student will review these links outside of lecture. Like additional reading these are links to third party tutorials. These may be completed during normal lab time if time permits or independently. Either way the student is expected to review and complete these tutorials.
 
 ## Prereading
-[How To Become A Hacker](http://www.catb.org/esr/faqs/hacker-howto.html)
-[PROGRAMMING CONCEPTS: A BRIEF TUTORIAL FOR NEW PROGRAMMERS](http://holowczak.com/programming-concepts-tutorial-programmers/)
+* [How To Become A Hacker](http://www.catb.org/esr/faqs/hacker-howto.html)
+* [PROGRAMMING CONCEPTS: A BRIEF TUTORIAL FOR NEW PROGRAMMERS](http://holowczak.com/programming-concepts-tutorial-programmers/)
