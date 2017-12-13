@@ -86,12 +86,14 @@ To activate the new configuration, you need to run:
 A conditional (aka if-then-else) is a programming construct that uses equality to make decisions.
 Examples of equality given the variable a is equal to one and the variable b is equal to 2.
 
-* a == b (a -eq 0 ) //false
-* a < b (a -lt 0 ) //true
-* a > b (a -gt 0 ) //false
-* a == 0 (a -eq 0 ) //false
+If a = 0 and b = 1
+
+* a == b (a -eq b ) //false
+* a < b (a -lt b ) //true
+* a > b (a -gt b ) //false
+* a == 0 (a -eq 0 ) //true
 * a >= 0 (a -gte 0 ) //true
-* a <= 0 (a -lte 0 ) //false
+* a <= 0 (a -lte 0 ) //true
 
 ### [Arguments](https://stackoverflow.com/questions/7252812/what-is-an-argument)
 
