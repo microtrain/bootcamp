@@ -74,7 +74,7 @@ echo "<div style=\"color:{$color}\">The color is {$label}</div>";
 
 ## Exercise 4 - For Loop
 
-Add the following to the path _/var/www/php/for.php_.
+Add the following to the path _/var/www/mtbc/php/for.php_.
 ```php
 <?php
 
@@ -97,7 +97,7 @@ echo "<ul>{$li}</ul>";
 
 ## Exercise 5 - Foreach Loop
 
-Add the following to the path _/var/www/php/foreach.php_.
+Add the following to the path _/var/www/mtbc/php/foreach.php_.
 ```php
 <?php
 
@@ -146,7 +146,7 @@ echo "<ul>{$li}</ul>";
 
 ## Exercise 7 - Do While Loop
 
-Add the following to the path _/var/www/php/do_while.php_.
+Add the following to the path _/var/www/mtbc/php/do_while.php_.
 ```php
 <?php
 
