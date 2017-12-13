@@ -75,7 +75,7 @@ be printed.
 
 ## PHP Classes
 
-Object Oriented Programming (OOP) has been supportes by PHP (at least in some fashion) since version 4. OOP support has improved with each version. Generally speaking a class is blue print for an object. If we were to compare this to the physical world the source code contained in the class would be akin to an architects blue prints say for a house. Upon instantiation the class is used to build the object. In short, you could view a house as an instantiation of a set of blue prints. I give the blue prints to the builder (in this case a compiler) and the builder goes of and does its thing. The end result is that builders interpretation of the blue prints.
+Object Oriented Programming (OOP) has been supported by PHP (at least in some fashion) since version 4. OOP support has improved with each version. Generally speaking a class is blue print for an object. If we were to compare this to the physical world the source code contained in the class would be akin to an architects blue prints say for a house. Upon instantiation the class is used to build the object. In short, you could view a house as an instantiation of a set of blue prints. I give the blue prints to the builder (in this case a compiler) and the builder goes of and does its thing. The end result is that builders interpretation of the blue prints.
 
 A class has properties comprised of instance variables, methods. A class may be dependent on other classes, this is known as a dependency and is often dealt with using dependency injection. A class may inherit from other classes this is known as either a parent class to a child class or super class to sub class.
 
