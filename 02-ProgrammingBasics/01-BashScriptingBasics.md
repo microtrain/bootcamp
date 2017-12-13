@@ -167,7 +167,7 @@ Merge you changes into master
 
 ```sh
 git checkout master
-git merge -B feature/arguments
+git merge feature/arguments
 ```
 
 Now on master update the README.md file to explain how to use the latest version of the program and commit that change with an appropriate message. Then open VERSION.txt and move the version to 0.2.0 and commit with a message of *Version 0.2.0*. Push your changes to master.
