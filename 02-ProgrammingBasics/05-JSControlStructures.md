@@ -4,7 +4,7 @@ Programming is little more that reading data and piecing together statements tha
 
 ## Exercise - If, Else If, Else
 
-Create the following path */var/www/js/if_else.html* and open it Atom. Then add the following lines.
+Create the following path */var/www/mtbc/js/if_else.html* and open it Atom. Then add the following lines.
 
 ```html
 <script>
@@ -113,7 +113,7 @@ document.write(`<div style="color:${color}">The color is ${label}</div>`);
 
 ## Exercise - For Loop
 
-Add the following to the path _/var/www/js/for.html_.
+Add the following to the path _/var/www/mtbc/js/for.html_.
 ```js
 <script>
 var items = [
@@ -138,7 +138,7 @@ document.write(msg);
 
 ## Exercise - For...in Loop
 
-Add the following to the path _/var/www/js/forin.html_.
+Add the following to the path _/var/www/mtbc/js/forin.html_.
 ```html
 <script>
 var items = {
@@ -163,7 +163,7 @@ document.write(msg);
 
 ## Exercise - For...of Loop
 
-Add the following to the path _/var/www/js/forof.html_.
+Add the following to the path _/var/www/mtbc/js/forof.html_.
 ```html
 <script>
 var items = [
@@ -213,7 +213,7 @@ document.write(msg);
 
 ## Exercise - Do...While
 
-Add the following to the path _/var/www/php/do_while.php_.
+Add the following to the path _/var/www/mtbc/js/do_while.php_.
 ```html
 <script>
 var items = [
