@@ -328,18 +328,61 @@ Add a button to the bottom of the page that uses the onclick attribute to invoke
 Change */var/www/example.com/public/index.html* so that:
 * All pages MUST link to each other
 
-Create the path */var/www/example.com/public/contact.php*
+Create the following paths with and add the markup as desribed below.
+* */var/www/example.com/public/resume.html*
+* */var/www/example.com/public/contact.php*
 
-Create a nav element and link all of the pages togeather. Place this at the top of _public/index.html_ and _public/index.html_.
+*resume.html*
 ```html
-<nav><a href="/">Home</a> | <a href="contact.php">Contact</a></nav>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Resume</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       <h1>My Resume</h1>
+    </body>
+</html>
 ```
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>Contact</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       <h1>Contact</h1>
+    </body>
+</html>
+```
+
+Commit your changes with the message _Added a basic file structure_.
+
+Create a nav element that links all of the pages togeather. Place this at the top of each of the three web pages.
+```html
+<nav>
+    <a href="/">Home</a> | 
+    <a href="resume.html">Resume</a> |
+    <a href="contact.php">Contact</a>
+</nav>
+```
+
+Commit your changes with the message _Added basic navigation_.
+
+## Lab
+
+Using the *resume.html* file create an HTML verision of your resume
+
 ## Additional Resources
-[MDN - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
-[Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
-[Choosing a Language Tag](https://www.w3.org/International/questions/qa-choosing-language-tags)
-[IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
-[Why Character Entities](https://stackoverflow.com/questions/1016080/why-are-html-character-entities-necessary)
-[XML and HTML Entieis](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references])
-[The W3C Reference](https://dev.w3.org/html5/html-author/charref])
+* [MDN - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
+* [Choosing a Language Tag](https://www.w3.org/International/questions/qa-choosing-language-tags)
+* [IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
+* [Why Character Entities](https://stackoverflow.com/questions/1016080/why-are-html-character-entities-necessary)
+* [XML and HTML Entieis](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references])
+* [The W3C Reference](https://dev.w3.org/html5/html-author/charref])
