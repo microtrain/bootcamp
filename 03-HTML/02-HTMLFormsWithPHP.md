@@ -56,7 +56,7 @@ Create the path ```/var/www/example.com/contact.php```
 ```
 
 Now, lets inspect a post request.
-* Open the Chrome browser and navigate to [http://localhost/mtbc/exercises/html/forms/form.php](http://localhost/YOUR-PROJECT-NAME/contact.html).
+* Open the Chrome browser and navigate to [http://loc.example.com](http://loc.example.com).
 * Press the [f12] key to open Chrome's developer tools.
 * Click on the network tab.
 * Refresh the page.
