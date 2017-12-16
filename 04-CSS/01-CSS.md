@@ -1,6 +1,6 @@
 # CSS
 
-Cascading Style Sheets (CSS) is a language that describes the style of a web page. CSS uses selectors and definitions to apply the these so called style descriptions or styles to a page.
+Cascading Style Sheets (CSS) is a language that describes the style of a web page. CSS uses selectors and definitions to apply the these style descriptions or styles to a page.
 
 Lets look at [CSS Zen Garden](http://www.csszengarden.com), click on the download example html file link and open the file in your browser. This is just a plain HTML file, now download the example CSS file and refresh the page. This is what you can do with a few CSS definition. Now go the the [design gallery](http://www.mezzoblue.com/zengarden/alldesigns/) each of these examples uses the came HTML file the only changes here are to the style definitions.
 
@@ -52,9 +52,9 @@ div > *.info{
 # Layout
 
 
-###Exercise 1
+###Exercise
 
-Replace */var/www/about/index.html* with the following.
+Replace */var/www/example.com/public/index.html* with the following.
 
 ```html
 <!DOCTYPE html>
