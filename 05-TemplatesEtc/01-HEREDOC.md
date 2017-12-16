@@ -8,7 +8,7 @@ Now that we have all of our styles into a single style sheet, it is time use a s
 
 
 The general flow is as follows.
-1. The user asks the server for an endpoint perhaps *https://localhost/about/contact.php*.
+1. The user asks the server for an endpoint perhaps *https://localhost/example.com/public/contact.php*.
 1. The server processes data and business logic as required by that endpoint.
   1. This may include calls from a database, a flat file, an API, etc.
 1. The server generates the content to be presented to the user for that end point.
@@ -77,7 +77,7 @@ Now we only have to include the layout on each page of our site. The advantage i
 
 ## Exercise 1
 
-Create the path */var/www/about/core/layout.php* and add the following lines.
+Create the path */var/www/example.com/core/layout.php* and add the following lines.
 
 ```php
 <!DOCTYPE html>
@@ -127,7 +127,7 @@ Create the path */var/www/about/core/layout.php* and add the following lines.
 
 ```
 
-Change the path */var/www/about/contact.php* to the following. Pay special attenention to the echo statements, these are now treated as variables being passed into a string such that ```<?php echo $valid->userInput('first_name'); ?>``` becomes ```{$valid->userInput('first_name')}```.
+Change the path */var/www/example.com/public/contact.php* to the following. Pay special attenention to the echo statements, these are now treated as variables being passed into a string such that ```<?php echo $valid->userInput('first_name'); ?>``` becomes ```{$valid->userInput('first_name')}```.
 
 ```php
 <?php
@@ -176,7 +176,7 @@ EOT;
 require 'core/layout.php';
 ```
 
-Navigate to *https://loc.example.com/contact.php* and submit the form. The functionality should not have changed in anyway but the code is now cleaner and easier to maintain this is know as a [refactoring](https://martinfowler.com/books/refactoring.html).
+Navigate to *https://loc.example.com/public/contact.php* and submit the form. The functionality should not have changed in anyway but the code is now cleaner and easier to maintain this is know as a [refactoring](https://martinfowler.com/books/refactoring.html).
 
 
 ## Additional Resources
