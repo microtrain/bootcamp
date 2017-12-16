@@ -9,9 +9,9 @@ Form tags ```<form></form>``` are used for creating forms in HTML. Every form sh
 
 ## Exercise 1 - Create and Inspect a Contact Form
 
-Create the path ```/var/www/example.com/contact.php```
+Create the path */var/www/example.com/public/contact.php*
 
-*/var/www/example.com/contact.php*
+*/var/www/example.com/public/contact.php*
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -100,7 +100,7 @@ Regular Expressions (RegEx) are strings of text that describe a search pattern. 
 
 ## Exercise 2 - RegEx
 
-*/var/www/example.com/contact.php*
+*/var/www/example.com/public/contact.php*
 ```php
 <?php
 //Create a RegEx pattern to determine the validity of the use submitted email
@@ -147,7 +147,7 @@ RegEx is extremely powerful, flexible and worth learning. Having said that there
 _Never trust user input. User input is anything come into the server from the client. Even if you have written client side JavaScript to filter out malicious code, the filtered input is still left alone with the client and can be manipulated prior to transit (or even in transit). If it has ever existed outside of the server it CANNOT be trusted._
 
 ##Exercise 3 - Adding a Validation Class
-Replace the contents of _/var/www/example.com/contact.php_ with the following.
+Replace the contents of _/var/www/example.com/public/contact.php_ with the following.
 
 Explain the code to the class.
 
