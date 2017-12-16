@@ -417,6 +417,15 @@ use About\Validation;
 //Validate Declarations
 $valid = new About\Validation\Validate();
 $input = filter_input_array(INPUT_POST);
+
+$args = array(
+  'first_name' => FILTER_SANITIZE_STRING,
+  'last_name' => FILTER_SANITIZE_STRING,
+  'email' => FILTER_SANITIZE_EMAIL,
+  'subject' => FILTER_SANITIZE_EMAIL,
+  'message' => FILTER_SANITIZE_EMAIL,
+);
+
 if(!empty($input)){
 
     $valid->validation = [
