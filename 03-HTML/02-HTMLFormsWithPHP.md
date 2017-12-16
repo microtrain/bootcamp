@@ -284,10 +284,10 @@ An include file is a file that contains a snippet of code that is referenced by 
 
 ```php
 // relative include
-include util.php;
+include 'util.php';
 
 // absolute include
-include /var/www/example.com/util.php;
+include '/var/www/example.com/util.php';
 ```
 
 ### Namespace
