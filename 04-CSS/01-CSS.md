@@ -248,7 +248,7 @@ Replace */var/www/example.com/public/index.html* with the following.
 ## Linking to style sheets
 
 
-###Exercise
+### Exercise
 
 Create the path */var/www/about/css/dist/main.css* and open that file in Atom. Copy the contents of the style element from index.html into the new file and replace the style element with a reference to the style sheet.
 
