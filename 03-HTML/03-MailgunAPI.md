@@ -98,24 +98,30 @@ The Mailgun SDK abstracts most of the JSON interaction away from us, so we are l
 
 ## Mailgun API
 
-### Exercise 1 - Getting Started with Mailgun.
+### Exercise - Getting Started with Mailgun.
 
 Go to [mailgun.com](https://www.mailgun.com/) and create a free account. You may choose not to add a credit card as we will be working with the sandbox. You will need to activate your account via email and SMS, this requires a phone number that receive texts. If you do not have one try creating a Google Voice account.
 
 The landing page will provide you the details you need need to send a test email. Start by creating a shell script and pasting the curl example into the shell.
 
 ```sh
-vim ~/mailgun.sh
+cd ~
+vim mailgun.sh
 ```
 
-Add the line
+Add the foloowing lines
 
 ```sh
 #!/bin/bash
+curl -s --user 'api:YOUR_API_KEY' \
+    https://api.mailgun.net/v3/YOUR_DOMAIN_NAME/messages \
+    -F from='Excited User <mailgun@YOUR_DOMAIN_NAME>' \
+    -F to=YOU@YOUR_DOMAIN_NAME \
+    -F subject='Hello' \
+    -F text='Testing some Mailgun awesomness!'
 ```
 
-Then
-* Copy and paste the curl command into the file.
+Next
 * Make the file executable.
 * Execute the script.
 
@@ -169,7 +175,7 @@ vendor/
 
 We do not want to commit the vendor directory to our repo. So we will create a *.gitignore* file. From you Atom sidebar create a file called *.gitignore* under the about project (Do not forget the preceding dot) and add the following line.
 ```sh
-/vendor/
+/vendor
 ```
 
 Now if you run ```git status``` you will see the following.
@@ -218,7 +224,7 @@ Then check your email to see if it worked.
 **Security Check Point**
 _Never push a key to a public repository, use a key file the exists outside of the public repo_
 
-## Exercise 2 - Pass Variables into the API Call
+## Exercise - Pass Variables into the API Call
 
 Create a key file
 ```sh
@@ -240,7 +246,7 @@ define('MG_DOMAIN', 'YOUR-DOMAIN-HERE');
 ```
 Add the following to the top of *http://localhost/YOUR-PROJECT-NAME/test.php*
 ```php
-require '/var/www/example.com/config/keys.php';
+require '../config/keys.php';
 ```
 
 Change
@@ -277,7 +283,6 @@ $result = $mgClient->sendMessage(
     )
 );
 ```
-From a browser window, navigate to *http://localhost/YOUR-PROJECT-NAME/test.php* and check your email.
 
 ## Additions Resources
 * [JSON](http://www.json.org/)
