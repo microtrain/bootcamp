@@ -284,6 +284,37 @@ $result = $mgClient->sendMessage(
 );
 ```
 
+## Update your README file.
+
+Navigation to *README.md* from your ATOM sidebar.
+
+```md
+
+# example.com
+
+An about me web site.
+
+## Dependencies
+
+* PHP 7.0 or higher
+* Composer
+* An API key for Mailgun
+
+## Installation
+
+Clone this project into a web directory
+```sh
+cd /var/www
+git clone git@github.com:jasonsnider/example.com.git
+```
+
+Install composer dependencies
+```sh
+cd /var/www/example.com
+composer install
+```
+```
+
 ## Additions Resources
 * [JSON](http://www.json.org/)
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)

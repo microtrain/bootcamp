@@ -35,7 +35,7 @@ Now we want to tell apache to reload the configuration. This is a four step proc
 * Enable the new site configuration ```sudo a2ensite 000-default```
 * Reload Apache ```sudo service apache2 reload```
 
-You can execute all four commands at once with the following. 
+You can execute all four commands at once with the following.
 ```sh
 sudo a2dissite 0* && sudo service apache2 reload && sudo a2ensite 0* && sudo service apache2 reload
 ```
