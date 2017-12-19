@@ -5,7 +5,7 @@ Events allow a user to interact with a web page. Listeners are used to detect an
 
 ## Click Event
 
-In your browser navigate to http://localhost/mtbc/exercises/javascript/events/onclick.html and open to corresponding file in your editor. Add the following to the body tag of the document and refresh the page.
+In your browser navigate to *mtbc/js/events/onclick.html* and open to corresponding file in your editor. Add the following to the body tag of the document and refresh the page.
 
 ### Exercise 1 - Catch the Click
 ```html
@@ -64,7 +64,7 @@ A change event listens for a change to a target element. Change events are typic
 
 ### Exercise 3 - Catch a Change
 
-In your browser navigate to http://localhost/mtbc/exercises/javascript/events/onchange.html and open to corresponding file in your editor. Add the following to the body tag of the document and refresh the page.
+In your browser navigate to *mtbc/js/events/events/onchange.html* and open to corresponding file in your editor. Add the following to the body tag of the document and refresh the page.
 
 Add the following to the form tag. Be sure to start the list with an empty option.
 ```html
@@ -91,7 +91,7 @@ list.addEventListener("change", ()=>{setValue('demo')}, false);
 
 While an interval is not techincally and event, it does provide a trigger for an interaction to occur. In this case we will use it with a click event to grow another form element on the screen.
 
-In your browser navigate to https://localhost/mtbc/exercises/javascript/events/interval.html and open to corresponding file in your editor. Add the following to the script tags of the document and refresh the page. Be sure to read the comments and understand the reasoning behind each lie of code.
+In your browser navigate to *mtbc/js/events/interval.html* and open to corresponding file in your editor. Add the following to the script tags of the document and refresh the page. Be sure to read the comments and understand the reasoning behind each lie of code.
 ```html
 function Grower() {
   //Get current width of the target element
