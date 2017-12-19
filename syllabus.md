@@ -34,13 +34,23 @@ This provides free online learning for various topics. This is mostly included a
 * Git
 
 ### Programming Basics
-* Bash (Shell Scripting)
-* PHP
+* Shell Scripting with Bash
+* Control Structures in PHP
+* Control Structures in JavaScript
+
+## Introduction to Web
 * The Anatomy of a URL
 * HTML
+ * Build a basic webpage
+ * Build a web form
+ * Process a webform with PHP
+ * Mailgun API
 * CSS/Preprocessors
+  * CSS
   * Less
   * SASS
+* Introduction to Templates
+ * Build a template in PHP
 
 **Output**
 * Build a Linux machine with a fully functional LAMP stack. You'll use this machine for the remainder of the course.
@@ -53,7 +63,8 @@ This provides free online learning for various topics. This is mostly included a
 ## Week 2 JavaScript, jQuery, AJAX and Bootstrap
 * Programming Basics with JavaScript
 * Walking the DOM
-* Canvas
+* Catch Events
+* Progamming the Canvas
 * jQuery Basics
 * Ajax
 * Introduction to Bootstrap
