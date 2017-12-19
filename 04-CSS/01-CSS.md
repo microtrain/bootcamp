@@ -51,8 +51,7 @@ div > *.info{
 
 # Layout
 
-
-###Exercise
+### Exercise
 
 Replace */var/www/example.com/public/index.html* with the following.
 
@@ -256,13 +255,16 @@ Create the path */var/www/about/css/dist/main.css* and open that file in Atom. C
 <link rel="stylesheet" type="text/css" href="css/dist/main.css">
 ```
 
+## Lab - Restyle All Pages
+
+Apply the new theme to all pages under _/var/www/example.com/public_.
 
 ## Additional Resources
-
 * [CSS Tricks](https://css-tricks.com/)
 * [MDN - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
-
-## Additional Resources
 * [Why do navigation bars in HTML5 as lists?](https://stackoverflow.com/questions/36811224/why-do-navigation-bars-in-html5-as-lists)
 * [Nav Element](http://w3c.github.io/html/sections.html#the-nav-element)
 * [Bad Design vs. Good Design](https://www.interaction-design.org/literature/article/bad-design-vs-good-design-5-examples-we-can-learn-frombad-design-vs-good-design-5-examples-we-can-learn-from-130706)
+
+### Udemy
+* [Flexbox Tutorial](https://microtrain.udemy.com/flexbox-tutorial/)
