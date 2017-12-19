@@ -131,8 +131,4 @@ In a browser navigate to *http://localhost/* and you will be redirected to
 *https://localhost/*
 
 
-# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
-```
-
-
 [Next: NPM](07-NPM.md)
