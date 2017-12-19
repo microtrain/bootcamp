@@ -47,7 +47,7 @@ cd /etc/apache2/sites-available && vim 0*
 
 Would change your current working directory to _/etc/apache2/sites-available && vim 0*_ and use vim to open any files that match the pattern _0*_ in this case it would only one file _000-default.conf_. Using wild cards can save a few key strokes and cut down on typos. But be careful you don't open the wrong files.
 
-Once you have reloaded the the configuration, open your browser and return to _http://localhost _. Now, rather that the default Apache landing page you will see a directory listing with a link to the html directory. Clicking this will open the default Apache landing page.
+Once you have reloaded the the configuration, open your browser and return to *http://localhost*. Now, rather that the default Apache landing page you will see a directory listing with a link to the html directory. Clicking this will open the default Apache landing page.
 
 ## [```mod_ssl```](http://httpd.apache.org/docs/current/mod/mod_ssl.html)
 
@@ -84,7 +84,7 @@ Now load the new configuration and restart apache. This time we will enable the 
 sudo a2dissite d* && sudo service apache2 reload && sudo a2ensite d* && sudo service apache2 restart
 ```
 
-Now when you navigate to _https://localhost _ you will get an insecure warning. Accept the warning and proceed to the site against the browsers advise. You will now see the same file listing you saw when navigating to _http://localhost_
+Now when you navigate to *https://localhost* you will get an insecure warning. Accept the warning and proceed to the site against the browsers advise. You will now see the same file listing you saw when navigating to *http://localhost*
 
 ## [```mod_rewrite```](http://httpd.apache.org/docs/current/mod/mod_rewrite.html)
 
