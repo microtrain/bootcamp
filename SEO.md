@@ -1,4 +1,4 @@
-#SEO
+# SEO
 
 Original quality content is the number one thing you can do to boost your sites SEO.
 

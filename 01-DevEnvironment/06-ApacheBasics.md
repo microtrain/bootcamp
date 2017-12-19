@@ -6,7 +6,6 @@ First, open a command line an navigate to sites-available. On Debian based syste
 
 ```sh
 cd /etc/apache2/sites-available
-
 ls
 ```
 
@@ -40,7 +39,7 @@ You can execute all four commands at once with the following.
 sudo a2dissite 0* && sudo service apache2 reload && sudo a2ensite 0* && sudo service apache2 reload
 ```
 
-```&&``` appends two commands running them one after the other. For example
+The double ampersand ```&&``` appends two commands running them one after the other. For example
 
 ```sh
 cd /etc/apache2/sites-available && vim 0*
