@@ -22,7 +22,7 @@ Default values define what is to be entered if no value is present. This may be 
 
 [Indicies](https://dev.mysql.com/doc/refman/5.7/en/mysql-indexes.html) are used to improve performance. These take specific columns from a table or tables and stores them in a way that allows them to be looked up quickly with out needing to reanalyze all of the content of all tables involved in the query. I have seen good good indexing literally cut minutes of page load times. While not required all tables should have a primary key.
 
-A primary key is unique index for a a row of data. The most common primary key is a simple id. This can be an [auto-incrementing](https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html) number, a universally unique identifier [(UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier) or any other bit of unique data such an email address.
+A primary key is unique index for a row of data. The most common primary key is a simple id. This can be an [auto-incrementing](https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html) number, a universally unique identifier [(UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier) or any other bit of unique data such an email address.
 
 __Security Checkpoint__
 
