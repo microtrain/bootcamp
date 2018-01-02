@@ -41,11 +41,18 @@ This is a special type of index that allows various configurations string search
 
 ### Relationships
 
-#### One-to-many
-
 #### One-to-one
 
+Table A may (or must) have one and only one corresponding rows in table B.
+
+#### One-to-many
+
+Table A may (or must) have one or more corresponding rows in table B.
+
 #### Many-to-many
+
+Table A may (or must) have one or more corresponding rows in table B and table B may (or must) have one or more corresponding rows in table A. A many-to-many relationship must be resolved by an associative entity. An associative entity is table that links two or more tables togeather using foreign keys.
+
 
 ## Additional Resources
 * [PDO Library](http://php.net/manual/en/book.pdo.php)
