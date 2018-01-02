@@ -185,6 +185,16 @@ INSERT INTO posts SET id=UUID(), slug='hello', title='Hello', created_user_id = 
 SELECT * FROM posts, users WHERE posts.created_user_id = users.id ;
 ```
 
-Later we all add the password and salt columns
-password VARCHAR(60) COMMENT 'A salted hash of the password',
-salt VARCHAR(128) COMMENT 'User specific salt',
+For full authentication you will want to add password and salt columns 
+* password VARCHAR(60) COMMENT 'A salted hash of the password'
+* salt VARCHAR(128) COMMENT 'User specific salt'
+
+**Security Checkpoint**
+Never store a password in plain text, always store a hashed version of the password. Always create a user specific salt this will protect against [ranibow table attacks](https://en.wikipedia.org/wiki/Rainbow_table).
+
+## Additional Resources
+* [Safe Password Hashing](http://php.net/manual/en/faq.passwords.php)
+* [Rainbow Tables](https://en.wikipedia.org/wiki/Rainbow_table)
+
+
+
