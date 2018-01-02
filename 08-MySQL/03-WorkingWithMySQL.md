@@ -190,6 +190,7 @@ For full authentication you will want to add password and salt columns
 * salt VARCHAR(128) COMMENT 'User specific salt'
 
 **Security Checkpoint**
+
 Never store a password in plain text, always store a hashed version of the password. Always create a user specific salt this will protect against [ranibow table attacks](https://en.wikipedia.org/wiki/Rainbow_table).
 
 ## Additional Resources
