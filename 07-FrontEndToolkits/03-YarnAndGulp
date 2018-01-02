@@ -26,5 +26,7 @@ function defaultTask(done) {
 }
 ```
 
+## Additional Resources
+
 * [Yarn](https://yarnpkg.com/en/)
 * [Gulp](https://gulpjs.com/)
