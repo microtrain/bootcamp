@@ -1,6 +1,6 @@
 # Yarn and Gulp
 
-[Yarn](https://yarnpkg.com/en/) is a package manager for the web. It is similar to something like NPM, Composer, PIP, etc.
+Like [NPM](https://www.npmjs.com/), [Yarn](https://yarnpkg.com/en/) is a package manager for NodeJS. It is similar [Composer](https://getcomposer.org/) for PHP, [PIP](https://pip.pypa.io/en/stable/) for Python or [Gradle](https://gradle.org/) for Java.
 
 ```sh
 sudo npm install yarn --global
