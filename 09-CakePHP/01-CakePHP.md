@@ -63,10 +63,10 @@ Return to http://localhost:8765/](http://localhost:8765/) and refresh the page, 
 
 Let's set up an Apache configuration with a local hosts entry for development purposes.
 ````sh
-sudo vim /etc/apache2/sites-available/cake.example.com
+sudo vim /etc/apache2/sites-available/cake.example.com.conf
 ````
 ```apache
-<VirtualHost 127.0.0.31:80>
+<VirtualHost 127.0.0.32:80>
 
         ServerName loc.cake.example.com
 
@@ -93,7 +93,7 @@ sudo vim /etc/apache2/sites-available/cake.example.com
 Add the following to */etc/hosts*
 
 ```sh
-127.0.0.31      loc.cake.example.com
+127.0.0.32      loc.cake.example.com
 ```
 
 and finally load the new site.
