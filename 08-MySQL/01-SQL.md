@@ -31,6 +31,7 @@ _I have seen a number of systems that ask for sensitive data such as social secu
 ## Additional Resources
 * [NoSQL Not Only SQL](http://searchdatamanagement.techtarget.com/definition/NoSQL-Not-Only-SQL)
 * [Naming Conventions: Stack Overflow Discussion](https://stackoverflow.com/questions/7662/database-table-and-column-naming-conventions)
+* [Integer Types](https://dev.mysql.com/doc/refman/5.7/en/integer-types.html)
 ###
 https://microtrain.udemy.com/sql-for-beginners-course/
 
