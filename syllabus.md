@@ -21,6 +21,7 @@ We use Udemy as supplemental material. While it is not required it is encouraged
 ### Khan Academy
 This provides free online learning for various topics. This is mostly included as a review of Algebra, Geometry, etc. We do not get to heavy with these topics but any one wanting a review can do so through the links provided.
 
+## Week 0
 
 ## Week 1 Dev Environment, HTML, CSS (with Apache and PHP)
 
@@ -38,7 +39,7 @@ This provides free online learning for various topics. This is mostly included a
 * Control Structures in PHP
 * Control Structures in JavaScript
 
-## Introduction to Web
+### Introduction to Web
 * The Anatomy of a URL
 * HTML
  * Build a basic webpage
@@ -85,8 +86,6 @@ This provides free online learning for various topics. This is mostly included a
 * A working knowledge of CakePHP and Composer
 * A working blog with user management (LAMP Stack).
 
-At this point you've completed Full Stack developement and a Full LAMP stack.
-
 ## Week 4 MongoDB, Express
 * MongoDB
 * Express
@@ -128,8 +127,3 @@ Your personal production site on Digital Ocean on your preferred tech stack (MEA
 
 ##  Week 10
 * Project?????
-
-Lessons
-* Lecture
-* Exercises
-* Labs
