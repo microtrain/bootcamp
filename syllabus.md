@@ -85,16 +85,9 @@ This provides free online learning for various topics. This is mostly included a
 * A working knowledge of CakePHP and Composer
 * A working blog with user management (LAMP Stack).
 
-## Week 4 Angular
+At this point you've completed Full Stack developement and a Full LAMP stack.
 
-**Output**
-* A working knowledge of Angular
-* A front end application that can talk to a given API.
-* Another version of the NASA app
-* Integration into the week 3 project
-  * A stand alone application that talks to a JSON API.
-
-## Week 5 MongoDB, Express
+## Week 4 MongoDB, Express
 * MongoDB
 * Express
 
@@ -102,6 +95,15 @@ This provides free online learning for various topics. This is mostly included a
 * A working knowledge of MongoDB.
 * A working knowledge of Express, NPM, and PUG.
 * A working blog with user management (MEAN Stack).
+
+## Week 5 Angular
+
+**Output**
+* A working knowledge of Angular
+* A front end application that can talk to a given API.
+* Another version of the NASA app
+* Integration into the week 3 project
+  * A stand alone application that talks to a JSON API.
 
 ## Week 6 - Introduction to the Cloud
 * Launch a production site to Digital Ocean on your preferred tech stack (MEAN or LAMP).
