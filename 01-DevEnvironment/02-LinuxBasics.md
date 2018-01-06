@@ -42,7 +42,12 @@ Linux does not use drive letters, rather everything is mounted to a root name sp
 * ```/proc``` - real time system information
 * ```/tmp``` - temp files, cleared on reboot
 
-con
+![console](/img/linux/terminal.png)
+1. The user name of the logged in user
+1. The name of the current machine
+1. The current location of the user in the console
+1. User level ($ for standard user, # for root user)
+  * The space immediately to the right of # or $ is the command line entry point.  
 
 tip: Use tab expansions to auto-complete a command or an asterisk as a wild card. The up and down arrows can allow you to browse your command history and replay previous commands. Use ```Ctrl + r``` to search your command history by entering partial commands.
 
