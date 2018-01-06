@@ -4,6 +4,8 @@ This section is intended to provide a reference for the basic commands needed to
 
 For example ```vim filename.txt``` would use an editor called vim to open a file that is named filename.txt. Some programs expect arguments to  be passed in a specific order while others have predefined arguments. All Linux programs predefine ```--help``` so you might type ```chown --help``` to learn how to use the chown command (or program).
 
+## Basic Commands
+
 * ```[command] --help``` - Returns a help file for any command (or program).
 * ```sudo``` - Super-user do (elevates privs to admin).
 * ```chown``` - CHange OWNership, changes the ownership of a file.
@@ -30,6 +32,8 @@ For example ```vim filename.txt``` would use an editor called vim to open a file
 * ```cd``` - Change directory.
 * ```cd ~``` - Change directory to home (a shortcut to your home directory).
 
+## Navigating the Linux File System
+
 Linux does not use drive letters, rather everything is mounted to a root name space. ```/```.
 * ```/``` - root
 * ```/etc``` - sytem configuration
@@ -37,6 +41,8 @@ Linux does not use drive letters, rather everything is mounted to a root name sp
 * ```/var/log``` - log files
 * ```/proc``` - real time system information
 * ```/tmp``` - temp files, cleared on reboot
+
+con
 
 tip: Use tab expansions to auto-complete a command or an asterisk as a wild card. The up and down arrows can allow you to browse your command history and replay previous commands. Use ```Ctrl + r``` to search your command history by entering partial commands.
 
