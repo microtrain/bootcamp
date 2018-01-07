@@ -2,7 +2,12 @@
 
 The ```canvas``` element was introduced in HTML5, it can be used to draw graphics via JavaScript. This can be used for many purposes including games, visualizations, charts, graphs, etc.
 
-Create the file _/var/www/mtbc/draw/intro.html_ and add a canvas tag to a basic HTML template.
+Create a GitHub project called draw.
+* Initialize with a ReadMe
+* Add the MIT License  
+* Clone the project to */var/www* and ```cd``` to the draw directory
+* Create the file _/var/www/draw/intro.html_ with a [basic HTML template](../Code/Templates/BasicHTMLTemplate.md).
+  * Add a canvas tag to body
 ```html
 <canvas id="canvas" height="600px" width="800px"></canvas>
 ```
@@ -45,7 +50,7 @@ Finally, we will access the (```fillRect()```)[https://developer.mozilla.org/en-
 </script>
 ```
 
-Save the follow to _/var/www/mtbc/draw/rand.html_. We will use [```Math.random()```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) to draw a square in a random location in the canvas. We will set this to be 100 pixels shy of the canvas height and width so that the box will always appear in range. Navigate to [http://localhost/draw/rand.html](http://localhost/draw/rand.html) and refresh the screen a few times to watch the box move.
+Save the follow to _/var/www/draw/rand.html_. We will use [```Math.random()```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) to draw a square in a random location in the canvas. We will set this to be 100 pixels shy of the canvas height and width so that the box will always appear in range. Navigate to [http://localhost/draw/rand.html](http://localhost/draw/rand.html) and refresh the screen a few times to watch the box move.
 
 ```html
 <!DOCTYPE html>
