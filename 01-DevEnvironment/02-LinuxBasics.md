@@ -50,22 +50,17 @@ Item 3, the current working directory is what we want to focus on at the moment.
 * ```ls -R``` List recursive (shows all child files).
 * ```cd``` - Change directory.
 * ```cd ~``` - Change directory to home (a shortcut to your home directory).
-
 * ```cat``` - Concatenate (dumps a file to the console, a handy read only hack).
 * ```cat [filename]|less``` - Pipe the cat command into a paginated CLI (less --help).
 * ```cat [filename]|tail``` - Last line of the file, great for looking at log files.
 * ```cat [filename]|tail -f``` - Last line of the file, great for looking at log files.
-
 * ```find -name [x]``` Find all file for whom the name matches x.
 * ```find -name [x]``` Print|less find all files for which the name matches x and print them to a paginated CLI.
 
 On this system Apache writes log files to /var/log/apache2. For this example I only want to retrieve a list of the error logs.
 * ```cd /var/log/apache2``` - Change to the Apache error log directory.
-
 * ```find *error.log.*``` - Find all error logs in the current working directory (CWD).
-
 * ```cd / && locate access.log``` - Locate all access logs (recursively) under the root directory.
-
 * ```grep``` - Globally Search a Regular Expression and Print (Uses Regular Expressions (regex) to search inside of files).
 * ```* - wildcard```
 * ```/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/``` - Check an ip address regex in code.
@@ -77,19 +72,12 @@ $valid = preg_match('/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/', $string);
 ```
 
 * ```grep ssl error*|less``` - Find all ssl errors.
-
 * ```grep '\s404\s' access*|less``` - Find all 404 errors in the access logs, this is 404 surounded by whitespace.
-
 * ```grep '^127' access*|less``` - Find every line that begins with 127 (access logs begin with an IP).
-
 * ```sudo grep -ir error /var/log | less``` - Find all errors (-i case insensitive) in all logs, we sudo because some log files are only accessible to root.
-
 * ```pgrep``` - Returns a list of process id(s) for given processes. The process can be requested using regex.
-
 * ```pgrep chrome``` - Returns a list of all chrome process ids.
-
 * ```pgrep chrome | xargs kill -9``` - Kills all running chrome processes.
-
 * ```cat /etc/passwd|less``` - A nice hack to get a list of all users on a system.
 
 tip: Use tab expansions to auto-complete a command or an asterisk as a wild card. The up and down arrows can allow you to browse your command history and replay previous commands. Use ```Ctrl + r``` to search your command history by entering partial commands.
