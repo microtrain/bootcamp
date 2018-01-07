@@ -4,6 +4,25 @@ This section is intended to provide a reference for the basic commands needed to
 
 For example ```vim filename.txt``` would use an editor called vim to open a file that is named filename.txt. Some programs expect arguments to  be passed in a specific order while others have predefined arguments. All Linux programs predefine ```--help``` so you might type ```chown --help``` to learn how to use the chown command (or program).
 
+## The Linux File System
+
+Linux does not use drive letters as you may be used to if you come from a Windows environment, rather everything is mounted to a root name space. */*.
+* */* - root
+* */etc* - sytem configuration
+* */var* - installed software
+* */var/log* - log files
+* */proc* - real time system information
+* */tmp* - temp files, cleared on reboot
+
+![console](/img/linux/terminal.png)
+1. The user name of the logged in user
+1. The name of the current machine
+1. The current working directory (CWD)
+1. User level ($ for standard user, # for root user)
+  * The space immediately to the right of # or $ is the command line entry point.  
+
+Item 3, the current working directory is what we want to focus on at the moment. This tells us how to navigate. The tilde ```~``` is a short hand for the home directory of the current user which would be */home/[username]* in my case this would be */home/jason* which says start at root */* and find the *home* directory from there find a directory called *jason*. The CWD in the above image ```~/bootcamp```. The ```cd``` (change directory) is how you navigate the file system using a terminal window (aka - console, cli, command line). If i say ```cd 01-DevEnvironment``` it will look for the *01-DevEnvironment* directory inside on */home/jason/bootcamp* as that is my current working directory and the lack of a preceding ```/``` tells the system to look on a relative file path. If however I add a */* so that the command reads ```cd /01-DevEnvironment``` it tells the system to look at the absolute path so the system will look for *01-DevEnvironment* directory to exist directly under root.
+
 ## Basic Commands
 
 * ```[command] --help``` - Returns a help file for any command (or program).
@@ -31,25 +50,6 @@ For example ```vim filename.txt``` would use an editor called vim to open a file
 * ```ls -R``` List recursive (shows all child files).
 * ```cd``` - Change directory.
 * ```cd ~``` - Change directory to home (a shortcut to your home directory).
-
-## Navigating the Linux File System
-
-Linux does not use drive letters, rather everything is mounted to a root name space. ```/```.
-* ```/``` - root
-* ```/etc``` - sytem configuration
-* ```/var``` - installed software
-* ```/var/log``` - log files
-* ```/proc``` - real time system information
-* ```/tmp``` - temp files, cleared on reboot
-
-![console](/img/linux/terminal.png)
-1. The user name of the logged in user
-1. The name of the current machine
-1. The current location of the user in the console
-1. User level ($ for standard user, # for root user)
-  * The space immediately to the right of # or $ is the command line entry point.  
-
-tip: Use tab expansions to auto-complete a command or an asterisk as a wild card. The up and down arrows can allow you to browse your command history and replay previous commands. Use ```Ctrl + r``` to search your command history by entering partial commands.
 
 * ```cat``` - Concatenate (dumps a file to the console, a handy read only hack).
 * ```cat [filename]|less``` - Pipe the cat command into a paginated CLI (less --help).
@@ -91,6 +91,8 @@ $valid = preg_match('/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/', $string);
 * ```pgrep chrome | xargs kill -9``` - Kills all running chrome processes.
 
 * ```cat /etc/passwd|less``` - A nice hack to get a list of all users on a system.
+
+tip: Use tab expansions to auto-complete a command or an asterisk as a wild card. The up and down arrows can allow you to browse your command history and replay previous commands. Use ```Ctrl + r``` to search your command history by entering partial commands.
 
 ## Additional Resources
 * [Ten Steps to Linux Survival](http://dullroar.com/book/TenStepsToLinuxSurvival.pdf)
