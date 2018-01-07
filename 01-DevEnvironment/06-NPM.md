@@ -15,4 +15,4 @@ These should return versions >= 7.1 and 4.2 respectively.
 ## Additional Resources
 * [Debian and Ubuntu Based Linux Distribution](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
 
-[Next: Git](08-Git.md)
+[Next: Git](07-Git.md)
