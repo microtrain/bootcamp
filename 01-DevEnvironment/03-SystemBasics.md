@@ -14,6 +14,7 @@ Lets look at these commands a little closer.
     * ```apt-get upgrade``` - tells the system to upgrade all packages to their latest versions.
 
 ## [Terminator](https://gnometerminator.blogspot.com/p/introduction.html)
+
 Terminator is a terminal emulator that allows for multiple tabs and split screens. This makes life a lot easier when you are dealing with several command line applications and background processes all at once.
 
 ```sh
@@ -22,6 +23,7 @@ sudo apt-get install terminator
 Now close your terminal window and use [Dash](https://help.ubuntu.com/lts/ubuntu-help/unity-dash-intro.html) to find and open Terminator. Open Dash ```Super + F``` and type _terminator_ into the search field. Click the Terminator icon to launch Terminator. You'll notice the Terminator icon is now in the [Launcher](https://help.ubuntu.com/stable/ubuntu-help/unity-launcher-intro.html) right click the Terminator icon and select _Lock to Launcher_ from the context menu.
 
 ## [VIM](http://www.vim.org/)
+
 An old school command line text editor. This is really nice to know when you need to edit files on a server or directly on a command line.
 
 ```sh
@@ -103,7 +105,9 @@ Filezilla is my goto [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol)
 
 
 
-## [cURL]{)
+## [cURL](https://curl.haxx.se/docs/manpage.html)
+
+The best way to think of cURL is as a browser that is used by code.
 
 ```sh
 sudo apt-get install curl

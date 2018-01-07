@@ -3,7 +3,7 @@
 
 Open a browser and navigate to http://localhost and you will land on your machines default apache landing page. That is because the default Apache's configuration points to the path ```/var/www/html```, html is folder that contains a single file called index.html. By default Apache looks for files named index.\* (where \* can be any file extension). Let's configure Apache's default path to ```/var/www``` and see what happens.
 
-First, open a command line an navigate to sites-available. On Debian based systems this is where Apache stores per site configurations also known as vhost (virtual host) files, on non-Debian systems these may be part of a larger configuration file. Once in the sites-available directory run the command to list the directory contents. 
+First, open a command line an navigate to sites-available. On Debian based systems this is where Apache stores per site configurations also known as vhost (virtual host) files, on non-Debian systems these may be part of a larger configuration file. Once in the sites-available directory run the command to list the directory contents.
 
 ```sh
 cd /etc/apache2/sites-available
