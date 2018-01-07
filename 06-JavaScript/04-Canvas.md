@@ -1258,11 +1258,12 @@ Now that you can add basic shapes to the canvas lets work on the colors.
 
 ## Additional Resources
 * [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
+### Khan Academy
 * [Radius, diameter, circumference & π](https://www.khanacademy.org/math/basic-geo/basic-geo-area-and-perimeter/area-circumference-circle/v/circles-radius-diameter-and-circumference)
 * [Pythagorean Theorem](https://www.khanacademy.org/math/basic-geo/basic-geometry-pythagorean-theorem/geo-pythagorean-theorem/v/the-pythagorean-theorem)
 ### Udemey
-[Introduction to HTML5 Canvas basics of drawing](https://microtrain.udemy.com/introduction-to-html5-canvas-basics-of-drawing/learn/v4/overview)
-[Search Canvas](https://microtrain.udemy.com/organization/search/?q=canvas)
+* [Introduction to HTML5 Canvas basics of drawing](https://microtrain.udemy.com/introduction-to-html5-canvas-basics-of-drawing/learn/v4/overview)
+* [Search Canvas](https://microtrain.udemy.com/organization/search/?q=canvas)
 
 
 ## Additional Resources
