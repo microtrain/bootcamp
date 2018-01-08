@@ -1,7 +1,23 @@
 # CakePHP
 
-CakePHP is and MVC (Model, View Controller) based rapid application development (RAD) framework built using PHP. CakePHP has a solid eco-system and is designed around test driven development (TDD).
+CakePHP is and MVC (Model, View, Controller) based rapid application development (RAD) framework built using PHP. CakePHP has a solid eco-system and is designed around test driven development (TDD).
 
+## MVC
+
+MVC is a software design patter that splits your application into three distinct layers data (Model), Business Logic (Controller), and presentation (View).
+
+### Model
+
+A model can be anything that provides data such a table in a database, a reference to an API, a spreed sheet, etc. For our user a model will reference a table in a database.
+
+### View
+
+### Controller
+
+## CRUD
+
+## Migrations
+-->
 ## Installation
 First make sure you have installed internationalization functions for PHP.
 ```sh
@@ -114,7 +130,7 @@ sudo chown www-data:jason tmp/*
 
 ## [Blog Tutorial](https://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html)
 
-We will start by using the blog tutorial from CakePHP's documentation to build a CMS for creating blog posts. We then use Composer to install a user [Authentication plugin](https://github.com/CakeDC/users). Then we will then tie Users to Articles (a blog post).
+We will start by building an Articles CRUD based on CakePHP's [CMS tutorial](https://book.cakephp.org/3.0/en/tutorials-and-examples/cms/installation.html). Then we will use Composer to install a user [Authentication plugin](https://github.com/CakeDC/users). Then we will then tie Users to Articles (a blog post).
 
 * Login to phpMyAdmin
 * Click into cake > cake_app from the side bar
@@ -125,12 +141,18 @@ We will start by using the blog tutorial from CakePHP's documentation to build a
 ```sql
 /* First, create our articles table: */
 CREATE TABLE articles (
-    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    title VARCHAR(50),
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    title VARCHAR(255) NOT NULL,
+    slug VARCHAR(191) NOT NULL,
     body TEXT,
-    created DATETIME DEFAULT NULL,
-    modified DATETIME DEFAULT NULL
-);
+    published BOOLEAN DEFAULT FALSE,
+    created DATETIME,
+    modified DATETIME,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'When the post was created',
+    modified DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'When the post was last edited',
+    UNIQUE KEY (slug)
+) ENGINE=INNODB;
 
 /* Then insert some articles for testing: */
 INSERT INTO articles (title,body,created)
@@ -142,6 +164,7 @@ INSERT INTO articles (title,body,created)
 ```
 
 Since we have the table in our database we can automate the build by *baking* the model. Run the following command and take note of what files get created.
+
 ```sh
 bin/cake bake model Articles
 ```
@@ -150,40 +173,68 @@ You'll notice fixtures and tests are created, this provide a placeholder for bui
 
 Navigate to the *src/Model* and check out the files in *Entity* and *Article* folders.
 
+Complete the [articles tutorial](https://book.cakephp.org/3.0/en/tutorials-and-examples/cms/articles-controller.html). Do not move on to the Tags and Users tutorial.
+
+
 ## Users
 
-We will install the users plugin developed by CakeDC. The documentation is available [here](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Installation.md).
+1. We will install the users plugin developed by CakeDC. The documentation is available [here](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Installation.md).
 
-Install the core by running
+2. Install the core by running.
 ```sh
 cd /var/www/cake.example.com
 composer require cakedc/users
 ```
 
-Use migrations to install the required tables.
+3. Use [the migrations plugin](https://book.cakephp.org/3.0/en/migrations.html) to install the required tables.
+
 ```sh
 bin/cake migrations migrate -p CakeDC/Users
 ```
 
-Add the following line to the end of *config/bootstrap.php*, this bootstraps the plugin to application start up.
+4. Add the following line to the end of *config/bootstrap.php*, this bootstraps the plugin to application start up.
 ```php
 Plugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true]);
 ```
 
-### [Configuration](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Configuration.md)
+### Tie Users to Articles
 
+Add a column called user_id to the articles table and create a foreign key relationship to the users table.
+
+```sql
+ALTER TABLE articles ADD user_id INT UNSIGNED NOT NULL DEFAULT 0;
+ALTER TABLE articles ADD CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES users(id);
+```
+
+### [Configuration](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Configuration.md)
 
 Navigate to [http://loc.cake.example.com/users/users](http://loc.cake.example.com/users/users) and create a user account.
 
-Create a custom MailTransport for MailGun
+## Labs
 
-## Tie Users to Articles
-
-Add a column called user_id to the articles table.
-
-## Lab
+### Lab 1 - Composer
 
 Using the documentation for the users plugin add the ability to login using a social media platform of your choice.
+
+### Lab 2 - Comment System
+
+1. Create a table
+  * id - the primary key of the comment system
+  * article_id - the id of the article for which the comment is being made
+  * first_name - the first name of the reader making a comment
+  * last_name - the last name of the reader making a comment
+  * email - the email of the reader making a comment
+  * comment - the readers comment
+  * created - current time stamp at the time of submission
+1. At the bottom of each article provide a form that will collect the above data and on submit
+  * Save the data to the comments table
+  * Use the MailGun API to send your self an email telling you someone has commented on your article.
+
+### Lab 3 - Contact Form
+
+1. Create a contact form.
+1. When a user submits the form, save the contents to a database.
+1. When the user submits the form, use the MailGun API to send your self an email every time someone submits the contact form.
 
 ## Additional Resources
 * [CakePHP](https://cakephp.org/)
