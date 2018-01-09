@@ -98,7 +98,7 @@ db.users.find({"lastname":/.*th/})
 Update a document by calling _update()_ against a target collection and passing in the *_id* object. Passing the same JSON string into the save method of a collection would completely replace the document.
 
 ```sh
-db.users.update({ "_id" : ObjectId(PASTE TARGET ID HERE), "email":"new@email.com"})
+db.users.update({ "_id" : ObjectId(PASTE TARGET ID HERE)}, {"email":"new@email.com"})
 ```
 
 The same JSON string you build for looking up documents can be used for deletion by passing that string into the remove method of collection.
