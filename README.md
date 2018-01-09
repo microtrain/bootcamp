@@ -2,6 +2,7 @@
 
 Resources for MicroTrain's Developer Bootcamp.
 
+<!--
 ## Getting Started
 [Code examples and starter files](https://github.com/microtrain/mtbc)
 
@@ -11,6 +12,7 @@ cd /var/www
 git clone https://github.com/microtrain/mtbc
 ```
 The open a browser and navigate to http://localhost/mtbc/
+-->
 
 ## Structure
 This course is designed to provide the student a hands on approach to learning web and hybrid mobile development. The goal is to provide someone who is new to development just enough to get themselves started building building real world applications. Expect lectures to makeup roughly 25%-50% of the course time with 50-75% of the time independently completing labs. Many subjects will receive little to no coverage the first time they are presented many of these subjects will be expanded upon in latter lessons and some will be covered under additional reading.
