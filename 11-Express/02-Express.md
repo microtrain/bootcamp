@@ -1,6 +1,6 @@
 # Express
 
-Express is a web application framework form NodeJS.
+Express is a web application framework for NodeJS.
 
 [Getting Started with Express](https://expressjs.com/)
 
