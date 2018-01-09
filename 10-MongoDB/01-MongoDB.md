@@ -31,6 +31,12 @@ Start the database.
 sudo service mongod start
 ```
 
+Access the database by typing ```mongo``` at the command line.
+
+```sh
+mongo
+```
+
 Create a database called cms.
 
 ```sh
