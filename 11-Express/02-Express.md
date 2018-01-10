@@ -32,6 +32,40 @@ npm start
 
 Navigate to Then [http://localhost:3000/](http://localhost:3000/) to access your new app.
 
+From Atom open *mean.example.com/routes/index.js* and change the following
+
+```js
+//change
+{ title: 'Express'}
+//to
+{ title: 'Express', name: 'YOUR-NAME'}
+```
+
+From Atom navigate to *mean.example.com/views/index.pug* and change the following. Pleas note the indentation, indentation matters when it comes to Pug.
+
+```js
+//change
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+//to
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  p My name is #{name}
+```
+
+From the same terminal in which your NodeJS server is running press [ctrl+c] then type ```sh npm start``` this will restart the server. Navigate to [http://localhost:3000/](http://localhost:3000/) and refresh the page.
+
+
+
+
+
 
 
 ## Additional Resources
