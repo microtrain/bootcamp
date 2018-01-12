@@ -99,15 +99,21 @@ Open a browser and navigate to [http://localhost:3000/](http://localhost:3000/us
 1. Use the unique-validator plugin to assure email addresses and usernames are unique across documents.
 1. Build a layout for website and style the app.
 1. Build a CMS
-  * Build an API for managing blog post
-  * Build a JS app that allows us to work with the API.
-  * Build a static view page that is not Ajax.
+    * Start by defining a post model
+    * Build an API for managing blog post with the following end points
+        * index
+        * edit
+        * create
+        * view
+        * delete
+    * Build a JS app that allows us to work with the API.
+    * Build a static view page that is not Ajax.
 1. Add an additional Passport strategy of your choosing (GitHub, Facebook, Twitter, etc)
 1. Add the ability to reset passwords
 1. Create a PSA called auth, this will provide
-  * user registration
-  * user login
-  * the ability to change a password
+    * user registration
+    * user login
+    * the ability to change a password
 
 
 
