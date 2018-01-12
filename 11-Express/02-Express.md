@@ -104,6 +104,10 @@ Open a browser and navigate to [http://localhost:3000/](http://localhost:3000/us
   * Build a static view page that is not Ajax.
 1. Add an additional Passport strategy of your choosing (GitHub, Facebook, Twitter, etc)
 1. Add the ability to reset passwords
+1. Create a PSA called auth, this will provide
+  * user registration
+  * user login
+  * the ability to change a password
 
 
 
