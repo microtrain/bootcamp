@@ -1,62 +1,20 @@
-# LESS and SASS
+# SASS
 
-LESS and SASS (SCSS) are the two leading preprocessors. A CSS preprocessor is a superset of CSS which means anything that is written in raw CSS will run under both LESS and SASS. LESS and SASS extends CSS with programming like capabilities; basically variables and limited control statements. This is adventurousness especially when building large front-end frameworks such [Bootstrap](http://getbootstrap.com/) or creating a product with a customizable theme. For example, Bootstrap has a common color for showing danger or errors _#a94442_. If we were to change that color globally we would have to track down every instance of the color and change it manually or we could make a single change to the variable that holds that color.
+SASS is a a CSS preprocessor is a superset of CSS which means all CSS syntax is considered valid _.scss_ it's a superset because because it extends CSS with programming like capabilities; variables and limited control statements. This is advantageous especially when building large front-end frameworks such [Bootstrap](http://getbootstrap.com/) or creating a product with a customizable theme. For example, Bootstrap has a common color for showing danger or errors _#a94442_. If we were to change that color globally we would have to track down every instance of the color and change it manually or we could make a single change to the variable that holds that color.
 
+### Install [Sass](http://sass-lang.com/)
 
-## [Less](http://lesscss.org/)
-
-Install less, since less is written in Node.JS we will use npm.
-
-```sh
-sudo npm install -g less
-```
-
-Variables in less. Less denotes variable with an _@_ at symbol. Less files must have the _.less_ extension.
-
-### Exercise 2 - Less Variables
-
-Create the path _~/less/var.less_ and add the following lines.
-```less
-@font-stack:    "Helvetica Neue",Helvetica,Arial,sans-serif;
-@primary-color: #333;
-
-body {
-  font: 100% @font-stack;
-  color: @primary-color;
-}
-```
-
-Then run the less compiler against that file.
-```sh
-lessc ~/var/less/var.less
-```
-
-You will see the following output in the console.
-```css
-body {
-  font: 100% "Helvetica Neue",Helvetica,Arial,sans-serif;
-  color: #333;
-}
-```
-
-
-### [Sass](http://sass-lang.com/)
-
-Install sass, since less is written in ruby we will use gem for the install. Start by installing ruby.
+since sass is written in ruby we will use gem for the install. Install scss linter, as this is a helpful tool.
 
 ```sh
 sudo apt-get install ruby
-sudo su -c "gem install sass"
-```
-OR
-
-```sh
 sudo apt-get install ruby-sass
+sudo gem install scss_lint
 ```
 
 Variables in Sass. Sass denotes variables with a _$_ dollar sign. For these lessons we will use the newer SCSS syntax for writing our sass files. These files must have the _.scss_ extensions.
 
-### Exercise 2 - Sass Variables
+### Exercise 1 - Sass Variables
 
 Create the path _~/scss/var.scss_ and add the following lines.
 ```scss
@@ -79,7 +37,7 @@ body {
   color: #333; }
 ```
 
-### Exercise 3 - Live Reload / Watch a File
+### Exercise 2 - Live Reload / Watch a File
 
 The down side to a preprocessor is the compilation step. This takes time and slows down development. We remedy this by creating a *watcher* this watches a target file for changes and rebuilds it's CSS version in the background. This is one less thing you need to think about which can help keep you in flow. Open a split console window and run the following command in one of the panels.
 
@@ -113,13 +71,13 @@ Move */var/www/about/css/dist/main.css* to */var/www/about/css/src/main.scss*
 
 ```sh
 mkdir -p /var/www/about/css/src
-mv /var/www/about/css/dist/main.css /var/www/about/css/src/main.scss
+mv /var/www/mean.example.com/css/dist/main.css /var/www/mean.example.com/css/src/main.scss
 ```
 
 Then compile the sass file
 
 ```sh
-sass /var/www/about/css/src/main.scss /var/www/about/css/dist/main.css
+sass /var/www/mean.example.com/css/src/main.scss /var/www/mean.example.com/css/dist/main.css
 ```
 
 ## Mixins
