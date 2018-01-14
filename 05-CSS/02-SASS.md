@@ -67,17 +67,17 @@ Open the file *~/scss/var.css* amd verify your changes.
 
 ## Exercise 3 - Implement sass in your project
 
-Move */var/www/about/css/dist/main.css* to */var/www/about/css/src/main.scss*
+Move */var/www/example.com/css/dist/main.css* to */var/www/example.com/css/src/main.scss*
 
 ```sh
-mkdir -p /var/www/about/css/src
-mv /var/www/mean.example.com/css/dist/main.css /var/www/mean.example.com/css/src/main.scss
+mkdir -p /var/www/example.com/css/src
+mv /var/www/example.com/css/dist/main.css /var/www/example.com/css/src/main.scss
 ```
 
 Then compile the sass file
 
 ```sh
-sass /var/www/mean.example.com/css/src/main.scss /var/www/mean.example.com/css/dist/main.css
+sass /var/www/example.com/css/src/main.scss /var/www/example.com/css/dist/main.css
 ```
 
 ## Mixins
@@ -202,4 +202,3 @@ Add the following classes to main.scss update the style declarations so that red
 ```
 
 [SASS Reference](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
-[Less Reference](http://lesscss.org/#)
