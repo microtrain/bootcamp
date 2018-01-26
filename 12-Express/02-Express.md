@@ -126,9 +126,67 @@ router.get('/', function(req, res) {
 
 An API end point (in this case a data API) is a server response that does not render an HTML view. Rather, the end point would return json, jsonp, xml, soap or the like. Typcially the point of an API is to accept a data request or return a server response in the form of unformatted data. The intent is to create an end point that can interact with other software rather than a human. For example */api/users/create* could allow a user to be created from a web app, desktop app, mobile app, console app, etc. The point is having a single end point that can serve data between to any medium.
 
-@todo create a users API
+### Defining a model
 
-@add unique-validator to the model
+We will start with a JSON based users API. This will provide end points for creating and managing users. This is also known as a data API, since this deals with data; the data model is a logical place to start.
+
+Open MongoDB
+
+```sh
+sudo service mongod start
+mongo
+```
+
+From the MongoDB shell (be sure you see a ```>```) create a database called _bootcamp_.
+
+```sh
+use bootcamp
+```
+
+Next we will create a *models* directory in the root of our project and in it a file named *user.js* resulting is *mean.example.com/models/user.js*.
+
+```js
+var mongoose = require('mongoose'),
+  Schema = mongoose.Schema,
+  uniqueValidator = require('mongoose-unique-validator');
+
+//Create a schema
+var User = new Schema({
+  email: {
+    type: String,
+    required: [true, 'Please enter an email'],
+    unique: [true, 'Email must be unique']
+  },
+  username: {
+    type: String,
+    required: [true, 'Please enter a username'],
+    unique: [true, 'Usernames must be unique']
+  },
+  first_name: String,
+  last_name: String,
+  admin: {
+    type: Boolean,
+    default: false
+  }
+});
+
+User.plugin(passportLocalMongoose);
+User.plugin(uniqueValidator);
+
+module.exports  = mongoose.model('User', User);
+```
+
+For this to work we will need to install two packages [mongoose](#) and [mongoose-unique-validator](#) .
+
+## Create a users API that provides full CRUD functionality
+
+* create - A POST request that creates a user
+* read - A GET request that returns either a single user record or a list of user records
+  * read may have multiple end points perhaps return one, return many and/or search (return many). You could also roll  search into a generic return many function.
+* update - A PUT request that updates an existing record
+* delete - A delete request that removes an existing user
+
+@todo unique-validator to the model
 
 @todo in class, create an SPA that views a list a users, a single user, creates and deletes a user, save the delete functionality for a lab.
 
