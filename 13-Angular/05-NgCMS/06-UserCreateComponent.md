@@ -55,9 +55,65 @@ git add .
 git commit -a
 ```
 
+*user.service.ts*
+```js
+  createUser (user: User): Observable<User> {
+    return this.http.post<User>(this.url + '/create',user, httpOptions);
+  }
+```
+
 *user-create/user-create.component.ts*
 ```js
 import { NgForm } from '@angular/forms';
+```
+
+*user-create/user-create.component.ts*
+```js
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from "@angular/router";
+
+import { UserService } from '../user.service';
+import { User } from '../user';
+
+@Component({
+  selector: 'app-user-create',
+  templateUrl: './user-create.component.html',
+  styleUrls: ['./user-create.component.scss']
+})
+export class UserCreateComponent implements OnInit {
+
+  user = new User();
+  errors: Array<any> = [];
+  errorMessage: string;
+
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { }
+
+  ngOnInit(): void{}
+
+  response(response): void{
+    if(response.success===false){
+      this.errors = response.errors.errors;
+      this.errorMessage = response.errors.message;
+    }
+
+    if(response.success===true){
+      this.router.navigate(['/users/view/', response.user._id]);
+    }
+  }
+
+  onSubmit(): void {
+    this.userService.createUser(this.user).subscribe(
+      (response) => {
+        this.response(response)
+      }
+    );
+  }
+}
+
 ```
 
 Then add a form to the user-create view. We want will bind the form the ngSubmit.
@@ -94,61 +150,6 @@ Then add a form to the user-create view. We want will bind the form the ngSubmit
   <button type="submit">Submit</button>
 
 </form>
-```
-
-*user-create/user-create.component.ts*
-```js
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import {Router} from "@angular/router";
-
-import { UserService } from '../user.service';
-import { User } from '../user';
-
-@Component({
-  selector: 'app-user-create',
-  templateUrl: './user-create.component.html',
-  styleUrls: ['./user-create.component.scss']
-})
-export class UserCreateComponent implements OnInit {
-
-  user = new User();
-  errors = [];
-
-  constructor(
-    private userService: UserService,
-    private router: Router
-
-  ) { }
-
-  ngOnInit(): void{}
-
-  response(response): void{
-    if(response.success===false){
-      this.errors = response.errors.errors;
-      this.errors.message = response.errors.message;
-      this.errors._message = response.errors._message;
-    }
-
-    if(response.success===true){
-      this.router.navigate(['/users/view/', response.user._id]);
-    }ng generate component user-edit
-  }
-
-  onSubmit(): void {
-    this.userService.createUser(this.user).subscribe(
-      (response) => {this.response(response)}
-    );
-  }
-
-}
-```
-
-*user.service.ts*
-```js
-  createUser (user: User): Observable<User> {
-    return this.http.post<User>(this.url + '/create',user, httpOptions);
-  }
 ```
 
 **Commit your changes** with the message *Added the ability to create a user*.
