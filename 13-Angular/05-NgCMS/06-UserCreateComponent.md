@@ -67,7 +67,7 @@ Then add a form to the user-create view. We want will bind the form the ngSubmit
 <h1>Create a New User</h1>
 
 <form (ngSubmit)="onSubmit()" #createUser="ngForm">
-  <div *ngIf="errors.message" class="alert error">{{errors._message}}</div>
+  <div *ngIf="errorMessage" class="alert error">{{errorMessage}}</div>
   <div>
     <label for="username">Username</label>
     <input [(ngModel)]="user.username" type="text" id="username" [ngModelOptions]="{standalone: true}">
