@@ -41,7 +41,7 @@ At this point we have created the posts component and added it to routing.
 
 1. Finish implementing the PostsComponent details.
 1. Create a Post Schema - _src/app/post.ts_
-1. Create a PostService - _src/app/post.service.ts_
+1. Create PostService - _src/app/post.service.ts_
 1. Create and route PostView - _src/app/post-view/*_
 1. Create and route PostCreate - _src/app/post-create/*_
 1. Create and route PostEdit - _src/app/post-edit/*_
