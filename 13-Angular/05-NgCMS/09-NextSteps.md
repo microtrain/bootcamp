@@ -36,3 +36,8 @@ const routes: Routes = [
 ];
 ```
 
+1. Create a Post Schema - _src/app/post.ts_
+1. Create a PostService - _src/app/post.service.ts_
+1. Create PostView - _src/app/post-view/*_
+1. Create PostCreate - _src/app/post-create/*_
+1. Create PostEdit - _src/app/post-edit/*_
