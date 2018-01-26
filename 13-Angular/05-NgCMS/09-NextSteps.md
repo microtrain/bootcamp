@@ -19,7 +19,7 @@ Add some navigation to the app component.
 
 Generate PostsComponent
 ```sh
-ng generate component users
+ng generate component posts
 ```
 
 Add PostsComponent to routing.
