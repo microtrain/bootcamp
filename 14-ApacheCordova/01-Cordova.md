@@ -75,9 +75,9 @@ In short Gradle is a the build system used by Android. Stack Overflow has a [mor
 
 ```
 cd ~/Downloads
-wget https://services.gradle.org/distributions/gradle-3.4.1-bin.zip
+wget https://services.gradle.org/distributions/gradle-4.5-bin.zip
 sudo mkdir /opt/gradle
-sudo unzip -d /opt/gradle gradle-3.4.1-bin.zip
+sudo unzip -d /opt/gradle gradle-4.5-bin.zip
 ```
 
 ### Add an Environmental Variable on Startup
@@ -88,11 +88,11 @@ Open the _.bashrc_ file
 vim ~/.bashrc
 ```
 
-add the following lines, the first is for Gradle, the others you will need later so add them now. Replace _[your-user-name]_ with the user name you use to login to your system.
+add the following lines, the first is for Gradle, the others you will need later so add them now. Replace _[YOUR-USER_NAME]_ with the user name you use to login to your system.
 
 ```
-export PATH=$PATH:/opt/gradle/gradle-3.4.1/bin
-export ANDROID_HOME=/home/[your-user-name]/Android/Sdk
+export PATH=$PATH:/opt/gradle/gradle-4.5/bin
+export ANDROID_HOME=/home/[YOUR-USER_NAME]/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ```
 
@@ -116,10 +116,11 @@ If you were to build an Android application from scratch, this is what you would
 
 ```
 cd ~/Downloads
-sudo unzip android-studio-ide-162.3934792-linux.zip -d /usr/local
+sudo unzip android-studio-ide-*-linux.zip -d /usr/local
 cd /usr/local/android-studio/bin
 ./studio.sh
 ```
+
 
 Follow the prompts and keep choosing next. If you get prompted to install the Android SDK restart your _.bashrc_ file ```. ~/.bashrc```.
 
@@ -131,7 +132,7 @@ _
 
 You should now have a running instance of  Android Studio. Add a desktop entry _Tools > Create desktop entry..._ and lock Android Studio to your launcher.  
 
-Now it's time to create an AVD (this is an emulator)
+Now it's time to create an (AVD (Android Virtual Device))[https://developer.android.com/studio/run/managing-avds.html]
 
 Tools > Android > AVD Manager
 Click the _Create Virtual Device_ button
@@ -149,7 +150,6 @@ cd ~
 cordova create hello com.example.hello HelloWorld
 
 cd hello
-cordova platform add android
 ```
 
 Check your list of platforms
