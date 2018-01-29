@@ -88,11 +88,11 @@ Open the _.bashrc_ file
 vim ~/.bashrc
 ```
 
-add the following lines, the first is for Gradle, the others you will need later so add them now. Replace _[YOUR-USER_NAME]_ with the user name you use to login to your system.
+add the following lines, the first is for Gradle, the others you will need later so add them now. Replace *YOUR_USER_NAME* with the user name you use to login to your system.
 
 ```
 export PATH=$PATH:/opt/gradle/gradle-4.5/bin
-export ANDROID_HOME=/home/[YOUR-USER_NAME]/Android/Sdk
+export ANDROID_HOME=/home/YOUR-USER_NAME/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ```
 
