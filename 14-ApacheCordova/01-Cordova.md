@@ -92,7 +92,7 @@ add the following lines, the first is for Gradle, the others you will need later
 
 ```
 export PATH=$PATH:/opt/gradle/gradle-4.5/bin
-export ANDROID_HOME=/home/YOUR-USER_NAME/Android/Sdk
+export ANDROID_HOME=/home/YOUR_USER_NAME/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ```
 
