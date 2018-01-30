@@ -192,7 +192,11 @@ cordova emulate android
 adb logcat
 ```
 
-You will lots of stuff writing to the console. By default Logcat is to verbose to be useful, so your will want to run it with filters. We will use the regex filter to only return messages that have contain the string _INFO:CONSOLE_.
+Everything that happens in the emulator is logged. Logcat ```adb``` is installed with android studio and lets us read the logs in real time. In a new console, run the logcat command.
+```
+adb logcat
+```
+You'll notice straight away that this is far too verbose to be useful, so your will want to run it with filters. We will use the regex filter to only return messages that have contain the string _INFO:CONSOLE_. This will limit Logcat's output primarily to ```console.log()``` calls. Making it far less verbose and allowing us focus on messages that matter.
 
 ```
 adb logcat ActivityManager:I Cam:V -e INFO:CONSOLE*
