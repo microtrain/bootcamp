@@ -32,6 +32,79 @@ Implement the ```getUsers()``` method.
 
 Wire up the users page.
 
+## Add a Loader
+
+1. Import LoadingController
+2. Create a space in memory to hold a loader
+3. Inject the LoadingController
+4. Build and display a loader on instaniation
+5. Dismiss the loader after the Http Request has completed
+
+```js
+import { Component } from '@angular/core';
+//1. Import LoadingController
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+
+import { UserProvider } from '../../providers/user/user';
+
+import { User } from '../../models/user';
+
+/**
+ * Generated class for the UsersPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
+@Component({
+  selector: 'page-users',
+  templateUrl: 'users.html',
+})
+export class UsersPage {
+
+  public users: User;
+  //2. Create a space in memory to hold a loader
+  private loader: any;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private userProvider: UserProvider,
+    //3. Inject the LoadingController
+    public loadingCtrl: LoadingController
+  ) {
+    //4. Build and display a loader on instaniation
+    this.loader = this.loadingCtrl.create({
+      content: 'Loading...',
+    });
+
+    this.loader.present();
+  }
+
+  public ionViewDidLoad() {
+    this.getUsers();
+    this.userProvider.getUser();
+    this.userProvider.editUser();
+    this.userProvider.createUser();
+    this.userProvider.deleteUser();
+  }
+
+
+  public getUsers(): void {
+    this.userProvider.getUsers().subscribe(
+      (response) => {
+        this.users = response.users,
+        console.log(this.users),
+        //5. Dismiss the loader after the Http Request has completed
+        this.loader.dismiss()
+      }
+    );
+  }
+
+}
+```
+
 ## Lab
 
 Complete the users UI and implement all API methods of the UserProvider.
