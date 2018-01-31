@@ -191,6 +191,10 @@ Complete the users UI and implement all API methods of the UserProvider.
 ```
 
 
+```sh
+ionic generate page user
+```
+
 
 
 
