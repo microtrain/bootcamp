@@ -15,3 +15,25 @@ ionic start myApp tabs
 ```
 ionic start ionic-cms sidemenu
 ```
+
+Create a users page and wire it into navigation.
+```sh
+ionic generate page users
+```
+
+```sh
+ionic generate provider user
+```
+Stub out the user provider with the soon to be used methods.
+
+Create a models dirctory and user model *models/user.ts*
+
+Implement the ```getUsers()``` method.
+
+Wire up the users page.
+
+## Lab
+
+Complete the users UI and implement all API methods of the UserProvider.
+
+
