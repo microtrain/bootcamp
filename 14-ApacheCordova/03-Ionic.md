@@ -179,6 +179,77 @@ Complete the users UI and implement all API methods of the UserProvider.
 
 
 
+### Connect to the UserPage
+
+Create UserPage
+```sh
+ionic generate page user
+```
+
+*pages/users/users.ts*
+```js
+import { Component } from '@angular/core';
+
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
+
+import { UserProvider } from '../../providers/user/user';
+
+import { User } from '../../models/user';
+//1. Import UserPage
+import { UserPage } from '../user/user';
+
+@IonicPage()
+@Component({
+  selector: 'page-users',
+  templateUrl: 'users.html',
+})
+export class UsersPage {
+
+  public users: User;
+
+  //2. Pass the Userpage object into view
+  public toUser = UserPage;
+
+  private loader: any;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    private userProvider: UserProvider,
+    //3. Inject the LoadingController
+    public loadingCtrl: LoadingController
+  ) {
+    //4. Build and display a loader on instaniation
+    this.loader = this.loadingCtrl.create({
+      content: 'Loading...',
+    });
+
+    this.loader.present();
+  }
+
+  public ionViewDidLoad() {
+    this.getUsers();
+    this.userProvider.getUser();
+    this.userProvider.editUser();
+    this.userProvider.createUser();
+    this.userProvider.deleteUser();
+  }
+
+
+  public getUsers(): void {
+    this.userProvider.getUsers().subscribe(
+      (response) => {
+        this.users = response.users,
+        console.log(this.users),
+        //5. Dismiss the loader after the Http Request has completed
+        this.loader.dismiss()
+      }
+    );
+  }
+
+}
+```
+
 *pages/users/users.html*
 ```html
 <ion-content padding>
@@ -191,9 +262,7 @@ Complete the users UI and implement all API methods of the UserProvider.
 ```
 
 
-```sh
-ionic generate page user
-```
+
 
 
 
