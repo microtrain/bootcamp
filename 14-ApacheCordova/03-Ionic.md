@@ -178,3 +178,19 @@ export class UsersPage {
 Complete the users UI and implement all API methods of the UserProvider.
 
 
+
+*pages/users/users.html*
+```html
+<ion-content padding>
+  <ion-list *ngIf="users">
+    <button ion-item *ngFor="let user of users" [navPush]="toUserDetail" [navParams]="user._id">
+      {{user.username}}
+    </button>
+  </ion-list>
+</ion-content>
+```
+
+
+
+
+
