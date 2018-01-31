@@ -32,6 +32,74 @@ Implement the ```getUsers()``` method.
 
 Wire up the users page.
 
+## Implement UsersPage
+
+1. Import the UserProvider (aka Service in Angular)
+2. Import the User schema/model
+3. Declare users as an Array containing user objects
+4. Inject the UserProvider
+5. Create a wrapper for the users provider
+6. call the getUsers() wrapper
+
+```js
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+//1. Import the UserProvider (aka Service in Angular)
+import { UserProvider } from '../../providers/user/user';
+
+//2. Import the User schema/model
+import { User } from '../../models/user';
+
+/**
+ * Generated class for the UsersPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+
+@IonicPage()
+@Component({
+  selector: 'page-users',
+  templateUrl: 'users.html',
+})
+export class UsersPage {
+
+
+  //3. Declare users as an Array containing user objects
+  users: User[];
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    //4. Inject the UserProvider
+    private userProvider: UserProvider
+  ) {
+  }
+
+  ionViewDidLoad() {
+    //6. call the getUsers() wrapper
+    this.getUsers();
+    this.userProvider.getUser();
+    this.userProvider.editUser();
+    this.userProvider.createUser();
+    this.userProvider.deleteUser();
+  }
+
+  //5. Create a wrapper for the users provider
+  getUsers(): void {
+    this.userProvider.getUsers().subscribe(
+      (response) => {
+        this.users = response.users,
+        console.log(this.users)
+      }
+    );
+  }
+
+}
+
+```
+
 ## Add a Loader
 
 1. Import LoadingController
