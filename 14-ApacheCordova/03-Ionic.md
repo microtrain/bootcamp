@@ -186,6 +186,8 @@ Create UserPage
 ionic generate page user
 ```
 
+Add UserPage to NgModule.entryComponents
+
 *pages/users/users.ts*
 ```js
 import { Component } from '@angular/core';
