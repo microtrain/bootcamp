@@ -22,10 +22,10 @@ Create a users page and wire it into navigation.
 ionic generate page users
 ```
 
-[:floppy_disk: code](https://github.com/microtrain/ionic-cms/commit/e596528a24bc6e432fc634808fc378756610a3f0)
+[</> code](https://github.com/microtrain/ionic-cms/commit/e596528a24bc6e432fc634808fc378756610a3f0)
 Declare UsersPage in app.module.ts
 
-[:floppy_disk: code](https://github.com/microtrain/ionic-cms/commit/52c30d29da7b72ffa6920aa95ae50900bbad07f5)
+[</>  code](https://github.com/microtrain/ionic-cms/commit/52c30d29da7b72ffa6920aa95ae50900bbad07f5)
 Add the UserPage to your side menu.
 
 Create a data provider to connect to the users API.
