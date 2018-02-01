@@ -22,7 +22,7 @@ Create a users page and wire it into navigation.
 ionic generate page users
 ```
 
-[Declare UsersPage in app.module.ts](https://github.com/microtrain/ionic-cms/commit/e596528a24bc6e432fc634808fc378756610a3f0)
+Declare UsersPage in [app.module.ts](https://github.com/microtrain/ionic-cms/commit/e596528a24bc6e432fc634808fc378756610a3f0) then add the UserPage to your [side menu](https://github.com/microtrain/ionic-cms/commit/52c30d29da7b72ffa6920aa95ae50900bbad07f5)
 
 ```sh
 ionic generate provider user
