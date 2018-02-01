@@ -37,6 +37,11 @@ UserProvider will give us access to a users API. We will create a getUsers() met
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/708980c169ca58a8e6b76a3aa036430ab361c3e7) Import the UserProvider and inject it into UserPage.
 
+At this point your application should crash when attempting to access the UsersPage. This is because the data provider (UserProvider) is a calling HttpClient but HttpClientModule is not getting loaded. To resolve this issue we will load it into app.module.ts.
+
+[</> code](https://github.com/microtrain/ionic-cms/commit/f71c37d378356286e1430d57af46163965bef089) Add HttpClientModule
+
+
 Stub out the user provider with the soon to be used methods.
 
 Create a models dirctory and user model *models/user.ts*
