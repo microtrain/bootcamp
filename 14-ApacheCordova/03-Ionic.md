@@ -14,6 +14,7 @@ ionic start myApp tabs
 * Exit this program and create the CMS app
 ```
 ionic start ionic-cms sidemenu
+ionic serve
 ```
 
 Create a users page and wire it into navigation.
