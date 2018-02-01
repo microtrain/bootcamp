@@ -41,8 +41,14 @@ At this point your application should crash when attempting to access the UsersP
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/f71c37d378356286e1430d57af46163965bef089) Add HttpClientModule
 
+It's always good to build one piece at a time. We want to make sure the connection between our provider and controller (UsersPage) is working. While we may not yet be ready to implement each provider method it's a good practice to make sure we've accounted for everything we will need to work with the API. In this case we will be dealing with basic CRUD (Create, Read, Update, Delete) logic. This tranlates in to
+* get a user ```getUser()```
+* get many users ```getUsers()```
+* create a user ```createUser()```
+* update a user ```updateUser()```
+* delete a user ```deleteUser()```
 
-Stub out the user provider with the soon to be used methods.
+[</> code](https://github.com/microtrain/ionic-cms/commit/7101ff4bb7163d3e6a7781317bae6502208f775a) Stub out the user provider with the soon to be used methods. Start with a having each method execute simple ```console.log()```.
 
 Create a models dirctory and user model *models/user.ts*
 
