@@ -32,6 +32,11 @@ Create a data provider to connect to the users API.
 ```sh
 ionic generate provider user
 ```
+
+UserProvider will give us access to a users API. We will create a getUsers() method that will return a list of users; this is the goal of UsersPage. To allow UsersPage to access UserProvider we will need to import and inject it into UsersPage.
+
+[</> code](https://github.com/microtrain/ionic-cms/commit/708980c169ca58a8e6b76a3aa036430ab361c3e7) Import the UserProvider and inject it into UserPage.
+
 Stub out the user provider with the soon to be used methods.
 
 Create a models dirctory and user model *models/user.ts*
