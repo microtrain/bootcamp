@@ -78,6 +78,12 @@ Make the uses list public so that it will be accessible by the view.
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/a613fe7b1382ac84e13400aff2548603ad51ad37) Add the users data to a public variable.
 
+At this point the ```console.log()``` will show a deliniated list of users.
+
+Our view now has access to the public users instance. We can display dispay a list of users in the view using [Angular's ngForOf directive](https://angular.io/api/common/NgForOf) to build an [Ionic list](https://ionicframework.com/docs/components/#lists). You can now remove the ```console.log()``` from UsesPage.
+
+[</> code](https://github.com/microtrain/ionic-cms/commit/67a8b26843b56478bf9976b96248d9c072bb1dcb) Implement the users view.
+
 ## Implement UsersPage
 
 1. Import the UserProvider (aka Service in Angular)
