@@ -70,8 +70,6 @@ Now that we have a basic connection between UserProvider and UserPage we will wa
 
 Opening the JS console in the dev tools panel then navigationg to the users page in our app will now display a JSON object containing a an Array of users.
 
-Wire up the users page.
-
 ## Implement UsersPage
 
 1. Import the UserProvider (aka Service in Angular)
