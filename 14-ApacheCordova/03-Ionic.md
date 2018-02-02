@@ -58,7 +58,7 @@ We will want to create a user data object, other paradigms may refer to this as 
 
 Before we begining implementing UserProvider against the API lets create a wrapper in out UserPage and test the connection to the provider. To do this we will create a private method that calls the ```getUsers()``` method in UserProvider. We will call that method from the UserPage constructor. Opening the JS console in the dev tools then navigationg to the users page in our app will now display "Get Users". At this point we know we have a good connection and we can focus on implementing the ```getUsers()``` logic.
 
-[</> code](https://github.com/microtrain/ionic-cms/commit/635f989e910a2aa409d78b190855753bd5d3b41e) Implement a bsic wrapper for ```getUsers()```.
+[</> code](https://github.com/microtrain/ionic-cms/commit/2bc571d53cc0fc4a29fb1ed5d63cbb8e278301c5) Implement a bsic wrapper for ```getUsers()```.
 
 Wire up the users page.
 
