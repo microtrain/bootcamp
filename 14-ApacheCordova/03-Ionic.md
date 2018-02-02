@@ -107,11 +107,18 @@ Our data comes from a web API. This means any network latency can make a page lo
 [</> code](https://github.com/microtrain/ionic-cms/commit/600212a852488d9d6fc3afc86774564ab0004b0e) Add a loader.
 
 
-
 ## Lab
 
-Complete the users UI and implement all API methods of the UserProvider.
+Implement a page to display a single user.
 
+1. Generate a user page
+1. Import the UserProvider (aka Service in Angular)
+1. Import the User model
+1. Declare a public user variable
+1. Create a wrapper for the UserProvider.getUser()
+1. Call the getUsers() wrapper
+1. Build the view
+1. Link the users list to the new view
 
 
 ### Connect to the UserPage
