@@ -137,6 +137,8 @@ ionic generate page user
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/1dc3dad3726a8b0249c9984a2f6f46ffd7176018) Rough UserPage implementation - API test via console.log() (steps 4-8)
 
+[</> code](https://github.com/microtrain/ionic-cms/commit/915addc3d969546f02b0068ab2eb9d18721c8cd8) - Added basic user details.
+
 
 
 
