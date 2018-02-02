@@ -134,7 +134,7 @@ ionic generate page user
 [</> code](https://github.com/microtrain/ionic-cms/commit/fde3abc4087f6d0d751a65fa943f613e493dd965) Add UserPage to NgModule.entryComponents
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/710c9fb6628b8198babbe2d66174daefb0f5a73a) Provide navigation between UsersPage and UserPage.
-
+[</> code](https://github.com/microtrain/ionic-cms/commit/1dc3dad3726a8b0249c9984a2f6f46ffd7176018) Rough UserPage implementation - API test via console.log() (steps 4-8)
 
 
 
