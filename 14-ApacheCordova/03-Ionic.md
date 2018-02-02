@@ -70,6 +70,14 @@ Now that we have a basic connection between UserProvider and UserPage we will wa
 
 Opening the JS console in the dev tools panel then navigationg to the users page in our app will now display a JSON object containing a an Array of users.
 
+Make the uses list public so that it will be accessible by the view.
+
+1. Create a public instance varaible to hold the list of users. This will hold an Array of user objects.
+2. Set the list of users the users instance variable. This will give view access to the list of users.
+3. Log the current state of the users instance.
+
+[</> code](https://github.com/microtrain/ionic-cms/commit/a613fe7b1382ac84e13400aff2548603ad51ad37) Add the users data to a public variable.
+
 ## Implement UsersPage
 
 1. Import the UserProvider (aka Service in Angular)
