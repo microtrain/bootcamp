@@ -139,6 +139,31 @@ ionic generate page user
 [</> code](https://github.com/microtrain/ionic-cms/commit/915addc3d969546f02b0068ab2eb9d18721c8cd8) - Added basic user details.
 
 
+### Generate CreateUserPage
+Add the functionality to create a new user.
+
+1. Generate UserCreatePage 
+[</> code](https://github.com/microtrain/ionic-cms/commit/a81db5e707e32dfdfc68334b02c53254afac72aa)
+1. Add UserCreatePage to AppModule 
+[</> code](https://github.com/microtrain/ionic-cms/commit/9dddb33f65a721da210ab59ddf9597ec77cf4cb8)
+1. Link from UsersPage to UserCreatePage
+[</> code](https://github.com/microtrain/ionic-cms/commit/6dfaecf63e7971187eb85d5e475bdd9e6fcd6935)
+1. Import the UserProvider
+1. Import the User model
+1. Declare a public user variable instanitaed as a new User object
+1. Create a wrapper for the UserProvider.createUser()
+1. Implement UserProvider.createUser()
+1. Build the view
+1. Create a form submit
+
+```sh
+ionic generate page user-create
+```
+
+
+
+
+
 
 
 
