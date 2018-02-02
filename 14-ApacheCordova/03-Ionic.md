@@ -19,6 +19,13 @@ ionic serve
 
 ## Implement a users page
 
+1. Import the UserProvider (aka Service in Angular)
+2. Import the User schema/model
+3. Declare users as an Array containing user objects
+4. Inject the UserProvider
+5. Create a wrapper for the users provider
+6. call the getUsers() wrapper
+
 Create a users page and wire it into navigation.
 ```sh
 ionic generate page users
@@ -85,15 +92,6 @@ At this point the ```console.log()``` will show a deliniated list of users.
 Our view now has access to the public users instance. We can display dispay a list of users in the view using [Angular's ngForOf directive](https://angular.io/api/common/NgForOf) to build an [Ionic list](https://ionicframework.com/docs/components/#lists). You can now remove the ```console.log()``` from UsesPage.
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/67a8b26843b56478bf9976b96248d9c072bb1dcb) Implement the users view.
-
-## Implement UsersPage
-
-1. Import the UserProvider (aka Service in Angular)
-2. Import the User schema/model
-3. Declare users as an Array containing user objects
-4. Inject the UserProvider
-5. Create a wrapper for the users provider
-6. call the getUsers() wrapper
 
 ### Add a Loader
 
