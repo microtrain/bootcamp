@@ -125,7 +125,6 @@ Implement a page to display a single user.
 1. Create a wrapper for the UserProvider.getUser()
 1. Call the getUsers() wrapper
 1. Build the view
-1. Link the users list to the new view
 
 ```sh
 ionic generate page user
