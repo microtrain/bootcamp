@@ -17,7 +17,7 @@ ionic start ionic-cms sidemenu
 ionic serve
 ```
 
-## Implement a users page
+## Create a users page and wire it into navigation.
 
 1. Import the UserProvider (aka Service in Angular)
 2. Import the User schema/model
@@ -26,7 +26,6 @@ ionic serve
 5. Create a wrapper for the users provider
 6. call the getUsers() wrapper
 
-Create a users page and wire it into navigation.
 ```sh
 ionic generate page users
 ```
