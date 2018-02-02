@@ -102,9 +102,9 @@ Our data comes from a web API. This means any network latency can make a page lo
 4. Create a method and display a loader
 5. Call the loaded when requesting user data
 6. Dismiss the loader after the HTTP request has completed
-```
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/600212a852488d9d6fc3afc86774564ab0004b0e) Add a loader.
+
 [</> Bug Fix](https://github.com/microtrain/ionic-cms/commit/a407dfd23fb4e10e71ccfad0d963bd3b874dfb53) The previous commit was missing an import.
 
 
