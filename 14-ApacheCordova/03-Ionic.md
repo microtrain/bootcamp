@@ -109,8 +109,8 @@ Our data comes from a web API. This means any network latency can make a page lo
 
 [</> bug fix](https://github.com/microtrain/ionic-cms/commit/ae46e812eaf1c0a5d5cf7301557fb3d130c0ab7d) Typing issues brought to the surface byt the previous fix.
 
-Remove ListPage, it was only used for demo purposes.
-[</> code](https://github.com/microtrain/ionic-cms/commit/d8a6fe1a711ed7680ecd888bc0a6a673d45587ac)
+[</> code](https://github.com/microtrain/ionic-cms/commit/d8a6fe1a711ed7680ecd888bc0a6a673d45587ac) Remove ListPage, it was only used for demo purposes.
+
 
 ### Create UserPage and Display a Single User
 
