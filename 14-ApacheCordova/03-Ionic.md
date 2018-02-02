@@ -107,8 +107,10 @@ Our data comes from a web API. This means any network latency can make a page lo
 
 [</> bug fix](https://github.com/microtrain/ionic-cms/commit/a407dfd23fb4e10e71ccfad0d963bd3b874dfb53) The previous commit was missing an import.
 
+[</> bug fix](https://github.com/microtrain/ionic-cms/commit/ae46e812eaf1c0a5d5cf7301557fb3d130c0ab7d) Typing issues brought to the surface byt the previous fix.
 
-## Lab
+
+### Create UserPage and Display a Single User
 
 Implement a page to display a single user.
 
@@ -122,9 +124,6 @@ Implement a page to display a single user.
 1. Link the users list to the new view
 
 
-### Connect to the UserPage
-
-Create UserPage
 ```sh
 ionic generate page user
 ```
