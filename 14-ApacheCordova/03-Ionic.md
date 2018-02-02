@@ -17,6 +17,8 @@ ionic start ionic-cms sidemenu
 ionic serve
 ```
 
+## Implement a users page
+
 Create a users page and wire it into navigation.
 ```sh
 ionic generate page users
@@ -152,77 +154,16 @@ export class UsersPage {
 
 ```
 
-## Add a Loader
+### Add a Loader
+
+Our data comes from a web API. This means any network latency can make a page load feel sluggish or even broken. Using a loader is a good way to ease the pain ofa slow page load. 
 
 1. Import LoadingController
-2. Create a space in memory to hold a loader
-3. Inject the LoadingController
-4. Build and display a loader on instaniation
-5. Dismiss the loader after the Http Request has completed
-
-```js
-import { Component } from '@angular/core';
-//1. Import LoadingController
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-
-import { UserProvider } from '../../providers/user/user';
-
-import { User } from '../../models/user';
-
-/**
- * Generated class for the UsersPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
-@Component({
-  selector: 'page-users',
-  templateUrl: 'users.html',
-})
-export class UsersPage {
-
-  public users: User;
-  //2. Create a space in memory to hold a loader
-  private loader: any;
-
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private userProvider: UserProvider,
-    //3. Inject the LoadingController
-    public loadingCtrl: LoadingController
-  ) {
-    //4. Build and display a loader on instaniation
-    this.loader = this.loadingCtrl.create({
-      content: 'Loading...',
-    });
-
-    this.loader.present();
-  }
-
-  public ionViewDidLoad() {
-    this.getUsers();
-    this.userProvider.getUser();
-    this.userProvider.editUser();
-    this.userProvider.createUser();
-    this.userProvider.deleteUser();
-  }
-
-
-  public getUsers(): void {
-    this.userProvider.getUsers().subscribe(
-      (response) => {
-        this.users = response.users,
-        console.log(this.users),
-        //5. Dismiss the loader after the Http Request has completed
-        this.loader.dismiss()
-      }
-    );
-  }
-
-}
+2. Inject the LoadingController into the constructor
+3. Create a space in memory to hold a loader (an instance variable)
+4. Create a method and display a loader
+5. Call the loaded when requesting user data
+6. Dismiss the loader after the HTTP request has completed
 ```
 
 ## Lab
