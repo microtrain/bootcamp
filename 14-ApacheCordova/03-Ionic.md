@@ -117,6 +117,8 @@ Remove ListPage, it was only used for demo purposes.
 Implement a page to display a single user.
 
 1. Generate a user page
+1. Add UserPage to AppModule
+1. Add navigation between UsersPages and UserPage
 1. Import the UserProvider (aka Service in Angular)
 1. Import the User model
 1. Declare a public user variable
@@ -129,82 +131,11 @@ Implement a page to display a single user.
 ionic generate page user
 ```
 
-Add UserPage to NgModule.entryComponents
+[</> code](https://github.com/microtrain/ionic-cms/commit/fde3abc4087f6d0d751a65fa943f613e493dd965) Add UserPage to NgModule.entryComponents
 
-*pages/users/users.ts*
-```js
-import { Component } from '@angular/core';
-
-import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
-
-import { UserProvider } from '../../providers/user/user';
-
-import { User } from '../../models/user';
-//1. Import UserPage
-import { UserPage } from '../user/user';
-
-@IonicPage()
-@Component({
-  selector: 'page-users',
-  templateUrl: 'users.html',
-})
-export class UsersPage {
-
-  public users: User;
-
-  //2. Pass the Userpage object into view
-  public toUser = UserPage;
-
-  private loader: any;
-
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private userProvider: UserProvider,
-    //3. Inject the LoadingController
-    public loadingCtrl: LoadingController
-  ) {
-    //4. Build and display a loader on instaniation
-    this.loader = this.loadingCtrl.create({
-      content: 'Loading...',
-    });
-
-    this.loader.present();
-  }
-
-  public ionViewDidLoad() {
-    this.getUsers();
-    this.userProvider.getUser();
-    this.userProvider.editUser();
-    this.userProvider.createUser();
-    this.userProvider.deleteUser();
-  }
+[</> code](https://github.com/microtrain/ionic-cms/commit/710c9fb6628b8198babbe2d66174daefb0f5a73a) Provide navigation between UsersPage and UserPage.
 
 
-  public getUsers(): void {
-    this.userProvider.getUsers().subscribe(
-      (response) => {
-        this.users = response.users,
-        console.log(this.users),
-        //5. Dismiss the loader after the Http Request has completed
-        this.loader.dismiss()
-      }
-    );
-  }
-
-}
-```
-
-*pages/users/users.html*
-```html
-<ion-content padding>
-  <ion-list *ngIf="users">
-    <button ion-item *ngFor="let user of users" [navPush]="toUserDetail" [navParams]="user._id">
-      {{user.username}}
-    </button>
-  </ion-list>
-</ion-content>
-```
 
 
 
