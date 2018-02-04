@@ -4,37 +4,102 @@ Express is a web application framework for NodeJS.
 
 [Getting Started with Express](https://expressjs.com/)
 
+
+## Create an ExpressJS based Project
+
+Go to GitHub and create a new project *mean.example.com*. You can change this to your own domain name if you have one *mean.YOUR-DOMAIN*.
+
 Install the Express Generator
 
 ```sh
 sudo npm install express-generator -g
+```
 
+Create the repository
+
+mean.example.com
+
+A MEAN Stack build for my personal website. Provides a CMS and user management via a REST API.
+
+[x] Public
+
+[x] Initialize this repository with a README
+
+
+Add gitignore: None
+Add a license: MIT License
+
+
+Clone the project into your home directory. Replace YOUR-GITHUB-ACCOUNT with the actual account details (for the sale of this lesson we will refer to this as *mean.exxample.com*).
+
+```sh
+cd ~/
+git clone git@github.com:YOUR-GITHUB-ACCOUNT/mean.example.com.git
 ```
 
 Create an Express based website, we will use PUG as our template engine.
 
+Setup ExpressJS with Pug
 ```sh
-cd /var/www
-express --view=pug mean.example.com
-```
-Open Atom and add _mean.example.com_ as a project folder. Then ```cd``` into the express directory and finsih the install.
-
-```sh
-cd mean*
+cd mean.example.com
+npm install express --save
+express --view=pug
 npm install
+npm start			
 ```
 
-Start a local web server.
+Split your Terminator window and run ```git status```
+
+Running ```git status``` at this point will show the following.
 
 ```sh
-npm start
+$ git status
+app.js
+bin/
+node_modules/
+package-lock.json
+package.json
+public/
+routes/
+views/
 ```
+
+@todo - Explain routing and the express file structure.
+
+* app.js
+* bin/
+* node_modules/
+* package.json
+* package-lock.json
+    * [package.json vs package-lock.json](https://stackoverflow.com/questions/45052520/do-i-need-both-package-lock-json-and-package-json)
+    * [Everything You Wanted To Know About package-lock.json But Were Too Afraid To Ask](https://medium.com/@Quigley_Ja/everything-you-wanted-to-know-about-package-lock-json-b81911aa8ab8)
+* public/
+* routes/
+* views/
+
+The *node_modules* directory contains third party software that should not be a part of our repository. Npm will handle these dependencies so we do not need them in our repo. Open Atom and add *mean.example.com* as a project folder.
+
+[</code>](https://github.com/microtrain/mean.example.com/commit/f8d0bc8225635141a8182b709d190b1980166bdd) Add a .gitignore file to exclude *node_modules* from future commits.
+
+Commit the *.gitignore* file.
+```sh
+git add .gitignore
+git commit -m 'Ignore node_modules from future commits' .gitignore
+```
+
+Commit the remaining files created during setup and push both commits to the master branch.
+```sh
+git add .
+git commit -am 'Setup ExpressJS with Pug'
+git push origin master
+```
+
 
 Navigate to Then [http://localhost:3000/](http://localhost:3000/) to access your new app.
 
 ## Exercise - Express Basics
 
-From Atom open *mean.example.com/routes/index.js* and change the following
+In this exercise we will make a few basic changes to familiarize ourselves with the basics of ExpressJS. If something breaks don't worry; our last commit created a rollback point. At the end of this exercise we will stash out changes and roll back to our last commit. From Atom open *mean.example.com/routes/index.js* and change the following
 
 ```js
 //change
@@ -43,7 +108,7 @@ From Atom open *mean.example.com/routes/index.js* and change the following
 { title: 'Express', name: 'YOUR-NAME'}
 ```
 
-From Atom navigate to *mean.example.com/views/index.pug* and change the following. Pleas note the indentation, indentation matters when it comes to Pug.
+From Atom navigate to *mean.example.com/views/index.pug* and change the following. Please note the indentation, indentation matters when it comes to Pug.
 
 ```js
 //change
@@ -122,14 +187,35 @@ router.get('/', function(req, res) {
 });
 ```
 
-## Creating API routes (aka end points).
+Now that we have a general feel for our ExpressJS application. Let's stash our changes and start building our application.
 
-An API end point (in this case a data API) is a server response that does not render an HTML view. Rather, the end point would return json, jsonp, xml, soap or the like. Typcially the point of an API is to accept a data request or return a server response in the form of unformatted data. The intent is to create an end point that can interact with other software rather than a human. For example */api/users/create* could allow a user to be created from a web app, desktop app, mobile app, console app, etc. The point is having a single end point that can serve data between to any medium.
+```sh
+git add .
+git stash
+git stash clear
+```
 
-### Defining a model
+## Create a Data API
+
+An API end point (in this case a data API) is a server response that does not render an HTML view. Rather, the end point would return json, jsonp, xml, soap or the like. Typically, the point of an API is to either accept a data request or return a server response in the form of unformatted data. The intent is to create an end point that can interact with other software rather than a human. For example, */api/users/create* could allow a user to be created from a web app, desktop app, mobile app, console app, etc. The point is having a single end point that can serve data between to any medium. Our applications will use HTTP verbs (GET, PUT, POST, DELETE) to create a CRUD based REST API that interacts with JSON data.
+
+* Relevant HTTP Verbs - POST, GET, PUT, DELETE
+* CRUD - Create, Read, Update, Delete
+* REST - REpresentational State Transfer
+
+**Translate HTTP Verbs to CRUD**
+
+  * Create - POST
+  * Read - GET
+  * Update - PUT
+  * Delete - DELETE
+
+### Create a Data Model
 
 We will start with a JSON based users API. This will provide end points for creating and managing users. This is also known as a data API, since this deals with data; the data model is a logical place to start.
 
+
+#### Create the Database
 Open MongoDB
 
 ```sh
@@ -137,13 +223,51 @@ sudo service mongod start
 mongo
 ```
 
-From the MongoDB shell (be sure you see a ```>```) create a database called _bootcamp_.
+From the MongoDB shell (be sure you see a ```>```) create a database called *mean-cms*. Then create a test document by inserting running an insert against the users collection.
 
 ```sh
-use bootcamp
+use mean-cms
+db.users.insert({email: 'test@example.com', username: 'testuser'})
 ```
 
+#### Add a Config File
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/3f2277d3a874126b2590c26b9d495e00f0b53be4) A config file is a good practice for storing and managing API keys and other configuration variables from a central location. I often create two files, one for production and one for development.
+
+* Create the configuration file *config.dev.js*
+*config.dev.js*
+```js
+var config = {};
+config.mongodb = 'mongodb://localhost/mean-cms';
+module.exports = config;
+```
+
+* Call the configuration file from *app.js*
+*app.js*
+```js
+var config = require('./config.dev');
+
+//Test the file
+console.log(config);
+```
+
+#### Define the Schema
+
 Next we will create a *models* directory in the root of our project and in it a file named *user.js* resulting is *mean.example.com/models/user.js*.
+
+```sh
+npm install mongoose
+git commit -am 'Install Mongoose'
+git push origin master
+```
+
+Validation is a key feature of Mongoose. Executes before making a save to MongoDB. This allows us to define rules at the model level. We will want to make sure usernames and email addresses are unique. Mongoose does not have a built in validator for this but the community does. We will install the [mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator) plugin and set uniqueness as needed.
+
+```sh
+npm install mongoose-unique-validator
+git commit -am 'Install mongoose-unique-validator'
+git push origin master
+```
 
 ```js
 var mongoose = require('mongoose'),
@@ -170,23 +294,56 @@ var User = new Schema({
   }
 });
 
-User.plugin(passportLocalMongoose);
 User.plugin(uniqueValidator);
 
 module.exports  = mongoose.model('User', User);
 ```
 
-For this to work we will need to install two packages [mongoose](#) and [mongoose-unique-validator](#) .
-
-## Create a users API that provides full CRUD functionality
+#### Implement the REST/CRUD Functionality
 
 * create - A POST request that creates a user
-* read - A GET request that returns either a single user record or a list of user records
-  * read may have multiple end points perhaps return one, return many and/or search (return many). You could also roll  search into a generic return many function.
+* read - A GET request that returns either a single user record
+* read - A GET request that returns a list of user records
 * update - A PUT request that updates an existing record
 * delete - A delete request that removes an existing user
 
-@todo unique-validator to the model
+##### GET/Read All
+[</> code](https://github.com/microtrain/mean.example.com/commit/e97e24c4acbeb7ad4d215fae7230ffe81215fd80) GET/Read all users
+
+```sh
+curl -H "Content-Type: application/json" -X GET http://localhost:3000/api/users/
+```
+
+##### GET/Read One
+[</> code](https://github.com/microtrain/mean.example.com/commit/a788806f4fade23968121572b6ac9a9bdf7c74ea) GET/Read a single user
+
+```sh
+curl -H "Content-Type: application/json" -X GET http://localhost:3000/api/users/5a763b67a5d70c115d81536a
+```
+
+##### POST/Create
+[</> code](https://github.com/microtrain/mean.example.com/commit/3fbb13f87bfee5c3de9679e2df6d9b22ed89016e) CREATE/Create a user
+
+Test with a simple curl request
+```sh
+curl -d '{"email":"test2@example.com", "username":"testuser2", "first_name": "Bob", "last_name": "smith"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/users
+
+curl -d '{"email":"test3@example.com", "username":"testuser3", "first_name": "Sally", "last_name": "Smith"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/users
+```
+
+##### PUT/Update
+[</> code](https://github.com/microtrain/mean.example.com/commit/3fbb13f87bfee5c3de9679e2df6d9b22ed89016e) PUT/Update a user
+
+```sh
+curl -d '{"_id":"5a766d52cbe495128293baef", "first_name":"Robert"}' -H "Content-Type: application/json" -X PUT http://localhost:3000/api/users
+```
+
+##### DELETE/Delete
+[</code>](https://github.com/microtrain/mean.example.com/commit/4420ef4064c9240a85c53a0fac51d5a302a6078c) DELETE/Delete a user
+
+```sh
+curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/users/5a766d52cbe495128293baef
+```
 
 @todo in class, create an SPA that views a list a users, a single user, creates and deletes a user, save the delete functionality for a lab.
 
