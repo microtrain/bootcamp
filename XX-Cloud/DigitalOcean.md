@@ -12,7 +12,14 @@ Now create a less privleged user. For the sake of this article we will call that
 adduser production 
 ```
 
-Git should already be installed. You can verify this by running git --version. Switch to the production user and create an ssh key [Create an ssh key and add it to your GitHub account](href="https://help.github.com/articles/connecting-to-github-with-ssh/"). 
+Git should already be installed. You can verify this by running git --version. 
+
+Switch to the production user and follow create an ssh key 
+
+```sh
+su production
+```
+* [Create an ssh key and add it to your GitHub account](href="https://help.github.com/articles/connecting-to-github-with-ssh/"). 
 
 Install the Apache webserver and the modules we will need for out web site.
 
@@ -27,7 +34,9 @@ Restart Apache
 service apache2 restart
 ```
 
-Test Apache by entering you droplets IP address into a browser window. If you see a page that says *Apache2 Ubuntu Default Page* then your Apache web server is working.
+Test Apache by entering your domain name into a browser window. If you see a page that says *Apache2 Ubuntu Default Page* then your Apache web server is working.
+
+> Due to firewall settings this may not work in the classroom.
 
 Assign ownership of the web directory to the production user.
 
@@ -41,7 +50,7 @@ Reboot your droplet
 reboot -n
 ```
 
-Log back into the server
+Log back into the server and install NodeJs
 
 ```sh
 ssh root@YOUR-IP
@@ -68,7 +77,7 @@ Install pm2
 npm -g install pm2
 ```
 
-Install your website on the /var/www path from GitHub.
+Install your website on the */var/www* path from GitHub.
 
 ```sh
 cd /var/www && git clone git@github.com:YOUR-GITHUB-ACCOUNT/mean.example.com.git
@@ -76,7 +85,7 @@ cd mean.example.com && npm install --production
 npm start
 ```
 
-Test that the site is running by opening a browser and entering the ip address of your droplet on port :3000. Use ```ctrl + c``` to shut down the application. We will want our website to start up on boot.
+Test that the site is running by opening a browser and entering your new doamin name followed by port :3000, *YOUR-DOMAIN.TLD:3000*.
 
 ```sh
 su root
@@ -113,31 +122,32 @@ exit 0
 
 Reboot your droplet.
 
-<pre>
+```sh
 reboot -n
-</pre>
+```
 
-<p>Test that the site is running by opening a browser and entering the ip address of your droplet on port :3000. If you see your webiste both MongoDB and mean.jasonsnider.com have started on boot.</p>
+Test that the site is running by opening a browser and entering the ip address of your droplet on port :3000. If you see your webiste both MongoDB and mean.jasonsnider.com have started on boot.
 
-<p>Setup Apache as a reverse proxy</p>
+## Setup Apache as a Reverse Proxy
 
-<pre>
-	<Proxy *>
-		Order deny,allow
-		Allow from all
-	</Proxy>
+```sh
+<Proxy *>
+	Order deny,allow
+	Allow from all
+</Proxy>
 
-	ProxyRequests Off
-	ProxyPreserveHost On
-	ProxyPass / http://localhost:3000/
-	ProxyPassReverse / http://localhost:3000/
-</pre>
+ProxyRequests Off
+ProxyPreserveHost On
+ProxyPass / http://localhost:3000/
+ProxyPassReverse / http://localhost:3000/
+```
 
---------------------------------------------------------------------------------
-
+### Secure Your Connections with LetsEncypt
+```sh
 apt-get install python-letsencrypt-apache
 
 letsencrypt --apache
 
 crontab -e
 0 0 15 * * letsencrypt renew
+```
