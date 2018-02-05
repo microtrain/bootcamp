@@ -39,18 +39,19 @@ Reboot your droplet
 reboot -n
 </pre>
 
+Log back into the server
 ```sh
-root@YOUR-IP
+ssh root@YOUR-IP
 ```
 
-<pre>
+```sh
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 apt-get install -y nodejs
 apt-get install -y build-essential
 
 apt-get update
 apt-get upgrade
-</pre>
+```
 
 <p>Be sure npm is setup globally</p>
 
@@ -62,18 +63,25 @@ Install pm2
 
 <pre>npm -g install pm2</pre>
 
-<p>Install your website on the /var/www path from GitHub. For jasonsnider.com I would say</p> 
+<p>Install your website on the /var/www path from GitHub.</p> 
 
 <pre>
 cd /var/www && git clone git@github.com:YOUR-GITHUB-ACCOUNT/mean.example.com.git
-cd mean.jasonsnider.com && npm install --production
+cd mean.example.com && npm install --production
 npm start
 </pre>
 
-<p>Test that the site is running by opening a browser and entering the ip address of your droplet on port :3000. Use <code>ctrl + c</code> to shut down the application. As with MongoDB we want our website to start up on boot.</p>
-<pre>vim /etc/rc.local</pre>
-<p>Add the line</p>
-<pre>cd /var/www/mean.jasonsnider.com/app && ./bin/www</pre>
+<p>Test that the site is running by opening a browser and entering the ip address of your droplet on port :3000. Use <code>ctrl + c</code> to shut down the application. We will want our website to start up on boot.</p>
+
+```sh
+su root
+vim /etc/rc.local
+```
+
+Add the line
+```sh
+pm2 start /var/www/mean.example.com/bin/www
+```
 
 <p>/etc/rc.local should now look like the following. You MUST start MongoDB prior to starting the website.</p>
 
@@ -93,7 +101,7 @@ npm start
 
 
 #start mean.YOUR-DOMAIN.TLD
-pm2 start /var/www/YOUR-DOMAIN.TLD/bin/www
+pm2 start /var/www/mean.example.com/bin/www
 
 exit 0
 </pre>
