@@ -12,7 +12,7 @@ Now create a less privleged user. For the sake of this article we will call that
 adduser production 
 </pre>
 
-<p>Git should already be installed. You can verify this by running git --version. <a href="https://help.github.com/articles/connecting-to-github-with-ssh/" target="_blank">Create an ssh key and add it to your GitHub account</a>.</p>  
+Git should already be installed. You can verify this by running git --version. Switch to the production user and create an ssh key <a href="https://help.github.com/articles/connecting-to-github-with-ssh/" target="_blank">Create an ssh key and add it to your GitHub account</a>. 
 
 <p>Install the Apache webserver and the modules we will need for out web site.</p>
 
@@ -34,11 +34,14 @@ Assign ownership of the web directory to the production user.
 chown production:production /var/www -fR
 </pre>
 
-
-<p>Reboot your droplet</p> 
+Reboot your droplet
 <pre>
 reboot -n
 </pre>
+
+```sh
+root@YOUR-IP
+```
 
 <pre>
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
@@ -62,10 +65,9 @@ Install pm2
 <p>Install your website on the /var/www path from GitHub. For jasonsnider.com I would say</p> 
 
 <pre>
-cd /var/www && git clone git@github.com:jasonsnider/mean.jasonsnider.com.git
+cd /var/www && git clone git@github.com:YOUR-GITHUB-ACCOUNT/mean.example.com.git
 cd mean.jasonsnider.com && npm install --production
-cd app && npm install --production
-./bin/www
+npm start
 </pre>
 
 <p>Test that the site is running by opening a browser and entering the ip address of your droplet on port :3000. Use <code>ctrl + c</code> to shut down the application. As with MongoDB we want our website to start up on boot.</p>
