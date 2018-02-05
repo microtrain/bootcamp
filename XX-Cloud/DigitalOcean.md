@@ -1,4 +1,15 @@
-Create and login to your droplet over SSH. You will be prompted to change your password. Once you have updated your password update apt and run any upgrades.
+# Cloud Server
+
+## Create a MongoDB Atlas Sandbox
+
+### Update Your Local App to Connect to the Sandbox
+
+## Purchase a Domain
+
+## Purchase a Cloud Based Web Server
+
+### Set Up Your Droplet
+Login to your droplet over SSH. You will be prompted to change your password. Once you have updated your password update apt and run any upgrades.
 
 ```sh
 apt-get update
