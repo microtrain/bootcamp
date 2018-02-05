@@ -153,7 +153,7 @@ ProxyPass / http://localhost:3000/
 ProxyPassReverse / http://localhost:3000/
 ```
 
-### Secure Your Connections with LetsEncypt
+## LetsEncypt
 ```sh
 apt-get install python-letsencrypt-apache
 
