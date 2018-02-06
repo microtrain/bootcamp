@@ -2,11 +2,42 @@
 
 ## Create a MongoDB Atlas Sandbox
 
+[https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas)
+
+1. Create an account
+1. Choose the free sandbox account
+1. Create a cluster name
+1. Generate a password
+
 ### Update Your Local App to Connect to the Sandbox
 
+#### Add a configuration file, since the repository is public create this outside of the repository.
+*/var/www/config.prod.js*
+```js
+//Sitewide configuration
+var config = {};
+
+//Establish a connection to the local database
+config.mongodb = 'mongodb://localhost/mean-cms';
+
+module.exports = config;
+```
+#### Require the config file in app.js
+```js
+//Call the config file
+var config = require('../config.prod');
+```
+#### Pass the mongodb string into mongoose.connect()
+```js
+//Call the config file
+var config = require('../config.prod');
+```
+
 ## Purchase a Domain
+hover.com
 
 ## Purchase a Cloud Based Web Server
+Digital Ocean
 
 ### Set Up Your Droplet
 Login to your droplet over SSH. You will be prompted to change your password. Once you have updated your password update apt and run any upgrades.
@@ -16,21 +47,21 @@ apt-get update
 apt-get upgrade
 ```
 
-Now create a less privleged user. For the sake of this article we will call that user production. Give the production user a good strong password and follow the prompts, you may leave these questions blank.
+Now create a less privileged user. For the sake of this article we will call that user production. Give the production user a good strong password and follow the prompts, you may leave these questions blank.
 
 
 ```sh
-adduser production 
+adduser production
 ```
 
-Git should already be installed. You can verify this by running git --version. 
+Git should already be installed. You can verify this by running git --version.
 
-Switch to the production user and follow create an ssh key 
+Switch to the production user and follow create an ssh key
 
 ```sh
 su production
 ```
-* [Create an ssh key and add it to your GitHub account](href="https://help.github.com/articles/connecting-to-github-with-ssh/"). 
+* [Create an ssh key and add it to your GitHub account](href="https://help.github.com/articles/connecting-to-github-with-ssh/").
 
 Install the Apache webserver and the modules we will need for out web site.
 
