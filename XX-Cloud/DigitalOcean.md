@@ -129,50 +129,12 @@ npm start
 
 Test that the site is running by opening a browser and entering your new doamin name followed by port :3000, *YOUR-DOMAIN.TLD:3000*.
 
-```sh
-su root
-vim /etc/rc.local
-```
-
-Add the line
-```sh
-pm2 start /var/www/mean.example.com/bin/www
-```
-
-*/etc/rc.local* should now look like the following. You MUST start MongoDB prior to starting the website.
-
-```sh
-#!/bin/sh -e
-#
-# rc.local
-#
-# This script is executed at the end of each multiuser runlevel.
-# Make sure that the script will "exit 0" on success or any other
-# value on error.
-#
-# In order to enable or disable this script just change the execution
-# bits.
-#
-# By default this script does nothing.
-
-
-#start mean.YOUR-DOMAIN.TLD
-pm2 start /var/www/mean.example.com/bin/www
-
-exit 0
-```
-
-Reboot your droplet.
-
-```sh
-reboot -n
-```
-
 ## Set up pm2
 1. Login as production
 1. Start the pm2 process
 ```sh
 cd /var/www/mean.example.com
+npm stop
 pm2 start process.yml
 ```
 1. switch to root
