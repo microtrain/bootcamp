@@ -168,7 +168,31 @@ Reboot your droplet.
 reboot -n
 ```
 
-Test that the site is running by opening a browser and entering the ip address of your droplet on port :3000. If you see your webiste both MongoDB and mean.jasonsnider.com have started on boot.
+## Set up pm2
+1. Login as production
+1. Start the pm2 process
+```sh
+cd /var/www/mean.example.com
+pm2 start process.yml
+```
+1. switch to root
+```sh
+su root
+```
+1. Add production to the sudoers list
+```sh
+usermod -aG sudo production
+```
+1. Write the current pm2 state to production home.
+```sh
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u production --hp /home/production
+```
+1. Save the current state
+```sh
+pm2 save
+```
+
+Test that pm2 is working by rebooting your server. Then open a browser and entering you domain name against port 3000. If you see your webiste pm2 has taken effect.
 
 ## Setup Apache as a Reverse Proxy
 
