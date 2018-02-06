@@ -134,7 +134,6 @@ Test that the site is running by opening a browser and entering your new doamin 
 1. Start the pm2 process
 ```sh
 cd /var/www/mean.example.com
-npm stop
 pm2 start process.yml
 ```
 1. switch to root
