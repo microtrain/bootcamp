@@ -387,3 +387,8 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/use
 ## Additional Resources
 * [Express](https://expressjs.com/)
 * [Pug](https://pugjs.org/api/getting-started.html)
+
+Local cURL test
+```sh
+curl -d '{"email":"curltest@example.com", "username":"curltest", "first_name": "Bob", "last_name": "smith"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/users/create
+```
