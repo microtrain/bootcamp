@@ -335,7 +335,7 @@ curl -d '{"email":"test3@example.com", "username":"testuser3", "first_name": "Sa
 [</> code](https://github.com/microtrain/mean.example.com/commit/3fbb13f87bfee5c3de9679e2df6d9b22ed89016e) PUT/Update a user
 
 ```sh
-curl -d '{"_id":"5a766d52cbe495128293baef", "first_name":"Robert"}' -H "Content-Type: application/json" -X PUT http://localhost:3000/api/users
+curl -d '{"_id":"5a77536ad7e4c37d6f792716", "first_name":"Robert"}' -H "Content-Type: application/json" -X PUT http://localhost:3000/api/users
 ```
 
 ##### DELETE/Delete
@@ -345,21 +345,32 @@ curl -d '{"_id":"5a766d52cbe495128293baef", "first_name":"Robert"}' -H "Content-
 curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/users/5a766d52cbe495128293baef
 ```
 
-@todo in class, create an SPA that views a list a users, a single user, creates and deletes a user, save the delete functionality for a lab.
+#### Add Created and Modified Dates
 
-@todo Add user authentication
+[</code>](https://github.com/microtrain/mean.example.com/commit/b1f8bf0597c270df42ebb0cdfaddd6d2505db03e) Add and auto-populate created and modified dates on document creation.
 
-## Labs
+##### Auto Update the Modified Date When a Document is Saved
 
-1. Create an method in _user_app_ that will make an Ajax request to _/api/users/delete/:id_ and provide a UI element to allow a user to delete another user.
+[</code>](https://github.com/microtrain/mean.example.com/commit/daedc8e236e9d5c03efbee02920113a0bfaecc00) Auto update the modifed timestamp prior to saving the document.
+
+## Lab
+
+1. Create an articles model
+    1. Articles Schema
+        * title - String
+        * slug - String
+        * keywords - String
+        * description - String
+        * body - String
+        * published - Date
+        * created - Date
+        * modified - Date
+1. Create a full CRUD REST API for articles.
+
+
+## UI
+
 1. Build a CMS
-    * Start by defining a post model
-    * Build an API for managing blog post with the following end points
-        * index
-        * edit
-        * create
-        * view
-        * delete
     * Build a JS app that allows us to work with the API.
     * Build a static view page that is not Ajax.
 1. Add an additional Passport strategy of your choosing (GitHub, Facebook, Twitter, etc)
