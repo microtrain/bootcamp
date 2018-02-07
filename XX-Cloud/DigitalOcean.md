@@ -179,6 +179,19 @@ crontab -e
 0 0 15 * * letsencrypt renew
 ```
 
+```apache
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{SERVER_NAME}$1 [R,L]
+```
+
+```sh
+a2dissite *
+service apache2 restart
+a2ensite *le*
+service apache2 restart
+```
+
 Force non-www
 ```apache
 RewriteEngine On
