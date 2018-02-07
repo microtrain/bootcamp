@@ -173,10 +173,12 @@ ProxyPassReverse / http://localhost:3000/
 ```sh
 apt-get install python-letsencrypt-apache
 
-letsencrypt --apache
+certbot renew --dry-run
 
 crontab -e
-0 0 15 * * letsencrypt renew
+```
+```sh
+0 0 15 * * certbot renew
 ```
 
 ```apache
