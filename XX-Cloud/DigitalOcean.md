@@ -178,3 +178,11 @@ letsencrypt --apache
 crontab -e
 0 0 15 * * letsencrypt renew
 ```
+
+Force non-www
+```apache
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.jasonsnider\.com [NC]
+RewriteRule ^(.*)$ https://jasonsnider.com/$1 [L,R=301]
+```
+
