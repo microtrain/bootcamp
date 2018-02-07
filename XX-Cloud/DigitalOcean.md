@@ -182,7 +182,7 @@ crontab -e
 Force non-www
 ```apache
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www\.jasonsnider\.com [NC]
-RewriteRule ^(.*)$ https://jasonsnider.com/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.jasonsnider\.net [NC]
+RewriteRule ^(.*)$ https://jasonsnider.net/$1 [L,R=301]
 ```
 
