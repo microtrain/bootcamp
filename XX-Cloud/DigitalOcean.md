@@ -30,8 +30,8 @@ var config = require('../config.prod');
 
 #### Pass the mongodb string into mongoose.connect()
 ```js
-//Call the config file
-var config = require('../config.prod');
+//Establish a database connection
+mongoose.connect(config.mongodb);
 ```
 
 #### Load a config file base on enviromental variables
