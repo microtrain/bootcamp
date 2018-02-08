@@ -27,10 +27,20 @@ module.exports = config;
 //Call the config file
 var config = require('../config.prod');
 ```
+
 #### Pass the mongodb string into mongoose.connect()
 ```js
 //Call the config file
 var config = require('../config.prod');
+```
+
+#### Load a config file base on enviromental variables
+```js
+if(process.env.NODE_ENV==='production'){
+  var config = require('./config.prod');
+}else{
+  var config = require('./config.dev');
+}
 ```
 
 ## Purchase a Domain
