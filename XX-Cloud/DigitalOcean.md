@@ -208,6 +208,6 @@ Force non-www
 ```apache
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.jasonsnider\.net [NC]
-RewriteRule ^(.*)$ https://jasonsnider.net/$1 [L,R=301]
+RewriteRule ^(.*)$ https://jasonsnider.net$1 [L,R=301]
 ```
 
