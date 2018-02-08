@@ -211,3 +211,10 @@ RewriteCond %{HTTP_HOST} ^www\.jasonsnider\.net [NC]
 RewriteRule ^(.*)$ https://jasonsnider.net$1 [L,R=301]
 ```
 
+```sh
+a2dissite *
+service apache2 restart
+a2ensite *le*
+service apache2 restart
+```
+
