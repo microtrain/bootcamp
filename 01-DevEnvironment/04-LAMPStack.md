@@ -17,7 +17,7 @@ The Apache web server will create a path called ```/var/www/``` this is the defa
 ```sh
 ls -l /var
 total 52
-drwxr-xr-x  2 root root     4096 Feb 16 15:09 backups
+drwxr-xr-x  2 root root     4096 Feb 16 15:09 
 drwxr-xr-x 17 root root     4096 Feb 16 16:06 cache
 drwxrwsrwt  2 root whoopsie 4096 Apr 20  2016 crash
 drwxr-xr-x 73 root root     4096 Feb 16 16:07 lib

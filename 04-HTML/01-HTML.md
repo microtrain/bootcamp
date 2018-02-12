@@ -39,7 +39,7 @@ git clone https://github.com/YOUR-USERNAME/example.com/
 cd /var/www/
 ```
 
-1. From Atom's navigation pane add the path named _public/index.html_ to the  project.
+1. From the VCS explorer add the path named _public/index.html_ to the  project.
 1. Open a browser and navigate to [http://localhost/example.com/public/index.html](http://localhost/example.com/public/index.html) (At this point you will see a blank page).
 1. Now open the file and paste the above mark markup into the file.
 1. Change the title element to ```<title>Hello World</title>```
@@ -64,7 +64,7 @@ git push origin master
 Now you can access your page through the following URL.
 * [http://localhost/example.com/public/index.html](http://localhost/example.com/public/index.html)
 
-For a simple site like this you can usally get away with the above URL, for a more complicated site however it's better to work through a domain name. I like to localize my domain names so that I can still get to the production site. I do this with the _loc_ prefix so that _example.com_ becomes _loc.example.com_.
+For a simple site like this you can usally get away with the above URL, for a more complicated site however it's better to work through a domain name. I like to localize my domain names so that I can still get to the production site. I do this with the *loc* prefix so that *example.com* becomes *loc.example.com*.
 
 ```sh
 cd /etc/apache2/sites-available

@@ -55,16 +55,16 @@ sudo apt-get install -f
 
 Use [Dash](https://help.ubuntu.com/lts/ubuntu-help/unity-dash-intro.html) to find and open Chrome. Open Dash ```Super + F``` and type _chrome_ into the search field. Click the Chrome icon to launch the Chrome browser. You'll notice the Chrome icon is now in the [Launcher](https://help.ubuntu.com/stable/ubuntu-help/unity-launcher-intro.html) right click the Chrome icon and select _Lock to Launcher_ from the context menu. Now right click the FireFox icon in the launcher and click choose _Unlock from Launcher_ from the context menu.
 
-## [Atom](https://atom.io/)
+## [Visual Studio Code](https://code.visualstudio.com/)
 
-Atom is the text editor or pseudo IDE we will be using to write code. Install Atom using the same steps you used to install Chrome. Remember to pin Atom to your launcher after the install. If you cannot find Atom using Dash try launching it from the commandline by typing ```atom```.
+Visual Studio Code (VSC) is the IDE we will be using to write code. Install Atom using the same steps you used to install Chrome. Remember to pin VSC to your launcher after the install. If you cannot find Atom using Dash try launching it from the commandline by typing ```atom```.
 
 ## Cleanup
 Check the contents of your Downloads directory by typing [```ls```](http://manpages.ubuntu.com/manpages/zesty/man1/ls.1.html) at the command prompt. You should see the two files we just downloaded and installed.
 
 ```sh
 ls ~/Downloads
-atom-amd64.deb  google-chrome-stable_current_amd64.deb
+code*.deb  google-chrome-stable_current_amd64.deb
 ```
 
 Now type ```ls -l``` and note the difference between the two result sets.
@@ -72,7 +72,7 @@ Now type ```ls -l``` and note the difference between the two result sets.
 ```sh
 $ ls -l
 total 129080
--rw-rw-r-- 1 jason jason 86270030 Feb 16 16:11 atom-amd64.deb
+-rw-rw-r-- 1 jason jason 86270030 Feb 16 16:11 code_1.20.0-1518023506_amd64.deb
 -rw-rw-r-- 1 jason jason 45892904 Feb 16 16:18 google-chrome-stable_current_amd64.deb
 ```
 
@@ -103,8 +103,6 @@ sudo apt-get install meld
 
 Filezilla is my goto [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol) client. While FTP by itself is insecure and not recommended, running FTP over [SSH](https://en.wikipedia.org/wiki/Secure_Shell) is secure and Filezilla allows us to do just that. We work with FTP and SSH in later lessons.
 
-
-
 ## [cURL](https://curl.haxx.se/docs/manpage.html)
 
 The best way to think of cURL is as a browser that is used by code.
@@ -116,7 +114,7 @@ sudo apt-get install curl
 ## Additional Resources
 * [VIM Book](ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf)
 * [Chrome Dev Tools](https://developer.chrome.com/devtools)
-* [Atom Flight Manual](http://flight-manual.atom.io/)
+* [VSC Docs](https://code.visualstudio.com/docs)
 * [Filezilla Docs](https://wiki.filezilla-project.org/Documentation)
 * [SSH Man Page](http://linuxcommand.org/man_pages/ssh1.html)
 
