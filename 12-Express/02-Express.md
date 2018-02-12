@@ -385,9 +385,9 @@ git checkout -B articles
 
 [</>code](https://github.com/microtrain/mean.example.com/commit/2221d9e27307816a0e5ffd82c1f6f06d92ca8b4f) Create the Arcitle Model 
 
+[</>code](https://github.com/microtrain/mean.example.com/commit/a10eae84f3e5af72f78417e6473a258df0607072) Auto gen a slug prior to validation
 
-
-
+[</>code](https://github.com/microtrain/mean.example.com/commit/7bfb625f644754f222263950af1ded317a6b908d) Add routes
 
 ## UI
 
