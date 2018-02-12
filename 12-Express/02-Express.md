@@ -15,7 +15,7 @@ Install the Express Generator
 sudo npm install express-generator -g
 ```
 
-Create the repository
+### Create the repository
 
 mean.example.com
 
@@ -356,7 +356,7 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/use
 ## Lab
 
 1. Create an articles model
-    1. Articles Schema
+    1. The schema MUST contain the following fields
         * title - String
         * slug - String
         * keywords - String
@@ -365,7 +365,28 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/use
         * published - Date
         * created - Date
         * modified - Date
-1. Create a full CRUD REST API for articles.
+    1. Created and modified dates MUST default to to now
+    1. Published date MUST be required
+    1. Published date SHOULD default to now
+    1. The modeified datae MUST autoset on on update (pre save)
+    1.The slug MUST autoset from the title (pre validation)
+1. Create a full CRUD REST API for articles
+
+
+### Walkthrough
+
+#### Create a New Feature Branch
+
+A feature branch gives us a place to develop a new feature. Here, we can commit changes specific to a given feature. Once that feature is complete we can merge our changes into the master branch.
+
+```sh
+git checkout -B articles
+```
+
+[</>code](https://github.com/microtrain/mean.example.com/commit/2221d9e27307816a0e5ffd82c1f6f06d92ca8b4f) Create the Arcitle Model 
+
+
+
 
 
 ## UI
@@ -388,7 +409,3 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/use
 * [Express](https://expressjs.com/)
 * [Pug](https://pugjs.org/api/getting-started.html)
 
-Local cURL test
-```sh
-curl -d '{"email":"curltest@example.com", "username":"curltest", "first_name": "Bob", "last_name": "smith"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/users/create
-```
