@@ -82,10 +82,10 @@ sudo unzip -d /opt/gradle gradle-4.5-bin.zip
 
 ### Add an Environmental Variable on Startup
 
-Open the _.bashrc_ file
+Open the _environment_ file
 
 ```
-vim ~/.bashrc
+sudo vim /etc/environment
 ```
 
 add the following lines, the first is for Gradle, the others you will need later so add them now. Replace *YOUR_USER_NAME* with the user name you use to login to your system.
@@ -96,10 +96,9 @@ export ANDROID_HOME=/home/YOUR_USER_NAME/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ```
 
-### Restart .bashrc
-
+### Restart environment
 ```
-. ~/.bashrc
+source /etc/environment
 ```
 
 Install additional 32 bit libraries
@@ -121,8 +120,7 @@ cd /usr/local/android-studio/bin
 ./studio.sh
 ```
 
-
-Follow the prompts and keep choosing next. If you get prompted to install the Android SDK restart your _.bashrc_ file ```. ~/.bashrc```.
+Follow the prompts and keep choosing next.
 
 _
 At some point you will be asked to create or import a new project. This is required but we will not use it. When prompted to do so, go ahead and create a project.
