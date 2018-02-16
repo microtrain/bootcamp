@@ -20,16 +20,16 @@ sudo a2ensite d*
 sudo service apache2 restart
 ```
 
-[Create a fork](https://help.github.com/articles/fork-a-repo/) of [Restart Apache](https://github.com/microtrain/restart_apache) project from MicroTrain's GitHub repository.
+On GitHib [create a repositriy](https://help.github.com/articles/create-a-repo/) called *Restart Apache* and and clone that directory onto your local development machine.
 
 ```sh
 cd ~
 git clone https://github.com/YOUR-USERNAME/restart_apache
 ```
 
-Add the *~/restart_apache* as a [project folder](http://blog.atom.io/2015/04/15/multi-folder-projects.html) to your Atom sidebar and open the file re.sh.
+Add the *~/restart_apache* as a [new folder](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in your VSC workspace and and create a new file *re.sh*.
 
-By default, Ubuntu executes shell scripts using the Dash interpreter. Dash is faster than Bash by virtue of a lack of features and limited syntax making it ideal for quickly parsing out a large number of simple start up scripts. Bash is better suited for interactive scripts, since these are typically run as one off programs the performance hit is a non-issue. Our scripts will invoke the Bash shell.
+By default, Ubuntu executes shell scripts using the Dash interpreter. Dash is faster than Bash by virtue of a lack of features and limited syntax, making it ideal for quickly parsing out a large number of simple start up scripts. Bash is better suited for interactive scripts, since these are typically run as one off programs the performance hit is a non-issue. Our scripts will invoke the Bash shell. Add the following to *re.sh*, this will allow you reload all apache configurations with a single command.
 
 A shebang ```#!``` followed by a path is used to invoke an interpreter, this must be the first line of the file.
 
@@ -199,7 +199,6 @@ if [ "$COMMAND" == "restart" ]
 then
   OK=true
 fi
-
 ```
 
 Finally, we MUST to exit the program if OK has NOT been set to true. Add the following after the block that checks fro a restart.
