@@ -309,7 +309,7 @@ Update the shell script restart apache project so that if the user does not prov
 1. In Bash, when do you prefix a variable with a dollar sign?
 1. How many ways can you come up with to create an array in Bash.
 1. What is an array?
-1. What does the _*_ in _/etc/apache2/sites-available/*.conf_ do?
+1. What does the __*__ in _/etc/apache2/sites-available/*.conf_ do?
 
 
 ## Additional Resources
