@@ -21,12 +21,20 @@ sudo service apache2 restart
 ```
 Anding these statements togeather makes a copy/paste easier but that is about the only advantage.
 
-On GitHib [create a repository](https://help.github.com/articles/create-a-repo/) called *restart_apache* and and clone that directory onto your local development machine.
+On GitHib [create a repository](https://help.github.com/articles/create-a-repo/) called *restart_apache*.
+
+![Create a Repo](/img/bash/create_repo.png)
+
+Clone the restart_apache repository onto your local development machine.
+
+![Create a Repo](/img/bash/clone.png)
 
 ```sh
 cd ~
 git clone https://github.com/YOUR-USERNAME/restart_apache
 ```
+
+
 
 Add the *~/restart_apache* as a [new folder](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in your VSC workspace and and create a new file *re.sh*.
 
@@ -41,12 +49,15 @@ A shebang ```#!``` followed by a path is used to invoke an interpreter, this mus
 In Bash any line that begins with a _#_ denotes a comment and does not processed by the interpreter. Comments are used to explain the program to other humans.
 
 ```sh
+# Move the current execution state to the proper directory
+cd /etc/apache2/sites-available
+
 # Disable a vhost configuration
-sudo a2dissite /etc/apache2/sites-available/*
+sudo a2dissite *
 sudo service apache2 restart
 
 # Enable a vhost configuration
-sudo a2ensite /etc/apache2/sites-available/*
+sudo a2ensite *
 sudo service apache2 restart
 ```
 
@@ -54,31 +65,72 @@ Now we want to make sure the file is executable by adding the executable flag.
 
 ```sh
 cd ~/restart_apache
-sudo chmod +x ~/restart_apache/re.sh
+chmod +x re.sh
 ```
 
-This script will attempt to treat all files in the current working directory (CWD) as virtual hosts. To test this shell we will want to move to the sites-available directory. Then we can invoke the file.
-
+Since many of the commands require root access you will want to sudo this script when you run it.
 ```sh
-cd ~/restart_apache/re.sh
-sudo cp re.sh /etc/apache2/sites-available/re.sh
-
-cd /etc/apache2/sites-available
-./re.sh
+sudo ./re.sh
 ```
 
-After invoking the script you will likely be prompted for a password (on the first run). If all is good you will see something like the following. If you do not get any warnings or error messages (other than *ERROR: Site re.sh does not exist!*) then the configuration has been reloaded.
-
+You should see the following results.
 ```sh
+Site 000-default disabled.
 Site default-ssl disabled.
 To activate the new configuration, you need to run:
   service apache2 reload
   Enabling site 000-default.
   Enabling site default-ssl.
-  ERROR: Site re.sh does not exist!
 To activate the new configuration, you need to run:
   service apache2 reload
 ```
+
+### Commit you changes and push them to GitHub
+
+```sh
+git add .
+git commit -a
+```
+
+VI will open an ask you to enter a commit message. 
+1. Press the letter [i] to enter insert mode. 
+1. Then type the message _Proof of concept version_. 
+1. Press [esc] followed by [:x] and enter to save the commit message.
+
+Push your changes to the master branch.
+
+```sh
+git push origin master
+```
+
+#### [Semantic Versioning](https://semver.org/)
+
+Semantic versioning is s community standard that helps you communicate the backwards compatibility of a change. We will use it here as an introduction to the concept.
+
+1. Create the file VERSION.txt
+1. Add the text _1.0.0_
+1. git add VERSION.txt
+git commit VERSION.txt
+
+VI will open an ask you to enter a commit message. 
+1. Press the letter [i] to enter insert mode. 
+1. Then type the message _Version 1.0.0_. 
+1. Press [esc] followed by [:x] and enter to save the commit message.
+
+Push your changes to the master branch.
+
+```sh
+git push origin master
+```
+
+#### Add a tag
+
+In addtion to Semantic Versioning a common practice is to tag significant versions.
+
+1. git tag 1.0.0
+1. git push origin --tags
+
+Go to your project on GitHub and find everything that is tagged.
 
 ## Arguments and conditionals.
 
@@ -109,6 +161,7 @@ Examples
 
 In this exercise we will work with the file *~/restart_apache/re.sh* on a *branch called feature/arguments*.
 Create a [feature branch](https://www.atlassian.com/agile/branching) called _feature/arguments_.
+
 ```sh
 cd ~/restart_apache
 git checkout -B feature/arguments
@@ -134,13 +187,12 @@ Add the following lines to the file. Bellow the CONFIG and COMMAND variables but
 ```sh
 if [ $# -ne 2 ]
 then
-    echo "Usage: $0 {virtual-host} {restart|reload}"
-    echo "Reloads a target virtual host"
+    echo "$0 requires two paramters {virtual-host} {restart|reload}"
     exit 1
 fi
 ```
 
-Finally, replace the _ssl-default_ with a call to the _CONFIG_ variable by prefixing CONFIG with a dollar sign _$CONFIG_ and do the same for _COMMAND_
+Finally, replace the _*_ with a call to the _CONFIG_ variable by prefixing CONFIG with a dollar sign _$CONFIG_ and do the same for _COMMAND_
 
 ```sh
 sudo a2dissite "$CONFIG"
@@ -150,19 +202,28 @@ sudo a2ensite "$CONFIG"
 sudo service apache2 "$COMMAND"
 ```
 
-Test your changes like we did after forking the repository.
+./re.sh 000* restart
 
+Commit your changes to _feature/arguments_ with the message _Added the ability to specify virtual hosts and service command_.
+
+Push your new feature branch to GitHub, you can delete this branch once the feature is complete.
 ```sh
-sudo rm /etc/apache2/sites-available/re.sh
-
-cd ~/restart_apache/re.sh
-sudo cp re.sh /etc/apache2/sites-available/re.sh
-
-cd /etc/apache2/sites-available
-./re.sh
+git push origin feature/arguments
 ```
 
-Commit your changes to _feature/arguments_. Your commit message should be something like _Added the ability to specify virtual hosts and service command_.
+Update README.txt so people know how to use it. Add something like the following.
+
+````md
+## Usage
+Clone the repository or download the latest release. 
+
+From a command line call re.sh with two arguments.
+1. The vhost configuration
+1. The service directive {restart|reload}
+```sh
+./re.sh 000* restart
+```
+````
 
 Merge you changes into master
 
@@ -171,7 +232,7 @@ git checkout master
 git merge feature/arguments
 ```
 
-Now on master update the README.md file to explain how to use the latest version of the program and commit that change with an appropriate message. Then open VERSION.txt and move the version to 0.2.0 and commit with a message of *Version 0.2.0*. Push your changes to master.
+Now on master update the README.md file to explain how to use the latest version of the program and commit that change with an appropriate message. Then open VERSION.txt and move the version to 1.1.0 and commit with a message of *Version 1.1.0*. Push your changes to master.
 
 ```sh
 git push origin master
