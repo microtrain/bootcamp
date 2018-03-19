@@ -137,6 +137,12 @@ git merge dev
 
 There is no right way to use git. The only real wrong way to use git is to deviate from that projects branching model. [The Diaspora* Project](https://wiki.diasporafoundation.org/Git_workflow) has a very well defined branching model that is typical of what you will see in the real world. I had to come up with one and only one rule it would be to never build on the master branch.
 
+### Summary
+
+In this exercise you learned 
+* how to create a new branch with the checkout command (Git)
+* basic Git commands (Git)
+
 
 ## Additional Resources
 * [Documentation](https://git-scm.com/book/en/v2)
