@@ -20,7 +20,7 @@ sudo a2ensite d*
 sudo service apache2 restart
 ```
 
-On GitHib [create a repositriy](https://help.github.com/articles/create-a-repo/) called *Restart Apache* and and clone that directory onto your local development machine.
+On GitHib [create a repository](https://help.github.com/articles/create-a-repo/) called *restart_apache* and and clone that directory onto your local development machine.
 
 ```sh
 cd ~
