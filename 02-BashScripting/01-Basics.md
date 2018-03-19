@@ -319,17 +319,17 @@ fi
 
 ## Exercise 4 - Loops and Arrays
 
-When I think of a loop I'm usually thinking about iterating over or parsing out some sort of a list. This might be an array of service commands or all of the configuration files in the _/etc/apache2/sites-available/_ directory. In this exercise we build an array of valid service commands and iterate over all vhost configurations.
+When I think of a loop I'm usually thinking about iterating over or parsing out some sort of a list. This might be an array of service commands or all of the configuration files in the _/etc/apache2/sites-available/_ directory. In this exercise we build an array of valid service commands and iterate over those commands.
 
 For each element in the COMMANDS array where an element is defined by the variable COMMAND, if an element exists (meaning we have not iterated past the end of the list) ```do``` echo the value of COMMAND back to the user otherwise ```break``` the loop or _do echo the value of COMMAND until the list is done_.
 
 Create the file *~/bash/loop.sh* and make it executable
 
 ```sh
-mkdir -p ~/mtbc/bash
-cd ~/mtbc/bash
+mkdir -p ~/var/www/mtbc/bash
+cd ~/var/www/mtbc/bash
 touch loop.sh
-chmod +x ./loop.sh
+chmod +x loop.sh
 vim loop.sh
 ```
 
@@ -346,6 +346,22 @@ do
   echo $COMMAND
 done
 ```
+
+Execute the code
+```sh
+./loop.sh
+```
+
+[</> code](https://github.com/stack-x/mtbc/commit/97af863e19d1aa0d38df2231f88c90eb52ea6bd0) 
+Commit your code and push it to the master branch of the mtbc project.
+*Bash exercise 4 - loop example*
+
+### Summary
+
+In this exercise you learned
+* how to create an array
+* how to iterate over an array
+* how to create a file using the *touch* command
 
 ## Exercise 5 - Loop through all files in a Directory
 For each file in VHOSTS_PATH array where a file is defined by FILENAME, if an element exists (meaning we have not iterated past the end of the list) ```do``` echo the value of FILENAME back to the user otherwise ```break``` the loop or _do echo the value of FILENAME until the list is done_.
