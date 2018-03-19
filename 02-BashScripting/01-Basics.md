@@ -19,6 +19,7 @@ sudo service apache2 reload
 sudo a2ensite d*
 sudo service apache2 restart
 ```
+Anding these statements togeather makes a copy/paste easier but that is about the only advantage.
 
 On GitHib [create a repository](https://help.github.com/articles/create-a-repo/) called *restart_apache* and and clone that directory onto your local development machine.
 
@@ -41,11 +42,11 @@ In Bash any line that begins with a _#_ denotes a comment and does not processed
 
 ```sh
 # Disable a vhost configuration
-sudo a2dissite *
+sudo a2dissite /etc/apache2/sites-available/*
 sudo service apache2 restart
 
 # Enable a vhost configuration
-sudo a2ensite *
+sudo a2ensite /etc/apache2/sites-available/*
 sudo service apache2 restart
 ```
 
