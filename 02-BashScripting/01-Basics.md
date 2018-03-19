@@ -283,9 +283,11 @@ In this exercise you learned how
 
 ## Exercise 3 - Reject unwanted service commands
 
-For this exercise, create a feature branch called *feature/validate*. When you are finished increment the version to 0.2.1 and push to master.
+For this exercise, create a feature branch called *feature/validate*. When you are finished increment the version to 1.2.1 and push to master.
 
-The product owner has requested that we only be allowed to pass *reload* or *restart* into the service command. To accomplish this, lets add a new variable to the top of our script called OK and lets set that to false.
+The product owner has requested that we only be allowed to pass *reload* or *restart* into the service command. To achieve we will need to run a test against the second argument to verify it matches a valid command.
+
+To accomplish this, lets add a new variable to the top of our script called OK and lets set that to false. If the result of our test confirms the value of the sceond argument matches an allowed value then we will set the value of OK to true. We will conduct another test against the value of true to determine if we should execute the program or return message to the user.
 
 ```sh
 OK=false
