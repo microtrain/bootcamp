@@ -317,17 +317,17 @@ then
 fi
 ```
 
-## Exercise 4 - Loop through an Array
+## Exercise 4 - Loops and Arrays
 
-When I think of a loop I'm usually thinking about iterating over or parsing out some sort of a list. This might be an array of service commands or all of the configuration files in the _/etc/apache2/sites-available/_ directory.
+When I think of a loop I'm usually thinking about iterating over or parsing out some sort of a list. This might be an array of service commands or all of the configuration files in the _/etc/apache2/sites-available/_ directory. In this exercise we build an array of valid service commands and iterate over all vhost configurations.
 
 For each element in the COMMANDS array where an element is defined by the variable COMMAND, if an element exists (meaning we have not iterated past the end of the list) ```do``` echo the value of COMMAND back to the user otherwise ```break``` the loop or _do echo the value of COMMAND until the list is done_.
 
 Create the file *~/bash/loop.sh* and make it executable
 
 ```sh
-mkdir -p ~/bash
-cd ~/bash
+mkdir -p ~/mtbc/bash
+cd ~/mtbc/bash
 touch loop.sh
 chmod +x ./loop.sh
 vim loop.sh

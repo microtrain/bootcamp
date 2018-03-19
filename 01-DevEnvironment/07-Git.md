@@ -54,13 +54,19 @@ Now use the ```ls``` command to verify the existence of mtbc. If you open your b
 
 ![Index](/img/git/base_index.png)
 
+### Summary
+
+In this exercise you learned how to
+* create a Git repository on GitHub (Git)
+* clone a repository (Git)
+
 
 ## Exercise 2 - Commit a Code Change
-Now open Atom and click on the file menu. A use the key combo ```Shift + Ctrl + A```, this will raise an _Open Folder_ dialog. Navigate to _/var/www/mtbc_ and press ```OK```.
+Now open VS Code and click into the workspace. Right click choose add a new folder to the workspace. Navigate to _/var/www/mtbc_ and press ```OK```.
 
 ![Create a New Project](/img/git/new_project.png)
 
-Now click on the file README.md from the _mtbc_ project folder. README files are a best practice in software development. REMDME files are human readable files that contain information about other files in a directory or archive. The information in these files range from basic infomation about the project team to build instructions for source code. A emerging defacto standard is to write in a format called Markdown (.md). A raw Markdown file should be human readable but if you want a formatted version you can use Atom's _Markdown Preview_ by opening the file and pressing ```Shift + Ctrl + M```.
+Now click on the file README.md from the _mtbc_ project folder. README files are a best practice in software development. README files are human readable files that contain information about other files in a directory or archive. The information in these files range from basic infomation about the project team to build instructions for source code. A emerging defacto standard is to write in a format called Markdown (.md). A raw Markdown file should be human readable but if you want a formatted version you can use VS Code's _Markdown Preview_ by opening the file and pressing ```Shift + Ctrl + V```.
 
 Open the file README.md from the mtbc project folder in the Atom sidebar and open the _Markdown Preview_. Change the content of the level 1 heading ```#``` to _# MicroTrain's Dev Boot Camp_. Save your changes with the keyboard shortcut _Ctrl + S_.# MicroTrain's Dev Boot Camp
 
@@ -95,7 +101,7 @@ git push origin master
 
 ![Modified](/img/git/push.png)
 
-In the previous example we committed our code changes directly to the master branch. In practice you will never work on a master branch. At the very least you should have a develop branch (we call it dev). I like to create branches as follows.
+In the previous example we committed our code changes directly to the master branch. In practice you will never work on a master branch. At the very least you should have a development branch (we call it dev). I like to create branches using the *checkout* command.
 
 ```sh
 git checkout -B dev
