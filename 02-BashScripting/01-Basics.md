@@ -132,6 +132,15 @@ In addtion to Semantic Versioning a common practice is to tag significant versio
 
 Go to your project on GitHub and find everything that is tagged.
 
+### Summary
+
+In this exercise you learned how 
+* to create a basic shell script (Bash, Programming)
+* commit your code changes (Git)
+* apply semamtic versioning (Git)
+* use tags to create code releases (Git)
+
+
 ## Arguments and conditionals.
 
 ### [Conditionals](http://www.cs.utah.edu/~germain/PPS/Topics/conditionals.html)
@@ -225,18 +234,52 @@ From a command line call re.sh with two arguments.
 ```
 ````
 
-Merge you changes into master
-
+Commit the change with the message *README updates*
 ```sh
-git checkout master
-git merge feature/arguments
+git commit -a
+git push origin feature/arguments
 ```
 
-Now on master update the README.md file to explain how to use the latest version of the program and commit that change with an appropriate message. Then open VERSION.txt and move the version to 1.1.0 and commit with a message of *Version 1.1.0*. Push your changes to master.
+Then open VERSION.txt and move the version to 1.1.0 and commit with a message of *Version 1.1.0*. 
+```sh
+git commit -a
+git push origin feature/arguments
+```
+
+Push your changes to the master branch.
 
 ```sh
 git push origin master
 ```
+
+Merge your changes into master
+
+```sh
+git checkout master
+git merge feature/arguments
+git push origin master
+```
+
+Tag a new version
+1. git tag 1.1.0
+1. git push origin --tags
+
+Now that all code changes have been applied to master you can remove your working branch.
+
+```sh
+git branch -D feature/arguments
+git push origin :feature/arguments
+```
+
+### Summary
+
+In this exercise you learned how 
+* work with arguments and variables (Bash, Programming)
+* use an if-then statement (Bash, Programming)
+* create a feature branch (Git)
+* merge a feature branch into master (Git)
+* remove old working branches (Git)
+
 
 ## Exercise 3 - Reject unwanted service commands
 
