@@ -1,6 +1,6 @@
 # [GIT](https://git-scm.com/)
 
-[Git](https://git-scm.com/) is a free and open source distributed [version control system](https://en.wikipedia.org/wiki/Version_control) (VSC). Google Trends suggested git is the [most popular](https://www.google.com/trends/explore?date=all&q=%2Fm%2F05vqwg,%2Fm%2F012ct9,%2Fm%2F08441_,%2Fm%2F08w6d6,%2Fm%2F09d6g&hl=en-US) VCS in the world.Git is now a part of the Ubuntu standard installation so there is nothing to install.
+[Git](https://git-scm.com/) is a free and open source distributed [version control system](https://en.wikipedia.org/wiki/Version_control) (VCS). Google Trends suggested git is the [most popular](https://www.google.com/trends/explore?date=all&q=%2Fm%2F05vqwg,%2Fm%2F012ct9,%2Fm%2F08441_,%2Fm%2F08w6d6,%2Fm%2F09d6g&hl=en-US) VCS in the world.Git is now a part of the Ubuntu standard installation so there is nothing to install.
 
 For a list of git commands type
 
@@ -9,13 +9,51 @@ git --help
 ```
 
 ## [GitHub](https://github.com)
-GitHub is a hosted solution popular among both open and closed source developers and will be the solution we use in this course. While we do not need to install git we will want to bind our GitHub account to our dev machine.
+GitHub is a hosted solution popular among both open and closed source developers and will be the solution we use in this course. While we do not need to install Git we will want to bind our GitHub account to our dev machine.
 
-### Setup
-The following tutorials will walk you through the binding process.
-1. [Add an SSH Key](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
-1. [Setting up Git](http://help.github.com/linux-set-up-git/)
-1. [Testing your SSH connection](https://help.github.com/articles/testing-your-ssh-connection/)
+### [Setup](https://help.github.com/articles/connecting-to-github-with-ssh/)
+The following tutorials will walk you through the process of binding you development machine to your GitHub account using an SSH key. An SSH key uses public key crypto to authenticate your machine against your GitHub account. This allows you to push and pull to and from GitHub without needing to providea username and password.  
+
+#### [Generating a new SSH key and adding it to the ssh-agent](https://help.github.com/articles/generating-ssh-keys/)
+Accept the defaults for the following. Do not change the file paths, do not enter any passwords.
+
+```ssh
+ssh-keygen -t rsa -b 4096 -C "YOUR-EMAIL-ADDRESS"
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+```
+
+#### [Adding a new SSH key to your GitHub account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+Intall x-xlip and copy the contents of the key to your clipboard
+
+```sh
+sudo apt-get install -y xclip
+xclip -sel clip < ~/.ssh/id_rsa.pub
+```
+
+Log into your GitHub account and find _Settings_ in the top right corner under your avatar. Then click on SSH and GPG Keys in the left hand navigation and click the green **New SSH Key** button. Enter a title, this should be somthing that identifies your machine (I usally use the machine name) and paste the SSH key into the key field.
+
+![Add Your SSH Key](/img/git/account.png)
+
+#### [Testing your SSH connection](https://help.github.com/articles/testing-your-ssh-connection/)
+
+```sh
+ssh -T git@github.com
+```
+
+#### [First-Time Git Setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+
+Setup your git identity, replace my email and name with your own. For this class we will use VI as our Git editor.
+```sh
+git config --global user.email "YOUR-EMAIL-ADDRESS"
+git config --global user.name "YOUR-FIRST-LAST-NAME"
+git config --global core.editor "vim"
+```
+
+In this section you learned how to
+* create an SSH key
+* add an SSH key to your GitHub account
+* establish a Git identity on your local machine
 
 
 ## Exercise 1 - Create a repository
@@ -64,11 +102,13 @@ In this exercise you learned how to
 ## Exercise 2 - Commit a Code Change
 Now open VS Code and click into the workspace. Right click choose add a new folder to the workspace. Navigate to _/var/www/mtbc_ and press ```OK```.
 
-![Create a New Project](/img/git/new_project.png)
+![Add a new folder to the workspace](/img/git/add_folder.png)
+
+![New Folder](/img/git/new_folder.png)
 
 Now click on the file README.md from the _mtbc_ project folder. README files are a best practice in software development. README files are human readable files that contain information about other files in a directory or archive. The information in these files range from basic infomation about the project team to build instructions for source code. A emerging defacto standard is to write in a format called Markdown (.md). A raw Markdown file should be human readable but if you want a formatted version you can use VS Code's _Markdown Preview_ by opening the file and pressing ```Shift + Ctrl + V```.
 
-Open the file README.md from the mtbc project folder in the Atom sidebar and open the _Markdown Preview_. Change the content of the level 1 heading ```#``` to _# MicroTrain's Dev Boot Camp_. Save your changes with the keyboard shortcut _Ctrl + S_.# MicroTrain's Dev Boot Camp
+Open the file README.md from the mtbc project folder in the Atom sidebar and open the _Markdown Preview_. Change the content of the level 1 heading *# mtbc* to *# MicroTrain's Dev Boot Camp*. Save your changes with the keyboard shortcut [Ctrl + S].# MicroTrain's Dev Boot Camp
 
 Open a terminal (command line or CLI) and navigate to the mtbc directory.
 
