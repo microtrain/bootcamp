@@ -12,6 +12,10 @@ npm -v
 
 These should return versions >= 8.10 and 5.7.1 respectively.
 
+## Summary
+In this lesson you learned
+* how to install Node.JS (Linux, Node)
+
 ## Additional Resources
 * [Debian and Ubuntu Based Linux Distribution](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
 

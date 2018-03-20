@@ -144,6 +144,12 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
+## Summary
+In this lesson you learned
+* how to install a full LAMP stack (Linux)
+* how to check package versions using the command line (Linux)
+* how to login to MySQL client (Linux, MySQL)
+
 ## Additional Resources
 
 [Apache Web Server Docs](https://httpd.apache.org/docs/)

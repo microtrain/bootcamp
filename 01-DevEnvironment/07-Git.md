@@ -50,7 +50,7 @@ git config --global user.name "YOUR-FIRST-LAST-NAME"
 git config --global core.editor "vim"
 ```
 
-In this section you learned how to
+In this lesson you learned how to
 * create an SSH key
 * add an SSH key to your GitHub account
 * establish a Git identity on your local machine
@@ -116,11 +116,28 @@ Open a terminal (command line or CLI) and navigate to the mtbc directory.
 cd /var/www/mtbc
 ```
 
-Check your repository for changes.
+Check your repository for changes, this will return a list of dirty files. A dirty file is any file containing a change.
 
 ```sh
 git status
 ```
+
+Commit your code changes
+```sh
+git commit README.md
+```
+
+VI will open an ask you to enter a commit message. 
+1. Press the letter [i] to enter insert mode. 
+1. Then type the message _Proof of concept version_. 
+1. Press [esc] followed by [:x] and enter to save the commit message.
+
+Push your changes to the master branch.
+
+```sh
+git push origin master
+```
+
 You will see a message that indicates the README.md file has been changed.
 
 ![Modified](/img/git/status.png)

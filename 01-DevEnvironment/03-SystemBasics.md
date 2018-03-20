@@ -111,6 +111,13 @@ The best way to think of cURL is as a browser that is used by code.
 sudo apt-get install curl
 ```
 
+## Summary
+In this lesson you learned
+* how to install programs using apt-get (Linux)
+* how to install Debian package using dpkg (Linux)
+* how to force a broken install using apt (Linux)
+
+
 ## Additional Resources
 * [VIM Book](ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf)
 * [Chrome Dev Tools](https://developer.chrome.com/devtools)

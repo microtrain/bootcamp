@@ -39,3 +39,7 @@ You should see a prompt that says _Please remove the installation medium, then p
 Pull the dongle from the USB drive and press the enter key.
 
 [Next: Linux Basics](02-LinuxBasics.md)
+
+## Summary
+In this lesson you learned
+* how to install Ubuntu Linux (Ubuntu, Linux)

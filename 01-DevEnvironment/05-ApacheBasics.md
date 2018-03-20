@@ -130,5 +130,13 @@ RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]
 In a browser navigate to *http://localhost/* and you will be redirected to
 *https://localhost/*
 
+## Summary
+In this lesson you learned
+* how to reload and Apache configuration using a2dissite and a2ensite (Linux, Apache)
+* how to restart the Apache web server using service diretives (Linux)
+* how to enable Apache modules (Apache)
+* how to use Mod Rewrite (Apache)
+* how to force a site to use SSL (Apache)
+
 
 [Next: NPM](06-NPM.md)

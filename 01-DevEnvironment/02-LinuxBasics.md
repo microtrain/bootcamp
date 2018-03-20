@@ -82,6 +82,11 @@ $valid = preg_match('/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\z/', $string);
 
 tip: Use tab expansions to auto-complete a command or an asterisk as a wild card. The up and down arrows can allow you to browse your command history and replay previous commands. Use ```Ctrl + r``` to search your command history by entering partial commands.
 
+## Summary
+In this lesson you learned
+* about the Linux file system (Linux)
+* basic Linux commands (Linux)
+
 ## Additional Resources
 * [Ten Steps to Linux Survival](http://dullroar.com/book/TenStepsToLinuxSurvival.pdf)
 * [Linux Fundamentals](http://linux-training.be/files/books/LinuxFun.pdf)
