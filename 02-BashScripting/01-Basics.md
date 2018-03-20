@@ -1,7 +1,7 @@
 # Bash Scripting and Programming Basics
 In this lesson you will learn some of the very basics of programming an Bash scripting.
 
-## Exercise 1 - Scripting Repetitive Tasks.
+## Exercise 1 - Scripting Repetitive Tasks
 In the previous lesson you learned the four commands for reloading virtual-host configuration. While that may not seem to cumbersome when your not updating your site all that often; it gets a little repetitive when your testing updates. Let's write a Bash script to reduce this process to one command. A typical Bash script is little more than scripted arrangement or sequence of Linux commands. In addition to Linux commands shell scripts may accept parameters and may utilize variables, functions and control statements.
 
 Write a bash script that will replace all four commands for restarting a website with a single command.
@@ -35,8 +35,11 @@ git clone https://github.com/YOUR-USERNAME/restart_apache
 ```
 
 
+[</> code](https://github.com/stack-x/restart_apache/commit/2557e8cc6c43736c4965e0d6aa89f3a9020ec17c) Proof of Concept
 
-Add the *~/restart_apache* as a [new folder](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in your VSC workspace and and create a new file *re.sh*.
+Often times I like to start with a simple proof of concept, this is working code working code that either gives you a starting point or talking point. I some projects proof of concept code may represent a complete working solution but may not be considered the optimal solution.
+
+Add *~/restart_apache* as a [new folder](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in your VSC workspace and and create a new file *re.sh*.
 
 By default, Ubuntu executes shell scripts using the Dash interpreter. Dash is faster than Bash by virtue of a lack of features and limited syntax, making it ideal for quickly parsing out a large number of simple start up scripts. Bash is better suited for interactive scripts, since these are typically run as one off programs the performance hit is a non-issue. Our scripts will invoke the Bash shell. Add the following to *re.sh*, this will allow you reload all apache configurations with a single command.
 
