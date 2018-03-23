@@ -297,37 +297,78 @@ For this exercise, create a feature branch called *feature/validate*. When you a
 
 The product owner has requested that we only be allowed to pass *reload* or *restart* into the service command. To achieve we will need to run a test against the second argument to verify it matches a valid command.
 
-To accomplish this, lets add a new variable to the top of our script called OK and lets set that to false. If the result of our test confirms the value of the sceond argument matches an allowed value then we will set the value of OK to true. We will conduct another test against the value of true to determine if we should execute the program or return message to the user.
+To accomplish this we can then test against the value of the $COMMAND argument to make sure it is in the approved list. If it is then we can allow the program to proceed. Oterwise we will return an error message to the user.
+
+We will start with a simple if-then-else statement. This if statement is differes from the previous exercise in that it adds an OR statement. In Bash OR statements are represented as a double pipe ```||```. If either of these conditions are true then the code inside the ```then``` block will execute. Otherwise we will drop into the ```else``` block. 
 
 ```sh
-OK=false
-```
-We can then test against the value of the $COMMAND argument to make sure it is in the approved list. If it is we will change the value of OK to true. Add the following lines after the current block that checks for the proper number of arguments.
-```
-
-# reload is allowed
-if [ "$COMMAND" == "reload" ]
+# only allow reload or restart.
+if [ "$COMMAND" == "reload" ] || [ "$COMMAND" == "restart" ]
 then
-  OK=true
-fi
 
-# restart is allowed
-if [ "$COMMAND" == "restart" ]
-then
-  OK=true
+else
+    echo "ERROR: $COMMAND is an invalid service command {restart|reload}"
+    exit 1
 fi
 ```
 
-Finally, we MUST to exit the program if OK has NOT been set to true. Add the following after the block that checks fro a restart.
+[</code>](https://github.com/stack-x/restart_apache/commit/b83b3dda2a4c4a67b368f2872ecc1cc9e2bd7abc) Once we have our basic statement in place cut and paste the reload/reset logic into the ```then``` block.
 
 ```sh
-# reject any service command that was not white listed
-if [ "$OK" == false ]
+if [ "$COMMAND" == "reload" ] || [ "$COMMAND" == "restart" ]
 then
-  echo "Usage: $0 $CONFIG {restart|reload}"
-  exit 1
+    # Move the current execution state to the proper directory
+    cd /etc/apache2/sites-available
+
+    # Disable a vhost configuration
+    sudo a2dissite "$CONFIG"
+    sudo service apache2 "$COMMAND"
+
+    # Enable a vhost configuration
+    sudo a2ensite "$CONFIG"
+    sudo service apache2 "$COMMAND"
+else
+    echo "ERROR: $COMMAND is an invalid service command {restart|reload}"
+    exit 1
 fi
 ```
+```sh
+git add .
+git commit -m 'Added the ability to reject unauthorized service directives'
+git checkout master
+git merge feature/validate
+git push origin master
+```
+
+[</code>](https://github.com/stack-x/restart_apache/commit/170b1e43c47c346362440cbb939f3b9ca3733b38) Update VERSION.txt to 1.2.0
+```sh
+git add .
+git commit -m 'Version 1.2.0'
+git push origin master
+
+git tag 1.2.0
+git push origin --tags
+```
+
+### Attention to Detail
+
+[</code>](https://github.com/stack-x/restart_apache/commit/122e30e7396d219a0fba9c8b29a2a7875965732d) Check out the format of our new error message. It begins with the word _ERROR:_ in all caps. This is good UX in that it remove any ambiguity about what the message. To keep user feedback consitant prefix the error message in the first if statement with _ERROR:_.
+
+```sh
+git commit -am 'Improved messaging'
+git push origin master
+```
+
+[</code>](https://github.com/stack-x/restart_apache/commit/708d8f60ca6694268d74dbb36df1fa0780d1da4d) Since this commit does not add or remove it is considered a patch so we will increment version as a patch.
+Update VERSION.txt to 1.2.1
+```sh
+git commit -am 'Version 1.2.1'
+git push origin master
+
+git tag 1.2.1
+git push origin --tags
+```
+
 
 ## Exercise 4 - Loops and Arrays
 
