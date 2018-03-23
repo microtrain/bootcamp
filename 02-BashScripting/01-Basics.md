@@ -11,15 +11,15 @@ Write a bash script that will reduce the four commands for reloading a virtual h
 
 In the previous lesson we used the following four command to reload a vhost configuration and restart the Apache web server.
 ```sh
-sudo a2dissite d* && sudo service apache2 reload && sudo a2ensite d* && sudo service apache2 restart
+sudo a2dissite * && sudo service apache2 reload && sudo a2ensite * && sudo service apache2 restart
 ```
 
 That single line equates to the following four lines.
 
 ```sh
-sudo a2dissite d*
+sudo a2dissite *
 sudo service apache2 reload
-sudo a2ensite d*
+sudo a2ensite *
 sudo service apache2 restart
 ```
 Anding these statements togeather makes a copy/paste easier but that is about the only advantage.
