@@ -339,7 +339,7 @@ git checkout master
 git merge feature/validate
 git push origin master
 ```
-
+ 
 [</code>](https://github.com/stack-x/restart_apache/commit/170b1e43c47c346362440cbb939f3b9ca3733b38) Update VERSION.txt to 1.2.0
 ```sh
 git add .
