@@ -5,7 +5,7 @@ In this section you will learn haw to create a Bash script to automate repetitiv
 In the previous lesson you learned the four commands for reloading virtual-host configuration. While that may not seem to cumbersome when your not updating your site all that often; it gets a little rannoying when your testing updates. We will write a Bash script to reduce the burden of this task. A typical Bash script is little more than scripted arrangement or sequence of Linux commands. In addition to Linux commands shell scripts may accept parameters, may utilize control statements, variables, and functions.
 
 
-**Program Requirements**
+**Requirements**
 
 Write a bash script that will reduce the four commands for reloading a virtual host configuration and restarting a server on a Debian based LAMP stack to a single command.
 
