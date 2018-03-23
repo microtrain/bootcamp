@@ -291,7 +291,9 @@ In this exercise you learned how
 
 ## Exercise 3 - Reject unwanted service commands
 
-For this exercise, create a feature branch called *feature/validate*. When you are finished increment the version to 1.2.1 and push to master.
+For this exercise, create a feature branch called *feature/validate*. When you are finished increment the version to 1.2.0 then merge into and push to master.
+
+**Requirements**
 
 The product owner has requested that we only be allowed to pass *reload* or *restart* into the service command. To achieve we will need to run a test against the second argument to verify it matches a valid command.
 
