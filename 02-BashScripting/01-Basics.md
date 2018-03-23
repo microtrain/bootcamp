@@ -121,7 +121,7 @@ VI will open an ask you to enter a commit message.
 1. Press [esc] followed by [:x] and enter to save the commit message.
 
 Push your changes to the master branch.
-
+ 
 ```sh
 git push origin master
 ```
