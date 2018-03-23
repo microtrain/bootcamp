@@ -1,10 +1,13 @@
 # Bash Scripting and Programming Basics
-In this lesson you will learn some of the very basics of programming an Bash scripting.
+In this section you will learn haw to create a Bash script to automate repetitive tasks.
 
 ## Exercise 1 - Scripting Repetitive Tasks
-In the previous lesson you learned the four commands for reloading virtual-host configuration. While that may not seem to cumbersome when your not updating your site all that often; it gets a little repetitive when your testing updates. Let's write a Bash script to reduce this process to one command. A typical Bash script is little more than scripted arrangement or sequence of Linux commands. In addition to Linux commands shell scripts may accept parameters and may utilize variables, functions and control statements.
+In the previous lesson you learned the four commands for reloading virtual-host configuration. While that may not seem to cumbersome when your not updating your site all that often; it gets a little rannoying when your testing updates. We will write a Bash script to reduce the burden of this task. A typical Bash script is little more than scripted arrangement or sequence of Linux commands. In addition to Linux commands shell scripts may accept parameters, may utilize control statements, variables, and functions.
 
-Write a bash script that will replace all four commands for restarting a website with a single command.
+
+**Functional Requirements**
+
+Write a bash script that will reduce the four commands for reloading a virtual host configuration and restarting a server on a Debian based LAMP stack to a single command.
 
 In the previous lesson we used the following four command to reload a vhost configuration and restart the Apache web server.
 ```sh
