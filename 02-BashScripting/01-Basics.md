@@ -419,7 +419,7 @@ In this exercise you learned
 ## Exercise 5 - Loop through all files in a Directory
 For each file in VHOSTS_PATH array where a file is defined by FILENAME, if an element exists (meaning we have not iterated past the end of the list) ```do``` echo the value of FILENAME back to the user otherwise ```break``` the loop or _do echo the value of FILENAME until the list is done_.
 
-Update *~/bash/loop.sh* with the following.
+Add the following to */var/www/mtbc/bash/loop.sh* with the following.
 
 ```sh
 # List all of the configuration files in the _/etc/apache2/sites-available/_ directory
@@ -430,25 +430,53 @@ do
   echo $FILENAME
 done
 ```
+Running ```./loop.sh``` will now yield the following.
+```sh
+reload
+restart
+/etc/apache2/sites-available/000-default.conf
+/etc/apache2/sites-available/default-ssl.conf
+```
 
-String concatenation is the addition of one string to another typically through the use of variables.
+[</> code](https://github.com/stack-x/mtbc/commit/5539ba0cc994bc083779bd5fac435acbe6647159) 
+Commit your code and push it to the master branch of the mtbc project.
+*Bash exercise 5 - loop example*
+
+### Summary
+
+In this exercise you learned
+* loop through files in a directory
 
 ## Exercise 6 - Strings
-Create an executable Bash file at _~/bash/string.sh_ and add the following code.
+
+String concatenation is the addition of one string to another typically through the use of variables.
+Create an executable Bash file at _/var/www/mtbc/bash/string.sh_ and add the following code.
 
 ```sh
+#!/bin/bash
+
 STRING1 = 'Hello'
 STRING2 = 'World'
 echo "${STRING1} ${STRING2}"
 ```
 
-The [comparison operator](http://tldp.org/LDP/abs/html/comparison-ops.html) -z returns true if a string has a length of zero. _!_ is the operator for not so _if [ ! -z  "$STRING" ]_ equates to true if the string contains any characters.
+[</> code]() 
+Commit your code and push it to the master branch of the mtbc project.
+*Bash exercise 6 - string example*
+
+### Summary
+
+In this exercise you learned how to
+* concatenate two strings.
+
 
 ## Exercise 7 - Not Empty
 
+The [comparison operator](http://tldp.org/LDP/abs/html/comparison-ops.html) -z returns true if a string has a length of zero. _!_ is the operator for not so _if [ ! -z  "$STRING" ]_ equates to true if the string contains any characters.
+
 _-z_ is an equality check for zero.
 
-Create an executable Bash file at _~/bash/notEmpty.sh_ and add the following logic.
+Create an executable Bash file at _/var/www/mtbc/notEmpty.sh_ and add the following logic.
 
 * While the variable STRING is not equal to _"Hello World"_ continually check the value of string.
 * If STRING has a length of zero change the value of STRING to _"Hello"_.
@@ -470,6 +498,10 @@ done
 
 echo "$STRING"
 ```
+
+[</> code]() 
+Commit your code and push it to the master branch of the mtbc project.
+*Bash exercise 7 - not empty example*
 
 ## Lab
 
