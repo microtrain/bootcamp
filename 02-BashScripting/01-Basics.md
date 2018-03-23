@@ -379,8 +379,8 @@ For each element in the COMMANDS array where an element is defined by the variab
 Create the file *~/bash/loop.sh* and make it executable
 
 ```sh
-mkdir -p ~/var/www/mtbc/bash
-cd ~/var/www/mtbc/bash
+mkdir -p /var/www/mtbc/bash
+cd /var/www/mtbc/bash
 touch loop.sh
 chmod +x loop.sh
 vim loop.sh
