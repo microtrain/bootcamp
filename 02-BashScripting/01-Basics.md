@@ -24,7 +24,7 @@ sudo service apache2 restart
 ```
 Anding these statements togeather makes a copy/paste easier but that is about the only advantage.
 
-[</code>](https://github.com/stack-x/restart_apache/commit/5292f0793b7d55e7afbec0d40876ff9e00a294e8) **Create a repository and initial commit**
+[</> code](https://github.com/stack-x/restart_apache/commit/5292f0793b7d55e7afbec0d40876ff9e00a294e8) **Create a repository and initial commit**
 
 On GitHib [create a repository](https://help.github.com/articles/create-a-repo/) called *restart_apache*.
 
@@ -113,7 +113,7 @@ git push origin master
 
 #### [Semantic Versioning](https://semver.org/)
 
-[</code>](https://github.com/stack-x/restart_apache/commit/8666e8d3070669e171b9e3c6d2e40abcfb72b0ee) Semantic versioning is s community standard that helps you communicate the backwards compatibility of a change. We will use it here as an introduction to the concept.
+[</> code](https://github.com/stack-x/restart_apache/commit/8666e8d3070669e171b9e3c6d2e40abcfb72b0ee) Semantic versioning is s community standard that helps you communicate the backwards compatibility of a change. We will use it here as an introduction to the concept.
 
 1. Create the file VERSION.txt
 1. Add the text _1.0.0_
@@ -190,7 +190,7 @@ Our new shell will take two arguments; the target virtual host configuration and
 
 Our first argument will be the virtual host configuration we want to work with and the second argument will be the service command. We will set these to an aptly named variable to make them easier to work with. We will store the first argument in a variable called _CONFG_ and the second in a variable called _COMMAND_. When referencing a variable in bash it advisable to always [quote the varaible](http://tldp.org/LDP/abs/html/quotingvar.html).
 
-[</code>](https://github.com/stack-x/restart_apache/commit/868e8670b543040460e0ffbc6468e1bbd2a21b29) Add the following lines right after _#!/bin/bash_.
+[</> code](https://github.com/stack-x/restart_apache/commit/868e8670b543040460e0ffbc6468e1bbd2a21b29) Add the following lines right after _#!/bin/bash_.
 
 ```sh
 CONFIG="$1"
@@ -228,7 +228,7 @@ Push your new feature branch to GitHub, you can delete this branch once the feat
 git push origin feature/arguments
 ```
 
-[</code>](https://github.com/stack-x/restart_apache/commit/4a6452772617248942ac6c78c5cc88071eda472f) Update README.txt so people know how to use it. Add something like the following.
+[</> code](https://github.com/stack-x/restart_apache/commit/4a6452772617248942ac6c78c5cc88071eda472f) Update README.txt so people know how to use it. Add something like the following.
 
 ````md
 ## Usage
@@ -268,7 +268,7 @@ git merge feature/arguments
 git push origin master
 ```
 
-[</code>](https://github.com/stack-x/restart_apache/commit/a1d7c591db2bc6518c714063d01d1c1190dbbf70) Tag a new version
+[</> code](https://github.com/stack-x/restart_apache/commit/a1d7c591db2bc6518c714063d01d1c1190dbbf70) Tag a new version
 1. git tag 1.1.0
 1. git push origin --tags
 
@@ -312,7 +312,7 @@ else
 fi
 ```
 
-[</code>](https://github.com/stack-x/restart_apache/commit/b83b3dda2a4c4a67b368f2872ecc1cc9e2bd7abc) Once we have our basic statement in place cut and paste the reload/reset logic into the ```then``` block.
+[</> code](https://github.com/stack-x/restart_apache/commit/b83b3dda2a4c4a67b368f2872ecc1cc9e2bd7abc) Once we have our basic statement in place cut and paste the reload/reset logic into the ```then``` block.
 
 ```sh
 if [ "$COMMAND" == "reload" ] || [ "$COMMAND" == "restart" ]
@@ -340,7 +340,7 @@ git merge feature/validate
 git push origin master
 ```
  
-[</code>](https://github.com/stack-x/restart_apache/commit/170b1e43c47c346362440cbb939f3b9ca3733b38) Update VERSION.txt to 1.2.0
+[</> code](https://github.com/stack-x/restart_apache/commit/170b1e43c47c346362440cbb939f3b9ca3733b38) Update VERSION.txt to 1.2.0
 ```sh
 git add .
 git commit -m 'Version 1.2.0'
@@ -352,14 +352,14 @@ git push origin --tags
 
 ### Attention to Detail
 
-[</code>](https://github.com/stack-x/restart_apache/commit/122e30e7396d219a0fba9c8b29a2a7875965732d) Check out the format of our new error message. It begins with the word _ERROR:_ in all caps. This is good UX in that it remove any ambiguity about what the message. To keep user feedback consitant prefix the error message in the first if statement with _ERROR:_.
+[</> code](https://github.com/stack-x/restart_apache/commit/122e30e7396d219a0fba9c8b29a2a7875965732d) Check out the format of our new error message. It begins with the word _ERROR:_ in all caps. This is good UX in that it remove any ambiguity about what the message. To keep user feedback consitant prefix the error message in the first if statement with _ERROR:_.
 
 ```sh
 git commit -am 'Improved messaging'
 git push origin master
 ```
 
-[</code>](https://github.com/stack-x/restart_apache/commit/708d8f60ca6694268d74dbb36df1fa0780d1da4d) Since this commit does not add or remove it is considered a patch so we will increment version as a patch.
+[</> code](https://github.com/stack-x/restart_apache/commit/708d8f60ca6694268d74dbb36df1fa0780d1da4d) Since this commit does not add or remove it is considered a patch so we will increment version as a patch.
 Update VERSION.txt to 1.2.1
 ```sh
 git commit -am 'Version 1.2.1'
