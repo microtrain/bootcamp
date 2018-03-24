@@ -460,7 +460,7 @@ STRING2='World'
 echo "${STRING1} ${STRING2}"
 ```
 
-[</> code]() 
+[</> code](https://github.com/stack-x/mtbc/commit/f7047686a4314f412e8829f836c4f2776399293e) 
 Commit your code and push it to the master branch of the mtbc project.
 *Bash exercise 6 - string example*
 
@@ -494,12 +494,13 @@ do
     else
       STRING="${STRING} World"
     fi
-done
 
-echo "$STRING"
+    echo "$STRING"
+    
+done
 ```
 
-[</> code]() 
+[</> code](https://github.com/stack-x/mtbc/commit/edd6e7e924bf05dda48dcbed5ade53cd17c563fb) 
 Commit your code and push it to the master branch of the mtbc project.
 *Bash exercise 7 - not empty example*
 
