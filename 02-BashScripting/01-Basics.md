@@ -529,5 +529,6 @@ Update the re.sh script such that
 * [service](http://manpages.ubuntu.com/manpages/precise/man8/service.8.html)
 * [Better Bash Scripting in 15 Minutes](http://robertmuth.blogspot.com/2012/08/better-bash-scripting-in-15-minutes.html)
 * [Better Bash Scripting in 15 Minutes (Discussion)](https://news.ycombinator.com/item?id=7595499)
+* [Bash String Manipulation](https://www.thegeekstuff.com/2010/07/bash-string-manipulation/)
 
 [Next: PHP Basics](02-PHPBasics.md)
