@@ -506,7 +506,7 @@ Commit your code and push it to the master branch of the mtbc project.
 
 ## Lab
 
-Update the shell script restart apache project so that if the user does not provide valid options a list of available commands and apache configuration files is returned to the user.  
+Update the re.sh script such it will only allow a user to choose a virtual-host configuration if that virtual-host configuration exists on the path 
 
 
 ## Questions
