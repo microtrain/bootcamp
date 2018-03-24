@@ -504,6 +504,15 @@ done
 Commit your code and push it to the master branch of the mtbc project.
 *Bash exercise 7 - not empty example*
 
+## Exercise 8 - String Position
+
+```sh
+STRING="Hello World"
+echo ${STRING:6}"
+echo ${STRING:2:4}"
+echo ${STRING:3:-2}"
+```
+
 ## Lab
 
 Update the re.sh script such that
