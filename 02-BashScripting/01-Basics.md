@@ -506,7 +506,10 @@ Commit your code and push it to the master branch of the mtbc project.
 
 ## Lab
 
-Update the re.sh script such it will only allow a user to choose a virtual-host configuration if that virtual-host configuration exists on the path 
+Update the re.sh script such that
+* The user will recieve an error message if they attempt to reload/restart a virtual-host file that does not exist in /etc/apache2/sites-available.
+* The system will return a list of valid files as a part of the error message.
+* The system will exit prior to evaluating the reload command if an invalid virtual-host has been chosen.
 
 
 ## Questions
