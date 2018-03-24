@@ -455,8 +455,8 @@ Create an executable Bash file at _/var/www/mtbc/bash/string.sh_ and add the fol
 ```sh
 #!/bin/bash
 
-STRING1 = 'Hello'
-STRING2 = 'World'
+STRING1='Hello'
+STRING2='World'
 echo "${STRING1} ${STRING2}"
 ```
 
