@@ -548,6 +548,8 @@ Update the re.sh script such that
 * The system will exit prior to evaluating the reload command if an invalid virtual-host has been chosen.
 
 
+
+
 ## Questions
 
 1. In Bash, why should you quote variables when referencing them?
@@ -566,5 +568,6 @@ Update the re.sh script such that
 * [Better Bash Scripting in 15 Minutes](http://robertmuth.blogspot.com/2012/08/better-bash-scripting-in-15-minutes.html)
 * [Better Bash Scripting in 15 Minutes (Discussion)](https://news.ycombinator.com/item?id=7595499)
 * [Bash String Manipulation](https://www.thegeekstuff.com/2010/07/bash-string-manipulation/)
+* [FLOZz' MISC » bash:tip_colors_and_formatting](https://misc.flogisoft.com/bash/tip_colors_and_formatting)
 
 [Next: PHP Basics](02-PHPBasics.md)
