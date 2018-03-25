@@ -538,6 +538,7 @@ dog
 quick
 lazy
 ```
+[</> code](https://github.com/stack-x/mtbc/commit/81c6b40bf64bdffb4617b20162d75de1821d976a) Commit your code and push it to the master branch of the mtbc project. Bash exercise 8 - string position example
 
 ## Lab
 
