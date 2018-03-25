@@ -506,11 +506,37 @@ Commit your code and push it to the master branch of the mtbc project.
 
 ## Exercise 8 - String Position
 
+String position allows you extract parts of a string by sepcifiy a numeric index starting at 0. Bash allows you to define string positions using colons with a varaible. 
+
+A starting position of 0 will return the entire string.
 ```sh
-STRING="Hello World"
-echo ${STRING:6}"
-echo ${STRING:2:4}"
-echo ${STRING:3:-2}"
+${VARIABLE:strarting-position} 
+```
+A starting position of 0 and end position of 4 will return the first four charaters of a string. 
+```sh
+${VARIABLE:strarting-position:length}
+```
+
+A starting position of 0 and end position of -4 will return everything between first character and fourth from the end.
+```sh
+${VARIABLE:strarting-position:end-position}
+```
+
+Create the executable Bash file _/var/www/mtbc/stringPosition.sh_ and add the following logic.
+```sh
+#!/bin/bash
+
+STRING="The quick brown fox jumped over the lazy dog"
+
+echo "${STRING:41}"
+echo "${STRING:4:5}"
+echo "${STRING:36:-4}"
+```
+This string will return 
+```sh
+dog
+quick
+lazy
 ```
 
 ## Lab
