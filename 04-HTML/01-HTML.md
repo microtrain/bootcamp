@@ -1,10 +1,96 @@
 # HTML5
 
-This unit will focus on building a personal website aimed at personal branding.
+## Introduction
+This unit will focus on the funedmentals of HTML and building a personal website aimed at personal branding.
 
+## HTML
 Hypertext Markup Language (HTML) is a system of elements and attributes that defines the layout of a web page. This system uses markup tags to represent elements (```<p>This is a paragraph.</p>```) and attributes (```<p style="color: blue;">This is a paragraph with blue text.</p>```) to further describe these elements; to define the context of text and objects on a page.
 
-The offical HTML documentation is available from the [W3C](https://www.w3.org/TR/html/) this is the standards version of the documentation. The [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML) in my opinion is a better practical source of documentation.
+The offical HTML documentation is available from the [W3C](https://www.w3.org/TR/html/) this is the standards version of the documentation aimed at browser makers. The [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML) in my opinion is a better practical source of documentation.
+
+## [HTML Elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
+A typical web page is rendered an an HTML document. HTML documents are made up of HTML elements (aks tags). HTML has two types of elements; inline elements and block-level elements. An HTML element will typically have an opening and a closing tag. <[element]>Closing tags have a slash</[element]>.
+
+### A Basic Web Page
+
+The World Wide Web started off as a markup standard for sharing academic research over the internet. In those days you get by with just a few tags. In most cases you could think laying out a web page the same way you might write a college pager. A header, sub headers, paragraphs, images, links, bold, italic, lists and tables. Let's start by exploring a basic web page in the form of an academic paper.
+
+Most HTML documents start with a header. Headers are marked up ```<h*>``` the * can be any value between *1-6* with **1** being the highest. ```<h1>``` opens a header while ```</h1>``` closes a header. Thus these are called opening and closing tags respectively. ```<h1>``` is generally accepted as a page title
+
+#### Headers
+
+Example headers
+```html
+<h1>This is a level 1 header.</h1>
+<h2>This is a level 2 header.</h2>
+<h3>This is a level 3 header.</h3>
+<h4>This is a level 4 header.</h4>
+<h5>This is a level 5 header.</h5>
+<h6>This is a level 6 header.</h6>
+```
+
+#### Paragraphs
+
+An example paragraph.
+```html
+<p>The quick brown fox jumps over the lazy dog.</p> 
+```
+
+#### [Images](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
+
+Images require special arributes. Adding an image tag does not place in image in your page. Rather it creates a refrence to an image and defines a space for that image. It is up to the browser to get the image and display as per the authors wishes.
+
+An image has two required attributes **src** and **alt**. *src* is the URI of the image while *alt* holds a non graphical description.
+
+```html
+<img src="/img/brown_dog.png" alt="Brown Dog">
+```
+
+#### [Links](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
+Anchor tags are used to create hyperlinks commonly called links. These are used to link documents together on the web.
+
+An image has one required attribute **href**. This is the URL to any web resource to which you want to link the current document.
+
+```html
+<a href="https://www.exmample.com/dogs">more about dogs</a>
+```
+
+#### [Bold](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)
+
+The *strong* element is typcially rendered in boldfaced type as is the *b* element. The *b* element is considered irrelevent on today's web.
+
+```html
+<strong>details of strong importance</strong>
+```
+
+#### [Italic](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)
+The *em* element is typcially rendered in italic type as is the *i* element. The *i* element is considered irrelevent on today's web.
+
+```html
+<em>emphasis placed here</em>
+```
+
+#### Lists
+
+#### Tables
+
+#### Example paper
+```html
+<h1>Dogs and Foxes</h1>
+<p>The quick brown fox jumps over the lazy dog.</p>
+
+<h2>The truth about dogs</h2>
+<p>Some dogs are lazy and just lay around. You can learn more about dogs <a href="https://www.exmample.com/dogs">here</a></p>
+
+<h3>More about dogs</h3>
+<p>There are other dog facts that we are about to get into.</p>
+
+<h2>The truth about foxes</h2>
+<p>Many foxes are quick and like to jump.</p>
+
+<h3>More about foxes</h3>
+<p>There are other fox facts that we are about to get into. You can learn more about foxes <a href="https://www.exmample.com/foxes">here</a></p>
+```
 
 ## [HTML Comments](https://www.w3.org/TR/html5/syntax.html#comments)
 In programming, comments are strings of text that are not processed by a compiler or an interpretor. Comments are for human consumption and are used to help humans follow the flow of source code. Most languages will define their own special syntax for presenting a comment. In HTML, comments are wrapped in comment tags ```<!-- this is a comment -->```.

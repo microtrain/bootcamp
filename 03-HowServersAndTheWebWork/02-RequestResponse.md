@@ -10,7 +10,7 @@ Let's replace the work user with client. In this description we will use *end us
 
 In summary a basic web page is served as follows
 
-* A client makes a request to a server. 
+* A client makes a request to a server.
 * That server processes the user request and returns an HTML document.
 * The cleint processes that HTML document and makes additional requestsr as instructed by the document.
     * Each of these requests a processed a server.
