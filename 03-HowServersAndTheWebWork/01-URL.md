@@ -36,6 +36,24 @@ PHP provides access through the use of [superglobals](http://php.net/manual/en/l
 
 It would be common to refer to these practices as retrieving GET parameters (params) and retrieving POST data.
 
+## Exercise - DevTools and Payloads
+
+Make usre your browser is in focus by cliking anywhere on the screen the open Chrome DevTools by pressing [f12]. This will open a dev panel. 
+
+Find and click on the Network tab and paste the following URL into the address bar [https://www.google.com/search?q=anatomy+of+a+URI#jump](https://www.google.com/search?q=anatomy+of+a+URI).
+
+You will see a list of resources that get called when this page loads. Find the one that reads *search?q=atomy+of+a+URI* and click on it.
+
+This will open another  tabbed panel that holds information about the page request, click on the headers tabs and find the *Query String Parameters* this shows us the data payload being sent to the server from the browser. 
+
+All sections provide good information as to how the page is told to interact with the browser.
+
+### Summary
+
+In this exercise you learned 
+* open Chrome Dev Tools
+* use DevTools to analyze a server response.
+
 ## Additional Resources
 
 * [The Difference Between URLs and URIs](https://danielmiessler.com/study/url-uri/#gs.IU_=BhI)
@@ -47,4 +65,3 @@ It would be common to refer to these practices as retrieving GET parameters (par
 
 [IP addresses and DNS](https://www.khanacademy.org/computing/computer-science/internet-intro/internet-works-intro/v/the-internet-ip-addresses-and-dns)
 
-[Next: PHP Basics](03-PHPBasics.md)
