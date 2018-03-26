@@ -42,15 +42,15 @@ Make sure your browser is in focus by cliking anywhere on the screen the open Ch
 
 Find and click on the Network tab and paste the following URL into the address bar [https://www.google.com/search?q=anatomy+of+a+URI#jump](https://www.google.com/search?q=anatomy+of+a+URI).
 
-![Dev Panel Network Tab](/img/web/network.png)
+![Dev Panel Network Tab](../img/web/network.png)
 
 You will see a list of resources that get called when this page loads. Find the one that reads *search?q=atomy+of+a+URI* and click on it.
 
-![Open Asset](/img/web/asset.png)
+![Open Asset](../img/web/asset.png)
 
 This will open another tabbed panel that holds information about the page request, click on the headers tabs and find the *Query String Parameters* this shows us the data payload being sent to the server from the browser. 
 
-![Query String Parameters](/img/web/asset.png)
+![Query String Parameters](../img/web/asset.png)
 
 All sections provide good information as to how the page is told to interact with the browser.
 
