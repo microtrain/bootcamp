@@ -36,7 +36,7 @@ PHP provides access through the use of [superglobals](http://php.net/manual/en/l
 
 It would be common to refer to these practices as retrieving GET parameters (params) and retrieving POST data.
 
-## Exercise - DevTools and Payloads
+## Exercise - Analyze a Server REsponse with DevTools
 
 Make usre your browser is in focus by cliking anywhere on the screen the open Chrome DevTools by pressing [f12]. This will open a dev panel. 
 
