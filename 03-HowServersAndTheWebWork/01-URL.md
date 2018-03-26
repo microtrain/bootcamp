@@ -36,23 +36,29 @@ PHP provides access through the use of [superglobals](http://php.net/manual/en/l
 
 It would be common to refer to these practices as retrieving GET parameters (params) and retrieving POST data.
 
-## Exercise - Analyze a Server REsponse with DevTools
+## Exercise - Analyze a Server Response with DevTools
 
-Make usre your browser is in focus by cliking anywhere on the screen the open Chrome DevTools by pressing [f12]. This will open a dev panel. 
+Make sure your browser is in focus by cliking anywhere on the screen the open Chrome DevTools by pressing [f12], this will open a dev panel. 
 
 Find and click on the Network tab and paste the following URL into the address bar [https://www.google.com/search?q=anatomy+of+a+URI#jump](https://www.google.com/search?q=anatomy+of+a+URI).
 
+![Dev Panel Network Tab](/img/web/network.png)
+
 You will see a list of resources that get called when this page loads. Find the one that reads *search?q=atomy+of+a+URI* and click on it.
 
-This will open another  tabbed panel that holds information about the page request, click on the headers tabs and find the *Query String Parameters* this shows us the data payload being sent to the server from the browser. 
+![Open Asset](/img/web/asset.png)
+
+This will open another tabbed panel that holds information about the page request, click on the headers tabs and find the *Query String Parameters* this shows us the data payload being sent to the server from the browser. 
+
+![Query String Parameters](/img/web/asset.png)
 
 All sections provide good information as to how the page is told to interact with the browser.
 
 ### Summary
 
-In this exercise you learned 
-* open Chrome Dev Tools
-* use DevTools to analyze a server response.
+In this exercise you learned how to
+* open Chrome DevTools
+* use Chrome DevTools to analyze a server response.
 
 ## Additional Resources
 
