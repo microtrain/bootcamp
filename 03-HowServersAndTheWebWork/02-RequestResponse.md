@@ -14,4 +14,8 @@ In summary a basic web page is served as follows
     * The client processes each of these reponses and processes the instruction sets accordinly.
         * These may or may not lead to additional server requests.
 
+## Summary
+In this section you learned how a user request leads to a server response.
+
+## Footnotes
 <small>1. unless these are hardcoded into the page with may be done with descrition.</small>
