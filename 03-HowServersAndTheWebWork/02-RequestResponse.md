@@ -22,4 +22,4 @@ In summary a basic web page is served as follows
 In this section you learned how a user request leads to a server response.
 
 ## Footnotes
-<small>1. unless these are hardcoded into the page with may be done with descrition.</small>
+<small>1. unless these are hardcoded into the page whitch may be done with descrition.</small>
