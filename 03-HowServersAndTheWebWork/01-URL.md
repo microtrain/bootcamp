@@ -50,7 +50,7 @@ You will see a list of resources that get called when this page loads. Find the 
 
 This will open another tabbed panel that holds information about the page request, click on the headers tabs and find the *Query String Parameters* this shows us the data payload being sent to the server from the browser. 
 
-![Query String Parameters](../img/web/asset.png)
+![Query String Parameters](../img/web/info.png)
 
 All sections provide good information as to how the page is told to interact with the browser.
 
