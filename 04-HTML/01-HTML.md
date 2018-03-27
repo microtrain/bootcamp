@@ -33,7 +33,7 @@ Example headers
 
 An example paragraph.
 ```html
-<p>The quick brown fox jumps over the lazy dog.</p> 
+<p>This is a paragraph, paragraphs have an opening and closing tags. Paragraphs are block level elements with margins on the top and bottom.</p>
 ```
 
 #### [Images](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
@@ -43,16 +43,16 @@ Images require special arributes. Adding an image tag does not place in image in
 An image has two required attributes **src** and **alt**. *src* is the URI of the image while *alt* holds a non graphical description.
 
 ```html
-<img src="/img/brown_dog.png" alt="Brown Dog">
+<img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="The Semantic Web">
 ```
 
 #### [Links](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
-Anchor tags are used to create hyperlinks commonly called links. These are used to link documents together on the web.
+Anchor *a* elements are used to create hyperlinks commonly called links. These are used to link documents together on the web.
 
 An image has one required attribute **href**. This is the URL to any web resource to which you want to link the current document.
 
 ```html
-<a href="https://www.exmample.com/dogs">more about dogs</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">The a tag (HTML Anchor Element)</a>
 ```
 
 #### [Bold](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)
