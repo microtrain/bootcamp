@@ -34,10 +34,17 @@ Label elements use the [for attribute](https://developer.mozilla.org/en-US/docs/
 * checked - auto checks a checkbox (optional).
 * selected - pre-selects a picklist option (optional).
 
+[<i class="fa fa-codepen" aria-hidden="true"></i>CodePen Demo](https://codepen.io/jasonsnider/pen/MVQYqM) **Accessible Form Examples**
 ```html
 <!-- Plain text input -->
-<label for="name">Name</label>
-<input id="name" name="name" type="text">
+<div>
+  <em>Sample plain text entry</em>
+  <label for="name">Name</label>
+  <input id="name" name="name" type="text">
+</div>
+<!-- Datepicker -->
+<label for="date">Date</label>
+<input id="date" name="date" type="date">
 
 <!-- Textarea -->
 <label for="description">Description</label>
@@ -72,6 +79,10 @@ Label elements use the [for attribute](https://developer.mozilla.org/en-US/docs/
   <label for="c2">Option 2</label>
   <input id="c2" name="all" value="1" type="checkbox">
 </fieldset>
+
+<!-- Form Buttons -->
+<input type="submit" name="submit" value="Submit">
+<input type="reset" name="reset" value="Reset">
 ```
 
 ## Formspree
