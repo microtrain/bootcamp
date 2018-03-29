@@ -49,8 +49,6 @@ div > *.info{
 }
 ```
 
-# Layout
-
 ### Exercise
 
 Replace */var/www/example.com/public/index.html* with the following.
