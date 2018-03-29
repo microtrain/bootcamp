@@ -88,29 +88,67 @@ Label elements use the [for attribute](https://developer.mozilla.org/en-US/docs/
 ## Formspree
 Normally you would implement a contact form by implementing some backend code on your webserver. Since GitHub Pages does not allow you to execute server side (aka backend) code we will use a free service called Formspree. This will allow upto 1000 emails per month through our web form. Head over to [Formspree](https://formspree.io/) and give it a test, you will be sent a confirmation email which you must confirm to continue using the product.
 
+> By adding your email address to this form you are making it publicly available(or you could say potentially increasing it's public exposure). If this is an issue for you create an email account for soley for this purpose or even a service such a [https://www.mailinator.com/](https://www.mailinator.com/). *If you choose the latter be aware that these inboxes are temporary and public.*
 
 
-## Exercise 1
+## Exercise 1 - Basic Form
+
+When building a contact form think about what information you need. This will be a simple form so we will only ask for a few things: name, email and a message. This gives us a total of three form fields.
+
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/bd95f614abb50427158958e259fe69ddd32280a5) Open *contact.html* and add opening and closing ```form``` tags.
+```html
+<form action="https://formspree.io/YOUREMAIL@EXAMPLE.COM" method="POST"></form>
+```
+
+[</> code]() Collect the name of the person contacting you. We use N/name as the label content, for, id, and name values. Note the div tags, they are not required but they will help us later when we go to style the form.
+
+
+```html
+<div>
+  <label for="name">Name</label>
+  <input id="name" type="text" name="name">
+</div>
+```
+
+[</> code]() Collect the email of the person contacting you. We use E/email as the label content, for and id values but we will change the name to _replyTo this will allow us to access Formsprees relpyTo feature of setting the replyTo address to the user supplied value. 
+
+```html
+<div>
+  <label for="email">Email</label>
+  <input id="email" type="text" name="_replyto">  
+</div>
+```
+
+[</> code]() We will create a label and a text area to collect the mesage from the peron contacting us.
+```html
+<div>
+  <label for="message">Message</label>
+  <textarea id="message" name="message"></textarea>
+</div>
+```
+
+[</> code]() We will create a hidden form field with the name of _subject. This will aceess another feature for dealing with the email subject. We will make this a hidden field so that we can control what it looks like in our inbox.
+```html
+<div>
+  <input type="hidden" name="_subject" value="New submission!">
+</div>
+```
+
+[</> code]() Finally, we will add a submit button.
+```html
+<input type="submit" value="Send">
+```
+
 
 Add the file thanks.html (this should be a copy of contact.html) to your GitHub Pages site. Add a header and message thanking the user for contacting you.
 
 ## Exercise 2
 
-```html
-<form action="https://formspree.io/YOUREMAIL@EXAMPLE.COM" method="POST">
-    <input type="hidden" name="_subject" value="New submission!">
+Add the file thanks.html.
 
-    <label for=""></label>
-    <input type="text" name="name">
-    
-    <input type="email" name="_replyto">
-    <textarea name="message" placeholder="Your message"></textarea>
-    <input type="text" name="_gotcha" style="display:none">
+
     <input type="hidden" name="_next" value="//YOUR-GITHUB-USERNAME.github.io/thanks.html">
-    <input type="submit" value="Send">
-</form>
-```
-
+    <input type="text" name="_gotcha" style="display:none">
 
 
 
