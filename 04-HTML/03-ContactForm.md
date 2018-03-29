@@ -100,7 +100,7 @@ When building a contact form think about what information you need. This will be
 <form action="https://formspree.io/YOUREMAIL@EXAMPLE.COM" method="POST"></form>
 ```
 
-[</> code]() Collect the name of the person contacting you. We use N/name as the label content, for, id, and name values. Note the div tags, they are not required but they will help us later when we go to style the form.
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/065df8d95a3b44b6c5ab3c0d9494631e5daf0912) Collect the name of the person contacting you. We use N/name as the label content, for, id, and name values. Note the div tags, they are not required but they will help us later when we go to style the form.
 
 
 ```html
@@ -110,7 +110,7 @@ When building a contact form think about what information you need. This will be
 </div>
 ```
 
-[</> code]() Collect the email of the person contacting you. We use E/email as the label content, for and id values but we will change the name to _replyTo this will allow us to access Formsprees relpyTo feature of setting the replyTo address to the user supplied value. 
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/ea4f408a5612ab4e17d488d1ff54efae603c28af) Collect the email of the person contacting you. We use E/email as the label content, for and id values but we will change the name to _replyTo this will allow us to access Formsprees relpyTo feature of setting the replyTo address to the user supplied value. 
 
 ```html
 <div>
@@ -119,7 +119,7 @@ When building a contact form think about what information you need. This will be
 </div>
 ```
 
-[</> code]() We will create a label and a text area to collect the mesage from the peron contacting us.
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/39445543be06aff85614210916f31990c9ac9663) We will create a label and a text area to collect the mesage from the person contacting us.
 ```html
 <div>
   <label for="message">Message</label>
@@ -127,29 +127,43 @@ When building a contact form think about what information you need. This will be
 </div>
 ```
 
-[</> code]() We will create a hidden form field with the name of _subject. This will aceess another feature for dealing with the email subject. We will make this a hidden field so that we can control what it looks like in our inbox.
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/3f7a18bd88c2314e3d2ae8ea507ebb9c01b1ce06) We will create a hidden form field with the name of _subject. This will aceess another feature for dealing with the email subject. We will make this a hidden field so that we can control what it looks like in our inbox.
 ```html
 <div>
   <input type="hidden" name="_subject" value="New submission!">
 </div>
 ```
 
-[</> code]() Finally, we will add a submit button.
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/a57888da75deb63502e70ff33c24dc652654fedd) Finally, we will add a submit button.
 ```html
-<input type="submit" value="Send">
+<div>
+  <input type="submit" value="Send">
+</div>
 ```
 
 
 Add the file thanks.html (this should be a copy of contact.html) to your GitHub Pages site. Add a header and message thanking the user for contacting you.
 
-## Exercise 2
+## Exercise 2 - Thank You
 
-Add the file thanks.html.
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/3635c9538c3028bda528e642c3df7d7655685d2d) Make a copy of the file resume.html and name it *thanks.html*. Change the title to say "Thank You" and add a nice massage for the user.
 
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/1c1b31da8ac02e1d81d782222baf5dc06f940265) Add a hidden field to your form and set the name to *_next* add a value attribute the points to the thanks.html page on you GitHub pages site. This use another special feature of Formspree that the sends the user to a target page aftet the form submit. 
 
-    <input type="hidden" name="_next" value="//YOUR-GITHUB-USERNAME.github.io/thanks.html">
-    <input type="text" name="_gotcha" style="display:none">
+```html
+<input type="hidden" name="_next" value="//YOUR-GITHUB-USERNAME.github.io/thanks.html">
+```
 
+## Exercise 3 - Captcha and Honeypots
+Completely Automated Public Turing (Captcha) is any test that would be trival for a human to solve but difficult if not impossible for a computer to solve. We use these to reduce spam and wasted resources by attempting to fiter out robots (or non-human traffic) all Formspree forms provide captcha by default.
+
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/55e2d6aaf839dae77db4c74eeeaeb53316826e1e) Add a hidden field to your form and set the name to *_next* add a value attribute the points to the thanks.html page on you GitHub pages site. This uses another special feature of Formspree that rejects any form for which the hoenypot is not empty. This is a second layer ontop of Captcha making it redundant but we show it to demonstrate another technique for dealing with spam.
+
+> Any bot that is is aware of Formspree has likely been updated to account for the _gotcha name field. This would be more effective on a custom for, we will disscuss this in later lessons.
+
+```html
+<input type="text" name="_gotcha" style="display:none">
+```
 
 
 * [Creating Accessible Forms](https://webaim.org/techniques/forms/controls)
