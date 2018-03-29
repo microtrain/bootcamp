@@ -165,5 +165,10 @@ Completely Automated Public Turing (Captcha) is any test that would be trival fo
 <input type="text" name="_gotcha" style="display:none">
 ```
 
+## Summary
+In this lesson you learned how to
+* create a webform
+* interact with a thrid party service
 
+## Additional Resources
 * [Creating Accessible Forms](https://webaim.org/techniques/forms/controls)
