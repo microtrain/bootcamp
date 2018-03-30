@@ -6,8 +6,8 @@
   * [Install Ubuntu](01-DevEnvironment/01-InstallUbuntu16.04.md)
   * [Linux Basics](01-DevEnvironment/02-LinuxBasics.md)
   * [System Basics](01-DevEnvironment/03-SystemBasics.md)
-  * [Apache Basics](01-DevEnvironment/04-LampStack.md)
-  * [System Basics](01-DevEnvironment/03-SystemBasics.md)
+  * [LAMP Stack](01-DevEnvironment/04-LampStack.md)
+  * [Apache Basics](01-DevEnvironment/05-ApacheBasics.md)
   * [NPM](01-DevEnvironment/06-NPM.md)
   * [Git](01-DevEnvironment/07-Git.md)
 
@@ -63,3 +63,5 @@
 * [Unit 13: Angular](13-Angular/README.md)
 * [Unit 14: Apache Cordova](14-ApacheCordova/README.md)
   * [14-ApacheCordova](14-ApacheCordova/01-Cordova.md)
+
+* [Course Syllabus](CourseSyllabus.md)

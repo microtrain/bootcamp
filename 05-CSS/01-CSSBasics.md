@@ -49,9 +49,28 @@ div > *.info{
 }
 ```
 
-### Exercise
+## Specificity Rules
 
-Replace */var/www/example.com/public/index.html* with the following.
+The following list from the weakest to stringest selectors when it comes to implementing css rules. Inline style trump all, while ```!important``` can force an override of a higher lower level selector; this should be used sparingly. 
+
+* universal selector (*)
+* element selector (h1, p, a)
+* class selector  (.blue, .link, .content)
+* attribute selector ([href], [target], [src])
+* psuedo selector (:link, :hover, :visited)
+* id selector (#firstName, #lastName, #phoneNumber)
+* inline style (style="text-align: center;)
+
+
+
+
+### Exercise 1
+
+In your GitHub Pages project create a directory called *dist* and add the file *main.css*. To the document head in index.html use the ```link``` element to reference the stylesheet.
+
+```html
+<link rel="stylesheet" type="text/css" href="/dist/main.css">
+```
 
 ```html
 <!DOCTYPE html>
@@ -60,7 +79,6 @@ Replace */var/www/example.com/public/index.html* with the following.
       <meta charset="UTF-8">
       <title>About Jason Snider</title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
       <style>
 
           /* apply a natural box layout model to all elements, but allowing components to change */
@@ -258,6 +276,7 @@ Create the path */var/www/about/css/dist/main.css* and open that file in Atom. C
 Apply the new theme to all pages under _/var/www/example.com/public_.
 
 ## Additional Resources
+* [Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
 * [CSS Tricks](https://css-tricks.com/)
 * [MDN - CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 * [Why do navigation bars in HTML5 as lists?](https://stackoverflow.com/questions/36811224/why-do-navigation-bars-in-html5-as-lists)

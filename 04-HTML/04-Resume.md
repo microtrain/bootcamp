@@ -19,5 +19,15 @@ You will follow that up with your desired job title in an ```h2``` tag then a pa
 
 Create an HTML version of your resume for your GitHub Pages site. Commit your changes and push them to master.
 
+## Lab 2 - Semantic Meaning
+
+Use HTML5 sectioning tags such as ```main``` and ```section``` to segment your resume into logical sections. This will help better commuicate your resumes structure and provide additional support for CSS. 
+* Wrap the entire resume in ```main```.
+  * You may choose to wrap the resume in an ```article``` tag and place that inside of main.
+* Start a ```section``` before an ```h*``` end the section bfore the next ```h*``` tag of the same level. 
+
 ## Additional Resources
 * [UTF-8 Geometric Shapes](https://www.w3schools.com/charsets/ref_utf_geometric.asp)
+* [Using HTML sections and outlines](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines)
+* [How to Use The HTML5 Sectioning Elements](http://blog.teamtreehouse.com/use-html5-sectioning-elements)
+* [HTML5 Resume: Jared Pearce](https://codepen.io/jaredpearce/pen/iBdxb)

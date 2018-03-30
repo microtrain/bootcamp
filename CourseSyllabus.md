@@ -10,9 +10,9 @@
 
 
 ## Description 
-The class is 40 hours a week for 10 weeks. It is comprised of a series of units, working lectures with lots of exercises, labs and additional resources. The goal of this class is to provide a working knowledge of web and mobile application development. This course is not a deep dive on any one topic, rather it is intended to provide a working foundation that will allow you to hit the ground running and give you a knowledge base upon which to build a career. In most cases you will get a light introduction to a topic; typically with in a specific context. We will build on these topics as we progress through the course. The syllabus is tentative and may be adjusted to the pace of the class as a whole. The last two weeks of class are open and is currently slated for a or multiple projects.
+The class is 40 hours a week for 10 weeks. It is comprised of a series of units. A unit is compirsed pf working lectures, exercises, labs and additional resources. The goal of this class is to provide a working knowledge of web and mobile application development. This course is not a deep dive on any one topic, rather it is intended to provide a working foundation that will allow you to hit the ground running and give you the knowledge base upon which to build a career. In most cases you will get a light introduction to a topic; typically with in a specific context. We will build on these topics as we progress through the course. The syllabus is tentative and may be adjusted to the pace of the class as a whole. The last two to three weeks of class are open and are intended for to allow each stundet to complete a single or multiple projects to add to their portfolio.
 
-Each unit contains
+## Unit Composition
 
 ### A Lecture
 An overview of the topic(s) at hand.
