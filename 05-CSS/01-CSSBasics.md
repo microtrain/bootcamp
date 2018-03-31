@@ -61,16 +61,179 @@ The following list from the weakest to stringest selectors when it comes to impl
 * id selector (#firstName, #lastName, #phoneNumber)
 * inline style (style="text-align: center;)
 
+```css
+/* Make all font for all elements red */
+* {
+    color: red;
+}
+
+/* overrides * */
+p, a {
+    color: blue;
+}
+
+/* overrides p  */
+p.green {
+    color: green;
+}
+
+/* overrides *, a, p */
+.indigo {
+    color: indigo;
+}
+
+/* overrides a */
+a[href="/"] {
+    color: aquamarine;
+}
+
+/* overrides a */
+a:link,
+a:visited{
+    color: maroon;
+}
+
+/* overrides a:link, a:visited */
+a.indigo:link,
+a.indigo:visited,{
+    color: purple;
+}
+
+/* overrides everything */
+#home{
+    color: #efefef; 
+}
+```
 
 
+### Exercise 1 - Add a Stylesheet
 
-### Exercise 1
-
-In your GitHub Pages project create a directory called *dist* and add the file *main.css*. To the document head in index.html use the ```link``` element to reference the stylesheet.
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/4176f6290178cdce30034c521f360c1100a4035a) In your GitHub Pages project create a directory called *dist* and add the file *main.css*. To the document head in index.html use the [```link```](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) element to reference the stylesheet. 
 
 ```html
-<link rel="stylesheet" type="text/css" href="/dist/main.css">
+<link rel="stylesheet" type="text/css" href="./dist/main.css">
 ```
+
+You can verify the file loads by checking networking tab in dev tools.
+
+#### Remove the Inline Styles
+
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/7f785b482d30531da730bb383c4c2bb17fef38e7) We will start by removing the inlie style we added to our index.html file. We will start by adding an avatar class to our stylesheet.
+
+**dist/main.css**
+```css
+.avatar {
+  border-radius: 50%; 
+  float: left; 
+  margin-right: 1em;
+}
+```
+
+Now we can start buildinga layout, we will start by reseting the body elements, adding a base font and then we will move on to navigation.
+
+It's common practice to remove the defualt padding and margin from the body, add the following to main.css.
+```css
+body{
+  padding: 0;
+  margin: 0;
+}
+```
+
+Next we will add a base font. To assure consitancey across all platforms we will pull a font from a font foundary, we will use [Google Fonts](https://fonts.google.com/) and use [Open Sans](https://fonts.google.com/specimen/Open+Sans). We will import the font style into our style sheet and use a universal selector to set all elements to this font by default.
+
+```css
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+  font-family: 'Open Sans', sans-serif;
+}
+```
+
+
+No we are ready to tackle navigation, lets start by wrapping the ```nav``` elements in a ```header``` element. We will add a ```span``` element with a class of ```.logo``` outside of the ```nav``` with the navigation. We will align all navigation links horizontally and pull them to the top right corner of the screen.
+
+```html
+<header>
+  <span class="logo">My WebSite</span>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+```
+
+```css
+header {
+  height: 50px;
+  background: #000;
+  color: #fff;
+  padding: 0 .5rm 0 1em;
+}
+
+header .logo{
+  line-height: 50px;
+  font-weight: bold;
+}
+
+nav {
+  float: right;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav ul li{
+  display: inline;
+}
+
+nav ul li a,
+nav ul li a:link,
+nav ul li a:visited{
+  display: inline-block;
+  padding: 0 .5em;
+  color: #fff;
+  line-height: 50px;
+  text-decoration: none;
+}
+
+nav ul li a:hover{
+  background: #444;
+}
+```
+
+Add a ```main``` element and center the page content.
+
+```html
+<main>
+  <h1>Hello,...
+</main>
+```
+
+```css
+main {
+  /* Use a margin to center the page */
+  margin: 0 auto;
+
+  /* Set the width of the content */
+  width: 960px;
+
+  /* For samller screens to not exceed the max screen width */
+  max-width: 100%;
+}
+```
+
+
+
+
+
+
+
 
 ```html
 <!DOCTYPE html>
