@@ -106,7 +106,7 @@ a.indigo:visited,{
 ```
 
 
-### Exercise 1 - Add a Stylesheet
+### Add a Stylesheet
 
 [</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/4176f6290178cdce30034c521f360c1100a4035a) In your GitHub Pages project create a directory called *dist* and add the file *main.css*. To the document head in index.html use the [```link```](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) element to reference the stylesheet. 
 
@@ -116,7 +116,7 @@ a.indigo:visited,{
 
 You can verify the file loads by checking networking tab in dev tools.
 
-#### Remove the Inline Styles
+### Remove the Inline Styles
 
 [</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/7f785b482d30531da730bb383c4c2bb17fef38e7) We will start by removing the inlie style we added to our index.html file. We will start by adding an avatar class to our stylesheet.
 
@@ -129,6 +129,8 @@ You can verify the file loads by checking networking tab in dev tools.
 }
 ```
 
+### Reset the body element
+
 Now we can start buildinga layout, we will start by reseting the body elements, adding a base font and then we will move on to navigation.
 
 It's common practice to remove the defualt padding and margin from the body, add the following to main.css.
@@ -138,6 +140,8 @@ body{
   margin: 0;
 }
 ```
+
+### Set a base font
 
 Next we will add a base font. To assure consitancey across all platforms we will pull a font from a font foundary, we will use [Google Fonts](https://fonts.google.com/) and use [Open Sans](https://fonts.google.com/specimen/Open+Sans). We will import the font style into our style sheet and use a universal selector to set all elements to this font by default.
 
@@ -149,6 +153,7 @@ Next we will add a base font. To assure consitancey across all platforms we will
 }
 ```
 
+### Header and Navigation
 
 No we are ready to tackle navigation, lets start by wrapping the ```nav``` elements in a ```header``` element. We will add a ```span``` element with a class of ```.logo``` outside of the ```nav``` with the navigation. We will align all navigation links horizontally and pull them to the top right corner of the screen.
 
@@ -207,6 +212,8 @@ nav ul li a:hover{
 }
 ```
 
+### Main Content (set a landmark)
+
 Add a ```main``` element and center the page content.
 
 ```html
@@ -228,210 +235,16 @@ main {
 }
 ```
 
+### Make it Responsive
 
+Use dev tools to toggle the device toolbar (enter mobile testing mode) and choose the responsive option. Set the width to 960px and drag in and out crossing back and fourth over that 960px mark. Notice the padding, we loose all of i under 960px, we can use a media query to set a break telling the page to add a gutter below a certian page width.
 
-
-
-
-
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <title>About Jason Snider</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <style>
-
-          /* apply a natural box layout model to all elements, but allowing components to change */
-          /* https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
-          html {
-              box-sizing: border-box;
-              background: #efefef;
-              height: 100%;
-          }
-
-          *,
-          *:before,
-          *:after {
-              box-sizing: inherit;
-          }
-
-          body {
-              font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-              margin: 0;
-          }
-
-          /* clear floats */
-          /* https://www.w3schools.com/howto/howto_css_clearfix.asp */
-          .clearfix:after {
-              content: "";
-              display: table;
-              clear: both;
-          }
-
-          /* By default we want equal column heights */
-          .row {
-            display: flex;
-          }
-
-          /* All columns should float to the left */
-          .col {
-              float: left;
-              padding: 1em;
-              /* All columns should have the same height but allow for different widths */
-              flex: 1 1 auto;
-          }
-
-          .pull-left {
-              float: left;
-          }
-
-          .pull-right {
-              float: right;
-          }
-
-          /* Center the test in the main nav bar */
-          nav.top-nav {
-              text-align: center;
-              background: #aaa;
-          }
-
-          /* Reset list elements for navigation */
-          ul.nav-inline {
-              list-style: none;
-          }
-
-          ul.nav,
-          ul.nav li,
-          ul.nav-inline,
-          ul.nav-inline li {
-              margin: 0;
-              padding: 0;
-              border: 0;
-              font-size: 100%;
-              font: inherit;
-              vertical-align: baseline;
-          }
-
-          ul.nav-inline li {
-              display: inline-block;
-          }
-
-          /* Allow the div padding to control the first h1 element's top padding */
-          h1:first-of-type {
-              margin-top: 0;
-          }
-
-          /* style the anchor tags */
-          nav.top-nav a,
-          #Footer a {
-              display: inline-block;
-              text-align: center;
-              padding: 8px 20px;
-              text-decoration: none;
-              color: #444;
-              font-weight: bold;
-          }
-
-          #Footer a {
-              color: #fff;
-              padding: 0 0 0 1em;
-              font-size: smaller;
-          }
-
-          /* the main content */
-          #Wrapper {
-              width: 1170px;
-              margin: 0 auto;
-          }
-
-          /* The left and right columns will have the same width */
-          #Sidebar {
-              width: 340px;
-              background: #cdcdcd;
-          }
-
-          /* The middle column will have a fixed width of the remainder of the wrapper */
-          #Content {
-              width: 830px;
-              background: #fff;
-          }
-
-          #Footer {
-              background: #000;
-              color: #fff;
-              padding: 1em;
-              margin: 0;
-          }
-
-          #AboutMe {
-            text-align: center;
-          }
-
-          #AboutMe > .header {
-            display: block;
-            font-weight: bold;
-            color: #ff9900;
-            margin: 0 0 1em;
-          }
-
-          .img-circle{
-            border-radius: 50%;
-          }
-
-      </style>
-  </head>
-
-  <body>
-
-      <div id="Wrapper">
-
-          <nav class="top-nav clearfix">
-              <a href="index.html" class="pull-left" href="/">Site Logo</a>
-              <ul class="nav-inline pull-right" role="navigation">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="contact.php">Contact</a></li>
-              </ul>
-          </nav>
-
-          <div class="row clearfix">
-              <div id="Content" class="col">
-                  <h1>Hello World</h1>
-                  <p>Welcome to my web site.</p>
-              </div>
-              <div id="Sidebar" class="col">
-                <div id="AboutMe">
-                  <div class="header">Hello, I am YOUR-NAME</div>
-                  <img src="https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm" alt="My Avatar" class="img-circle">
-                </div>
-              </div>
-          </div>
-
-          <div id="Footer" class="clearfix">
-              <small>&copy; 2017 - MyAwesomeSite.com</small>
-              <ul class="nav-inline pull-right" role="navigation">
-                  <li><a href="terms.html">Terms</a></li>
-                  <li><a href="privacy.html">Privacy</a></li>
-              </ul>
-          </div>
-      </div>
-
-  </body>
-
-</html>
-```
-
-## Linking to style sheets
-
-
-### Exercise
-
-Create the path */var/www/about/css/dist/main.css* and open that file in Atom. Copy the contents of the style element from index.html into the new file and replace the style element with a reference to the style sheet.
-
-```html
-<link rel="stylesheet" type="text/css" href="css/dist/main.css">
+```css
+@media only screen and (max-width: 600px)  {
+    main {
+        padding: 0 1em;
+    }
+}
 ```
 
 ## Lab - Restyle All Pages
