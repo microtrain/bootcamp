@@ -336,6 +336,7 @@ Create a CSS selector for the toggleMenu attribute. This style will be similar t
     display: block;
     border-bottom: 1px solid #777;
   }
+  
 }
 ```
 

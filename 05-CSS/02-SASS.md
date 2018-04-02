@@ -7,16 +7,15 @@ SASS is a a CSS preprocessor is a superset of CSS which means all CSS syntax is 
 since sass is written in ruby we will use gem for the install. Install scss linter, as this is a helpful tool.
 
 ```sh
-sudo apt-get install ruby
 sudo apt-get install ruby-sass
-sudo gem install scss_lint
 ```
 
 Variables in Sass. Sass denotes variables with a _$_ dollar sign. For these lessons we will use the newer SCSS syntax for writing our sass files. These files must have the _.scss_ extensions.
 
 ### Exercise 1 - Sass Variables
 
-Create the path _~/scss/var.scss_ and add the following lines.
+Create the path */var/www/mtbc/scss/var.scss* and add the following lines.
+
 ```scss
 $font-stack:    "Helvetica Neue",Helvetica,Arial,sans-serif;
 $primary-color: #333;
@@ -28,9 +27,11 @@ body {
 ```
 
 ```sh
-sass ~/scss/var.scss ~/scss/var.css
+sass /var/www/mtbc/scss/var.scss /var/www/mtbc/css/var.css
 ```
-You will see the following output in the console.
+
+This will create the file var.css which is a compiled version of your scss file.
+
 ```css
 body {
   font: 100% "Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -42,7 +43,7 @@ body {
 The down side to a preprocessor is the compilation step. This takes time and slows down development. We remedy this by creating a *watcher* this watches a target file for changes and rebuilds it's CSS version in the background. This is one less thing you need to think about which can help keep you in flow. Open a split console window and run the following command in one of the panels.
 
 ```sh
-sass --watch ~/scss/var.scss:~/scss/var.css
+sass --watch /var/www/mtbc/scss/var.scss:/var/www/mtbc/css/var.css
 ```
 
 You will see the following output
@@ -63,21 +64,23 @@ In the second panel open the scss file in vim, make a change and save it using [
 
 ```
 
-Open the file *~/scss/var.css* amd verify your changes.
+Open the file */var/www/mtbc/scss/var.css* amd verify your changes.
 
 ## Exercise 3 - Implement sass in your project
 
-Move */var/www/example.com/css/dist/main.css* to */var/www/example.com/css/src/main.scss*
+Move *dist/main.css* to *src/scss/main.scss*
 
 ```sh
-mkdir -p /var/www/example.com/css/src
-mv /var/www/example.com/css/dist/main.css /var/www/example.com/css/src/main.scss
+cd /var/www/YOUR-GITHUB-USERNAME.github.io
+mkdir -p src/scss
+mkdir -p dist/css
+mv dist/css/main.css src/scss/main.scss
 ```
 
 Then compile the sass file
 
 ```sh
-sass /var/www/example.com/css/src/main.scss /var/www/example.com/css/dist/main.css
+sass src/scss/main.scss dist/css/main.css
 ```
 
 ## Mixins
@@ -86,7 +89,7 @@ Later we will learn about the Bootstrap framework. Bootstrap is among the most p
 
 ## Exercise 4
 
-Create a mix for clearfix by adding the following to the top of */var/www/about/css/src/main.scss*.
+Create a mix for clearfix by adding the following to the top of *dist/main.scss*.
 ```scss
 /* mixins */
 /* clear floats */
@@ -127,14 +130,15 @@ nav.top-nav {
 
 ## Extend/Inheritance
 Other examples of calling multiple classes is in the footer navigation as well as the #Content and #Sidebar divs.
-```
+
+```html
 <ul class="nav-inline pull-right" role="navigation">
 ```
 
 Another method of reuse in SASS is *@extend* so ```.sample{@extend .example;}``` would apply the *.example*'s style declaration to *.sample*.
 
 ### Exercise 5
-Remove the class declaration from the from the footer navigation element then add the following to the bottom of */var/www/about/css/src/main.scss*.
+Remove the class declaration from the from the footer navigation element then add the following to the bottom of *dist/scss/main.scss*.
 ```scss
 #Footer ul[role="navigation"] {
   @extend .nav-inline;
