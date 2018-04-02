@@ -237,15 +237,147 @@ main {
 
 ### Make it Responsive
 
-Use dev tools to toggle the device toolbar (enter mobile testing mode) and choose the responsive option. Set the width to 960px and drag in and out crossing back and fourth over that 960px mark. Notice the padding, we loose all of i under 960px, we can use a media query to set a break telling the page to add a gutter below a certian page width.
+Use dev tools to toggle the device toolbar (enter mobile testing mode) and choose the responsive option. Set the width to 960px and drag in and out crossing back and fourth over that 960px mark. Notice the padding, we loose all of padding under 960px meaning the text runs to the edge of the screen. Popular opinion is that makes for a better read if you can get some seperation from the edge of the screen. You could use a media query and change the page width on a break point sush as below. 
+
+#### Add Gutters to Small Screens
 
 ```css
-@media only screen and (max-width: 600px)  {
+@media only screen and (max-width: 960px)  {
     main {
-        padding: 0 1em;
+        max-width: 90%;
     }
 }
 ```
+
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/a8d8884c747e1794e45cc55b4ef786a06fe00b55) Or you could set the default ```max-width``` to **90%** which is what we will do here.
+
+```css
+  /* For samller screens to not exceed the max screen width */
+  max-width: 90%;
+```
+
+#### Switch to Veritcal Navigation on Small Devices
+
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/0ac63879c014f1c258be71e5e0f4535faf389ec9) It's common practice, on smaller screens, to change from a horizontal navigation in the header to a hidden vertical navigation that appears on a button press. We can do this by setting the nav display to none.
+
+```css
+@media only screen and (max-width: 960px)  {
+    nav {
+        nav {
+            display:none;
+        }
+    }
+}
+```
+
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/60f60ab4f68f3125529c40363fef51135d849a7c) Add an anchor element to the ```header``` element right before the ```nav``` element. This will act as the control to toggle the menu on smaller screens. Give this element and ```id``` attribute with a value value of *toggleMenu*.
+
+```html
+<a id="toggleMenu">Menu<a>
+```
+
+Create a CSS selector for the toggleMenu attribute. This style will be similar to but set breakpoints opposite to that of ```nav``` meaning this will only appear on smal
+
+```css
+
+#toggleMenu {
+  display: none;
+}
+
+@media only screen and (max-width: 960px)  {
+
+  #toggleMenu {
+    display: block;
+    float: right;
+    line-height: 50px;
+  }
+  ...
+```
+
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/c1d7817d7a356f4450b4d293467a428ce63e7ad8) We will cover JavaScript in great detail later, for now copy and paste the following into index.html right before the closing body tag.
+
+```html
+    <script>
+
+      var toggleMenu = document.getElementById('toggleMenu');
+      var nav = document.querySelector('nav');
+      toggleMenu.addEventListener(
+        'click',
+        function(){
+          if(nav.style.display=='block'){
+            nav.style.display='none';
+          }else{
+            nav.style.display='block';
+          }
+        }
+      );
+    </script>
+```
+
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/53cd932bba3279823f34b26b80794c08a4edd316) Now if you reload the page, mave the width to less than 960px and press menu, you notice not much has changed. We will fix this by setting the nav to a block level component.
+
+```css
+@media only screen and (max-width: 960px)  {
+
+  #toggleMenu {
+    display: block;
+    float: right;
+    line-height: 50px;
+  }
+
+  nav {
+      display: none;
+      background: #000;
+  }
+
+  nav ul li a,
+  nav ul li a:link,
+  nav ul li a:visited{
+    display: block;
+    border-bottom: 1px solid #777;
+  }
+}
+```
+
+Reload the page and make sure the resolution in under 960px, press the Menu button. It's now more closley resembles a traditional flyou menu. Make the resolution small and you'll notice the position of the menu changes. To fix this you will absolutly position ```nav``` relative to ```header```.
+
+Start by making assigning the relative position to the ```header``` element. Then assign an absolut position to the ```nav``` element. When an absolute element is the child a relative element the positioning of the absolute element is relative to that of it's parent.
+
+```css
+@media only screen and (max-width: 960px)  {
+
+  header {
+    position: relative;
+  }
+
+  nav {
+    position: absolute;
+    display: none;
+    background: #000;
+  }
+  ...
+```
+
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/1352f688889414017be500c793bdf971d4fe9d56) Next you will want to position the menu. By default the menu will want to position itself in the top left corner. If you were to think of a box as having four boundaries: top, left, right and bottom; then ```top```, ```left```, ```right```, ```bottom``` are commandes that move the top left corner of a target element a set distance from the specified boundaries. In this case we will set top to ```50px``` this will allow it to clear the 50px height of the header element. By setting ```left``` and ```right``` to ```0``` you will stretch nav element to the width of the entire screen.
+
+```css
+@media only screen and (max-width: 960px)  {
+
+  header {
+    position: relative;
+  }
+
+  nav {
+    position: absolute;
+    display: none;
+    background: #000;
+    top: 50px;
+    left: 0;
+    right: 0;
+  }
+  ...
+```
+
 
 ## Lab - Restyle All Pages
 
