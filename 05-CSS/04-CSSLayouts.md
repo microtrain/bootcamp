@@ -1,6 +1,5 @@
 # CSS Layouts
 
-
 ## Floats
 
 
