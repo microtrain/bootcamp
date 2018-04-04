@@ -152,10 +152,9 @@ In this lesson you learned
 
 ## Additional Resources
 
-[Apache Web Server Docs](https://httpd.apache.org/docs/)
-[Building a LAMP Stack on Ubuntu 12.04](https://jasonsnider.com/posts/view/building-a-lamp-stack-on-ubuntu-12-04)
+* [Apache Web Server Docs](https://httpd.apache.org/docs/)
+* [Building a LAMP Stack on Ubuntu 12.04](https://jasonsnider.com/posts/view/building-a-lamp-stack-on-ubuntu-12-04)
 
 ### Udemy
-[Host Your Own Web Development Lab from Home!](https://microtrain.udemy.com/web-design-lab/)
-
-[Next: Apache Basics](05-ApacheBasics.md)
+* [Host Your Own Web Development Lab from Home!](https://microtrain.udemy.com/web-design-lab/)
+* [Next: Apache Basics](05-ApacheBasics.md)
