@@ -119,7 +119,7 @@ In this lesson you learned
 
 
 ## Additional Resources
-* [VIM Book](ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf)
+* <a href="ftp://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf">VIM Book</a>
 * [Chrome Dev Tools](https://developer.chrome.com/devtools)
 * [VSC Docs](https://code.visualstudio.com/docs)
 * [Filezilla Docs](https://wiki.filezilla-project.org/Documentation)
