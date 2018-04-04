@@ -549,7 +549,7 @@ Update the re.sh script such that
 
 ### Extra Credit
 
-Goolge "formatting bash", find and read some results about fomatting output text in bash. Look for things like escape characteers,font colors, bold and italic text, carrige returns/newlines etc. Using this new knowledge improve the output of the error messages so that they may read in a more intuitive, scan friendly manner.
+Google "formatting bash", find and read some results about fomatting output text in bash. Look for things like escape characters,font colors, bold and italic text, carrige returns/newlines etc. Using this new knowledge improve the output of the error messages so that they may read in a more intuitive, scan friendly manner.
 
 ## Questions
 
