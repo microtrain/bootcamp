@@ -203,7 +203,7 @@ In this exercise you learned
 
 ## Additional Resources
 * [Documentation](https://git-scm.com/book/en/v2)
-* [ProGit](https://git-scm.com/book/en/v2).
+* [ProGit](https://git-scm.com/book/en/v2)
 * [3 Git Commands I use every day](https://jason.pureconcepts.net/2016/11/3-everyday-git-commands/)
 
 [Next: Programming Basics](../02-ProgrammingBasics)

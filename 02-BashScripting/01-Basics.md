@@ -376,7 +376,7 @@ When I think of a loop I'm usually thinking about iterating over or parsing out 
 
 For each element in the COMMANDS array where an element is defined by the variable COMMAND, if an element exists (meaning we have not iterated past the end of the list) ```do``` echo the value of COMMAND back to the user otherwise ```break``` the loop or _do echo the value of COMMAND until the list is done_.
 
-Create the file *~/bash/loop.sh* and make it executable
+Create the file */var/www/mtbc/bash/loop.sh* and make it executable
 
 ```sh
 mkdir -p /var/www/mtbc/bash
@@ -549,7 +549,7 @@ Update the re.sh script such that
 
 ### Extra Credit
 
-Goolge "formatting bash", find and read some results about fomatting output text in bash. Look for things like escape characteers,font colors, bold and italic text, carrige returns/newlines etc. Using this new knowledge improve the output of the error messages so that they may read in a more intuitive, scan friendly manner.
+Google "formatting bash", find and read some results about fomatting output text in bash. Look for things like escape characters,font colors, bold and italic text, carrige returns/newlines etc. Using this new knowledge improve the output of the error messages so that they may read in a more intuitive, scan friendly manner.
 
 ## Questions
 

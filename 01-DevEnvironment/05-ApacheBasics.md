@@ -116,14 +116,14 @@ and change them to
 ServerAdmin webmaster@localhost
 
 RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
 # DocumentRoot /var/www
 ```
 * ```RewriteEngine On``` - Activates mod_rewrite
-* ```RewriteCond %{HTTPS} off``` - Check for a conditions, it this case the https protocol is not active
-* ```RewriteRule (.*) https://%{SERVER_NAME}/$1 [R,L]``` - If the condition is true http is rewritten to https.
+* ```RewriteCond %{HTTPS} !=on``` - Check for a conditions, it this case the https protocol is not active
+* ```RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]``` - If the condition is true http is rewritten to https as a permanent redirect.
 * \# DocumentRoot /var/www - Comment out the DocumentRoot directive. While not required it would gaurentee no files get served should the redirect fails (in theory).
 
 

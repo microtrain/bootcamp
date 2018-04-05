@@ -38,8 +38,8 @@ One installation has completed you will be prompted to restart your system. Clic
 You should see a prompt that says _Please remove the installation medium, then press Enter:_.
 Pull the dongle from the USB drive and press the enter key.
 
-[Next: Linux Basics](02-LinuxBasics.md)
-
 ## Summary
 In this lesson you learned
 * how to install Ubuntu Linux (Ubuntu, Linux)
+
+[Next: Linux Basics](02-LinuxBasics.md)
