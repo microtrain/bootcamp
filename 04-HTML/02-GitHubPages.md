@@ -189,6 +189,8 @@ Cascading Style Sheets (CSS) is a language for describing the style of an elemen
 
 ### Exercise 6 - Style an Element
 
+This exercise introduces you to inline styles. Due to there blocking nature we will not use these in production. We will learn more about inline styles in latter leasons.
+
 [</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/9585e5771ff4885b81d17f332f6e6b09de388ac0) Change index.html such that 
 * Text wraps around the image.
 * The image provide some margin between itself the the text.

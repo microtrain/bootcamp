@@ -380,9 +380,9 @@ Start by making assigning the relative position to the ```header``` element. The
 ```
 
 
-## Lab - Restyle All Pages
+## Exercise - Restyle All Pages
 
-Apply the new theme to all pages under _/var/www/example.com/public_.
+Apply the new navigation to all pages.
 
 ## Additional Resources
 * [Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
