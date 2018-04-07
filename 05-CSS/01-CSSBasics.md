@@ -108,7 +108,7 @@ a.indigo:visited,{
 
 ### Add a Stylesheet
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/4176f6290178cdce30034c521f360c1100a4035a) In your GitHub Pages project create a directory called *dist* and add the file *main.css*. To the document head in index.html use the [```link```](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) element to reference the stylesheet. 
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/4176f6290178cdce30034c521f360c1100a4035a) In your GitHub Pages project create the directory path *dist/css* and add the file *main.css*. To the document head in index.html use the [```link```](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) element to reference the stylesheet. 
 
 ```html
 <link rel="stylesheet" type="text/css" href="./dist/css/main.css">
