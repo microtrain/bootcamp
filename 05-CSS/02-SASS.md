@@ -87,6 +87,14 @@ sass src/scss/main.scss dist/css/main.css
 
 Later we will learn about the Bootstrap framework. Bootstrap is among the most popular frameworks and as such it gets a lot of criticism. One of the those criticisms is the practice of calling mulitple class on a single element. The claim is that this can reduce load time. Earlier called multiple classes for the top nav ```class="top-nav clearfix"```. The idea here is reusing the clearfix class rather than rewriting it every time we want to use it. Rather that calling two classes we can define a mixin in SASS and reuse it as needed. Now if we need to update our clearfix logic, we can do it in one place and SASS will apply where needed.
 
+### Clearfix
+
+In short, clearfix is a common hack used by front end developers to solve the problem of using floats in a way they were never indtended to be used.
+
+* [CodePan](https://codepen.io/jasonsnider/pen/QmJqbb) Floating grid without a clearfix
+* [CodePan](https://codepen.io/jasonsnider/pen/vRQeKv) Floating grid with clearfix
+
+
 ## Exercise 4
 
 Create a mix for clearfix by adding the following to the top of *dist/main.scss*.
@@ -205,4 +213,6 @@ Add the following classes to main.scss update the style declarations so that red
 }
 ```
 
-[SASS Reference](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
+## Additional Resources
+* [SASS Reference](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
+* [Why .clearfix](https://stackoverflow.com/questions/9543541/what-does-the-clearfix-class-do-in-css)

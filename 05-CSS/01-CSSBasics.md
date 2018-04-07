@@ -111,7 +111,7 @@ a.indigo:visited,{
 [</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/4176f6290178cdce30034c521f360c1100a4035a) In your GitHub Pages project create a directory called *dist* and add the file *main.css*. To the document head in index.html use the [```link```](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) element to reference the stylesheet. 
 
 ```html
-<link rel="stylesheet" type="text/css" href="./dist/main.css">
+<link rel="stylesheet" type="text/css" href="./dist/css/main.css">
 ```
 
 You can verify the file loads by checking networking tab in dev tools.
@@ -120,7 +120,7 @@ You can verify the file loads by checking networking tab in dev tools.
 
 [</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/7f785b482d30531da730bb383c4c2bb17fef38e7) We will start by removing the inlie style we added to our index.html file. We will start by adding an avatar class to our stylesheet.
 
-**dist/main.css**
+**dist/css/main.css**
 ```css
 .avatar {
   border-radius: 50%; 
