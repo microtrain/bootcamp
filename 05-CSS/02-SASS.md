@@ -68,7 +68,7 @@ Open the file */var/www/mtbc/scss/var.css* amd verify your changes.
 
 ## Exercise 3 - Implement sass in your project
 
-Move *dist/main.css* to *src/scss/main.scss*
+Move *dist/css/main.css* to *src/scss/main.scss*
 
 ```sh
 cd /var/www/YOUR-GITHUB-USERNAME.github.io
@@ -97,7 +97,7 @@ In short, clearfix is a common hack used by front end developers to solve the pr
 
 ## Exercise 4
 
-Create a mix for clearfix by adding the following to the top of *dist/main.scss*.
+Create a mixin for clearfix by adding the following to the top of *dist/scss/main.scss*.
 ```scss
 /* mixins */
 /* clear floats */
