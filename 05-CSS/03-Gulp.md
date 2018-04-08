@@ -58,7 +58,6 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var merge = require('merge-stream');
 var scss = require('gulp-scss');
-var fs = require('fs');
 
 gulp.task('default', ['watch']);
 

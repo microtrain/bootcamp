@@ -1,10 +1,10 @@
 # SASS
 
-SASS is a a CSS preprocessor is a superset of CSS which means all CSS syntax is considered valid _.scss_ it's a superset because because it extends CSS with programming like capabilities; variables and limited control statements. This is advantageous especially when building large front-end frameworks such [Bootstrap](http://getbootstrap.com/) or creating a product with a customizable theme. For example, Bootstrap has a common color for showing danger or errors _#a94442_. If we were to change that color globally we would have to track down every instance of the color and change it manually or we could make a single change to the variable that holds that color.
+SASS is a a CSS preprocessor is a superset of CSS which means all CSS syntax is considered valid _.scss_ it's a superset because because it extends CSS with programming like capabilities; variables and limited control statements. This is advantageous especially when building large front-end frameworks such [Bootstrap](http://getbootstrap.com/) or creating a product with a customizable theme. For example, Bootstrap has a deafult shade of red _#dc3545_ <sup>1</sup>. If we were to change that color globally we would have to track down every instance of the color and change it manually or we could make a single change to the variable that holds that color.
 
 ### Install [Sass](http://sass-lang.com/)
 
-since sass is written in ruby we will use gem for the install. Install scss linter, as this is a helpful tool.
+Install ruby-sass via apt.
 
 ```sh
 sudo apt-get install ruby-sass
@@ -14,90 +14,138 @@ Variables in Sass. Sass denotes variables with a _$_ dollar sign. For these less
 
 ### Exercise 1 - Sass Variables
 
-Create the path */var/www/mtbc/scss/var.scss* and add the following lines.
+Create the paths */var/www/mtbc/scss/index.html* and */var/www/mtbc/scss/main.scss* and add the following to *index.html*,
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>SASS DEMO</title>
+       <link href="./main.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+        <h1>SASS DEMO</h1>
+
+        <h2>FOUR COLUMN GRID</h2>
+        <div class="row">
+          <div class="col">ONE</div>
+          <div class="col">TWO</div>
+          <div class="col">THREE</div>
+          <div class="col">FOUR</div>
+        </div>
+        <div class="row">
+          <div class="col">FIVE</div>
+          <div class="col">SIX</div>
+          <div class="col">SEVEN</div>
+          <div class="col">EIGHT</div>
+        </div>
+
+        <h2>TEXT CLASSES</h2>
+        <div class="text-success">Success Text</div>
+        <div class="text-error">Error Text</div>
+        <div class="text-warning">Warning Text</div>
+
+        <h2>MESSAGE CLASSES</h2>
+        <div class="message">Default Message</div>
+        <div class="message-success">Success Message</div>
+        <div class="message-error">Error Message</div>
+        <div class="message-warning">Warning Message</div>
+
+    </body>
+</html>
+```
+
+Load the page [https://localhost/mtbc/sass](https://localhost/mtbc/sass). Then add the following the to *main.scss*
 
 ```scss
-$font-stack:    "Helvetica Neue",Helvetica,Arial,sans-serif;
+/* variables */
+
+$primary-font-stack: "Helvetica Neue",Helvetica,Arial,sans-serif;
 $primary-color: #333;
 
-body {
-  font: 100% $font-stack;
-  color: $primary-color;
+/* universal settings */
+
+* {
+  box-sizing: border-box;
 }
+
+body {
+  font: 100% $primary-font-stack;
+  color: $primary-color;
+
+  margin: 0 auto;
+  padding: 0;
+  width: 1170px;
+}
+
 ```
+
+Compilation is the next step. From the command line we will compile sass into css.
 
 ```sh
-sass /var/www/mtbc/scss/var.scss /var/www/mtbc/css/var.css
+sass /var/www/mtbc/scss/main.scss /var/www/mtbc/css/main.css
 ```
 
-This will create the file var.css which is a compiled version of your scss file.
+This will create the file main.css which is a compiled version of your scss file.
 
 ```css
+* {
+  box-sizing: border-box;
+}
+
 body {
   font: 100% "Helvetica Neue",Helvetica,Arial,sans-serif;
-  color: #333; }
+  color: #333; 
+  
+  margin: 0 auto;
+  padding: 0;
+  width: 1170px;
+}
 ```
 
 ### Exercise 2 - Live Reload / Watch a File
 
-The down side to a preprocessor is the compilation step. This takes time and slows down development. We remedy this by creating a *watcher* this watches a target file for changes and rebuilds it's CSS version in the background. This is one less thing you need to think about which can help keep you in flow. Open a split console window and run the following command in one of the panels.
+The downside to a preprocessor is the compilation step. This takes time and slows down development. We remedy this by creating a *watcher* this watches a target file for changes and rebuilds it's CSS version in the background. This is one less thing you need to think about which can help keep you in flow. Open a split console window and run the following command in one of the panels.
 
 ```sh
-sass --watch /var/www/mtbc/scss/var.scss:/var/www/mtbc/css/var.css
+sass --watch /var/www/mtbc/scss/main.scss:/var/www/mtbc/css/main.css
 ```
 
 You will see the following output
 ```sh
 >>> Sass is watching for changes. Press Ctrl-C to stop.
   directory ~/scss
-      write ~/scss/var.css
-      write ~/scss/var.css.map
+      write ~/scss/main.css
+      write ~/scss/main.css.map
 
 ```
 
 In the second panel open the scss file in vim, make a change and save it using [esc] then ```:x```; You'll notice a change in the first console window with the following output.
 
 ```sh
->>> Change detected to: var.scss
-      write ~/scss/var.css
-      write ~/scss/var.css.map
+>>> Change detected to: main.scss
+      write ~/scss/main.css
+      write ~/scss/main.css.map
 
 ```
 
-Open the file */var/www/mtbc/scss/var.css* amd verify your changes.
-
-## Exercise 3 - Implement sass in your project
-
-Move *dist/css/main.css* to *src/scss/main.scss*
-
-```sh
-cd /var/www/YOUR-GITHUB-USERNAME.github.io
-mkdir -p src/scss
-mkdir -p dist/css
-mv dist/css/main.css src/scss/main.scss
-```
-
-Then compile the sass file
-
-```sh
-sass src/scss/main.scss dist/css/main.css
-```
+Open the file */var/www/mtbc/scss/main.css* and verify your changes.
 
 ## Mixins
 
-Later we will learn about the Bootstrap framework. Bootstrap is among the most popular frameworks and as such it gets a lot of criticism. One of the those criticisms is the practice of calling mulitple class on a single element. The claim is that this can reduce load time. Earlier called multiple classes for the top nav ```class="top-nav clearfix"```. The idea here is reusing the clearfix class rather than rewriting it every time we want to use it. Rather that calling two classes we can define a mixin in SASS and reuse it as needed. Now if we need to update our clearfix logic, we can do it in one place and SASS will apply where needed.
+Later we will learn about the Bootstrap framework. Bootstrap is among the most popular frameworks and as such it gets a lot of criticism. One of the those criticisms is the practice of calling mulitple class on a single element. The claim is that this can increase load time. For example styling a button in Bootstrap often looks as follows ```class="btn btn-default btn-xs"```. The idea is the it would be faster to combine all of those classes into a single definition in which case something like ```class="btn-default-xs"``` would load faster. In native CSS this would mean having a lot of duplicate code. SASS allows us to reuse style deifintions, meaning we can write them once a call them as many times as we need to. This means we can globally chane an entire style sheet by changing only one line of code. Rather that calling multiple classes we can define mixins and extend base classes making all of our code reusable..
 
 ### Clearfix
 
-In short, clearfix is a common hack used by front end developers to solve the problem of using floats in a way they were never indtended to be used.
+I have always viewed ```.clearfix``` as a containment element for any number of floats. Meaning if you apply clearfix to a parent element any child element, that is has a float property, cannot escape the parent element.  ```.clearfix``` is a common hack used by front end developers to solve the problem of using floats in a way they were never indtended to be used<sup>2</sup>.
 
 * [CodePan](https://codepen.io/jasonsnider/pen/QmJqbb) Floating grid without a clearfix
 * [CodePan](https://codepen.io/jasonsnider/pen/vRQeKv) Floating grid with clearfix
 
 
-## Exercise 4
+## Exercise 3
 
-Create a mixin for clearfix by adding the following to the top of *dist/scss/main.scss*.
+Create a ```.clearfix``` mixin by adding the following to the top of *main.scss*.
 ```scss
 /* mixins */
 /* clear floats */
@@ -110,29 +158,28 @@ Create a mixin for clearfix by adding the following to the top of *dist/scss/mai
 }
 ```
 
-Then change the style declarations for to *.clearfix*, *.top-nav* and *#Footer* to the following.
-```scss
-.clearfix {
-    @include clearfix();
-}
+Then you can create two classes applying ```clearfix()``` to both classes. We will go ahead and add a column class. We will discuss columns in greater detail in later lessons. For now we will use to demo other concepts.
 
-.row() {
-  display: flex;
+```scss
+/* Utility Classes */
+
+.clearfix {
   @include clearfix();
 }
 
-nav.top-nav {
-    text-align: center;
-    background: #aaa;
-    @include clearfix();
+/** Rows and Columns */
+.row {
+  @include clearfix();
 }
 
-#Footer {
-    background: #000;
-    color: #fff;
-    padding: 1em;
-    margin: 0;
-    @include clearfix();
+.col {
+  float: left;
+  width: 25%;
+  padding: .5rem;
+
+  /* debug */
+  border: 1px solid #990000;
+  background: #fff;
 }
 ```
 
@@ -145,34 +192,9 @@ Other examples of calling multiple classes is in the footer navigation as well a
 
 Another method of reuse in SASS is *@extend* so ```.sample{@extend .example;}``` would apply the *.example*'s style declaration to *.sample*.
 
-### Exercise 5
-Remove the class declaration from the from the footer navigation element then add the following to the bottom of *dist/scss/main.scss*.
-```scss
-#Footer ul[role="navigation"] {
-  @extend .nav-inline;
-  @extend .pull-right;
-}
-```
-Repeat this process for the navigation inside of *.top-nav*.
+## Exercise 4 - Add Response Classes (15 minutes)
 
-Update ```#Sidebar``` and ```#Content``` to the following.
-```css
-#Sidebar {
-    width: 340px;
-    background: #cdcdcd;
-    @extend .col;
-}
-
-#Content {
-    width: 830px;
-    background: #fff;
-    @extend .col;
-}
-```
-
-## Lab - Add Response Classes
-
-Add the following classes to main.scss update the style declarations so that redundant values are called as a variable. Apply these class to error and success messages produced after the form submit in contact.php.
+Add the following classes to main.scss update the style declarations so that redundant values are called as variables.
 
 ```scss
 .text-success {
@@ -213,6 +235,42 @@ Add the following classes to main.scss update the style declarations so that red
 }
 ```
 
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+       <title>SASS DEMO</title>
+    </head>
+    <body>
+        <nav class="top-nav"></nav>
+        <div id="Sidebar"></div>
+        <div id="Content"></div>
+        <div id="Footer"></div>
+    </body>
+</html>
+
+```
+
+## Exercise 5 - Implement sass in your project
+
+Move *dist/css/main.css* to *src/scss/main.scss*
+
+```sh
+cd /var/www/YOUR-GITHUB-USERNAME.github.io
+mkdir -p src/scss
+mv dist/css/main.css src/scss/main.scss
+```
+
+Then compile the sass file
+
+```sh
+sass src/scss/main.scss dist/css/main.css
+```
+
 ## Additional Resources
 * [SASS Reference](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)
-* [Why .clearfix](https://stackoverflow.com/questions/9543541/what-does-the-clearfix-class-do-in-css)
+* [MDN CSS Clear](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)
+
+## References
+1. [bootstrap/scss/_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)
+1. [What Does the Clearfix Class Do in Css?](https://stackoverflow.com/questions/9543541/what-does-the-clearfix-class-do-in-css)
