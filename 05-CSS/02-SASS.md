@@ -192,7 +192,7 @@ Other examples of calling multiple classes is in the footer navigation as well a
 
 Another method of reuse in SASS is *@extend* so ```.sample{@extend .example;}``` would apply the *.example*'s style declaration to *.sample*.
 
-## Exercise 4 - Add Response Classes (15 minutes)
+## Exercise 4 - Add Response Classes (Quick Lab 15 minutes)
 
 Add the following classes to main.scss update the style declarations so that redundant values are called as variables.
 
@@ -233,22 +233,6 @@ Add the following classes to main.scss update the style declarations so that red
   border-color: #a94442;
   color: #a94442;
 }
-```
-
-```html
-<!DOCTYPE html>
-<html>
-    <head>
-       <title>SASS DEMO</title>
-    </head>
-    <body>
-        <nav class="top-nav"></nav>
-        <div id="Sidebar"></div>
-        <div id="Content"></div>
-        <div id="Footer"></div>
-    </body>
-</html>
-
 ```
 
 ## Exercise 5 - Implement sass in your project
