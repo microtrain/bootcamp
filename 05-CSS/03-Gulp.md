@@ -11,8 +11,8 @@ sudo npm install -g gulp
 ```
 
 ## Confirue NPM for you local project
-Add a package.json
-package.json
+Add a file named package.json to you GitHub Pages project. This must be added to the projects top level directory. Gulp is built in NodeJS and lives in the NPM ecosystem. You run a series of NPM commands to initialize you project as an NPM project and intall each dependency manually or you can use a prebuilt config file. The latter is the path we will take for this project. Add the following to you package.json file.
+
 ```json
 {
   "name": "YOUR-GITHUB-USERNAME.github.io",
@@ -37,6 +37,8 @@ package.json
 
 ### Install all Packages
 
+By virtue of having a package.json file your project is an NPM project. At this point we have deinfed the project dependencies; now we need to install them. Run the following from the command line. 
+
 ```sh
 cd /var/www/YOUR-GITHUB-USERNAME/github.io
 npm install
@@ -44,10 +46,17 @@ npm install
 
 ### .gitignore
 
-Create a .gitignore file
+Git will stage every file it sees. There are cases in which you project requres files that you will never want to stage and commit. You can try to track these manually but that will inevitably fail. Add a file called .gitignore to your project and these files will not available for staging. Create a file called .gitignore in the top level of your project and add the following.
 
+```git
+node_modules
+.gulp-scss-cache
+.sass-cache
+```
 
 ## gulpfile.js
+
+Gulp is an ES6 (JavaScript) script designed for frontend compilations. These are typically written as small, single script programs.
 
 ```js
 var gulp = require('gulp');
@@ -62,6 +71,7 @@ var scss = require('gulp-scss');
 gulp.task('default', ['watch']);
 
 gulp.task('build-css', function(){
+  //Create an unminified version
   var full = gulp.src([
     'src/scss/main.scss'
   ])
@@ -69,6 +79,7 @@ gulp.task('build-css', function(){
   . pipe(concat('main.css'))
   . pipe(gulp.dest('dist/css'));
 
+  //Create a minified version
   var min = gulp.src([
     'src/scss/main.scss'
   ])
@@ -83,4 +94,18 @@ gulp.task('build-css', function(){
 gulp.task('watch', function(){
   gulp.watch('./public/src/scss/**/*.scss', ['build-css']);
 });
+```
+
+Run any of the following commands execute your Gulp script.
+
+```sh
+gulp
+gulp watch
+gulp build-css
+```
+
+Since we defined ```gulp watch``` as our NPM start up script you can use ```npm start``` execute the watcher.
+
+```sh
+npm start
 ```
