@@ -219,6 +219,18 @@ $message = 'Good ' . (date("H")<12?'Morning':(date("H")<17?'Afternoon':'Evening'
 echo $greeting->greet($message);
 ```
 
+### Exercise 3 - example.com
+
+Start by making a copy of your GitHub pages project
+
+```sh
+cd /var/www
+mkdir -p example.com/public
+cp /var/www/YOUR-GITHUB-USERNAME /var/www/example.com
+```
+
+Move src, dist and all html files into the public directory. 
+
 ## Additional Resources
 * [Object Oriented PHP for Beginners](https://www.killerphp.com/tutorials/object-oriented-php/)
 * [PHP Shorthand If/Else Using Ternary Operators (?:)](https://davidwalsh.name/php-shorthand-if-else-ternary-operators)

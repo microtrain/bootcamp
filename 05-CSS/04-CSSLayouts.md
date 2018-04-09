@@ -23,3 +23,14 @@ Three ways to do one layout.
 **Additional CSS Grid Examples**
 * [CSS Responsive 3 to 2/1 Column Grid](https://codepen.io/jasonsnider/pen/Kowobg)
 * [CSS Responsive 6 Column Grid](https://codepen.io/jasonsnider/pen/MVYVMm)
+
+## Lab - Add Gulp to Your GitHub Pages site
+
+* Add Gulp to your GitHub pages project
+* Your GitHub Pages project must now contain an src and a dist directory
+* All new CSS must be written to src and compiled into dist
+
+Using all the techniques we have elarned thus for style your resume so that it looks like the template.
+
+## Additional Reading
+* [Modern CSS Explained For Dinosaurs](https://medium.com/actualize-network/modern-css-explained-for-dinosaurs-5226febe3525)

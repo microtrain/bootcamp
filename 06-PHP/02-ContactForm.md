@@ -28,22 +28,22 @@ Create the path */var/www/example.com/public/contact.html*
       </div>
 
       <div>
-        <label for="lastName" id="lastName">Last Name</label><br>
+        <label for="lastName" id="lastName">Last Name</label>
         <input type="text" name="last_name">
       </div>
 
       <div>
-        <label for="email" id="email">Email</label><br>
+        <label for="email" id="email">Email</label>
         <input type="text" name="email">
       </div>
 
       <div>
-        <label for="subject" id="subject">Subject</label><br>
+        <label for="subject" id="subject">Subject</label>
         <input type="text" name="subject">
       </div>
 
       <div>
-        <label for="message" id="message">Message</label><br>
+        <label for="message" id="message">Message</label>
         <textarea name="message"></textarea>
       </div>
 
