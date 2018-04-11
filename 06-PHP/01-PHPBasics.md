@@ -10,8 +10,8 @@ sudo vim /etc/php/7.0/apache2/php.ini
 
 Find the _display_errors_ directive by typing _\display_errors =_ in vim. This will be around line 426 enter insert mode and change *display_errors = Off* to *display_errors = On* then restart Apache.
 
-**Security Check Point**
-_It is never advisable to show errors in a productions environment. This provides information to hackers that can be used to compromise your system._
+>**Security Check Point**  
+>It is never advisable to show errors in a productions environment. This provides information to hackers that can be used to compromise your system._
 
 ## Hello World
 
