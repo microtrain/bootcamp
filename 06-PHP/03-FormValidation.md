@@ -204,9 +204,13 @@ Explain the code to the class.
         1. If no errors, send the user to a thank you page
 
 2.1 - Loop through each form feild and test that field for errors.
+
 2.2 - Set truthy/falsey value or a boolean on error. This will tell the system how to rpoceed after the form is processed.
+
 2.2.1 - See 2.2
+
 2.2.2 - Store each error in an array using the the name of the field as the array key. The value will be the error message to display to the user. The form will call a method in the validate array using the name of the field as the argument. This will retireve any error messages for that field.
+
 2.2.3 - Store POST data in an instance varaible using key value pairs in which the key is the name of the form field and value is the user submitted data. Set the value attribute of each form field to a method in the Validate class and pass the name of the field as the methods argument. This will retrieve the original data as submitted by the user and pre-populate that form field.
 
 ```php
