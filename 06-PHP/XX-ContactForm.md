@@ -208,7 +208,38 @@ class Validate{
     }
 }
 
-$valid = new Validate();
+$input = filter_input_array(INPUT_POST);
+
+if(!empty($input)){
+
+    $valid = new Validate();
+
+    $valid->validation = [
+        'email'=>[[
+                'rule'=>'email',
+                'message'=>'Please enter a valid email'
+            ],[
+                'rule'=>'notEmpty',
+                'message'=>'Please enter an email'
+        ]],
+        'name'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please enter your first name'
+        ]],
+        'message'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please add a message'
+        ]],
+    ];
+
+    $valid->check($input);
+
+    if(empty($valid->errors)){
+        $message = "<div class=\"message-success\">Your form has been submitted!</div>";
+    }else{
+        $message = "<div class=\"message-error\">Your form has errors!</div>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -220,11 +251,7 @@ $valid = new Validate();
   </head>
   <body>
     <nav><a href="/">Home</a> | <a href="contact.php">Contact</a></nav>
-    <?php if(empty($valid->errors) && !empty($input)): ?>
-      <div>Success!</div>
-    <?php else: ?>
-      <div>You page has errors.</div>
-    <?php endif; ?>
+    <?php echo (!empty($message)?$message:null); ?>
 
     <form method="post" action="contact.php">
 

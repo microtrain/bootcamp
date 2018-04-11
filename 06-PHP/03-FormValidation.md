@@ -9,9 +9,27 @@ Form tags ```<form></form>``` are used for creating forms in HTML. Every form sh
 
 ## Exercise 1 - Create and Inspect a Contact Form
 
-Create the path */var/www/example.com/public/contact.php*
+*/var/www/example.com/public/contact.html*
 
-*/var/www/example.com/public/contact.php*
+Change the action to contact.php
+```html
+<form action="contact.php" method="POST">
+```
+
+Remove the lines
+```html
+<input type="hidden" name="_next" value="https://YOUR-GITHUB-USERNAME.github.io/thanks.html">
+<input type="text" name="_gotcha" style="display:none">
+```
+
+Change _subject to subject and _replyTo to email
+```html
+<input type="hidden" name="_subject" value="New submission!">
+...
+<input id="email" type="text" name="_replyto">  
+```
+
+The end result will be as follows
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -19,38 +37,63 @@ Create the path */var/www/example.com/public/contact.php*
     <meta charset="UTF-8">
     <title>Contact Me - YOUR-NAME</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/css/main.css" type="text/css">
   </head>
   <body>
-    <h1>Contact YOUR-NAME</h1>
-    <form method="post">
-      <div>
-        <label for="firstName">First Name</label><br>
-        <input type="text" name="first_name" id="firstName">
-      </div>
+    <header>
+      <span class="logo">My Website</span>
+      <a id="toggleMenu">Menu</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
 
-      <div>
-        <label for="lastName" id="lastName">Last Name</label><br>
-        <input type="text" name="last_name">
-      </div>
+      <h1>Contact Me - YOUR-NAME</h1>
+      <form action="contact.php" method="POST">
+        
+        <input type="hidden" name="subject" value="New submission!">
+        
+        <div>
+          <label for="name">Name</label>
+          <input id="name" type="text" name="name">
+        </div>
 
-      <div>
-        <label for="email" id="email">Email</label><br>
-        <input type="text" name="email">
-      </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="text" name="email">  
+        </div>
 
-      <div>
-        <label for="subject" id="subject">Subject</label><br>
-        <input type="text" name="subject">
-      </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
 
-      <div>
-        <label for="message" id="message">Message</label><br>
-        <textarea name="message"></textarea>
-      </div>
+        <div>
+          <input type="submit" value="Send">
+        </div>
 
-      <input type="submit">
-
-    </form>
+      </form>
+      
+    </main>
+    <script>
+        var toggleMenu = document.getElementById('toggleMenu');
+        var nav = document.querySelector('nav');
+        toggleMenu.addEventListener(
+          'click',
+          function(){
+            if(nav.style.display=='block'){
+              nav.style.display='none';
+            }else{
+              nav.style.display='block';
+            }
+          }
+        );
+      </script>
   </body>
 </html>
 ```
@@ -215,58 +258,110 @@ class Validate{
 }
 
 $valid = new Validate();
+
+$input = filter_input_array(INPUT_POST);
+
+if(!empty($input)){
+
+    $valid->validation = [
+        'email'=>[[
+                'rule'=>'email',
+                'message'=>'Please enter a valid email'
+            ],[
+                'rule'=>'notEmpty',
+                'message'=>'Please enter an email'
+        ]],
+        'name'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please enter your first name'
+        ]],
+        'message'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please add a message'
+        ]],
+    ];
+
+    $valid->check($input);
+
+    if(empty($valid->errors)){
+        $message = "<div class=\"message-success\">Your form has been submitted!</div>";
+        //header('Location: thanks.php');
+    }else{
+        $message = "<div class=\"message-error\">Your form has errors!</div>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Single Page App with a Validation Class</title>
+    <title>Contact Me - YOUR-NAME</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/css/main.css" type="text/css">
   </head>
   <body>
-    <nav><a href="/">Home</a> | <a href="contact.php">Contact</a></nav>
-    <?php if(empty($valid->errors) && !empty($input)): ?>
-      <div>Success!</div>
-    <?php else: ?>
-      <div>You page has errors.</div>
-    <?php endif; ?>
+  
+    <header>
+      <span class="logo">My Website</span>
+      <a id="toggleMenu">Menu</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <h1>Contact Me - YOUR-NAME</h1>
 
-    <form method="post" action="contact.php">
+      <?php echo (!empty($message)?$message:null); ?>
 
-      <div>
-        <label for="firstName">First Name</label><br>
-        <input type="text" name="first_name" id="firstName">
-        <div style="color: #ff0000;"><?php echo $valid->error('first_name'); ?></div>
-      </div>
+      <form action="contact.php" method="POST">
+        
+        <input type="hidden" name="subject" value="New submission!">
+        
+        <div>
+          <label for="name">Name</label>
+          <input id="name" type="text" name="name" value="<?php echo $valid->userInput('name'); ?>">
+          <div class="text-error"><?php echo $valid->error('name'); ?></div>
+        </div>
 
-      <div>
-        <label for="lastName" id="lastName">Last Name</label><br>
-        <input type="text" name="last_name">
-        <div style="color: #ff0000;"><?php echo $valid->error('last_name'); ?></div>
-      </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" type="text" name="email" value="<?php echo $valid->userInput('email'); ?>">
+          <div class="text-error"><?php echo $valid->error('email'); ?></div>
+        </div>
 
-      <div>
-        <label for="email" id="email">Email</label><br>
-        <input type="text" name="email">
-        <div style="color: #ff0000;"><?php echo $valid->error('email'); ?></div>
-      </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message"><?php echo $valid->userInput('message'); ?></textarea>
+          <div class="text-error"><?php echo $valid->error('message'); ?></div>
+        </div>
 
-      <div>
-        <label for="subject" id="subject">Subject</label><br>
-        <input type="text" name="subject">
-        <div style="color: #ff0000;"><?php echo $valid->error('subject'); ?></div>
-      </div>
-
-      <div>
-        <label for="message" id="message">Message</label><br>
-        <textarea name="message"></textarea>
-        <div style="color: #ff0000;"><?php echo $valid->error('message'); ?></div>
-      </div>
-
-      <input type="submit">
-
-    </form>
+        <div>
+          <input type="submit" value="Send">
+        </div>
+        
+      </form>
+    </main>
+    
+    <script>
+        var toggleMenu = document.getElementById('toggleMenu');
+        var nav = document.querySelector('nav');
+        toggleMenu.addEventListener(
+          'click',
+          function(){
+            if(nav.style.display=='block'){
+              nav.style.display='none';
+            }else{
+              nav.style.display='block';
+            }
+          }
+        );
+      </script>
   </body>
 </html>
 ```
