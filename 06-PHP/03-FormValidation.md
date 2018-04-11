@@ -9,20 +9,20 @@ Form tags ```<form></form>``` are used for creating forms in HTML. Every form sh
 
 ## Exercise 1 - Create and Inspect a Contact Form
 
-*/var/www/example.com/public/contact.html*
+Rename *public/contact.html* to *public/contact.php*  and complete the following three steps.
 
-Change the action to contact.php
+**1. Change the action to contact.php**
 ```html
 <form action="contact.php" method="POST">
 ```
 
-Remove the lines
+**2. Remove the lines**
 ```html
 <input type="hidden" name="_next" value="https://YOUR-GITHUB-USERNAME.github.io/thanks.html">
 <input type="text" name="_gotcha" style="display:none">
 ```
 
-Change _subject to subject and _replyTo to email
+**3. Change _subject to subject and _replyTo to email**
 ```html
 <input type="hidden" name="_subject" value="New submission!">
 ...
@@ -194,6 +194,21 @@ Replace the contents of _/var/www/example.com/public/contact.php_ with the follo
 
 Explain the code to the class.
 
+1. The user completes and submits a web form
+1. The system
+    1. Validates each field for errors
+        1. If error return a message to the user
+            1. Show a page level message
+            1. Show each field level mesasge
+            1. Do not clear the form data on error
+        1. If no errors, send the user to a thank you page
+
+2.1 - Loop through each form feild and test that field for errors.
+2.2 - Set truthy/falsey value or a boolean on error. This will tell the system how to rpoceed after the form is processed.
+2.2.1 - See 2.2
+2.2.2 - Store each error in an array using the the name of the field as the array key. The value will be the error message to display to the user. The form will call a method in the validate array using the name of the field as the argument. This will retireve any error messages for that field.
+2.2.3 - Store POST data in an instance varaible using key value pairs in which the key is the name of the form field and value is the user submitted data. Set the value attribute of each form field to a method in the Validate class and pass the name of the field as the methods argument. This will retrieve the original data as submitted by the user and pre-populate that form field.
+
 ```php
 <?php
 
@@ -344,7 +359,7 @@ if(!empty($input)){
         <div>
           <input type="submit" value="Send">
         </div>
-        
+
       </form>
     </main>
     
