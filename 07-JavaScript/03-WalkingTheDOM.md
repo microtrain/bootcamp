@@ -19,6 +19,7 @@ In the previous lesson we used ```document.getElementById();``` this method quer
   The collection then represents a view of the subtree rooted at the collection's root, containing only nodes that match the given filter. The view is linear. In the absence of specific requirements to the contrary, the nodes within the collection must be sorted in tree order. <sup>1</sup>
 
 </blockquote>
+
 ## By ID
 
 *document.getElementById(id_string)*
