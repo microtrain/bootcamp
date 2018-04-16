@@ -4,7 +4,9 @@ The ```canvas``` element was introduced in HTML5, it can be used to draw graphic
 
 Create a GitHub project called draw.
 * Use the [HTML Starter pacakge](https://github.com/stack-x/html-starter) from GitHub.
-  * Add a canvas tag to body
+* Add your new GItHub project as the origin remote.
+* Add a canvas tag to the body.
+* Change the README file.
 ```html
 <canvas id="canvas" height="600px" width="800px"></canvas>
 ```
