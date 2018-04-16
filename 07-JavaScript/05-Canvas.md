@@ -3,10 +3,7 @@
 The ```canvas``` element was introduced in HTML5, it can be used to draw graphics via JavaScript. This can be used for many purposes including games, visualizations, charts, graphs, etc.
 
 Create a GitHub project called draw.
-* Initialize with a ReadMe
-* Add the MIT License  
-* Clone the project to */var/www* and ```cd``` to the draw directory
-* Create the file _/var/www/draw/intro.html_ with a [basic HTML template](../Code/Templates/BasicHTMLTemplate.md).
+* Use the [HTML Starter pacakge](https://github.com/stack-x/html-starter) from GitHub.
   * Add a canvas tag to body
 ```html
 <canvas id="canvas" height="600px" width="800px"></canvas>
