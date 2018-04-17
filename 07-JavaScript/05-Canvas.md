@@ -38,7 +38,7 @@ We will start by drawing a rectangle, the first thing you will want to do is cho
 </script>
 ```
 
-Finally, we will access the [fillRect()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillRect) of our ```ctx``` object.
+Finally, we will access the [```fillRect()```](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillRect) of our ```ctx``` object.
 
 ```
 <script>
