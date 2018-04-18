@@ -35,12 +35,9 @@ $( "#colorChanger" ).on( "click", function( event ) {
 ## Exercise - NASA API
 
 * Get an [API KEY from NASA](https://api.nasa.gov/index.html#getting-started) by filling out the form and checking your email.
-* Create _nasa_ as a git hub project and clone it to _/var/www/_.
-  * Create _nasa_ as a GitHub project.
-* Create the following directory structure
-  * _/var/www/nasa/jquery/index.html_
-  * _/var/www/nasa/jquery/src/css/main.css_
-  * _/var/www/nasa/jquery/src/js/main.js_
+* Clone the html-starter project to */var/www*
+* Rename the project to *nasa*
+* Add the remotes from your newly created GitHub Project.
 
 Create a basic HTML structure and add it to _index.html_. For this example, lets use NPM and those types of tools???
 ```html
@@ -63,7 +60,7 @@ Create a basic HTML structure and add it to _index.html_. For this example, lets
 ```
 
 Let's create an object (and clodure) called apod (Astronomy Picture of the Day). We will make an AJAX call to the API which will return a JSON string, this is what we will use to build the program. We will test our API access by returning the result of the AJAX request to a console log. Press [F12] and find the console tab in your browsers developer tools.
-Add the following to _/var/www/nasa/jquery/src/js/main.js_.
+Add the following to _/var/www/nasa/src/js/main.js_.
 ```js
 var apod = {
     // Application Constructor
@@ -362,18 +359,16 @@ Our code now has a pretty good break down, but I see a couple of more things tha
 
 ## LAB 2 - Convert to Vanilla JS
 NASA API in Vanilla JS
-* Create the following directory structure
-  * _/var/www/nasa/vanilla/index.html_
-  * _/var/www/nasa/vanilla/src/css/main.css_
-  * _/var/www/nasa/vanilla/src/js/main.js_
+* Create the GitHUb project apod-vanilla.
+* Clone html-stater or your exisiting apod project.
+* Rewrite the project without the use of jQuery.
 
 Using the jQuery based code from the previous example as a guide, create the same functionality using vanilla JS. This will give you experience in writing AJAX logic using both jQuery and Vanilla JS.
 
 ## Lab 3 - Port to jQuery
+Create the project draw-jquery.
 Recreate the draw program using jQuery
 
-## Lab 4 - Learn Vue.js on your own.
-[vue.js](https://vuejs.org/v2/guide/) is a popular front end MVC framework in the same class as react or angular. See if you port the NASA API into vue.js with nothing more than the knowledge acquired thus far and Google. If you don't get through it you can come back to it later. I do recommend trying to get through this at some point as learning new technologies on your own is a major part of this industry.
 
 ## Additional Resources
 * [jQuery](https://jquery.com/)
