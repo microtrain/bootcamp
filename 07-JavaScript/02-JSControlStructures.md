@@ -281,6 +281,7 @@ switch (color) {
     break;
   default:
     console.log('Sorry, I cannot determine the color');
+    break;
 }
 
 </script>
