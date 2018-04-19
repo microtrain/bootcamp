@@ -62,4 +62,7 @@ Table A may (or must) have one or more corresponding rows in table B and table B
 * [To ORM or Not to ORM](https://www.reddit.com/r/PHP/comments/164r3w/to_orm_or_not_to_orm/)
 * [ORM Hate](https://martinfowler.com/bliki/OrmHate.html)
 
+### Udemy
+* [The Complete MySQL Developer Course](https://microtrain.udemy.com/the-complete-mysql-developer-course/)
+
 [Next: Working with MySQL](03-WorkingWithMySQL.md)
