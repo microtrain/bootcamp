@@ -38,6 +38,11 @@ $( "#colorChanger" ).on( "click", function( event ) {
 * Clone the html-starter project to */var/www*
 * Rename the project to *nasa*
 * Add the remotes from your newly created GitHub Project.
+* Install your NPM dependencies
+* Install normalize.css (NPM)
+* Install JQuery (NPM)
+* Add normalize.css and jQuery to your Gulp file
+* Start your watcher
 
 Create a basic HTML structure and add it to _index.html_. For this example, lets use NPM and those types of tools???
 ```html
@@ -45,22 +50,19 @@ Create a basic HTML structure and add it to _index.html_. For this example, lets
 <html>
   <head>
     <meta charset="utf-8">
-    <title>NASA - Planet of the Day</title>
-    <link rel="stylesheet" href="src/css/main.css">
+    <title>NASA - Astronomy Picture of the Day
+  </title>
+    <link rel="stylesheet" href="./dist/css/main.css">
   </head>
   <body>
-
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.min.js"
-      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-      crossorigin="anonymous"></script>
-    <script src="src/js/main.js"></script>
+    
+    <script src="./dist/js/main.js"></script>
   </body>
 </html>
 ```
 
-Let's create an object (and clodure) called apod (Astronomy Picture of the Day). We will make an AJAX call to the API which will return a JSON string, this is what we will use to build the program. We will test our API access by returning the result of the AJAX request to a console log. Press [F12] and find the console tab in your browsers developer tools.
-Add the following to _/var/www/nasa/src/js/main.js_.
+Let's create an object (and clos ure) called apod (Astronomy Picture of the Day). We will make an AJAX call to the API which will return a JSON string, this is what we will use to build the program. We will test our API access by returning the result of the AJAX request to a console log. Press [F12] and find the console tab in your browsers developer tools.
+Add the following to _src/js/main.js_.
 ```js
 var apod = {
     // Application Constructor
@@ -81,7 +83,7 @@ var apod = {
 apod.init();
 ```
 
-and add the follow to _main.css_.
+and add the follow to _src/scss/main.scss_.
 ```css
 body {
   padding: 0;
@@ -103,7 +105,7 @@ div[id^=apod] {
 }
 
 /* https://alistapart.com/article/creating-intrinsic-ratios-for-video */
-/* 9/16 = 56.2
+/* 9/16 = 56.2 */
 .video {
 	position: relative;
 	padding-bottom: 56.25%; /* Assumes a 16:9 ratio */
@@ -126,6 +128,7 @@ If eveything worked you will see results similar to the following.
 In looking at the JSON data you'll notice a date field. By default only pull today's picture, looking at the query parameters section in the [API documentation](https://api.nasa.gov/api.html#apod) I see I can pass a date in the form of _YYYY-MM-DDD_ as an additional GET parameter. To make things interesting lets add pass a random date every time we call the API.
 
 Add a random date function to the apod object. A good place to start would be [MDN's date documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). A qucik Google search will return [this gist](https://gist.github.com/miguelmota/5b67e03845d840c949c4) which provides us a good randomizer for an unformatted date in between a given start and date. This is important because the date cannot be greater than today or less that the first apod _June 16, 1995_.
+
 ```js
 //Create a random date
 randomDate: function(start, end) {
