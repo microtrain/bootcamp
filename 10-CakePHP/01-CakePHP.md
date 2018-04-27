@@ -17,9 +17,9 @@ View's are the presentation layer. Views will typically be HTML but can be anyth
 ### Controller
 
 ## CRUD
-<!--
+
 ## Migrations
--->
+
 ## Installation
 First make sure you have installed internationalization functions for PHP.
 ```sh
