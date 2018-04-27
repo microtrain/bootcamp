@@ -17,7 +17,7 @@ View's are the presentation layer. Views will typically be HTML but can be anyth
 ### Controller
 
 ## CRUD
-
+<!--
 ## Migrations
 -->
 ## Installation
