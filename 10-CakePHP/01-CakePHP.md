@@ -16,15 +16,19 @@ View's are the presentation layer. Views will typically be HTML but can be anyth
 
 ### Controller
 
+Business and application logic.
+
 ## CRUD
 
+Create, Read, Update, Delete
+
 ## Migrations
+Rolling snapshots of the database structure. These allow you migrate your database's strucutre forward and backwards across snapshots.
 
 ## Installation
 First make sure you have installed internationalization functions for PHP.
 ```sh
 sudo apt-get install php-intl
-
 ```
 
 Create a CakePHP project via composer. Sticking with the _example.com_ nomenclature we will call this one _cake.example.com_.
@@ -34,18 +38,18 @@ composer create-project --prefer-dist cakephp/app cake.example.com
 ```
 
 Answer yes to the following
-```
+```sh
 Set Folder Permissions ? (Default to Y) [Y,n]?
 ```
 
 ## Your First App
 Move into the new project folder
-```
+```sh
 cd cake.example.com
 ```
 
 Spin up a development web server.
-```
+```sh
 bin/cake server
 ```
 
