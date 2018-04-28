@@ -24,9 +24,8 @@ Default values define what is to be entered if no value is present. This may be 
 
 A primary key is unique index for a row of data. The most common primary key is a simple id. This can be an [auto-incrementing](https://dev.mysql.com/doc/refman/5.7/en/example-auto-increment.html) number, a universally unique identifier [(UUID)](https://en.wikipedia.org/wiki/Universally_unique_identifier) or any other bit of unique data such an email address.
 
-__Security Checkpoint__
-
-_I have seen a number of systems that ask for sensitive data such as social security or employer identification numbers simply because that is the only way they could think of not to risk duplicate data. Think twice before doing this, if your business does not absolutely require this sort of information do not even think about storing it. If it is required, please consult a security professional._
+>**Security Checkpoint**  
+>I have seen a number of systems that ask for sensitive data such as social security or employer identification numbers simply because that is the only way they could think of not to risk duplicate data. Think twice before doing this, if your business does not absolutely require this sort of information do not even think about storing it. If it is required, please consult a security professional.
 
 ## Additional Resources
 * [NoSQL Not Only SQL](http://searchdatamanagement.techtarget.com/definition/NoSQL-Not-Only-SQL)
@@ -35,6 +34,6 @@ _I have seen a number of systems that ask for sensitive data such as social secu
 
 ### Udemy
 
-(SQL for Beginners)[https://microtrain.udemy.com/sql-for-beginners-course/)
+* [SQL for Beginners](https://microtrain.udemy.com/sql-for-beginners-course/)
 
 [Next: MySQL](02-MySQL.md)

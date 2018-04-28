@@ -180,18 +180,37 @@ ORDER BY last_name ASC
 ```
 
 ```sql
-INSERT INTO posts SET id=UUID(), slug='hello', title='Hello';
-INSERT INTO posts SET id=UUID(), slug='hello', title='Hello', created_user_id = '1a804677-7953-11e7-8397-180373ae98cc', modified_user_id='1a804677-7953-11e7-8397-180373ae98cc';
-SELECT * FROM posts, users WHERE posts.created_user_id = users.id ;
+INSERT INTO 
+  posts 
+SET 
+  id=UUID(), 
+  slug='hello', 
+  title='Hello', 
+  user_id = '1a804677-7953-11e7-8397-180373ae98cc';
+
+SELECT 
+  posts.title,
+  CONCAT(first_name, ' ', last_name) AS author
+FROM 
+  posts, 
+  users 
+WHERE 
+  posts.created_user_id = users.id ;
 ```
 
 For full authentication you will want to add password and salt columns 
 * password VARCHAR(60) COMMENT 'A salted hash of the password'
 * salt VARCHAR(128) COMMENT 'User specific salt'
 
-**Security Checkpoint**
+```sql
+ALTER TABLE
+  ADD 
+    password VARCHAR(60) COMMENT 'A salted hash of the password',
+    salt VARCHAR(128) COMMENT 'User specific salt';
+```
 
-Never store a password in plain text, always store a hashed version of the password. Always create a user specific salt this will protect against [ranibow table attacks](https://en.wikipedia.org/wiki/Rainbow_table).
+>**Security Checkpoint**  
+>Never store a password in plain text, always store a hashed version of the password. Always create a user specific salt this will protect against [ranibow table attacks](https://en.wikipedia.org/wiki/Rainbow_table).
 
 ## Additional Resources
 * [Safe Password Hashing](http://php.net/manual/en/faq.passwords.php)

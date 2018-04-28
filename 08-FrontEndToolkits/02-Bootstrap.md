@@ -44,21 +44,19 @@ Add the following to the _.container_ div below the paragraph. View this in both
 </div>
 ```
 
-Add a navigation bar with a logo (just your name is fine).
+* Add a navigation bar with a logo (just your name is fine)
+* Add navigation links
+* Add cards in a grid
+* Add a jumbotron
 
-Add navigation links.
-
-Add a fly out menu to a navigation link.
 
 ## LAB - Personal Website
 
-Add a _bootstrap_ directory to your personal website and redesign the UI using bootstrap.
+Add a _bootstrap_ directory to either example.com or you GitHub Pages project and redesign the UI using bootstrap.
 
-## LAB - Learn a front end library
-
-Using the documentation [Material Design Light](https://getmdl.io/) (and Google) add an _mdl_ directory to your personal website and build an MDL version of your personal web site.
 
 ## Additional Resources
-[Bootstrap](https://getbootstrap.com/)
+* [Bootstrap](https://getbootstrap.com/)
+
 ### Udemy
-[Learn Bootstrap 4 by Example](https://microtrain.udemy.com/learn-bootstrap-4-by-example)
+* [Learn Bootstrap 4 by Example](https://microtrain.udemy.com/learn-bootstrap-4-by-example)

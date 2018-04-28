@@ -57,7 +57,11 @@ Add *cake.example.com* as a project in Atom. Navigate to *config/app.php* this i
 
 ### Setup Your Database
 
-Go to [http://localhost/phpmyadmin](http://localhost/phpmyadmin) and login as with _root:password_. Find the Databases tab and under the _Create database_ header enter _cake_app_ as your first database. This will now ask you to create a table, skip this step and find your way back to the Databases tab and create another database called _cake_test_ you can now close out of phpMyAdmin and return to the _app.php_ file in Atom.
+We will use PhpMyAdmin to create two databases
+* cake_app
+* cake_test
+
+Go to [http://localhost/phpmyadmin](http://localhost/phpmyadmin) and login as with _root:password_. Find the Databases tab and under the _Create database_ header enter *cake_app* as your first database. This will now ask you to create a table, skip this step and find your way back to the Databases tab and create another database called *cake_test* you can now close out of phpMyAdmin and return to the _app.php_ file in Atom.
 
 ![phpMyAdmin](/img/cakephp/createdb.png)
 
@@ -83,6 +87,7 @@ Let's set up an Apache configuration with a local hosts entry for development pu
 ````sh
 sudo vim /etc/apache2/sites-available/cake.example.com.conf
 ````
+
 ```apache
 <VirtualHost 127.0.0.32:80>
 
@@ -143,26 +148,33 @@ We will start by building an Articles CRUD based on CakePHP's [CMS tutorial](htt
 ```sql
 /* First, create our articles table: */
 CREATE TABLE articles (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
+    id VARCHAR(36) PRIMARY KEY,
+    user_id VARCHAR(36) NOT NULL,
     title VARCHAR(255) NOT NULL,
     slug VARCHAR(191) NOT NULL,
     body TEXT,
     published BOOLEAN DEFAULT FALSE,
-    created DATETIME,
-    modified DATETIME,
     created DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'When the post was created',
     modified DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'When the post was last edited',
-    UNIQUE KEY (slug)
+    UNIQUE KEY (slug),
+    KEY (user_id)
 ) ENGINE=INNODB;
 
 /* Then insert some articles for testing: */
-INSERT INTO articles (title,body,created)
-    VALUES ('The title', 'This is the article body.', NOW());
-INSERT INTO articles (title,body,created)
-    VALUES ('A title once again', 'And the article body follows.', NOW());
-INSERT INTO articles (title,body,created)
-    VALUES ('Title strikes back', 'This is really exciting! Not.', NOW());
+INSERT INTO articles (id,user_id,title,slug,body)
+    VALUES ('6f814dc0-4adb-11e8-842f-0ed5f89f718b', '485fc381-e790-47a3-9794-1337c0a8fe68', 'The Title', 'the-title', 'This is the article body.');
+INSERT INTO articles (id,user_id,title,slug,body)
+    VALUES ('6f8155ae-4adb-11e8-842f-0ed5f89f718b', '485fc381-e790-47a3-9794-1337c0a8fe68', 'Hello World', 'hello-world', 'This is the article body again.');
+INSERT INTO articles (id,user_id,title,slug,body)
+    VALUES ('6f815964-4adb-11e8-842f-0ed5f89f718b', '485fc381-e790-47a3-9794-1337c0a8fe68', 'Hello World Again', 'hello-world-again', 'This is the article body again and again.');
+
+/* Stub a users table */
+CREATE TABLE users (
+    id VARCHAR(36) PRIMARY KEY
+) ENGINE=INNODB;
+
+INSERT INTO users (id) VALUES ('485fc381-e790-47a3-9794-1337c0a8fe68');
+
 ```
 
 Since we have the table in our database we can automate the build by *baking* the model. Run the following command and take note of what files get created.
