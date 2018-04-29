@@ -274,7 +274,7 @@ Navigate to the *tests/TestCase/Model/Table* walk through the default test cases
 
 ## Managing Articles
 
-Create the file */src/Controller/ArticlesController.php*
+[</> code](https://github.com/stack-x/cake.example.com/commit/6ddc78996c51b9982292200782f39c717b1b6684) Create the file */src/Controller/ArticlesController.php* and add the following.
 ```php
 <?php
 namespace App\Controller;
@@ -286,6 +286,8 @@ class ArticlesController extends AppController
 ```
 
 ### Add an Index Method
+
+[</> code](https://github.com/stack-x/cake.example.com/commit/ce8594d032d9163017cf5a35c4f930002386970c) The index method will return a paginated list articles and send them a the view.
 
 ```php
 public function index()
@@ -324,6 +326,8 @@ Create the file */src/Template/Articles/index.ctp*
 
 ### Add a View Method
 
+[</> code](https://github.com/stack-x/cake.example.com/commit/e43ab2ea483ab73b2dd6d6fab4bbe97ec058478a)
+
 ```php
 public function view($slug = null)
 {
@@ -337,14 +341,14 @@ public function view($slug = null)
 Create the file */src/Template/Articles/view.ctp*
 ```php
 <h1><?php echo $article->title; ?></h1>
-<p><?php echo $article->body); ?></p>
-<p><small>Created: <?php echo $article->created; ?></small></p>
-<p><?php echo $this->Html->link('Edit', ['action' => 'edit', $article->slug]); ?></p>
+<div>Created: <?php echo $article->created; ?></div>
+<div><?php echo $article->body; ?></div>
+<div><?php echo $this->Html->link('Edit', ['action' => 'edit', $article->slug]); ?></div>
 ```
 
 ## Add an Initialize Method
 
-Since the Flash Component will be reused elsewhere we will add an initialization method and add load our components there.
+[</> code](https://github.com/stack-x/cake.example.com/commit/28ede2eaa70209340af86fad52b901e6686d9c04) Since the Flash Component will be reused elsewhere we will add an initialization method and add load our components there.
 
 ```php
 public function initialize()
@@ -359,24 +363,34 @@ public function initialize()
 ### Add an Create Method
 
 ```php
-$article = $this->Articles->newEntity();
-if ($this->request->is('post')) {
-    $article = $this->Articles->patchEntity($article, $this->request->getData());
+public function create()
+{
+    $article = $this->Articles->newEntity();
+    if ($this->request->is('post')) {
+        $article = $this->Articles->patchEntity($article, $this->request->getData());
+        
+        $article->slug = Text::slug(
+            strtolower(
+                substr($article->title, 0, 191)
+            )
+        );
 
-    if ($this->Articles->save($article)) {
-        $this->Flash->success('Your article has been created.');
-        return $this->redirect(['action' => 'index']);
+        if ($this->Articles->save($article)) {
+            $this->Flash->success('Your article has been created.');
+            return $this->redirect(['action' => 'index']);
+        }
+
+        $this->Flash->error('An error has occured.');
     }
-    $this->Flash->error('An error has occured.');
+    $this->set('article', $article);
 }
-$this->set('article', $article);
 ```
 
 #### Add the View
 
 Create the file */src/Template/Articles/create.ctp*
 ```php
-<h1>Add Article</h1>
+<h1>Create an Article</h1>
 <?php
     echo $this->Form->create($article);
 
