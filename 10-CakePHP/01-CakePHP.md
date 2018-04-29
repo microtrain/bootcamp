@@ -25,7 +25,16 @@ Create, Read, Update, Delete
 ## Migrations
 Rolling snapshots of the database structure. These allow you migrate your database's strucutre forward and backwards across snapshots.
 
+## Create a Repository on GitHub
+
+* Create the  repository *cake.example.com*.
+* **DO NOT** Initialize with a README
+* Add the MIT License
+
+[</> code](https://github.com/stack-x/cake.example.com/commits/master) Initial Commit
+
 ## Installation
+
 First make sure you have installed internationalization functions for PHP.
 ```sh
 sudo apt-get install php-intl
@@ -53,11 +62,11 @@ Spin up a development web server.
 bin/cake server
 ```
 
-and in a browser go to  [http://localhost:8765/](http://localhost:8765/). You will be presented a default home page that shows that gives you plenty of resources to help you learn CakePHP and it will return a system status that makes sure you system is set up correctly. Everything should be green except for the database.
+In a browser go to [http://localhost:8765/](http://localhost:8765/). You will be presented a default home page that shows that gives you plenty of resources to help you learn CakePHP and it will return a system status that makes sure you system is set up correctly. Everything should be green except for the database.
 
 ![default home page](/img/cakephp/default_home.png)
 
-Add *cake.example.com* as a project in Atom. Navigate to *config/app.php* this is the default configuration file for your application. CakePHP stores it configuration as an array, find the _Datasources_ attribute somewhere arounf the the line _220_ (you can use the shortcut [ctrl] + [g] and enter _220_). You will notice two child attributes _default_ and _test_. _default_ holds the configuration for your application's database while test holds the configuration for running unit tests.
+Add *cake.example.com* as a project in Atom. Navigate to *config/app.php* this is the default configuration file for your application. CakePHP stores it configuration as an array, find the *Datasources* attribute somewhere arounf the the line *220* (you can use the shortcut [ctrl] + [g] and enter *220*). You will notice two child attributes *default* and *test*. *default* holds the configuration for your application's database while test holds the configuration for running unit tests.
 
 ### Setup Your Database
 
@@ -87,13 +96,16 @@ _test_
 
 Return to http://localhost:8765/](http://localhost:8765/) and refresh the page, all settings should now be green.
 
+### Configure Apache
+
 Let's set up an Apache configuration with a local hosts entry for development purposes.
+
 ````sh
 sudo vim /etc/apache2/sites-available/cake.example.com.conf
 ````
 
 ```apache
-<VirtualHost 127.0.0.32:80>
+<VirtualHost 127.0.0.101:80>
 
         ServerName loc.cake.example.com
 
@@ -120,7 +132,7 @@ sudo vim /etc/apache2/sites-available/cake.example.com.conf
 Add the following to */etc/hosts*
 
 ```sh
-127.0.0.32      loc.cake.example.com
+127.0.0.101      loc.cake.example.com
 ```
 
 and finally load the new site.
@@ -128,32 +140,95 @@ and finally load the new site.
 sudo a2ensite cake.example.com && sudo service apache2 restart
 ```
 
-Should you encounter any write permission issues
+Navigate to [http://loc.cake.example.com/](http://loc.cake.example.com/) and you should encounter write permission issues. Resolve this by changing ownership of these files to the Apache process (www-data) and Yourself (replace jason with your Ubuntu username).
 ```sh
 sudo chown www-data:jason logs
 sudo chown www-data:jason logs/*
 sudo chown www-data:jason tmp
 sudo chown www-data:jason tmp/*
+sudo chown www-data:jason tmp/*/*
 ```
+
+Return to [http://loc.cake.example.com/](http://loc.cake.example.com/) and all systems should now be a go.
+
+### Merge with the Exisiting GitHub Project
+
+[</> Code](https://github.com/stack-x/cake.example.com/commit/5206abb675ad8decf9664a543e2d3022c42a17f5) Run the following commands, be sure to replace YOUR-GITHUB-USERNAME with your github username.
+
+```sh
+cd /var/www/cake.example.com
+git init
+git remote add origin git@github.com:YOUR-GITHUB-USERNAME/cake.example.com.git
+git pull origin master
+git add .
+git commit -am 'Initial build'
+```
+
+
+### Cake File Structure, Callbacks and Routing
 
 @todo navigate to src, explain the directory structure Model, Views and Controller
 @todo callback methods and lifcycles as it pertains a CakePHP and Programming in general.
 
+
 ## [Blog Tutorial](https://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html)
 
-We will start by building an Articles CRUD based on CakePHP's [CMS tutorial](https://book.cakephp.org/3.0/en/tutorials-and-examples/cms/installation.html). Then we will use Composer to install a user [Authentication plugin](https://github.com/CakeDC/users). Then we will then tie Users to Articles (a blog post).
+We will start by using Composer to install CakeDC's [User Authentication plugin](https://github.com/CakeDC/users). We will then build an Articles CRUD based on CakePHP's [CMS tutorial](https://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html). We will then tie Users to Articles (a blog post). Our lad will apply everything we just learned to building a comment system for our blogging platform. In you console, please navigate to **/var/www/cake.example.com**, this tutorial assumes **/var/www/cake.example.com** as the base path for all cd, file and folder creation commands.
 
-* Login to phpMyAdmin
+### Users
+
+1. We will install the users plugin developed by CakeDC. The documentation is available [here](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Installation.md).
+
+2. Install the core by running.
+
+```sh
+composer require cakedc/users
+```
+
+3. Add the following line to the end of *config/bootstrap.php*, this bootstraps the plugin to application start up.
+```php
+Plugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true]);
+```
+
+4. Use [the migrations plugin](https://book.cakephp.org/3.0/en/migrations.html) to install the required tables.
+
+```sh
+bin/cake migrations migrate -p CakeDC/Users
+```
+5. [</> code](https://github.com/stack-x/cake.example.com) Commit your changes with a message of *Added CakeDC's user plugin*.
+
+
+6. Remove deprication warnings from line 168 of *config/app.php*
+```php
+'errorLevel'=>'E_ALL & ~E_USER_DEPRECATED',
+```
+
+7. Set the mail transport to debug on line 196 of *config/app.php*
+```php 
+'className' => 'Debug',
+```
+
+8. Navigate to [http://loc.cake.example.com/users/users/login](http://loc.cake.example.com/users/users/login) and have a look around. Use the navigation links to find the registration page and create an account.
+
+9. Notice you will not be able to login, this is because you have not yet clicked the autorization link out of your email. THe local server cannot send emails so you will have manually flip that switch in the database.
+
+10. Login to PhpMyAdmin, find your user record in the cake_app database and flip the active and superuser flags to 1.
+
+11. Now return to the login page and try to login. On success you will be redirected to the CakePHP debuggin page.
+
+
+## Add the Database Tables
+
+* Login to phpMyAdmin [https://localhost/phpmyadmin](https://localhost/phpmyadmin)
 * Click into cake > cake_app from the side bar
 * Click on the SQL tab
 * Copy and Paste the following the text area and hit submit
 * Repeat this process for cake > cake_test
 
 ```sql
-/* First, create our articles table: */
+-- First, create our articles table: 
 CREATE TABLE articles (
     id VARCHAR(36) PRIMARY KEY,
-    user_id VARCHAR(36) NOT NULL,
     title VARCHAR(255) NOT NULL,
     slug VARCHAR(191) NOT NULL,
     body TEXT,
@@ -164,65 +239,225 @@ CREATE TABLE articles (
     KEY (user_id)
 ) ENGINE=INNODB;
 
-/* Then insert some articles for testing: */
-INSERT INTO articles (id,user_id,title,slug,body)
-    VALUES ('6f814dc0-4adb-11e8-842f-0ed5f89f718b', '485fc381-e790-47a3-9794-1337c0a8fe68', 'The Title', 'the-title', 'This is the article body.');
-INSERT INTO articles (id,user_id,title,slug,body)
-    VALUES ('6f8155ae-4adb-11e8-842f-0ed5f89f718b', '485fc381-e790-47a3-9794-1337c0a8fe68', 'Hello World', 'hello-world', 'This is the article body again.');
-INSERT INTO articles (id,user_id,title,slug,body)
-    VALUES ('6f815964-4adb-11e8-842f-0ed5f89f718b', '485fc381-e790-47a3-9794-1337c0a8fe68', 'Hello World Again', 'hello-world-again', 'This is the article body again and again.');
 
-/* Stub a users table */
-CREATE TABLE users (
-    id VARCHAR(36) PRIMARY KEY
-) ENGINE=INNODB;
-
-INSERT INTO users (id) VALUES ('485fc381-e790-47a3-9794-1337c0a8fe68');
-
+-- Then insert some articles for testing: 
+INSERT INTO articles (id,user_id,title,slug,body)
+    VALUES ('6f814dc0-4adb-11e8-842f-0ed5f89f718b', 'The Title', 'the-title', 'This is the article body.');
+INSERT INTO articles (id,user_id,title,slug,body)
+    VALUES ('6f8155ae-4adb-11e8-842f-0ed5f89f718b', 'Hello World', 'hello-world', 'This is the article body again.');
+INSERT INTO articles (id,user_id,title,slug,body)
+    VALUES ('6f815964-4adb-11e8-842f-0ed5f89f718b', 'Hello World Again', 'hello-world-again', 'This is the article body again and again.');
 ```
 
-Since we have the table in our database we can automate the build by *baking* the model. Run the following command and take note of what files get created.
+[</> Code](https://github.com/stack-x/cake.example.com/commit/ea597581218496f1aec5f748b29ebe4d463853f5) Since we have the table in our database we can automate the build by *baking* the model. Run the following command and take note of what files get created. In addition to creating an Entity and a Table classes, fixtures and tests will be created, thie will provide a placeholder for building unit tests. 
 
 ```sh
 bin/cake bake model Articles
 ```
 
-You'll notice fixtures and tests are created, this provide a placeholder for building unit tests.
-
 Navigate to the *src/Model* and check out the files in *Entity* and *Article* folders.
 
-Complete the [articles tutorial](https://book.cakephp.org/3.0/en/tutorials-and-examples/cms/articles-controller.html). Do not move on to the Tags and Users tutorial.
+### Unit Test
 
-
-## Users
-
-1. We will install the users plugin developed by CakeDC. The documentation is available [here](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Installation.md).
-
-2. Install the core by running.
+[</> Code](https://github.com/stack-x/cake.example.com/commit/8b1fc8724e411ec254ae7f5c5e71f36540d4059f) Start by installing PHP unit
 ```sh
-cd /var/www/cake.example.com
-composer require cakedc/users
+composer require --dev phpunit/phpunit:"^5.7|^6.0"
 ```
 
-3. Use [the migrations plugin](https://book.cakephp.org/3.0/en/migrations.html) to install the required tables.
-
+Run a unit test for each table
 ```sh
-bin/cake migrations migrate -p CakeDC/Users
+vendor/bin/phpunit tests/TestCase/Model/Table/ArticlesTableTest
 ```
 
-4. Add the following line to the end of *config/bootstrap.php*, this bootstraps the plugin to application start up.
+Navigate to the *tests/TestCase/Model/Table* walk through the default test cases.
+
+
+## Managing Articles
+
+Create the file */src/Controller/ArticlesController.php*
+
+### Add an Index Method
+
 ```php
-Plugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true]);
+public function index()
+{
+    $this->loadComponent('Paginator');
+    $articles = $this->Paginator->paginate($this->Articles->find());
+    $this->set(compact('articles'));
+}
+```
+
+#### Add the View
+
+Create the file */src/Template/Articles/index.ctp*
+
+```php
+<h1>Articles</h1>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Created</th>
+    </tr>
+
+    <?php foreach ($articles as $article): ?>
+    <tr>
+        <td>
+            <?php echo $this->Html->link($article->title, ['action' => 'view', $article->slug]); ?>
+        </td>
+        <td>
+            <?php echo $article->created; ?>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+```
+
+
+### Add a View Method
+
+```php
+public function view($slug = null)
+{
+    $article = $this->Articles->findBySlug($slug)->firstOrFail();
+    $this->set(compact('article'));
+}
+```
+
+#### Add the View
+
+Create the file */src/Template/Articles/view.ctp*
+```php
+<h1><?php echo $article->title; ?></h1>
+<p><?php echo $article->body); ?></p>
+<p><small>Created: <?php echo $article->created; ?></small></p>
+<p><?php echo $this->Html->link('Edit', ['action' => 'edit', $article->slug]); ?></p>
+```
+
+## Add an Initialize Method
+
+Since the Flash Component will be reused elsewhere we will add an initialization method and add load our components there.
+
+```php
+public function initialize()
+{
+    parent::initialize();
+
+    $this->loadComponent('Flash');
+    $this->loadComponent('Paginator');
+}
+```
+
+### Add an Create Method
+
+```php
+$article = $this->Articles->newEntity();
+if ($this->request->is('post')) {
+    $article = $this->Articles->patchEntity($article, $this->request->getData());
+
+    if ($this->Articles->save($article)) {
+        $this->Flash->success('Your article has been created.');
+        return $this->redirect(['action' => 'index']);
+    }
+    $this->Flash->error('An error has occured.');
+}
+$this->set('article', $article);
+```
+
+#### Add the View
+
+Create the file */src/Template/Articles/create.ctp*
+```php
+<h1>Add Article</h1>
+<?php
+    echo $this->Form->create($article);
+
+    echo $this->Form->control('title');
+    echo $this->Form->control('body', ['rows' => '5']);
+    echo $this->Form->button('Save Article');
+    echo $this->Form->end();
+```
+
+### Add an Edit Method
+
+```php
+$article = $this->Articles->findBySlug($slug)->firstOrFail();
+if ($this->request->is(['post', 'put'])) {
+    $this->Articles->patchEntity($article, $this->request->getData());
+    if ($this->Articles->save($article)) {
+        $this->Flash->success('Your article has been updated.');
+        return $this->redirect(['action' => 'index']);
+    }
+    $this->Flash->error('An error has occured.');
+}
+
+$this->set('article', $article);
+```
+
+<!-- -->
+
+#### Add the View
+
+Create the file */src/Template/Articles/edit.ctp*
+```php
+echo $this->Form->create($article);
+echo $this->Form->control('title');
+echo $this->Form->control('body', ['rows' => '5']);
+echo $this->Form->button('Save Article');
+echo $this->Form->end();
+```
+### Add a Delete Method
+
+```php
+    $this->request->allowMethod(['post', 'delete']);
+
+    $article = $this->Articles->findBySlug($slug)->firstOrFail();
+    if ($this->Articles->delete($article)) {
+        $this->Flash->success("The article: {$article->title} has been deleted."));
+        return $this->redirect(['action' => 'index']);
+    }
+```
+
+**NOTE:** The delete does not require a view.
+
+* Add a delete link to the edit view
+* Auto create slug values
+
+```php
+// the Text class
+use Cake\Utility\Text;
+
+// Add the following method.
+
+public function beforeSave($event, $entity, $options)
+{
+    if ($entity->isNew() && !$entity->slug) {
+        $sluggedTitle = Text::slug($entity->title);
+        // trim slug to maximum length defined in schema
+        $entity->slug = substr($sluggedTitle, 0, 191);
+    }
+}
 ```
 
 ### Tie Users to Articles
 
-Add a column called user_id to the articles table and create a foreign key relationship to the users table.
+Add a column called user_id to the articles table .
 
 ```sql
-ALTER TABLE articles ADD user_id INT UNSIGNED NOT NULL DEFAULT 0;
+
+-- Add the user_id column
+ALTER TABLE articles ADD user_id VARCHAR(36) AFTER id NOT NULL DEFAULT 0;
+
+ -- Swap out the user_id with YOUR user id from the database
+UPDATE articles SET user_id='xxxx'
+```
+
+<!--
+and create a foreign key relationship to the users table
+```sql
 ALTER TABLE articles ADD CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES users(id);
 ```
+-->
+
 
 ### [Configuration](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Configuration.md)
 
