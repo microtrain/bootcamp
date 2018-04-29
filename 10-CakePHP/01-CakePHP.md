@@ -275,6 +275,15 @@ Navigate to the *tests/TestCase/Model/Table* walk through the default test cases
 ## Managing Articles
 
 Create the file */src/Controller/ArticlesController.php*
+```php
+<?php
+namespace App\Controller;
+
+class ArticlesController extends AppController
+{
+
+}
+```
 
 ### Add an Index Method
 
