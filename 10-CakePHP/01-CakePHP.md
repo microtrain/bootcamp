@@ -313,7 +313,7 @@ Create the file */src/Template/Articles/index.ctp*
     <?php foreach ($articles as $article): ?>
     <tr>
         <td>
-            <?php echo $this->Html->link($article->title, ['action' => 'view', $article->slug]); ?>
+            <?php echo $this->Html->link($article->title, ['action' => 'view', $article->id]); ?>
         </td>
         <td>
             <?php echo $article->created; ?>
