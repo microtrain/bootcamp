@@ -235,8 +235,7 @@ CREATE TABLE articles (
     published BOOLEAN DEFAULT FALSE,
     created DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'When the post was created',
     modified DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'When the post was last edited',
-    UNIQUE KEY (slug),
-    KEY (user_id)
+    UNIQUE KEY (slug)
 ) ENGINE=INNODB;
 
 
