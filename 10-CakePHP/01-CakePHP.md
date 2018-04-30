@@ -475,7 +475,9 @@ Add a delete link to the view template */src/Template/Articles/view.ctp*
 </div>
 ```
 
-### Use Callbacks to Auto Create a Slug
+### Create Slugs in the Background
+
+We will move our slug creation logic from the Articles controller to the Articles table. Here we will use a callback to create slugs in the background. We will create a unit test to verifiy our slug creation logic.
 
 Call the namespace for the Utility class.
 *src/Model/Table/ArticlesTable.php*
