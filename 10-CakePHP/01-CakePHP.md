@@ -455,7 +455,7 @@ public function delete($id = null)
 }
 ```
 
-#### Add the View
+#### Add a delete link to view.ctp 
 
 Add a delete link to the view template */src/Template/Articles/view.ctp*
 ```php
@@ -475,23 +475,18 @@ Add a delete link to the view template */src/Template/Articles/view.ctp*
 </div>
 ```
 
-**NOTE:** The delete does not require a view.
+### Use Callbacks to Auto Create a Slug
 
-* Auto create slug values
-
+Call the namespace for the Utility class.
+*src/Model/Table/ArticlesTable.php*
 ```php
 // the Text class
 use Cake\Utility\Text;
+```
 
-// Add the following method.
-
-public function beforeMarshal($event, $data)
-{
-    if (!isset($data['slug']) && !empty($data['title'])) {
-        $data['slug'] = $this->createSlug($data['title']);
-    }
-}
-
+Create the method for creating a slug.
+*src/Model/Table/ArticlesTable.php*
+```php
 public function createSlug($title)
 {
     return Text::slug(
@@ -501,6 +496,36 @@ public function createSlug($title)
     );
 }
 ```
+
+Add and run a unit test for the create slug method.
+*tests/TestCase/Model/Table/ArticlesTableTest.php*
+```php
+public function testCreateSlug()
+{
+    $result = $this->Articles->createSlug('Hello World');
+    $this->assertEquals('hello-world', $result);
+    $result = $this->Articles->createSlug('Hello!, World');
+    $this->assertEquals('hello-world', $result);
+    $result = $this->Articles->createSlug('Hello   World*$');
+    $this->assertEquals('hello-world', $result);
+    $result = $this->Articles->createSlug('Hello-   World-');
+    $this->assertEquals('hello-world', $result);
+}
+```
+
+Call ```createSlug()``` from the ```beforeMarshal()``` callback.
+*src/Model/Table/ArticlesTable.php*
+```php
+public function beforeMarshal($event, $data)
+{
+    if (!isset($data['slug']) && !empty($data['title'])) {
+        $data['slug'] = $this->createSlug($data['title']);
+    }
+}
+
+```
+
+
 
 ### Tie Users to Articles
 Add a column called user_id to the articles table.
