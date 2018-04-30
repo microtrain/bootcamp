@@ -401,7 +401,7 @@ Create the file */src/Template/Articles/create.ctp*
 ```
 
 ### Add an Edit Method
-
+[</>code](https://github.com/stack-x/cake.example.com/commit/d30698b9af799fb3afae325f7b8c1c0683cb905c)
 ```php
 public function edit($id = null)
 {
@@ -439,20 +439,42 @@ echo $this->Form->button('Update Article');
 echo $this->Form->end();
 ```
 ### Add a Delete Method
-
+[</> code](https://github.com/stack-x/cake.example.com/commit/d25cafeec10ad53cdd5aecd8bad775546e9dbe4a)
 ```php
+public function delete($id = null)
+{
     $this->request->allowMethod(['post', 'delete']);
 
-    $article = $this->Articles->findBySlug($slug)->firstOrFail();
+    $article = $this->Articles->findById($id)->firstOrFail();
     if ($this->Articles->delete($article)) {
-        $this->Flash->success("The article: {$article->title} has been deleted."));
+        $this->Flash->success("The article: {$article->title} has been deleted.");
         return $this->redirect(['action' => 'index']);
     }
+}
+```
+
+#### Add the View
+
+Add a delete link to the view template */src/Template/Articles/view.ctp*
+```php
+<div>
+    <?php
+        echo $this->Html->link(
+            'Edit',
+            ['action' => 'edit', $article->id]
+        );
+        echo '&nbsp;|&nbsp;';
+        echo $this->Form->postLink(
+            'Delete',
+            ['action' => 'delete', $article->id],
+            ['confirm' => __('Are you sure, you want to delete {0}?', $article->title)]
+        );
+    ?>
+</div>
 ```
 
 **NOTE:** The delete does not require a view.
 
-* Add a delete link to the edit view
 * Auto create slug values
 
 ```php
