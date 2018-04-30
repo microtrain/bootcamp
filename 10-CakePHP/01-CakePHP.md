@@ -240,11 +240,11 @@ CREATE TABLE articles (
 
 
 -- Then insert some articles for testing: 
-INSERT INTO articles (id,user_id,title,slug,body)
+INSERT INTO articles (id,title,slug,body)
     VALUES ('6f814dc0-4adb-11e8-842f-0ed5f89f718b', 'The Title', 'the-title', 'This is the article body.');
-INSERT INTO articles (id,user_id,title,slug,body)
+INSERT INTO articles (id,title,slug,body)
     VALUES ('6f8155ae-4adb-11e8-842f-0ed5f89f718b', 'Hello World', 'hello-world', 'This is the article body again.');
-INSERT INTO articles (id,user_id,title,slug,body)
+INSERT INTO articles (id,title,slug,body)
     VALUES ('6f815964-4adb-11e8-842f-0ed5f89f718b', 'Hello World Again', 'hello-world-again', 'This is the article body again and again.');
 ```
 
