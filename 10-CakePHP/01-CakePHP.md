@@ -485,13 +485,20 @@ use Cake\Utility\Text;
 
 // Add the following method.
 
-public function beforeSave($event, $entity, $options)
+public function beforeMarshal($event, $data)
 {
-    if ($entity->isNew() && !$entity->slug) {
-        $sluggedTitle = Text::slug($entity->title);
-        // trim slug to maximum length defined in schema
-        $entity->slug = substr($sluggedTitle, 0, 191);
+    if (!isset($data['slug']) && !empty($data['title'])) {
+        $data['slug'] = $this->createSlug($data['title']);
     }
+}
+
+public function createSlug($title)
+{
+    return Text::slug(
+        strtolower(
+            substr($title, 0, 191)
+        )
+    );
 }
 ```
 
