@@ -404,7 +404,7 @@ Create the file */src/Template/Articles/create.ctp*
 ```php
 public function edit($id = null)
 {
-    $article = $this->Articles->findBySlug($slug)->firstOrFail();
+    $article = $this->Articles->findById($id)->firstOrFail();
     if ($this->request->is(['post', 'put'])) {
         $this->Articles->patchEntity($article, $this->request->getData());
 
