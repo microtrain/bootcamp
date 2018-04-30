@@ -361,14 +361,14 @@ public function initialize()
 ```
 
 ### Add an Create Method
-
+[</> code](https://github.com/stack-x/cake.example.com/commit/8b06fc21beb3452e671ef997ba3362e6a6ada7d2)
 ```php
 public function create()
 {
     $article = $this->Articles->newEntity();
     if ($this->request->is('post')) {
         $article = $this->Articles->patchEntity($article, $this->request->getData());
-        
+
         $article->slug = Text::slug(
             strtolower(
                 substr($article->title, 0, 191)
@@ -403,17 +403,27 @@ Create the file */src/Template/Articles/create.ctp*
 ### Add an Edit Method
 
 ```php
-$article = $this->Articles->findBySlug($slug)->firstOrFail();
-if ($this->request->is(['post', 'put'])) {
-    $this->Articles->patchEntity($article, $this->request->getData());
-    if ($this->Articles->save($article)) {
-        $this->Flash->success('Your article has been updated.');
-        return $this->redirect(['action' => 'index']);
-    }
-    $this->Flash->error('An error has occured.');
-}
+public function edit($id = null)
+{
+    $article = $this->Articles->findBySlug($slug)->firstOrFail();
+    if ($this->request->is(['post', 'put'])) {
+        $this->Articles->patchEntity($article, $this->request->getData());
 
-$this->set('article', $article);
+        $article->slug = Text::slug(
+            strtolower(
+                substr($article->title, 0, 191)
+            )
+        );
+
+        if ($this->Articles->save($article)) {
+            $this->Flash->success('Your article has been updated.');
+            return $this->redirect(['action' => 'index']);
+        }
+        $this->Flash->error('An error has occured.');
+    }
+
+    $this->set('article', $article);
+}
 ```
 
 <!-- -->
@@ -425,7 +435,7 @@ Create the file */src/Template/Articles/edit.ctp*
 echo $this->Form->create($article);
 echo $this->Form->control('title');
 echo $this->Form->control('body', ['rows' => '5']);
-echo $this->Form->button('Save Article');
+echo $this->Form->button('Update Article');
 echo $this->Form->end();
 ```
 ### Add a Delete Method
