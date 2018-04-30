@@ -228,7 +228,7 @@ bin/cake migrations migrate -p CakeDC/Users
 ```sql
 -- First, create our articles table: 
 CREATE TABLE articles (
-    id VARCHAR(36) PRIMARY KEY,
+    id CHAR(36) NOT NULL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     slug VARCHAR(191) NOT NULL,
     body TEXT,
@@ -494,13 +494,12 @@ public function beforeSave($event, $entity, $options)
 ```
 
 ### Tie Users to Articles
-
-Add a column called user_id to the articles table .
+Add a column called user_id to the articles table.
 
 ```sql
 
 -- Add the user_id column
-ALTER TABLE articles ADD user_id VARCHAR(36) AFTER id NOT NULL DEFAULT 0;
+ALTER TABLE articles ADD user_id CHAR(36) AFTER id NOT NULL DEFAULT 0;
 
  -- Swap out the user_id with YOUR user id from the database
 UPDATE articles SET user_id='xxxx'
