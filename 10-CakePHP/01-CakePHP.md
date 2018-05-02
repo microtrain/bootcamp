@@ -475,9 +475,13 @@ Add a delete link to the view template */src/Template/Articles/view.ctp*
 </div>
 ```
 
+#### A Create, Edit and Delete Links to the Index View
+[</> code](https://github.com/stack-x/cake.example.com/commit/3e12a4ee9522c57d5ff98c7ff81fcd14a22feffc)
+
+
 ### Create Slugs in the Background
 
-We will move our slug creation logic from the Articles controller to the Articles table. Here we will use a callback to create slugs in the background. We will create a unit test to verifiy our slug creation logic.
+[</> code](https://github.com/stack-x/cake.example.com/commit/3c036e474459b99f99faf7e37b894ca0cc85a827) We will move our slug creation logic from the Articles controller to the Articles table. Here we will use a callback to create slugs in the background. We will create a unit test to verifiy our slug creation logic.
 
 Call the namespace for the Utility class.
 *src/Model/Table/ArticlesTable.php*
@@ -515,6 +519,11 @@ public function testCreateSlug()
 }
 ```
 
+Rerun the unit test
+```sh
+vendor/bin/phpunit tests/TestCase/Model/Table/ArticlesTableTest
+```
+
 Call ```createSlug()``` from the ```beforeMarshal()``` callback.
 *src/Model/Table/ArticlesTable.php*
 ```php
@@ -524,8 +533,81 @@ public function beforeMarshal($event, $data)
         $data['slug'] = $this->createSlug($data['title']);
     }
 }
+```
+
+Test before marshal by creating a new record
+*tests/TestCase/Model/Table/ArticlesTableTest.php*
+```sh
+public function  testBeforeMarshal()
+{
+    $article = $this->Articles->newEntity();
+    $article = $this->Articles->patchEntity($article, ['title'=>'Hello World, It\'s a fine day']);
+    $this->Articles->save($article);
+
+    $result = $this->Articles->find()->first();
+    $this->assertEquals('hello-world-it-s-a-fine-day', $result['slug']);
+}
+```
+
+Rerun the unit test
+```sh
+vendor/bin/phpunit tests/TestCase/Model/Table/ArticlesTableTest
+```
+
+### Add User Authentication
+[</> code](https://github.com/stack-x/cake.example.com/commit/9d8a65128621e75f8f17c95925ad27219e5b786b) Add an instance varaible to hold the session object, set this varaible during initialization. The following reads as set this instance of ```$session``` to the session object from this instance of the request object. This will provide a short hand for accessing the session data in controllers.
+
+*src/Controller/AppController.php*
+```php
+    protected $session;
+
+    public function initialize()
+    {
+        ...
+        $this->session = $this->getRequest()->getSession();
+    }
+```
+
+#### Deny Aceess by Default
+[</> code](https://github.com/stack-x/cake.example.com/commit/44f8149e1b6dda45d8ffa37f13f4b9d8852dafc3)
+*src/Controller/AppController.php*
+```php
+public function initialize()
+{
+    parent::initialize();
+
+    // Load the AUTH component
+    $this->loadComponent('Auth');
+
+    $this->loadComponent('RequestHandler');
+    $this->loadComponent('Flash');
+    $this->session = $this->getRequest()->getSession();
+
+    // Deny unauthorized access by default
+    $this->Auth->deny();
+}
+```
+
+At this point when you try to access [http://loc.cake.example.com](http://loc.cake.example.com) the application will try to reridect you to *users/login*. This will error out due to us (a) not having a UsersController at the top level and (b) not having a route that dirercts us to the CakeDC plugin. We will resolve this by adding a route.
+
+[</> code](https://github.com/stack-x/cake.example.com/commit/b32d232a8f74ff1e9512b0cb8c10e9afe332a977) Add the following at line 80 of *src/config/routes.php*
+
+```php
+
+Router::connect(
+    '/users/login',
+    [
+        'plugin' => 'CakeDC/Users',
+        'controller' => 'Users',
+        'action' => 'login'
+    ]
+);
 
 ```
+
+Now acessing [http://loc.cake.example.com](http://loc.cake.example.com) will redirect you to a login page.
+
+
 
 
 
