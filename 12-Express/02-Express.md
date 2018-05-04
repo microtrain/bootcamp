@@ -235,6 +235,7 @@ db.users.insert({email: 'test@example.com', username: 'testuser'})
 [</> code](https://github.com/microtrain/mean.example.com/commit/3f2277d3a874126b2590c26b9d495e00f0b53be4) A config file is a good practice for storing and managing API keys and other configuration variables from a central location. I often create two files, one for production and one for development.
 
 * Create the configuration file *config.dev.js*
+
 *config.dev.js*
 ```js
 var config = {};
@@ -243,6 +244,7 @@ module.exports = config;
 ```
 
 * Call the configuration file from *app.js*
+
 *app.js*
 ```js
 var config = require('./config.dev');
