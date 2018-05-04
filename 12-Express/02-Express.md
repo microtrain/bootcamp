@@ -355,6 +355,12 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/use
 
 [</code>](https://github.com/microtrain/mean.example.com/commit/daedc8e236e9d5c03efbee02920113a0bfaecc00) Auto update the modifed timestamp prior to saving the document.
 
+## User Authentication with Passport
+
+### Passport Local Strategy
+
+### Authenticated Whitelist
+
 ## Lab
 
 1. Create an articles model
