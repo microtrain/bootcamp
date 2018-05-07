@@ -358,8 +358,72 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/use
 ## User Authentication with Passport
 
 ### Passport Local Strategy
+Install all the packages needed for building a passport session and storing it in the database.
+
+```sh
+npm install passport
+npm install passport-local
+npm install express-session
+npm install connect-mongo
+```
+
+
+*app.js*
+```js
+var session = require('express-session');
+
+//Add this after the Mongo connection
+var MongoStore = require('connect-mongo')(session);
+```
+
+Add a new variable ```secret``` to *config.dev.js* We will use this for configuring our session in the next step.
+```js
+//Create a renadom string to sign the session data
+//Bigger is better, more entropy is better
+//The is OK for dev, change for production
+config.secret = '7j&1tH!cr4F*1U';
+```
+
+Add a configuration object for cookies and the the current doamin
+
+```js
+//Cookie configuration
+var config.cookie = {};
+
+//Define the domain for which this cookie is to be set
+config.cookie.domain = 'localhost:3000';
+```
+
+Configure the [express session](https://github.com/expressjs/session)
+
+```js
+app.use(require('express-session')({
+  //Define the session store
+  store: new MongoStore({
+    mongooseConnection: mongoose.connection
+  }),
+  //Set the secret
+  secret: config.secret,
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    path: '/',
+    domain: config.cookie.domain,
+    //httpOnly: true,
+    //secure: true,
+    maxAge: 1000 * 60 * 24 // 24 hours
+  }
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
+```
 
 ### Authenticated Whitelist
+
+
+### CORS
+
 
 ## Lab
 
