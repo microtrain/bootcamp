@@ -388,7 +388,7 @@ Add a configuration object for cookies and the the current doamin
 
 ```js
 //Cookie configuration
-var config.cookie = {};
+config.cookie = {};
 
 //Define the domain for which this cookie is to be set
 config.cookie.domain = 'localhost:3000';
