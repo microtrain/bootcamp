@@ -358,15 +358,15 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/use
 ## User Authentication with Passport
 
 ### Passport Local Strategy
-Install all the packages needed for building a passport session and storing it in the database.
+[</> code](https://github.com/microtrain/mean.example.com/commit/45f85c87933fad9d74e93d5885e61cc0df9c2544) Install all the packages needed for building a passport session and storing it in the database.
 
 ```sh
 npm install passport
 npm install passport-local
+npm install passport-local-mongoose
 npm install express-session
 npm install connect-mongo
 ```
-
 
 *app.js*
 ```js
@@ -376,25 +376,25 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 ```
 
-Add a new variable ```secret``` to *config.dev.js* We will use this for configuring our session in the next step.
+[</> code](https://github.com/microtrain/mean.example.com/commit/bd814cb8887ff18d8c86eac9a4978ce800162bc3) Add configuration objects for sessions and cookies
+*config.dev.js*
 ```js
+//Session configuration object
+config.session = {};
+
+//Cookie configuration object
+config.cookie = {};
+
 //Create a renadom string to sign the session data
 //Bigger is better, more entropy is better
 //The is OK for dev, change for production
-config.secret = '7j&1tH!cr4F*1U';
-```
-
-Add a configuration object for cookies and the the current doamin
-
-```js
-//Cookie configuration
-config.cookie = {};
+config.session.secret = '7j&1tH!cr4F*1U';
 
 //Define the domain for which this cookie is to be set
 config.cookie.domain = 'localhost:3000';
 ```
 
-Configure the [express session](https://github.com/expressjs/session)
+[</code>](https://github.com/microtrain/mean.example.com/commit/fcdbf66f7a1317055ff36617363bc91401eacef9) Configure the [express session](https://github.com/expressjs/session)
 
 ```js
 app.use(require('express-session')({
@@ -403,7 +403,7 @@ app.use(require('express-session')({
     mongooseConnection: mongoose.connection
   }),
   //Set the secret
-  secret: config.secret,
+  secret: config.session.secret,
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -416,11 +416,190 @@ app.use(require('express-session')({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
 ```
+
+Serialize the session data
+```js
+passport.serializeUser(function(user, done){
+  done(null,{
+    id: user._id,
+    username: user.username,
+    email: user.email,
+    first_name: user.first_name,
+    last_name: user.last_name
+  });
+});
+
+passport.deserializeUser(function(user, done){
+  done(null, user);
+});
+```
+
+#### User Registration
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/5c25799014b54ad940ffe3a52ca3ae207746e49c) Update the user model to require hash and salt as strings.
+
+*models/user.js*
+```js
+    hash: {
+        type: String,
+        required: [
+            true, 
+            'There was a problem creating your password'
+        ]
+    },
+    salt: {
+        type: String,
+        required: [
+            true, 
+            'There was a problem creating your password'
+        ]
+    },
+```
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/c2923f612941c0656eb044b5de929b6bcd252426)Add passport-local-mongoose
+
+*models/user.js*
+```js
+var passportLocalMongoose = require('passport-local-mongoose'); 
+
+...
+
+User.plugin(passportLocalMongoose);
+```
+
+Add a users route with an end point for registering a user.
+
+Create the file *routes/users.js*. This will need access to express, passport and the user model.
+```js
+var express = require('express');
+var router = express.Router();
+var passport = require('passport');
+var User = require('../models/user');
+
+router.get('/register', function(req, res, next) {
+  res.render('users/register', { 
+    title: 'Create an Account'
+   });
+});
+
+module.exports = router;
+```
+
+Add the new routes to *app.js*
+```js
+var usersRouter = require('./routes/users');
+app.use('/users', usersRouter);
+```
+
+Create a users view directory with a registration view.
+
+*views/users/register.pug*
+
+```js
+extends ../layout
+
+block content
+  h1 Create an Account
+  form(method='post' action='/api/users/register')
+    div
+      label(for='username') Username
+      input(type='text' name='username' id='username')
+    div
+      label(for='email') Email
+      input(type='text' name='email' id='email')
+    div
+      label(for='first_name') First Name
+      input(type='text' name='first_name' id='first_name')
+    div
+      label(for='last_name') Last Name
+      input(type='text' name='last_name' id='last_name')
+    div
+      label(for='password') Password
+      input(type='password' name='password' id='password')
+    div
+      input(type='submit' value='submit')
+```
+
+Add a registration end point the the users API. */users/register* is a GET request that will load a registration form. */api/users/register* is a POST request that creates a user record complete with salt and has values. For now, registartion will end with duping a JSON string onto the screen. Later we can convert this to an AJAX application.
+
+Add the following to *routes/api/users*
+
+```js
+var User = require('../../models/user');
+
+//Register a new user
+router.post('/register', function(req,res,next){
+    var data = req.body;
+
+    User.register(new User({
+      username: data.username,
+      email: data.email,
+      first_name: data.first_name,
+      last_name: data.last_name
+    }), 
+    data.password, 
+    function(err, user){
+
+      if(err){
+
+        return res.json({
+          success: false, 
+          user: req.body, 
+          errors: err
+        });
+        
+      }
+
+      return res.json({
+        success: true,
+        user: user
+      });
+
+    });
+
+});
+```
+
+#### User Login/Logout
+
+
 
 ### Authenticated Whitelist
 
+```js
+//Session based access control
+app.use(function(req,res,next){
+  //return next();
+
+  var whitelist = [
+    '/',
+    '/favicon.ico',
+    '/users/login'
+  ];
+
+  if(whitelist.indexOf(req.url) !== -1){
+    return next();
+  }
+
+  //Allow access to dynamic end points
+  var subs = [
+    '/stylesheets/',
+  ];
+
+  for(var sub of subs){
+    if(req.url.substring(0, sub.length)===sub){
+      return next();
+    }
+  }
+
+  if(req.isAuthenticated()){
+    return next();
+  }
+
+  return res.redirect('/users/login');
+});
+```
 
 ### CORS
 
