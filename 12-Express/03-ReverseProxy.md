@@ -15,7 +15,7 @@ Create a VHOST
 	ServerName loc.mean.example.com
 	ServerAdmin webmaster@localhost
 
-  <Proxy *>
+  	<Proxy *>
 		Order deny,allow
 		Allow from all
 	</Proxy>
