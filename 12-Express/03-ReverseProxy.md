@@ -10,7 +10,7 @@ sudo a2enmod proxy_http
 
 Create a VHOST
 ```apache
-<VirtualHost 127.0.0.35:80>
+<VirtualHost 127.0.0.102:80>
 
 	ServerName loc.mean.example.com
 	ServerAdmin webmaster@localhost
@@ -40,7 +40,7 @@ sudo vim /etc/hosts
 
 and add the entry
 ```sh
-127.0.0.35    loc.mean.example.com
+127.0.0.102    loc.mean.example.com
 ```
 
 Open a browser and navigate to [loc.mean.example.com](loc.mean.example.com)
