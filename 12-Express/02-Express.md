@@ -358,7 +358,7 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/use
 ## User Authentication with Passport
 
 ### Passport Local Strategy
-[</> code](https://github.com/microtrain/mean.example.com/commit/45f85c87933fad9d74e93d5885e61cc0df9c2544) Install all the packages needed for building a passport session and storing it in the database.
+[</> code](https://github.com/microtrain/mean.example.com/commit/78b0dc53d4851621d4dc7b8ea2d6a2a6d48f2fbb) Install all the packages needed for building a passport session and storing it in the database. The commit points to the package.json files, you can install these packages over the commandline or 
 
 ```sh
 npm install passport
@@ -368,6 +368,7 @@ npm install express-session
 npm install connect-mongo
 ```
 
+[</> code](https://github.com/microtrain/mean.example.com/commit/321cdc5936a0bb85cc89b33a04b50720a7844226) Require session packages
 *app.js*
 ```js
 var session = require('express-session');
@@ -376,7 +377,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/bd814cb8887ff18d8c86eac9a4978ce800162bc3) Add configuration objects for sessions and cookies
+[</> code]() Add configuration objects for sessions and cookies
 *config.dev.js*
 ```js
 //Session configuration object
@@ -394,7 +395,7 @@ config.session.secret = '7j&1tH!cr4F*1U';
 config.cookie.domain = 'localhost:3000';
 ```
 
-[</code>](https://github.com/microtrain/mean.example.com/commit/fcdbf66f7a1317055ff36617363bc91401eacef9) Configure the [express session](https://github.com/expressjs/session)
+[</code>](https://github.com/microtrain/mean.example.com/commit/bf31173528bd3815cde62e472678b426cd3aff70) Configure the [express session](https://github.com/expressjs/session)
 
 ```js
 app.use(require('express-session')({
@@ -437,7 +438,7 @@ passport.deserializeUser(function(user, done){
 
 #### User Registration
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/5c25799014b54ad940ffe3a52ca3ae207746e49c) Update the user model to require hash and salt as strings.
+[</> code]() Update the user model to require hash and salt as strings.
 
 *models/user.js*
 ```js
@@ -457,7 +458,7 @@ passport.deserializeUser(function(user, done){
     },
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/c2923f612941c0656eb044b5de929b6bcd252426)Add passport-local-mongoose
+[</> code]()Add passport-local-mongoose
 
 *models/user.js*
 ```js
