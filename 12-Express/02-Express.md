@@ -377,7 +377,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 ```
 
-[</> code]() Add configuration objects for sessions and cookies
+[</> code](https://github.com/microtrain/mean.example.com/commit/bf31173528bd3815cde62e472678b426cd3aff70) Add configuration objects for sessions and cookies
 *config.dev.js*
 ```js
 //Session configuration object
@@ -395,9 +395,12 @@ config.session.secret = '7j&1tH!cr4F*1U';
 config.cookie.domain = 'localhost:3000';
 ```
 
-[</code>](https://github.com/microtrain/mean.example.com/commit/bf31173528bd3815cde62e472678b426cd3aff70) Configure the [express session](https://github.com/expressjs/session)
-
+[</code>](https://github.com/microtrain/mean.example.com/commit/61048acfce52c12fcc747a775e275f57e0e5c8ac) Configure the [express session](https://github.com/expressjs/session)
 ```js
+var passport = require('passport');
+
+...
+
 app.use(require('express-session')({
   //Define the session store
   store: new MongoStore({
@@ -419,7 +422,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 ```
 
-Serialize the session data
+[</> code](https://github.com/microtrain/mean.example.com/commit/9513474495901b01f4fdc2a891de91b6f79b060d)Serialize the session data
 ```js
 passport.serializeUser(function(user, done){
   done(null,{
@@ -438,7 +441,9 @@ passport.deserializeUser(function(user, done){
 
 #### User Registration
 
-[</> code]() Update the user model to require hash and salt as strings.
+##### Passport Local Mongooose
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/94efcb4fc6f3e0daa2e6461fb9ec090e166b2079) Update the user model to require hash and salt as strings.
 
 *models/user.js*
 ```js
@@ -458,7 +463,7 @@ passport.deserializeUser(function(user, done){
     },
 ```
 
-[</> code]()Add passport-local-mongoose
+[</> code](https://github.com/microtrain/mean.example.com/commit/4408263d8af4e2709c795aa27c35d6817054efb4) Add passport-local-mongoose
 
 *models/user.js*
 ```js
@@ -469,7 +474,25 @@ var passportLocalMongoose = require('passport-local-mongoose');
 User.plugin(passportLocalMongoose);
 ```
 
-Add a users route with an end point for registering a user.
+[</>code](https://github.com/microtrain/mean.example.com/commit/86b74c55499f5f690f636a9014b52ba87d8359ac) Require and use Passport Local Strategy as defined in the user model
+```js
+var LocalStrategy = require('passport-local').Strategy;
+
+//Require models
+var User = require('./models/user');
+
+...
+//Use LocalStrategy as defined in the user model
+passport.use(User.createStrategy());
+```
+
+###### Clean Up  
+* [</> code](https://github.com/microtrain/mean.example.com/commit/e82d3d183d175f3df7b14b03afe77116fe030a1a) Improve Comments  
+* [</> code](https://github.com/microtrain/mean.example.com/commit/858577d248028026e42464d0729fd50b0b915f12) Improve Variable Names  
+
+##### Registration Endpoint
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/e6094aae8742a1bdea513ef330e11da8970e1175) Add a users route with an end point for registering a user.
 
 Create the file *routes/users.js*. This will need access to express, passport and the user model.
 ```js
@@ -487,13 +510,19 @@ router.get('/register', function(req, res, next) {
 module.exports = router;
 ```
 
-Add the new routes to *app.js*
+[</> code](https://github.com/microtrain/mean.example.com/commit/96895ae42309bd5928235328916ced131a4265c4) Add the new user route to *app.js*
 ```js
 var usersRouter = require('./routes/users');
+
+...
+
+
 app.use('/users', usersRouter);
 ```
 
-Create a users view directory with a registration view.
+##### Registration View
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/22edc04c8c765df223d4f2a995cb0cb946a68030) Create a users view directory with a registration view.
 
 *views/users/register.pug*
 
@@ -522,13 +551,48 @@ block content
       input(type='submit' value='submit')
 ```
 
-Add a registration end point the the users API. */users/register* is a GET request that will load a registration form. */api/users/register* is a POST request that creates a user record complete with salt and has values. For now, registartion will end with duping a JSON string onto the screen. Later we can convert this to an AJAX application.
+[</> code](https://github.com/microtrain/mean.example.com/commit/84bae780c246b3d9ef6becc89be46e39cc355e2b) Add some simple fomr style to *public/stylesheets/style.css*
+```css
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+textarea{
+  font: 24px monospace;
+  padding: .75rem 1.25rem;
+  margin: .5rem 0 1rem;
+  display: inline-block;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 2px;
+}
+
+input[type="submit"],
+button,
+a.button{
+  padding: .75rem 1.25rem;
+  font: 24px monospace;
+  text-decoration: none;
+  appearance: button;
+  color: #fff;
+  border: 1px solid #0055ee;
+  background: #fff;
+  cursor: pointer;
+  background: #0099ee;
+  border-radius: 2px;
+}
+```
+
+##### Post the Registration Form to the Users API
+[</> code](https://github.com/microtrain/mean.example.com/commit/2df8937648a513b4b07cfc116cd5ed119a233ff8) Add a registration end point the the users API. */users/register* is a GET request that will load a registration form. */api/users/register* is a POST request that creates a user record complete with salt and has values. For now, registartion will end with duping a JSON string onto the screen. Later we can convert this to an AJAX application.
 
 Add the following to *routes/api/users*
 
 ```js
-var User = require('../../models/user');
-
 //Register a new user
 router.post('/register', function(req,res,next){
     var data = req.body;
@@ -561,10 +625,71 @@ router.post('/register', function(req,res,next){
 
 });
 ```
-
 #### User Login/Logout
 
+[</> code](https://github.com/microtrain/mean.example.com/commit/9330c1d01aa872e7adc9d8aebb7494d4ed7954fc) Create a GET and POST end points for login
 
+*routes/users.js*
+
+```js
+router.get('/login', function(req, res){
+  res.render('users/login');
+});
+
+router.post('/login', passport.authenticate('local'), function(req, res){
+  res.redirect('/users');
+});
+```
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/42c7611d9c341188d3e81a774a26a652f6469a7f) Create a login form
+
+*views/users/login.pug*
+
+```pug
+extends ../layout
+
+block content
+  form(method='post' action='/users/login')
+    div
+      label(for='username') Username
+      input(type='text' name='username' id='username')
+    div
+      label(for='password') Password
+      input(type='password' name='password' id='password')
+    div
+      input(type='submit' value='Login')
+```
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/3dda162467dca14ff4fb16816705aedf274d7ba9) Add an index end point for users
+
+*routes/users.js*
+```js
+router.get('/', function(req, res){
+  res.render('users/index');
+});
+```
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/c09512dcb83cabd719ddd67e2483fa8fb029cf08) Add a view for the users index.
+
+*views/users/index.pug*
+
+```pug
+extends ../layout
+
+block content
+  h1 Users Management
+```
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/66234e08d491c77e2a011eb8fa55ae38dd607e73) Create a GET end point for logout
+
+*routes/users.js*
+
+```js
+router.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/users/login');
+});
+```
 
 ### Authenticated Whitelist
 
