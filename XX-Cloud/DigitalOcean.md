@@ -1,9 +1,5 @@
 # Cloud Server
 
-'mongodb://USERNAME:PASSWORD@cluster0-shard-00-00-XXXXX.mongodb.net:27017,cluster0-shard-00-01-XXXXX.mongodb.net:27017,cluster0-shard-00-02-XXXXX.mongodb.net:27017/mean-cms?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
-
-[Referal Link - https://m.do.co/c/7d5ded2774f3](https://m.do.co/c/7d5ded2774f3)
-
 ## Create a MongoDB Atlas Sandbox
 
 [https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas)
@@ -18,11 +14,16 @@
 #### Add a configuration file, since the repository is public create this outside of the repository.
 */var/www/config.prod.js*
 ```js
-//Sitewide configuration
-var config = {};
 
-//Establish a connection to the local database
-config.mongodb = 'mongodb://localhost/mean-cms';
+var config = {};
+config.session = {};
+config.cookie = {};
+
+config.mongodb = 'mongodb://USERNAME:PASSWORD@cluster0-shard-00-00-XXXXX.mongodb.net:27017,cluster0-shard-00-01-XXXXX.mongodb.net:27017,cluster0-shard-00-02-XXXXX.mongodb.net:27017/mean-cms?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
+
+config.session.secret = '7jyuT%#kdlsvF5$';
+
+config.cookie.domain = 'localhost:3000';
 
 module.exports = config;
 ```
@@ -32,26 +33,20 @@ module.exports = config;
 var config = require('../config.prod');
 ```
 
-#### Pass the mongodb string into mongoose.connect()
-```js
-//Establish a database connection
-mongoose.connect(config.mongodb);
-```
-
 #### Load a config file base on enviromental variables
 ```js
 if(process.env.NODE_ENV==='production'){
-  var config = require('./config.prod');
+  var config = require('../config.prod');
 }else{
   var config = require('./config.dev');
 }
 ```
 
 ## Purchase a Domain
-hover.com
+hover.com use this [referal link - https://hover.com/2WvTmBun](https://hover.com/2WvTmBun) and get a $2 off your domain name. 
 
 ## Purchase a Cloud Based Web Server
-Digital Ocean
+Digital Ocean use this [referal link - https://m.do.co/c/7d5ded2774f3](https://m.do.co/c/7d5ded2774f3) and get a $10 credit.
 
 ### Set Up Your Droplet
 Login to your droplet over SSH. You will be prompted to change your password. Once you have updated your password update apt and run any upgrades.
@@ -68,7 +63,7 @@ Now create a less privileged user. For the sake of this article we will call tha
 adduser production
 ```
 
-Git should already be installed. You can verify this by running git --version.
+Git should already be installed. You can verify this by running ```git --version```.
 
 Switch to the production user and follow create an ssh key
 
@@ -77,10 +72,16 @@ su production
 ```
 * [Create an ssh key and add it to your GitHub account](href="https://help.github.com/articles/connecting-to-github-with-ssh/").
 
-Install the Apache webserver and the modules we will need for out web site.
+Start by switching back to the root user
 
 ```sh
-apt-get install apache2
+su root
+```
+
+Install the LAMP stack and the modules needed to run a reverse proxy.
+
+```sh
+apt-get install lamp-server^
 a2enmod ssl proxy rewrite headers proxy_http
 ```
 
@@ -92,7 +93,7 @@ service apache2 restart
 
 Test Apache by entering your domain name into a browser window. If you see a page that says *Apache2 Ubuntu Default Page* then your Apache web server is working.
 
-> Due to firewall settings this may not work in the classroom.
+> Due to firewall settings this may not yet work in the classroom.
 
 Assign ownership of the web directory to the production user.
 
