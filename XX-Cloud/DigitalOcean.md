@@ -136,7 +136,28 @@ npm -g install pm2
 Install your website on the */var/www* path from GitHub.
 
 ```sh
-cd /var/www && git clone git@github.com:YOUR-GITHUB-ACCOUNT/mean.example.com.git
+su production
+```
+
+Add the production variable to .bashrc
+```sh
+vim ~/.bashrc
+```
+Press [shift] + [g] to go to the bottom of the file. Enter insert mode by pressing [i] and move the cursor to a new blank line at the bottom of the page. Add the following.
+
+```bash
+export NODE_ENV=production
+```
+
+Save your changes with [esc] followed by [shift] + [:] then [x] and [enter]. Reload .bashrc with the follwing.
+```sh
+cd ~
+. .bashrc
+```
+
+Clone the repo, install the production packages and start the application.
+```sh
+cd ~ && git clone git@github.com:YOUR-GITHUB-ACCOUNT/mean.example.com.git
 cd mean.example.com && npm install --production
 npm start
 ```
