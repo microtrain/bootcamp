@@ -1,5 +1,7 @@
 # Cloud Server
 
+'mongodb://USERNAME:PASSWORD@cluster0-shard-00-00-XXXXX.mongodb.net:27017,cluster0-shard-00-01-XXXXX.mongodb.net:27017,cluster0-shard-00-02-XXXXX.mongodb.net:27017/mean-cms?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
+
 [Referal Link - https://m.do.co/c/7d5ded2774f3](https://m.do.co/c/7d5ded2774f3)
 
 ## Create a MongoDB Atlas Sandbox
