@@ -1,5 +1,7 @@
 # Cloud Server
 
+In this unit we will launch our cloud infrastructure. This will include creating a thrid party database, registering a domain name, spinning up a web server and creating a valid TLS connection against a real CA.
+
 ## Create a MongoDB Atlas Sandbox
 
 [https://www.mongodb.com/cloud/atlas](https://www.mongodb.com/cloud/atlas)
@@ -11,8 +13,9 @@
 
 ### Update Your Local App to Connect to the Sandbox
 
-#### Add a configuration file, since the repository is public create this outside of the repository.
-*/var/www/config.prod.js*
+Add a configuration file, since the repository is public create this outside of the repository. We will use Filezilla to transfer this file to the server.
+
+*~/config.prod.js*
 ```js
 
 var config = {};
@@ -21,19 +24,21 @@ config.cookie = {};
 
 config.mongodb = 'mongodb://USERNAME:PASSWORD@cluster0-shard-00-00-XXXXX.mongodb.net:27017,cluster0-shard-00-01-XXXXX.mongodb.net:27017,cluster0-shard-00-02-XXXXX.mongodb.net:27017/mean-cms?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
 
-config.session.secret = '7jyuT%#kdlsvF5$';
+//Create a high entropy secret, I would recomend something from https://www.grc.com/passwords.htm
+config.session.secret = ';7x,^SpXNq6*X9{9V4\?h:M3?tN96;lhuX_K@WM:]v~~@8V]KYgQ1[.T<uV0B)6';
 
-config.cookie.domain = 'localhost:3000';
+config.cookie.domain = 'your-new-domain.tld';
 
 module.exports = config;
 ```
-#### Require the config file in app.js
+
+Require the config file in app.js
 ```js
 //Call the config file
 var config = require('../config.prod');
 ```
 
-#### Load a config file base on enviromental variables
+Load a config file base on enviromental variables
 ```js
 if(process.env.NODE_ENV==='production'){
   var config = require('../config.prod');
@@ -43,7 +48,7 @@ if(process.env.NODE_ENV==='production'){
 ```
 
 ## Purchase a Domain
-hover.com use this [referal link - https://hover.com/2WvTmBun](https://hover.com/2WvTmBun) and get a $2 off your domain name. 
+I reccomend [Hover](https://hover.com/2WvTmBun) use this [referal link - https://hover.com/2WvTmBun](https://hover.com/2WvTmBun) and get a $2 off your domain name. 
 
 ## Purchase a Cloud Based Web Server
 Digital Ocean use this [referal link - https://m.do.co/c/7d5ded2774f3](https://m.do.co/c/7d5ded2774f3) and get a $10 credit.
