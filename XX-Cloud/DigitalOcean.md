@@ -196,9 +196,26 @@ pm2 save
 
 Test that pm2 is working by rebooting your server. Then open a browser and entering you domain name against port 3000. If you see your webiste pm2 has taken effect.
 
-## Setup Apache as a Reverse Proxy
+## Apache Configuration
 
 ```sh
+cd /etc/apache2/sites-available
+cp default-ssl mean.example.com
+```
+
+comment out the ```DocumentRoot``` directive.
+```sh
+## DocumentRoot /var/www
+```
+
+Add a ```ServerName``` directive, replace MYDOAMIN.TLD with the lowercase version of your doamin name.
+
+```sh
+ServerName MYDOMAIN.TLD
+```
+
+Finally set up you reverse proxy.
+```apache
 <Proxy *>
 	Order deny,allow
 	Allow from all
@@ -210,29 +227,13 @@ ProxyPass / http://localhost:3000/
 ProxyPassReverse / http://localhost:3000/
 ```
 
-## LetsEncypt
-```sh
-apt-get install python-letsencrypt-apache
-
-certbot renew --dry-run
-
-crontab -e
-```
-```sh
-0 0 15 * * certbot renew
-```
-
+Force NON-SSL to an SSL connection, add the following to the top of the VHOST file.
 ```apache
-RewriteEngine On
-RewriteCond %{HTTPS} off
-RewriteRule (.*) https://%{SERVER_NAME}$1 [R,L]
-```
-
-```sh
-a2dissite *
-service apache2 restart
-a2ensite *le*
-service apache2 restart
+<VirtualHost *:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</VirtualHost>
 ```
 
 Force non-www
@@ -242,10 +243,28 @@ RewriteCond %{HTTP_HOST} ^www\.jasonsnider\.net [NC]
 RewriteRule ^(.*)$ https://jasonsnider.net$1 [L,R=301]
 ```
 
+Restart Apache
 ```sh
 a2dissite *
 service apache2 restart
-a2ensite *le*
+a2ensite mean*
 service apache2 restart
 ```
 
+## LetsEncypt
+Create an install a cert from LetsEncrypt
+```sh
+apt-get install python-letsencrypt-apache
+
+certbot renew --dry-run
+```
+
+Set up a crontab to auto renew the SSL cert
+```sh
+crontab -e
+```
+
+Replace 15 with today's date minus one. This however, should be no higher than 27 to account for the shortest possible month.
+```sh
+0 0 15 * * certbot renew
+```
