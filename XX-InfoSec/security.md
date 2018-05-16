@@ -16,3 +16,4 @@
 
 ## Additional Resources
 * [15 Security Tips for LAMP Stack](https://tecadmin.net/security-tips-for-lamp-stack-on-linux/)
+* [NodeJS Security Checklist](https://blog.risingstack.com/node-js-security-checklist/)

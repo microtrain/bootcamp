@@ -262,4 +262,4 @@ sudo apt-get update
 sudo apt-get install python-certbot-apache
 ```
 
-[Install a Valid SSL Cert](LetsEncypt.md)
+[Next: Install a Valid SSL Cert](LetsEncypt.md)
