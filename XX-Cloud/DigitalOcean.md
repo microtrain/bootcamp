@@ -254,17 +254,12 @@ service apache2 restart
 ## LetsEncypt
 Create an install a cert from LetsEncrypt
 ```sh
-apt-get install python-letsencrypt-apache
-
-certbot renew --dry-run
+## Install Certbot
+```
+sudo apt-get install software-properties-common
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt-get update
+sudo apt-get install python-certbot-apache
 ```
 
-Set up a crontab to auto renew the SSL cert
-```sh
-crontab -e
-```
-
-Replace 15 with today's date minus one. This however, should be no higher than 27 to account for the shortest possible month.
-```sh
-0 0 15 * * certbot renew
-```
+[Install a Valid SSL Cert](LetsEncypt.md)
