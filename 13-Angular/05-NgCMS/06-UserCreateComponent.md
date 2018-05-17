@@ -158,3 +158,5 @@ Then add a form to the user-create view. We want will bind the form the ngSubmit
 git add .
 git commit src
 ```
+
+[Next: Edit User](07-UserEditComponent.md)
