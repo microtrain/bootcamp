@@ -8,23 +8,23 @@ Add some navigation to the app component.
 <nav>
   <button [routerLink]="['/users']">Users</button>
   <button [routerLink]="['/users/create']">New User</button>
-  <button>Posts</button>
-  <button>New Post</button>
+  <button>Articles</button>
+  <button>New Article</button>
 </nav>
 
 <router-outlet></router-outlet>
 ```
 
-## PostsComponent
+## ArticlesComponent
 
-Generate PostsComponent
+Generate ArticlesComponent
 ```sh
-ng generate component posts
+ng generate component articles
 ```
 
-Add PostsComponent to routing.
+Add ArticlesComponent to routing.
 ```js
-import { PostsComponent }   from './posts/posts.component';
+import { ArticlesComponent }   from './articles/articles.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/users', pathMatch: 'full' },
@@ -32,16 +32,16 @@ const routes: Routes = [
   { path: 'users/view/:id', component: UserViewComponent },
   { path: 'users/create', component: UserCreateComponent },
   { path: 'users/edit/:id', component: UserEditComponent },
-  { path: 'posts', component: PostsComponent }
+  { path: 'articles', component: ArticlesComponent }
 ];
 ```
-## Create full CRUD for the posts API
+## Create full CRUD for the articles API
 
-At this point we have created the posts component and added it to routing.
+At this point we have created the articles component and added it to routing.
 
-1. Finish implementing the PostsComponent details.
-1. Create a Post Schema - _src/app/post.ts_
-1. Create PostService - _src/app/post.service.ts_
-1. Create and route PostView - _src/app/post-view/*_
-1. Create and route PostCreate - _src/app/post-create/*_
-1. Create and route PostEdit - _src/app/post-edit/*_
+1. Finish implementing the ArticlesComponent details.
+1. Create a Article Schema - _src/app/article.ts_
+1. Create ArticleService - _src/app/article.service.ts_
+1. Create and route ArticleView - _src/app/article-view/*_
+1. Create and route ArticleCreate - _src/app/article-create/*_
+1. Create and route ArticleEdit - _src/app/article-edit/*_
