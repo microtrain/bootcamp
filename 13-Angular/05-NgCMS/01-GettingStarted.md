@@ -2,7 +2,7 @@
 
 In Angular build a basic CRUD application for managing users via the users API provided by the *mean.example.com* project. Name this project *ng-cms*.
 
-Before just diving into code stop and think about what you already know about the application you are about to build, this will help you find a starting point.
+Before just dive into code stop and think about what you already know about the application you are about to build, this will help you find a starting point.
 
 ## What do I know?
 
