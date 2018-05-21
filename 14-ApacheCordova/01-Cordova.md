@@ -67,6 +67,10 @@ Once you have added the that line, you will want to reload the file.
 source /etc/environment
 ```
 
+```sh
+java -version
+```
+
 ## Install Gradle
 
 In short Gradle is a the build system used by Android. Stack Overflow has a [more detailed answer](https://stackoverflow.com/questions/16754643/what-is-gradle-in-android-studio). You can install this using Apt, but the Ubuntu repos are a little behind on this one, so it's better to install it manually.
@@ -75,9 +79,9 @@ In short Gradle is a the build system used by Android. Stack Overflow has a [mor
 
 ```
 cd ~/Downloads
-wget https://services.gradle.org/distributions/gradle-4.5-bin.zip
+wget https://services.gradle.org/distributions/gradle-4.7-bin.zip
 sudo mkdir /opt/gradle
-sudo unzip -d /opt/gradle gradle-4.5-bin.zip
+sudo unzip -d /opt/gradle gradle-4.7-bin.zip
 ```
 
 ### Add an Environmental Variable on Startup
