@@ -6,7 +6,7 @@
 * Install Ionic and create your first app
 
 ```sh
-npm install -g ionic
+sudo npm install -g ionic
 ionic start myApp tabs
 ```
 
