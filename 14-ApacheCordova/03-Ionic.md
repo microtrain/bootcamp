@@ -148,13 +148,13 @@ Add the functionality to create a new user.
 [</> code](https://github.com/microtrain/ionic-cms/commit/9dddb33f65a721da210ab59ddf9597ec77cf4cb8)
 1. Link from UsersPage to UserCreatePage
 [</> code](https://github.com/microtrain/ionic-cms/commit/6dfaecf63e7971187eb85d5e475bdd9e6fcd6935)
-1. Import the UserProvider
-1. Import the User model
-1. Declare a public user variable instanitaed as a new User object
-1. Create a wrapper for the UserProvider.createUser()
-1. Implement UserProvider.createUser()
-1. Build the view
-1. Create a form submit
+1. Import the User model [</> code](https://github.com/microtrain/ionic-cms/commit/263c27657c8e7b03126747bd666795104d3b159c)
+1. Import the UserProvider [</> code](https://github.com/microtrain/ionic-cms/commit/6dfaecf63e7971187eb85d5e475bdd9e6fcd6935)
+1. Declare a public user variable instanitaed as a new User object [</> code](https://github.com/microtrain/ionic-cms/commit/8488901ba5db6db8fc84ff3f4c44b7a0614090af)
+1. Create a wrapper for the UserProvider.createUser() [</> code](https://github.com/microtrain/ionic-cms/commit/c8a41bfa78e96a3c13819461fb4074997cbe2421)
+1. Implement UserProvider.createUser() [</> code](https://github.com/microtrain/ionic-cms/commit/4ec4d245698ae5a88260eff7af2d5edc95a421ce)
+1. Build a basic user form and implement a form submit [</> code](https://github.com/microtrain/ionic-cms/commit/8365e49d4053069c284321e643eca20e4dd05866)
+1. Redirect after submit [</> code](https://github.com/microtrain/ionic-cms/commit/a14c87d34a0bfcea56026219aecc57be6525b4bb)
 
 ```sh
 ionic generate page user-create
