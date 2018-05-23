@@ -160,6 +160,13 @@ Add the functionality to create a new user.
 ionic generate page user-create
 ```
 
+## LAB - Edit and Delete Users
+
+* Implement an edit users page.
+* Add the ability to delete a user.
+    * This may be it's own page or a method built into another component.
+
+
 
 
 
