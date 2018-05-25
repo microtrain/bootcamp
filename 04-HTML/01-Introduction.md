@@ -252,7 +252,7 @@ Complete the following task, after each task commit your chagnes to Git. When al
 In this exercise you leanred how to
 * build a baisc web page (HTML)
 * update a page title (HTML)
-* view local changes in a browser (Dev) 
+* view local changes in a browser (Dev)
 
 
 ## Additional Resources
@@ -263,5 +263,5 @@ In this exercise you leanred how to
 * [Choosing a Language Tag](https://www.w3.org/International/questions/qa-choosing-language-tags)
 * [IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
 * [Why Character Entities](https://stackoverflow.com/questions/1016080/why-are-html-character-entities-necessary)
-* [XML and HTML Entieis](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references])
+* [XML and HTML Entities](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references])
 * [The W3C Reference](https://dev.w3.org/html5/html-author/charref])
