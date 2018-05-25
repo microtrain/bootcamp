@@ -1,7 +1,13 @@
 # HTML5
 
 ## Introduction
-This unit will focus on the funedmentals of HTML and building a personal website aimed at personal branding.
+This unit will focus on the funedmentals of HTML and building a personal website aimed at personal branding. The [Mozilla Developer Network](https://developer.mozilla.org/en-US/) (MDN) is great resource for development. Many of the lessons and pre-reading assignmens will refer to MDN. 
+
+### Pre-reading
+* [HTML (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [HTML Basics (MDN)](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)
+* [Learn HTML in 5 Minutes (freeCodeCamp)](https://medium.freecodecamp.org/learn-html-in-5-minutes-ccd378d2ab72)
+
 
 ## HTML
 Hypertext Markup Language (HTML) is a system of elements and attributes that defines the layout of a web page. This system uses markup tags to represent elements (```<p>This is a paragraph.</p>```) and attributes (```<p style="color: blue;">This is a paragraph with blue text.</p>```) to further describe these elements; to define the context of text and objects on a page.
@@ -252,6 +258,7 @@ In this exercise you leanred how to
 ## Additional Resources
 * [MDN - HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
 * [Introduction to HTML](https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML)
+* [Learn HTML in 5 Minutes (freeCodeCamp)](https://medium.freecodecamp.org/learn-html-in-5-minutes-ccd378d2ab72)
 * [HTML5 Doctor](http://html5doctor.com/)
 * [Choosing a Language Tag](https://www.w3.org/International/questions/qa-choosing-language-tags)
 * [IANA Language Subtag Registry](http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry)
