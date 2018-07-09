@@ -27,7 +27,7 @@ ssh-add ~/.ssh/id_rsa
 Intall x-xlip and copy the contents of the key to your clipboard
 
 ```sh
-sudo apt-get install -y xclip
+sudo apt install -y xclip
 xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
 
