@@ -3,7 +3,7 @@
 The LAMP stack (Linux, Apache, MySQL, PHP) is one of the oldest and most mature and popular technology stacks on the web. Ubuntu allows you to install the entire stack with a single command.
 
 ```sh
-sudo apt-get install lamp-server^
+sudo apt install lamp-server^
 ```
 
 **DO NOT LEAVE THE PASSWORD FIELD BLANK**,when prompted; enter the Password for the MySQL root user. Since this is a local development environment just enter _password_; **NEVER** do this on a public facing server.
@@ -95,7 +95,7 @@ We will work with MySQL later in the course, for now bookmark the [MySQL Referen
 PhpMyAdmin is a webbased admin tool for MySQL. This is written in PHP and runs on the Apache webserver. We will work with phpMyAdmin throughout this course Here is the [offical documentation](https://docs.phpmyadmin.net/en/latest/) for your convenience. Let's start by installing the software.
 
 ```sh
-sudo apt-get install phpmyadmin
+sudo apt install phpmyadmin
 ```
 
 As the installer is running you will be presented with several prompts. Arrows keys allow you to navigate the the option menus, the space bar is used to select and de-select while enter accepts your selected option.
@@ -134,14 +134,14 @@ Open a browser and type _localhost/phpmyadmin_ into the address bar. If you see 
 
 Composer is package manager for PHP libraries. We will git into the details later, for now, let's just install it.
 ```sh
-sudo apt-get install composer
+sudo apt install composer
 ```
 
 We have installed several packages, this will be a good time to make sure all of out repositories are still up to date.
 
 ```
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt update
+sudo apt upgrade
 ```
 
 ## Summary
