@@ -25,6 +25,9 @@ An overview of the topic(s) at hand.
 ### Exercises
 Guided application of the topic(s) at hand.
 
+### Coding Challenges
+Planned and impromptu inclass assignments that will present new and old concepts as challenges to be solved in code.
+
 ### Labs
 The work you are expected to do on your own. Lectures and and exercises should take roughly 40% - 50% of the class time with the rest of the time being spent in labs. If you get ahead it is expected tha
 
