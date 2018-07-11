@@ -114,7 +114,7 @@ Your personal production site on Digital Ocean on your preferred tech stack (MEA
 * Ionic Applications
 
 ### Weeks 8-10
-If applicable week 8 may serve as catchup, review or overvlow time for any topics of which there are issues.
+If applicable week 8 may serve as catchup, review or overflow time for any topics of which there are issues.
 
 ####  Projects
 Whatever you want to build. Start thinking of a project sooner than later
