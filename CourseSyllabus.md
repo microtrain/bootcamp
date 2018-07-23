@@ -2,7 +2,7 @@
 
 * Class Hours: Monday-Friday, 9am-5pm
 * First Day: Monday, August 13, 2018
-* Last Day: Monday, October 13, 2018
+* Last Day: Monday, October 15, 2018
 * Class will **NOT** meet on
  * Monday September, 3, 2018
  
