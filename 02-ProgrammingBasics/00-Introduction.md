@@ -1,4 +1,4 @@
-# Programming Basics
+# Into
 
 Programming is little more that reading data and piecing together statements that take action on that data. This is typically done by making a [decision tree](https://en.wikipedia.org/wiki/Decision_tree). In programming these decision trees are constructed using [control-strucutres](https://en.wikiversity.org/wiki/Control_structures) which tend to flow based upon the current value of a memory addresses most commonly known as a variable.  
 
@@ -62,6 +62,30 @@ Based on the aforementioned variables some basic control structures might look l
 * If varaible a exists as an element of variable b, then return true, else return false.
 * foreach element in variable c, check to see if that element is equal to the variable b.
 
+#### Comparison Operators
+
+As mentioned - PHP, BASH and JavaScript are all dynamically typed meaning the type the tyoe changes to try to fit a contaext. Meaning the value of integer 1 and string 1 are the same. So 1 == '1' evaluates to true, in this case the double equals sign says is the value of integer 1 string 1 the same? In contrast 1 === '1' evaluates to false, this asks does string 1 and integer 1 have the same value and data type?  
+
+* ```==``` - equal to, value only
+* ```===``` - equal to, value and type
+* ```>``` - greater than
+* ```<``` - las than
+* ```>=``` - greater than or equal to
+* ```<=``` - less than or equal to
+
+For the following statments assume a = 0 and b = 1
+
+>```=``` is an assignment operator,```==``` is a comparison operator.
+
+* a == b //false
+* a < b //true
+* a > b //false
+* a == 0 //true
+* a == '0' //true
+* a === '0' /false
+* a >= 0 //true
+* a <= 0 //true
+
 ### Conditional Statements
 * if/if-then - If a condition is (or is not) met, then do something
 * if-else/if-then-else - If a condition is (or is not) met, then do something. Otherwise, do something else.
@@ -98,6 +122,40 @@ switch($a){
         break;
 
 }
+```
+
+```js
+var a=1;
+
+//if/if-then
+if(a === 1){
+    echo 'Match!';
+}
+
+//if-then/if-then-else
+if(a === 1){
+    echo 'Match!';
+}else{
+    echo 'Mot a match';
+}
+```
+
+```bash
+a=1;
+
+#if/if-then
+if [ "$a" == 1 ]
+then
+    echo 'Match!';
+fi
+
+#if-then/if-then-else
+if [ "$a" == 1 ]
+then
+    echo "Match!"
+else
+    echo "Mot a match"
+fi
 ```
 
 ### Loops
@@ -145,4 +203,36 @@ let array = [10, 20, 30];
 for (let el of array) {
   console.log(el);
 }
+```
+
+```bash
+#!/bin/bash
+
+ITEMS=( 1 2 3 4 5 5 6 7 8 9 )
+
+# Classic for loop
+for ((i=0; i<${#ITEMS[*]}; i++));
+do
+    echo ${ITEMS[i]}
+done
+
+# For in - special array loop
+for ITEM in "${ITEMS[@]}"
+do
+  echo "$ITEM"
+done
+
+# While loop
+STRING=''
+while [ "$STRING" != "Hello World" ]
+do
+    if [ -z  "$STRING" ]
+    then
+      STRING="Hello"
+    else
+      STRING="${STRING} World"
+    fi
+done
+
+echo "$STRING"
 ```

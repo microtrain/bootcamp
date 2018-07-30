@@ -108,7 +108,7 @@ Now open VS Code and click into the workspace. Right click choose add a new fold
 
 Now click on the file README.md from the _mtbc_ project folder. README files are a best practice in software development. README files are human readable files that contain information about other files in a directory or archive. The information in these files range from basic infomation about the project team to build instructions for source code. A emerging defacto standard is to write in a format called Markdown (.md). A raw Markdown file should be human readable but if you want a formatted version you can use VS Code's _Markdown Preview_ by opening the file and pressing ```Shift + Ctrl + V```.
 
-Open the file README.md from the mtbc project folder in the Atom sidebar and open the _Markdown Preview_. Change the content of the level 1 heading *# mtbc* to *# MicroTrain's Dev Boot Camp*. Save your changes with the keyboard shortcut [Ctrl + S].# MicroTrain's Dev Boot Camp
+Open the file README.md from the mtbc project folder in the VSCode sidebar and open the _Markdown Preview_. Change the content of the level 1 heading *# mtbc* to *# MicroTrain's Dev Boot Camp*. Save your changes with the keyboard shortcut [Ctrl + S].# MicroTrain's Dev Boot Camp
 
 Open a terminal (command line or CLI) and navigate to the mtbc directory.
 
