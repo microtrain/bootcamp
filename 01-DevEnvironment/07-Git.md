@@ -194,6 +194,69 @@ git merge dev
 
 There is no right way to use git. The only real wrong way to use git is to deviate from that projects branching model. [The Diaspora* Project](https://wiki.diasporafoundation.org/Git_workflow) has a very well defined branching model that is typical of what you will see in the real world. I had to come up with one and only one rule it would be to never build on the master branch.
 
+## Git Guidelines
+
+A set of guidelines for working with a git repository.
+See [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt) for keyword usage.
+
+* master - pristine 
+    * You MUST NOT work on or apply changes directly to dev
+    * Only approved changes SHALL be merged into master
+* dev - main working branch
+    * You SHOULD NOT work on or apply changes directly to dev
+    * You SHOULD create a feature/bug (working) and commit changes to that branch
+    * The working branch SHOULD always be a decendent of dev
+
+Replace *GITHUB-USER_NAME* with your GitHub user name.
+```sh
+#Clone an existing repository
+git clone origin git@github.com:GITHUB-USER_NAME/mtbc.git
+cd mtbc
+
+#If there IS NOT a dev branch, create one
+git checkout -B dev
+git push origin dev
+
+#If there IS a dev branch, fetch it
+git fetch origin dev:dev
+git checkout dev
+
+git checkout -B feature/some-feature
+git push origin feature/some-feature
+
+# After you have made you conde changes
+# Add and commit the new feature
+git add .
+git commit -a
+git push origin feature/some-feature
+
+# Integrate the new feature with dev
+git checkout dev
+git pull origin dev
+git checkout feature/some-feature
+git rebase dev
+git checkout dev
+git merge feature/some-feature
+git push origin dev
+
+## After integration testing
+## Integrate the changes with your production branch
+git checkout master
+git pull origin master
+git checkout dev
+git rebase master
+git checkout master
+git merge dev
+git push origin master
+
+## Claenup
+# Delete the remote branch
+git push origin :feature/some-feature
+
+#Delete the local branch
+git branch -D feature/some-feature
+```
+
 ### Summary
 
 In this exercise you learned 
