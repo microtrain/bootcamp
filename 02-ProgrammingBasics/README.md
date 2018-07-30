@@ -31,12 +31,12 @@ var a = [
 ### Data Types
 In short a data type determines how a given variable can be treated, that is to say what operations are allowed on a given varaible.  What is the value of 'Hello' + 1? That depends on the language the the data types. In JavaScript, hello + 1 would return 'Hello1' that is because JavaScript is loosely typed while when working with numbers the ```+``` operator is mathmatical, it also is a used for string concatination when in the string context. Since 'hello' is not a number JavaScript will assume both sides of the equations are a string and as such will performa string concatination rather than than a mathmatical operation. This where we get the meme if 20 + '20' is 2020 you might be a JavaScript developer. In JavaScript 20 + '20' = 2020 but 20 + 20 = 40 this is becasue the latter is 2 numbers while the former is a string and a number.
 
-In PHP ```20 + '20'``` would return 40 and ```'hello' + 1``` would return 1 this is because ```.``` is the operator for concatinating strings and ```+``` is strictly a mathmatical operator. In the former, since the string can be a number it is converted to a number in the later, the value of 'hello' cannot be numeric but PHP will still try to make since of it, so 'hello' equates to 0;
+In PHP ```20 + '20'``` would return 40 and ```'hello' + 1``` would return 1 this is because ```.``` is the opera*tor for concatinating strings and ```+``` is strictly a mathmatical operator. In the former, since the string can be a number it is converted to a number in the later, the value of 'hello' cannot be numeric but PHP will still try to make since of it, so 'hello' equates to 0;
 
 These are both examples of loosley or dynamically typed languages. In a strongly typed language such a Java or TypeScript ```'20' + 20``` would throw a type error.
 
 #### DataTypes in Various Languages
-Every language has it's own specific set of data types ad well as it's own set of rules for those types. Most language's will have some notion of the following strings, booleans, numbers, arrays and objects.
+Every language has it's own specific set of data types ad well as it's own set of rules for those types. Most languages will have some notion of the following data types strings, booleans, numbers, null, arrays and objects.
 
 * [PHP](http://php.net/manual/en/language.types.intro.php)
 * [Bash](http://tldp.org/LDP/abs/html/declareref.html)
@@ -47,30 +47,102 @@ Every language has it's own specific set of data types ad well as it's own set o
 ## Control Structures
 Assuiming the following variables
 
-variable a is an integer equal to 1
-variable b is a string equal to hello
-variable c is an array (or set) with the following elements
-* Hello
-* World
-* dog
-* cat
-* mouse
+* variable a is an integer equal to 1
+* variable b is a string equal to hello
+* variable c is an array (or set) with the following elements
+    * Hello
+    * World
+    * dog
+    * cat
+    * mouse
 
-
-Based on the afroementioned variables some basic control structures might look like the following
+Based on the aforementioned variables some basic control structures might look like the following
 
 * While variable a is less than 7, call some arbitrary block of logic and increment variable a by 1.
 * If varaible a exists as an element of variable b, then return true, else return false.
 * foreach element in variable c, check to see if that element is equal to the variable b.
 
+### Conditional Statements
+* if/if-then - If a condition is (or is not) met, then do something
+* if-else/if-then-else - If a condition is (or is not) met, then do something. Otherwise, do something else.
+* switch - Execute something depending on the state of a given condition.
 
+```php
+var $a=1;
 
+//if/if-then
+if($a === 1){
+    echo 'Match!';
+}
 
+//if-then/if-then-else
+if($a === 1){
+    echo 'Match!';
+}else{
+    echo 'Mot a match';
+}
 
+//switch
+switch($a){
 
+    case 1:
+        echo 'One';
+        break;
 
-In this section you will learn
-* Basic control structures
-* The anatomy of a URL/DNS Basics
-* The basics of Bash scripting
-* The basics of PHP
+    case 2:
+        echo 'Two';
+        break;
+
+    default:
+        echo 'Unknown Number';
+        break;
+
+}
+```
+
+### Loops
+* for - executes a fixed number of repetive operations
+* foreach/for-in/for-of - executes a repetive operation for each element in a set
+* while - executes a repetive operation while a condition is (or is not) true. Requires 1 truth prior to execution.
+* do-while - executes a repetive operation while a condition is (or is not) true. Executes prior to first truth. 
+
+```php
+
+//Iterate a set number of times
+for($i=0; $i<10; $i++){
+    echo $i++;
+}
+
+//Iterate over each item of an array
+$items = [1,2,3,4,5,6,7,8,9];
+
+foreach($items as $item){
+  echo $item;
+}
+
+//Test then execute
+$i = 0;
+while ($i <= 10) {
+    echo $i++;
+}
+
+//Execute then test
+$i = 11;
+do {
+    echo $i++;
+}while ($i <= 10);
+```
+
+```js
+//Iterate over an object
+var obj = {a: 1, b: 2, c: 3};
+for (var prop in obj) {
+  console.log(prop);
+}
+
+//Iterate over an array
+let array = [10, 20, 30];
+for (let el of array) {
+  console.log(el);
+}
+```
