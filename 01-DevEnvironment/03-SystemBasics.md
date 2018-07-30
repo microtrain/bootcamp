@@ -111,6 +111,12 @@ The best way to think of cURL is as a browser that is used by code.
 sudo apt install curl
 ```
 
+## Enable new file creation via right click
+
+```sh
+touch ~/Templates/Empty\ Document
+```
+
 ## Summary
 In this lesson you learned
 * how to install programs using apt (Linux)
