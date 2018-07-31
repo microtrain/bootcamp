@@ -12,7 +12,7 @@ In PHP the following statement would reserve a space in memory indentifed by a p
 var $a = 1;
 ```
 
-In Bash the following statement would reserve a space in memory indentifed by a pointer called ```b``` and set it value to ```Hello``` with a data type of ``string``` (kind-of technically (Bash is untyped)(http://tldp.org/LDP/abs/html/untyped.html)).
+In Bash the following statement would reserve a space in memory indentifed by a pointer called ```b``` and set it value to ```Hello``` with a data type of ``string``` (kind-of technically [Bash is untyped](http://tldp.org/LDP/abs/html/untyped.html)).
 ```bash
 b='Hello'
 ```
