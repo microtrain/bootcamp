@@ -77,7 +77,7 @@
 
 * [Unit 15: Apache Cordova](15-ApacheCordova/00-Introduction.md)
   * [Cordova](15-ApacheCordova/01-Cordova.md)
-  * [Porting an App](15-ApacheCordova/01-PortingAnApp.md)
+  * [Porting an ](15-ApacheCordova/01-PortingAnApp.md)
 
 * [Unit 16: Ionic](15-Ionic/00-Introduction.md)
 
