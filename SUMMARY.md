@@ -81,10 +81,12 @@
 
 * [Unit 16: Ionic](15-Ionic/00-Introduction.md)
 
-* [Appendix](Appendix/00-Introduction.md)
-  * [Cloud](Cloud/00-Introduction.md)
-  * [Examples](Examples/00-Introduction.md)
-  * [Security](Security/00-Introduction.md)
-  * [SEO](SEO/00-Introduction.md)
+* [Appendix](99-Appendix/00-Introduction.md)
+  * [Cloud](99-Appendix/Cloud/00-Introduction.md)
+  * [Examples](99-Appendix/Examples/00-Introduction.md)
+    * [Templates](99-Appendix/Examples/Templates/00-Introduction.md)
+    * [Templates](99-Appendix/Examples/Templates/HTML5.md)
+  * [Security](99-Appendix/Security/00-Introduction.md)
+  * [SEO](99-Appendix/SEO/00-Introduction.md)
 
 * [Course Syllabus](CourseSyllabus.md)

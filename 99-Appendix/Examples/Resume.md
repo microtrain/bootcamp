@@ -1,3 +1,5 @@
+# Sample Resum e 
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -65,6 +67,7 @@
       <li>Certbot</li>
       <li>SEO, performance and security best practices</li>
     </ul>
+    
     <h2>Projects</h2>
 
     <h3>About Me</h3>
@@ -190,3 +193,4 @@
 
   </body>
 </html>
+```
