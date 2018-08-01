@@ -13,6 +13,8 @@
 * Do not hard code credentials or cryptographic keys.
 * Authentication + authorization.
 * Comprehensive but realistic security policies.
+* Always use TLS
+* Authentication + Authorization
 
 ## Additional Resources
 * [15 Security Tips for LAMP Stack](https://tecadmin.net/security-tips-for-lamp-stack-on-linux/)

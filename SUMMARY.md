@@ -81,4 +81,10 @@
 
 * [Unit 16: Ionic](15-Ionic/00-Introduction.md)
 
+* [Appendix](Appendix/00-Introduction.md)
+  * [Cloud](Cloud/00-Introduction.md)
+  * [Examples](Examples/00-Introduction.md)
+  * [Security](Security/00-Introduction.md)
+  * [SEO](SEO/00-Introduction.md)
+
 * [Course Syllabus](CourseSyllabus.md)
