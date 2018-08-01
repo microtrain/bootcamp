@@ -88,5 +88,6 @@
     * [HTML5](99-Appendix/Templates/HTML5.md)
   * [Samples](99-Appendix/Samples/00-Introduction.md)  
   * [SEO](99-Appendix/SEO/00-Introduction.md)
+  * [Downloads](downloads/README.md)
 
 * [Course Syllabus](CourseSyllabus.md)
