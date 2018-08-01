@@ -83,10 +83,10 @@
 
 * [Appendix](99-Appendix/00-Introduction.md)
   * [Cloud](99-Appendix/Cloud/00-Introduction.md)
-  * [Examples](99-Appendix/Examples/00-Introduction.md)
-    * [Templates](99-Appendix/Examples/Templates/00-Introduction.md)
-    * [Templates](99-Appendix/Examples/Templates/HTML5.md)
   * [Security](99-Appendix/Security/00-Introduction.md)
+  * [Templates](99-Appendix/Templates/00-Introduction.md)
+    * [HTML5](99-Appendix/Templates/HTML5.md)
+  * [Samples](99-Appendix/Samples/00-Introduction.md)  
   * [SEO](99-Appendix/SEO/00-Introduction.md)
 
 * [Course Syllabus](CourseSyllabus.md)
