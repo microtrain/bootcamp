@@ -15,11 +15,16 @@
 * Do not push cryptographic keys or secrets to a public repository.
 * Authentication + authorization.
 * Comprehensive but realistic security policies.
-* Always use TLS (formerly but still commonly known as SSL).
+* Always use TLS (replaces but still commonly known as SSL).
 * Authentication + Authorization.
 * Check dependencies against a vulnerability database.
 
 ## Additional Resources
 * [15 Security Tips for LAMP Stack](https://tecadmin.net/security-tips-for-lamp-stack-on-linux/)
 * [NodeJS Security Checklist](https://blog.risingstack.com/node-js-security-checklist/)
+
+### Related Products
 * [SSL Labs](https://www.ssllabs.com/ssltest/)
+* [Snyk](https://snyk.io/)
+* [CodeClimate](https://codeclimate.com/)
+* [TravisCI](https://travis-ci.org/)
