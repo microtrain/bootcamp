@@ -33,7 +33,7 @@
       <li>jQuery</li>
       <li>Bootstrap</li>
       <li>Git</li>
-      <li>GitHub</li>Appendix/00-Introduction.md
+      <li>GitHub</li>Appendix/README.md
       <li>VCS</li>
       <li>Cloud</li>
       <li>MongoDB Atlas</li>
