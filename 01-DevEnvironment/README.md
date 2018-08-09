@@ -10,3 +10,5 @@ In the section you will learn:
 * How to use and SSH key for authentication.
 
 The goal of this section is to gain an understanding of the  dev environemnt and gain some comfort on a Linux commandline.
+
+[Next: Install Ubuntu](01-InstallUbuntuLinux.md)

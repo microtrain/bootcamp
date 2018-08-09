@@ -2,7 +2,7 @@
 
 * [Introduction](README.md)
 
-* [Unit 1: Dev Environment](01-DevEnvironment/README.md)
+* [Chapter 1: Dev Environment](01-DevEnvironment/README.md)
   * [Install Ubuntu](01-DevEnvironment/01-InstallUbuntu18.04.md)
   * [Linux Basics](01-DevEnvironment/02-LinuxBasics.md)
   * [System Basics](01-DevEnvironment/03-SystemBasics.md)
@@ -11,30 +11,30 @@
   * [NPM](01-DevEnvironment/06-NPM.md)
   * [Git](01-DevEnvironment/07-Git.md)
 
-* [Unit 2: ProgrammingBasics](02-ProgrammingBasics/README.md)
+* [Chapter 2: ProgrammingBasics](02-ProgrammingBasics/README.md)
 
-* [Unit 3: BashScripting](03-BashScripting/README.md)
+* [Chapter 3: BashScripting](03-BashScripting/README.md)
   * [Bash Scripting Basics](03-BashScripting/01-BashBasics.md)
   * [Bash Control Structures](03-BashScripting/02-BashControlStructures.md)
 
-* [Unit 4: Servers and the Internet](04-HowServersAndTheWebWork/README.md)
+* [Chapter 4: Servers and the Internet](04-HowServersAndTheWebWork/README.md)
   * [The Anatomy of a URL](04-HowServersAndTheWebWork/01-Url.md)
   * [User Requests and Server Responses](04-HowServersAndTheWebWork/02-RequestResponse.md)
 
-* [Unit 5: HTML](05-HTML/README.md)
+* [Chapter 5: HTML](05-HTML/README.md)
   * [HTML Basics](05-HTML/01-HTMLBasics.md)
   * [GitHub Pages](05-HTML/03-GitHubPages.md)
   * [Contact Form](05-HTML/04-ContactForm.md)
   * [Resume](05-HTML/04-Resume.md)
   * [Meta Data](05-HTML/06-MetaData.md)
 
-* [Unit 6: CSS](06-CSS/README.md)
+* [Chapter 6: CSS](06-CSS/README.md)
   * [HTML](06-CSS/01-CSSBasics.md)
   * [SASS](06-CSS/02-SASS.md)
   * [SASS](06-CSS/03-Gulp.md)
   * [SASS](06-CSS/04-CSSLayouts.md)
 
-* [Unit 7: JavaScript](07-JavaScript/README.md)
+* [Chapter 7: JavaScript](07-JavaScript/README.md)
   * [PHP Basics](07-JavaScript/01-JavaScriptBasics.md)
   * [PHP Control Structures](07-JavaScript/02-JSControlStructures.md)
   * [Form Validation](07-JavaScript/03-WalkingTheDOM.md)
@@ -42,11 +42,11 @@
   * [Heredoc](07-JavaScript/05-Canvas.md)
    [Heredoc](07-JavaScript/06-jQuery.md)
 
-* [Unit 8: Front End Toolkits](08-FrontEndToolkits/README.md)
+* [Chapter 8: Front End Toolkits](08-FrontEndToolkits/README.md)
   * [Toolkits](08-FrontEndToolkits/01-Toolkits.md)
   * [Bootstrap](08-FrontEndToolkits/02-Bootcamp.md)
 
-* [Unit 9: PHP](09-PHP/README.md)
+* [Chapter 9: PHP](09-PHP/README.md)
   * [PHP Basics](09-PHP/01-PHPBasics.md)
   * [PHP Control Structures](09-PHP/02-PHPControlStructures.md)
   * [Form Validation](09-PHP/03-FormValidation.md)
@@ -54,26 +54,26 @@
   * [Heredoc](09-PHP/05-Heredoc.md)
   * [MetaData](09-PHP/06-MetaData.md)
 
-* [Unit 10: MySQL](10-MySQL/README.md)
+* [Chapter 10: MySQL](10-MySQL/README.md)
   * [SQL](10-MySQL/01-SQL.md)
   * [MySQL](10-MySQL/02-MySQL.md)
   * [Working with MySQL](10-MySQL/03-WorkingWithMySQL.md)
   * [Data Models](10-MySQL/04-DataModels.md)
 
-* [Unit 111: CakePHP](11-CakePHP/README.md)
+* [Chapter 111: CakePHP](11-CakePHP/README.md)
   * [CakePHP](11-CakePHP/01-CakePHP.md)
 
-* [Unit 12: MongoDB](12-MongoDB/README.md)
+* [Chapter 12: MongoDB](12-MongoDB/README.md)
   * [MongoDB](12-MongoDB/01-MongoDB.md)
 
-* [Unit 13: Express](13-Express/README.md)
+* [Chapter 13: Express](13-Express/README.md)
   * [NodeJS](13-Express/01-Node.md)
   * [Express](13-Express/02-Express.md)
   * [Reverse Proxy](13-Express/03-ReverseProxy.md)
   * [Web Sockets](13-Express/04-WebSockets.md)
   * [PM2](13-Express/05-PM2.md)
 
-* [Unit 14: Angular](14-Angular/README.md)
+* [Chapter 14: Angular](14-Angular/README.md)
   * [TypeScript](14-Angular/01-TypeScript.md)
   * [Tour od Heroes](14-Angular/02-TourOfHeroes.md)
   * [NASA Apod](14-Angular/03-NasaApos.md)
@@ -88,11 +88,13 @@
     * [Angular CMS](14-Angular/04-NgCMS/08-DeleteAUser.md)
     * [Angular CMS](14-Angular/04-NgCMS/09-NextSteps.md)
 
-* [Unit 15: Apache Cordova](15-ApacheCordova/README.md)
+* [Chapter 15: Apache Cordova](15-ApacheCordova/README.md)
   * [Cordova](15-ApacheCordova/01-Cordova.md)
   * [Porting an ](15-ApacheCordova/01-PortingAnApp.md)
 
-* [Unit 16: Ionic](15-Ionic/README.md)
+* [Chapter 16: Ionic](15-Ionic/README.md)
+
+* [Glossary](GLOSSARY.md)
 
 * [Appendix](99-Appendix/README.md)
   * [Cloud](99-Appendix/Cloud/README.md)
