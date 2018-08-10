@@ -125,4 +125,4 @@ btn.addEventListener("click", function(){new Grower()}, false);
 [Arrow Functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 [Mastering the Module Pattern](https://toddmotto.com/mastering-the-module-pattern/)
 
-[Next: Canvas](04-Canvas.md)
+[Next: Canvas](05-Canvas.md)
