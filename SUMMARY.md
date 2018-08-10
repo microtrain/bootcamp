@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 
 * [Chapter 1: Dev Environment](01-DevEnvironment/README.md)
-  * [Install Ubuntu](01-DevEnvironment/01-InstallUbuntu18.04.md)
+  * [Install Ubuntu](01-DevEnvironment/01-InstallUbuntuLinux.md)
   * [Linux Basics](01-DevEnvironment/02-LinuxBasics.md)
   * [System Basics](01-DevEnvironment/03-SystemBasics.md)
   * [LAMP Stack](01-DevEnvironment/04-LampStack.md)
