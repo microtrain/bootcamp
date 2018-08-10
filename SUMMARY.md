@@ -19,9 +19,9 @@
 * [Chapter 3: BashScripting](03-BashScripting/README.md)
   * [Bash Scripting Basics](03-BashScripting/01-Basics.md)
 
-* [Chapter 4: Servers and the Internet](04-HowServersAndTheWebWork/README.md)
-  * [The Anatomy of a URL](04-HowServersAndTheWebWork/01-Url.md)
-  * [User Requests and Server Responses](04-HowServersAndTheWebWork/02-RequestResponse.md)
+* [Chapter 4: Servers and the Internet](04-ServersAndTheInternet/README.md)
+  * [The Anatomy of a URL](04-ServersAndTheInternet/01-Url.md)
+  * [User Requests and Server Responses](04-ServersAndTheInternet/02-RequestResponse.md)
 
 * [Chapter 5: HTML](05-HTML/README.md)
   * [HTML Basics](05-HTML/01-HTMLBasics.md)
