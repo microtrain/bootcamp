@@ -33,8 +33,8 @@
 * [Chapter 6: CSS](06-CSS/README.md)
   * [HTML](06-CSS/01-CSSBasics.md)
   * [SASS](06-CSS/02-SASS.md)
-  * [SASS](06-CSS/03-Gulp.md)
-  * [SASS](06-CSS/04-CSSLayouts.md)
+  * [Gulp](06-CSS/03-Gulp.md)
+  * [CSS Layouts](06-CSS/04-CSSLayouts.md)
 
 * [Chapter 7: JavaScript](07-JavaScript/README.md)
   * [PHP Basics](07-JavaScript/01-JavaScriptBasics.md)
