@@ -11,4 +11,4 @@ We will re-review programming basics with in the context of PHP. Cover object or
 * SEO and meta data
 * Miscellaneous items for rounding out a website.
 
-[01-PHP Basics](01-PHPBasics.md)
+[Next: PHP Basics](01-PHPBasics.md)
