@@ -27,3 +27,4 @@ EOT;
 
 require 'core/layout.php';
 ```
+[Next: MySQL](/10-MySQL/README.md)
