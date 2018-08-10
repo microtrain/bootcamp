@@ -600,4 +600,4 @@ if(empty($valid->errors) && !empty($input)){
 ### Udemy
 * [Object Oriented Programming (OOP) in PHP - Build An OOP Site](https://microtrain.udemy.com/object-oriented-programming-in-php/)
 
-[Next: MailGun API](05-MailGunAPI.md)
+[Next: Working with APIs](05-MailgunAPI.md)
