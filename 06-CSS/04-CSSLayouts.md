@@ -34,3 +34,5 @@ Using all the techniques we have elarned thus for style your resume so that it l
 
 ## Additional Reading
 * [Modern CSS Explained For Dinosaurs](https://medium.com/actualize-network/modern-css-explained-for-dinosaurs-5226febe3525)
+
+[Next: JavaScript](07-JavaScript/README.md)
