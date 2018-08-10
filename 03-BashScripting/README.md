@@ -1,4 +1,4 @@
-# Scripting Basics
+# Chapter 3: Scripting Basics
 
 In this section you will learn
 * Basic control structures
