@@ -2,22 +2,6 @@
 
 CakePHP is and MVC (Model, View, Controller) based rapid application development (RAD) framework built using PHP. CakePHP has a solid eco-system and is designed around test driven development (TDD).
 
-## MVC
-
-MVC is a software design patter that splits your application into three distinct layers data (Model), Business Logic (Controller), and presentation (View).
-
-### Model
-
-A model can be anything that provides data such a table in a database, a reference to an API, a spreed sheet, etc. For our user a model will reference a table in a database.
-
-### View
-
-View's are the presentation layer. Views will typically be HTML but can be anything a client can read such as .html, .json, .xml, .pdf or even a header that only a machine can access.
-
-### Controller
-
-Business and application logic.
-
 ## CRUD
 
 Create, Read, Update, Delete
