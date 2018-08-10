@@ -8,3 +8,5 @@ In this chapter we will
 * Complete Angular's Tour of Heroes (TOH) tutorial.
 * Port your NASA APOD application to Angular.
 * Build a CMS application that connects to the API you developed in the previous chapter.
+
+[Next: TypeScript](01-TypeScript.md)
