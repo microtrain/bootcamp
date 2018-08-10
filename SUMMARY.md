@@ -37,12 +37,12 @@
   * [CSS Layouts](06-CSS/04-CSSLayouts.md)
 
 * [Chapter 7: JavaScript](07-JavaScript/README.md)
-  * [PHP Basics](07-JavaScript/01-JavaScriptBasics.md)
-  * [PHP Control Structures](07-JavaScript/02-JSControlStructures.md)
-  * [Form Validation](07-JavaScript/03-WalkingTheDOM.md)
-  * [Mailgun API](07-JavaScript/04-Events.md)
-  * [Heredoc](07-JavaScript/05-Canvas.md)
-   [Heredoc](07-JavaScript/06-jQuery.md)
+  * [JavaScript Basics](07-JavaScript/01-JavaScriptBasics.md)
+  * [JavaScript Control Structures](07-JavaScript/02-JSControlStructures.md)
+  * [Walking the DOM](07-JavaScript/03-WalkingTheDOM.md)
+  * [Events](07-JavaScript/04-Events.md)
+  * [Canvas](07-JavaScript/05-Canvas.md)
+  * [jQuery](07-JavaScript/06-jQuery.md)
 
 * [Chapter 8: Front End Toolkits](08-FrontEndToolkits/README.md)
   * [Toolkits](08-FrontEndToolkits/01-Toolkits.md)
