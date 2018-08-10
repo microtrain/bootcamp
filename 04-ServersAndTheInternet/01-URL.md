@@ -71,3 +71,5 @@ In this exercise you learned how to
 
 [IP addresses and DNS](https://www.khanacademy.org/computing/computer-science/internet-intro/internet-works-intro/v/the-internet-ip-addresses-and-dns)
 
+[Next: Requests and Responses](02-RequestResponse.md)
+
