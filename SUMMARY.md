@@ -17,8 +17,7 @@
   * [Control Structures](02-ProgrammingBasics/03-ControlStructures.md)
 
 * [Chapter 3: BashScripting](03-BashScripting/README.md)
-  * [Bash Scripting Basics](03-BashScripting/01-BashBasics.md)
-  * [Bash Control Structures](03-BashScripting/02-BashControlStructures.md)
+  * [Bash Scripting Basics](03-BashScripting/01-Basics.md)
 
 * [Chapter 4: Servers and the Internet](04-HowServersAndTheWebWork/README.md)
   * [The Anatomy of a URL](04-HowServersAndTheWebWork/01-Url.md)
