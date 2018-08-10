@@ -6,7 +6,7 @@
   * [Install Ubuntu](01-DevEnvironment/01-InstallUbuntuLinux.md)
   * [Linux Basics](01-DevEnvironment/02-LinuxBasics.md)
   * [System Basics](01-DevEnvironment/03-SystemBasics.md)
-  * [LAMP Stack](01-DevEnvironment/04-LampStack.md)
+  * [LAMP Stack](01-DevEnvironment/04-LAMPStack.md)
   * [Apache Basics](01-DevEnvironment/05-ApacheBasics.md)
   * [NPM](01-DevEnvironment/06-NPM.md)
   * [Git](01-DevEnvironment/07-Git.md)
