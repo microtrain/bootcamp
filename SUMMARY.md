@@ -11,12 +11,12 @@
   * [NPM](01-DevEnvironment/06-NPM.md)
   * [Git](01-DevEnvironment/07-Git.md)
 
-* [Chapter 2: ProgrammingBasics](02-ProgrammingBasics/README.md)
+* [Chapter 2: Programming Basics](02-ProgrammingBasics/README.md)
   * [Variables](02-ProgrammingBasics/01-Variables.md)
   * [Data Types](02-ProgrammingBasics/02-DataTypes.md)
   * [Control Structures](02-ProgrammingBasics/03-ControlStructures.md)
 
-* [Chapter 3: BashScripting](03-BashScripting/README.md)
+* [Chapter 3: Bash Scripting](03-BashScripting/README.md)
   * [Bash Scripting Basics](03-BashScripting/01-Basics.md)
 
 * [Chapter 4: Servers and the Internet](04-ServersAndTheInternet/README.md)

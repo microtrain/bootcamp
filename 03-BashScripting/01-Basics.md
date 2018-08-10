@@ -1,4 +1,4 @@
-# Bash Scripting and Programming Basics
+# Bash Scripting Basics
 In this section you will learn haw to create a Bash script to automate repetitive tasks.
 
 ## Exercise 1 - Scripting Repetitive Tasks
