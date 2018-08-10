@@ -63,7 +63,7 @@
   * [Working with MySQL](10-MySQL/03-WorkingWithMySQL.md)
   * [Data Models](10-MySQL/04-DataModels.md)
 
-* [Chapter 111: CakePHP](11-CakePHP/README.md)
+* [Chapter 11: CakePHP](11-CakePHP/README.md)
   * [CakePHP](11-CakePHP/01-CakePHP.md)
 
 * [Chapter 12: MongoDB](12-MongoDB/README.md)
