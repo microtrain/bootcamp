@@ -133,7 +133,4 @@ Mathmatical opeations
 
 ## Additional Resources
 
-
-## Footnotes
-
 [Next: PHP Control Structures](02-PHPControlStructures.md)
