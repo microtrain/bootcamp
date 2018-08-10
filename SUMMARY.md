@@ -12,9 +12,9 @@
   * [Git](01-DevEnvironment/07-Git.md)
 
 * [Chapter 2: ProgrammingBasics](02-ProgrammingBasics/README.md)
-  * [Variables](01-Variables.md)
-  * [Data Types](02-DataTypes.md)
-  * [Control Structures](03-ControlStructures.md)
+  * [Variables](02-ProgrammingBasics/01-Variables.md)
+  * [Data Types](02-ProgrammingBasics/02-DataTypes.md)
+  * [Control Structures](02-ProgrammingBasics/03-ControlStructures.md)
 
 * [Chapter 3: BashScripting](03-BashScripting/README.md)
   * [Bash Scripting Basics](03-BashScripting/01-BashBasics.md)
