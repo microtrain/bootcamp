@@ -46,7 +46,7 @@
 
 * [Chapter 8: Front End Toolkits](08-FrontEndToolkits/README.md)
   * [Toolkits](08-FrontEndToolkits/01-Toolkits.md)
-  * [Bootstrap](08-FrontEndToolkits/02-Bootcamp.md)
+  * [Bootstrap](08-FrontEndToolkits/02-Bootstrap.md)
 
 * [Chapter 9: PHP](09-PHP/README.md)
   * [PHP Basics](09-PHP/01-PHPBasics.md)
