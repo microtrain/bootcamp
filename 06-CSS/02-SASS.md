@@ -259,4 +259,4 @@ sass src/scss/main.scss dist/css/main.css
 1. [bootstrap/scss/_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)
 1. [What Does the Clearfix Class Do in Css?](https://stackoverflow.com/questions/9543541/what-does-the-clearfix-class-do-in-css)
 
-[Next: Gulp](02-Gulp.md)
+[Next: Gulp](03-Gulp.md)
