@@ -1,5 +1,5 @@
 #!/bin/bash
 
-gitbook pdf ./ downloads/ebooks/stack-x.pdf
-gitbook mobi ./ downloads/ebooks/stack-x.mobi
-gitbook epub ./ downloads/ebooks/stack-x.epub
+gitbook pdf ./ ~/ebooks/stack-x.pdf
+gitbook mobi ./ ~/ebooks/stack-x.mobi
+gitbook epub ./ ~/ebooks/stack-x.epub
