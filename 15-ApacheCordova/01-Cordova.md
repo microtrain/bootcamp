@@ -209,3 +209,5 @@ https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-camera/
 
 ## Additional Resources
 [Use SQLite In Ionic 2 Instead Of Local Storage](https://www.thepolyglotdeveloper.com/2015/12/use-sqlite-in-ionic-2-instead-of-local-storage/)
+
+[Next: Porting an App](02-PortingAnApp.md)

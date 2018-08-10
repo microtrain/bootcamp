@@ -31,3 +31,5 @@ tsc hello.ts
 ## Additional Resources
 
 * [TypeScript](https://www.typescriptlang.org/)
+
+[Next: Tour of Heroes](02-TourOfHeroes.md)
