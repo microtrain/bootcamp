@@ -11,9 +11,9 @@
 * Email bootcamp@microtrain.net
 
 ## Courseware
-The latest version of the courseware is available from [https://github.com/microtrain/bootcamp](https://github.com/microtrain/bootcamp).
-
-eBook formats are available from [https://github.com/microtrain/bootcamp/releases](https://github.com/microtrain/bootcamp/releases)
+The courseware is avaiable on GitHub.
+* [https://github.com/microtrain/bootcamp](https://github.com/microtrain/bootcamp)
+* [https://github.com/microtrain/bootcamp/releases](https://github.com/microtrain/bootcamp/releases)
 
 ## Description 
 The class is 40 hours a week for 10 weeks. It is comprised of a series of units with each unit corrosponding to a chapter in the courseware. A unit or chapter is compirsed pf working lectures, exercises, labs and additional resources. The goal of this class is to provide a working knowledge of web and mobile application development. This course is not a deep dive on any one topic, rather it is intended to provide a working foundation that will allow you to hit the ground running and give you the knowledge base upon which to build a career. In most cases you will get a light introduction to a topic; typically with in a specific context. We will build on these topics as we progress through the course. The syllabus is tentative and may be adjusted to the pace of the class as a whole. The last two to three weeks of class are open and are intended for to allow each stundet to complete a single or multiple projects to add to their portfolio.
