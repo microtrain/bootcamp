@@ -4,7 +4,7 @@
 * First Day: Monday, August 13, 2018
 * Last Day: Monday, October 15, 2018
 * Class will **NOT** meet on
- * Monday September, 3, 2018
+  * Monday September, 3, 2018
  
  ## Contact
 * Join the [Slack Channel](https://join.slack.com/t/stack-x/shared_invite/enQtMzk3OTg3NzAzODc5LTA2NzA4M2FmZmFhN2EzMjhhNjhlOTE3ODVmODMyMTAwZWQ2MTRlNmU3MTYyM2Y4OTI2ODYwMjRiZTkyZjdkMGM)
