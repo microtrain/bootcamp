@@ -571,4 +571,4 @@ Google "formatting bash", find and read some results about fomatting output text
 * [Bash String Manipulation](https://www.thegeekstuff.com/2010/07/bash-string-manipulation/)
 * [FLOZz' MISC » bash:tip_colors_and_formatting](https://misc.flogisoft.com/bash/tip_colors_and_formatting)
 
-[Next: Servers and the Internet](/04-ServersAndTheInternets/README.md)
+[Next: Servers and the Internet](/04-ServersAndTheInternet/README.md)
