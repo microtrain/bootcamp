@@ -105,7 +105,7 @@
     * [AWS](99-Appendix/Cloud/AWS.md)
     * [DigitalOcean](99-Appendix/Cloud/DigitalOcean.md)
     * [LetsEncrypt](99-Appendix/Cloud/LetsEncrypt.md)
-    * [CloudFlare](99-Appendix/Cloud/CloudeFlare.md)
+    * [CloudFlare](99-Appendix/Cloud/CloudFlare.md)
     * [ZOHO Office](99-Appendix/Cloud/ZOHO.md)
   * [Security](99-Appendix/Security/README.md)
   * [Templates](99-Appendix/Templates/README.md)
