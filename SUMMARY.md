@@ -111,7 +111,7 @@
     * [Checklist](99-Appendix/Security/01-Checklist.md)
   * [Templates](99-Appendix/Templates/README.md)
     * [HTML5](99-Appendix/Templates/HTML5.md)
-  * [Samples](99-Appendix/Samples/README.md)
+  * [Samples](99-Appendix/Samples/resume.md)
     * [Resume](99-Appendix/Samples/Resume.md)
   * [SEO](99-Appendix/SEO/01-SEO.md)
     * [SEO](99-Appendix/Cloud/DigitalOcean.md)
