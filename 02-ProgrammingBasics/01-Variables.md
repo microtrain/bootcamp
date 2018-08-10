@@ -23,3 +23,4 @@ var a = [
     'mouse'
 ];
 ```
+[Next: Data Types](02-DataTypes.md)
