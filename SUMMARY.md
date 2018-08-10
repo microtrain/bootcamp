@@ -96,7 +96,7 @@
   * [Cordova](15-ApacheCordova/01-Cordova.md)
   * [Porting an App](15-ApacheCordova/01-PortingAnApp.md)
 
-* [Chapter 16: Ionic](15-Ionic/README.md)
+* [Chapter 16: Ionic](16-Ionic/README.md)
 
 * [Glossary](GLOSSARY.md)
 
