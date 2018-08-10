@@ -4,4 +4,4 @@
 * Install Ionic
 * Build the users App
 
-[Next: Cordova](02-Cordova.md)
+[Next: Cordova](01-Cordova.md)
