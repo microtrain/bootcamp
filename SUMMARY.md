@@ -20,7 +20,7 @@
   * [Bash Scripting Basics](03-BashScripting/01-Basics.md)
 
 * [Chapter 4: Servers and the Internet](04-ServersAndTheInternet/README.md)
-  * [The Anatomy of a URL](04-ServersAndTheInternet/01-Url.md)
+  * [The Anatomy of a URL](04-ServersAndTheInternet/01-URL.md)
   * [User Requests and Server Responses](04-ServersAndTheInternet/02-RequestResponse.md)
 
 * [Chapter 5: HTML](05-HTML/README.md)
