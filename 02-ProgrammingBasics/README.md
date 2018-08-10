@@ -1,4 +1,4 @@
-# Introduction
+# Chapter 2: Programming Basics
 
 In this section you will be introduced to the most basic concepts of programming; variables, data structures, and control statements.
 
