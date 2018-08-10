@@ -395,4 +395,4 @@ Apply the new navigation to all pages.
 ### Udemy
 * [Flexbox Tutorial](https://microtrain.udemy.com/flexbox-tutorial/)
 
-[Next: SASS](01-SASS.md)
+[Next: SASS](02-SASS.md)
