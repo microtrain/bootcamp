@@ -205,3 +205,5 @@ This exercise introduces you to inline styles. Due to there blocking nature we w
 ```html
 <img style="border-radius: 50%; float: right; margin-right: 1em;" src="..." alt="...">
 ```
+
+[Next: Contact Form](03-ContactForm.md)

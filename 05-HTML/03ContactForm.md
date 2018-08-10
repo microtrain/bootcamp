@@ -172,3 +172,5 @@ In this lesson you learned how to
 
 ## Additional Resources
 * [Creating Accessible Forms](https://webaim.org/techniques/forms/controls)
+
+[Next: Resume](04-Resume.md)

@@ -254,3 +254,5 @@ In this exercise you leanred how to
 * [Why Character Entities](https://stackoverflow.com/questions/1016080/why-are-html-character-entities-necessary)
 * [XML and HTML Entities](https://en.wikipedia.org/wiki/List_of_XML_and_HTML_character_entity_references])
 * [The W3C Reference](https://dev.w3.org/html5/html-author/charref])
+
+[Next: GitHub Pages](02-GitHubPages.md)

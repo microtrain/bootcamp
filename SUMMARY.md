@@ -23,10 +23,10 @@
 
 * [Chapter 5: HTML](05-HTML/README.md)
   * [HTML Basics](05-HTML/01-HTMLBasics.md)
-  * [GitHub Pages](05-HTML/03-GitHubPages.md)
-  * [Contact Form](05-HTML/04-ContactForm.md)
+  * [GitHub Pages](05-HTML/02-GitHubPages.md)
+  * [Contact Form](05-HTML/03-ContactForm.md)
   * [Resume](05-HTML/04-Resume.md)
-  * [Meta Data](05-HTML/06-MetaData.md)
+  * [Meta Data](05-HTML/05-MetaData.md)
 
 * [Chapter 6: CSS](06-CSS/README.md)
   * [HTML](06-CSS/01-CSSBasics.md)

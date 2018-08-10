@@ -31,3 +31,6 @@ Use HTML5 sectioning tags such as ```main``` and ```section``` to segment your r
 * [Using HTML sections and outlines](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines)
 * [How to Use The HTML5 Sectioning Elements](http://blog.teamtreehouse.com/use-html5-sectioning-elements)
 * [HTML5 Resume: Jared Pearce](https://codepen.io/jaredpearce/pen/iBdxb)
+
+
+[Next: Resume](05-MetaData.md)
