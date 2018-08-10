@@ -14,4 +14,4 @@ View's are the presentation layer. Views will typically be HTML but can be anyth
 
 Business and application logic.
 
-[Next: CakePHP](02-CakePHP)
+[Next: CakePHP](02-CakePHP.md)
