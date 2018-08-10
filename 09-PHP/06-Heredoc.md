@@ -186,3 +186,5 @@ Navigate to *https://loc.example.com/public/contact.php* and submit the form. Th
 
 ### Udemy
 * [The Complete MySQL Developer Course](https://microtrain.udemy.com/the-complete-mysql-developer-course/)
+
+[Next: Meta Data](07-MetaData.md)

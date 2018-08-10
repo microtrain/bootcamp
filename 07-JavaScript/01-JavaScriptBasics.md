@@ -117,3 +117,5 @@ The ```innerHTML``` property hold the content of a target element.
 * [MDN - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [Eloquent_JavaScript](http://eloquentjavascript.net/Eloquent_JavaScript.pdf)
 * [Douglas Crawford](http://javascript.crockford.com/)
+
+[Next: JavaScript Control Structures](02-JSControlStructures.md)

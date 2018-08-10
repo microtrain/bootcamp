@@ -117,3 +117,5 @@ for (var i=0; i<blues.length; i++) {
 
 ### Udemy
 [Javascript Intermediate level 1 - Mastering the DOM](https://microtrain.udemy.com/javascript-intermediate-mastering-the-dom/)
+
+[Next: Events](04-Events.md)

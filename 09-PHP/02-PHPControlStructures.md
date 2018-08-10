@@ -167,3 +167,5 @@ do {
 ```
 ## Additional Reading
 * [Which Loop](https://mathbits.com/MathBits/CompSci/looping/whichloop.htm)
+
+[Next: Object Oriented Programming in PHP](03-OOP.md)

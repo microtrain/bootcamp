@@ -1265,3 +1265,5 @@ Now that you can add basic shapes to the canvas lets work on the colors.
 ### Udemey
 * [Introduction to HTML5 Canvas basics of drawing](https://microtrain.udemy.com/introduction-to-html5-canvas-basics-of-drawing/learn/v4/overview)
 * [Search Canvas](https://microtrain.udemy.com/organization/search/?q=canvas)
+
+[Next: jQuery](06-jQuery.md)
