@@ -48,4 +48,4 @@ At this point we have created the articles component and added it to routing.
 1. Create and route ArticleCreate - _src/app/article-create/*_
 1. Create and route ArticleEdit - _src/app/article-edit/*_
 
-[Next: Apache Cordova](/15-ApacheCorvoda/README.md)
+[Next: Apache Cordova](/15-ApacheCordova/README.md)
