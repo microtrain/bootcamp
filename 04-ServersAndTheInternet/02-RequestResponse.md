@@ -24,5 +24,5 @@ In this section you learned how a user request leads to a server response.
 ## Footnotes
 [^1]: unless these are hardcoded into the page whitch may be done with descrition.
 
-[Next: HTML](05-HTML/README.md)
+[Next: HTML](/05-HTML/README.md)
 
