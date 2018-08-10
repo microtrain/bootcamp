@@ -1,4 +1,5 @@
-# Sample Resum e 
+# Sample Resume 
+
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +38,7 @@
       <li>VCS</li>
       <li>Cloud</li>
       <li>MongoDB Atlas</li>
-      <li>Digital Ocean</li>
+      <li>AWS</li>
       <li>SSH</li>
       <li>API</li>
       <li>REST API</li>
