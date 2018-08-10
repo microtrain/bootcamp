@@ -12,3 +12,5 @@ Every language has it's own specific set of data types ad well as it's own set o
 * [Bash](http://tldp.org/LDP/abs/html/declareref.html)
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
 * [TypeScript](https://www.typescriptlang.org/docs/handbook/basic-types.html)
+
+[Next: Control Structures](03-ControlStructures.md)
