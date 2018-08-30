@@ -4,7 +4,7 @@ Programming is little more that reading data and piecing together statements tha
 
 ## Exercise 3 - If, Else If, Else
 
-Create the following path _/var/www/mtbc/php/if_else.php_ and open it VS Code. Then add the following lines.
+Create the following path _/var/www/mtbc/php/if_else.php_ and open it in VS Code. Then add the following lines.
 ```php
 <?php
 
