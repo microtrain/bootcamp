@@ -63,6 +63,6 @@ Table A may (or must) have one or more corresponding rows in table B and table B
 * [ORM Hate](https://martinfowler.com/bliki/OrmHate.html)
 
 ### Udemy
-* [The Complete MySQL Developer Course](https://microtrain.udemy.com/the-complete-mysql-developer-course/)
+* [MySQL Courses](https://microtrain.udemy.com/organization/search/?src=ukw&q=mysql)
 
 [Next: Working with MySQL](03-WorkingWithMySQL.md)
