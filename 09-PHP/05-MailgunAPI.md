@@ -318,6 +318,7 @@ composer install
 * [JSON](http://www.json.org/)
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
 ### Udemy
-* [JSON and APIs](https://microtrain.udemy.com/json-course/)
+* [JSON Related Courses](https://microtrain.udemy.com/organization/search/?src=ukw&q=JSON)
+* [API Related Courses](https://microtrain.udemy.com/organization/search/?src=ukw&q=api)
 
 [Next: Heredoc](06-Heredoc.md)
