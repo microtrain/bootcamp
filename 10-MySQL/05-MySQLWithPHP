@@ -1,9 +1,12 @@
 # MySQL with PHP
+
 In this lesson we will use PHP's PDO library to work with our database.
 
 The first step is to create a connection to your database. You connection script will likely be part of larger configuration.
 
-Under your example.com create the file ```core/db_connect.php```
+Under your example.com create the file *core/db_connect.php*
+
+```php
 <?php
 
 $host = '127.0.0.1';
