@@ -116,22 +116,57 @@ $content .= "<h1>{$row['title']}</h1>";
 
 echo $content;
 ```
+In short, we are trustung user input. If I were to replace the $_GET param as follows we will get the same result. Why is this terrifying?  
 
+```php
+<?php
+include '../core/db_connect.php';
 
-//$slug='hello';
-
+//$slug = "'{$_GET['slug']}'";
 $slug="(SELECT slug FROM posts WHERE slug = 'hello')";
 
+$content=null;
 $stmt = $pdo->query("SELECT * FROM posts WHERE slug={$slug}");
 
-//$stmt = $pdo->prepare('SELECT * FROM posts WHERE slug = ?');
-//$stmt->execute([$slug]);
+$row = $stmt->fetch();
+$content .= "<h1>{$row['title']}</h1>";
 
-//$stmt = $pdo->prepare('SELECT * FROM posts WHERE slug = :slug');
-//$stmt->execute(['slug' => $slug]);
+echo $content;
+```
+Because we just allowed a subquery as a parameter. There are several ways to defeat this, the first is by simply adding quotes to the query, but this only works if the expected input is a string.
 
-while ($row = $stmt->fetch())
-{
-    var_dump($row);
-    echo $row['title'] . "\n";
-}
+```php
+$stmt = $pdo->query("SELECT * FROM posts WHERE slug={$slug}");
+```
+
+The prefered method is a prepared statement with bound parameters. There are two ways to do this commonly referred to as unnamed and named.
+
+In an unamed binding the order matters.
+```php
+$stmt = $pdo->prepare('SELECT * FROM posts WHERE slug = ?');
+$stmt->execute([$slug]);
+```
+
+In a named binding the order does not matter. 
+```php
+$stmt = $pdo->prepare('SELECT * FROM posts WHERE slug = :slug');
+$stmt->execute(['slug' => $slug]);
+```
+
+The other issue is that we are directly accessing super globals which now-a-days is considered bad practice. To further restrict the user input sanitize the slug by forcing it into a predefiend format.
+```php
+<?php
+include '../core/db_connect.php';
+
+$input = filter_input_array(INPUT_GET);
+$slug = preg_replace("/[^a-z0-9-]+/", "", $input['slug']);
+
+$content=null;
+$stmt = $pdo->prepare('SELECT * FROM posts WHERE slug = ?');
+$stmt->execute([$slug]);
+
+$row = $stmt->fetch();
+$content .= "<h1>{$row['title']}</h1>";
+
+echo $content;
+```
