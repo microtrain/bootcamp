@@ -49,6 +49,7 @@ while ($row = $stmt->fetch())
 }
 ```
 
+Replace the ```var_dump()``` with real output
 ```php
 <?php
 include '../core/db_connect.php';
