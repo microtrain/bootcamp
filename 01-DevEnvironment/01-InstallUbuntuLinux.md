@@ -42,4 +42,9 @@ Pull the dongle from the USB drive and press the enter key.
 In this lesson you learned
 * how to install Ubuntu Linux (Ubuntu, Linux)
 
+## Additional Recourses
+
+### Udemy
+[Ubuntu Courses](https://microtrain.udemy.com/organization/search/?src=ukw&q=ubuntu)
+
 [Next: Linux Basics](02-LinuxBasics.md)
