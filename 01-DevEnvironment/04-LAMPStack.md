@@ -156,5 +156,6 @@ In this lesson you learned
 * [Building a LAMP Stack on Ubuntu 12.04](https://jasonsnider.com/posts/view/building-a-lamp-stack-on-ubuntu-12-04)
 
 ### Udemy
-* [Host Your Own Web Development Lab from Home!](https://microtrain.udemy.com/web-design-lab/)
-* [Next: Apache Basics](05-ApacheBasics.md)
+* [LAMP Stack Courses](https://microtrain.udemy.com/organization/search/?src=ukw&q=lamp%20stack)
+
+[Next: Apache Basics](05-ApacheBasics.md)
