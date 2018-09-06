@@ -126,11 +126,11 @@ sudo a2ensite cake.example.com && sudo service apache2 restart
 
 Navigate to [http://loc.cake.example.com/](http://loc.cake.example.com/) and you should encounter write permission issues. Resolve this by changing ownership of these files to the Apache process (www-data) and Yourself (replace jason with your Ubuntu username).
 ```sh
-sudo chown www-data:jason logs
-sudo chown www-data:jason logs/*
-sudo chown www-data:jason tmp
-sudo chown www-data:jason tmp/*
-sudo chown www-data:jason tmp/*/*
+sudo chown www-data:$USER logs
+sudo chown www-data:$USER logs/*
+sudo chown www-data:$USER tmp
+sudo chown www-data:$USER tmp/*
+sudo chown www-data:$USER tmp/*/*
 ```
 
 Return to [http://loc.cake.example.com/](http://loc.cake.example.com/) and all systems should now be a go.
