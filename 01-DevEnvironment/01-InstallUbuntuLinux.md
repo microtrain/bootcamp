@@ -43,8 +43,9 @@ In this lesson you learned
 * how to install Ubuntu Linux (Ubuntu, Linux)
 
 ## Additional Recourses
+* [Ubuntu Community Installation Guide](https://help.ubuntu.com/community/Installation)
 
 ### Udemy
-[Ubuntu Courses](https://microtrain.udemy.com/organization/search/?src=ukw&q=ubuntu)
+* [Ubuntu Courses](https://microtrain.udemy.com/organization/search/?src=ukw&q=ubuntu)
 
 [Next: Linux Basics](02-LinuxBasics.md)
