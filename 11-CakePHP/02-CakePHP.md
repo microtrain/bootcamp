@@ -254,80 +254,18 @@ vendor/bin/phpunit tests/TestCase/Model/Table/ArticlesTableTest
 
 Navigate to the *tests/TestCase/Model/Table* walk through the default test cases.
 
+## Controllers
 
-## Managing Articles
-
-[</> code](https://github.com/stack-x/cake.example.com/commit/6ddc78996c51b9982292200782f39c717b1b6684) Create the file */src/Controller/ArticlesController.php* and add the following.
-```php
-<?php
-namespace App\Controller;
-
-class ArticlesController extends AppController
-{
-
-}
+```sh
+bin/cake bake controller Articles
 ```
 
-### Add an Index Method
+## Templates - The View Layer
 
-[</> code](https://github.com/stack-x/cake.example.com/commit/ce8594d032d9163017cf5a35c4f930002386970c) The index method will return a paginated list articles and send them a the view.
-
-```php
-public function index()
-{
-    $this->loadComponent('Paginator');
-    $articles = $this->Paginator->paginate($this->Articles->find());
-    $this->set(compact('articles'));
-}
+```sh
+bin/cake bake template Articles
 ```
 
-#### Add the View
-
-Create the file */src/Template/Articles/index.ctp*
-
-```php
-<h1>Articles</h1>
-<table>
-    <tr>
-        <th>Title</th>
-        <th>Created</th>
-    </tr>
-
-    <?php foreach ($articles as $article): ?>
-    <tr>
-        <td>
-            <?php echo $this->Html->link($article->title, ['action' => 'view', $article->id]); ?>
-        </td>
-        <td>
-            <?php echo $article->created; ?>
-        </td>
-    </tr>
-    <?php endforeach; ?>
-</table>
-```
-
-
-### Add a View Method
-
-[</> code](https://github.com/stack-x/cake.example.com/commit/e43ab2ea483ab73b2dd6d6fab4bbe97ec058478a)
-
-```php
-public function view($slug = null)
-{
-    $article = $this->Articles->findBySlug($slug)->firstOrFail();
-    $this->set(compact('article'));
-}
-```
-
-#### Add the View
-
-Create the file */src/Template/Articles/view.ctp*
-```php
-<h1><?php echo $article->title; ?></h1>
-<div>Created: <?php echo $article->created; ?></div>
-<div><?php echo $article->body; ?></div>
-<div><?php echo $this->Html->link('Edit', ['action' => 'edit', $article->slug]); ?></div>
-```
 
 ## Add an Initialize Method
 
@@ -337,127 +275,9 @@ Create the file */src/Template/Articles/view.ctp*
 public function initialize()
 {
     parent::initialize();
-
-    $this->loadComponent('Flash');
-    $this->loadComponent('Paginator');
 }
 ```
 
-### Add an Create Method
-[</> code](https://github.com/stack-x/cake.example.com/commit/8b06fc21beb3452e671ef997ba3362e6a6ada7d2)
-```php
-public function create()
-{
-    $article = $this->Articles->newEntity();
-    if ($this->request->is('post')) {
-        $article = $this->Articles->patchEntity($article, $this->request->getData());
-
-        $article->slug = Text::slug(
-            strtolower(
-                substr($article->title, 0, 191)
-            )
-        );
-
-        if ($this->Articles->save($article)) {
-            $this->Flash->success('Your article has been created.');
-            return $this->redirect(['action' => 'index']);
-        }
-
-        $this->Flash->error('An error has occured.');
-    }
-    $this->set('article', $article);
-}
-```
-
-#### Add the View
-
-Create the file */src/Template/Articles/create.ctp*
-```php
-<h1>Create an Article</h1>
-<?php
-    echo $this->Form->create($article);
-
-    echo $this->Form->control('title');
-    echo $this->Form->control('body', ['rows' => '5']);
-    echo $this->Form->button('Save Article');
-    echo $this->Form->end();
-```
-
-### Add an Edit Method
-[</>code](https://github.com/stack-x/cake.example.com/commit/d30698b9af799fb3afae325f7b8c1c0683cb905c)
-```php
-public function edit($id = null)
-{
-    $article = $this->Articles->findById($id)->firstOrFail();
-    if ($this->request->is(['post', 'put'])) {
-        $this->Articles->patchEntity($article, $this->request->getData());
-
-        $article->slug = Text::slug(
-            strtolower(
-                substr($article->title, 0, 191)
-            )
-        );
-
-        if ($this->Articles->save($article)) {
-            $this->Flash->success('Your article has been updated.');
-            return $this->redirect(['action' => 'index']);
-        }
-        $this->Flash->error('An error has occured.');
-    }
-
-    $this->set('article', $article);
-}
-```
-
-<!-- -->
-
-#### Add the View
-
-Create the file */src/Template/Articles/edit.ctp*
-```php
-<h1>Edit: <?php echo $article->title; ?></h1>
-<?php
-echo $this->Form->create($article);
-echo $this->Form->control('id', ['type'=>'hidden']);
-echo $this->Form->control('title');
-echo $this->Form->control('body', ['rows' => '5']);
-echo $this->Form->button('Update Article');
-echo $this->Form->end();
-```
-### Add a Delete Method
-[</> code](https://github.com/stack-x/cake.example.com/commit/d25cafeec10ad53cdd5aecd8bad775546e9dbe4a)
-```php
-public function delete($id = null)
-{
-    $this->request->allowMethod(['post', 'delete']);
-
-    $article = $this->Articles->findById($id)->firstOrFail();
-    if ($this->Articles->delete($article)) {
-        $this->Flash->success("The article: {$article->title} has been deleted.");
-        return $this->redirect(['action' => 'index']);
-    }
-}
-```
-
-#### Add a delete link to view.ctp 
-
-Add a delete link to the view template */src/Template/Articles/view.ctp*
-```php
-<div>
-    <?php
-        echo $this->Html->link(
-            'Edit',
-            ['action' => 'edit', $article->id]
-        );
-        echo '&nbsp;|&nbsp;';
-        echo $this->Form->postLink(
-            'Delete',
-            ['action' => 'delete', $article->id],
-            ['confirm' => __('Are you sure, you want to delete {0}?', $article->title)]
-        );
-    ?>
-</div>
-```
 
 #### A Create, Edit and Delete Links to the Index View
 [</> code](https://github.com/stack-x/cake.example.com/commit/3e12a4ee9522c57d5ff98c7ff81fcd14a22feffc)
