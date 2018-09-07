@@ -15,8 +15,6 @@ Rolling snapshots of the database structure. These allow you migrate your databa
 * **DO NOT** Initialize with a README
 * **DO NOT** Add the MIT License
 
-[</> code](https://github.com/stack-x/cake.example.com/commits/master) Initial Commit
-
 ## Installation
 
 First make sure you have installed internationalization functions for PHP.
@@ -113,7 +111,7 @@ sudo vim /etc/apache2/sites-available/cake.example.com.conf
 </VirtualHost>
 ```
 
-Be sure to load mod rewrite
+Be sure to load mod_rewrite
 ```sh
 sudo a2enmod rewrite
 sudo systemctl reload apache2
