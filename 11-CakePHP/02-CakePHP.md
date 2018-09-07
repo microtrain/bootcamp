@@ -155,9 +155,9 @@ git commit -am 'Initial build'
 @todo callback methods and lifcycles as it pertains a CakePHP and Programming in general.
 
 
-## [Blog Tutorial](https://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html)
+## Build a Blog
 
-We will start by using Composer to install CakeDC's [User Authentication plugin](https://github.com/CakeDC/users). We will then build an Articles CRUD based on CakePHP's [CMS tutorial](https://book.cakephp.org/3.0/en/tutorials-and-examples/blog/blog.html). We will then tie Users to Articles (a blog post). Our lad will apply everything we just learned to building a comment system for our blogging platform. In you console, please navigate to **/var/www/cake.example.com**, this tutorial assumes **/var/www/cake.example.com** as the base path for all cd, file and folder creation commands.
+We will start by using Composer to install CakeDC's [User Authentication plugin](https://github.com/CakeDC/users). We will then bake an Articles CRUD which we will use for posting to our blog. In your console, please navigate to **/var/www/cake.example.com**, this tutorial assumes **/var/www/cake.example.com** as the base path for all cd, file and folder creation commands.
 
 ### Users
 
@@ -181,24 +181,18 @@ bin/cake migrations migrate -p CakeDC/Users
 ```
 5. [</> code](https://github.com/stack-x/cake.example.com) Commit your changes with a message of *Added CakeDC's user plugin*.
 
-
-6. Remove deprication warnings from line 168 of *config/app.php*
-```php
-'errorLevel'=>'E_ALL & ~E_USER_DEPRECATED',
-```
-
-7. Set the mail transport to debug on line 196 of *config/app.php*
+6. Set the mail transport to debug on line 196 of *config/app.php*
 ```php 
 'className' => 'Debug',
 ```
 
-8. Navigate to [http://loc.cake.example.com/users/users/login](http://loc.cake.example.com/users/users/login) and have a look around. Use the navigation links to find the registration page and create an account.
+7. Navigate to [http://loc.cake.example.com/users/users/login](http://loc.cake.example.com/users/users/login) and have a look around. Use the navigation links to find the registration page and create an account.
 
-9. Notice you will not be able to login, this is because you have not yet clicked the autorization link out of your email. THe local server cannot send emails so you will have manually flip that switch in the database.
+8. Notice you will not be able to login, this is because you have not yet clicked the autorization link out of your email. THe local server cannot send emails so you will have manually flip that switch in the database.
 
-10. Login to PhpMyAdmin, find your user record in the cake_app database and flip the active and superuser flags to 1.
+9. Login to PhpMyAdmin, find your user record in the cake_app database and flip the active and superuser flags to 1.
 
-11. Now return to the login page and try to login. On success you will be redirected to the CakePHP debuggin page.
+10. Now return to the login page and try to login. On success you will be redirected to the CakePHP debuggin page.
 
 
 ## Add the Database Tables
@@ -211,15 +205,16 @@ bin/cake migrations migrate -p CakeDC/Users
 
 ```sql
 -- First, create our articles table: 
-CREATE TABLE articles (
-    id CHAR(36) NOT NULL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    slug VARCHAR(191) NOT NULL,
-    body TEXT,
-    published BOOLEAN DEFAULT FALSE,
-    created DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'When the post was created',
-    modified DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'When the post was last edited',
-    UNIQUE KEY (slug)
+CREATE TABLE posts (
+    id CHAR(36) PRIMARY KEY COMMENT 'Primary Key UUID',
+    title VARCHAR(255) COMMENT 'Title of a blog post',
+    slug VARCHAR(255) COMMENT 'An SEO and human friendly lookup key',
+    meta_keywords VARCHAR(255) COMMENT 'Meta data for SEO',
+    meta_description VARCHAR(255) COMMENT 'Meta data for SEO',
+    body TEXT COMMENT 'The coment of the blog post',
+    user_id VARCHAR(36) COMMENT 'The creator of the blog post',
+    created DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp of creation',
+    modified DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp of last modification' 
 ) ENGINE=INNODB;
 
 
