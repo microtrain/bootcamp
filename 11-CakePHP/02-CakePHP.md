@@ -13,7 +13,7 @@ Rolling snapshots of the database structure. These allow you migrate your databa
 
 * Create the  repository *cake.example.com*.
 * **DO NOT** Initialize with a README
-* Add the MIT License
+* **DO NOT** Add the MIT License
 
 [</> code](https://github.com/stack-x/cake.example.com/commits/master) Initial Commit
 
@@ -113,6 +113,12 @@ sudo vim /etc/apache2/sites-available/cake.example.com.conf
 </VirtualHost>
 ```
 
+Be sure to load mod rewrite
+```sh
+sudo a2enmod rewrite
+sudo systemctl reload apache2
+```
+
 Add the following to */etc/hosts*
 
 ```sh
@@ -131,6 +137,7 @@ sudo chown www-data:$USER logs/*
 sudo chown www-data:$USER tmp
 sudo chown www-data:$USER tmp/*
 sudo chown www-data:$USER tmp/*/*
+sudo chown www-data:$USER tmp/*/*/*
 ```
 
 Return to [http://loc.cake.example.com/](http://loc.cake.example.com/) and all systems should now be a go.
@@ -148,18 +155,19 @@ git add .
 git commit -am 'Initial build'
 ```
 
-
 ### Cake File Structure, Callbacks and Routing
 
 @todo navigate to src, explain the directory structure Model, Views and Controller
 @todo callback methods and lifcycles as it pertains a CakePHP and Programming in general.
 
-
+<!--
 ## Build a Blog
 
 We will start by using Composer to install CakeDC's [User Authentication plugin](https://github.com/CakeDC/users). We will then bake an Articles CRUD which we will use for posting to our blog. In your console, please navigate to **/var/www/cake.example.com**, this tutorial assumes **/var/www/cake.example.com** as the base path for all cd, file and folder creation commands.
-
+-->
 ### Users
+
+We will start by using Composer to install CakeDC's [User Authentication plugin](https://github.com/CakeDC/users). This will serve as the foundation of our application.
 
 1. We will install the users plugin developed by CakeDC. The documentation is available [here](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Installation.md).
 
@@ -192,10 +200,13 @@ bin/cake migrations migrate -p CakeDC/Users
 
 9. Login to PhpMyAdmin, find your user record in the cake_app database and flip the active and superuser flags to 1.
 
-10. Now return to the login page and try to login. On success you will be redirected to the CakePHP debuggin page.
+10. Now return to the login page and try to login. On success you will be redirected to the CakePHP debug page.
 
 
-## Add the Database Tables
+### Articles CRUD
+We will keep our blog posts in a table called articles.
+
+#### Add the Database Tables
 
 * Login to phpMyAdmin [https://localhost/phpmyadmin](https://localhost/phpmyadmin)
 * Click into cake > cake_app from the side bar
@@ -219,15 +230,17 @@ CREATE TABLE posts (
 
 
 -- Then insert some articles for testing: 
+-- You will want to replace USER-ID with the id ofa user from your users table.
+INSERT INTO articles (id,title,slug,body,user_id)
+    VALUES ('6f814dc0-4adb-11e8-842f-0ed5f89f718b', 'The Title', 'the-title', 'This is the article body.', 'USER-ID');
 INSERT INTO articles (id,title,slug,body)
-    VALUES ('6f814dc0-4adb-11e8-842f-0ed5f89f718b', 'The Title', 'the-title', 'This is the article body.');
+    VALUES ('6f8155ae-4adb-11e8-842f-0ed5f89f718b', 'Hello World', 'hello-world', 'This is the article body again.', 'USER-ID');
 INSERT INTO articles (id,title,slug,body)
-    VALUES ('6f8155ae-4adb-11e8-842f-0ed5f89f718b', 'Hello World', 'hello-world', 'This is the article body again.');
-INSERT INTO articles (id,title,slug,body)
-    VALUES ('6f815964-4adb-11e8-842f-0ed5f89f718b', 'Hello World Again', 'hello-world-again', 'This is the article body again and again.');
+    VALUES ('6f815964-4adb-11e8-842f-0ed5f89f718b', 'Hello World Again', 'hello-world-again', 'This is the article body again and again.', 'USER-ID');
 ```
 
-[</> Code](https://github.com/stack-x/cake.example.com/commit/ea597581218496f1aec5f748b29ebe4d463853f5) Since we have the table in our database we can automate the build by *baking* the model. Run the following command and take note of what files get created. In addition to creating an Entity and a Table classes, fixtures and tests will be created, thie will provide a placeholder for building unit tests. 
+#### Bake the Model
+Since we have the table in our database we can automate the build by *baking* the CRUD (model, views and controllers). Run the following command and take note of what files get created. In addition to creating an Entity and a Table classes, fixtures and tests will be created, thie will provide a placeholder for building unit tests. 
 
 ```sh
 bin/cake bake model Articles
@@ -235,7 +248,7 @@ bin/cake bake model Articles
 
 Navigate to the *src/Model* and check out the files in *Entity* and *Article* folders.
 
-### Unit Test
+##### Unit Tests
 
 [</> Code](https://github.com/stack-x/cake.example.com/commit/8b1fc8724e411ec254ae7f5c5e71f36540d4059f) Start by installing PHP unit
 ```sh
@@ -249,23 +262,22 @@ vendor/bin/phpunit tests/TestCase/Model/Table/ArticlesTableTest
 
 Navigate to the *tests/TestCase/Model/Table* walk through the default test cases.
 
-## Controllers
+#### Bake the Controller
 
 ```sh
 bin/cake bake controller Articles
 ```
 
-## Templates - The View Layer
+#### Bake the Template
 
 ```sh
 bin/cake bake template Articles
 ```
 
 
-## Add an Initialize Method
+### From Basic CRUD to an App
 
-[</> code](https://github.com/stack-x/cake.example.com/commit/28ede2eaa70209340af86fad52b901e6686d9c04) Since the Flash Component will be reused elsewhere we will add an initialization method and add load our components there.
-
+Add an initialization method to the Articles controller
 ```php
 public function initialize()
 {
@@ -273,14 +285,9 @@ public function initialize()
 }
 ```
 
-
-#### A Create, Edit and Delete Links to the Index View
-[</> code](https://github.com/stack-x/cake.example.com/commit/3e12a4ee9522c57d5ff98c7ff81fcd14a22feffc)
-
-
 ### Create Slugs in the Background
 
-[</> code](https://github.com/stack-x/cake.example.com/commit/3c036e474459b99f99faf7e37b894ca0cc85a827) We will move our slug creation logic from the Articles controller to the Articles table. Here we will use a callback to create slugs in the background. We will create a unit test to verifiy our slug creation logic.
+We will move our slug creation logic from the Articles controller to the Articles table. Here we will use a callback to create slugs in the background. We will create a unit test to verifiy our slug creation logic.
 
 Call the namespace for the Utility class.
 *src/Model/Table/ArticlesTable.php*
@@ -406,28 +413,6 @@ Router::connect(
 
 Now acessing [http://loc.cake.example.com](http://loc.cake.example.com) will redirect you to a login page.
 
-
-
-
-
-### Tie Users to Articles
-Add a column called user_id to the articles table.
-
-```sql
-
--- Add the user_id column
-ALTER TABLE articles ADD user_id CHAR(36) AFTER id NOT NULL DEFAULT 0;
-
- -- Swap out the user_id with YOUR user id from the database
-UPDATE articles SET user_id='xxxx'
-```
-
-<!--
-and create a foreign key relationship to the users table
-```sql
-ALTER TABLE articles ADD CONSTRAINT user_id FOREIGN KEY (user_id) REFERENCES users(id);
-```
--->
 
 
 ### [Configuration](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Configuration.md)
