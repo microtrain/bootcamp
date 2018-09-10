@@ -4,7 +4,7 @@ Express is a web application framework for NodeJS.
 
 [Getting Started with Express](https://expressjs.com/)
 
-> In class examples may differ from the attached GitHub repository. 
+> In class examples may differ from the attached GitHub repositories. 
 
 ## Create an ExpressJS based Project
 
