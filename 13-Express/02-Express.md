@@ -82,6 +82,11 @@ The *node_modules* directory contains third party software that should not be a 
 
 [</code>](https://github.com/microtrain/mean.example.com/commit/f8d0bc8225635141a8182b709d190b1980166bdd) Add a .gitignore file to exclude *node_modules* from future commits.
 
+*.gitignore*
+```sh
+node_modules
+```
+
 Commit the *.gitignore* file.
 ```sh
 git add .gitignore
@@ -235,7 +240,7 @@ db.users.insert({email: 'test@example.com', username: 'testuser'})
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/3f2277d3a874126b2590c26b9d495e00f0b53be4) A config file is a good practice for storing and managing API keys and other configuration variables from a central location. I often create two files, one for production and one for development.
 
-* Create the configuration file *config.dev.js*
+* Create the file *config.dev.js*
 
 *config.dev.js*
 ```js
@@ -254,9 +259,27 @@ var config = require('./config.dev');
 console.log(config);
 ```
 
+Remove the ```console.log()``` and connect to the database. Call mongoose from the top of app.js.
+
+*app.js*
+```js
+var mongoose = require('mongoose');
+```
+
+Then call the connection string. Be sure to place this after the call to config file.
+```js
+//Connect to MongoDB
+mongoose.connect(config.mongodb);
+```
+
+```sh
+git commit -am 'Added a connection to the database'
+git push origin master
+```
+
 #### Define the Schema
 
-Next we will create a *models* directory in the root of our project and in it a file named *user.js* resulting is *mean.example.com/models/user.js*.
+Next we will create a *models* directory in the root of our project and in it a file named *users.js* resulting is *mean.example.com/models/users.js*.
 
 ```sh
 npm install mongoose
@@ -278,7 +301,7 @@ var mongoose = require('mongoose'),
   uniqueValidator = require('mongoose-unique-validator');
 
 //Create a schema
-var User = new Schema({
+var Users = new Schema({
   email: {
     type: String,
     required: [true, 'Please enter an email'],
@@ -297,9 +320,9 @@ var User = new Schema({
   }
 });
 
-User.plugin(uniqueValidator);
+Users.plugin(uniqueValidator);
 
-module.exports  = mongoose.model('User', User);
+module.exports  = mongoose.model('Users', Users);
 ```
 
 #### Implement the REST/CRUD Functionality
