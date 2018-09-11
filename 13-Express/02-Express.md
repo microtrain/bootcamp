@@ -18,9 +18,9 @@ sudo npm install express-generator -g
 
 ### Create the repository
 
-mean.example.com
+[</> code](https://github.com/microtrain/mean.example.com/commit/1f903e33269d0892da3d48ee58c02835c3e10328) mean.example.com
 
-A MEAN Stack build for my personal website. Provides a CMS and user management via a REST API.
+An Express based wed site and REST API with user authentication.
 
 [x] Public
 
@@ -30,8 +30,7 @@ A MEAN Stack build for my personal website. Provides a CMS and user management v
 Add gitignore: None
 Add a license: MIT License
 
-
-Clone the project into your home directory. Replace YOUR-GITHUB-ACCOUNT with the actual account details (for the sale of this lesson we will refer to this as *mean.exxample.com*).
+Clone the project into your home directory. Replace YOUR-GITHUB-ACCOUNT with the actual account details (for the sale of this lesson we will refer to this as *mean.example.com*).
 
 ```sh
 cd ~/
@@ -80,7 +79,7 @@ views/
 
 The *node_modules* directory contains third party software that should not be a part of our repository. Npm will handle these dependencies so we do not need them in our repo. Open Atom and add *mean.example.com* as a project folder.
 
-[</code>](https://github.com/microtrain/mean1.example.com/commit/f8d0bc8225635141a8182b709d190b1980166bdd) Add a .gitignore file to exclude *node_modules* from future commits.
+[</code>](https://github.com/microtrain/mean.example.com/commit/819be3c16875eb10aa6d3f27345c20f3c800155b) Add a .gitignore file to exclude *node_modules* from future commits.
 
 *.gitignore*
 ```sh
@@ -93,7 +92,7 @@ git add .gitignore
 git commit -m 'Ignore node_modules from future commits' .gitignore
 ```
 
-Commit the remaining files created during setup and push both commits to the master branch.
+[</> code](https://github.com/microtrain/mean.example.com/commit/708e34a36597a23531fb1a4cc7f0b34d604316fe) Commit the remaining files created during setup and push both commits to the master branch.
 ```sh
 git add .
 git commit -am 'Setup ExpressJS with Pug'
@@ -728,21 +727,29 @@ app.use(function(req,res,next){
     '/users/login'
   ];
 
+  //req.url holds the current URL
+  //indexOf() returns the index of the matching array element
+  //-1, in this context means not found in the array
+  //so if NOT -1 means is found in the whitelist
+  //return next(); stops execution and grants access
   if(whitelist.indexOf(req.url) !== -1){
     return next();
   }
 
   //Allow access to dynamic end points
   var subs = [
-    '/stylesheets/',
+    '/public/',
   ];
 
+  //The query string provides a partial URL match begining
+  //at position 0
   for(var sub of subs){
     if(req.url.substring(0, sub.length)===sub){
       return next();
     }
   }
 
+  //There is an active user session
   if(req.isAuthenticated()){
     return next();
   }
