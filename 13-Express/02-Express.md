@@ -80,7 +80,7 @@ views/
 
 The *node_modules* directory contains third party software that should not be a part of our repository. Npm will handle these dependencies so we do not need them in our repo. Open Atom and add *mean.example.com* as a project folder.
 
-[</code>](https://github.com/microtrain/mean.example.com/commit/f8d0bc8225635141a8182b709d190b1980166bdd) Add a .gitignore file to exclude *node_modules* from future commits.
+[</code>](https://github.com/microtrain/mean1.example.com/commit/f8d0bc8225635141a8182b709d190b1980166bdd) Add a .gitignore file to exclude *node_modules* from future commits.
 
 *.gitignore*
 ```sh
@@ -238,7 +238,7 @@ db.users.insert({email: 'test@example.com', username: 'testuser'})
 
 #### Add a Config File
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/3f2277d3a874126b2590c26b9d495e00f0b53be4) A config file is a good practice for storing and managing API keys and other configuration variables from a central location. I often create two files, one for production and one for development.
+[</> code](https://github.com/microtrain/mean1.example.com/commit/3f2277d3a874126b2590c26b9d495e00f0b53be4) A config file is a good practice for storing and managing API keys and other configuration variables from a central location. I often create two files, one for production and one for development.
 
 * Create the file *config.dev.js*
 
@@ -334,21 +334,21 @@ module.exports  = mongoose.model('Users', Users);
 * delete - A delete request that removes an existing user
 
 ##### GET/Read All
-[</> code](https://github.com/microtrain/mean.example.com/commit/e97e24c4acbeb7ad4d215fae7230ffe81215fd80) GET/Read all users
+[</> code](https://github.com/microtrain/mean1.example.com/commit/e97e24c4acbeb7ad4d215fae7230ffe81215fd80) GET/Read all users
 
 ```sh
 curl -H "Content-Type: application/json" -X GET http://localhost:3000/api/users/
 ```
 
 ##### GET/Read One
-[</> code](https://github.com/microtrain/mean.example.com/commit/a788806f4fade23968121572b6ac9a9bdf7c74ea) GET/Read a single user
+[</> code](https://github.com/microtrain/mean1.example.com/commit/a788806f4fade23968121572b6ac9a9bdf7c74ea) GET/Read a single user
 
 ```sh
 curl -H "Content-Type: application/json" -X GET http://localhost:3000/api/users/5a763b67a5d70c115d81536a
 ```
 
 ##### POST/Create
-[</> code](https://github.com/microtrain/mean.example.com/commit/3fbb13f87bfee5c3de9679e2df6d9b22ed89016e) CREATE/Create a user
+[</> code](https://github.com/microtrain/mean1.example.com/commit/3fbb13f87bfee5c3de9679e2df6d9b22ed89016e) CREATE/Create a user
 
 Test with a simple curl request
 ```sh
@@ -358,14 +358,14 @@ curl -d '{"email":"test3@example.com", "username":"testuser3", "first_name": "Sa
 ```
 
 ##### PUT/Update
-[</> code](https://github.com/microtrain/mean.example.com/commit/3fbb13f87bfee5c3de9679e2df6d9b22ed89016e) PUT/Update a user
+[</> code](https://github.com/microtrain/mean1.example.com/commit/3fbb13f87bfee5c3de9679e2df6d9b22ed89016e) PUT/Update a user
 
 ```sh
 curl -d '{"_id":"5a77536ad7e4c37d6f792716", "first_name":"Robert"}' -H "Content-Type: application/json" -X PUT http://localhost:3000/api/users
 ```
 
 ##### DELETE/Delete
-[</code>](https://github.com/microtrain/mean.example.com/commit/4420ef4064c9240a85c53a0fac51d5a302a6078c) DELETE/Delete a user
+[</code>](https://github.com/microtrain/mean1.example.com/commit/4420ef4064c9240a85c53a0fac51d5a302a6078c) DELETE/Delete a user
 
 ```sh
 curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/users/5a766d52cbe495128293baef
@@ -373,16 +373,16 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/use
 
 #### Add Created and Modified Dates
 
-[</code>](https://github.com/microtrain/mean.example.com/commit/b1f8bf0597c270df42ebb0cdfaddd6d2505db03e) Add and auto-populate created and modified dates on document creation.
+[</code>](https://github.com/microtrain/mean1.example.com/commit/b1f8bf0597c270df42ebb0cdfaddd6d2505db03e) Add and auto-populate created and modified dates on document creation.
 
 ##### Auto Update the Modified Date When a Document is Saved
 
-[</code>](https://github.com/microtrain/mean.example.com/commit/daedc8e236e9d5c03efbee02920113a0bfaecc00) Auto update the modifed timestamp prior to saving the document.
+[</code>](https://github.com/microtrain/mean1.example.com/commit/daedc8e236e9d5c03efbee02920113a0bfaecc00) Auto update the modifed timestamp prior to saving the document.
 
 ## User Authentication with Passport
 
 ### Passport Local Strategy
-[</> code](https://github.com/microtrain/mean.example.com/commit/78b0dc53d4851621d4dc7b8ea2d6a2a6d48f2fbb) Install all the packages needed for building a passport session and storing it in the database. The commit points to the package.json files, you can install these packages over the commandline or 
+[</> code](https://github.com/microtrain/mean1.example.com/commit/78b0dc53d4851621d4dc7b8ea2d6a2a6d48f2fbb) Install all the packages needed for building a passport session and storing it in the database. The commit points to the package.json files, you can install these packages over the commandline or 
 
 ```sh
 npm install passport
@@ -392,7 +392,7 @@ npm install express-session
 npm install connect-mongo
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/321cdc5936a0bb85cc89b33a04b50720a7844226) Require session packages
+[</> code](https://github.com/microtrain/mean1.example.com/commit/321cdc5936a0bb85cc89b33a04b50720a7844226) Require session packages
 *app.js*
 ```js
 var session = require('express-session');
@@ -401,7 +401,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/bf31173528bd3815cde62e472678b426cd3aff70) Add configuration objects for sessions and cookies
+[</> code](https://github.com/microtrain/mean1.example.com/commit/bf31173528bd3815cde62e472678b426cd3aff70) Add configuration objects for sessions and cookies
 *config.dev.js*
 ```js
 //Session configuration object
@@ -419,7 +419,7 @@ config.session.secret = '7j&1tH!cr4F*1U';
 config.cookie.domain = 'localhost:3000';
 ```
 
-[</code>](https://github.com/microtrain/mean.example.com/commit/61048acfce52c12fcc747a775e275f57e0e5c8ac) Configure the [express session](https://github.com/expressjs/session)
+[</code>](https://github.com/microtrain/mean1.example.com/commit/61048acfce52c12fcc747a775e275f57e0e5c8ac) Configure the [express session](https://github.com/expressjs/session)
 ```js
 var passport = require('passport');
 
@@ -446,7 +446,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/9513474495901b01f4fdc2a891de91b6f79b060d)Serialize the session data
+[</> code](https://github.com/microtrain/mean1.example.com/commit/9513474495901b01f4fdc2a891de91b6f79b060d)Serialize the session data
 ```js
 passport.serializeUser(function(user, done){
   done(null,{
@@ -467,7 +467,7 @@ passport.deserializeUser(function(user, done){
 
 ##### Passport Local Mongooose
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/94efcb4fc6f3e0daa2e6461fb9ec090e166b2079) Update the user model to require hash and salt as strings.
+[</> code](https://github.com/microtrain/mean1.example.com/commit/94efcb4fc6f3e0daa2e6461fb9ec090e166b2079) Update the user model to require hash and salt as strings.
 
 *models/user.js*
 ```js
@@ -487,7 +487,7 @@ passport.deserializeUser(function(user, done){
     },
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/4408263d8af4e2709c795aa27c35d6817054efb4) Add passport-local-mongoose
+[</> code](https://github.com/microtrain/mean1.example.com/commit/4408263d8af4e2709c795aa27c35d6817054efb4) Add passport-local-mongoose
 
 *models/user.js*
 ```js
@@ -498,7 +498,7 @@ var passportLocalMongoose = require('passport-local-mongoose');
 User.plugin(passportLocalMongoose);
 ```
 
-[</>code](https://github.com/microtrain/mean.example.com/commit/86b74c55499f5f690f636a9014b52ba87d8359ac) Require and use Passport Local Strategy as defined in the user model
+[</>code](https://github.com/microtrain/mean1.example.com/commit/86b74c55499f5f690f636a9014b52ba87d8359ac) Require and use Passport Local Strategy as defined in the user model
 ```js
 var LocalStrategy = require('passport-local').Strategy;
 
@@ -511,12 +511,12 @@ passport.use(User.createStrategy());
 ```
 
 ###### Clean Up  
-* [</> code](https://github.com/microtrain/mean.example.com/commit/e82d3d183d175f3df7b14b03afe77116fe030a1a) Improve Comments  
-* [</> code](https://github.com/microtrain/mean.example.com/commit/858577d248028026e42464d0729fd50b0b915f12) Improve Variable Names  
+* [</> code](https://github.com/microtrain/mean1.example.com/commit/e82d3d183d175f3df7b14b03afe77116fe030a1a) Improve Comments  
+* [</> code](https://github.com/microtrain/mean1.example.com/commit/858577d248028026e42464d0729fd50b0b915f12) Improve Variable Names  
 
 ##### Registration Endpoint
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/e6094aae8742a1bdea513ef330e11da8970e1175) Add a users route with an end point for registering a user.
+[</> code](https://github.com/microtrain/mean1.example.com/commit/e6094aae8742a1bdea513ef330e11da8970e1175) Add a users route with an end point for registering a user.
 
 Create the file *routes/users.js*. This will need access to express, passport and the user model.
 ```js
@@ -534,7 +534,7 @@ router.get('/register', function(req, res, next) {
 module.exports = router;
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/96895ae42309bd5928235328916ced131a4265c4) Add the new user route to *app.js*
+[</> code](https://github.com/microtrain/mean1.example.com/commit/96895ae42309bd5928235328916ced131a4265c4) Add the new user route to *app.js*
 ```js
 var usersRouter = require('./routes/users');
 
@@ -546,7 +546,7 @@ app.use('/users', usersRouter);
 
 ##### Registration View
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/22edc04c8c765df223d4f2a995cb0cb946a68030) Create a users view directory with a registration view.
+[</> code](https://github.com/microtrain/mean1.example.com/commit/22edc04c8c765df223d4f2a995cb0cb946a68030) Create a users view directory with a registration view.
 
 *views/users/register.pug*
 
@@ -575,7 +575,7 @@ block content
       input(type='submit' value='submit')
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/84bae780c246b3d9ef6becc89be46e39cc355e2b) Add some simple fomr style to *public/stylesheets/style.css*
+[</> code](https://github.com/microtrain/mean1.example.com/commit/84bae780c246b3d9ef6becc89be46e39cc355e2b) Add some simple fomr style to *public/stylesheets/style.css*
 ```css
 label {
   display: block;
@@ -612,7 +612,7 @@ a.button{
 ```
 
 ##### Post the Registration Form to the Users API
-[</> code](https://github.com/microtrain/mean.example.com/commit/2df8937648a513b4b07cfc116cd5ed119a233ff8) Add a registration end point the the users API. */users/register* is a GET request that will load a registration form. */api/users/register* is a POST request that creates a user record complete with salt and has values. For now, registartion will end with duping a JSON string onto the screen. Later we can convert this to an AJAX application.
+[</> code](https://github.com/microtrain/mean1.example.com/commit/2df8937648a513b4b07cfc116cd5ed119a233ff8) Add a registration end point the the users API. */users/register* is a GET request that will load a registration form. */api/users/register* is a POST request that creates a user record complete with salt and has values. For now, registartion will end with duping a JSON string onto the screen. Later we can convert this to an AJAX application.
 
 Add the following to *routes/api/users*
 
@@ -651,7 +651,7 @@ router.post('/register', function(req,res,next){
 ```
 #### User Login/Logout
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/9330c1d01aa872e7adc9d8aebb7494d4ed7954fc) Create a GET and POST end points for login
+[</> code](https://github.com/microtrain/mean1.example.com/commit/9330c1d01aa872e7adc9d8aebb7494d4ed7954fc) Create a GET and POST end points for login
 
 *routes/users.js*
 
@@ -665,7 +665,7 @@ router.post('/login', passport.authenticate('local'), function(req, res){
 });
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/42c7611d9c341188d3e81a774a26a652f6469a7f) Create a login form
+[</> code](https://github.com/microtrain/mean1.example.com/commit/42c7611d9c341188d3e81a774a26a652f6469a7f) Create a login form
 
 *views/users/login.pug*
 
@@ -684,7 +684,7 @@ block content
       input(type='submit' value='Login')
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/3dda162467dca14ff4fb16816705aedf274d7ba9) Add an index end point for users
+[</> code](https://github.com/microtrain/mean1.example.com/commit/3dda162467dca14ff4fb16816705aedf274d7ba9) Add an index end point for users
 
 *routes/users.js*
 ```js
@@ -693,7 +693,7 @@ router.get('/', function(req, res){
 });
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/c09512dcb83cabd719ddd67e2483fa8fb029cf08) Add a view for the users index.
+[</> code](https://github.com/microtrain/mean1.example.com/commit/c09512dcb83cabd719ddd67e2483fa8fb029cf08) Add a view for the users index.
 
 *views/users/index.pug*
 
@@ -704,7 +704,7 @@ block content
   h1 Users Management
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/66234e08d491c77e2a011eb8fa55ae38dd607e73) Create a GET end point for logout
+[</> code](https://github.com/microtrain/mean1.example.com/commit/66234e08d491c77e2a011eb8fa55ae38dd607e73) Create a GET end point for logout
 
 *routes/users.js*
 
@@ -1064,11 +1064,11 @@ A feature branch gives us a place to develop a new feature. Here, we can commit 
 git checkout -B articles
 ```
 
-[</>code](https://github.com/microtrain/mean.example.com/commit/2221d9e27307816a0e5ffd82c1f6f06d92ca8b4f) Create the Arcitle Model 
+[</>code](https://github.com/microtrain/mean1.example.com/commit/2221d9e27307816a0e5ffd82c1f6f06d92ca8b4f) Create the Arcitle Model 
 
-[</>code](https://github.com/microtrain/mean.example.com/commit/a10eae84f3e5af72f78417e6473a258df0607072) Auto gen a slug prior to validation
+[</>code](https://github.com/microtrain/mean1.example.com/commit/a10eae84f3e5af72f78417e6473a258df0607072) Auto gen a slug prior to validation
 
-[</>code](https://github.com/microtrain/mean.example.com/commit/7bfb625f644754f222263950af1ded317a6b908d) Add routes
+[</>code](https://github.com/microtrain/mean1.example.com/commit/7bfb625f644754f222263950af1ded317a6b908d) Add routes
 
 ## UI
 
