@@ -128,12 +128,11 @@ sudo mkdir -p /var/run/mysqld
 sudo chown mysql:mysql /var/run/mysqld
 sudo /usr/sbin/mysqld --skip-grant-tables --skip-networking &
 jobs
-
-mysql -u root
 ```
 
 mysql console
 ```sql
+mysql -u root
 FLUSH PRIVILEGES;
 USE mysql; 
 
