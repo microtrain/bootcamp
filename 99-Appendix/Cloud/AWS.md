@@ -116,8 +116,36 @@ ssh ubuntu@52.25.your.Public.IP -i .ssh/my-aws-serverKey.pem
 Now that your server is accessible you might want to install Apache2.
 
 ```
-sudo apt-get update
-sudo apt-get install apache2
+sudo apt update
+sudo apt upgrade
+
+sudo apt install lamp-server^
+sudo mysql_secure_installation
+
+sudo service mysql stop
+sudo mkdir -p /var/run/mysqld
+sudo chown mysql:mysql /var/run/mysqld
+sudo /usr/sbin/mysqld --skip-grant-tables --skip-networking &
+jobs
+
+mysql -u root
+```
+
+```sql
+FLUSH PRIVILEGES;
+USE mysql; 
+
+UPDATE user SET authentication_string=PASSWORD("SET-A-PASSWORD") WHERE User='root';
+UPDATE user SET plugin="mysql_native_password" WHERE User='root';
+quit  
+```
+
+```sh
+sudo pkill mysqld
+jobs
+sudo service mysql start
+
+mysql -u root -p
 ```
 
 
