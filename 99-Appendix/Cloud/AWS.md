@@ -113,8 +113,9 @@ mv Downloads/my-aws-serverKey.pem ~/.ssh/
 chmod 600 .ssh/my-aws-serverKey.pem
 ssh ubuntu@52.25.your.Public.IP -i .ssh/my-aws-serverKey.pem
 ```
-Now that your server is accessible you might want to install Apache2.
+Now that your server is accessible let's install a LAMP stack.
 
+ux console
 ```
 sudo apt update
 sudo apt upgrade
@@ -131,6 +132,7 @@ jobs
 mysql -u root
 ```
 
+mysql console
 ```sql
 FLUSH PRIVILEGES;
 USE mysql; 
@@ -140,6 +142,7 @@ UPDATE user SET plugin="mysql_native_password" WHERE User='root';
 quit  
 ```
 
+ux console
 ```sh
 sudo pkill mysqld
 jobs
