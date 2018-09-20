@@ -49,7 +49,7 @@ Add ```getUser()``` method the ```UserService``` this method will expect _id_ as
 *src/app/user.service.ts*
 ```js
 getUser(id: string): Observable<User> {
-  return this.http.get<User>(this.url + `/view/${id}`);
+  return this.http.get<User>(`${this.url}/${id}`);
 }
 ```
 
@@ -64,7 +64,7 @@ Call ```this.getUser()``` from ```ngInit()``` use ActivatedRoute to create the _
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { UserService } from '../user.service';
+import { UsersService } from '../users.service';
 import { User } from '../user';
 
 @Component({
@@ -78,7 +78,7 @@ export class UserViewComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private userService: UserService
+    private usersService: UsersService
   ) { }
 
   ngOnInit() {
@@ -87,7 +87,7 @@ export class UserViewComponent implements OnInit {
   }
 
   getUser(id): void {
-    this.userService.getUser(id).subscribe(
+    this.usersService.getUser(id).subscribe(
       (response) => {
         this.user = response.user
       }
