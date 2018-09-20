@@ -33,7 +33,7 @@ Add an ```editUser()``` method to *users.service.ts*.
 *users.service.ts*
 ```js
 editUser (user: User): Observable<User> {
-  return this.http.post<User>(this.url + '/edit',user, httpOptions);
+  return this.http.put<User>(this.url, user, httpOptions);
 }
 ```
 
@@ -44,7 +44,7 @@ import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
 import { ActivatedRoute } from '@angular/router';
 
-import { UserService } from '../user.service';
+import { UsersService } from '../users.service';
 import { User } from '../user';
 
 @Component({
@@ -59,7 +59,7 @@ export class UserEditComponent implements OnInit {
   errorMessage: string;
 
   constructor(
-    private userService: UserService,
+    private usersService: UsersService,
     private route: ActivatedRoute,
     private router: Router
 
@@ -71,7 +71,7 @@ export class UserEditComponent implements OnInit {
   }
 
   getUser(id): void {
-    this.userService.getUser(id).subscribe(
+    this.usersService.getUser(id).subscribe(
       user => this.user = user.user
     );
   }
@@ -88,7 +88,7 @@ export class UserEditComponent implements OnInit {
   }
 
   onSubmit(): void {
-    this.userService.editUser(this.user).subscribe(
+    this.usersService.editUser(this.user).subscribe(
       (response) => {
         this.response(response)
       }
@@ -103,33 +103,35 @@ export class UserEditComponent implements OnInit {
 <h1 *ngIf="user">Edit {{user.first_name}} {{user.last_name}}</h1>
 
 <form *ngIf="user" (ngSubmit)="onSubmit()" #editUser="ngForm">
-  <div *ngIf="errorMessage" class="alert error">{{errorMessage}}</div>
+  
+  <div *ngIf="errorMessage">{{errorMessage}}</div>
 
-  <input [(ngModel)]="user._id" type="hidden" id="_id" [ngModelOptions]="{standalone: true}">
+  <input [(ngModel)]="user._id" type="hidden" name="_id" id="_id">
 
   <div>
     <label for="username">Username</label>
-    <input [(ngModel)]="user.username" type="text" id="username" [ngModelOptions]="{standalone: true}">
-    <div class="error" *ngIf="errors.username">{{errors.username.message}}</div>
+    <input [(ngModel)]="user.username" type="text" name="username" id="username">
+    <div *ngIf="errors.username">{{errors.username.message}}</div>
   </div>
 
   <div>
     <label for="email">Email</label>
-    <input [(ngModel)]="user.email" type="text" id="email" [ngModelOptions]="{standalone: true}">
-    <div class="error" *ngIf="errors.email">{{errors.email.message}}</div>
+    <input [(ngModel)]="user.email" type="text" name="email" id="email">
+    <div *ngIf="errors.email">{{errors.email.message}}</div>
   </div>
 
   <div>
     <label for="first_name">First Name</label>
-    <input [(ngModel)]="user.first_name" type="text" name="first_name" id="first_name" [ngModelOptions]="{standalone: true}">
-    <div class="error" *ngIf="errors.first_name">{{errors.first_name.message}}</div>
+    <input [(ngModel)]="user.first_name" type="text" name="first_name" id="first_name">
+    <div *ngIf="errors.first_name">{{errors.first_name.message}}</div>
   </div>
 
   <div>
     <label for="last_name">Last Name</label>
-    <input [(ngModel)]="user.last_name" type="text" id="last_name" [ngModelOptions]="{standalone: true}">
-    <div class="error" *ngIf="errors.last_name">{{errors.last_name.message}}</div>
+    <input [(ngModel)]="user.last_name" type="text" name="last_name" id="last_name">
+    <div *ngIf="errors.last_name">{{errors.last_name.message}}</div>
   </div>
+  
   <button type="submit">Submit</button>
 
 </form>
@@ -138,6 +140,6 @@ export class UserEditComponent implements OnInit {
 
 ```sh
 git add .
-git commit src
+git commit -a
 ```
 [Next: Delete User](08-DeleteAUser.md)
