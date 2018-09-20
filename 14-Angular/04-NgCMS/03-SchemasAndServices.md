@@ -8,11 +8,14 @@ Build the user schema for now we can define this as an empty class, we can build
 *src/app/user.ts*
 ```js
 export class User {
-  user: any;
-  users: any;
-  errors: any;
-  success: boolean;
+  _id: string;
+  email: string;
+  first_name: string;
+  last_name: string;
+  username: string;
+  admin: boolean;
 }
+
 ```
 
 **Commit your changes** with the message *Added a User schema*.
@@ -72,12 +75,16 @@ Update *src/app/user.service.ts* as follows.
 *src/app/users.service.ts*
 ```js
 import { Injectable } from '@angular/core';
+//1. Import HTTP libs for API calls
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable } from 'rxjs/Observable';
+//2. Import Observable 
+import { Observable } from 'rxjs';
 
+//3. Import the User object
 import { User } from './user';
 
+//3. Set outbound HTTP headers to JSON
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
@@ -85,13 +92,13 @@ const httpOptions = {
 @Injectable()
 export class UsersService {
 
-  //Set up the URL
+  //4. Set up the URL
   private url: string = 'http://localhost:3000/api/users';
 
-  //Call the HttpClient in the Constructor
+  //5. Call the HttpClient in the Constructor
   constructor(private http: HttpClient) { }
 
-  //Set up a simple observable.
+  //6. Set up a simple observable.
   getUsers(): Observable<User> {
     return this.http.get<User>(this.url);
   }
