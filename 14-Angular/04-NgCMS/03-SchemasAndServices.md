@@ -64,12 +64,12 @@ The service is how we interact with an API. There are some things we already kno
 We will use AngularCLI to generate the service and automatically import it into AppModule.
 
 ```sh
-ng generate service user --module=app
+ng generate service users --module=app
 ```
 
 Update *src/app/user.service.ts* as follows.
 
-*src/app/user.service.ts*
+*src/app/users.service.ts*
 ```js
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -83,7 +83,7 @@ const httpOptions = {
 };
 
 @Injectable()
-export class UserService {
+export class UsersService {
 
   //Set up the URL
   private url: string = 'http://localhost:3000/api/users';
@@ -106,7 +106,7 @@ To test our service we will add call a test method on initialization of UsersCom
 import { Component, OnInit } from '@angular/core';
 
 // 1. Import the UserService
-import { UserService } from '../user.service';
+import { UsersService } from '../users.service';
 
 // 2. Import the User Object/Schema
 import { User } from '../user';
@@ -122,7 +122,7 @@ export class UsersComponent implements OnInit {
   users: User;
 
   // 4. Inject the UsersService into the constructor
-  constructor(private userService: UserService) { }
+  constructor(private usersService: UsersService) { }
 
   // 6. Make a call to the service on initialization
   ngOnInit() {
@@ -131,7 +131,7 @@ export class UsersComponent implements OnInit {
 
   // 5. Craete a local wrapper for
   getUsers(): void {
-    this.userService.getUsers().subscribe(
+    this.usersService.getUsers().subscribe(
       (response) => {
         this.users = response.users,
         console.log(this.users)
