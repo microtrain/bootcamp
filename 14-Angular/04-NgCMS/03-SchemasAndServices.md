@@ -54,14 +54,14 @@ The service is how we interact with an API. There are some things we already kno
 1. We are working with a web based API.
   * Import HttpClient from Angular.
   * inject HttpClient into the the service constructor.
-1. We will post JSON data to the API.
+2. We will post JSON data to the API.
   * Import HttpHeaders from Angular.
   * Create JSON headers for post requests.
-1. We will be using observables.
+3. We will be using observables.
   * Import Observable from the rxjs library.
-1. We will be working with the User object.
+4. We will be working with the User object.
   * Import our newly craeted User schema.
-1. I know the URL of the API endpoints.
+5. I know the URL of the API endpoints.
   * Set up URL variables accordingly.
 
 We will use AngularCLI to generate the service and automatically import it into AppModule.
