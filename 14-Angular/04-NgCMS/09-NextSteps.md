@@ -48,4 +48,15 @@ At this point we have created the articles component and added it to routing.
 1. Create and route ArticleCreate - _src/app/article-create/*_
 1. Create and route ArticleEdit - _src/app/article-edit/*_
 
+## Style the application
+
+Style the application anyway you like.
+
+## User Authentication
+
+* Tweak the mean.example.com API to allow full authentication via the API.
+* Either add authentication components and services to the exisitng APP
+or create a specific angular app for authentication.
+
+
 [Next: Apache Cordova](/15-ApacheCordova/README.md)
