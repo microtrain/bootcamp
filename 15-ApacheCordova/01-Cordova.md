@@ -79,9 +79,9 @@ In short Gradle is a the build system used by Android. Stack Overflow has a [mor
 
 ```
 cd ~/Downloads
-wget https://services.gradle.org/distributions/gradle-4.7-bin.zip
+wget https://services.gradle.org/distributions/gradle-4.10.2-bin.zip
 sudo mkdir /opt/gradle
-sudo unzip -d /opt/gradle gradle-4.7-bin.zip
+sudo unzip -d /opt/gradle gradle-4.10.2-bin.zip
 ```
 
 ### Add an Environmental Variable on Startup
