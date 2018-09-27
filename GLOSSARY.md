@@ -16,6 +16,10 @@ A fullstack developer is generally someone who is well versed in the presentatio
 
 Mobile applications that are written using web technologies (HTML, CSS and JavaScript) and compiled into native iOS and Android binaries. Common hybrid mobile toolkits include Apache Cordova, PhoneGap, Ionic and React Native.
 
+## IDE
+
+An Integrated Development Environment (IDE) is a text editor with special features for writing code. These features may include syntax highlighting, code completion, auto styling, test and debug suites, version control helpers, etc.
+
 ## LAMP
 
 A technology stack consiting of Linux, Apache, PHP and MySQL. Some defintions my include Perl and/or Python.

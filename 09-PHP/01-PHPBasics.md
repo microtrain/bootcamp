@@ -18,7 +18,7 @@ Find the _display_errors_ directive by typing _\display_errors =_ in vim. This w
 Since you can mix PHP and HTML in the same file the parser will need a way to know if it is being asked to parse PHP or HTML. We tell the parser what to expect by using PHP tags ```<?php ?>``` where ```<?php``` in the opening tag and ```?>``` is the closing tag. Any text outside of the  
 
 ## Exercise 1 - Hello World
-Create the path _/var/www/mtbc/php_ and that as a project to Atom's side bar. Then from your IDE create the file *hello.php*. Add the following lines.
+Create the path _/var/www/mtbc/php_ and that as a project to the VSC explorer. Then from your IDE create the file *hello.php*. Add the following lines.
 
 ```php
 <?php

@@ -77,7 +77,7 @@ views/
 * routes/
 * views/
 
-The *node_modules* directory contains third party software that should not be a part of our repository. Npm will handle these dependencies so we do not need them in our repo. Open Atom and add *mean.example.com* as a project folder.
+The *node_modules* directory contains third party software that should not be a part of our repository. Npm will handle these dependencies so we do not need them in our repo. Open VSC and add *mean.example.com* as a project folder.
 
 [</code>](https://github.com/microtrain/mean.example.com/commit/819be3c16875eb10aa6d3f27345c20f3c800155b) Add a .gitignore file to exclude *node_modules* from future commits.
 
@@ -104,7 +104,7 @@ Navigate to Then [http://localhost:3000/](http://localhost:3000/) to access your
 
 ## Exercise - Express Basics
 
-In this exercise we will make a few basic changes to familiarize ourselves with the basics of ExpressJS. If something breaks don't worry; our last commit created a rollback point. At the end of this exercise we will stash out changes and roll back to our last commit. From Atom open *mean.example.com/routes/index.js* and change the following
+In this exercise we will make a few basic changes to familiarize ourselves with the basics of ExpressJS. If something breaks don't worry; our last commit created a rollback point. At the end of this exercise we will stash out changes and roll back to our last commit. From the VSC explorer open *mean.example.com/routes/index.js* and change the following
 
 ```js
 //change
@@ -113,7 +113,7 @@ In this exercise we will make a few basic changes to familiarize ourselves with 
 { title: 'Express', name: 'YOUR-NAME'}
 ```
 
-From Atom navigate to *mean.example.com/views/index.pug* and change the following. Please note the indentation, indentation matters when it comes to Pug.
+From the VSC explorer navigate to *mean.example.com/views/index.pug* and change the following. Please note the indentation, indentation matters when it comes to Pug.
 
 ```js
 //change

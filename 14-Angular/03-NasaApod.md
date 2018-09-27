@@ -14,7 +14,7 @@ cd ng-auth
 ng serve --open
 ```
 
-If your browser did not automatically open, open a browser an navigate to *[http://localhost:4200](http://localhost:4200)* Open Atom and add *~/ng-auth* as a project in the Atom sidebar.
+If your browser did not automatically open, open a browser an navigate to *[http://localhost:4200](http://localhost:4200)* Open VSC and add *~/ng-auth* as a project folder.
 
 Note the *src* directory this is the directory that runs the local webserver, the *app* directory is the location of your application code. Open the file */src/index.html*, this is an template. All the code executed from with in */src/app* is injected into the ```app-root``` tags of this page. Inside *app* the main files to focus on are *app.component.html*, *app.component.css*, and *app.component.ts*.
 

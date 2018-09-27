@@ -2,7 +2,7 @@
 
 
 ## Exercise 1 - Hello World
-Create the path _/var/www/mtbc/php_ and that as a project to Atom's side bar. Then from Atom create the file *hello.php*. Add the following lines.
+Create the path _/var/www/mtbc/php_ and that as a project to the VSC explorer. Then from VSC create the file *hello.php*. Add the following lines.
 
 ```php
 <?php

@@ -57,7 +57,7 @@ Use [Dash](https://help.ubuntu.com/lts/ubuntu-help/unity-dash-intro.html) to fin
 
 ## [Visual Studio Code](https://code.visualstudio.com/)
 
-Visual Studio Code (VSC) is the IDE we will be using to write code. Install Atom using the same steps you used to install Chrome. Remember to pin VSC to your launcher after the install. If you cannot find Atom using Dash try launching it from the commandline by typing ```atom```.
+Visual Studio Code (VSC) is the IDE we will be using to write code. Install VSC using the same steps you used to install Chrome. Remember to pin VSC to your launcher after the install.
 
 ## Cleanup
 Check the contents of your Downloads directory by typing [```ls```](http://manpages.ubuntu.com/manpages/zesty/man1/ls.1.html) at the command prompt. You should see the two files we just downloaded and installed.
@@ -91,13 +91,6 @@ for matching all characters and strings. ```rm ~/Downloads/*``` will remove ever
 
 Now typing ```ls ~/Downloads``` into the command line will return an empty result set.
 
-## [Meld](http://meldmerge.org/)
-
-Meld is a visual diff tool. This is the default tool called by Atom when doing a file comparison.
-
-```sh
-sudo apt install meld
-```
 
 ## [Filezilla](https://filezilla-project.org/)
 

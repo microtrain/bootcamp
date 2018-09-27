@@ -4,7 +4,7 @@ Programming is little more that reading data and piecing together statements tha
 
 ## Exercise - If, Else If, Else
 
-Create the following path */var/www/mtbc/js/if_else.html* and open it Atom. Then add the following lines.
+Create the following path */var/www/mtbc/js/if_else.html* and open it VSC. Then add the following lines.
 
 ```html
 <script>
