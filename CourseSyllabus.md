@@ -76,12 +76,6 @@ This provides free online learning for various topics. This is mostly included a
 
 ### Weeks 2-3 (Server Scripting, PHP, JavaScript)
 
-#### Server Scripiting with PHP ~1-3 days
-* Introduction to Templates
- * Build a template in PHP
- * PHP Web Site
- * Form Processing in PHP 
-
 ### JavaScript, jQuery, AJAX and Bootstrap ~5-7 days
 * Programming Basics with JavaScript
 * Walking the DOM
@@ -90,6 +84,12 @@ This provides free online learning for various topics. This is mostly included a
 * jQuery Basics
 * Ajax
 * Introduction to Bootstrap
+
+#### Server Scripiting with PHP ~1-3 days
+* Introduction to Templates
+ * Build a template in PHP
+ * PHP Web Site
+ * Form Processing in PHP 
 
 ### Weeks 3-4 (SQL, NoSQL, Web Frameworks)
 
