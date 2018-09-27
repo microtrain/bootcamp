@@ -146,7 +146,7 @@ The first thing you will want to do is [Mailgun's PHP](https://github.com/mailgu
 Let's start by creating a feature branch. This will allow us to keep any changes separate from our production code until we are ready for it.
 
 ```sh
-cd /var/www/about
+cd /var/www/example.com
 git checkout -B feature/mailgun
 ```
 
