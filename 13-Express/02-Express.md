@@ -93,12 +93,12 @@ git commit -m 'Ignore node_modules from future commits' .gitignore
 ```
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/708e34a36597a23531fb1a4cc7f0b34d604316fe) Commit the remaining files created during setup and push both commits to the master branch.
+
 ```sh
 git add .
 git commit -am 'Setup ExpressJS with Pug'
 git push origin master
 ```
-
 
 Navigate to Then [http://localhost:3000/](http://localhost:3000/) to access your new app.
 
@@ -237,9 +237,9 @@ db.users.insert({email: 'test@example.com', username: 'testuser'})
 
 #### Add a Config File
 
-[</> code](https://github.com/microtrain/mean1.example.com/commit/3f2277d3a874126b2590c26b9d495e00f0b53be4) A config file is a good practice for storing and managing API keys and other configuration variables from a central location. I often create two files, one for production and one for development.
+[</> code](https://github.com/microtrain/mean.example.com/commit/20f3de96edc60b3ddaaedc228e25181d00c966d2) A config file is a good practice for storing and managing API keys and other configuration variables from a central location. I often create two files, one for production and one for development. We will start by adding a connection string for MongoDB.
 
-* Create the file *config.dev.js*
+Create the file *config.dev.js*
 
 *config.dev.js*
 ```js
@@ -248,7 +248,7 @@ config.mongodb = 'mongodb://localhost/mean-cms';
 module.exports = config;
 ```
 
-* Call the configuration file from *app.js*
+Import the configuration file into *app.js*, add a console log to test the config file.
 
 *app.js*
 ```js
@@ -258,41 +258,81 @@ var config = require('./config.dev');
 console.log(config);
 ```
 
-Remove the ```console.log()``` and connect to the database. Call mongoose from the top of app.js.
+Remove the ```console.log()``` and commit your code with the message *Create a sitewide configuration file*.
+
+```sh
+git status
+git add .
+git commit -a
+git push origin master
+```
+
+#### Install Mongoose
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/6d50043da96f021bd609c7d0c614bc2e62c576cc) Now that we have a configuration file with a MongoDB connection string we can start working with a database. To do this we will use NPM to install an ODM (Object Document Mapper) called Mongoose.
+
+```sh
+# Install Mongoose
+npm install mongoose
+git commit -a 
+git push origin master
+```
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/9524d63b356770436c5f648b1d10d3210d51b441) Validation is a key feature of Mongoose. Executes before making a save to MongoDB. This allows us to define rules at the model level. We will want to make sure usernames and email addresses are unique. Mongoose does not have a built in validator for this but the community does. We will install the [mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator) plugin and set uniqueness as needed.
+
+```sh
+# Install mongoose-unique-validator
+npm install mongoose-unique-validator
+git commit -a
+git push origin master
+```
+
+Your *package.json* file should look something like the following, version numbers may vary.
+
+```json
+{
+  "name": "mean.example.com",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "mongoose": "^5.2.17",
+    "mongoose-unique-validator": "^2.0.2",
+    "morgan": "~1.9.0",
+    "pug": "2.0.0-beta11"
+  }
+}
+```
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/2c94aa05bbbd87c07f437d65a00fd4383f6c317d) Import mongoose and create a connection to the database.
 
 *app.js*
 ```js
 var mongoose = require('mongoose');
-```
 
-Then call the connection string. Be sure to place this after the call to config file.
-```js
+...
+
 //Connect to MongoDB
-mongoose.connect(config.mongodb);
+mongoose.connect(config.mongodb, { useNewUrlParser: true });
 ```
 
 ```sh
-git commit -am 'Added a connection to the database'
+# Connect to the database
+git status
+git add .
+git commit -a
 git push origin master
 ```
 
 #### Define the Schema
 
 Next we will create a *models* directory in the root of our project and in it a file named *users.js* resulting is *mean.example.com/models/users.js*.
-
-```sh
-npm install mongoose
-git commit -am 'Install Mongoose'
-git push origin master
-```
-
-Validation is a key feature of Mongoose. Executes before making a save to MongoDB. This allows us to define rules at the model level. We will want to make sure usernames and email addresses are unique. Mongoose does not have a built in validator for this but the community does. We will install the [mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator) plugin and set uniqueness as needed.
-
-```sh
-npm install mongoose-unique-validator
-git commit -am 'Install mongoose-unique-validator'
-git push origin master
-```
 
 ```js
 var mongoose = require('mongoose'),
