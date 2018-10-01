@@ -6,10 +6,10 @@ Let's Encrypt provides free and automatic domain validation (DV) certs. [Certbot
 
 ## Install Certbot
 ```
-sudo apt-get install software-properties-common
+sudo apt install software-properties-common
 sudo add-apt-repository ppa:certbot/certbot
-sudo apt-get update
-sudo apt-get install python-certbot-apache
+sudo apt update
+sudo apt install python-certbot-apache
 ```
 
 ## Install the Certificate
