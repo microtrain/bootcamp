@@ -1,5 +1,7 @@
 # Appdendix
 
+Common ports
+
 * ExpressJS/MEAN http://localhost:3000
 ```
 cd ~/mean.example.com
@@ -19,4 +21,9 @@ ionic serve
 ```
 cd ~/ionic-nasa #OR ionic-cms
 ionic serve --lab
+```
+* CakePHP http://localhost:8765
+```
+cd /var/www/cake.example.com
+bin/cake server
 ```
