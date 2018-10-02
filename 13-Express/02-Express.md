@@ -335,9 +335,9 @@ git push origin master
 Next we will create a *models* directory in the root of our project and in it a file named *users.js* resulting is *mean.example.com/models/users.js*.
 
 ```js
-var mongoose = require('mongoose'),
-  Schema = mongoose.Schema,
-  uniqueValidator = require('mongoose-unique-validator');
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var uniqueValidator = require('mongoose-unique-validator');
 
 //Create a schema
 var Users = new Schema({
@@ -359,6 +359,7 @@ var Users = new Schema({
   }
 });
 
+//Add unique validation properties to the model
 Users.plugin(uniqueValidator);
 
 module.exports  = mongoose.model('Users', Users);
