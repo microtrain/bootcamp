@@ -332,7 +332,7 @@ git push origin master
 
 #### Define the Schema
 
-Next we will create a *models* directory in the root of our project and in it a file named *users.js* resulting is *mean.example.com/models/users.js*.
+[</> code]() Next we will create a *models* directory in the root of our project and in it a file named *users.js* resulting is *mean.example.com/models/users.js*.
 
 ```js
 var mongoose = require('mongoose');
@@ -363,6 +363,16 @@ var Users = new Schema({
 Users.plugin(uniqueValidator);
 
 module.exports  = mongoose.model('Users', Users);
+```
+
+
+
+```sh
+# Added a users model/schema
+git status
+git add .
+git commit -a
+git push origin master
 ```
 
 #### Implement the REST/CRUD Functionality
