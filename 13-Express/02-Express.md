@@ -332,8 +332,9 @@ git push origin master
 
 #### Define the Schema
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/63221876843dacb1fe43b0359cf78b78bb6b7ef5) Next we will create a *models* directory in the root of our project and in it a file named *users.js* resulting is *mean.example.com/models/users.js*.
+[</> code](https://github.com/microtrain/mean.example.com/commit/63221876843dacb1fe43b0359cf78b78bb6b7ef5) Next we will create a *models* directory in the root of our project and in it a file named *users.js*.
 
+*mean.example.com/models/users.js*.
 ```js
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
@@ -365,8 +366,6 @@ Users.plugin(uniqueValidator);
 module.exports  = mongoose.model('Users', Users);
 ```
 
-
-
 ```sh
 # Added a users model/schema
 git status
@@ -384,7 +383,12 @@ git push origin master
 * delete - A delete request that removes an existing user
 
 ##### GET/Read All
-[</> code](https://github.com/microtrain/mean.example.com/commit/cd1ab4b59cd8694983ca3eb797cf992c910d6b34) Add a routing file for api/users.
+[</> code](https://github.com/microtrain/mean.example.com/commit/17f79de963a53458842241d23126905964676dc4) Add a routing file for api/users.
+
+Create an empty file.
+*routes/api/users.js*
+
+Commit your changes and push to master.
 ```sh
 # Add a rotuing file for api/users
 git status
@@ -393,7 +397,34 @@ git commit -a
 git push origin master
 ```
 
-[</> code]() Implement for api/users.
+[</> code](https://github.com/microtrain/mean.example.com/commit/8ca083840f50b796f6d16113127991558546a4fd) Add api/users route to app.js
+
+The following lines will import the route into the ```apiUsersRouter``` variable (~line 10) then bind that route to a URL endpoint (~line 32) which means any url that starts with */api/users* will look into the */api/users.js* file to complete the request.
+
+*app.js*
+```js
+//~line 10
+var apiUsersRouter = require('./routes/api/users');
+
+//~line 32
+app.use('/api/users', apiUsersRouter);
+```
+
+The following will resolve any get requests to */api/users/* to the ```router.get()``` method (~line 3).
+
+*routes/api/users.js*
+```js
+var express = require('express');
+var router = express.Router();
+
+router.get('/', function(req, res, next) {
+  res.json({success: true});
+});
+
+module.exports = router;
+```
+
+Commit your changes and push to master.
 ```sh
 # Implement a route for api/users
 git status
@@ -401,8 +432,6 @@ git add .
 git commit -a
 git push origin master
 ```
-
-
 
 
 [</> code](https://github.com/microtrain/mean1.example.com/commit/e97e24c4acbeb7ad4d215fae7230ffe81215fd80) GET/Read all users
