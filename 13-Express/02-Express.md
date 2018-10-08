@@ -436,6 +436,9 @@ git push origin master
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/95d133992ef597e6ed584b4a523d9e17cc8628cc) Accessing the */api/users/* route using a GET request shall return a list of all users.
 
+* HTTP verb - GET
+* CRUD action - read/read all
+
 *routes/api/users.js*
 ```js
 var Users = require('../../models/users');
@@ -467,6 +470,9 @@ git push origin master
 ##### GET/Read One
 [</> code](https://github.com/microtrain/mean.example.com/commit/6415441f5caf337a19be63cabb0b892f4a58ee5d) Accessing the route */api/users/:userId* (for which :userId is the id of a known user) using a GET request shall return the user with that id.
 
+* HTTP verb - GET
+* CRUD action - read/read one
+
 */routes/api/users.js*
 ```js
 router.get('/:userId', function(req,res){
@@ -496,8 +502,12 @@ git push origin master
 ```
 
 ##### POST/Create
-[</> code](https://github.com/microtrain/mean.example.com/commit/65061eb74a8708571db616917f0ae88998da1090) Sending a json payload over a post request to the *api/users* endpoint shall create a new user record.
+[</> code](https://github.com/microtrain/mean.example.com/commit/65061eb74a8708571db616917f0ae88998da1090) Sending a json payload over a POST request to the *api/users* endpoint shall create a new user record.
 
+* HTTP verb - POST
+* CRUD action - create
+
+*/routes/api/users.js*
 ```js
 router.post('/', function(req, res) {
   Users.create(new Users({
@@ -533,17 +543,106 @@ git push origin master
 ```
 
 ##### PUT/Update
-[</> code](https://github.com/microtrain/mean1.example.com/commit/3fbb13f87bfee5c3de9679e2df6d9b22ed89016e) PUT/Update a user
+[</> code](https://github.com/microtrain/mean.example.com/commit/3f688eacef3db03d098dd55ae8d9f63cbfbd279d) Sending a json payload with an id, over a PUT request to the *api/users* endpoint shall update an exisiting user record.
 
+* HTTP verb - PUT
+* CRUD action - update
+
+*/routes/api/users.js*
+```js
+router.put('/', function(req, res){
+
+  Users.findOne({'_id': req.body._id}, function(err, user){
+
+   if(err) {
+     return res.json({success: false, error: err});
+   }
+
+   if(user) {
+
+    let data = req.body;
+
+    if(data.username){
+      user.username = data.username;
+    };
+
+    if(data.email){
+    user.email = data.email;
+    };
+
+    if(data.first_name){
+    user.first_name = data.first_name;
+    };
+
+    if(data.last_name){
+    user.last_name = data.last_name;
+    };
+
+    user.save(function(err){
+      if(err){
+        return res.json({success: false, error: err});
+      }else{
+        return res.json({success: true, user:user});
+      }
+    });
+
+   }
+
+  });
+  
+});
+```
+
+Test with a simple curl request
 ```sh
-curl -d '{"_id":"5a77536ad7e4c37d6f792716", "first_name":"Robert"}' -H "Content-Type: application/json" -X PUT http://localhost:3000/api/users
+curl -d '{"_id":"5b92c4a5aae3570145ed77e5", "first_name":"Robert"}' -H "Content-Type: application/json" -X PUT http://localhost:3000/api/users
+```
+
+Commit your changes and push to master
+```sh
+# Edit a user record
+git status
+git add .
+git commit -a
+git push origin master
 ```
 
 ##### DELETE/Delete
-[</code>](https://github.com/microtrain/mean1.example.com/commit/4420ef4064c9240a85c53a0fac51d5a302a6078c) DELETE/Delete a user
+[</code>](https://github.com/microtrain/mean.example.com/commit/51ec33a5666ac84e52586e82c1556f8e1204c53c) Accessing the route */api/users/:userId* (for which :userId is the id of a known user) using a DELETE request shall delete the user with that id.
 
+* HTTP verb - DELETE
+* CRUD action - delete
+
+*/routes/api/users.js*
+```js
+router.delete('/:userId', function(req,res){
+
+  var userId = req.params.userId;
+
+  Users.remove({'_id':userId}, function(err,removed){
+
+    if(err){
+      return res.json({success: false, error: err});
+    }
+
+    return res.json({success: true, status: removed});
+
+  });
+
+});
+```
+
+Test with a simple curl request
 ```sh
 curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/users/5a766d52cbe495128293baef
+```
+
+```sh
+# Delete a user record
+git status
+git add .
+git commit -a
+git push origin master
 ```
 
 #### Add Created and Modified Dates
