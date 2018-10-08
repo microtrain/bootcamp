@@ -455,11 +455,44 @@ Test by running a curl command from a terminal window.
 curl -H "Content-Type: application/json" -X GET http://localhost:3000/api/users/
 ```
 
-##### GET/Read One
-[</> code](https://github.com/microtrain/mean1.example.com/commit/a788806f4fade23968121572b6ac9a9bdf7c74ea) GET/Read a single user
+Commit your changes and push to master.
+```sh
+# Retrieve a list of all users
+git status
+git add .
+git commit -a
+git push origin master
+```
 
+##### GET/Read One
+[</> code](https://github.com/microtrain/mean.example.com/commit/6415441f5caf337a19be63cabb0b892f4a58ee5d) Accessing the route */api/users/:userId* (for which :userId is the id of a known user) using a GET request shall return the user with that id.
+
+*/routes/api/users.js*
+```js
+router.get('/:userId', function(req,res){
+  
+  var userId = req.params.userId;
+   Users.findOne({'_id':userId}, function(err, user){
+     if(err){
+      return res.json({'success':false, 'error': err});
+    }
+     return res.json({'success':true, 'user': user});
+   });
+ });
+```
+
+Test by running a curl command from a terminal window.
 ```sh
 curl -H "Content-Type: application/json" -X GET http://localhost:3000/api/users/5a763b67a5d70c115d81536a
+```
+
+Commit your changes and push to master.
+```sh
+# Retrieve a single user by _id
+git status
+git add .
+git commit -a
+git push origin master
 ```
 
 ##### POST/Create
