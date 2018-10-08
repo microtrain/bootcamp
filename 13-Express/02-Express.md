@@ -434,8 +434,23 @@ git push origin master
 ```
 
 
-[</> code](https://github.com/microtrain/mean1.example.com/commit/e97e24c4acbeb7ad4d215fae7230ffe81215fd80) GET/Read all users
+[</> code](https://github.com/microtrain/mean.example.com/commit/95d133992ef597e6ed584b4a523d9e17cc8628cc) Accessing the */api/users/* route using a GET request shall return a list of all users.
 
+*routes/api/users.js*
+```js
+var Users = require('../../models/users');
+
+router.get('/', function(req, res, next) {
+  Users.find({},function(err, users){
+    if(err){
+     return res.json({'success':false, 'error': err});
+   }
+    return res.json({'success':true, 'users': users});
+  });
+});
+```
+
+Test by running a curl command from a terminal window.
 ```sh
 curl -H "Content-Type: application/json" -X GET http://localhost:3000/api/users/
 ```
