@@ -496,13 +496,40 @@ git push origin master
 ```
 
 ##### POST/Create
-[</> code](https://github.com/microtrain/mean1.example.com/commit/3fbb13f87bfee5c3de9679e2df6d9b22ed89016e) CREATE/Create a user
+[</> code](https://github.com/microtrain/mean.example.com/commit/65061eb74a8708571db616917f0ae88998da1090) Sending a json payload over a post request to the *api/users* endpoint shall create a new user record.
+
+```js
+router.post('/', function(req, res) {
+  Users.create(new Users({
+    username: req.body.username,
+    email: req.body.email,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name
+  }), function(err, user){
+    
+    if(err){
+      return res.json({success: false, user: req.body, error: err});
+    }
+
+    return res.json({success: true, user: user});
+    
+  });
+});
+```
 
 Test with a simple curl request
 ```sh
 curl -d '{"email":"test2@example.com", "username":"testuser2", "first_name": "Bob", "last_name": "smith"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/users
 
 curl -d '{"email":"test3@example.com", "username":"testuser3", "first_name": "Sally", "last_name": "Smith"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/users
+```
+Commit your changes and push to master
+```sh
+# Create a new user record
+git status
+git add .
+git commit -a
+git push origin master
 ```
 
 ##### PUT/Update
