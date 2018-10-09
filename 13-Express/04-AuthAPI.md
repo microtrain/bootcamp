@@ -1,10 +1,11 @@
 # Authentication API
-In the previous section we created a REST API that performs CRUD operations against a users API.
+In the previous section we created a REST API that performs CRUD operations against a users API. In this section we will build an API that that will allow for user authentication and session creation.
 
 ## User Authentication with Passport
+We will use [express-session](https://www.npmjs.com/package/express-session) as our session manager and store our session data in our mongo database using [connect-mongo](https://www.npmjs.com/package/connect-mongo). We will use a combonation of [Passport](http://www.passportjs.org/) modules to manage authentication.
 
 ### Passport Local Strategy
-[</> code](https://github.com/microtrain/mean1.example.com/commit/78b0dc53d4851621d4dc7b8ea2d6a2a6d48f2fbb) Install all the packages needed for building a passport session and storing it in the database. The commit points to the package.json files, you can install these pacakges using the following npm commands or you can update your package.json file from the repo and run a single ```npm install```.
+[</> code](https://github.com/microtrain/mean.example.com/commit/5b9cdccf310b15c295ac5d864110903de0d1fd1a) Install all the packages needed for building a passport session and storing it in the database. The commit points to the package.json files, you can install these pacakges using the following npm commands or you can update your package.json file from the repo and run a single ```npm install```.
 
 ```sh
 npm install passport
@@ -14,16 +15,32 @@ npm install express-session
 npm install connect-mongo
 ```
 
-[</> code](https://github.com/microtrain/mean1.example.com/commit/321cdc5936a0bb85cc89b33a04b50720a7844226) Require session packages
+Commit your changes and push to master
+```sh
+# Added authentication packages
+git status
+git add .
+git commit -a
+git push origin master
+```
+Commit your changes and push to master
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/09515b22327dd9524adfa11f10c95982fcd13d2f) Import session and Passport packages.
+
 *app.js*
 ```js
+//~line 7 after mongoose
 var session = require('express-session');
-
-//Add this after the Mongo connection
 var MongoStore = require('connect-mongo')(session);
+var passport = require('passport');
+```
+Commit your changes
+```sh
+# Import session and passport packages
+git commit -a
 ```
 
-[</> code](https://github.com/microtrain/mean1.example.com/commit/bf31173528bd3815cde62e472678b426cd3aff70) Add configuration objects for sessions and cookies
+[</> code](https://github.com/microtrain/mean.example.com/commit/daa7d70969a7d57216274aabec451048b7fe749d) Add configuration objects for sessions and cookies
 *config.dev.js*
 ```js
 //Session configuration object
@@ -32,21 +49,23 @@ config.session = {};
 //Cookie configuration object
 config.cookie = {};
 
-//Create a renadom string to sign the session data
+//Create a random string to sign the session data
 //Bigger is better, more entropy is better
 //The is OK for dev, change for production
 config.session.secret = '7j&1tH!cr4F*1U';
 
 //Define the domain for which this cookie is to be set
-config.cookie.domain = 'localhost:3000';
+config.cookie.domain = 'localhost';
 ```
 
-[</code>](https://github.com/microtrain/mean1.example.com/commit/61048acfce52c12fcc747a775e275f57e0e5c8ac) Configure the [express session](https://github.com/expressjs/session)
+Commit your changes
+```sh
+# Configure session and cookie data
+git commit -a
+```
+
+[</code>](https://github.com/microtrain/mean1.example.com/commit/61048acfce52c12fcc747a775e275f57e0e5c8ac) Configure and initialize the [express session](https://github.com/expressjs/session)
 ```js
-var passport = require('passport');
-
-...
-
 app.use(require('express-session')({
   //Define the session store
   store: new MongoStore({
@@ -61,7 +80,7 @@ app.use(require('express-session')({
     domain: config.cookie.domain,
     //httpOnly: true,
     //secure: true,
-    maxAge: 1000 * 60 * 24 // 24 hours
+    maxAge:3600000 //1 hour
   }
 }));
 app.use(passport.initialize());
