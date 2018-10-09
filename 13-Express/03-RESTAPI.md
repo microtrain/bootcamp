@@ -408,7 +408,7 @@ git push origin master
 
 ### DELETE/Delete
 
-[</code>](https://github.com/microtrain/mean.example.com/commit/51ec33a5666ac84e52586e82c1556f8e1204c53c) Accessing the route */api/users/:userId* (for which :userId is the id of a known user) using a DELETE request shall delete the user with that id.
+[</> code](https://github.com/microtrain/mean.example.com/commit/51ec33a5666ac84e52586e82c1556f8e1204c53c) Accessing the route */api/users/:userId* (for which :userId is the id of a known user) using a DELETE request shall delete the user with that id.
 
 * HTTP verb - DELETE
 * CRUD action - delete
@@ -447,7 +447,7 @@ git push origin master
 
 ### Add Created and Modified Dates
 
-[code](https://github.com/microtrain/mean.example.com/commit/f0f8c08f01c85985fc37e35c3da55835e9c5a819) Creating a new user shall automatically populate created and modified dates.
+[</> code](https://github.com/microtrain/mean.example.com/commit/f0f8c08f01c85985fc37e35c3da55835e9c5a819) Creating a new user shall automatically populate created and modified dates.
 
 *models/users.js*
 ```js
@@ -472,7 +472,7 @@ git push origin master
 
 ### Auto Update the Modified Date When a Document is Saved
 
-[</code>](https://github.com/microtrain/mean.example.com/commit/51ec33a5666ac84e52586e82c1556f8e1204c53c) Modifying an exisiting user shall automatically update the modified date.
+[</> code](https://github.com/microtrain/mean.example.com/commit/51ec33a5666ac84e52586e82c1556f8e1204c53c) Modifying an exisiting user shall automatically update the modified date.
 
 *models/users.js*
 ```js
