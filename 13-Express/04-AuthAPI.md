@@ -1,7 +1,10 @@
+# Authentication API
+In the previous section we created a REST API that performs CRUD operations against a users API.
+
 ## User Authentication with Passport
 
 ### Passport Local Strategy
-[</> code](https://github.com/microtrain/mean1.example.com/commit/78b0dc53d4851621d4dc7b8ea2d6a2a6d48f2fbb) Install all the packages needed for building a passport session and storing it in the database. The commit points to the package.json files, you can install these packages over the commandline or 
+[</> code](https://github.com/microtrain/mean1.example.com/commit/78b0dc53d4851621d4dc7b8ea2d6a2a6d48f2fbb) Install all the packages needed for building a passport session and storing it in the database. The commit points to the package.json files, you can install these pacakges using the following npm commands or you can update your package.json file from the repo and run a single ```npm install```.
 
 ```sh
 npm install passport
