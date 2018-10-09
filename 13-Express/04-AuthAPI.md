@@ -87,7 +87,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 ```
 
-[</> code](https://github.com/microtrain/mean1.example.com/commit/9513474495901b01f4fdc2a891de91b6f79b060d)Serialize the session data
+Commit your changes
+```sh
+# Configure and initialize the express session
+git commit -a
+```
+
+[</> code](https://github.com/microtrain/mean1.example.com/commit/9513474495901b01f4fdc2a891de91b6f79b060d) Serialize the session data
 ```js
 passport.serializeUser(function(user, done){
   done(null,{
@@ -102,6 +108,12 @@ passport.serializeUser(function(user, done){
 passport.deserializeUser(function(user, done){
   done(null, user);
 });
+```
+
+Commit your changes
+```sh
+# Serialize the session data
+git commit -a
 ```
 
 #### User Registration
