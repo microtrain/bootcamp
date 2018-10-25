@@ -53,7 +53,7 @@ sudo dpkg --install google-chrome-stable_current_amd64.deb
 sudo apt install -f
 ```
 
-Use [Dash](https://help.ubuntu.com/lts/ubuntu-help/unity-dash-intro.html) to find and open Chrome. Open Dash ```Super + F``` and type _chrome_ into the search field. Click the Chrome icon to launch the Chrome browser. You'll notice the Chrome icon is now in the [Launcher](https://help.ubuntu.com/stable/ubuntu-help/unity-launcher-intro.html) right click the Chrome icon and select _Lock to Launcher_ from the context menu. Now right click the FireFox icon in the launcher and click choose _Unlock from Launcher_ from the context menu.
+Use the search box from the activity panel to find and open Chrome. Click the Chrome icon to launch the Chrome browser. You'll notice the Chrome icon is now in the [Launcher](https://help.ubuntu.com/stable/ubuntu-help/unity-launcher-intro.html) right click the Chrome icon and select _Lock to Launcher_ from the context menu. Now right click the FireFox icon in the launcher and click choose _Unlock from Launcher_ from the context menu.
 
 ## [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -96,6 +96,10 @@ Now typing ```ls ~/Downloads``` into the command line will return an empty resul
 
 Filezilla is my goto [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol) client. While FTP by itself is insecure and not recommended, running FTP over [SSH](https://en.wikipedia.org/wiki/Secure_Shell) is secure and Filezilla allows us to do just that. We work with FTP and SSH in later lessons.
 
+```sh
+sudo apt install filezilla
+```
+
 ## [cURL](https://curl.haxx.se/docs/manpage.html)
 
 The best way to think of cURL is as a browser that is used by code.
@@ -108,6 +112,11 @@ sudo apt install curl
 
 ```sh
 touch ~/Templates/Empty\ Document
+```
+
+You can combine commands
+```sh
+sudo apt install terminator vim FileZilla curl -y && touch ~/Templates/Empty\ Document
 ```
 
 ## Summary
