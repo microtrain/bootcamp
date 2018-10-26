@@ -1,10 +1,10 @@
-# Syllabus (8/13/18 - 10/15/2018)
+# Syllabus (12/10/18 - 2/26/2019)
 
 * Class Hours: Monday-Friday, 9am-5pm
-* First Day: Monday, August 13, 2018
-* Last Day: Monday, October 15, 2018
-* Class will **NOT** meet on
-  * Monday September, 3, 2018
+* First Day: Monday, December 10, 2018
+* Last Day: Tuesday, February 26, 2018
+* Class will **NOT** meet over the holiday from December 22nd through January 1st.
+ * Class will resume on Wednesday, January 2nd.
  
  ## Expectations
 * Class starts promptly at 9am, you are expected to have your systems booted up and to be ready to go by 9am. 
@@ -135,7 +135,7 @@ Whatever you want to build. Start thinking of a project sooner than later
 ## Additional Policies
 
 ### Reimbursement Policy
-Students may be reimbursed up to $15 for one domain name.
+Students may be reimbursed up to $20 for one domain name.
 
 ### Retake Policy
 Students may at MicroTrain's discretion retake the class provided space is available. No new equipment, materials, or reimbursements are provided for anyone retaking the class.
