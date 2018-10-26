@@ -9,7 +9,7 @@
  ## Expectations
 * Class starts promptly at 9am, you are expected to have your systems booted up and to be ready to go by 9am. 
 * Please avoid cell phone use during lecture; we reserve the right to ban cell phone usage during class.
-* Break schedule; we will take a hour for lunch around noon, ~10 minutes around 10:30am and ~15 minutes around 3pm. Unless we are in lab at which point you may break as needed.
+* Break schedule; we will take an hour for lunch around noon, ~10 minutes around 10:30am and ~15 minutes around 3pm. Unless we are in lab at which point you may break as needed.
 * Class is scheduled until 5pm; we do make an attempt to wrap early but there are no guarentees.
  
  ## Contact
