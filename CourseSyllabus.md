@@ -6,6 +6,12 @@
 * Class will **NOT** meet on
   * Monday September, 3, 2018
  
+ ## Expectations
+* Class starts promptly at 9am, you are expected to have your systems booted up and to be ready to go by 9am. 
+* Please avoid cell phone use during lecture; we reserve the right to ban cell phone usage during class.
+* Break schedule; we will take a hour for lunch around noon, ~10 minutes around 10:30am and ~15 minutes around 3pm. Unless we are in lab at which point you may break as needed.
+* Class is scheduled until 5pm; we do make an attempt to wrap early but there are no guarentees.
+ 
  ## Contact
 * Join the [Slack Channel](https://join.slack.com/t/stack-x/shared_invite/enQtMzk3OTg3NzAzODc5LTA2NzA4M2FmZmFhN2EzMjhhNjhlOTE3ODVmODMyMTAwZWQ2MTRlNmU3MTYyM2Y4OTI2ODYwMjRiZTkyZjdkMGM)
 * Email bootcamp@microtrain.net
@@ -14,13 +20,8 @@
 The [courseware](https://github.com/microtrain/bootcamp) is avaiable on GitHub.
 * https://github.com/microtrain/bootcamp
 
-
 ## Description 
 The class is 40 hours a week for 10 weeks. It is comprised of a series of units with each unit corrosponding to a chapter in the courseware. A unit or chapter is compirsed pf working lectures, exercises, labs and additional resources. The goal of this class is to provide a working knowledge of web and mobile application development. This course is not a deep dive on any one topic, rather it is intended to provide a working foundation that will allow you to hit the ground running and give you the knowledge base upon which to build a career. In most cases you will get a light introduction to a topic; typically with in a specific context. We will build on these topics as we progress through the course. The syllabus is tentative and may be adjusted to the pace of the class as a whole. The last two to three weeks of class are open and are intended for to allow each stundet to complete a single or multiple projects to add to their portfolio.
-
-## Expectations
-* Class starts promptly at 9am, you are expected to have your systems booted up and to be ready to go by 9am. 
-* Please limit cell phone use during lecture.
 
 ## Unit Composition
 
@@ -130,3 +131,14 @@ If applicable week 8 may serve as catchup, review or overflow time for any topic
 
 ####  Projects
 Whatever you want to build. Start thinking of a project sooner than later
+
+## Additional Policies
+
+### Reimbursement Policy
+Students may be reimbursed up to $15 for one domain name.
+
+### Retake Policy
+Students may at MicroTrain's discretion retake the class provided space is available. No new equipment, materials, or reimbursements are provided for anyone retaking the class.
+
+
+
