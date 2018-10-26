@@ -4,7 +4,7 @@
 * First Day: Monday, December 10, 2018
 * Last Day: Tuesday, February 26, 2018
 * Class will **NOT** meet over the holiday from December 22nd through January 1st.
- * Class will resume on Wednesday, January 2nd.
+  * Class will resume on Wednesday, January 2nd.
  
  ## Expectations
 * Class starts promptly at 9am, you are expected to have your systems booted up and to be ready to go by 9am. 
