@@ -42,7 +42,7 @@ The work you are expected to do on your own. Lectures and and exercises should t
 This section provides links to additional reading, conversation, ebooks, videos online courses ect. While not required it is encouraged and expected that you will spend some time reviewing this material.
 
 #### Udemy
-We use Udemy as supplemental material. While it is not required it is encouraged to at least review the courses provided in the Additional Resources section. You will have access to Udemy for one year from today so event after this course is finished you can continue to learn in a structured environment.
+We use Udemy as supplemental material. While it is not required it is encouraged to at least review the courses provided in the Additional Resources section. You will have access to Udemy until at least the end of your program so even after this course is finished you can continue to learn in a structured environment.
 
 #### Khan Academy
 This provides free online learning for various topics. This is mostly included as a review of Algebra, Geometry, etc. We do not get to heavy with these topics but any one wanting a review can do so through the links provided.
@@ -128,7 +128,7 @@ Your personal production site on Digital Ocean on your preferred tech stack (MEA
 * Ionic Applications
 
 ### Weeks 8-10
-If applicable week 8 may serve as catchup, review or overflow time for any topics of which there are issues.
+If applicable week 8 may serve as catch up, review or overflow time for any topics of which there are issues.
 
 ####  Projects
 Whatever you want to build. Start thinking of a project sooner than later
