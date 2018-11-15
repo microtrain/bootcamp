@@ -378,7 +378,5 @@ Recreate the draw program using jQuery
 * [jQuery vs document.querySelectorAll](https://stackoverflow.com/questions/11503534/jquery-vs-document-queryselectorall)
 * [Creating Intrinsic Ratios for Video](https://alistapart.com/article/creating-intrinsic-ratios-for-video)
 * [JavaScript Object Basics](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics)
-### Udemy
-* [Up and Running with jQuery](https://microtrain.udemy.com/up-and-running-with-jquery/learn/v4/overview)
 
 [Next: Front End Toolkits](/08-FrontEndToolkits/README.md)

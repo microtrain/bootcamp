@@ -32,8 +32,4 @@ A primary key is unique index for a row of data. The most common primary key is 
 * [Naming Conventions: Stack Overflow Discussion](https://stackoverflow.com/questions/7662/database-table-and-column-naming-conventions)
 * [Integer Types](https://dev.mysql.com/doc/refman/5.7/en/integer-types.html)
 
-### Udemy
-
-* [SQL for Beginners](https://microtrain.udemy.com/sql-for-beginners-course/)
-
 [Next: MySQL](02-MySQL.md)

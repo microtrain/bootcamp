@@ -317,8 +317,5 @@ composer install
 ## Additions Resources
 * [JSON](http://www.json.org/)
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
-### Udemy
-* [JSON Related Courses](https://microtrain.udemy.com/organization/search/?src=ukw&q=JSON)
-* [API Related Courses](https://microtrain.udemy.com/organization/search/?src=ukw&q=api)
 
 [Next: Heredoc](06-Heredoc.md)

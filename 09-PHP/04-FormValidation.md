@@ -597,7 +597,4 @@ if(empty($valid->errors) && !empty($input)){
 * [Google Caja](https://code.google.com/archive/p/google-caja/wikis/JsHtmlSanitizer.wiki)
 * [Sanitize HTML](https://www.npmjs.com/package/sanitize-html)
 
-### Udemy
-* [Object Oriented Programming (OOP) in PHP - Build An OOP Site](https://microtrain.udemy.com/object-oriented-programming-in-php/)
-
 [Next: Working with APIs](05-MailgunAPI.md)
