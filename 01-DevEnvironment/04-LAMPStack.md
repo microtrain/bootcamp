@@ -155,7 +155,4 @@ In this lesson you learned
 * [Apache Web Server Docs](https://httpd.apache.org/docs/)
 * [Building a LAMP Stack on Ubuntu 12.04](https://jasonsnider.com/posts/view/building-a-lamp-stack-on-ubuntu-12-04)
 
-### Udemy
-* [LAMP Stack Courses](https://microtrain.udemy.com/organization/search/?src=ukw&q=lamp%20stack)
-
 [Next: Apache Basics](05-ApacheBasics.md)
