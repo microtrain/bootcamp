@@ -392,7 +392,4 @@ Apply the new navigation to all pages.
 * [Nav Element](http://w3c.github.io/html/sections.html#the-nav-element)
 * [Bad Design vs. Good Design](https://www.interaction-design.org/literature/article/bad-design-vs-good-design-5-examples-we-can-learn-frombad-design-vs-good-design-5-examples-we-can-learn-from-130706)
 
-### Udemy
-* [Flexbox Tutorial](https://microtrain.udemy.com/flexbox-tutorial/)
-
 [Next: SASS](02-SASS.md)
