@@ -42,7 +42,7 @@ The work you are expected to do on your own. Lectures and and exercises should t
 This section provides links to additional reading, conversation, ebooks, videos online courses ect. While not required it is encouraged and expected that you will spend some time reviewing this material.
 
 #### Udemy
-We use Udemy as supplemental material. While it is not required it is encouraged to at least review the courses provided in the Additional Resources section. You will have access to Udemy until at least the end of your program so even after this course is finished you can continue to learn in a structured environment.
+We use Udemy as supplemental material, while it is not required you are encouraged to utilize this tool. You will have access to Udemy until at least the end of your program so even after this course is finished you can continue to learn in a structured environment.
 
 #### Khan Academy
 This provides free online learning for various topics. This is mostly included as a review of Algebra, Geometry, etc. We do not get to heavy with these topics but any one wanting a review can do so through the links provided.
