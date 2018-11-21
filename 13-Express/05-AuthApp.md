@@ -234,61 +234,45 @@ Now, navigate to the login page [http://localhost:3000/auth](http://localhost:30
 
 ![terminal view](/img/auth/passport.png)
 
+Since that was just a test, we can stash our changes and finish implementing the logout logic.
 
+[</> code](https://github.com/microtrain/mean.example.com/commit/ba7c0673d02a1d0b6dcb42d77f2d261fc300b4f0) Implement logout methods
 
-
-
-
-
-
-
-
-
-
-[</> code](xxx) Create a login form
-
-*views/users/auth.pug*
-
-```pug
-extends ../layout
-
-block content
-
-  div#app
-
-  script(src='/dist/js/auth.app.js')
-```
-
-[</> code](https://github.com/microtrain/mean1.example.com/commit/3dda162467dca14ff4fb16816705aedf274d7ba9) Add an index end point for users
-
-*routes/users.js*
-```js
-router.get('/', function(req, res){
-  res.render('users/index');
-});
-```
-
-[</> code](https://github.com/microtrain/mean1.example.com/commit/c09512dcb83cabd719ddd67e2483fa8fb029cf08) Add a view for the users index.
-
-*views/users/index.pug*
-
-```pug
-extends ../layout
-
-block content
-  h1 Users Management
-```
-
-[</> code](https://github.com/microtrain/mean1.example.com/commit/66234e08d491c77e2a011eb8fa55ae38dd607e73) Create a GET end point for logout
-
-*routes/users.js*
-
+You can use the following to get a feel for what's going on inside the logout method
 ```js
 router.get('/logout', function(req, res){
+  console.log(req.session);
   req.logout();
-  res.redirect('/users/login');
+  console.log(req.session);
 });
 ```
+
+We can determine success by testing for a user object inside the passport object. If this no longer exists the logout was successful.
+
+*routes/api/auth.js*
+```js
+//~line 60
+router.get('/logout', function(req, res){
+  req.logout();
+  if(req.session.passport.user){
+    return res.json({success: 'false'});
+  }
+  return res.json({success: 'true'});
+});
+```
+
+The session is site wide and can accessed utilized outside of any JavaScript applications. For this reason it would make sense to provide a non-API endpoint for logging out of a session as well.
+
+*routes/auth.js*
+```js
+//~line 7
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/auth');
+});
+```
+
+
 
 ### Authenticated Whitelist
 
@@ -299,8 +283,7 @@ app.use(function(req,res,next){
 
   var whitelist = [
     '/',
-    '/favicon.ico',
-    '/users/login'
+    '/auth'
   ];
 
   //req.url holds the current URL
@@ -330,6 +313,6 @@ app.use(function(req,res,next){
     return next();
   }
 
-  return res.redirect('/users/login');
+  return res.redirect('/auth');
 });
 ```
