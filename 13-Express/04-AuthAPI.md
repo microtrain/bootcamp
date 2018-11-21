@@ -327,4 +327,4 @@ git push origin master
 
 In the next section we will  build a JavaScript application to manage user authentication.
 
-[Next: Authentication App](03-AuthApp.md)
+[Next: Authentication App](05-AuthApp.md)
