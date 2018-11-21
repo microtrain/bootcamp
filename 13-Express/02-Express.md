@@ -200,4 +200,34 @@ git stash
 git stash clear
 ```
 
+[</> code](https://github.com/microtrain/mean.example.com/commit/edafcefac47149661a856d0235d7c77dd9ebef67) If you have not already done so, add an *.editorconfig* file to the top level of you project.
+
+*.editorconfig*
+```sh
+# EditorConfig helps developers define and maintain consistent coding styles between different editors and IDEs
+# editorconfig.org
+
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+
+# We recommend you to keep these unchanged
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
+```
+
+```sh
+# Add .editorconfig
+git add .
+git commit -a
+git git push origin master
+```
+
 [Next: REST API](02-Express.md)
