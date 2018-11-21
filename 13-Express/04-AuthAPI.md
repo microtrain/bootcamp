@@ -25,7 +25,7 @@ git push origin master
 ```
 Commit your changes and push to master
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/09515b22327dd9524adfa11f10c95982fcd13d2f) Import session and Passport packages.
+[</> code](https://github.com/microtrain/mean.example.com/commit/c6625250735e6ad3cb2dfa00a92afa8928593f3d) Import session and Passport packages.
 
 *app.js*
 ```js
@@ -40,7 +40,7 @@ Commit your changes
 git commit -a
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/daa7d70969a7d57216274aabec451048b7fe749d) Add configuration objects for sessions and cookies
+[</> code](https://github.com/microtrain/mean.example.com/commit/89ec8019f911a7e02729b3c5c309bd204ae9495a) Add configuration objects for sessions and cookies
 *config.dev.js*
 ```js
 //Session configuration object
@@ -64,8 +64,9 @@ Commit your changes
 git commit -a
 ```
 
-[</code>](https://github.com/microtrain/mean1.example.com/commit/61048acfce52c12fcc747a775e275f57e0e5c8ac) Configure and initialize the [express session](https://github.com/expressjs/session)
+[</code>](https://github.com/microtrain/mean.example.com/commit/eb9896604ca174513fe262ef92dea4db8626ff84) Configure and initialize the [express session](https://github.com/expressjs/session)
 ```js
+//~line 32 before routes
 app.use(require('express-session')({
   //Define the session store
   store: new MongoStore({
@@ -93,8 +94,9 @@ Commit your changes
 git commit -a
 ```
 
-[</> code](https://github.com/microtrain/mean1.example.com/commit/9513474495901b01f4fdc2a891de91b6f79b060d) Serialize the session data
+[</> code](https://github.com/microtrain/mean.example.com/commit/0a65cf01f3438ddeb23e78f13c772de5d7f55780) Serialize the session data
 ```js
+//~line 53
 passport.serializeUser(function(user, done){
   done(null,{
     id: user._id,
@@ -114,209 +116,211 @@ Commit your changes
 ```sh
 # Serialize the session data
 git commit -a
+git push origin master
 ```
 
 #### User Registration
 
 ##### Passport Local Mongooose
 
-[</> code](https://github.com/microtrain/mean1.example.com/commit/94efcb4fc6f3e0daa2e6461fb9ec090e166b2079) Update the user model to require hash and salt as strings.
+[</> code](https://github.com/microtrain/mean.example.com/commit/63fb2211d8b8aaea883e3462a361f3fddca8f64b) Update the user model to require hash and salt as strings.
 
 *models/user.js*
 ```js
-    hash: {
-        type: String,
-        required: [
-            true, 
-            'There was a problem creating your password'
-        ]
-    },
-    salt: {
-        type: String,
-        required: [
-            true, 
-            'There was a problem creating your password'
-        ]
-    },
+  hash: {
+    type: String,
+    required: [
+      true,   
+      'There was a problem creating your password'
+    ]
+  },
+  salt: {
+    type: String,
+    required: [
+      true, 
+      'There was a problem creating your password'
+    ]
+  },
 ```
 
-[</> code](https://github.com/microtrain/mean1.example.com/commit/4408263d8af4e2709c795aa27c35d6817054efb4) Add passport-local-mongoose
+Commit your changes
+```sh
+# Add authentication fields to the users model
+git commit -a
+```
 
-*models/user.js*
+[</> code](https://github.com/microtrain/mean.example.com/commit/5af15521dd1cae39926d0ea61e85de7a839e395f) Add passport-local-mongoose
+
+*models/users.js*
 ```js
+//~line 4
 var passportLocalMongoose = require('passport-local-mongoose'); 
 
 ...
-
+//~line 55
 User.plugin(passportLocalMongoose);
 ```
 
-[</>code](https://github.com/microtrain/mean1.example.com/commit/86b74c55499f5f690f636a9014b52ba87d8359ac) Require and use Passport Local Strategy as defined in the user model
+Commit your changes
+```sh
+# Add Passport to the users model
+git commit -a
+```
+
+[</>code](https://github.com/microtrain/mean1.example.com/commit/28c347207038ac9bb5e853753cbe8a25a40f81dd) Require and use Passport Local Strategy as defined in the user model
+
+*app.js*
 ```js
+//~line 10
 var LocalStrategy = require('passport-local').Strategy;
 
-//Require models
+//~line 12
 var User = require('./models/user');
 
 ...
-//Use LocalStrategy as defined in the user model
+//~line 55
 passport.use(User.createStrategy());
 ```
 
-###### Clean Up  
-* [</> code](https://github.com/microtrain/mean1.example.com/commit/e82d3d183d175f3df7b14b03afe77116fe030a1a) Improve Comments  
-* [</> code](https://github.com/microtrain/mean1.example.com/commit/858577d248028026e42464d0729fd50b0b915f12) Improve Variable Names  
+Commit your changes
+```sh
+# Define a local strategy for authentication
+git commit -a
+git push origin master
+```
 
-##### Registration Endpoint
+##### Post the Registration Form to the Users API
+[</> code](https://github.com/microtrain/mean.example.com/commit/ef260abec56a72e219d3d8fdceb9eb60f384ba1) Add a registration end point the the users API. */users/register* is a GET request that will load a registration form. */api/users/register* is a POST request that creates a user record complete with salt and has values. For now, registartion will end with duping a JSON string onto the screen. Later we can convert this to an AJAX application.
 
-[</> code](https://github.com/microtrain/mean1.example.com/commit/e6094aae8742a1bdea513ef330e11da8970e1175) Add a users route with an end point for registering a user.
+Create the file *routes/api/auth* and add the following content
 
-Create the file *routes/users.js*. This will need access to express, passport and the user model.
 ```js
+//Register a new user
 var express = require('express');
 var router = express.Router();
-var passport = require('passport');
-var User = require('../models/user');
+var Users = require('../../models/users');
 
-router.get('/register', function(req, res, next) {
-  res.render('users/register', { 
-    title: 'Create an Account'
-   });
+router.post('/register', function(req,res,next){
+  var data = req.body;
+
+  Users.register(new Users({
+    username: data.username,
+    email: data.email,
+    first_name: data.first_name,
+    last_name: data.last_name
+  }), 
+  data.password, 
+  function(err, user){
+
+    if(err){
+
+      return res.json({
+        success: false, 
+        user: req.body, 
+        errors: err
+      });
+      
+    }
+
+    return res.json({
+      success: true,
+      user: user
+    });
+
+  });
+
 });
 
 module.exports = router;
 ```
 
-[</> code](https://github.com/microtrain/mean1.example.com/commit/96895ae42309bd5928235328916ced131a4265c4) Add the new user route to *app.js*
-```js
-var usersRouter = require('./routes/users');
-
-...
-
-
-app.use('/users', usersRouter);
-```
-
-##### Registration View
-
-[</> code](https://github.com/microtrain/mean1.example.com/commit/22edc04c8c765df223d4f2a995cb0cb946a68030) Create a users view directory with a registration view.
-
-*views/users/register.pug*
+Once you have created the file you'll need to wire it up to *app.js*.
 
 ```js
-extends ../layout
+//~line 16
+var apiAuthRouter = require('./routes/api/auth');
 
-block content
-  h1 Create an Account
-  form(method='post' action='/api/users/register')
-    div
-      label(for='username') Username
-      input(type='text' name='username' id='username')
-    div
-      label(for='email') Email
-      input(type='text' name='email' id='email')
-    div
-      label(for='first_name') First Name
-      input(type='text' name='first_name' id='first_name')
-    div
-      label(for='last_name') Last Name
-      input(type='text' name='last_name' id='last_name')
-    div
-      label(for='password') Password
-      input(type='password' name='password' id='password')
-    div
-      input(type='submit' value='submit')
+//~line 74
+app.use('/api/auth', apiAuthRouter);
 ```
 
-[</> code](https://github.com/microtrain/mean1.example.com/commit/84bae780c246b3d9ef6becc89be46e39cc355e2b) Add some simple fomr style to *public/stylesheets/style.css*
-```css
-label {
-  display: block;
-  font-weight: bold;
-}
-
-input[type="text"],
-input[type="password"],
-textarea{
-  font: 24px monospace;
-  padding: .75rem 1.25rem;
-  margin: .5rem 0 1rem;
-  display: inline-block;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-  width: 100%;
-  border-radius: 2px;
-}
-
-input[type="submit"],
-button,
-a.button{
-  padding: .75rem 1.25rem;
-  font: 24px monospace;
-  text-decoration: none;
-  appearance: button;
-  color: #fff;
-  border: 1px solid #0055ee;
-  background: #fff;
-  cursor: pointer;
-  background: #0099ee;
-  border-radius: 2px;
-}
+Test with a curl command
+```sh
+curl -d '{"email":"test5@example.com", "username":"testuser3", "first_name": "Bob", "last_name": "smith", "password":"test123"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/auth/register
 ```
 
-##### Post the Registration Form to the Users API
-[</> code](https://github.com/microtrain/mean1.example.com/commit/2df8937648a513b4b07cfc116cd5ed119a233ff8) Add a registration end point the the users API. */users/register* is a GET request that will load a registration form. */api/users/register* is a POST request that creates a user record complete with salt and has values. For now, registartion will end with duping a JSON string onto the screen. Later we can convert this to an AJAX application.
-
-Add the following to *routes/api/users*
-
-```js
-//Register a new user
-router.post('/register', function(req,res,next){
-    var data = req.body;
-
-    User.register(new User({
-      username: data.username,
-      email: data.email,
-      first_name: data.first_name,
-      last_name: data.last_name
-    }), 
-    data.password, 
-    function(err, user){
-
-      if(err){
-
-        return res.json({
-          success: false, 
-          user: req.body, 
-          errors: err
-        });
-        
-      }
-
-      return res.json({
-        success: true,
-        user: user
-      });
-
-    });
-
-});
+Commit your changes
+```sh
+# Add an endpoint for user registration
+git commit -a
+git push origin master
 ```
+
 #### User Login/Logout
 
 [</> code](https://github.com/microtrain/mean1.example.com/commit/9330c1d01aa872e7adc9d8aebb7494d4ed7954fc) Create a GET and POST end points for login
 
-*routes/users.js*
+*routes/api/auth.js*
+For a traditional web application Passport would allow you to create a login with just a few lines of code. Since we are building a REST API we need to crack open the black box and manage error handling on our own. Fortunately Passport exposes many of it's internals to the outside world making this a simple task. See the [Passport Documentation](http://www.passportjs.org/docs/authenticate/) for more details.
 
+*Black box implementation*, this works by injecting the ```passport.authenticate()``` middleware into method signature. The downside to this is either you're logged in or your not. You use redirects to convey the authentication state.
 ```js
-router.get('/login', function(req, res){
-  res.render('users/login');
-});
-
 router.post('/login', passport.authenticate('local'), function(req, res){
   res.redirect('/users');
 });
 ```
+
+*API implementation*, this works by using the ```passport.authenticate()``` middleware as a callback function. At this point you have access to errors and additional information that you can use to halt execution and return a JSON string denoting an error. At this point the black box functionality has been removed and you'll need to manually invoke the session. You can do this by accessing ```req.logIn()``` which will either return an error or create a session. Since we are testing with curl, with curl we do not have access to the browsers session cookie meaning the session sill not persist beyond the server request that created it. To test session creation we will ```console.log()``` the ```req.session``` variable. A successful login will create a session and return a JSON string with an error message and unsuccessful login will return an JSON string with ae error message. 
+```js
+//~line 37
+router.post('/login', function(req, res, next) {
+  //
+  passport.authenticate('local', function(err, user, info) {
+
+    if (err) { 
+      return res.json({success:false, error: err});
+    }
+
+    if (!user) {
+      return res.json({success:false, error: info.message });
+    }
+
+    req.logIn(user, function(err) {
+
+      if (err) { 
+        return res.json({success:false, error: err });
+      }
+
+      //we will use a console.log() to test the session data
+      console.log(req.session);
+
+      return res.json({success:true, user: user });
+
+    });
+  })(req, res, next);
+});
+```
+
+Test with a curl command
+```sh
+curl -d '{"username":"testuser3", "password":"test123"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/auth/login
+```
+
+Commit your changes
+```sh
+# Add an endpoint for user authentication
+git commit -a
+git push origin master
+```
+
+
+
+router.get('/logout', function(req, res){
+  req.logout();
+});
+
+
+
 
 [</> code](https://github.com/microtrain/mean1.example.com/commit/42c7611d9c341188d3e81a774a26a652f6469a7f) Create a login form
 
