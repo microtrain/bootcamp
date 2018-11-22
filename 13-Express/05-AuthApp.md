@@ -266,12 +266,115 @@ The session is site wide and can accessed utilized outside of any JavaScript app
 *routes/auth.js*
 ```js
 //~line 7
-app.get('/logout', function(req, res){
+router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/auth');
 });
 ```
 
+Commit your code changes and push to master
+```sh
+# Implement logout methods
+git commit -a
+git push origin master
+```
+
+## Implement a GUI for User Registration
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/d536a286db0e231bfd71791e155a6f0a4a818399) For the login method hard coded ```localhost:3000``` into the URL variable. At some point we are going to need to push this into production and when we do the URL is going change. In order for the app to work in production you will need to change all instances of ```localhost:3000``` to the proper domain and back again for development purposes. Not only is this time consuming but inevitably you will miss one and crash production. You could define a varaible in the global namespace leaving only one line of code to change. That seems like a better option but doesn't quite solve the problem. It would be better if our app could detect the URL making the domain dynamic meaning we only need to worry about the proper end point. We will use JavaScript's [location object](https://developer.mozilla.org/en-US/docs/Web/API/Window/location) to detect the URL.  
+
+Change the value of the local ```url``` variable to the following of *public/dist/js/auth.app.js* to the following.
+*public/dist/js/auth.app.js*
+```js
+//~line 28
+var url = `${window.location.origin}/api/auth/login`;
+```
+
+Commit your code changes
+```sh
+# Add URL detection
+git commit -a
+```
+
+### Create the Registration Form
+
+In the last lesson we created a user by making a curl request to an API. The login for we just created allows us to login with that user. Now we will build a form to allow for user registration using our app. Start by removing the call to ```loadLoginForm()``` at the end of the file and replace it with the a new method called ```loadRegisterForm()```. We will then call the ```loadRegisterForm()``` method.
+
+We will create this the same way we created the login form. The main difference will be the field names.
+
+*publid/dist/js/app.auth.js*
+```js
+//~line 55
+function loadRegisterForm(){
+  var app = document.getElementById('app');
+
+  var form =  `
+    <form id="registerForm">
+      <div id="errorMessage">Invalid username or password</div>
+      <div>
+        <label for="first_name".First name</label>
+        <input type="text" id="first_name" name="first_name">
+      </div>
+      <div>
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" name="last_name">
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email">
+      </div>
+      <div>
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username">
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password">
+      </div>
+      <div>
+        <input type="submit" value="Sign In">
+      </div>
+    </form>
+  `;
+
+  app.innerHTML=form;
+}
+
+loadRegisterForm();
+```
+
+At this point navigating to [http://localhost:3000/auth](http://localhost:3000/auth) will load the registration form.
+
+Commit your code changes
+```sh
+# Add a registration form
+git commit -a
+```
+
+
+
+```js
+
+function loader(){
+  switch(window.location.hash){
+
+    case '#register':
+      loadRegisterForm();
+      break;
+
+    default:
+      loadLoginForm();
+      break;
+  }
+}
+
+loader();
+
+window.addEventListener("hashchange", function(){
+  loader();
+});
+
+```
 
 
 ### Authenticated Whitelist
@@ -316,3 +419,6 @@ app.use(function(req,res,next){
   return res.redirect('/auth');
 });
 ```
+
+
+* [https://caniuse.com/#search=window.location.origin](https://caniuse.com/#search=window.location.origin)
