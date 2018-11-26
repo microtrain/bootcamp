@@ -1,6 +1,6 @@
 # Authentication App
 
-In this chapter we will build a JavaScript application that works with our REST API. In order to access this application we will need to provide a non-API or that is to a say a traditional webpage that will allow us to load the application. One of the keys to this chapter will be the ability to differentiate between front end JavaScript and back end JavaScript. Until now, everything we have done in Express has been back end JavaScript. 
+In this chapter we will build a JavaScript application that works with our REST API. In order to access this application we will need to provide a non-API endpoint, that is to a say a traditional webpage that will allow us to load the application. We will use Bootstrap and Font Awesome for style and icons. One of the keys to this chapter will be the ability to differentiate between front end JavaScript and back end JavaScript. Until now, everything we have done in Express has been back end JavaScript. 
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/7425d097bbadb973bbb240821e6f93040c3e34e8) Add a non-API end point for accessing the authentication app. 
 
@@ -73,8 +73,8 @@ function loadLoginForm(){
   var app = document.getElementById('app');
 
   var form =  `
-    <form id="logInForm">
-      <div id="errorMessage">Invalid username or password</div>
+    <form id="logInForm" class="form-auth-app">
+      <div id="errorMessage" class="error-message">Invalid username or password</div>
       <div>
         <label for="username">Username</label>
         <input type="text" id="username" name="username">
@@ -105,8 +105,8 @@ git commit -a
 [</> code](https://github.com/microtrain/mean.example.com/commit/606bbe63212ba1d19414e0cdb57ffa0183ef4549) Add styles for the login form
 ```css
 /*~line 9 */
-/** LOGIN FORM **/
-#logInForm {
+/** Authentication App **/
+.form-auth-app {
   width: 600px;
   max-width: 100%;
   margin: 0 auto;
@@ -116,7 +116,7 @@ git commit -a
   border: 1px solid #ccc;
 }
 
-#logInForm #errorMessage {
+.form-auth-app .error-message {
   display:  none;
   color: #990000;
   padding: .5rem .4rem;
@@ -127,15 +127,15 @@ git commit -a
   background: #fff;
 }
 
-#logInForm input{
+.form-auth-app input{
   margin-bottom: 1rem;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
 
-#logInForm label,
-#logInForm input[type="text"],
-#logInForm input[type="password"] {
+.form-auth-app  label,
+.form-auth-app  input[type="text"],
+.form-auth-app  input[type="password"] {
   box-sizing: border-box;
   display: block;
   width: 100%;
@@ -143,7 +143,7 @@ git commit -a
   padding: .5rem .4rem;
 }
 
-#logInForm input[type="submit"] {
+.form-auth-app  input[type="submit"] {
   font-size: 1.1rem;
   padding: .8rem .6rem .6rem;
   background: #fff;
@@ -309,8 +309,8 @@ function loadRegisterForm(){
   var app = document.getElementById('app');
 
   var form =  `
-    <form id="registerForm">
-      <div id="errorMessage">Invalid username or password</div>
+    <form id="registerForm" class="form-auth-app"
+      <div id="errorMessage" class="error-message">Please correct the errors below</div>
       <div>
         <label for="first_name".First name</label>
         <input type="text" id="first_name" name="first_name">
@@ -351,7 +351,39 @@ Commit your code changes
 git commit -a
 ```
 
+### Make an AJAX Request
 
+[</> code](https://github.com/microtrain/mean.example.com/commit/306f79b19dc0885953ef8e1e16af8e51d251eec7) Add an AJAX submit to the login form
+```js
+  //~line 22
+  var requestForm = document.getElementById('logInForm');
+  request.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var formData = new FormData(logInForm);
+    var url = `${window.location.origin}/api/auth/register`;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+
+    xhr.setRequestHeader(
+      'Content-Type',
+      'application/json; charset=UTF-8'
+    );
+
+    var object = {};
+    formData.forEach(function(value, key){
+      object[key]=value;
+    });
+
+    xhr.send(JSON.stringify(object));
+    xhr.onload = function(){
+      let data = JSON.parse(xhr.response);
+      console.log(data);
+    }
+  });
+```
+
+### Navigate Your App Using Hash Tags
 
 ```js
 
