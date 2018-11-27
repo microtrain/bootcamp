@@ -78,7 +78,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light
         li.nav-item
           a.nav-link(href='/auth#register') Register
         li.nav-item
-          a.nav-link(href='/auth') Login
+          a.nav-link(href='/auth#login') Login
         li.nav-item
           a.nav-link(href='/auth/logout') Logout
 ```

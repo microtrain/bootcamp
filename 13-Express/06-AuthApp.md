@@ -435,7 +435,7 @@ The session contains a passport object which is empty prior to session instantia
 //~line 36
 if !session.passport.user
   li.nav-item
-    a.nav-link(href='/auth#register') Sign Up
+    a.nav-link(href='/auth#register') Register
   li.nav-item
     a.nav-link(href='/auth#login') Login
 else
@@ -444,9 +444,10 @@ else
 ```
 
 ### Authenticated Whitelist
-By default all endpoints are publicly accessible. Some endpoints should only be accessible by authenticated users. There are several ways to do this, I prefer the whitelist approach. This means unauthenticated access is denied to all endpoints by default. Unauthenticated access is granted as needed.
+By default all endpoints are publicly accessible. Some endpoints should only be accessible by authenticated users. There are several ways to do this, I prefer the whitelist approach. This means unauthenticated access is denied to all endpoints by default; unauthenticated access is granted as needed.
 
 ```js
+//~line 78
 //Session based access control
 app.use(function(req,res,next){
   //return next();
@@ -483,6 +484,6 @@ app.use(function(req,res,next){
     return next();
   }
 
-  return res.redirect('/auth');
+  return res.redirect('/auth#login');
 });
 ```
