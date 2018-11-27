@@ -190,11 +190,11 @@ Commit your code changes
 git commit -a
 ```
 
-## Submit the Form
+## XHR Request (AKA AJAX)
 
 We will write a method that allows us to make a post request via AJAX. We will generalize this method so that we use it to post multiple forms.
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/xxx) Add an xhr post request
+[</> code](https://github.com/microtrain/mean.example.com/commit/xxx) Add an XHR post request
 
 ```js
 //~line 29
@@ -245,6 +245,7 @@ git commit -a
 ```
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/5571dc3b5ebe2afa29931f55e67b4be045eecaac) Add error/success handling to the login form. 
+
 * If the submit returns a success message redirect the user to the homepage. 
 * If the submit returns an error message display an error message on the screen.
 
@@ -325,7 +326,7 @@ git push origin master
 
 ## Implement a GUI for User Registration
 
-In the last lesson we created a user by making a curl request to an API. The login for we just created allows us to login with that user. Now we will build a form to allow for user registration using our app. Start by removing the call to ```loadLoginForm()``` at the end of the file and replace it with the a new method called ```loadRegisterForm()```. We will then call the ```loadRegisterForm()``` method.
+In the last lesson we created a user by making a curl request to an API. The login for we just created allows us to login with that user. Now we will build a form to allow for user registration using our app. Start by removing the call to ```loginForm()``` at the end of the file and replace it with the a new method called ```registrationForm()```. We will then call the ```registrationForm()``` method.
 ### Create the Registration Form
 We will create this the same way we created the login form. The main difference will be the field names.
 
@@ -384,9 +385,8 @@ Commit your code changes
 git commit -a
 ```
 
-### Navigate Your App Using Hash Tags
-We will navigate the app by listening for a change in the hash tag. This will determine which form to load and which parameters we will load into the ```postRequest()``` method.
-
+## Navigate Your App Using Hash Tags
+We will navigate the app by listening for a change in the hash tag. This will determine which form to load and which parameters we will load into the ```postRequest(formId, url)``` method. 
 
 ```js
 //~line 98
@@ -414,17 +414,37 @@ window.addEventListener("hashchange", function(){
 });
 ```
 
+## Working with Session Data
 
+Use Express middleware to expose session data to the views. This exposes the the session data to the view through a variable called ```session```.
 
+*app.js*
+```js
+//~line 73
+app.use(function(req,res,next){
+  res.locals.session = req.session;
+  next();
+});
+```
 
+### Controlling Navigation
+The session contains a passport object which is empty prior to session instantiation. Upon instantiation a user object is added to the passport object. We can use the presence of the user object or lack there of to determine which links to turn on or off in the navigation. If we detect a session we can hide the login and register links and show the logout link. We can reverse this when we no longer detect the session.
 
-
-
-
-
-
+*views/layout.pug*
+```js
+//~line 36
+if !session.passport.user
+  li.nav-item
+    a.nav-link(href='/auth#register') Sign Up
+  li.nav-item
+    a.nav-link(href='/auth#login') Login
+else
+  li.nav-item
+    a.nav-link(href='/auth/logout') Logout
+```
 
 ### Authenticated Whitelist
+By default all endpoints are publicly accessible. Some endpoints should only be accessible by authenticated users. There are several ways to do this, I prefer the whitelist approach. This means unauthenticated access is denied to all endpoints by default. Unauthenticated access is granted as needed.
 
 ```js
 //Session based access control
