@@ -1,17 +1,9 @@
 # Authentication App
 
-In this chapter we will build a JavaScript application that works with our REST API. In order to access this application we will need to provide a non-API endpoint, that is to a say a traditional webpage that will allow us to load the application. We will use Bootstrap and Font Awesome for style and icons. One of the keys to this chapter will be the ability to differentiate between front end JavaScript and back end JavaScript. Until now, everything we have done in Express has been back end JavaScript. 
+In this lesson we will build a JavaScript application that works with our REST API. In order to access this application we will need to provide a non-API endpoint, that is to a say a traditional webpage that will allow us to load the application. One of the keys to this chapter will be the ability to differentiate between front end JavaScript and back end JavaScript. Until now, everything we have done in Express has been back end JavaScript. 
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/7425d097bbadb973bbb240821e6f93040c3e34e8) Add a non-API end point for accessing the authentication app. 
-
-We will start by creating a creating the frontend JavaScript file. For this we will create the path *public/dist/js/app.auth.js*. In Express, all front end assets are stored the *public* directory and accessed via URL. In this case [http://localhost:3000/dist/js/app.auth.js](http://localhost:3000/dist/js/app.auth.js) would serve the *app.auth.js* file. Normally we would build all of our JavaScript using a Gulp process but I don't want that to get in the way so we will integrate Gulp at the end of this chapter and build with it in later lessons. For now we just need to understand that dist is the directory to where all Gulped files will be written. We will add a simple alert as a test.
-
-*public/dist/js/app.auth.js*
-```js
-alert('hi');
-```
-
-The second thing we add will be the auth endpoint. This will a new file called *auth.js* and will be placed directly under the *routes* directory.
+## Non API Endpoint
+[</> code](https://github.com/microtrain/mean.example.com/commit/xxx) Add a non-API endpoint for accessing the authentication app. This will be a new file called *auth.js* and will be placed directly under the *routes* directory. Where this endpoint 
 
 *routes/auth.js*
 ```js
@@ -25,7 +17,7 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 ```
 
-The third thing will be the view for the auth endpoint. By default, all views are expected to by in the *views*  directory. The keep things organized each routing file will have it's own view folder.
+Next, we will create a view for the auth endpoint. By default, all views are expected to be in the *views* directory. To keep things organized each routing file will have it's own view folder. Our view will extend the layout, call content from the view file, provide a div into which we will load our JavaScript application, and call the app into the script tag.
 
 *views/auth/index.pug*
 ```pug
@@ -54,7 +46,7 @@ cd ~/mean.example.com
 npm start
 ```
 
-Open a browser and navigate to [http://localhost:3000/auth](http://localhost:3000/auth). If you see an alert dialog that says "hi" then everything is working as it should. Open the file *public/dist/js/app.auth.js* and remove the alert. Commit your changes and push to master.
+Open a browser and navigate to [http://localhost:3000/auth](http://localhost:3000/auth). Right click on the page and inspect element. If the HTML matches what you would expect the pug file to produce then everything is working as it should. Commit your changes and push to master.
 
 ```sh
 # Add a non-API end point for accessing the authentication app
@@ -64,36 +56,107 @@ git commit -a
 git push origin master
 ```
 
+## Login Form
 
-## AJAX
-[</> code](https://github.com/microtrain/mean.example.com/commit/42bcba5f714773b0c0dd80434cdaad835e23670a) Add a method to load the login form. Create a method called viewLoginForm. This method will load a login form into the view.
+[</> code](https://github.com/microtrain/mean.example.com/commit/xxx) We will start by loading a closure into a variable called ```authApp```. Then we will add a method to create a form, load that form into to the view and update the styles. 
 
+Before we start writing code we will run ```gulp watch``` this will automatically compile all changes made to source code into distribution code.
+
+```sh
+cd ~/mean.example.com
+gulp watch
+```
+
+Create a closure
+*src/js/auth.app.js*
 ```js
-function loadLoginForm(){
-  var app = document.getElementById('app');
+var authApp = (function() {
 
-  var form =  `
-    <form id="logInForm" class="form-auth-app">
-      <div id="errorMessage" class="error-message">Invalid username or password</div>
-      <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
+})();
+```
+
+Add a ```loginForm()``` method to the closure.
+*src/js/auth.app.js*
+```js
+var authApp = (function() {
+
+  function loginForm(){
+    let app = document.getElementById('app');
+
+    let form =  `
+      <div class="card login-form">
+        <form id="logInForm" class="card-body">
+          <h1 class="card-title text-center">Please Sign In</h1>
+          <div class="alert alert-danger text-center">Invalid username or password</div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control">
+          </div>
+          <div>
+            <input type="submit" value="Sign In" class="btn btn-lg btn-primary btn-block">
+          </div>
+        </form>
       </div>
-      <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
+    `;
+
+    app.innerHTML=form;
+  }
+  return {
+    load: function(){
+      loginForm();
+    }
+  }
+})();
+
+authApp.load();
+```
+
+Add a return statement to your closure. This statement will return a JSON object that is accessible outside of the closure and will have access to everything that is outside of the return statement. In other words we have public access to the JSON object and the JSON object has private access the rest of the closure. Calling ```authApp.load();``` from outside the closure will execute the ```loginForm()``` logic.
+
+Emulate private and public properties and load the login form.
+*src/js/auth.app.js*
+```js
+var authApp = (function() {
+
+  function loginForm(){
+    let app = document.getElementById('app');
+
+    let form =  `
+      <div class="card login-form">
+        <form id="logInForm" class="card-body">
+          <h1 class="card-title text-center">Please Sign In</h1>
+          <div class="alert alert-danger text-center">Invalid username or password</div>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control">
+          </div>
+          <div>
+            <input type="submit" value="Sign In" class="btn btn-lg btn-primary btn-block">
+          </div>
+        </form>
       </div>
-      <div>
-        <input type="submit" value="Sign In">
-      </div>
-    </form>
-  `;
+    `;
 
-  app.innerHTML=form;
+    app.innerHTML=form;
+  }
 
-}
+  return {
+    load: function(){
+      loginForm();
+    }
+  }
 
-loadLoginForm();
+})();
+
+authApp.load();
 ```
 
 Commit your code changes
@@ -102,51 +165,22 @@ Commit your code changes
 git commit -a
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/606bbe63212ba1d19414e0cdb57ffa0183ef4549) Add styles for the login form
-```css
-/*~line 9 */
-/** Authentication App **/
-.form-auth-app {
-  width: 600px;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 1rem;
-  background: #ededed;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
+### Responsive Form
 
-.form-auth-app .error-message {
-  display:  none;
-  color: #990000;
-  padding: .5rem .4rem;
-  margin: .5rem 0;
-  border: 1px solid #990000;
-  text-align: center;
-  border-radius: 6px;
-  background: #fff;
-}
+Add this point the form is using bootstraps default block level styles and the error message displays by default. If we add a few lines of SASS we can contain this to something that looks reasonable on a desktop or large device while maintaining it's block level style on a smaller device.
 
-.form-auth-app input{
-  margin-bottom: 1rem;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-}
+[</> code](https://github.com/microtrain/mean.example.com/commit/xxx) Add responsive styles.
 
-.form-auth-app  label,
-.form-auth-app  input[type="text"],
-.form-auth-app  input[type="password"] {
-  box-sizing: border-box;
-  display: block;
+*src/scss/forms.scss*
+```scss
+.login-form {
   width: 100%;
-  font-size: 1.3rem;
-  padding: .5rem .4rem;
+  max-width: 360px;
+  margin: 2rem auto 0;
 }
 
-.form-auth-app  input[type="submit"] {
-  font-size: 1.1rem;
-  padding: .8rem .6rem .6rem;
-  background: #fff;
+#formMsg {
+  display: none;
 }
 ```
 
@@ -156,24 +190,30 @@ Commit your code changes
 git commit -a
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/306f79b19dc0885953ef8e1e16af8e51d251eec7) Add an AJAX submit to the login form
+## Submit the Form
+
+We will write a method that allows us to make a post request via AJAX. We will generalize this method so that we use it to post multiple forms.
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/xxx) Add an xhr post request
+
 ```js
-  //~line 22
-  var logInForm = document.getElementById('logInForm');
-  logInForm.addEventListener('submit', function(e){
+//~line 29
+function postRequest(formId, url){
+  let form = document.getElementById(formId);
+  form.addEventListener('submit', function(e){
     e.preventDefault();
 
-    var formData = new FormData(logInForm);
-    var url = 'http://localhost:3000/api/auth/login';
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', url);
+    let formData = new FormData(form);
+    let uri = `${window.location.origin}${url}`;
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', uri);
 
     xhr.setRequestHeader(
       'Content-Type',
       'application/json; charset=UTF-8'
     );
 
-    var object = {};
+    let object = {};
     formData.forEach(function(value, key){
       object[key]=value;
     });
@@ -184,6 +224,10 @@ git commit -a
       console.log(data);
     }
   });
+}
+
+//~line 60
+postRequest('loginForm', '/api/auth/login');
 ```
 
 Use developer tools to test the submit logic. 
@@ -205,11 +249,11 @@ git commit -a
 * If the submit returns an error message display an error message on the screen.
 
 ```js
-  //~line 45
+  //~line 52
   if(data.success===true){
     window.location.href = '/';
   }else{
-    document.getElementById('errorMessage').style.display='block';
+    document.getElementById('formMsg').style.display='block';
   }
 ```
 
@@ -281,36 +325,19 @@ git push origin master
 
 ## Implement a GUI for User Registration
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/d536a286db0e231bfd71791e155a6f0a4a818399) For the login method hard coded ```localhost:3000``` into the URL variable. At some point we are going to need to push this into production and when we do the URL is going change. In order for the app to work in production you will need to change all instances of ```localhost:3000``` to the proper domain and back again for development purposes. Not only is this time consuming but inevitably you will miss one and crash production. You could define a varaible in the global namespace leaving only one line of code to change. That seems like a better option but doesn't quite solve the problem. It would be better if our app could detect the URL making the domain dynamic meaning we only need to worry about the proper end point. We will use JavaScript's [location object](https://developer.mozilla.org/en-US/docs/Web/API/Window/location) to detect the URL.  
-
-Change the value of the local ```url``` variable to the following of *public/dist/js/auth.app.js* to the following.
-*public/dist/js/auth.app.js*
-```js
-//~line 28
-var url = `${window.location.origin}/api/auth/login`;
-```
-
-Commit your code changes
-```sh
-# Add URL detection
-git commit -a
-```
-
-### Create the Registration Form
-
 In the last lesson we created a user by making a curl request to an API. The login for we just created allows us to login with that user. Now we will build a form to allow for user registration using our app. Start by removing the call to ```loadLoginForm()``` at the end of the file and replace it with the a new method called ```loadRegisterForm()```. We will then call the ```loadRegisterForm()``` method.
-
+### Create the Registration Form
 We will create this the same way we created the login form. The main difference will be the field names.
 
 *publid/dist/js/app.auth.js*
 ```js
-//~line 55
-function loadRegisterForm(){
+//~line 29
+function registrationForm(){
   var app = document.getElementById('app');
 
   var form =  `
-    <form id="registerForm" class="form-auth-app"
-      <div id="errorMessage" class="error-message">Please correct the errors below</div>
+    <form id="registerForm" class="form-auth-app">
+      <div id="formMsg" class="error-message">Please correct the errors below</div>
       <div>
         <label for="first_name".First name</label>
         <input type="text" id="first_name" name="first_name">
@@ -339,10 +366,16 @@ function loadRegisterForm(){
 
   app.innerHTML=form;
 }
-
-loadRegisterForm();
 ```
 
+Change the load method load the registration form.
+```js
+  return {
+    load: function(){
+      registrationForm();
+    }
+  }
+```
 At this point navigating to [http://localhost:3000/auth](http://localhost:3000/auth) will load the registration form.
 
 Commit your code changes
@@ -351,62 +384,44 @@ Commit your code changes
 git commit -a
 ```
 
-### Make an AJAX Request
-
-[</> code](https://github.com/microtrain/mean.example.com/commit/306f79b19dc0885953ef8e1e16af8e51d251eec7) Add an AJAX submit to the login form
-```js
-  //~line 22
-  var requestForm = document.getElementById('logInForm');
-  request.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    var formData = new FormData(logInForm);
-    var url = `${window.location.origin}/api/auth/register`;
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', url);
-
-    xhr.setRequestHeader(
-      'Content-Type',
-      'application/json; charset=UTF-8'
-    );
-
-    var object = {};
-    formData.forEach(function(value, key){
-      object[key]=value;
-    });
-
-    xhr.send(JSON.stringify(object));
-    xhr.onload = function(){
-      let data = JSON.parse(xhr.response);
-      console.log(data);
-    }
-  });
-```
-
 ### Navigate Your App Using Hash Tags
+We will navigate the app by listening for a change in the hash tag. This will determine which form to load and which parameters we will load into the ```postRequest()``` method.
+
 
 ```js
+//~line 98
+return {
+  load: function(){
+    switch(window.location.hash){
+      case '#register':
+        registrationForm();
+        postRequest('registrationForm', '/api/auth/register');
+        break;
 
-function loader(){
-  switch(window.location.hash){
-
-    case '#register':
-      loadRegisterForm();
-      break;
-
-    default:
-      loadLoginForm();
-      break;
+      default:
+        loginForm();
+        postRequest('loginForm', '/api/auth/login');
+        break;
+    }
   }
 }
 
-loader();
+//~line 115
+authApp.load();
 
 window.addEventListener("hashchange", function(){
-  loader();
+  authApp.load();
 });
-
 ```
+
+
+
+
+
+
+
+
+
 
 
 ### Authenticated Whitelist
@@ -451,6 +466,3 @@ app.use(function(req,res,next){
   return res.redirect('/auth');
 });
 ```
-
-
-* [https://caniuse.com/#search=window.location.origin](https://caniuse.com/#search=window.location.origin)

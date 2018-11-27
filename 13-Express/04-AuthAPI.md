@@ -246,7 +246,7 @@ app.use('/api/auth', apiAuthRouter);
 
 Test with a curl command
 ```sh
-curl -d '{"email":"test5@example.com", "username":"testuser3", "first_name": "Bob", "last_name": "smith", "password":"test123"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/auth/register
+curl -d '{"email":"test5@example.com", "username":"testuser5", "first_name": "Bob", "last_name": "smith", "password":"test123"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/auth/register
 ```
 
 Commit your changes
@@ -303,7 +303,7 @@ router.post('/login', function(req, res, next) {
 
 Test with a curl command
 ```sh
-curl -d '{"username":"testuser3", "password":"test123"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/auth/login
+curl -d '{"username":"testuser5", "password":"test123"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/auth/login
 ```
 
 Commit your changes
@@ -327,4 +327,4 @@ git push origin master
 
 In the next section we will  build a JavaScript application to manage user authentication.
 
-[Next: Authentication App](05-AuthApp.md)
+[Next: Front End Prep](05-FrontEnd.md)

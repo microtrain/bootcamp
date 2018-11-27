@@ -22,11 +22,40 @@ html
     link(rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' integrity='sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO' crossorigin='anonymous')
     // Font Awesome
     link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous')
-
+    // Custom CSS
+    link(rel='stylesheet' href='/dist/css/main.min.css')
     title= title
   body
+    // Header/Navigation
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container
+        a.navbar-brand(href='/')
+          // Use Font Awesome for a generic logo
+          i.fas.fa-asterisk
+          |&nbsp;MY API
+        button.navbar-toggler(
+          type='button'
+          data-toggle='collapse'
+          data-target='#navbarSupportedContent'
+          aria-controls='navbarSupportedContent'
+          aria-expanded='false'
+          aria-label='Toggle navigation'
+        )
+          span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item.active
+              a.nav-link(href='/')
+                | Home
+            li.nav-item
+              a.nav-link(href='/auth#register') Sign Up
+            li.nav-item
+              a.nav-link(href='/auth#login') Login
+            li.nav-item
+              a.nav-link(href='/logout') Logout
+
+    // Page Content - Express Default
     .container
-      // Page Content - Express Default
       block content
     // Optional JavaScript
     // jQuery first, then Popper.js, then Bootstrap JS
@@ -200,3 +229,8 @@ cd ~/mean.example.com
 gulp build-js
 gulp build-css
 ```
+
+You may have noticed all the files we created are blank. These are just place holders. We build these out in upcoming lessons. 
+
+
+[Next: Authentication App](05-AuthApp.md)
