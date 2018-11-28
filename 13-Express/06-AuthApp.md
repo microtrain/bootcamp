@@ -3,7 +3,7 @@
 In this lesson we will build a JavaScript application that works with our REST API. In order to access this application we will need to provide a non-API endpoint, that is to a say a traditional webpage that will allow us to load the application. One of the keys to this chapter will be the ability to differentiate between front end JavaScript and back end JavaScript. Until now, everything we have done in Express has been back end JavaScript. 
 
 ## Non API Endpoint
-[</> code](https://github.com/microtrain/mean.example.com/commit/xxx) Add a non-API endpoint for accessing the authentication app. This will be a new file called *auth.js* and will be placed directly under the *routes* directory. Where this endpoint 
+[</> code](https://github.com/microtrain/mean.example.com/commit/xxx) Add a non-API endpoint for accessing the authentication app. This will be a new file called *auth.js* and will be placed directly under the *routes* directory. Where this endpoint differs from our API endpoints is in what the endpoint returns. Previously we returned a JSON string ```res.json()``` this time we will render a view ```res.render()```.
 
 *routes/auth.js*
 ```js
@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 ```
 
-Next, we will create a view for the auth endpoint. By default, all views are expected to be in the *views* directory. To keep things organized each routing file will have it's own view folder. Our view will extend the layout, call content from the view file, provide a div into which we will load our JavaScript application, and call the app into the script tag.
+Next, we will create a view for the auth endpoint. By default, all views are expected to be in the *views* directory. To keep things organized each routing file will have it's own view directory. Our view will extend the layout, call content from the view file, provide a div into which we will load our JavaScript application, and call the app into the script tag.
 
 *views/auth/index.pug*
 ```pug
@@ -27,7 +27,7 @@ block content
 
   div#app
 
-  script(src='/dist/js/auth.app.js')
+  script(src='/dist/js/auth.app.min.js')
 ```
 
 Finally, we will add our new route to app.js.
@@ -46,7 +46,9 @@ cd ~/mean.example.com
 npm start
 ```
 
-Open a browser and navigate to [http://localhost:3000/auth](http://localhost:3000/auth). Right click on the page and inspect element. If the HTML matches what you would expect the pug file to produce then everything is working as it should. Commit your changes and push to master.
+Open a browser and navigate to [http://localhost:3000/auth](http://localhost:3000/auth). If the tab reads "User Authentication" then everything is working as it should. Commit your changes and push to master.
+
+![User Authentication](/img/auth/title.png)
 
 ```sh
 # Add a non-API end point for accessing the authentication app
