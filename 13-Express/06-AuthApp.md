@@ -88,7 +88,7 @@ var authApp = (function() {
 
     let form =  `
       <div class="card login-form">
-        <form id="logInForm" class="card-body">
+        <form id="loginForm" class="card-body">
           <h1 class="card-title text-center">Please Sign In</h1>
           <div class="alert alert-danger text-center">Invalid username or password</div>
           <div class="form-group">
