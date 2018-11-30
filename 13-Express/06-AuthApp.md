@@ -3,7 +3,7 @@
 In this lesson we will build a JavaScript application that works with our REST API. In order to access this application we will need to provide a non-API endpoint, that is to a say a traditional webpage that will allow us to load the application. One of the keys to this chapter will be the ability to differentiate between front end JavaScript and back end JavaScript. Until now, everything we have done in Express has been back end JavaScript. 
 
 ## Non API Endpoint
-[</> code](https://github.com/microtrain/mean.example.com/commit/xxx) Add a non-API endpoint for accessing the authentication app. This will be a new file called *auth.js* and will be placed directly under the *routes* directory. Where this endpoint differs from our API endpoints is in what the endpoint returns. Previously we returned a JSON string ```res.json()``` this time we will render a view ```res.render()```.
+[</> code](https://github.com/microtrain/mean.example.com/commit/Add a non-API end point for accessing the authentication app) Add a non-API endpoint for accessing the authentication app. This will be a new file called *auth.js* and will be placed directly under the *routes* directory. Where this endpoint differs from our API endpoints is in what the endpoint returns. Previously we returned a JSON string ```res.json()``` this time we will render a view ```res.render()```.
 
 *routes/auth.js*
 ```js
@@ -60,10 +60,11 @@ git push origin master
 
 ## Login Form
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/xxx) We will start by loading a closure into a variable called ```authApp```. Then we will add a method to create a form, load that form into to the view and update the styles. 
+[</> code](https://github.com/microtrain/mean.example.com/commit/703d65db611b6b63880a1e4fefddff84ee211c30) We will start by loading a closure into a variable called ```authApp```. Then we will add a method to create a form, load that form into to the view and update the styles. 
 
 Before we start writing code we will run ```gulp watch``` this will automatically compile all changes made to source code into distribution code.
 
+> I would typically run this from the terminal in my IDE. This allows me to watch the Gulp process while I writing code.
 ```sh
 cd ~/mean.example.com
 gulp watch
@@ -107,14 +108,8 @@ var authApp = (function() {
 
     app.innerHTML=form;
   }
-  return {
-    load: function(){
-      loginForm();
-    }
-  }
-})();
 
-authApp.load();
+})();
 ```
 
 Add a return statement to your closure. This statement will return a JSON object that is accessible outside of the closure and will have access to everything that is outside of the return statement. In other words we have public access to the JSON object and the JSON object has private access the rest of the closure. Calling ```authApp.load();``` from outside the closure will execute the ```loginForm()``` logic.
@@ -161,7 +156,11 @@ var authApp = (function() {
 authApp.load();
 ```
 
-Commit your code changes
+With dev tool [f12] open hold down the refresh button and choose "Empty Cache and Hard Reload" from the subtext menu.
+
+![Empty Cache and Hard Reload](/img/empty_cache.png)
+
+If you see a login form all is working as it should, commit your code changes, commit your code changes.
 ```sh
 # Add a method to load the login form
 git commit -a
@@ -171,7 +170,7 @@ git commit -a
 
 Add this point the form is using bootstraps default block level styles and the error message displays by default. If we add a few lines of SASS we can contain this to something that looks reasonable on a desktop or large device while maintaining it's block level style on a smaller device.
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/xxx) Add responsive styles.
+[</> code](https://github.com/microtrain/mean.example.com/commit/4b09db7d805fb7f6c9820750043a15a86da847de) Add responsive styles.
 
 *src/scss/forms.scss*
 ```scss
@@ -188,7 +187,7 @@ Add this point the form is using bootstraps default block level styles and the e
 
 Commit your code changes
 ```sh
-# Add styles for the login form
+# Add responsive styles to the login form
 git commit -a
 ```
 

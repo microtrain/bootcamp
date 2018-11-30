@@ -204,7 +204,8 @@ gulp.task('build-css', ['build-main-css']);
 gulp.task('build-main-css', function(){
 
   var main = gulp.src([
-    'src/scss/main.scss'
+    'src/scss/main.scss',
+    'src/scss/forms.scss'
   ])
   . pipe(scss())
   . pipe(cleanCSS())
