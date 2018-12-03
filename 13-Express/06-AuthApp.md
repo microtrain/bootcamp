@@ -60,7 +60,7 @@ git push origin master
 
 ## Login Form
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/703d65db611b6b63880a1e4fefddff84ee211c30) We will start by loading a closure into a variable called ```authApp```. Then we will add a method to create a form, load that form into to the view and update the styles. 
+[</> code](https://github.com/microtrain/mean.example.com/commit/39364af9ef5f989b882dbeed2e9a09c41a5aae4e) We will start by loading a closure into a variable called ```authApp```. Then we will add a method to create a form, load that form into to the view and update the styles. 
 
 Before we start writing code we will run ```gulp watch``` this will automatically compile all changes made to source code into distribution code.
 
@@ -90,7 +90,7 @@ var authApp = (function() {
       <div class="card login-form">
         <form id="loginForm" class="card-body">
           <h1 class="card-title text-center">Please Sign In</h1>
-          <div class="alert alert-danger text-center">Invalid username or password</div>
+          <div id="formMsg" class="alert alert-danger text-center">Invalid username or password</div>
           <div class="form-group">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" class="form-control">
@@ -126,7 +126,7 @@ var authApp = (function() {
       <div class="card login-form">
         <form id="loginForm" class="card-body">
           <h1 class="card-title text-center">Please Sign In</h1>
-          <div class="alert alert-danger text-center">Invalid username or password</div>
+          <div id="formMsg" class="alert alert-danger text-center">Invalid username or password</div>
           <div class="form-group">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" class="form-control">
@@ -170,7 +170,7 @@ git commit -a
 
 Add this point the form is using bootstraps default block level styles and the error message displays by default. If we add a few lines of SASS we can contain this to something that looks reasonable on a desktop or large device while maintaining it's block level style on a smaller device.
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/4b09db7d805fb7f6c9820750043a15a86da847de) Add responsive styles.
+[</> code](https://github.com/microtrain/mean.example.com/commit/3e2c8a4516b90b46fec1acf55e029819779c8c16) Add responsive styles.
 
 *src/scss/forms.scss*
 ```scss
@@ -195,7 +195,7 @@ git commit -a
 
 We will write a method that allows us to make a post request via AJAX. We will generalize this method so that we use it to post multiple forms.
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/xxx) Add an XHR post request
+[</> code](https://github.com/microtrain/mean.example.com/commit/79d758ed6c8e868dc30e05cfc4bd480d115513eb) Add an XHR post request method
 
 ```js
 //~line 29
@@ -241,11 +241,11 @@ Use developer tools to test the submit logic.
 
 Commit your code changes
 ```sh
-# Add styles for the login form
+# Add an XHR post request method
 git commit -a
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/5571dc3b5ebe2afa29931f55e67b4be045eecaac) Add error/success handling to the login form. 
+[</> code](https://github.com/microtrain/mean.example.com/commit/32dc98ab94ef82008516280f436ec61230e8bf80) Add error/success handling to the login form. 
 
 * If the submit returns a success message redirect the user to the homepage. 
 * If the submit returns an error message display an error message on the screen.
@@ -261,7 +261,7 @@ git commit -a
 
 Commit your code changes and push to master
 ```sh
-# Add styles for the login form
+# Add error/success handling to the login form
 git commit -a
 git push origin master
 ```
@@ -282,7 +282,7 @@ Now, navigate to the login page [http://localhost:3000/auth](http://localhost:30
 
 Since that was just a test, we can stash our changes and finish implementing the logout logic.
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/ba7c0673d02a1d0b6dcb42d77f2d261fc300b4f0) Implement logout methods
+[</> code](https://github.com/microtrain/mean.example.com/commit/d296184a6157b59865eecd1ceb3d13207c56f781) Implement logout methods
 
 You can use the following to get a feel for what's going on inside the logout method
 ```js
@@ -293,17 +293,17 @@ router.get('/logout', function(req, res){
 });
 ```
 
-We can determine success by testing for a user object inside the passport object. If this no longer exists the logout was successful.
+We can determine success by testing for a user object inside the passport object. If this no longer exists the logout was successful. 
 
 *routes/api/auth.js*
 ```js
 //~line 60
-router.get('/logout', function(req, res){
+router.delete('/logout', function(req, res){
   req.logout();
-  if(req.session.passport.user){
-    return res.json({success: 'false'});
+  if(!req.session.passport.user){
+    return res.json({success: 'true'});
   }
-  return res.json({success: 'true'});
+  return res.json({success: 'false'});
 });
 ```
 
@@ -320,7 +320,7 @@ router.get('/logout', function(req, res){
 
 Commit your code changes and push to master
 ```sh
-# Implement logout methods
+# Add logout methods
 git commit -a
 git push origin master
 ```
@@ -328,46 +328,62 @@ git push origin master
 ## Implement a GUI for User Registration
 
 In the last lesson we created a user by making a curl request to an API. The login for we just created allows us to login with that user. Now we will build a form to allow for user registration using our app. Start by removing the call to ```loginForm()``` at the end of the file and replace it with the a new method called ```registrationForm()```. We will then call the ```registrationForm()``` method.
-### Create the Registration Form
-We will create this the same way we created the login form. The main difference will be the field names.
 
-*publid/dist/js/app.auth.js*
+### Create the Registration Form
+[</> code](https://github.com/microtrain/mean.example.com/commit/c9ce0a1d30091ccf04ed4f5f25c7b0a6e8aa3856) We will create this the same way we created the login form. The main difference will be the field names and the addition of [HTML5 validation](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation).
+
+*public/dist/js/app.auth.js*
 ```js
 //~line 29
-function registrationForm(){
-  var app = document.getElementById('app');
+  function registrationForm(){
+    var app = document.getElementById('app');
 
-  var form =  `
-    <form id="registerForm" class="form-auth-app">
-      <div id="formMsg" class="error-message">Please correct the errors below</div>
-      <div>
-        <label for="first_name".First name</label>
-        <input type="text" id="first_name" name="first_name">
-      </div>
-      <div>
-        <label for="last_name">Last Name</label>
-        <input type="text" id="last_name" name="last_name">
-      </div>
-      <div>
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email">
-      </div>
-      <div>
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
-      </div>
-      <div>
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password">
-      </div>
-      <div>
-        <input type="submit" value="Sign In">
-      </div>
-    </form>
-  `;
+    var form =  `
 
-  app.innerHTML=form;
-}
+        <div class="card login-form">
+          <form id="registrationForm" class="card-body">
+            <h1 class="card-title text-center">Create an Account</h1>
+            <div id="formMsg" class="alert alert-danger text-center">Your form has errors</div>
+
+            <div class="form-group">
+              <label for="first_name">First Name</label>
+              <input type="text" id="first_name" name="first_name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="last_name">Last Name</label>
+              <input type="text" id="last_name" name="last_name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="confirm_password">Confirm Password</label>
+              <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+            </div>
+
+            <div>
+              <input type="submit" value="Sign In" class="btn btn-lg btn-primary btn-block">
+            </div>
+          </form>
+        </div>
+    `;
+
+    app.innerHTML=form;
+  }
 ```
 
 Change the load method load the registration form.
@@ -375,6 +391,7 @@ Change the load method load the registration form.
   return {
     load: function(){
       registrationForm();
+      postRequest('registrationForm', '/api/auth/register');
     }
   }
 ```
@@ -386,17 +403,67 @@ Commit your code changes
 git commit -a
 ```
 
-## Navigate Your App Using Hash Tags
-We will navigate the app by listening for a change in the hash tag. This will determine which form to load and which parameters we will load into the ```postRequest(formId, url)``` method. 
+### Extending HTML5 Validation
+
+We can invoke [HTML5 validation](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation) by adding the required attribute. HTML provides front end validation, front end validation meaning a savvy user can shut it off. It should be used with, not in lieu of back end validation. Front end has the advantage of not requiring a full form submission and when done well can create a better user experience. For the sake of this lesson we will only focus on front end validation.
+
+The addition of the ```required``` attribute will at the very least force a non-empty field. When applied to an input field of a specific type such as ```type="email"``` it would require the data to be of the correct type. You can use JavaScript to override HTML's default validation rules and customize front end validation to your needs. 
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/c47c8e3734129da3e48fc81fe08d2492815fcf4a) Create a validation object and bind it the click event of the submit button. This will trigger custom validation just before the submit event fires thus blocking the submit if any of the fields fail validation. 
 
 ```js
-//~line 98
+// ~line 121
+var validate = (function() {
+
+  function confirmPasswordMatch() {
+
+    let pw = document.getElementById('password');
+    let cpw = document.getElementById('confirm_password');
+
+    if(pw.value !== cpw.value){
+      cpw.setCustomValidity("Passwords do not match");
+    } else {
+      cpw.setCustomValidity("");
+    }
+
+  }
+
+  return {
+    registrationForm: function(){
+      document.querySelector('#registrationForm input[type="submit"]').addEventListener(
+        'click',
+        function(){
+        confirmPasswordMatch();
+      });
+    }
+  }
+
+})();
+
+// ~line 115
+validate.registrationForm();
+```
+
+Commit your code changes
+```sh
+# Add custom HTML5 validation
+git commit -a
+```
+
+## Navigate Your App Using the Hash Tag
+[</> code](https://github.com/microtrain/mean.example.com/commit/2505d52039e272d06a29ad58a4f4d7bc09d1bd38)
+
+*auth.app.js*
+```js
+//~line 111
 return {
   load: function(){
+
     switch(window.location.hash){
       case '#register':
         registrationForm();
         postRequest('registrationForm', '/api/auth/register');
+        validate.registrationForm();
         break;
 
       default:
@@ -404,10 +471,11 @@ return {
         postRequest('loginForm', '/api/auth/login');
         break;
     }
+
   }
 }
 
-//~line 115
+//~line 159
 authApp.load();
 
 window.addEventListener("hashchange", function(){
@@ -415,9 +483,17 @@ window.addEventListener("hashchange", function(){
 });
 ```
 
+Commit your code changes
+```sh
+# Add location.hash detection for app navigation
+git commit -a
+```
+
 ## Working with Session Data
 
-Use Express middleware to expose session data to the views. This exposes the the session data to the view through a variable called ```session```.
+Now that we can create a proper and login to the system, creating a user session; we will want to work with the session data.
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/ba9906db766cb5e6d0d6b04eac548918a9121d77) Use Express middleware to expose session data to the views. This exposes the the session data to the view through a variable called ```session```.
 
 *app.js*
 ```js
@@ -428,13 +504,20 @@ app.use(function(req,res,next){
 });
 ```
 
-### Controlling Navigation
-The session contains a passport object which is empty prior to session instantiation. Upon instantiation a user object is added to the passport object. We can use the presence of the user object or lack there of to determine which links to turn on or off in the navigation. If we detect a session we can hide the login and register links and show the logout link. We can reverse this when we no longer detect the session.
+Commit your code changes
+```sh
+# Expose session data to the views
+git commit -a
+```
 
-*views/layout.pug*
+### Controlling the UI with Session Data
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/eb72758f6bb9189dd3f45e5c7a4aa8499679a464) The session contains a passport object which is empty prior to session instantiation. Upon instantiation, a user object is added to the passport object. We can use the presence of the user object or lack there of to determine which links to turn on or off in the navigation. If we detect a session we can hide the login and register links and show the logout link. We can reverse this when we no longer detect the session.
+
+*views/includes/navbar.pug*
 ```js
-//~line 36
-if !session.passport.user
+//~line 23
+if !session.passport
   li.nav-item
     a.nav-link(href='/auth#register') Register
   li.nav-item
@@ -444,15 +527,27 @@ else
     a.nav-link(href='/auth/logout') Logout
 ```
 
+Commit your code changes
+```sh
+# Show/Hide links based on session data
+git commit -a
+```
+
 ### Authenticated Whitelist
 By default all endpoints are publicly accessible. Some endpoints should only be accessible by authenticated users. There are several ways to do this, I prefer the whitelist approach. This means unauthenticated access is denied to all endpoints by default; unauthenticated access is granted as needed.
+
+[</> code](https://github.com/microtrain/mean.example.com/commit/ac8b8657e3fe7907eaf69c89c088436781a6d112) Deny unauthenticated access to all end points by default. Create a whitelist that will allow unauthenticated access to specific endpoints.
 
 ```js
 //~line 78
 //Session based access control
 app.use(function(req,res,next){
+  //Uncomment the following line to allow access to everything.
   //return next();
 
+  //Allow any endpoint that is an exact match. The server does not
+  //have access to the hash so /auth and /auth#xxx would bot be considered 
+  //exact matches.
   var whitelist = [
     '/',
     '/auth'
@@ -470,21 +565,33 @@ app.use(function(req,res,next){
   //Allow access to dynamic end points
   var subs = [
     '/public/',
+    '/api/auth/'
   ];
 
-  //The query string provides a partial URL match begining
-  //at position 0
+  //The query string provides a partial URL match beginning
+  //at position 0. Both /api/auth/login and /api/auth/logout would would 
+  //be considered a match for /api/auth/
   for(var sub of subs){
     if(req.url.substring(0, sub.length)===sub){
       return next();
     }
   }
 
-  //There is an active user session
+  //There is an active user session, allow access to all endpoints.
   if(req.isAuthenticated()){
     return next();
   }
 
+  //There is no session nor are there any whitelist matches. Deny access and
+  //redirect the user to the login screen.
   return res.redirect('/auth#login');
 });
+```
+
+Test by navigation to [http://localhost:3000/api/users](http://localhost:3000/api/users) while logged out of the system and again while logged into the system.
+
+Commit your code changes
+```sh
+# Whitelist endpoints that do not require authentication
+git commit -a
 ```
