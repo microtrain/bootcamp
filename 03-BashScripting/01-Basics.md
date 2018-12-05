@@ -133,7 +133,7 @@ git push origin master
 
 #### Add a tag
 
-In addtion to Semantic Versioning a common practice is to tag significant versions.
+In addition to Semantic Versioning a common practice is to tag significant versions.
 
 1. git tag 1.0.0
 1. git push origin --tags
@@ -145,7 +145,7 @@ Go to your project on GitHub and find everything that is tagged.
 In this exercise you learned how 
 * to create a basic shell script (Bash, Programming)
 * commit your code changes (Git)
-* apply semamtic versioning (Git)
+* apply semantic versioning (Git)
 * use tags to create code releases (Git)
 
 
@@ -204,7 +204,7 @@ Add the following lines to the file. Bellow the CONFIG and COMMAND variables but
 ```sh
 if [ $# -ne 2 ]
 then
-    echo "$0 requires two paramters {virtual-host} {restart|reload}"
+    echo "$0 requires two parameters {virtual-host} {restart|reload}"
     exit 1
 fi
 ```
@@ -297,9 +297,9 @@ For this exercise, create a feature branch called *feature/validate*. When you a
 
 The product owner has requested that we only be allowed to pass *reload* or *restart* into the service command. To achieve we will need to run a test against the second argument to verify it matches a valid command.
 
-To accomplish this we can then test against the value of the $COMMAND argument to make sure it is in the approved list. If it is then we can allow the program to proceed. Oterwise we will return an error message to the user.
+To accomplish this we can then test against the value of the $COMMAND argument to make sure it is in the approved list. If it is then we can allow the program to proceed. Otherwise we will return an error message to the user.
 
-We will start with a simple if-then-else statement. This if statement is differes from the previous exercise in that it adds an OR statement. In Bash OR statements are represented as a double pipe ```||```. If either of these conditions are true then the code inside the ```then``` block will execute. Otherwise we will drop into the ```else``` block. 
+We will start with a simple if-then-else statement. This if statement is differs from the previous exercise in that it adds an OR statement. In Bash OR statements are represented as a double pipe ```||```. If either of these conditions are true then the code inside the ```then``` block will execute. Otherwise we will drop into the ```else``` block. 
 
 ```sh
 # only allow reload or restart.
@@ -352,7 +352,7 @@ git push origin --tags
 
 ### Attention to Detail
 
-[</> code](https://github.com/stack-x/restart_apache/commit/122e30e7396d219a0fba9c8b29a2a7875965732d) Check out the format of our new error message. It begins with the word _ERROR:_ in all caps. This is good UX in that it remove any ambiguity about what the message. To keep user feedback consitant prefix the error message in the first if statement with _ERROR:_.
+[</> code](https://github.com/stack-x/restart_apache/commit/122e30e7396d219a0fba9c8b29a2a7875965732d) Check out the format of our new error message. It begins with the word _ERROR:_ in all caps. This is good UX in that it remove any ambiguity about what the message. To keep user feedback consistent prefix the error message in the first if statement with _ERROR:_.
 
 ```sh
 git commit -am 'Improved messaging'
@@ -506,20 +506,20 @@ Commit your code and push it to the master branch of the mtbc project.
 
 ## Exercise 8 - String Position
 
-String position allows you extract parts of a string by sepcifiy a numeric index starting at 0. Bash allows you to define string positions using colons with a varaible. 
+String position allows you extract parts of a string by specifying a numeric index starting at 0. Bash allows you to define string positions using colons with a variable. 
 
 A starting position of 0 will return the entire string.
 ```sh
-${VARIABLE:strarting-position} 
+${VARIABLE:starting-position} 
 ```
-A starting position of 0 and end position of 4 will return the first four charaters of a string. 
+A starting position of 0 and end position of 4 will return the first four characters of a string. 
 ```sh
-${VARIABLE:strarting-position:length}
+${VARIABLE:starting-position:length}
 ```
 
 A starting position of 0 and end position of -4 will return everything between first character and fourth from the end.
 ```sh
-${VARIABLE:strarting-position:end-position}
+${VARIABLE:starting-position:end-position}
 ```
 
 Create the executable Bash file _/var/www/mtbc/stringPosition.sh_ and add the following logic.

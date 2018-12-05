@@ -38,7 +38,7 @@ It would be common to refer to these practices as retrieving GET parameters (par
 
 ## Exercise - Analyze a Server Response with DevTools
 
-Make sure your browser is in focus by cliking anywhere on the screen the open Chrome DevTools by pressing [f12], this will open a dev panel. 
+Make sure your browser is in focus by clicking anywhere on the screen the open Chrome DevTools by pressing [f12], this will open a dev panel. 
 
 Find and click on the Network tab and paste the following URL into the address bar [https://www.google.com/search?q=anatomy+of+a+URI#jump](https://www.google.com/search?q=anatomy+of+a+URI).
 

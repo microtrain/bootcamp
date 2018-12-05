@@ -29,7 +29,7 @@ As mentioned - PHP, BASH and JavaScript are all dynamically typed meaning the ty
 * ```>=``` - greater than or equal to
 * ```<=``` - less than or equal to
 
-For the following statments assume a = 0 and b = 1
+For the following statements assume a = 0 and b = 1
 
 >```=``` is an assignment operator,```==``` is a comparison operator.
 
@@ -115,10 +115,10 @@ fi
 ```
 
 ## Loops
-* for - executes a fixed number of repetive operations
-* foreach/for-in/for-of - executes a repetive operation for each element in a set
-* while - executes a repetive operation while a condition is (or is not) true. Requires 1 truth prior to execution.
-* do-while - executes a repetive operation while a condition is (or is not) true. Executes prior to first truth. 
+* for - executes a fixed number of repetitive operations
+* foreach/for-in/for-of - executes a repetitive operation for each element in a set
+* while - executes a repetitive operation while a condition is (or is not) true. Requires 1 truth prior to execution.
+* do-while - executes a repetitive operation while a condition is (or is not) true. Executes prior to first truth. 
 
 ```php
 

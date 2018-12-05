@@ -8,7 +8,7 @@ sudo apt update
 sudo apt upgrade
 ```
 Lets look at these commands a little closer.
-* [sudo](https://help.ubuntu.com/community/RootSudo) - in short ```sudo``` will run what ever commands that follow it with root level privleges.
+* [sudo](https://help.ubuntu.com/community/RootSudo) - in short ```sudo``` will run what ever commands that follow it with root level privileges.
 * [```apt```](http://manpages.ubuntu.com/manpages/zesty/man8/apt.8.html) - [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) is a package manager for Linux. This works by maintaining a list of remote repositories from which packages can be installed. Most of the management is done automatically.
     * ```apt update``` - tells the system to update everything it knows about the repositories.   
     * ```apt upgrade``` - tells the system to upgrade all packages to their latest versions.

@@ -92,7 +92,7 @@ We will work with MySQL later in the course, for now bookmark the [MySQL Referen
 
 ## [phpMyAdmin](https://www.phpmyadmin.net/)
 
-PhpMyAdmin is a webbased admin tool for MySQL. This is written in PHP and runs on the Apache webserver. We will work with phpMyAdmin throughout this course Here is the [offical documentation](https://docs.phpmyadmin.net/en/latest/) for your convenience. Let's start by installing the software.
+PhpMyAdmin is a web based admin tool for MySQL. This is written in PHP and runs on the Apache webserver. We will work with phpMyAdmin throughout this course Here is the [official documentation](https://docs.phpmyadmin.net/en/latest/) for your convenience. Let's start by installing the software.
 
 ```sh
 sudo apt install phpmyadmin
@@ -104,7 +104,7 @@ As the installer is running you will be presented with several prompts. Arrows k
 * Choose apache2
 * Choose YES to db-common
 
-At this point phpMyAdmin is installed but it is not accessible. Now we will configure Apache to grant us access to phpMyAdmin. The following command will use ```vim``` to open an Apache config file with root level privs.
+At this point phpMyAdmin is installed but it is not accessible. Now we will configure Apache to grant us access to phpMyAdmin. The following command will use ```vim``` to open an Apache config file with root level privileges.
 
 ```sh
 sudo vim /etc/apache2/apache2.conf

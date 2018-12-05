@@ -1,7 +1,7 @@
 # HTML Basics
 Hypertext Markup Language (HTML) is a system of elements and attributes that defines the layout of a web page. This system uses markup tags to represent elements (```<p>This is a paragraph.</p>```) and attributes (```<p style="color: blue;">This is a paragraph with blue text.</p>```) to further describe these elements; to define the context of text and objects on a page.
 
-The offical HTML documentation is available from the [W3C](https://www.w3.org/TR/html/) this is the standards version of the documentation aimed at browser makers. The [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML) in my opinion is a better practical source of documentation.
+The official HTML documentation is available from the [W3C](https://www.w3.org/TR/html/) this is the standards version of the documentation aimed at browser makers. The [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML) in my opinion is a better practical source of documentation.
 
 ## [HTML Elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 A typical web page is rendered an an HTML document. HTML documents are made up of HTML elements (aks tags). HTML has two types of elements; inline elements and block-level elements. An HTML element will typically have an opening and a closing tag. <[element]>Closing tags have a slash</[element]>.
@@ -14,7 +14,7 @@ Most HTML documents start with a header. Headers are marked up ```<h*>``` the * 
 
 #### [Headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)
 
-Headers are used for creating sections on a web page. A typical webpage only has a single **h1** tag which servers as a page or article title. Eveything under the **h1** tag should be in some way related to that title. **h2** is the first sub-heading and creates a sub-section under **h1**. Likewise **h3** creates a sub section under **h2** and this repeates all the way down to **h6**. A second **h2** tag creates a new sub section that should be related to **h1** but not necessarily to the first **h2** element. This same notion holds true for all tags all the way down to **h6**.
+Headers are used for creating sections on a web page. A typical webpage only has a single **h1** tag which servers as a page or article title. Everything under the **h1** tag should be in some way related to that title. **h2** is the first sub-heading and creates a sub-section under **h1**. Likewise **h3** creates a sub section under **h2** and this repeats all the way down to **h6**. A second **h2** tag creates a new sub section that should be related to **h1** but not necessarily to the first **h2** element. This same notion holds true for all tags all the way down to **h6**.
 
 ```html
 <h1>This is a level 1 header.</h1>
@@ -35,7 +35,7 @@ As it's name suggests a paragraph element holds a pargraph. In the academic pape
 
 #### [Images](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
 
-The image element **img** is used to reference an image. Moderen graphical browsers display these as a part of the webpage. Adding an image tag does not place in image in your page. Rather it creates a refrence to an image and may define a space for that image. It is up to the browser to get the image and display as per the authors wishes. 
+The image element **img** is used to reference an image. Modern graphical browsers display these as a part of the webpage. Adding an image tag does not place in image in your page. Rather it creates a reference to an image and may define a space for that image. It is up to the browser to get the image and display as per the authors wishes. 
 
 An image has two required attributes **src** and **alt**. **src** is the URI of the image while **alt** holds a non graphical description.
 
@@ -101,7 +101,7 @@ A table represents tabular data, think of a simple spreadsheet.
     <tr>
       <td>div</td>
       <td>block</td>
-      <tdh>none</td>
+      <td>none</td>
     </tr>
     <tr>
       <td>span</td>
@@ -147,7 +147,7 @@ The following would appear inside the body tags.
 <ul>
   <li><strong>article</strong> - a self contained composition.</li>
   <li><strong>header</strong> - introductory content for a given section.</li>
-  <li><strong>footer</strong> - genenrally contains meta data for a given section. </li>
+  <li><strong>footer</strong> - generally contains meta data for a given section. </li>
   <li><strong>nav</strong> - provides navigation links for a website/page.</li>
   <li><strong>section</strong> - a stand alone section similar to **div**.</li>
   <li><strong>aside</strong> - indirectly related to the main content.</li>
@@ -160,10 +160,10 @@ The following would appear inside the body tags.
 <p>New elements such as <em>audio, video and canvas</em> add built in support for audio, video, gamming and web applications.</p>
 
 <h3>Audio</h3>
-<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio">audio</a> element embeds audio into a webpage without the use of akward embed or object elements.</p>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio">audio</a> element embeds audio into a webpage without the use of awkward embed or object elements.</p>
 
 <h3>Video</h3>
-<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video">video</a> elements embeds video into a webpage without the use of akward embed or object elements.</p>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video">video</a> elements embeds video into a webpage without the use of awkward embed or object elements.</p>
 
 <h3>Canvas</h3>
 <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas">canvas</a> element allocates a section of the page as JavaScript application. Here you can create games, interactive applications or visual effects. Prior to canvas we were forced to use plugins or other non-standard methods such as Flash, SilverLight, ActiveX, Java Applets, etc.</p>
@@ -182,7 +182,7 @@ The following would appear inside the body tags.
     <tr>
       <td>div</td>
       <td>block</td>
-      <tdh>none</td>
+      <td>none</td>
     </tr>
     <tr>
       <td>span</td>
@@ -228,7 +228,7 @@ The following represents the minimal template for a valid [HTML5](https://www.w3
 
 #### Exercise 1 - Display a Basic Page
 
-Complete the following task, after each task commit your chagnes to Git. When all tasks are complete push all chagnes to the mtbc project on GitHub.
+Complete the following task, after each task commit your chagnes to Git. When all tasks are complete push all changes to the mtbc project on GitHub.
 
 [</> code](https://github.com/stack-x/mtbc/commit/2dc5f0bbfa21a50da6026b0c131d5c4594dbc37a) Create the path */var/www/mtbc/html/basic.html* and paste the above template into the file. Then navigate to [http://localhost/mtbc/html/basic.html](http://localhost/mtbc/html/basic.html) and note the tab in the browser.
 
@@ -238,8 +238,8 @@ Complete the following task, after each task commit your chagnes to Git. When al
 
 ##### Summary
 
-In this exercise you leanred how to
-* build a baisc web page (HTML)
+In this exercise you learned how to
+* build a basic web page (HTML)
 * update a page title (HTML)
 * view local changes in a browser (Dev)
 

@@ -1,5 +1,5 @@
 # Chapter 5: HTML
-This unit will focus on the funedmentals of HTML and building a personal website aimed at personal branding. The [Mozilla Developer Network](https://developer.mozilla.org/en-US/) (MDN) is great resource for development. Many of the lessons and pre-reading assignmens will refer to MDN. 
+This unit will focus on the fundamentals of HTML and building a personal website aimed at personal branding. The [Mozilla Developer Network](https://developer.mozilla.org/en-US/) (MDN) is great resource for development. Many of the lessons and pre-reading assignments will refer to MDN. 
 
 ## Pre-reading
 * [HTML (MDN)](https://developer.mozilla.org/en-US/docs/Web/HTML)

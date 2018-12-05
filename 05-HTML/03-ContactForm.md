@@ -23,9 +23,9 @@ While HTML has a slew of form elements you can mostly get by with just a few.
 * [select](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select) - Provide a picklist.
 * [label](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) - Provides a label for a given element.
 
-Label elements use the [for attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label#Attributes) to associate a label to given form field. The form field requires an **id** attribute with a value that matches that of a given **for** attribute. While visually there is no advantage to using **for** and **id** it helps screen readers communicate to visually impared users. 
+Label elements use the [for attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label#Attributes) to associate a label to given form field. The form field requires an **id** attribute with a value that matches that of a given **for** attribute. While visually there is no advantage to using **for** and **id** it helps screen readers communicate to visually impaired users. 
 
-> Never omit form labels. If you want to hide use ```display:none;``` in CSS. This will hide it from the UI while keeping it visable to screen readers.
+> Never omit form labels. If you want to hide use ```display:none;``` in CSS. This will hide it from the UI while keeping it visible to screen readers.
 
 **Additional Form Fields Attributes**
 * name - provides a data key to the form element. This is the name of the field passed in the payload (required).
@@ -86,7 +86,7 @@ Label elements use the [for attribute](https://developer.mozilla.org/en-US/docs/
 ```
 
 ## Formspree
-Normally you would implement a contact form by implementing some backend code on your webserver. Since GitHub Pages does not allow you to execute server side (aka backend) code we will use a free service called Formspree. This will allow upto 1000 emails per month through our web form. Head over to [Formspree](https://formspree.io/) and give it a test, you will be sent a confirmation email which you must confirm to continue using the product.
+Normally you would implement a contact form by implementing some back end code on your webserver. Since GitHub Pages does not allow you to execute server side (aka back end) code we will use a free service called Formspree. This will allow up to 1000 emails per month through our web form. Head over to [Formspree](https://formspree.io/) and give it a test, you will be sent a confirmation email which you must confirm to continue using the product.
 
 > By adding your email address to this form you are making it publicly available(or you could say potentially increasing it's public exposure). If this is an issue for you create an email account for soley for this purpose or even a service such a [https://www.mailinator.com/](https://www.mailinator.com/). *If you choose the latter be aware that these inboxes are temporary and public.*
 
@@ -148,18 +148,18 @@ Add the file thanks.html (this should be a copy of contact.html) to your GitHub 
 
 [</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/3635c9538c3028bda528e642c3df7d7655685d2d) Make a copy of the file resume.html and name it *thanks.html*. Change the title to say "Thank You" and add a nice massage for the user.
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/1c1b31da8ac02e1d81d782222baf5dc06f940265) Add a hidden field to your form and set the name to *_next* add a value attribute the points to the thanks.html page on you GitHub pages site. This use another special feature of Formspree that the sends the user to a target page aftet the form submit. 
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/1c1b31da8ac02e1d81d782222baf5dc06f940265) Add a hidden field to your form and set the name to *_next* add a value attribute the points to the thanks.html page on you GitHub pages site. This use another special feature of Formspree that the sends the user to a target page after the form submit. 
 
 ```html
 <input type="hidden" name="_next" value="//YOUR-GITHUB-USERNAME.github.io/thanks.html">
 ```
 
 ## Exercise 3 - Captcha and Honeypots
-Completely Automated Public Turing (Captcha) is any test that would be trival for a human to solve but difficult if not impossible for a computer to solve. We use these to reduce spam and wasted resources by attempting to fiter out robots (or non-human traffic) all Formspree forms provide captcha by default.
+Completely Automated Public Turing (Captcha) is any test that would be trivial for a human to solve but difficult if not impossible for a computer to solve. We use these to reduce spam and wasted resources by attempting to filter out robots (or non-human traffic) all Formspree forms provide captcha by default.
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/55e2d6aaf839dae77db4c74eeeaeb53316826e1e) Add a hidden field to your form and set the name to *_next* add a value attribute the points to the thanks.html page on you GitHub pages site. This uses another special feature of Formspree that rejects any form for which the hoenypot is not empty. This is a second layer ontop of Captcha making it redundant but we show it to demonstrate another technique for dealing with spam.
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/55e2d6aaf839dae77db4c74eeeaeb53316826e1e) Add a hidden field to your form and set the name to *_next* add a value attribute the points to the thanks.html page on you GitHub pages site. This uses another special feature of Formspree that rejects any form for which the honeypot is not empty. This is a second layer on top of Captcha making it redundant but we show it to demonstrate another technique for dealing with spam.
 
-> Any bot that is is aware of Formspree has likely been updated to account for the _gotcha name field. This would be more effective on a custom for, we will disscuss this in later lessons.
+> Any bot that is is aware of Formspree has likely been updated to account for the _gotcha name field. This would be more effective on a custom for, we will discuss this in later lessons.
 
 ```html
 <input type="text" name="_gotcha" style="display:none">
@@ -167,8 +167,8 @@ Completely Automated Public Turing (Captcha) is any test that would be trival fo
 
 ## Summary
 In this lesson you learned how to
-* create a webform
-* interact with a thrid party service
+* create a web form
+* interact with a third party service
 
 ## Additional Resources
 * [Creating Accessible Forms](https://webaim.org/techniques/forms/controls)

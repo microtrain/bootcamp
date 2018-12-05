@@ -62,7 +62,7 @@ We will start by adding navigation and and an header to our form. This version o
 
 [</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/858a314ef74ad3eae3ebd8fc91bce38b726cbdf7) Make two copies of index.html and rename them to resume.html and contact.html. Locally you will no be able click through all three pages. Commit your changes and push master. Go to the production version of you website and test your changes.
 
-## Exersice 3 - HTML Validation
+## Exercise 3 - HTML Validation
 Sometimes our pages do not display as we expect, this is often due to invalid HTML. You can check the validity of your HTML using the W3C Markup Validation Service.
 
 1. Open a browser and go to the [W3C Markup Validation Service](https://validator.w3.org/).
@@ -116,7 +116,7 @@ Lets review some of these tags.
 * ul - Identifies an unorganized list. This will create a bulleted list. An unorganized MUST contain one or more list items ```<li>```.
 * ol - Identifies an organized list. This will create a numbered list. An organized MUST contain one or more list items ```<li>```.
 * li - A list item, represents an item in either an unorganized or organized list. This MUST be wrapped in a ```<ul>``` or ```<li>``` element.
-* div - Divs are block level elements that are used to represent divisions in an HTML document. These are typically used to divide a page into sections. These may be used for a logical page division or as anchor to apply style and attributes.
+* div - Divisions are block level elements that are used to represent divisions in an HTML document. These are typically used to divide a page into sections. These may be used for a logical page division or as anchor to apply style and attributes.
 * a - An anchor tag. This is used to create links and is arguably the foundation of the World Wide Web. An anchor tag becomes a link by adding a href [(Hypertext REFerence)](https://www.w3schools.com/tags/att_href.asp) attribute ```<a href="https:\\www.">Example</a>```.
 
 ### Sample Markup
@@ -178,7 +178,7 @@ You would mark this up as:
 * The title tag reads *Hello, I am YOUR-NAME*
 * Add an H1 element to the body of the document.
   * The contents of this tag SHOULD read *Hello I am YOUR-NAME*
-* Create a paragraph tag and say a few sentances about yourself.
+* Create a paragraph tag and say a few sentences about yourself.
 * Add an image element to the paragraph tag above the text you just added.
   * The src attribute MUST point to a Gravatar image
   * The value of alt attribute SHOULD be YOUR-NAME

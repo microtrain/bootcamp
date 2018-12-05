@@ -31,7 +31,7 @@ sudo apt install -y xclip
 xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
 
-Log into your GitHub account and find _Settings_ in the top right corner under your avatar. Then click on SSH and GPG Keys in the left hand navigation and click the green **New SSH Key** button. Enter a title, this should be somthing that identifies your machine (I usally use the machine name) and paste the SSH key into the key field.
+Log into your GitHub account and find _Settings_ in the top right corner under your avatar. Then click on SSH and GPG Keys in the left hand navigation and click the green **New SSH Key** button. Enter a title, this should be something that identifies your machine (I usually use the machine name) and paste the SSH key into the key field.
 
 ![Add Your SSH Key](/img/git/account.png)
 
@@ -58,7 +58,7 @@ In this lesson you learned how to
 
 ## Exercise 1 - Create a repository
 
-For this exercise we will create your working directory for this course on GitHub and clone into your local environment. You will do most your work from this reporisitory and push the results to GitHub.
+For this exercise we will create your working directory for this course on GitHub and clone into your local environment. You will do most your work from this repository and push the results to GitHub.
 
 __Create a new repository__
 
@@ -106,7 +106,7 @@ Now open VS Code and click into the workspace. Right click choose add a new fold
 
 ![New Folder](/img/git/new_folder.png)
 
-Now click on the file README.md from the _mtbc_ project folder. README files are a best practice in software development. README files are human readable files that contain information about other files in a directory or archive. The information in these files range from basic infomation about the project team to build instructions for source code. A emerging defacto standard is to write in a format called Markdown (.md). A raw Markdown file should be human readable but if you want a formatted version you can use VS Code's _Markdown Preview_ by opening the file and pressing ```Shift + Ctrl + V```.
+Now click on the file README.md from the _mtbc_ project folder. README files are a best practice in software development. README files are human readable files that contain information about other files in a directory or archive. The information in these files range from basic information about the project team to build instructions for source code. A emerging defacto standard is to write in a format called Markdown (.md). A raw Markdown file should be human readable but if you want a formatted version you can use VS Code's _Markdown Preview_ by opening the file and pressing ```Shift + Ctrl + V```.
 
 Open the file README.md from the mtbc project folder in the VSCode sidebar and open the _Markdown Preview_. Change the content of the level 1 heading *# mtbc* to *# MicroTrain's Dev Boot Camp*. Save your changes with the keyboard shortcut [Ctrl + S].# MicroTrain's Dev Boot Camp
 
@@ -205,7 +205,7 @@ See [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt) for keyword usage.
 * dev - main working branch
     * You SHOULD NOT work on or apply changes directly to dev
     * You SHOULD create a feature/bug (working) and commit changes to that branch
-    * The working branch SHOULD always be a decendent of dev
+    * The working branch SHOULD always be a decedent of dev
 
 Replace *GITHUB-USER_NAME* with your GitHub user name.
 ```sh
@@ -249,7 +249,7 @@ git checkout master
 git merge dev
 git push origin master
 
-## Claenup
+## Clean Up
 # Delete the remote branch
 git push origin :feature/some-feature
 

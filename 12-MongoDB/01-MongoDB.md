@@ -25,11 +25,18 @@ sudo apt-get install -y mongodb-org
 
 ## Working with MongoDB
 
-Start the database.
+Start MongoDB on demand with the following command.
 
 ```sh
-sudo service mongod start
+sudo systemctl start mongod
 ```
+
+Force MongoDB to start on boot.
+
+```sh
+sudo systemctl enable mongod
+```
+
 
 Access the database by typing ```mongo``` at the command line.
 
@@ -132,16 +139,21 @@ db.dropDatabase()
 
 ## [Atlas](https://www.mongodb.com/cloud/atlas)
 
+Atlas is a cloud service that provides paid MongoDB clusters. They offer a free sandbox tier which we will use for this lesson.
+
 1. Create an Atlas Account
 2. Explain the IP Addresses
 
 ## [Compass](https://www.mongodb.com/products/compass)
 
-1. Install Compass
+Compass is a GUI for MongoDB.
 
+1. Install Compass
 
 ## Additional Resources
 
 * [Why You Should Never Use MongoDB](http://www.sarahmei.com/blog/2013/11/11/why-you-should-never-use-mongodb/) - Read the article then dig into the comments.
+* [Why you should (sometimes) use MongoDB](http://nicholasjohnson.com/blog/why-you-should-sometimes-use-mongo/) - One of the sanest things I've ever read on MongoDB.
+* [Atomic vs Non-Atomic Operations](https://preshing.com/20130618/atomic-vs-non-atomic-operations/) 
 
 [Next: NodeJS with Express](/13-Express/README.md)
