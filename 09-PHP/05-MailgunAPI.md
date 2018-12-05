@@ -109,7 +109,7 @@ cd ~
 vim mailgun.sh
 ```
 
-Add the foloowing lines
+Add the following lines
 
 ```sh
 #!/bin/bash
@@ -192,7 +192,7 @@ git commit -m 'Added mailgun lib'
 git push origin feature/mailgun
 ```
 
-Create the file */var/www/example.com/test.php* and copy and paste the PHP sample code from the Mailgun landing page. Below the pasted code add the line ```var_dump($reults);```.
+Create the file */var/www/example.com/test.php* and copy and paste the PHP sample code from the Mailgun landing page. Below the pasted code add the line ```var_dump($results);```.
 
 ```sh
 <?php

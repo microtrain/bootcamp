@@ -15,17 +15,17 @@ My customers table might look like the following.
 ![Table Structure](/img/mysql/table.png)
 
 
-### Keys and Indicies
+### Keys and Indices
 
 #### Index
 An index provides a faster means of lookup for an SQL query. A good rule of thumb is to create an index for every column that appears in a WHERE clause. You should not create an index for a column that is not used for looking up data.
 
 #### Primary Key (Unique Index)
-A primary key in MySQL is both an index and a unique identifier for a given column. Typcially an aut-incrementing integer or a [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). In the above example the id column would be my primary key.
+A primary key in MySQL is both an index and a unique identifier for a given column. Typically an aut-incrementing integer or a [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). In the above example the id column would be my primary key.
 
-#### Forgien Key (Index)
+#### Foreign Key (Index)
 
-This is a column that links one table to another. For example if I have an address table that I want to link to my customers table I would add a column called customer_id and the value of this column would match an id in the customers table. In this case customer_id is said to be a forgien_key.
+This is a column that links one table to another. For example if I have an address table that I want to link to my customers table I would add a column called customer_id and the value of this column would match an id in the customers table. In this case customer_id is said to be a foreign_key.
 
 #### Unique Keys (Unique Index)
 
@@ -51,7 +51,7 @@ Table A may (or must) have one or more corresponding rows in table B.
 
 #### Many-to-many
 
-Table A may (or must) have one or more corresponding rows in table B and table B may (or must) have one or more corresponding rows in table A. A many-to-many relationship must be resolved by an associative entity. An associative entity is table that links two or more tables togeather using foreign keys.
+Table A may (or must) have one or more corresponding rows in table B and table B may (or must) have one or more corresponding rows in table A. A many-to-many relationship must be resolved by an associative entity. An associative entity is table that links two or more tables together using foreign keys.
 
 
 ## Additional Resources

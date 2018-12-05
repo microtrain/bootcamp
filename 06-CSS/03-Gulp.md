@@ -1,6 +1,6 @@
 # Gulp
 
-Gulp allows you to build workflows for optimizing your frontend assets. As with SASS you can create a wathcer to auto build on save. GUlp offers additional feature such combining and minifing files. Since Gulp is a JavaScript package and the config file is written in JavaScript you can add any functionality you want.
+Gulp allows you to build workflows for optimizing your frontend assets. As with SASS you can create a watcher to auto build on save. GUlp offers additional feature such combining and minifying files. Since Gulp is a JavaScript package and the config file is written in JavaScript you can add any functionality you want.
 
 
 Globally install Gulp
@@ -10,8 +10,8 @@ cd ~
 sudo npm install -g gulp
 ```
 
-## Confirue NPM for you local project
-Add a file named package.json to you GitHub Pages project. This must be added to the projects top level directory. Gulp is built in NodeJS and lives in the NPM ecosystem. You run a series of NPM commands to initialize you project as an NPM project and intall each dependency manually or you can use a prebuilt config file. The latter is the path we will take for this project. Add the following to you package.json file.
+## Configure NPM for you local project
+Add a file named package.json to you GitHub Pages project. This must be added to the projects top level directory. Gulp is built in NodeJS and lives in the NPM ecosystem. You run a series of NPM commands to initialize you project as an NPM project and install each dependency manually or you can use a prebuilt config file. The latter is the path we will take for this project. Add the following to you package.json file.
 
 ```json
 {
@@ -37,7 +37,7 @@ Add a file named package.json to you GitHub Pages project. This must be added to
 
 ### Install all Packages
 
-By virtue of having a package.json file your project is an NPM project. At this point we have deinfed the project dependencies; now we need to install them. Run the following from the command line. 
+By virtue of having a package.json file your project is an NPM project. At this point we have defined the project dependencies; now we need to install them. Run the following from the command line. 
 
 ```sh
 cd /var/www/YOUR-GITHUB-USERNAME/github.io

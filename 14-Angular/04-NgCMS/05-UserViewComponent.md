@@ -96,7 +96,7 @@ export class UserViewComponent implements OnInit {
 }
 ```
 
-Update *user-view/user-view.component.html* to show the details of a single user. Use ```*ngIf``` to make sure the user obejct is populated before calling it into the view.
+Update *user-view/user-view.component.html* to show the details of a single user. Use ```*ngIf``` to make sure the user object is populated before calling it into the view.
 
 *user-view/user-view.component.html*
 ```html

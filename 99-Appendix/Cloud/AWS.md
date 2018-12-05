@@ -57,7 +57,7 @@ AWS Free Tier offers 12 months of semi free service and AWS products. Notable se
 Head over to [AWS](https://aws.amazon.com "AWS's Homepage") hompage and signup.
 1. Create AWS Account with credentials.
 2. Provide contact information for selected Personal Account.
-3. Enter payment information - even though AWS offers free services, they require a vaild payment type to register.
+3. Enter payment information - even though AWS offers free services, they require a valid payment type to register.
 4. Enter code for Identity Verification.
 5. Select Support Plan - Basic(Free).
 6. Sign in to the Console.
@@ -66,7 +66,7 @@ Head over to [AWS](https://aws.amazon.com "AWS's Homepage") hompage and signup.
 
 [https://aws.amazon.com/route53/](https://aws.amazon.com/route53/)
 
-Amazon Route 53 is scalable cloud Domain Name System (DNS). This is amazons preferred way of connecting user request to infrastructures running in AWS. For Domain purchase, I reccomend Hover; use this [referral link](https://www.hover.com/) and get $2 off your domain name.
+Amazon Route 53 is scalable cloud Domain Name System (DNS). This is amazons preferred way of connecting user request to infrastructures running in AWS. For Domain purchase, I recommend Hover; use this [referral link](https://www.hover.com/) and get $2 off your domain name.
 
 ## Amazon S3
 
@@ -176,7 +176,7 @@ Free service provided by AWS Free Tier. Amazon Simple Notification Service is a 
 
 [https://aws.amazon.com/elasticbeanstalk/?nc2=h_m1](https://aws.amazon.com/elasticbeanstalk/?nc2=h_m1)
 
-Free Tier services that is an easy-to-use services for deploying and scalling web applications without much installation and management of application. You can upload your code and Elastic Beanstalk automatically handles deployment with management containers for environments such as Java, .NET, PHP, NODE.js, and Python on familiar servers. Elastic Beanstalk leverages other AWS Services such as EC2, S3, and SNS.
+Free Tier services that is an easy-to-use services for deploying and scaling web applications without much installation and management of application. You can upload your code and Elastic Beanstalk automatically handles deployment with management containers for environments such as Java, .NET, PHP, NODE.js, and Python on familiar servers. Elastic Beanstalk leverages other AWS Services such as EC2, S3, and SNS.
 
 ### Elastic Block Storage
 

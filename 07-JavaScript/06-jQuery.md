@@ -10,7 +10,7 @@ According to the jQuery website "jQuery is a fast, small, and feature-rich JavaS
 * A good eco-system, lots of third party plugins.
   * A requirement for Bootstrap.
 
-jQuery allows you to simply manipulate the DOM by calling CSS selectors. This is a little more consitent than the native [_querySelector_](https://stackoverflow.com/questions/11503534/jquery-vs-document-queryselectorall). Legacy browsers do not support _querySelector()_ but that is less of a problem now-a-days.
+jQuery allows you to simply manipulate the DOM by calling CSS selectors. This is a little more consistent than the native [_querySelector_](https://stackoverflow.com/questions/11503534/jquery-vs-document-queryselectorall). Legacy browsers do not support _querySelector()_ but that is less of a problem now-a-days.
 
 ```js
 // When an element with the id of _colorChanger_ is clicked apply a red font to all _paragraphs_
@@ -122,7 +122,7 @@ div[id^=apod] {
 }
 ```
 
-If eveything worked you will see results similar to the following.
+If everything worked you will see results similar to the following.
 ![results](/img/jquery/results.png)
 
 In looking at the JSON data you'll notice a date field. By default only pull today's picture, looking at the query parameters section in the [API documentation](https://api.nasa.gov/api.html#apod) I see I can pass a date in the form of _YYYY-MM-DDD_ as an additional GET parameter. To make things interesting lets add pass a random date every time we call the API.
@@ -363,7 +363,7 @@ Our code now has a pretty good break down, but I see a couple of more things tha
 ## LAB 2 - Convert to Vanilla JS
 NASA API in Vanilla JS
 * Create the GitHUb project apod-vanilla.
-* Clone html-stater or your exisiting apod project.
+* Clone html-stater or your existing apod project.
 * Rewrite the project without the use of jQuery.
 
 Using the jQuery based code from the previous example as a guide, create the same functionality using vanilla JS. This will give you experience in writing AJAX logic using both jQuery and Vanilla JS.

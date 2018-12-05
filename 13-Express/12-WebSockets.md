@@ -6,7 +6,7 @@
 
 ## Additional Resources
 * [The WebSocket Protocol](https://tools.ietf.org/html/rfc6455)
-* [sokcet](https://socket.io/)
+* [socket.io](https://socket.io/)
 
 ## Footnotes
 [^1]: [RFC 6455 - The WebSocket Protocol](https://tools.ietf.org/html/rfc6455).

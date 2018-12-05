@@ -46,7 +46,7 @@ if(color == "#ff0000") {
   label = "unknown";
 }
 
-//Output the dataa
+//Output the data
 document.write(`<div style="color:${color}">The color is ${label}</div>`);
 
 </script>

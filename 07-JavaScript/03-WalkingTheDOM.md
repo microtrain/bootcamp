@@ -6,19 +6,11 @@ In the previous lesson we used ```document.getElementById();``` this method quer
 
 ## [Collection Live vs Static (not live)](https://www.w3.org/TR/dom/#concept-collection)
 
-<blockquote>
-  A collection is an object that represents a lists of DOM nodes. A collection can be either live or static. Unless otherwise stated, a collection must be live.<sup>1</sup>
-</blockquote>
-<blockquote>
-  If a collection is live, then the attributes and methods on that object must operate on the actual underlying data, not a snapshot of the data.<sup>1</sup>
-</blockquote>
-<blockquote>
-  When a collection is created, a filter and a root are associated with it.<sup>1</sup>
-</blockquote>
-<blockquote>
-  The collection then represents a view of the subtree rooted at the collection's root, containing only nodes that match the given filter. The view is linear. In the absence of specific requirements to the contrary, the nodes within the collection must be sorted in tree order. <sup>1</sup>
 
-</blockquote>
+> A collection is an object that represents a lists of DOM nodes. A collection can be either live or static. Unless otherwise stated, a collection must be live.<sup>1</sup>
+> If a collection is live, then the attributes and methods on that object must operate on the actual underlying data, not a snapshot of the data.<sup>1</sup>
+> When a collection is created, a filter and a root are associated with it.<sup>1</sup>
+> The collection then represents a view of the subtree rooted at the collection's root, containing only nodes that match the given filter. The view is linear. In the absence of specific requirements to the contrary, the nodes within the collection must be sorted in tree order. <sup>1</sup>
 
 ## By ID
 

@@ -581,11 +581,7 @@ if(empty($valid->errors) && !empty($input)){
 ?>
 
 <!DOCTYPE html>
-...
-
 ```
-
-
 ## Additional Resources
 * [PSR-0: Autoloading Standard](http://www.php-fig.org/psr/psr-0/)
 * [PHP filter_input_array()](http://php.net/manual/en/function.filter-var.php)

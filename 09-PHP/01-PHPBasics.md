@@ -106,7 +106,7 @@ echo "Hello World";
 </html>
 ```
 
-Mathmatical opeations
+Mathematical operations
 ```php
 <?php
   $name = 'Bob Smith';

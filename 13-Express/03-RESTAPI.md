@@ -188,7 +188,7 @@ Create an empty file.
 
 Commit your changes and push to master.
 ```sh
-# Add a rotuing file for api/users
+# Add a routing file for api/users
 git status
 git add .
 git commit -a

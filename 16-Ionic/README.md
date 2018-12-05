@@ -71,24 +71,24 @@ Before we begining implementing UserProvider against the API lets create a wrapp
 Now that we have a basic connection between UserProvider and UserPage we will want to implement an API call against ```UserProvider.getUsers()```. This will require the following steps.
 1. Import Observable from rxjs
 1. Set the base URL inside of UserProvider
-1. Create an Observable of type User and implemnet the get logic
+1. Create an Observable of type User and implement the get logic
 1. Subscribe to the observable and catch the response.
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/64e3eff7bb1726a4ab7b97071be6568481a765e4) Implement the ```getUsers()``` API call.
 
-Opening the JS console in the dev tools panel then navigationg to the users page in our app will now display a JSON object containing a an Array of users.
+Opening the JS console in the dev tools panel then navigating to the users page in our app will now display a JSON object containing a an Array of users.
 
 Make the uses list public so that it will be accessible by the view.
 
-1. Create a public instance varaible to hold the list of users. This will hold an Array of user objects.
+1. Create a public instance variable to hold the list of users. This will hold an Array of user objects.
 2. Set the list of users the users instance variable. This will give view access to the list of users.
 3. Log the current state of the users instance.
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/a613fe7b1382ac84e13400aff2548603ad51ad37) Add the users data to a public variable.
 
-At this point the ```console.log()``` will show a deliniated list of users.
+At this point the ```console.log()``` will show a delineated list of users.
 
-Our view now has access to the public users instance. We can display dispay a list of users in the view using [Angular's ngForOf directive](https://angular.io/api/common/NgForOf) to build an [Ionic list](https://ionicframework.com/docs/components/#lists). You can now remove the ```console.log()``` from UsesPage.
+Our view now has access to the public users instance. We can display display a list of users in the view using [Angular's ngForOf directive](https://angular.io/api/common/NgForOf) to build an [Ionic list](https://ionicframework.com/docs/components/#lists). You can now remove the ```console.log()``` from UsesPage.
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/67a8b26843b56478bf9976b96248d9c072bb1dcb) Implement the users view.
 
@@ -150,7 +150,7 @@ Add the functionality to create a new user.
 [</> code](https://github.com/microtrain/ionic-cms/commit/6dfaecf63e7971187eb85d5e475bdd9e6fcd6935)
 1. Import the User model [</> code](https://github.com/microtrain/ionic-cms/commit/263c27657c8e7b03126747bd666795104d3b159c)
 1. Import the UserProvider [</> code](https://github.com/microtrain/ionic-cms/commit/6dfaecf63e7971187eb85d5e475bdd9e6fcd6935)
-1. Declare a public user variable instanitaed as a new User object [</> code](https://github.com/microtrain/ionic-cms/commit/8488901ba5db6db8fc84ff3f4c44b7a0614090af)
+1. Declare a public user variable instantiated as a new User object [</> code](https://github.com/microtrain/ionic-cms/commit/8488901ba5db6db8fc84ff3f4c44b7a0614090af)
 1. Create a wrapper for the UserProvider.createUser() [</> code](https://github.com/microtrain/ionic-cms/commit/c8a41bfa78e96a3c13819461fb4074997cbe2421)
 1. Implement UserProvider.createUser() [</> code](https://github.com/microtrain/ionic-cms/commit/4ec4d245698ae5a88260eff7af2d5edc95a421ce)
 1. Build a basic user form and implement a form submit [</> code](https://github.com/microtrain/ionic-cms/commit/8365e49d4053069c284321e643eca20e4dd05866)

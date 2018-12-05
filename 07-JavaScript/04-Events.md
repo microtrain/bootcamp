@@ -28,7 +28,7 @@ You can execute JavaScript directly in the HTML tag but this is considered bad p
 </script>
 ```
 
-This is looking pretty good but some circles even argue against using the HTML elements onclick attribute. Let's write a listner in JavaScript.
+This is looking pretty good but some circles even argue against using the HTML elements onclick attribute. Let's write a listener in JavaScript.
 
 ```html
 <button id="time">What time is it?</button>
@@ -89,7 +89,7 @@ list.addEventListener("change", ()=>{setValue('demo')}, false);
 ```
 ## Intervals
 
-While an interval is not techincally and event, it does provide a trigger for an interaction to occur. In this case we will use it with a click event to grow another form element on the screen.
+While an interval is not technically and event, it does provide a trigger for an interaction to occur. In this case we will use it with a click event to grow another form element on the screen.
 
 In your browser navigate to *mtbc/js/events/interval.html* and open to corresponding file in your editor. Add the following to the script tags of the document and refresh the page. Be sure to read the comments and understand the reasoning behind each lie of code.
 ```html
@@ -105,7 +105,7 @@ function Grower() {
     //Increment the counter
     this.num++;
 
-    //Add one pixil to the width of the target element
+    //Add one pixel to the width of the target element
     document.getElementById('demo').style = 'width:' + this.num + 'px;';
 
     //After fifty iterations, kill the loop.

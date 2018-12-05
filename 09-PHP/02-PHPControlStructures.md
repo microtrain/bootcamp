@@ -68,7 +68,7 @@ if($color == "#ff0000"){
 
 Finally we will print some output back to the screen. This time we will wrap the output in some HTML and give it a little style by setting the font color to that of the user input.
 
-```
+```php
 echo "<div style=\"color:{$color}\">The color is {$label}</div>";
 ```
 

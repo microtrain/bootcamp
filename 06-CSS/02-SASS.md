@@ -1,6 +1,6 @@
 # SASS
 
-SASS is a a CSS preprocessor is a superset of CSS which means all CSS syntax is considered valid _.scss_ it's a superset because because it extends CSS with programming like capabilities; variables and limited control statements. This is advantageous especially when building large front-end frameworks such [Bootstrap](http://getbootstrap.com/) or creating a product with a customizable theme. For example, Bootstrap has a deafult shade of red _#dc3545_ <sup>1</sup>. If we were to change that color globally we would have to track down every instance of the color and change it manually or we could make a single change to the variable that holds that color.
+SASS is a a CSS preprocessor is a superset of CSS which means all CSS syntax is considered valid _.scss_ it's a superset because because it extends CSS with programming like capabilities; variables and limited control statements. This is advantageous especially when building large front-end frameworks such [Bootstrap](http://getbootstrap.com/) or creating a product with a customizable theme. For example, Bootstrap has a default shade of red _#dc3545_ <sup>1</sup>. If we were to change that color globally we would have to track down every instance of the color and change it manually or we could make a single change to the variable that holds that color.
 
 ### Install [Sass](http://sass-lang.com/)
 
@@ -137,7 +137,7 @@ Later we will learn about the Bootstrap framework. Bootstrap is among the most p
 
 ### Clearfix
 
-I have always viewed ```.clearfix``` as a containment element for any number of floats. Meaning if you apply clearfix to a parent element any child element, that is has a float property, cannot escape the parent element.  ```.clearfix``` is a common hack used by front end developers to solve the problem of using floats in a way they were never indtended to be used<sup>2</sup>.
+I have always viewed ```.clearfix``` as a containment element for any number of floats. Meaning if you apply clearfix to a parent element any child element, that is has a float property, cannot escape the parent element.  ```.clearfix``` is a common hack used by front end developers to solve the problem of using floats in a way they were never intended to be used<sup>2</sup>.
 
 * [CodePan](https://codepen.io/jasonsnider/pen/QmJqbb) Floating grid without a clearfix
 * [CodePan](https://codepen.io/jasonsnider/pen/vRQeKv) Floating grid with clearfix
@@ -257,6 +257,6 @@ sass src/scss/main.scss dist/css/main.css
 
 ## References
 1. [bootstrap/scss/_variables.scss](https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss)
-1. [What Does the Clearfix Class Do in Css?](https://stackoverflow.com/questions/9543541/what-does-the-clearfix-class-do-in-css)
+1. [What Does the Clearfix Class Do in CSS?](https://stackoverflow.com/questions/9543541/what-does-the-clearfix-class-do-in-css)
 
 [Next: Gulp](03-Gulp.md)

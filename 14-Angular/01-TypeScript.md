@@ -2,7 +2,7 @@
 
 ## Introduction
 
-TypeScript is a superset of JavaScript that adds strict typing and class decorators as a way to extend functionality to other components in a system. Browsers do not directly interpret TypeScript, rather, TypeScript is transpilied into JavaScript.
+TypeScript is a superset of JavaScript that adds strict typing and class decorators as a way to extend functionality to other components in a system. Browsers do not directly interpret TypeScript, rather, TypeScript is transpiled into JavaScript.
 
 Install TypeScript
 ```sh

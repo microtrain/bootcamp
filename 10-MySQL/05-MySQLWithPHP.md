@@ -139,9 +139,9 @@ Because we just allowed a subquery as a parameter. There are several ways to def
 $stmt = $pdo->query("SELECT * FROM posts WHERE slug={$slug}");
 ```
 
-The prefered method is a prepared statement with bound parameters. There are two ways to do this commonly referred to as unnamed and named.
+The preferred method is a prepared statement with bound parameters. There are two ways to do this commonly referred to as unnamed and named.
 
-In an unamed binding the order matters.
+In an unnamed binding the order matters.
 ```php
 $stmt = $pdo->prepare('SELECT * FROM posts WHERE slug = ?');
 $stmt->execute([$slug]);
@@ -153,7 +153,7 @@ $stmt = $pdo->prepare('SELECT * FROM posts WHERE slug = :slug');
 $stmt->execute(['slug' => $slug]);
 ```
 
-The other issue is that we are directly accessing super globals which now-a-days is considered bad practice. To further restrict the user input sanitize the slug by forcing it into a predefiend format.
+The other issue is that we are directly accessing super globals which now-a-days is considered bad practice. To further restrict the user input sanitize the slug by forcing it into a predefined format.
 ```php
 <?php
 include '../core/db_connect.php';

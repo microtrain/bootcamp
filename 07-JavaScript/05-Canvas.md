@@ -3,7 +3,7 @@
 The ```canvas``` element was introduced in HTML5, it can be used to draw graphics via JavaScript. This can be used for many purposes including games, visualizations, charts, graphs, etc.
 
 Create a GitHub project called draw.
-* Use the [HTML Starter pacakge](https://github.com/stack-x/html-starter) from GitHub.
+* Use the [HTML Starter package](https://github.com/stack-x/html-starter) from GitHub.
 * Add your new GItHub project as the origin remote.
 * Add a canvas tag to the body.
 * Change the README file.
@@ -203,7 +203,7 @@ nav ul li button {
 }
 ```
 
-Naviagte to [http://localhost/draw/program.html](http://localhost/draw/program.html) and you'll see a canvas beside a space for a side nav. The canvas will have two rectangles.
+Navigate to [http://localhost/draw/program.html](http://localhost/draw/program.html) and you'll see a canvas beside a space for a side nav. The canvas will have two rectangles.
 
 In order to be able to draw a we will need to know where our cursor is on the canvas. Let's start by tracking our mouse movements adding an [event listener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) to the canvas. The listener will will trigger functionality every time the pixel position changes by a pixel. We will use [Element.getBoundingClientRect()](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) to get the position of the cursor.
 
@@ -267,7 +267,7 @@ var draw = (function() {
 
     //Draw a rectangle
     drawRect: function() {
-      //Draw some sample rectsangles
+      //Draw some sample rectangles
       ctx.fillStyle = "rgb(200,0,0)";
       ctx.fillRect (10, 10, 55, 50);
     },
@@ -354,7 +354,7 @@ drawRect: function(x,y,h,w) {
 }
 ```
 
-Now we need to add two methods to set the starting and ending coordinates. Add the following bellow the writeXY() function. In OOP this knod of method is typically referred to a setter. In that the purpose of this method is to set/change the value of a property, typically a private property.
+Now we need to add two methods to set the starting and ending coordinates. Add the following bellow the writeXY() function. In OOP this kind of method is typically referred to a setter. In that the purpose of this method is to set/change the value of a property, typically a private property.
 ```js
 setStart: function() {
   x1=x;
@@ -369,7 +369,7 @@ setEnd: function() {
 
 That covers the draw object's implementation details for drawing a rectangle, now all that is left is for us to allow our user to draw the rectangle. We will start by adding a ```mousdown``` listener to the canvas. When this event is triggered we simply call the ```setStart()``` method to record the starting position, this defines the top left corner of the triangle. Add the following to the end of your JavaScript.
 ```js
-//Set the starting positon
+//Set the starting position
 draw.getCanvas().addEventListener('mousedown', function() {
   draw.setStart();
 }, false);
@@ -1204,7 +1204,7 @@ your HTML should read as follows
 </html>
 ```
 and your CSS
-```
+```css
 html {
   font-family: sans-serif;
 }

@@ -1,8 +1,8 @@
 # NASA - Astronomy Picture of the Day
 
-## Create a Authentication App.
+## Create the Application Shell.
 
-This app will allow a user to login and out of your ExpressJS app using an Angular application that connects to the API.
+This app will allows a user to connect to the NASA Apod API.
 
 Install the angular shell
 
@@ -10,11 +10,11 @@ Install the angular shell
 sudo npm install -g @angular/cli
 cd ~
 ng new ng-apod
-cd ng-auth
+cd ng-apod
 ng serve --open
 ```
 
-If your browser did not automatically open, open a browser an navigate to *[http://localhost:4200](http://localhost:4200)* Open VSC and add *~/ng-auth* as a project folder.
+If your browser did not automatically open, open a browser an navigate to *[http://localhost:4200](http://localhost:4200)* Open VSC and add *~/ng-apod* as a project folder.
 
 Note the *src* directory this is the directory that runs the local webserver, the *app* directory is the location of your application code. Open the file */src/index.html*, this is an template. All the code executed from with in */src/app* is injected into the ```app-root``` tags of this page. Inside *app* the main files to focus on are *app.component.html*, *app.component.css*, and *app.component.ts*.
 
@@ -34,11 +34,11 @@ export class AppComponent {
 
 //to
 export class AppComponent {
-  title = 'User Authentication';
+  title = 'Astronomy Picture of the Day';
 }
 ```
 
-In the browser return to *[http://localhost:4200](http://localhost:4200)* and you'll see the message *"Welcome to User Authentication!"*
+In the browser return to *[http://localhost:4200](http://localhost:4200)* and you'll see the message *"Welcome to Astronomy Picture of the Day!"*
 
 Now open the file */src/app/app.component.html* and take note of the double curly braces ```{{ title }}``` double curly braces in an Angular template allows for variable injection. Instance variables set in the corresponding ```.ts``` file will be available for injection in the template.
 ```html
@@ -55,10 +55,6 @@ The _component decorator_ is where we create the relationship between components
   styleUrls: ['./app.component.css']
 })
 ```
-
-## Create a Users App
-
-## Create a CMS App
 
 ## Labs
 

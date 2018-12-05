@@ -57,7 +57,7 @@ The following list from the weakest to stringest selectors when it comes to impl
 * element selector (h1, p, a)
 * class selector  (.blue, .link, .content)
 * attribute selector ([href], [target], [src])
-* psuedo selector (:link, :hover, :visited)
+* pseudo selector (:link, :hover, :visited)
 * id selector (#firstName, #lastName, #phoneNumber)
 * inline style (style="text-align: center;)
 
@@ -118,7 +118,7 @@ You can verify the file loads by checking networking tab in dev tools.
 
 ### Remove the Inline Styles
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/7f785b482d30531da730bb383c4c2bb17fef38e7) We will start by removing the inlie style we added to our index.html file. We will start by adding an avatar class to our stylesheet.
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/7f785b482d30531da730bb383c4c2bb17fef38e7) We will start by removing the inline style we added to our index.html file. We will start by adding an avatar class to our stylesheet.
 
 **dist/css/main.css**
 ```css
@@ -143,7 +143,7 @@ body{
 
 ### Set a base font
 
-Next we will add a base font. To assure consitancey across all platforms we will pull a font from a font foundary, we will use [Google Fonts](https://fonts.google.com/) and use [Open Sans](https://fonts.google.com/specimen/Open+Sans). We will import the font style into our style sheet and use a universal selector to set all elements to this font by default.
+Next we will add a base font. To assure consistency across all platforms we will pull a font from a font foundry, we will use [Google Fonts](https://fonts.google.com/) and use [Open Sans](https://fonts.google.com/specimen/Open+Sans). We will import the font style into our style sheet and use a universal selector to set all elements to this font by default.
 
 ```css
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
@@ -230,14 +230,14 @@ main {
   /* Set the width of the content */
   width: 960px;
 
-  /* For samller screens to not exceed the max screen width */
+  /* For smaller screens to not exceed the max screen width */
   max-width: 100%;
 }
 ```
 
 ### Make it Responsive
 
-Use dev tools to toggle the device toolbar (enter mobile testing mode) and choose the responsive option. Set the width to 960px and drag in and out crossing back and fourth over that 960px mark. Notice the padding, we loose all of padding under 960px meaning the text runs to the edge of the screen. Popular opinion is that makes for a better read if you can get some seperation from the edge of the screen. You could use a media query and change the page width on a break point sush as below. 
+Use dev tools to toggle the device toolbar (enter mobile testing mode) and choose the responsive option. Set the width to 960px and drag in and out crossing back and fourth over that 960px mark. Notice the padding, we loose all of padding under 960px meaning the text runs to the edge of the screen. Popular opinion is that makes for a better read if you can get some separation from the edge of the screen. You could use a media query and change the page width on a break point such as below. 
 
 #### Add Gutters to Small Screens
 
@@ -252,11 +252,11 @@ Use dev tools to toggle the device toolbar (enter mobile testing mode) and choos
 [</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/a8d8884c747e1794e45cc55b4ef786a06fe00b55) Or you could set the default ```max-width``` to **90%** which is what we will do here.
 
 ```css
-  /* For samller screens to not exceed the max screen width */
+  /* For smaller screens to not exceed the max screen width */
   max-width: 90%;
 ```
 
-#### Switch to Veritcal Navigation on Small Devices
+#### Switch to Vertical Navigation on Small Devices
 
 [</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/0ac63879c014f1c258be71e5e0f4535faf389ec9) It's common practice, on smaller screens, to change from a horizontal navigation in the header to a hidden vertical navigation that appears on a button press. We can do this by setting the nav display to none.
 
@@ -276,7 +276,7 @@ Use dev tools to toggle the device toolbar (enter mobile testing mode) and choos
 <a id="toggleMenu">Menu<a>
 ```
 
-Create a CSS selector for the toggleMenu attribute. This style will be similar to but set breakpoints opposite to that of ```nav``` meaning this will only appear on smal
+Create a CSS selector for the toggleMenu attribute. This style will be similar to but set breakpoints opposite to that of ```nav``` meaning this will only appear on small
 
 ```css
 
@@ -314,7 +314,7 @@ Create a CSS selector for the toggleMenu attribute. This style will be similar t
     </script>
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/53cd932bba3279823f34b26b80794c08a4edd316) Now if you reload the page, mave the width to less than 960px and press menu, you notice not much has changed. We will fix this by setting the nav to a block level component.
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/53cd932bba3279823f34b26b80794c08a4edd316) Now if you reload the page, move the width to less than 960px and press menu, you notice not much has changed. We will fix this by setting the nav to a block level component.
 
 ```css
 @media only screen and (max-width: 960px)  {
@@ -340,9 +340,9 @@ Create a CSS selector for the toggleMenu attribute. This style will be similar t
 }
 ```
 
-Reload the page and make sure the resolution in under 960px, press the Menu button. It's now more closley resembles a traditional flyou menu. Make the resolution small and you'll notice the position of the menu changes. To fix this you will absolutly position ```nav``` relative to ```header```.
+Reload the page and make sure the resolution in under 960px, press the Menu button. It's now more closely resembles a traditional fly out menu. Make the resolution small and you'll notice the position of the menu changes. To fix this you will absolutely position ```nav``` relative to ```header```.
 
-Start by making assigning the relative position to the ```header``` element. Then assign an absolut position to the ```nav``` element. When an absolute element is the child a relative element the positioning of the absolute element is relative to that of it's parent.
+Start by making assigning the relative position to the ```header``` element. Then assign an absolute position to the ```nav``` element. When an absolute element is the child a relative element the positioning of the absolute element is relative to that of it's parent.
 
 ```css
 @media only screen and (max-width: 960px)  {
@@ -359,7 +359,7 @@ Start by making assigning the relative position to the ```header``` element. The
   ...
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/1352f688889414017be500c793bdf971d4fe9d56) Next you will want to position the menu. By default the menu will want to position itself in the top left corner. If you were to think of a box as having four boundaries: top, left, right and bottom; then ```top```, ```left```, ```right```, ```bottom``` are commandes that move the top left corner of a target element a set distance from the specified boundaries. In this case we will set top to ```50px``` this will allow it to clear the 50px height of the header element. By setting ```left``` and ```right``` to ```0``` you will stretch nav element to the width of the entire screen.
+[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/1352f688889414017be500c793bdf971d4fe9d56) Next you will want to position the menu. By default the menu will want to position itself in the top left corner. If you were to think of a box as having four boundaries: top, left, right and bottom; then ```top```, ```left```, ```right```, ```bottom``` are commands that move the top left corner of a target element a set distance from the specified boundaries. In this case we will set top to ```50px``` this will allow it to clear the 50px height of the header element. By setting ```left``` and ```right``` to ```0``` you will stretch nav element to the width of the entire screen.
 
 ```css
 @media only screen and (max-width: 960px)  {

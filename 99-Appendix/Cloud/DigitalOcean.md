@@ -48,10 +48,10 @@ if(process.env.NODE_ENV==='production'){
 ```
 
 ## Purchase a Domain
-I reccomend [Hover](https://hover.com/2WvTmBun) use this [referal link - https://hover.com/2WvTmBun](https://hover.com/2WvTmBun) and get a $2 off your domain name. 
+I recommend [Hover](https://hover.com/2WvTmBun) use this [referral link - https://hover.com/2WvTmBun](https://hover.com/2WvTmBun) and get a $2 off your domain name. 
 
 ## Purchase a Cloud Based Web Server
-Digital Ocean use this [referal link - https://m.do.co/c/7d5ded2774f3](https://m.do.co/c/7d5ded2774f3) and get a $10 credit.
+Digital Ocean use this [referral link - https://m.do.co/c/7d5ded2774f3](https://m.do.co/c/7d5ded2774f3) and get a $10 credit.
 
 ### Set Up Your Droplet
 Login to your droplet over SSH. You will be prompted to change your password. Once you have updated your password update apt and run any upgrades.
@@ -194,7 +194,7 @@ sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -
 pm2 save
 ```
 
-Test that pm2 is working by rebooting your server. Then open a browser and entering you domain name against port 3000. If you see your webiste pm2 has taken effect.
+Test that pm2 is working by rebooting your server. Then open a browser and entering you domain name against port 3000. If you see your website pm2 has taken effect.
 
 ## Apache Configuration
 
@@ -208,7 +208,7 @@ comment out the ```DocumentRoot``` directive.
 ## DocumentRoot /var/www
 ```
 
-Add a ```ServerName``` directive, replace MYDOAMIN.TLD with the lowercase version of your doamin name.
+Add a ```ServerName``` directive, replace MYDOAMIN.TLD with the lowercase version of your domain name.
 
 ```sh
 ServerName MYDOMAIN.TLD

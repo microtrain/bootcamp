@@ -7,7 +7,7 @@ CakePHP is and MVC (Model, View, Controller) based rapid application development
 Create, Read, Update, Delete
 
 ## Migrations
-Rolling snapshots of the database structure. These allow you migrate your database's strucutre forward and backwards across snapshots.
+Rolling snapshots of the database structure. These allow you migrate your database's structure forward and backwards across snapshots.
 
 ## Create a Repository on GitHub
 
@@ -48,7 +48,7 @@ In a browser go to [http://localhost:8765/](http://localhost:8765/). You will be
 
 ![default home page](/img/cakephp/default_home.png)
 
-Add *cake.example.com* as a project to VSC. Navigate to *config/app.php* this is the default configuration file for your application. CakePHP stores it configuration as an array, find the *Datasources* attribute somewhere arounf the the line *220* (you can use the shortcut [ctrl] + [g] and enter *220*). You will notice two child attributes *default* and *test*. *default* holds the configuration for your application's database while test holds the configuration for running unit tests.
+Add *cake.example.com* as a project to VSC. Navigate to *config/app.php* this is the default configuration file for your application. CakePHP stores it configuration as an array, find the *Datasources* attribute somewhere around the the line *220* (you can use the shortcut [ctrl] + [g] and enter *220*). You will notice two child attributes *default* and *test*. *default* holds the configuration for your application's database while test holds the configuration for running unit tests.
 
 ### Setup Your Database
 
@@ -156,7 +156,7 @@ git commit -am 'Initial build'
 ### Cake File Structure, Callbacks and Routing
 
 @todo navigate to src, explain the directory structure Model, Views and Controller
-@todo callback methods and lifcycles as it pertains a CakePHP and Programming in general.
+@todo callback methods and life cycles as it pertains a CakePHP and Programming in general.
 
 <!--
 ## Build a Blog
@@ -359,7 +359,7 @@ vendor/bin/phpunit tests/TestCase/Model/Table/ArticlesTableTest
 ```
 
 ### Add User Authentication
-[</> code](https://github.com/stack-x/cake.example.com/commit/9d8a65128621e75f8f17c95925ad27219e5b786b) Add an instance varaible to hold the session object, set this varaible during initialization. The following reads as set this instance of ```$session``` to the session object from this instance of the request object. This will provide a short hand for accessing the session data in controllers.
+[</> code](https://github.com/stack-x/cake.example.com/commit/9d8a65128621e75f8f17c95925ad27219e5b786b) Add an instance variable to hold the session object, set this variable during initialization. The following reads as set this instance of ```$session``` to the session object from this instance of the request object. This will provide a short hand for accessing the session data in controllers.
 
 *src/Controller/AppController.php*
 ```php
@@ -392,7 +392,7 @@ public function initialize()
 }
 ```
 
-At this point when you try to access [http://loc.cake.example.com](http://loc.cake.example.com) the application will try to reridect you to *users/login*. This will error out due to us (a) not having a UsersController at the top level and (b) not having a route that dirercts us to the CakeDC plugin. We will resolve this by adding a route.
+At this point when you try to access [http://loc.cake.example.com](http://loc.cake.example.com) the application will try to redirect you to *users/login*. This will error out due to us (a) not having a UsersController at the top level and (b) not having a route that directs us to the CakeDC plugin. We will resolve this by adding a route.
 
 [</> code](https://github.com/stack-x/cake.example.com/commit/b32d232a8f74ff1e9512b0cb8c10e9afe332a977) Add the following at line 80 of *src/config/routes.php*
 
@@ -409,7 +409,7 @@ Router::connect(
 
 ```
 
-Now acessing [http://loc.cake.example.com](http://loc.cake.example.com) will redirect you to a login page.
+Now accessing [http://loc.cake.example.com](http://loc.cake.example.com) will redirect you to a login page.
 
 
 

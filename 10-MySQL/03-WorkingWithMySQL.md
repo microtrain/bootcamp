@@ -210,7 +210,7 @@ ALTER TABLE
 ```
 
 >**Security Checkpoint**  
->Never store a password in plain text, always store a hashed version of the password. Always create a user specific salt this will protect against [ranibow table attacks](https://en.wikipedia.org/wiki/Rainbow_table).
+>Never store a password in plain text, always store a hashed version of the password. Always create a user specific salt this will protect against [rainbow table attacks](https://en.wikipedia.org/wiki/Rainbow_table).
 
 ## Additional Resources
 * [Safe Password Hashing](http://php.net/manual/en/faq.passwords.php)

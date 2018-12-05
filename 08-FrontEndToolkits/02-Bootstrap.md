@@ -3,7 +3,7 @@
 Bootstrap is a front end component library designed to allow for rapid front end development of responsive websites.
 
 Lets start by creating a basic minimal Bootstrap layout that loads the Bootstrap assets from a CDN. Create the path and add the following _/var/www/bootstrap/index.html_.
-```
+```html
 <DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,12 +22,12 @@ Lets start by creating a basic minimal Bootstrap layout that loads the Bootstrap
 ```
 
 Add some basic content at the top of the body.
-```
+```html
 <p>Hello World, I'm a Bootstrap layout.</p>
 ```
 
 Lets center the content by adding a container.
-```
+```html
 <div class="container">
   <p>Hello World, I'm a Bootstrap layout.</p>
 </div>
@@ -36,7 +36,7 @@ Lets center the content by adding a container.
 Grid layout
 
 Add the following to the _.container_ div below the paragraph. View this in both full screen and in phone mode to see how various view ports change the display.
-```
+```html
 <div class="row">
   <div class="col-md-4">Left Column</div>
   <div class="col-md-4">Center Column</div>
