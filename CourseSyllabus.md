@@ -3,6 +3,7 @@
 * Class Hours: Monday-Friday, 9am-5pm
 * First Day: Monday, December 10, 2018
 * Last Day: Tuesday, February 26, 2018
+* Half Day: Thursday, December 20, 2018
 * Class will **NOT** meet over the holiday from December 22nd through January 1st.
   * Class will resume on Wednesday, January 2nd.
  
