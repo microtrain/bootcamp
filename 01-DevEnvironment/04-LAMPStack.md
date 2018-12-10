@@ -74,7 +74,33 @@ Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
 Now Apache is up and running we want to be able to work with our database. We will start by invoking MySQL from the command line.
 
 ```sh
-mysql -u root -p -h localhost
+sudo mysql_secure_installation
+
+sudo service mysql stop
+sudo mkdir -p /var/run/mysqld
+sudo chown mysql:mysql /var/run/mysqld
+sudo /usr/sbin/mysqld --skip-grant-tables --skip-networking &
+jobs
+```
+
+mysql console
+```sql
+mysql -u root
+FLUSH PRIVILEGES;
+USE mysql; 
+
+UPDATE user SET authentication_string=PASSWORD("password") WHERE User='root';
+UPDATE user SET plugin="mysql_native_password" WHERE User='root';
+quit  
+```
+
+ux console
+```sh
+sudo pkill mysqld
+jobs
+sudo service mysql start
+
+mysql -u root -p
 ```
 
 * ```mysql``` - tells the system to launch a program called mysql.
