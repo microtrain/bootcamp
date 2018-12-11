@@ -183,14 +183,14 @@ git checkout master
 git merge dev
 ```
 
-1  ```git checkout master``` - Switch to the master branch.
-1  ```git pull origin master``` - Pull any new changes into master.
-1  ```git checkout dev``` - Switch back to the dev branch.
-1  ```git rebase master``` - Apply outside changes from master into the dev branch. This will rewind the branch and apply the outside changes. All commits you made after branch deviation will applied on top of the branch deviation.
-1  ```git checkout master``` - Move back to the master branch.
-1  ```git pull origin master``` - Recheck for changes, if any new changes have been applied return to step 3 and repeat.
-1  ```git merge dev``` - Once you have a clean pull, merge your changes into master.
-1  ```git push origin master``` - Push your new changes to the repository.
+1. ```git checkout master``` - Switch to the master branch.
+1. ```git pull origin master``` - Pull any new changes into master.
+1. ```git checkout dev``` - Switch back to the dev branch.
+1. ```git rebase master``` - Apply outside changes from master into the dev branch. This will rewind the branch and apply the outside changes. All commits you made after branch deviation will applied on top of the branch deviation.
+1. ```git checkout master``` - Move back to the master branch.
+1. ```git pull origin master``` - Recheck for changes, if any new changes have been applied return to step 3 and repeat.
+1. ```git merge dev``` - Once you have a clean pull, merge your changes into master.
+1. ```git push origin master``` - Push your new changes to the repository.
 
 There is no right way to use git. The only real wrong way to use git is to deviate from that projects branching model. [The Diaspora* Project](https://wiki.diasporafoundation.org/Git_workflow) has a very well defined branching model that is typical of what you will see in the real world. I had to come up with one and only one rule it would be to never build on the master branch.
 
