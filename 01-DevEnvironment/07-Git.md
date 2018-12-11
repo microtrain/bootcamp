@@ -200,7 +200,7 @@ A set of guidelines for working with a git repository.
 See [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt) for keyword usage.
 
 * master - pristine 
-    * You MUST NOT work on or apply changes directly to dev
+    * You MUST NOT work on or apply changes directly to master
     * Only approved changes SHALL be merged into master
 * dev - main working branch
     * You SHOULD NOT work on or apply changes directly to dev
