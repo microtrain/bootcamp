@@ -248,7 +248,7 @@ git commit -a
 git push origin feature/arguments
 ```
 
-Then open VERSION.txt and move the version to 1.1.0 and commit with a message of *Version 1.1.0*. 
+Then open VERSION.txt and move the version to 0.1.0 and commit with a message of *Version 1.1.0*. 
 ```sh
 git commit -a
 git push origin feature/arguments
@@ -291,7 +291,7 @@ In this exercise you learned how
 
 ## Exercise 3 - Reject unwanted service commands
 
-For this exercise, create a feature branch called *feature/validate*. When you are finished increment the version to 1.2.0 then merge into and push to master.
+For this exercise, create a feature branch called *feature/validate*. When you are finished increment the version to 0.2.0 then merge into and push to master.
 
 **Requirements**
 
