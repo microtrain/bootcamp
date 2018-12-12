@@ -248,7 +248,7 @@ git commit -a
 git push origin feature/arguments
 ```
 
-Then open VERSION.txt and move the version to 0.1.0 and commit with a message of *Version 1.1.0*. 
+Then open VERSION.txt and move the version to 0.1.0 and commit with a message of *Version 0.1.0*. 
 ```sh
 git commit -a
 git push origin feature/arguments
@@ -432,8 +432,6 @@ done
 ```
 Running ```./loop.sh``` will now yield the following.
 ```sh
-reload
-restart
 /etc/apache2/sites-available/000-default.conf
 /etc/apache2/sites-available/default-ssl.conf
 ```
