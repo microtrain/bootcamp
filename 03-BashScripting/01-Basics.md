@@ -269,7 +269,7 @@ git push origin master
 ```
 
 [</> code](https://github.com/stack-x/restart_apache/commit/a1d7c591db2bc6518c714063d01d1c1190dbbf70) Tag a new version
-1. git tag 1.1.0
+1. git tag 0.1.0
 1. git push origin --tags
 
 Now that all code changes have been applied to master you can remove your working branch.
@@ -343,10 +343,10 @@ git push origin master
 [</> code](https://github.com/stack-x/restart_apache/commit/170b1e43c47c346362440cbb939f3b9ca3733b38) Update VERSION.txt to 1.2.0
 ```sh
 git add .
-git commit -m 'Version 1.2.0'
+git commit -m 'Version 0.2.0'
 git push origin master
 
-git tag 1.2.0
+git tag 0.2.0
 git push origin --tags
 ```
 
@@ -360,12 +360,12 @@ git push origin master
 ```
 
 [</> code](https://github.com/stack-x/restart_apache/commit/708d8f60ca6694268d74dbb36df1fa0780d1da4d) Since this commit does not add or remove it is considered a patch so we will increment version as a patch.
-Update VERSION.txt to 1.2.1
+Update VERSION.txt to 0.2.1
 ```sh
-git commit -am 'Version 1.2.1'
+git commit -am 'Version 0.2.1'
 git push origin master
 
-git tag 1.2.1
+git tag 0.2.1
 git push origin --tags
 ```
 
