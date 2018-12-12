@@ -116,13 +116,13 @@ git push origin master
 [</> code](https://github.com/stack-x/restart_apache/commit/8666e8d3070669e171b9e3c6d2e40abcfb72b0ee) Semantic versioning is s community standard that helps you communicate the backwards compatibility of a change. We will use it here as an introduction to the concept.
 
 1. Create the file VERSION.txt
-1. Add the text _1.0.0_
+1. Add the text _0.0.1_
 1. git add VERSION.txt
 git commit VERSION.txt
 
 VI will open an ask you to enter a commit message. 
 1. Press the letter [i] to enter insert mode. 
-1. Then type the message _Version 1.0.0_. 
+1. Then type the message _Version 0.0.1_. 
 1. Press [esc] followed by [:x] and enter to save the commit message.
 
 Push your changes to the master branch.
@@ -135,7 +135,7 @@ git push origin master
 
 In addition to Semantic Versioning a common practice is to tag significant versions.
 
-1. git tag 1.0.0
+1. git tag 0.0.1
 1. git push origin --tags
 
 Go to your project on GitHub and find everything that is tagged.
