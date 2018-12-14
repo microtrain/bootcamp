@@ -201,7 +201,7 @@ nav ul li a,
 nav ul li a:link,
 nav ul li a:visited{
   display: inline-block;
-  padding: 0 .5em;
+  padding: 0 .5rem;
   color: #fff;
   line-height: 50px;
   text-decoration: none;
