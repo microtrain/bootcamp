@@ -175,7 +175,7 @@ header {
   height: 50px;
   background: #000;
   color: #fff;
-  padding: 0 .5rm 0 1em;
+  padding: 0 .5rem 0 1rem;
 }
 
 header .logo{
