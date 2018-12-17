@@ -139,8 +139,8 @@ Later we will learn about the Bootstrap framework. Bootstrap is among the most p
 
 I have always viewed ```.clearfix``` as a containment element for any number of floats. Meaning if you apply clearfix to a parent element any child element, that is has a float property, cannot escape the parent element.  ```.clearfix``` is a common hack used by front end developers to solve the problem of using floats in a way they were never intended to be used<sup>2</sup>.
 
-* [CodePan](https://codepen.io/jasonsnider/pen/QmJqbb) Floating grid without a clearfix
-* [CodePan](https://codepen.io/jasonsnider/pen/vRQeKv) Floating grid with clearfix
+* [CodePen](https://codepen.io/jasonsnider/pen/QmJqbb) Floating grid without a clearfix
+* [CodePen](https://codepen.io/jasonsnider/pen/vRQeKv) Floating grid with clearfix
 
 
 ## Exercise 3
