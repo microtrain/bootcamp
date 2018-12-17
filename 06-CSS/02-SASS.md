@@ -83,7 +83,7 @@ body {
 Compilation is the next step. From the command line we will compile sass into css.
 
 ```sh
-sass /var/www/mtbc/scss/main.scss /var/www/mtbc/css/main.css
+sass /var/www/mtbc/scss/main.scss /var/www/mtbc/scss/main.css
 ```
 
 This will create the file main.css which is a compiled version of your scss file.
