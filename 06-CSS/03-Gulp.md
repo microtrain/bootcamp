@@ -24,12 +24,12 @@ Add a file named package.json to you GitHub Pages project. This must be added to
   "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.1",
-    "gulp-clean-css": "^3.9.2",
+    "gulp-clean-css": "^4.0.0",
     "gulp-concat": "^2.6.1",
-    "gulp-rename": "^1.2.2",
-    "gulp-scss": "^1.4.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-watch": "^5.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify-es": "^1.0.4",
+    "gulp-watch": "^5.0.1",
     "merge-stream": "^1.0.1"
   }
 }
@@ -62,11 +62,11 @@ Gulp is an ES6 (JavaScript) script designed for frontend compilations. These are
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 var cleanCSS = require('gulp-clean-css');
-var uglify = require('gulp-uglify');
+var uglify = require('gulp-uglify-es').default;
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var merge = require('merge-stream');
-var scss = require('gulp-scss');
+var scss = require('gulp-sass');
 
 gulp.task('default', ['watch']);
 
