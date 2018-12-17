@@ -161,6 +161,11 @@ Create a ```.clearfix``` mixin by adding the following to the top of *main.scss*
 Then you can create two classes applying ```clearfix()``` to both classes. We will go ahead and add a column class. We will discuss columns in greater detail in later lessons. For now we will use to demo other concepts.
 
 ```scss
+/* variables */
+$success-color: #3c763d;
+$warning-color: #8a6d3b;
+$error-color: #a94442;
+
 /* Utility Classes */
 
 .clearfix {
@@ -197,41 +202,41 @@ Another method of reuse in SASS is *@extend* so ```.sample{@extend .example;}```
 Add the following classes to main.scss update the style declarations so that redundant values are called as variables.
 
 ```scss
-.text-success {
-  color: #3c763d;
+  .text-success {
+    color: $success-color;
+  }
+  
+  .text-error {
+    color: $error-color;
+  }
+  
+  .text-warning {
+    color: $warning-color;
+  }
+
+  .message {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    color: #333;
+  }
+
+  .message-success {
+      @extend .message;
+      border-color: $success-color;
+      color: $success-color;
+  }
+  
+.message-error {
+    @extend .message;
+    border-color: $error-color;
+    color: $error-color;
 }
 
-.text-error {
-  color: #8a6d3b;
-}
-
-.text-warning {
-  color: #a94442;
-}
-
-.message {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
-  color: #333;
-}
-
-.success {
-  @extend .message;
-  border-color: #3c763d;
-  color: #3c763d;
-}
-
-.error {
-  @extend .message;
-  border-color: #8a6d3b;
-  color: #8a6d3b;
-}
-
-.warning {
-  @extend .message;
-  border-color: #a94442;
-  color: #a94442;
+.message-warning {
+    @extend .message;
+    border-color: $warning-color;
+    color: $warning-color;
 }
 ```
 
