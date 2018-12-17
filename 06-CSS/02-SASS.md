@@ -108,7 +108,7 @@ body {
 The downside to a preprocessor is the compilation step. This takes time and slows down development. We remedy this by creating a *watcher* this watches a target file for changes and rebuilds it's CSS version in the background. This is one less thing you need to think about which can help keep you in flow. Open a split console window and run the following command in one of the panels.
 
 ```sh
-sass --watch /var/www/mtbc/scss/main.scss:/var/www/mtbc/css/main.css
+sass --watch /var/www/mtbc/scss/main.scss:/var/www/mtbc/scss/main.css
 ```
 
 You will see the following output
