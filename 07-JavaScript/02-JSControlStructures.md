@@ -24,9 +24,11 @@ if(document.location.toString().indexOf('?') !== -1) {
        .replace(/#.*$/, '')
        .split('&');
 
+    //split each element into key value pairs such that 
+    // element 0 is the key and elemet 1 is the value
     for(var i=0, l=query.length; i<l; i++) {
-       var aux = decodeURIComponent(query[i]).split('=');
-       GET[aux[0]] = aux[1];
+       var kv = decodeURIComponent(query[i]).split('=');
+       GET[kv[0]] = kv[1];
     }
 }
 
