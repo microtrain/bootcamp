@@ -73,9 +73,16 @@
 * [Chapter 13: Express](13-Express/README.md)
   * [NodeJS](13-Express/01-NodeJS.md)
   * [Express](13-Express/02-Express.md)
-  * [Reverse Proxy](13-Express/03-ReverseProxy.md)
-  * [Web Sockets](13-Express/04-WebSockets.md)
-  * [PM2](13-Express/05-PM2.md)
+  * [Rest API](13-Express/03-RESTAPI.md)
+  * [Auth API](13-Express/04-AuthAPI.md)
+  * [Front End](13-Express/05-FrontEnd.md)
+  * [Auth App](13-Express/06-AuthAPI.md)
+  * [User App](13-Express/07-UserApp.md)
+  * [Articles API](13-Express/08-ArticlesAPI.md)
+  * [Articles App](13-Express/09-ArticlesApp.md)
+  * [Reverse Proxy](13-Express/10-ReverseProxy.md)
+  * [Web Sockets](13-Express/11-WebSockets.md)
+  * [PM2](13-Express/12-PM2.md)
 
 * [Chapter 14: Angular](14-Angular/README.md)
   * [TypeScript](14-Angular/01-TypeScript.md)
@@ -97,6 +104,8 @@
   * [Porting an App](15-ApacheCordova/01-PortingAnApp.md)
 
 * [Chapter 16: Ionic](16-Ionic/README.md)
+  * [Next Steps](16-Ionic/01-GettingStarted.md)
+  * [Next Steps](16-Ionic/02-UsersApp.md)
 
 * [Glossary](GLOSSARY.md)
 
@@ -115,6 +124,5 @@
     * [Resume](99-Appendix/Samples/Resume.md)
   * [SEO](99-Appendix/SEO/01-SEO.md)
     * [SEO](99-Appendix/Cloud/DigitalOcean.md)
-  * [Downloads](downloads/README.md)
 
 * [Course Syllabus](CourseSyllabus.md)
