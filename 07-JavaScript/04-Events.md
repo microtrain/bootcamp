@@ -39,7 +39,9 @@ This is looking pretty good but some circles even argue against using the HTML e
 
   // Function to add event listener to button#time
   var btn = document.getElementById("time");
-  btn.addEventListener("click", function(){showDate('demo')}, false);
+  btn.addEventListener("click", function(){
+      showDate('demo');
+  });
 </script>
 ```
 
@@ -54,7 +56,9 @@ Now let's change this to an arrow function. Arrow functions use shorter syntax a
 
   // Function to add event listener to button#time
   var btn = document.getElementById("time");
-  btn.addEventListener("click", ()=>{showDate('demo')}, false);
+  btn.addEventListener("click", ()=>{
+    showDate('demo');
+  });
 </script>
 ```
 
@@ -85,7 +89,9 @@ function setValue(element) {
 
 // Function to add event listener to button#time
 var list = document.getElementById("options");
-list.addEventListener("change", ()=>{setValue('demo')}, false);
+list.addEventListener("change", ()=>{
+    setValue('demo')
+});
 ```
 ## Intervals
 
@@ -117,7 +123,9 @@ function Grower() {
 
 // Function to add event listener to button#time
 var btn = document.getElementById("GrowBtn");
-btn.addEventListener("click", function(){new Grower()}, false);
+btn.addEventListener("click", function(){
+  new Grower();
+});
 ```
 
 ## Additional Resources
