@@ -1259,6 +1259,7 @@ Now that you can add basic shapes to the canvas lets work on the colors.
 * [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API)
 * [Understanding save() and restore() for the Canvas Context](https://html5.litten.com/understanding-save-and-restore-for-the-canvas-context/)
 * [Random Hex Color Code Generator in JavaScript](https://www.paulirish.com/2009/random-hex-color-code-snippets/)
+* [Number.toString() - it's not what you think](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString#Description)
 ### Khan Academy
 * [Radius, diameter, circumference & π](https://www.khanacademy.org/math/basic-geo/basic-geo-area-and-perimeter/area-circumference-circle/v/circles-radius-diameter-and-circumference)
 * [Pythagorean Theorem](https://www.khanacademy.org/math/basic-geo/basic-geometry-pythagorean-theorem/geo-pythagorean-theorem/v/the-pythagorean-theorem)
