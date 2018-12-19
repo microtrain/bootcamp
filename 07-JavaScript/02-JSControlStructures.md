@@ -148,7 +148,7 @@ var items = {
   3:'for...of'
 };
 
-var msg = 'JavaScript supports ' + items.length + ' types of loop.';
+var msg = 'JavaScript supports ' + Object.keys(items).length + ' types of loop.';
 
 var li = '';
 for(var item in items){
@@ -270,20 +270,23 @@ if(GET['color'] !== 'undefined'){
 }
 
 switch (color) {
-  case 'ff9900':
-    console.log('The color is red');
+  case '#ff9900':
+    label = "red";
     break;
-  case '00ff00':
-    console.log('The color is green');
+  case '#00ff00':
+    label = "green";
     break;
-  case '0000ff':
-    console.log('The color is blue');
+  case '#0000ff':
+    label = "blue";
     break;
   default:
-    console.log('Sorry, I cannot determine the color');
+    label = "unknown";
     break;
 }
-
+                                      
+//Output the data
+document.write(`<div style="color:${color}">The color is ${label}</div>`);
+                     
 </script>
 ```
 
