@@ -528,7 +528,7 @@ document.getElementById('btnRect').addEventListener('click',function(){
 Now that we have set the shape, we need it to cause an effect in the draw object. Add the following below the ```setShape()``` method.
 ```js
 draw: function() {
-  if('shape'==='rectangle')
+  if(shape==='rectangle')
   {
     this.drawRect();
   } else {
