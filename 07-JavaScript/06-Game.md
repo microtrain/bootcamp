@@ -66,12 +66,18 @@ git push origin master
 
 [</> code]() Load a closure into a game variable.
 
+Our JavaScript will start with an empty closure.
+
 *src/js/main.js*
 ```js
 var game = (function(){})();
 ```
 
 [</> code]() Initialize the game and set the canvas to 600x800
+
+Load a canvas and a content, then initialize the object.
+
+*src/js/main.js*
 ```js
 var game = (function(){
   var canvas = document.getElementById('canvas');
@@ -130,6 +136,10 @@ game.init();
 
 [</> code]() Animate the game using animation frames.
 
+1. Define how many pixels the player should move each frame (i.e. speed).
+1. Create an animation frame.
+1. Redraw the player every time a frame is executed.
+
 ```js
 var game = (function(){
   var canvas = document.getElementById('canvas');
@@ -185,7 +195,13 @@ var game = (function(){
 game.init();
 ```
 
-[</> code]() Touching the edge of the canvas chagnes the player's direction
+[</> code]() Touching the edge of the canvas changes the player's direction
+
+1. Add a default direction for player movement.
+1. Add x pixels to move the player to the right
+1. Change the player direction when the player touches the edge of the canvas.
+1. Subtract x pixels to move the player to the left.
+1. Change the player direction when the player touches the edge of the canvas.
 
 ```js
 var game = (function(){
@@ -265,6 +281,9 @@ game.init();
 ```
 
 [</> code]() Pressing any key shall change the direction in which the player is moving
+
+1. Create a setter for changing the current direction of the user.
+1. Add a listener to allow the  user to change the direction of the player sprite
 
 ```js
 var game = (function(){
@@ -350,7 +369,14 @@ window.addEventListener('keyup', function(){
 });
 ```
 
-[</>]() Increase the speed of the player
+[</> code]() Increase the speed of the player
+
+1. Add a speed property to the player this is the number of pixels the player will move each frame.
+1. Change x-1 to player.x-player.speed.
+1. Change player.x++ to player.x = (player.x + player.speed).
+1. Change player.x+1 to player.x+player.speed.
+1. Change player.x-- to player.x = (player.x - player.speed),
+
 ```js
 var game = (function(){
   var canvas = document.getElementById('canvas');
@@ -363,9 +389,8 @@ var game = (function(){
     w: 25,
     fill: '#fff',
     die: 'right',
-    //1. Add a speed property to the player
-    //this is the number of pixels the player
-    //will move each frame
+    //1. Add a speed property to the player this is the number of pixels 
+    //the player will move each frame
     speed: 5
   }
 
@@ -384,7 +409,7 @@ var game = (function(){
           player.h+2
         );
 
-        //3. Change player.x++ to player.x = (player.x + player.speed),
+        //3. Change player.x++ to player.x = (player.x + player.speed)
         ctx.fillRect(
           player.x = (player.x + player.speed),
           player.y,
@@ -450,6 +475,11 @@ window.addEventListener('keyup', function(){
 ```
 
 [</> code]() Launch an enemy spawn down the Y axis
+
+1. Define an enemy spawn.
+1. Create a method for launching spawns. 
+  * This iteration will launch a single spawn.
+1. Animate the spawns.
 
 ```js
 var game = (function(){
@@ -575,7 +605,19 @@ window.addEventListener('keyup', function(){
 
 ```
 
-[</> code] Launch a new spawn every 400ms and move all spawns in a loop
+[</> code]() Launch a new spawn every 400ms and move all spawns in a loop
+
+1. Initialize an Object of spawns.
+1. Initialize a variable for launching spawns.
+1. Create a new enemy spawn every 400 ms.
+1. Use psuedo-random strings to name the new spawns.
+1. Add the new spawn to the Object of spawns.
+1. Move all spawns.
+  1. Loop through the Object of spawns and move each one individually.
+    * This will look a lot like movePlayer()
+  1. Only move the spawn, if the spawn has not moved off of the screen.
+  1. Delete the spawn from the Object of spawns if that spawn has moved off of the screen.
+1. Add ```moveSpawns()``` to the animation frame.
 
 ```js
 var game = (function(){
@@ -667,9 +709,8 @@ var game = (function(){
           
 
         }else{
-          //9. Delete the spawn from the Object 
-          //of spawns if that spawn has moved off
-          //of the screen
+          //9. Delete the spawn from the Object of spawns if 
+          // that spawn has moved off of the screen.
           delete spawns[spawn];
         }
       }
@@ -734,7 +775,7 @@ var game = (function(){
 
     animate: function(){
       this.player();
-      //10. Add moveSpawns to the  animation frame
+      //10. Add moveSpawns to the animation frame.
       moveSpawns();
       window.requestAnimationFrame(this.animate.bind(this));
     },
@@ -758,6 +799,16 @@ window.addEventListener('keyup', function(){
 ```
 
 [</> code]() Add collision detection and end game on collision
+
+1. Add the animation frames to a variable the we can kill later
+1. Track the state of game over
+1. When each spawn move detect if that spawn shares common pixels with the player. 
+  * If so this is a collision.
+1. If there is a collision.
+  1. Set ```gameOver``` to true.
+  1. Kill the animation frames.
+  1. Kill the spawner.
+1. Only animate if the game is not over.
 
 ```js
 var game = (function(){
@@ -955,6 +1006,12 @@ window.addEventListener('keyup', function(){
 ```
 
 [</> code]() Add a scoring mechanism
+
+1. Create a variable to hold the score.
+1. Increment the score when any time an enemy sprite move off screen.
+1. Write the score to a separate div.
+1. Over lay the score on the top left corner of the canvas.
+1. Add a preset score div to the HTML page.
 
 ```js
 var game = (function(){
