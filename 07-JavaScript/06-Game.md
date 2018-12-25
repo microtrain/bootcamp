@@ -466,6 +466,7 @@ var game = (function(){
     speed: 5
   }
 
+  //1. Define an enemy spawn
   var spawn = {
     x: 50,
     y: 0,
@@ -475,6 +476,8 @@ var game = (function(){
     speed: 5
   }
 
+  //2. Create a method for launching spawns
+  // this iteration will launch a single spawn
   function launchSpawns(){
     ctx.fillStyle=spawn.fill;
 
@@ -550,6 +553,7 @@ var game = (function(){
 
     animate: function(){
       this.player();
+      //3. Animate the spawns
       launchSpawns();
       window.requestAnimationFrame(this.animate.bind(this));
     },
@@ -597,14 +601,17 @@ var game = (function(){
     speed: 5
   }
 
+  //1. Initialize an Object of spawns
   var spawns = {}
 
+  //2. Initialize a variable for launching spawns.
   var spawner = null;
 
 
   function launchSpawns(){
+    //3. Create a new enemy spawn every 400 ms
     spawner = setInterval(()=>{
-      //Use psuedo-random strings to name the new spawns
+      //4. Use psuedo-random strings to name the new spawns
       var text = "";
       var possible = "abcdefghijklmnopqrstuvwxyz";
 
@@ -612,28 +619,33 @@ var game = (function(){
         text += possible.charAt(Math.floor(Math.random() * possible.length));
       }
 
+      //5. Add the new spawn to the Object of Spawns
       spawns[text] = {
         x:Math.floor(Math.random()*this.canvas.width),
         y:spawn.y,
         h:spawn.h,
         w:spawn.w,
         fill:spawn.fill,
-        speed:Math.floor(Math.random() * 7),
+        speed:spawn.speed,
       }
 
     },400);
   }
 
+  //6. Move all spawns
   function moveSpawns(){
 
+    //7. Loop through the Object of spawns
+    //and move each one individually.
+    //This will look a lot like movePlayer()
     if(Object.keys(spawns).length>0){
       for(let spawn in spawns){
 
+        //8. Only move the spawn, if the spawn has not 
+        //moved off of the screen.
         if(spawns[spawn].y<=canvas.height){
 
-
           ctx.fillStyle = spawns[spawn].fill;
-
 
           ctx.save();
 
@@ -655,6 +667,9 @@ var game = (function(){
           
 
         }else{
+          //9. Delete the spawn from the Object 
+          //of spawns if that spawn has moved off
+          //of the screen
           delete spawns[spawn];
         }
       }
@@ -719,6 +734,7 @@ var game = (function(){
 
     animate: function(){
       this.player();
+      //10. Add moveSpawns to the  animation frame
       moveSpawns();
       window.requestAnimationFrame(this.animate.bind(this));
     },
@@ -771,14 +787,17 @@ var game = (function(){
 
   var spawner = null;
 
+  //1. Add the animation frames to a variable
+  //the we can kill later
   var animation  = null;
 
+  //2. Track the state of game over
   var gameOver = false;
 
 
   function launchSpawns(){
     spawner = setInterval(()=>{
-      //Use psuedo-random strings to name the new spawns
+
       var text = "";
       var possible = "abcdefghijklmnopqrstuvwxyz";
 
@@ -830,14 +849,20 @@ var game = (function(){
 
             ctx.restore();
 
+            //3. When each spawn move detect if that spawn shares common pixels
+            //with the player. If so this is a collision.
+            //@see https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
             if (
               player.x < spawns[spawn].x + spawns[spawn].w &&
               spawns[spawn].x > player.x && spawns[spawn].x < (player.x + player.w) &&
               player.y < spawns[spawn].y + spawns[spawn].h &&
               player.y + player.h > spawns[spawn].y
             ){
+              //4. If there is a collision set gameOver to true
               gameOver = true;
+              //5. ...kill the animation frames
               cancelAnimationFrame(animation);
+              //6. ...kill the spawner
               clearInterval(spawner);
             }
 
@@ -905,6 +930,7 @@ var game = (function(){
     animate: function(){
       this.player();
       this.moveSpawns();
+      //7. Only animate if the game is not over.
       if(gameOver===false){
         animation = window.requestAnimationFrame(this.animate.bind(this));
       }
@@ -962,12 +988,13 @@ var game = (function(){
 
   var gameOver = false;
 
+  //1. Create a variable to hold the score
   var score = 0;
 
 
   function launchSpawns(){
     spawner = setInterval(()=>{
-      //Use psuedo-random strings to name the new spawns
+
       var text = "";
       var possible = "abcdefghijklmnopqrstuvwxyz";
 
@@ -1031,7 +1058,10 @@ var game = (function(){
             }
 
           }else{
+            //2. Increment the score when any time
+            //an enemy sprite move off screen
             score = score + 10;
+            //3. Write the score to a separate div
             document.getElementById('score').innerHTML = score;
             delete spawns[spawn];
           }
@@ -1124,6 +1154,7 @@ canvas {
   background: #000;
 }
 
+/* 4. Over lay the score on the top left corner of the canvas.*/
 #score {
   position: absolute;
   top: 20px;
@@ -1147,6 +1178,7 @@ canvas {
     <link href="favicon.ico" rel="icon" type="image/x-icon" />
   </head>
   <body>
+    <!-- 5.  Add a preset score div to the HTML page-->
     <div id="score">0</div>
     <canvas id="canvas"></canvas>
     <script src="dist/js/main.js"></script>
