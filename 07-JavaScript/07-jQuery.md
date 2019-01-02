@@ -106,14 +106,14 @@ div[id^=apod] {
 
 /* https://alistapart.com/article/creating-intrinsic-ratios-for-video */
 /* 9/16 = 56.2 */
-.video {
+#apodVideo {
 	position: relative;
-	padding-bottom: 56.25%; /* Assumes a 16:9 ratio */
+	padding-bottom: 56.25%; /* 16:9 */
 	padding-top: 25px;
 	height: 0;
 }
 
-.video iframe {
+iframe {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -146,7 +146,7 @@ randomDate: function(start, end) {
   }
 
   if(d < 10){
-    m = '0'+d
+    d = '0'+d
   }
 
   return `${y}-${m}-${d}`;
@@ -239,7 +239,7 @@ If we refer to the JSON string produced by the API we see that there is a _media
 ```js
 //If the media type is video hide the image elements and display a video.
 if(result.media_type === 'video') {
-  $("#apodImage").hide();
+  $("#apodImg").hide();
   $("#apodVideo > iframe").attr("src", result.url).show();
 }else{
   $("#apodVideo").hide();
