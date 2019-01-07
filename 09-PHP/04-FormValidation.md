@@ -278,7 +278,14 @@ class Validate{
 
 $valid = new Validate();
 
-$input = filter_input_array(INPUT_POST);
+$args = [
+  'name'=>FILTER_SANITIZE_STRING,
+  'subject'=>FILTER_SANITIZE_STRING,
+  'message'=>FILTER_SANITIZE_STRING,
+  'email'=>FILTER_SANITIZE_EMAIL,
+];
+
+$input = filter_input_array(INPUT_POST, $args);
 
 if(!empty($input)){
 
@@ -487,11 +494,6 @@ class Validate{
                 $this->errors[$field] = $rule;
             }
         }
-
-        //Make sure the array is empty if no errosrs are detected.
-        if(count($this->errors) == 0){
-            $this->errors = [];
-        }
     }
 
     /**
@@ -530,13 +532,11 @@ use About\Validation;
 
 //Validate Declarations
 $valid = new About\Validation\Validate();
-
 $args = [
-  'first_name' => FILTER_SANITIZE_STRING,
-  'last_name' => FILTER_SANITIZE_STRING,
-  'email' => FILTER_SANITIZE_EMAIL,
-  'subject' => FILTER_SANITIZE_EMAIL,
-  'message' => FILTER_SANITIZE_EMAIL,
+  'name'=>FILTER_SANITIZE_STRING,
+  'subject'=>FILTER_SANITIZE_STRING,
+  'message'=>FILTER_SANITIZE_STRING,
+  'email'=>FILTER_SANITIZE_EMAIL,
 ];
 $input = filter_input_array(INPUT_POST, $args);
 
