@@ -215,7 +215,7 @@ var_dump($reults);
 ```
 
 From a browser window, navigate to *http://localhost/YOUR-PROJECT-NAME/test.php* and you should get a json string similar to:
-``php
+```php
 object(stdClass)#24 (2) { ["http_response_body"]=> object(stdClass)#19 (2) { ["id"]=> string(91) "<20171009164718.79178.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org>" ["message"]=> string(18) "Queued. Thank you." } ["http_response_code"]=> int(200) }
 ```
 
