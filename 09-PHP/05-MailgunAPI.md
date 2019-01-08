@@ -220,9 +220,8 @@ object(stdClass)#24 (2) { ["http_response_body"]=> object(stdClass)#19 (2) { ["i
 ```
 Then check your email to see if it worked.
 
-
-**Security Check Point**
-_Never push a key to a public repository, use a key file the exists outside of the public repo_
+>*Security Check Point*
+>Never push a key to a public repository, use a key file the exists outside of the public repo
 
 ## Exercise - Pass Variables into the API Call
 
