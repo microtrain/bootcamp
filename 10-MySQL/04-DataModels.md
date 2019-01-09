@@ -64,7 +64,7 @@ Thrid normal form would change this so that the customer data and phone numbers 
 </table>
 
 <table>
-<caption>customers</caption>
+<caption>phone_numbers</caption>
 <tr>
 <th>customer_id</th>
 <th>phone</th>
