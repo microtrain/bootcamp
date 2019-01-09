@@ -77,13 +77,13 @@ $stmt = $pdo->query("SELECT * FROM posts");
 while ($row = $stmt->fetch())
 {
 
-    $content .= "<a href=\"post.php?slug={$row['slug']}\">{$row['title']}</a>";
+    $content .= "<a href=\"view.php?slug={$row['slug']}\">{$row['title']}</a>";
 }
 
 include '../core/layout.php';
 ```
 
-Create a copy of posts/index.php called post.php
+Create a copy of posts/index.php called view.php
 ```php
 <?php
 include '../core/db_connect.php';
@@ -96,7 +96,7 @@ $stmt = $pdo->query("SELECT * FROM posts WHERE slug={$slug}");
 while ($row = $stmt->fetch())
 {
 
-    $content .= "<a href=\"post.php?slug={$row['slug']}\">{$row['title']}</a>";
+    $content .= "<a href=\"view.php?slug={$row['slug']}\">{$row['title']}</a>";
 }
 
 echo $content;
