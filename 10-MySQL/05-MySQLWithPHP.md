@@ -29,14 +29,14 @@ try {
 }
 ```
 
-Create the file */var/www/example.com/webroot/posts.php*
+Create the file */var/www/example.com/webroot/posts/index.php*
 ```php
 <?php
 include '../core/db_connect.php';
 ```
-Preview this file in your browser [http://localhost/example.com/webroot/posts.php](http://localhost/example.com/webroot/posts.php)
+Preview this file in your browser [http://localhost/example.com/webroot/posts/index.php](http://localhost/example.com/webroot/posts/index.php)
 
-Update posts.php as follows
+Update posts/index.php as follows
 ```php
 <?php
 include '../core/db_connect.php';
@@ -83,7 +83,7 @@ while ($row = $stmt->fetch())
 include '../core/layout.php';
 ```
 
-Create a copy of posts.php called post.php
+Create a copy of posts/index.php called post.php
 ```php
 <?php
 include '../core/db_connect.php';
@@ -173,4 +173,4 @@ echo $content;
 
 ## Exercise
 
-Add a blog to the example.com project.
+Add full CRUD functionality to the example.com project.
