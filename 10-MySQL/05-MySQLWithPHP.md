@@ -170,3 +170,7 @@ $content .= "<h1>{$row['title']}</h1>";
 
 echo $content;
 ```
+
+## Exercise
+
+Add a blog to the example.com project.
