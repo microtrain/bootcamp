@@ -29,12 +29,12 @@ try {
 }
 ```
 
-Create the file */var/www/example.com/webroot/posts/index.php*
+Create the file */var/www/example.com/public/posts/index.php*
 ```php
 <?php
 include '../core/db_connect.php';
 ```
-Preview this file in your browser [http://localhost/example.com/webroot/posts/index.php](http://localhost/example.com/webroot/posts/index.php)
+Preview this file in your browser [http://localhost/example.com/public/posts/index.php](http://localhost/example.com/public/posts/index.php)
 
 Update posts/index.php as follows
 ```php
