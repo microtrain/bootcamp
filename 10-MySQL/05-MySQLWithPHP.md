@@ -181,7 +181,7 @@ Add full CRUD functionality to the example.com project.
 ```php
 <?php
 require '../../config/keys.php';
-include '../../core/db_connect.php';
+require '../../core/db_connect.php';
 
 $args = [
     'title'=>FILTER_SANITIZE_STRING,
