@@ -254,3 +254,11 @@ include '../../core/layout.php';
 ```sh
 
 ```
+
+### Update a Post
+Make a copy of add.php and rename it edit.php
+
+```sh
+
+
+```
