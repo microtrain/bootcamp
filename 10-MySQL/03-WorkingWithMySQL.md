@@ -203,10 +203,9 @@ For full authentication you will want to add password and salt columns
 * salt VARCHAR(128) COMMENT 'User specific salt'
 
 ```sql
-ALTER TABLE
-  ADD 
-    password VARCHAR(60) COMMENT 'A salted hash of the password',
-    salt VARCHAR(128) COMMENT 'User specific salt';
+ALTER TABLE users
+  ADD COLUMN password VARCHAR(60) DEFAULT NULL COMMENT 'A salted hash of the password',
+  ADD COLUMN salt VARCHAR(128) DEFAULT NULL  COMMENT 'User specific salt';
 ```
 
 >**Security Checkpoint**  
