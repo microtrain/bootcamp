@@ -435,7 +435,6 @@ Using the documentation for the users plugin add the ability to login using a so
   * created - current time stamp at the time of submission
 1. At the bottom of each article provide a form that will collect the above data and on submit
   * Save the data to the comments table
-  * Use the MailGun API to send your self an email telling you someone has commented on your article.
 
 ### Lab 3 - Contact Form
 
