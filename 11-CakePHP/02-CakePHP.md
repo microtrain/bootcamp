@@ -162,7 +162,7 @@ git push origin master
 <!--
 ## Build a Blog
 
-We will start by using Composer to install CakeDC's [User Authentication plugin](https://github.com/CakeDC/users). We will then bake an Articles CRUD which we will use for posting to our blog. In your console, please navigate to **/var/www/cake.example.com**, this tutorial assumes **/var/www/cake.example.com** as the base path for all cd, file and folder creation commands.
+We will start by using Composer to install CakeDC's [User Authentication plugin](https://github.com/CakeDC/users). We will then bake an Posts CRUD which we will use for posting to our blog. In your console, please navigate to **/var/www/cake.example.com**, this tutorial assumes **/var/www/cake.example.com** as the base path for all cd, file and folder creation commands.
 -->
 ### Users
 
@@ -202,8 +202,8 @@ bin/cake migrations migrate -p CakeDC/Users
 10. Now return to the login page and try to login. On success you will be redirected to the CakePHP debug page.
 
 
-### Articles CRUD
-We will keep our blog posts in a table called articles.
+### Posts CRUD
+We will keep our blog posts in a table called posts.
 
 #### Add the Database Tables
 
@@ -214,7 +214,7 @@ We will keep our blog posts in a table called articles.
 * Repeat this process for cake > cake_test
 
 ```sql
--- First, create our articles table: 
+-- First, create our posts table: 
 CREATE TABLE posts (
     id CHAR(36) PRIMARY KEY COMMENT 'Primary Key UUID',
     title VARCHAR(255) COMMENT 'Title of a blog post',
@@ -228,7 +228,7 @@ CREATE TABLE posts (
 ) ENGINE=INNODB;
 
 
--- Then insert some articles for testing: 
+-- Then insert some posts for testing: 
 -- You will want to replace USER-ID with the id ofa user from your users table.
 INSERT INTO posts (id,title,slug,body,user_id)
     VALUES (UUID(), 'The Title', 'the-title', 'This is the article body.', 'USER-ID');
@@ -242,7 +242,7 @@ INSERT INTO posts (id,title,slug,body,user_id)
 Since we have the table in our database we can automate the build by *baking* the CRUD (model, views and controllers). Run the following command and take note of what files get created. In addition to creating an Entity and a Table classes, fixtures and tests will be created, thie will provide a placeholder for building unit tests. 
 
 ```sh
-bin/cake bake model Articles
+bin/cake bake model Posts
 ```
 
 Navigate to the *src/Model* and check out the files in *Entity* and *Article* folders.
@@ -256,7 +256,7 @@ composer require --dev phpunit/phpunit:"^5.7|^6.0"
 
 Run a unit test for each table
 ```sh
-vendor/bin/phpunit tests/TestCase/Model/Table/ArticlesTableTest
+vendor/bin/phpunit tests/TestCase/Model/Table/PostsTableTest
 ```
 
 Navigate to the *tests/TestCase/Model/Table* walk through the default test cases.
@@ -264,19 +264,19 @@ Navigate to the *tests/TestCase/Model/Table* walk through the default test cases
 #### Bake the Controller
 
 ```sh
-bin/cake bake controller Articles
+bin/cake bake controller Posts
 ```
 
 #### Bake the Template
 
 ```sh
-bin/cake bake template Articles
+bin/cake bake template Posts
 ```
 
 
 ### From Basic CRUD to an App
 
-Add an initialization method to the Articles controller
+Add an initialization method to the Posts controller
 ```php
 public function initialize()
 {
@@ -286,17 +286,17 @@ public function initialize()
 
 ### Create Slugs in the Background
 
-We will move our slug creation logic from the Articles controller to the Articles table. Here we will use a callback to create slugs in the background. We will create a unit test to verifiy our slug creation logic.
+We will move our slug creation logic from the Posts controller to the Posts table. Here we will use a callback to create slugs in the background. We will create a unit test to verifiy our slug creation logic.
 
 Call the namespace for the Utility class.
-*src/Model/Table/ArticlesTable.php*
+*src/Model/Table/PostsTable.php*
 ```php
 // the Text class
 use Cake\Utility\Text;
 ```
 
 Create the method for creating a slug.
-*src/Model/Table/ArticlesTable.php*
+*src/Model/Table/PostsTable.php*
 ```php
 public function createSlug($title)
 {
@@ -309,28 +309,28 @@ public function createSlug($title)
 ```
 
 Add and run a unit test for the create slug method.
-*tests/TestCase/Model/Table/ArticlesTableTest.php*
+*tests/TestCase/Model/Table/PostsTableTest.php*
 ```php
 public function testCreateSlug()
 {
-    $result = $this->Articles->createSlug('Hello World');
+    $result = $this->Posts->createSlug('Hello World');
     $this->assertEquals('hello-world', $result);
-    $result = $this->Articles->createSlug('Hello!, World');
+    $result = $this->Posts->createSlug('Hello!, World');
     $this->assertEquals('hello-world', $result);
-    $result = $this->Articles->createSlug('Hello   World*$');
+    $result = $this->Posts->createSlug('Hello   World*$');
     $this->assertEquals('hello-world', $result);
-    $result = $this->Articles->createSlug('Hello-   World-');
+    $result = $this->Posts->createSlug('Hello-   World-');
     $this->assertEquals('hello-world', $result);
 }
 ```
 
 Rerun the unit test
 ```sh
-vendor/bin/phpunit tests/TestCase/Model/Table/ArticlesTableTest
+vendor/bin/phpunit tests/TestCase/Model/Table/PostsTableTest
 ```
 
 Call ```createSlug()``` from the ```beforeMarshal()``` callback.
-*src/Model/Table/ArticlesTable.php*
+*src/Model/Table/PostsTable.php*
 ```php
 public function beforeMarshal($event, $data)
 {
@@ -341,22 +341,22 @@ public function beforeMarshal($event, $data)
 ```
 
 Test before marshal by creating a new record
-*tests/TestCase/Model/Table/ArticlesTableTest.php*
+*tests/TestCase/Model/Table/PostsTableTest.php*
 ```sh
 public function  testBeforeMarshal()
 {
-    $article = $this->Articles->newEntity();
-    $article = $this->Articles->patchEntity($article, ['title'=>'Hello World, It\'s a fine day']);
-    $this->Articles->save($article);
+    $article = $this->Posts->newEntity();
+    $article = $this->Posts->patchEntity($article, ['title'=>'Hello World, It\'s a fine day']);
+    $this->Posts->save($article);
 
-    $result = $this->Articles->find()->first();
+    $result = $this->Posts->find()->first();
     $this->assertEquals('hello-world-it-s-a-fine-day', $result['slug']);
 }
 ```
 
 Rerun the unit test
 ```sh
-vendor/bin/phpunit tests/TestCase/Model/Table/ArticlesTableTest
+vendor/bin/phpunit tests/TestCase/Model/Table/PostsTableTest
 ```
 
 ### Add User Authentication
