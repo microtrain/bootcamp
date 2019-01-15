@@ -231,11 +231,11 @@ CREATE TABLE posts (
 -- Then insert some articles for testing: 
 -- You will want to replace USER-ID with the id ofa user from your users table.
 INSERT INTO posts (id,title,slug,body,user_id)
-    VALUES ('6f814dc0-4adb-11e8-842f-0ed5f89f718b', 'The Title', 'the-title', 'This is the article body.', 'USER-ID');
+    VALUES (UUID(), 'The Title', 'the-title', 'This is the article body.', 'USER-ID');
 INSERT INTO posts (id,title,slug,body,user_id)
-    VALUES ('6f8155ae-4adb-11e8-842f-0ed5f89f718b', 'Hello World', 'hello-world', 'This is the article body again.', 'USER-ID');
+    VALUES (UUID(), 'Hello World', 'hello-world', 'This is the article body again.', 'USER-ID');
 INSERT INTO posts (id,title,slug,body,user_id)
-    VALUES ('6f815964-4adb-11e8-842f-0ed5f89f718b', 'Hello World Again', 'hello-world-again', 'This is the article body again and again.', 'USER-ID');
+    VALUES (UUID(), 'Hello World Again', 'hello-world-again', 'This is the article body again and again.', 'USER-ID');
 ```
 
 #### Bake the Model
