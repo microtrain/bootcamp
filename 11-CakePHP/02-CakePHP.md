@@ -151,6 +151,7 @@ git remote add origin git@github.com:YOUR-GITHUB-USERNAME/cake.example.com.git
 git pull origin master
 git add .
 git commit -am 'Initial build'
+git push origin master
 ```
 
 ### Cake File Structure, Callbacks and Routing
