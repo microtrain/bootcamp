@@ -428,7 +428,7 @@ Using the documentation for the users plugin add the ability to login using a so
 
 1. Create a table
   * id - the primary key of the comment system
-  * article_id - the id of the article for which the comment is being made
+  * user_id - the id of the article for which the comment is being made
   * first_name - the first name of the reader making a comment
   * last_name - the last name of the reader making a comment
   * email - the email of the reader making a comment
