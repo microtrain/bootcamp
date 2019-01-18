@@ -3,7 +3,7 @@
 In this lesson we will build a JavaScript application that works with our REST API. In order to access this application we will need to provide a non-API endpoint, that is to a say a traditional webpage that will allow us to load the application. One of the keys to this chapter will be the ability to differentiate between front end JavaScript and back end JavaScript. Until now, everything we have done in Express has been back end JavaScript. 
 
 ## Non API Endpoint
-[</> code](https://github.com/microtrain/mean.example.com/commit/73c9706453a0b5df15c34c2f7dfa174b09d3686f) Add a non-API end point for accessing the authentication app) Add a non-API endpoint for accessing the authentication app. This will be a new file called *auth.js* and will be placed directly under the *routes* directory. Where this endpoint differs from our API endpoints is in what the endpoint returns. Previously we returned a JSON string ```res.json()``` this time we will render a view ```res.render()```.
+[</> code](https://github.com/microtrain/mean.example.com/commit/73c9706453a0b5df15c34c2f7dfa174b09d3686f) Add a non-API endpoint for accessing the authentication app. This will be a new file called *auth.js* and will be placed directly under the *routes* directory. Where this endpoint differs from our API endpoints is in what the endpoint returns. Previously we returned a JSON string ```res.json()``` this time we will render a view ```res.render()```.
 
 *routes/auth.js*
 ```js
