@@ -158,7 +158,7 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 ...
 //~line 55
-User.plugin(passportLocalMongoose);
+Users.plugin(passportLocalMongoose);
 ```
 
 Commit your changes
@@ -175,11 +175,11 @@ git commit -a
 var LocalStrategy = require('passport-local').Strategy;
 
 //~line 12
-var User = require('./models/user');
+var Users = require('./models/users');
 
 ...
 //~line 55
-passport.use(User.createStrategy());
+passport.use(Users.createStrategy());
 ```
 
 Commit your changes
