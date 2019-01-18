@@ -192,7 +192,7 @@ git push origin master
 ##### Post the Registration Form to the Users API
 [</> code](https://github.com/microtrain/mean.example.com/commit/ef260abec56a72e219d3d8fdceb9eb60f384ba1) Add a registration end point the the users API. */users/register* is a GET request that will load a registration form. */api/users/register* is a POST request that creates a user record complete with salt and has values. For now, registartion will end with duping a JSON string onto the screen. Later we can convert this to an AJAX application.
 
-Create the file *routes/api/auth* and add the following content
+Create the file *routes/api/auth.js* and add the following content
 
 ```js
 //Register a new user
