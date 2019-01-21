@@ -134,7 +134,7 @@ We will start by pulling a list of users from the API. Once we have that list we
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/5974d5459407b2bd3165b47a47d7f97c4dab1ac8) Pull a list of users from the API.
 
-*dist/js/users.app.js*
+*src/js/users.app.js*
 ```js
 function viewUsers(){
 
@@ -173,7 +173,7 @@ git push origin master
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/79217972455750434d9295377c94a86cae094427) Display the users in an HTML table.
 
-*dist/js/users.app.js*
+*src/js/users.app.js*
 ```js
 //~line 16
 xhr.onload = function(){
