@@ -115,7 +115,7 @@ Rebuid the Js files
 gulp build-js
 ```
 
-Navigate to [http://localhost:3000/users](http://localhost:3000/users), if you see a dialog that says "LOADED" everything is working as expected. 
+Navigate to [http://localhost:3000/users/app](http://localhost:3000/users/app), if you see a dialog that says "LOADED" everything is working as expected. 
 
 Commit your code changes
 ```sh
@@ -279,7 +279,7 @@ git commit -a
 //~line 28
 else
   li.nav-item
-    a.nav-link(href='/users') Users
+    a.nav-link(href='/users/app) Users
 ```
 
 ```sh
