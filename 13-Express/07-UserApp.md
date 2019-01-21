@@ -95,7 +95,7 @@ git commit -a
 ### Stub the Users App
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/18dfec2752ddcc9405e1d31fe664f08d1545d588) Stub out the user app.
-*src/js/user.app.js*
+*src/js/users.app.js*
 ```js
 var usersApp = (function() {
 
@@ -107,7 +107,7 @@ var usersApp = (function() {
 
 })();
 
-userApp.load();
+usersApp.load();
 ```
 
 Rebuid the Js files
