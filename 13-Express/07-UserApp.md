@@ -23,14 +23,14 @@ As with the authentication application we will need to to a little bit of prep b
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
-  res.render('users/index', { title: 'User Management' });
+router.get('/app', function(req, res, next) {
+  res.render('users/app', { title: 'User Management' });
 });
 
 module.exports = router;
 ```
 
-*views/users/index.pug*
+*views/users/app.pug*
 ```pug
 extends ../layout
 
