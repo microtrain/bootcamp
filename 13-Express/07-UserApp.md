@@ -48,7 +48,7 @@ cd ~/mean.example.com
 # press [ctl]+[c]
 npm start
 ```
-Open a browser and navigate to [http://localhost:3000/users](http://localhost:3000/users). If the tab reads "User Management" then everything is working as it should. Commit your changes and push to master.
+Open a browser and navigate to [http://localhost:3000/users/app](http://localhost:3000/users/app). If the tab reads "User Management" then everything is working as it should. Commit your changes and push to master.
 
 ```sh
 # Add a non-API endpoint for accessing the user app
