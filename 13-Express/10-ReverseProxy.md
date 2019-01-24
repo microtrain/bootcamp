@@ -1,6 +1,6 @@
 # ReverseProxy
 
-A reverse proxy allows another web server such Apache, IIS, Nginx, etc to stand in front of ExpressJS and is recommended as a [production best practice]([Production best practices: performance and reliability](https://expressjs.com/en/advanced/best-practice-performance.html) by the ExpressJS team. In this example ExpressJS will run on localhost:3000 and Apache will field the requests to *http:loc.mean.example.com* (over port 80) and direct those to *http://localhost:3000*
+A reverse proxy allows another web server such Apache, IIS, Nginx, etc to stand in front of ExpressJS and is recommended as a [production best practice](https://expressjs.com/en/advanced/best-practice-performance.html) by the ExpressJS team. In this example ExpressJS will run on localhost:3000 and Apache will field the requests to *http:loc.mean.example.com* (over port 80) and direct those to *http://localhost:3000*
 
 Install the required Apache mods.
 ```sh
