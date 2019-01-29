@@ -1,6 +1,6 @@
 # Chapter 14: Angular
 
-Angular is a toolkit that makes it easy to build web, mobile, or the desktop applications with using web technology. Angular combines TypeScript, design patterns and auto bundling (think automated gulp) to compile, transpile and package front end assets in realtime. Angular is a CLI based application that runs a dev server on port 4200. Once your satisfied with your project it can be packaged into a distribution package consisting of HTML, CSS and JavaScript.
+Angular is a toolkit that makes it easy to build web, mobile, or the desktop applications with using web technology. Angular combines TypeScript, design patterns and auto bundling (think automated gulp) to compile, transpile and package front end assets in realtime. Angular is a CLI based application that runs a dev server on port 4200. Once you're satisfied with your project it can be packaged into a distribution package consisting of HTML, CSS and JavaScript.
 
 In this chapter we will
 
