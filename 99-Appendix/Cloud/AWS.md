@@ -94,14 +94,14 @@ EC2 web service interface provides you with complete control of your computing r
 
 1. Navigate Services tab for Amazon EC2.
 2. Launch Instance under Create Instance Header.
-3. Chose an (AMI) - Ubuntu Server 16.04 Free Tier 64-bit.
+3. Chose an (AMI) - Ubuntu Server 18.04 Free Tier 64-bit.
 4. Choose an Instance Type - t2.micro Free Tier.
 5. Configure Instance Details (Default).
 6. Add Storage (Default).
 7. Add Tags - Add a name tag and value.
-8. Configure Security Group - Create a new security group and add rule with Type HTTP.
+8. Configure Security Group - *Create a new security group and add rule with the types SSH, HTTP, HTTPS, and Custom port 3000.*
 9. Review Instance Launch.
-10. Create a new key pair - *This is the only time you can download the key file.
+10. Create a new key pair - *This is the only time you can download the key file*.
 11. Launch Instance
 
 #### Accessing server instance from terminal
@@ -189,6 +189,74 @@ pm2 start process.yml
 sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
 pm2 save
 ```
+
+Test that pm2 is working by rebooting your server. Then open a browser and entering you domain name against port 3000. If you see your website pm2 has taken effect.
+
+### Virtual Host (VHOST) Configuration
+
+```sh
+cd /etc/apache2/sites-available
+cp default-ssl mean.example.com
+```
+
+comment out the ```DocumentRoot``` directive.
+```sh
+## DocumentRoot /var/www
+```
+
+Add a ```ServerName``` directive, replace MYDOAMIN.TLD with the lowercase version of your domain name.
+
+```sh
+ServerName MYDOMAIN.TLD
+```
+
+Finally set up you reverse proxy.
+```apache
+<Proxy *>
+	Order deny,allow
+	Allow from all
+</Proxy>
+
+ProxyRequests Off
+ProxyPreserveHost On
+ProxyPass / http://localhost:3000/
+ProxyPassReverse / http://localhost:3000/
+```
+
+Force NON-SSL to an SSL connection, add the following to the top of the VHOST file.
+```apache
+<VirtualHost *:80>
+    RewriteEngine On
+    RewriteCond %{HTTPS} !=on
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</VirtualHost>
+```
+
+Force non-www
+```apache
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.jasonsnider\.net [NC]
+RewriteRule ^(.*)$ https://jasonsnider.net$1 [L,R=301]
+```
+
+Restart Apache
+```sh
+a2dissite *
+service apache2 restart
+a2ensite mean*
+service apache2 restart
+```
+
+## LetsEncypt
+Create an install a cert from LetsEncrypt
+```sh
+## Install Certbot
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:certbot/certbot
+sudo apt update
+sudo apt install python-certbot-apache
+```
+
 ## RDS
 
 [https://aws.amazon.com/rds/?nc2=h_m1](https://aws.amazon.com/rds/?nc2=h_m1)
