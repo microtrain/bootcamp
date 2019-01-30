@@ -236,8 +236,8 @@ Force NON-SSL to an SSL connection, add the following to the top of the VHOST fi
 Force non-www
 ```apache
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^www\.jasonsnider\.net [NC]
-RewriteRule ^(.*)$ https://jasonsnider.net$1 [L,R=301]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 ```
 
 Restart Apache
