@@ -109,9 +109,9 @@ EC2 web service interface provides you with complete control of your computing r
 To access AWS instance the public IP and downloaded key.pem file are required. First move the .pem file to your .ssh directory. Next we need to check/configure our permissions.
 
 ```
-mv Downloads/my-aws-serverKey.pem ~/.ssh/
-chmod 600 .ssh/my-aws-serverKey.pem
-ssh ubuntu@52.25.your.Public.IP -i .ssh/my-aws-serverKey.pem
+mv Downloads/MY-AWS-SERVER-KEY.pem ~/.ssh/
+chmod 400 .ssh/MY-AWS-SERVER-KEY.pem
+ssh ubuntu@YOUR-PUBLIC-DNS -i .ssh/my-aws-serverKey.pem
 ```
 Now that your server is accessible let's install a LAMP stack.
 
@@ -150,7 +150,45 @@ sudo service mysql start
 mysql -u root -p
 ```
 
+Enable Apache Modules
+```sh
+a2enmod ssl proxy rewrite headers proxy_http
+service apache2 restart
+```
 
+```sh
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+apt install -y nodejs
+apt install -y build-essential
+
+apt update
+apt upgrade
+```
+
+Be sure npm is setup globally
+```sh
+sudo npm install npm -g
+```
+
+Install pm2
+```sh
+sudo npm -g install pm2
+```
+
+Add *NODE_ENV* as a system var
+```sh
+echo export NODE_ENV=production | tee -a .bashrc
+. .bashrc
+echo $NODE_ENV
+```
+
+Start PM2
+```sh
+cd ~/mean.example.com
+pm2 start process.yml
+sudo env PATH=$PATH:/usr/bin /usr/lib/node_modules/pm2/bin/pm2 startup systemd -u ubuntu --hp /home/ubuntu
+pm2 save
+```
 ## RDS
 
 [https://aws.amazon.com/rds/?nc2=h_m1](https://aws.amazon.com/rds/?nc2=h_m1)
