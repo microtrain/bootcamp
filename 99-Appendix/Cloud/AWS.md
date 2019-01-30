@@ -101,8 +101,9 @@ EC2 web service interface provides you with complete control of your computing r
 7. Add Tags - Add a name tag and value.
 8. Configure Security Group - *Create a new security group and add rule with the types SSH, HTTP, HTTPS, and Custom port 3000.*
 9. Review Instance Launch.
-10. Create a new key pair - *This is the only time you can download the key file*.
-11. Launch Instance
+10. Configure and [Elastic IP](https://aws.amazon.com/premiumsupport/knowledge-center/intro-elastic-ip-addresses/) 
+11. Create a new key pair - *This is the only time you can download the key file*.
+12. Launch Instance
 
 #### Accessing server instance from terminal
 
