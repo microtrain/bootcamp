@@ -62,35 +62,13 @@ Head over to [AWS](https://aws.amazon.com "AWS's Homepage") hompage and signup.
 5. Select Support Plan - Basic(Free).
 6. Sign in to the Console.
 
-## Route 53
-
-[https://aws.amazon.com/route53/](https://aws.amazon.com/route53/)
-
-Amazon Route 53 is scalable cloud Domain Name System (DNS). This is amazons preferred way of connecting user request to infrastructures running in AWS. For Domain purchase, I recommend Hover; use this [referral link](https://www.hover.com/) and get $2 off your domain name.
-
-## Amazon S3
-
-[https://aws.amazon.com/s3/?nc2=h_m1](https://aws.amazon.com/s3/?nc2=h_m1)
-
-S3 is object storage built to store and retrieve any amount of data from anywhere. Its a secure, durable and scalable infrastructure. Amazon Free Tier provides free services of S3 up to 5GB of standard storage, 20,000 Get Requests and 2,000 Put Requests.
-
-#### S3 Setup
-
-1. Navigate Services tab for Amazon S3.
-2. Create Bucket.
-3. Set Bucket Index Page, Properties and Permissions.
-4. Start storing data such as static files( html, javascript, css ), photos, videos and etc.
-5. Access/Manage objects in bucket.
-
-A bucket is a flat container of objects and doesn't provide hierarchical organization. You can create hierarchy by using object key names that imply a folder structure. When you store data, you assign a unique object key that can later be used to retrieve the data. Object names are prefixed with folder names. Every folder created must have an index document at each level.
-
 ## Amazon EC2
 
 [https://aws.amazon.com/ec2/?nc2=h_m1](https://aws.amazon.com/ec2/?nc2=h_m1)
 
 EC2 web service interface provides you with complete control of your computing resources. This provides virtual servers known as instances to host web applications. Amazon Free Tier provides up to 750 Hours per month of EC2 usages before additional fees apply. This applies to t2.micro instance types!
 
-#### Amazon EC2 Install
+### Amazon EC2 Install
 
 1. Navigate Services tab for Amazon EC2.
 2. Launch Instance under Create Instance Header.
@@ -193,7 +171,7 @@ pm2 save
 
 Test that pm2 is working by rebooting your server. Then open a browser and entering you domain name against port 3000. If you see your website pm2 has taken effect.
 
-### Virtual Host (VHOST) Configuration
+#### Virtual Host (VHOST) Configuration
 
 ```sh
 cd /etc/apache2/sites-available
@@ -262,15 +240,27 @@ a2ensite mean*
 service apache2 restart
 ```
 
-## LetsEncypt
-Create an install a cert from LetsEncrypt
-```sh
-## Install Certbot
-sudo apt install software-properties-common
-sudo add-apt-repository ppa:certbot/certbot
-sudo apt update
-sudo apt install python-certbot-apache
-```
+## Route 53
+
+[https://aws.amazon.com/route53/](https://aws.amazon.com/route53/)
+
+Amazon Route 53 is scalable cloud Domain Name System (DNS). This is amazons preferred way of connecting user request to infrastructures running in AWS.
+
+## Amazon S3
+
+[https://aws.amazon.com/s3/?nc2=h_m1](https://aws.amazon.com/s3/?nc2=h_m1)
+
+S3 is object storage built to store and retrieve any amount of data from anywhere. Its a secure, durable and scalable infrastructure. Amazon Free Tier provides free services of S3 up to 5GB of standard storage, 20,000 Get Requests and 2,000 Put Requests.
+
+#### S3 Setup
+
+1. Navigate Services tab for Amazon S3.
+2. Create Bucket.
+3. Set Bucket Index Page, Properties and Permissions.
+4. Start storing data such as static files( html, javascript, css ), photos, videos and etc.
+5. Access/Manage objects in bucket.
+
+A bucket is a flat container of objects and doesn't provide hierarchical organization. You can create hierarchy by using object key names that imply a folder structure. When you store data, you assign a unique object key that can later be used to retrieve the data. Object names are prefixed with folder names. Every folder created must have an index document at each level.
 
 ## RDS
 
