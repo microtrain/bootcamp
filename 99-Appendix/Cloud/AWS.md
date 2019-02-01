@@ -149,6 +149,65 @@ Be sure npm is setup globally
 sudo npm install npm -g
 ```
 
+### Add your GitHub Key
+[Generating a new SSH key and adding it to the ssh-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
+[Adding a new SSH key to your GitHub account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+
+### Clone your project
+
+```sh
+cd ~
+git clone [PATH-TO-GIHUB-PROJECT]
+```
+
+### Update Your Local App to Connect to the Sandbox
+
+Add a configuration file, since the repository is public create this outside of the repository. We will use Filezilla to transfer this file to the server.
+
+*~/config.prod.js*
+```js
+
+var config = {};
+config.session = {};
+config.cookie = {};
+
+config.mongodb = 'mongodb://USERNAME:PASSWORD@cluster0-shard-00-00-XXXXX.mongodb.net:27017,cluster0-shard-00-01-XXXXX.mongodb.net:27017,cluster0-shard-00-02-XXXXX.mongodb.net:27017/mean-cms?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin';
+
+//Create a high entropy secret, I would recomend something from https://www.grc.com/passwords.htm
+config.session.secret = ';7x,^SpXNq6*X9{9V4\?h:M3?tN96;lhuX_K@WM:]v~~@8V]KYgQ1[.T<uV0B)6';
+
+config.cookie.domain = 'your-new-domain.tld';
+
+module.exports = config;
+```
+
+Require the config file in app.js
+```js
+//Call the config file
+var config = require('../config.prod');
+```
+
+Load a config file base on enviromental variables
+```js
+if(process.env.NODE_ENV==='production'){
+  var config = require('../config.prod');
+}else{
+  var config = require('./config.dev');
+}
+```
+
+```sh
+# Added the ability to connect to either a dev or prod config
+git commit -a
+git push origin master
+```
+
+From your server
+```sh
+cd ~/mean.example.com
+git pull origin master
+```
+
 Install pm2
 ```sh
 sudo npm -g install pm2
