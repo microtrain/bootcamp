@@ -10,6 +10,7 @@ Install the angular shell
 sudo npm install -g @angular/cli
 cd ~
 ng new ng-apod
+cd ng-apod
 ng serve --open
 ```
 
