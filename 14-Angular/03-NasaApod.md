@@ -19,7 +19,7 @@ If your browser did not automatically open, open a browser an navigate to *[http
 Note the *src* directory this is the directory that runs the local webserver, the *app* directory is the location of your application code. Open the file */src/index.html*, this is an template. All the code executed from with in */src/app* is injected into the ```app-root``` tags of this page. Inside *app* the main files to focus on are *app.component.html*, *app.component.css*, and *app.component.ts*.
 
 * *app.component.html* - An HTML template for use by a component.
-* *app.component.css* - Style definitions for use by a component.
+* *app.component.scss* - Style definitions for use by a component.
 * *app.component.ts* - In Angular, code is broken down into components; the business logic of your app.
 
 ### Change the application's title
@@ -52,7 +52,7 @@ The _component decorator_ is where we create the relationship between components
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 ```
 
