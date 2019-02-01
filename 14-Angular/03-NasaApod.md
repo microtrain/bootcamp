@@ -33,7 +33,7 @@ export class AppComponent {
 
 //to
 export class AppComponent {
-  title = 'User Authentication';
+  title = 'NASA APOD';
 }
 ```
 
