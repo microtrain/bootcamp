@@ -10,7 +10,6 @@ Install the angular shell
 sudo npm install -g @angular/cli
 cd ~
 ng new ng-apod
-cd ng-auth
 ng serve --open
 ```
 
@@ -55,10 +54,6 @@ The _component decorator_ is where we create the relationship between components
   styleUrls: ['./app.component.scss']
 })
 ```
-
-## Create a Users App
-
-## Create a CMS App
 
 ## Labs
 
