@@ -1,6 +1,6 @@
 # NASA - Astronomy Picture of the Day
 
-## Create a Authentication App.
+## Create a a APOD App.
 
 This app will allow a user to login and out of your ExpressJS app using an Angular application that connects to the API.
 
