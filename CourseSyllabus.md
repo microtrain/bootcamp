@@ -64,7 +64,7 @@ This provides free online learning for various topics. This is mostly included a
 #### Programming Basics  ~1 day
 * Shell Scripting with Bash
 
-#### Introduction to Web  ~3-5 days
+#### Introduction to Web  ~3 days
 * The Anatomy of a URL
 * HTML
  * Intorduction to HTML
