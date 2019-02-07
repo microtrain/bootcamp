@@ -95,7 +95,7 @@ sudo vim /etc/environment
 add the following lines, the first is for Gradle, the others you will need later so add them now. Replace *YOUR_USER_NAME* with the user name you use to login to your system.
 
 ```sh
-export PATH=$PATH:/opt/gradle/gradle-4.10.2/bin
+export PATH=$PATH:/opt/gradle/gradle-5.2/bin
 export ANDROID_HOME=/home/$USER/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ```
