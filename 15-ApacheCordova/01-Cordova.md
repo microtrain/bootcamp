@@ -92,7 +92,7 @@ Open the _environment_ file
 sudo vim /etc/environment
 ```
 
-add the following lines, the first is for Gradle, the others you will need later so add them now. Replace *YOUR_USER_NAME* with the user name you use to login to your system.
+add the following lines, the first is for Gradle, the others you will need later so add them now.
 
 ```sh
 export PATH=$PATH:/opt/gradle/gradle-5.2/bin
