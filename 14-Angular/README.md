@@ -10,7 +10,7 @@ A component provides the UI and business logic (or as I like to say a componet m
 
 In Angular, a service interacts with a datasource, typicallly an API (though this could also interact with local storage, a front-end database, or something to effect. This serves a wrapper to a datasource that you will access from a component. A component would interact with a service, never directly with a datasource.
 
-As a toolkit, Angula makes it easy to build web, mobile, or the desktop applications with using web technology. Angular combines TypeScript, design patterns and auto-bundling (think automated gulp) to compile, transpile and package front end assets in realtime. Angular is a CLI based application that runs a dev server on port 4200. Once you're satisfied with your project it can be packaged into a distribution package consisting of HTML, CSS and JavaScript.
+As a toolkit, Angular makes it easy to build web, mobile, or the desktop applications with using web technology. Angular combines TypeScript, design patterns and auto-bundling (think automated gulp) to compile, transpile and package front end assets in realtime. Angular is a CLI based application that runs a dev server on port 4200. Once you're satisfied with your project it can be packaged into a distribution package consisting of HTML, CSS and JavaScript.
 
 In this chapter we will
 
