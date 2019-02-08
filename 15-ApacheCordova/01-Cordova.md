@@ -143,6 +143,11 @@ Click on the _x86 images_ tab and choose _Nougat 25 x86_64_ (Download if require
 Choose the default options from the AVD screen and click _Finish_
 From the _Your Virtual Devices_ dialog click the green arrow beside our new device.
 
+Allow yourself permissions to the emulator
+```sh
+sudo chown $USER:$USER /dev/kvm 
+```
+
 ## Hello World
 
 Now let's get started with Cordova. We will start with the classic Hello World example. We will create our Hello World application is a package called hello. This will create a starter package with a few lines of source code to get your started.
