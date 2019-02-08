@@ -55,16 +55,16 @@ You will need to set your JAVA_HOME Environment Variable (so that running progra
 sudo update-alternatives --config java
 ```
 
-Now set the path using your favorite editor. In my case the path is at _/usr/lib/jvm/java-8-oracle/jre/bin/java_ so I will add this line ```JAVA_HOME="/usr/lib/jvm/java-8-oracle/jre/bin/java"``` to the environment file.
+Now set the path using your favorite editor. In my case the path is at _/usr/lib/jvm/java-8-oracle/jre/bin/java_ so I will add this line ```JAVA_HOME="/usr/lib/jvm/java-8-oracle"``` to the environment file.
 
 ```sh
-sudo vim /etc/environment
+vim ~/.bashrc
 ```
 
 Once you have added the that line, you will want to reload the file.
 
 ```sh
-source /etc/environment
+source ~/.bashrc
 ```
 
 ```sh
@@ -89,7 +89,7 @@ sudo unzip -d /opt/gradle gradle-5.2-bin.zip
 Open the _environment_ file
 
 ```sh
-sudo vim /etc/environment
+vim ~/.bashrc
 ```
 
 add the following lines, the first is for Gradle, the others you will need later so add them now.
@@ -102,7 +102,7 @@ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 ### Restart environment
 ```sh
-source /etc/environment
+source ~/.bashrc
 ```
 
 Install additional 32 bit libraries
