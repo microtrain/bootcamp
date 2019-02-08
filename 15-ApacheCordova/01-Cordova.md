@@ -55,7 +55,7 @@ You will need to set your JAVA_HOME Environment Variable (so that running progra
 sudo update-alternatives --config java
 ```
 
-Now set the path using your favorite editor. In my case the path is at _/usr/lib/jvm/java-8-oracle/jre/bin/java_ so I will add this line ```JAVA_HOME="/usr/lib/jvm/java-8-oracle"``` to the environment file.
+Now set the path using your favorite editor. In my case the path is at _/usr/lib/jvm/java-8-oracle/jre/bin/java_ so I will add this line ```JAVA_HOME="/usr/lib/jvm/java-8-oracle"``` to the .bashrc file.
 
 ```sh
 vim ~/.bashrc
