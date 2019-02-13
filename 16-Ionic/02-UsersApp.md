@@ -9,14 +9,20 @@ ionic serve --lab
 ```
 ## Add the Authentication logic from the ionicAuth app
 
+1. Import the AuthProvider (aka Service in Angular)
+2. Import the User schema/model
+3. Declare users as an Array containing user objects
+4. Inject the AuthProvider
+5. Create a wrapper for the users provider
+6. call the getUsers() wrapper
+
 ## Create a users page and wire it into navigation.
 
 1. Import the UserProvider (aka Service in Angular)
-2. Import the User schema/model
-3. Declare users as an Array containing user objects
-4. Inject the UserProvider
-5. Create a wrapper for the users provider
-6. call the getUsers() wrapper
+2. Declare users as an Array containing user objects
+3. Inject the UserProvider
+4. Create a wrapper for the users provider
+5. call the getUsers() wrapper
 
 ```sh
 ionic generate page users
