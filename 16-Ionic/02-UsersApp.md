@@ -1,9 +1,13 @@
 # Users App
 
 ```sh
-ionic start ionic-cms sidemenu
-ionic serve
+ionic start ionicUsers sidemenu
+git remote add origin git@github.com:GITHUBUSERNAME/ionicUsers.git
+git push origin master
+ionic serve --lab
+# Answer yes to install Ionic lab
 ```
+## Add the Authentication logic from the ionicAuth app
 
 ## Create a users page and wire it into navigation.
 
