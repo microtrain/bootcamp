@@ -8,6 +8,33 @@
 
 The entity at the end of a connection.
 
+## Database
+
+1. A data store. 
+2. A collection of files or data that can be queried by an external entity. This may be a software or human.
+
+examples:
+
+1. A collection CSV files such those used in MySQL. 
+2. A collection of JSON objects such as those used in MongoDB. 
+3. A card catalog such as those once used at a local library.
+
+## Data store 
+
+A collection of data typically stored in a file structure.
+
+1. A collection CSV files. 
+2. A collection of JSON objects. 
+3. A traditional filing cabinet (Yes - drawers, folders and paper).
+4. An in-memory data structure such as Redis.
+
+## DBMS
+
+1. Database Management System
+2. Software aimed at managing a data store.
+
+ex. MongoDB, Windows Registry, any software that can interact with flat files (.csv, .xml, json, etc).
+
 ## Full Stack
 
 A reference to both the front and back end of a web site, this generally inclusive the presentation, data and logic layers. Some "stacks" such as LAMP include OS and server software while others such as MEAN focuses on higher level tech. 
@@ -26,6 +53,12 @@ Mobile applications that are written using web technologies (HTML, CSS and JavaS
 
 An Integrated Development Environment (IDE) is a text editor with special features for writing code. These features may include syntax highlighting, code completion, auto styling, test and debug suites, version control helpers, etc.
 
+## Interpolation
+
+The injection of a thing into a different type of thing. 
+
+ex. The injection of a TypeScript variable into an HTML file.
+
 ## LAMP
 
 A technology stack consisting of Linux, Apache, PHP and MySQL. Some definitions my include Perl and/or Python.
@@ -40,6 +73,16 @@ MVC is a common architecture/pattern consisting pf three layers.
     * Model - The data layer. This could provide connections to an API, database, csv file,etc.
     * Controller - Business/control logic.
     * View - The presentation layer. This could be a web page, json output, a pdf, spreadsheet, etc.
+
+## MySQL
+
+An open source RDBMS currently under the control of Oracle.
+
+#RDBMS
+
+Software aimed at managing a data store consisting of relation data.
+
+ex. MySQL, Postgres, Oracle, SQL Server
 
 ## URI
 
