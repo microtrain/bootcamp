@@ -113,10 +113,111 @@ All components have a component decorator _component decorator_ is where we crea
 ### Classes
 All Angular components export a class. This class contains the business logic that powers a given component. This logic affects the _*.component.html_ file that is defined by _templateUrl_ in the component decorator.
 
-````ts
+```ts
 export class AppComponent {
-  title = 'NASA APOD';
+  //A public variable available for interpolation
+  title:string = 'NASA APOD';
+
+  //A private variable not available for interpolation
+  private temp:string;;
+
+  //A public method accessible from the html file
+  setTemp(val): void{
+    this.temp = val;
+  }
+
+  //A private method not accessible from the html file
+  private process(): boolean{
+    let x:boolean=false;
+    if(this.temp == 'sunshine'){
+      x=true;
+    }
+    return x;
+  }
 }
+```
+
+## The Apod component
+
+Reusable components based on the single responsibility principle are the basis for Angular. Ideally, a component is a self contained unit of executable code focused on a single task. We will create an Apod component geared towards displaying a given result from the APOD API. We will create our first component using the Angular CLI. This command will create a directory with four files and modify the *app.module.ts* file.
+
+```sh
+ng generate component apod
+```
+
+The output will be as follows.
+![Create 4 files](/img/ng/gen-component.png)
+
+We created a component called apod consisting of four files. These files will be written to a new directory *src/app/apod*
+
+* apod.component.html - All HTML for a given component.
+* apod.component.ts - The business logic that controls a components html file. 
+* apod.component.scss - All styles that are unique to a given component.
+* apod.component.spec.ts - Provides a unit testing for a given component.
+
+Commit your changes
+```
+# Generate an Apod component
+git add .
+git commit -a
+```
+
+## Routing
+
+We want our Apod component to load by default when we start the app. To do this we will utilize routing. The file *app-routing.module.ts* controls routing and was created for us when we generated the application shell. On creation the file is as follows.
+
+*src/app/app-routing.module.ts*
+```ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+const routes: Routes = [];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+To create a route you will need to import the component you want to route to, add the path that will trigger a give route, and in our case redirect an empty route to a defined route.
+
+```ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+// 1. import the component to which you want to redirect.
+import { ApodComponent } from './apod/apod.component';
+
+const routes: Routes = [
+  //3. redirect an empty route to a given path
+  { path: '', redirectTo: '/apod', pathMatch: 'full'},
+  // 2. Define the path that will load a given component
+  { path: 'apod', component: ApodComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+The app component always loads and the app loads in to a given selector in *app.component.html*. Routes always load into a selector called *router-outlet* which was created when we generated the app. Open *app.component.html* and remove everything with the exception of the router-outlet selector.
+
+*src/app/app.component.html*
+```html
+<router-outlet></router-outlet>
+```
+
+At this point navigating to *[http://localhost:4200](http://localhost:4200)* will load the following page.
+![Apod Works](/img/ng/apod-works.png)
+
+Commit your changes
+```sh
+# Add apod routing
+git add .
+git commit -a
 ```
 
 
