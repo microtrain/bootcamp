@@ -260,7 +260,8 @@ ng generate service api/apod
 ```
 
 The output will be as follows.
-![Apod Works](/img/ng/apod-works.png)
+
+![Generate a Service](/img/ng/gen-service.png)
 
 We created a service called apod which created two files. These files will be written to a new directory *src/app/api*
 
