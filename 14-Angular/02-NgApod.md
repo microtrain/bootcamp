@@ -1036,6 +1036,101 @@ git add .
 git commit -a
 ```
 
+## Build a production package
+
+Find the file *src/angular.json* and follow the JSON objects the tree until you get to your build options *project > architect > build > options*.
+
+Update your build options as follows.
+
+* add a new option ```"baseHref": "/ng-apod/",```
+* change the outputPath ```"outputPath": "/var/www/ng-apod",```
+
+Changing the output path will allow the build process to write the distibution package to any directory you want. You could write this into the webroot of an exisiting project or simply write it to the webroot of your local server as demonstrated below. 
+
+```json
+"options": {
+  "baseHref": "/ng-apod/",
+  "outputPath": "/var/www/ng-apod",
+  "..."
+}
+```
+
+Now use the Angular CLI to build a production package.
+
+```sh
+ng build --prod
+```
+
+Navigating to [http://localhost/ng-apod](http://localhost/ng-apod) will show a working application.
+
+
+Commit your changes
+```sh
+# Build a production package
+git add .
+git commit -a
+```
+
+## Add deep links
+
+As I said, navigating to [http://localhost/ng-apod](http://localhost/ng-apod) will show a working application. Clicking on the Random button will show a random APOD. Refreshing the URL will show a Page Not Found error. The question noe is why does it stop working? This is because Apache is looking for a file structure. When you navigate to */ng-apod* the server loads */ng-apod/index.html* which inturn loads the Angular application. Clicking the Random button changes the URL, the app detects the change in URL and reads in the date params. This all happens in JavaScript once the Angular application is up and running, the page never reloads, thus it does not make a new HTTP request. Once I reload the page, the browser requests /ng-apod/apod/2013-06-06 and since this is a full HTTP request Apache tries to resolve the full path looking for an index.html file under a directory called 2013-06-06. This bypasses /ng-apod/index.html meaning the Angular app never has a chance to load. We can resolve this by adding a HasStrategy to our routes. Instead of /ng-apod/apod/2013-06-06 we will route to /ng-apod/#/apod/2013-06-06. The server cannot read the hash tag or anything after it, this means we can deep link into the app and always load /ng-apd/index.html. The good news we can do this with only two lines of code.
+
+* ```import { LocationStrategy, HashLocationStrategy } from '@angular/common';```
+* Add the following declaration to your providers list ```{ provide: LocationStrategy, useClass: HashLocationStrategy }```
+
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+//Import LocationStrategy, HashLocationStrategy
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ApodComponent } from './apod/apod.component';
+
+import { SafePipeModule } from 'safe-pipe';
+
+import { NgApodConfig } from '../../../config/ng-apod.config';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ApodComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    SafePipeModule
+  ],
+  providers: [
+    NgApodConfig,
+    //Update your providers list
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+Rebuild the production app
+
+```sh
+ng build --prod
+```
+
+Now you will be able to deep link onto your app [http://localhost/ng-apod/#/apod/2010-07-07](http://localhost/ng-apod/#/apod/2010-07-07).
+
+Commit your changes
+```sh
+# Add hash strategy to your routing
+git add .
+git commit -a
+```
+
+
+
 Additional Resources
 
 * [Tour of Heros](https://angular.io/docs/ts/latest/tutorial/)
