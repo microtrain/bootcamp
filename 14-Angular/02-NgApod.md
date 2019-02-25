@@ -1041,4 +1041,4 @@ Additional Resources
 * [Tour of Heros](https://angular.io/docs/ts/latest/tutorial/)
 * [Angular Docs](https://angular.io/docs)
 
-[Next: Angular CMS](04-NgCMS/README.md)
+[Next: TOur of Heroes](03-TourOfHeroes.md)
