@@ -146,6 +146,7 @@ ng generate component apod
 ```
 
 The output will be as follows.
+
 ![Create 4 files](/img/ng/gen-component.png)
 
 We created a component called apod consisting of four files. These files will be written to a new directory *src/app/apod*
