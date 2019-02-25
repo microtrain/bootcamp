@@ -773,17 +773,266 @@ export class ApodComponent implements OnInit {
 }
 ```
 
+At this point if you were to ```console.log(this.apod)``` without passing a date into the URL you'll get an error. Inspecting this error will reveal undefined being passed as the date to the API. You can correct this in either the component or the service.
 
+*src/app/apod/apod.component.ts*
+```ts
+getApod(date:string): void{
 
+  //If the date is falsy, use today's date
+  if(!date){
+    date = new Date().toISOString().slice(0,10);
+  }
 
+  this.apodService.getApod(date).subscribe(
+    (response:any)=>{
+      this.apod = response;
+      this.date = this.randomDate(new Date(1995,5,16), new Date());
+      console.log(this.apod);
+    }
+  );
 
+}
+```
 
+Commit your changes
+```sh
+# Create a random date for each successful APOD
+git add .
+git commit -a
+```
 
 ## Build the initial view
 
+Now we can start building our view. At this point adding a interpolating apod.title into an h1 tag will display the APOD's title.
+
+```html
+<h1>{{ apod.title }}</h1>
+```
+
+However, the JS console will reveal an error stating apod.title is undefined.
+![Undefined Title](/img/ng/undefined-title.png)
+
+This is because of the asynchronous nature of JavaScript, the application is trying to build the view before the data is available (that's when it throws the error). Since we are subscribing to the data from an observable stream the application rebuilds the view when the data comes into scope. To prevent the undefined errors we can check for the existence of the data before trying to build the view. We can do this by Angular's if directive ```*ngIf="apod"``` to a containing element. Since 
+
+```html
+<main *ngIf="apod">
+  <h1>{{ apod.title }}</h1>
+</main>
+```
+
+```html
+<main *ngIf="apod">
+
+  <h1>{{ apod.title }}</h1>
+
+  <!-- 
+    Square brackets around an attribute creates a data binding. 
+    Anything inside of the double quotes after the equals sign
+    be treated as executable code.
+  -->
+  <img [src]="apod.url" [alt]="apod.title">
+
+  <div>
+    <!-- 
+      Only select images have a copyright, if apod.copyright is 
+      empty we will not attempt to show it
+    -->
+    <span *ngIf="apod.copyright">&copy; {{ apod.copyright }} </span>
+    {{ apod.date }}
+  </div>
+
+  <p>{{ apod.explanation }}</p>
+
+</main>
+```
 
 
+Commit your changes
+```sh
+# Display images and text descriptions
+git add .
+git commit -a
+```
 
+At this point we are able to display images but not video. We can use the media_type attribute to determine if we need to call ```img``` or ```iframe```. Navigate to [http://localhost:4200/apod/2013-06-06](http://localhost:4200/apod/2013-06-06) and you will see a missing/broken image. That is because the APOD for this date is a YouTube video and YouTube video are displayed in an ```iframe```.
+
+```html
+<main *ngIf="apod">
+
+  <h1>{{ apod.title }}</h1>
+
+  <!-- Only show the image element if the media_type is set to image -->
+  <img *ngIf="apod.media_type==='image'" [src]="apod.url" [alt]="apod.title">
+
+  <!-- Display and embed the YouTube video if the media_type is set to video -->
+  <iframe *ngIf="apod.media_type==='video'" [src]="apod.url" frameborder="0" allowfullscreen></iframe>
+
+  <div>
+    <span *ngIf="apod.copyright">&copy; {{ apod.copyright }} </span>
+    {{ apod.date }}
+  </div>
+
+  <p>{{ apod.explanation }}</p>
+
+</main>
+```
+
+Now instead of a broken image tag we have an empty block where the video would normally be. Our JS console shows a new error regarding unsafe resources.
+
+![Undefined Title](/img/ng/unsafe.png)
+
+Since iframes execute third party code they are generally considered unsafe, therefore Angular wants you to whitelist such sources prior to using them. You can read more about this feature by looking up the [DomSanitzer](https://angular.io/api/platform-browser/DomSanitizer). In short, you can write a [custom pipe](https://medium.com/@swarnakishore/angular-safe-pipe-implementation-to-bypass-domsanitizer-stripping-out-content-c1bf0f1cc36b) that will allow you to bypass the security settings. Fortunately this has already been done for us, it is called [safe-pipe](https://www.npmjs.com/package/safe-pipe) and we can install it from NPM.
+
+```sh
+npm install --save safe-pipe
+```
+
+When you install a pipe you must import that pipe from your app module.
+
+*src/app/app.module.ts*
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { ApodComponent } from './apod/apod.component';
+
+//Import the pipe from node_modules
+import { SafePipeModule } from 'safe-pipe';
+
+import { NgApodConfig } from '../../../config/ng-apod.config';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ApodComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    SafePipeModule //Add the pipe to your list of imports
+  ],
+  providers: [
+    NgApodConfig
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+Now simply piping the results of apod.url into the safe pipe will allow the video to display.
+```html
+<iframe *ngIf="apod.media_type==='video'" [src]="apod.url | safe: 'resourceUrl'" frameborder="0" allowfullscreen></iframe>
+```
+
+Commit your changes
+```sh
+# Add SafePipe for YouTube embeds
+git add .
+git commit -a
+```
+
+To wrap-up our functionality we will add the Random button to our page. Will do this by binding routerLink to a button. At this point pressing the random button will load a new APOD.
+
+```html
+<button *ngIf="date" [routerLink]="['/apod', this.date]">Random</button>
+```
+
+Commit your changes
+```sh
+# Add the Random button
+git add .
+git commit -a
+```
+
+## Style the app
+
+Start by wrapping the ```iframe``` in a div with an id of video. Then adding ```class="copy"``` to the copyright span.
+
+*src/app/apod/apod.component.html*
+```html
+<div id="video" *ngIf="apod.media_type==='video'">
+  <iframe [src]="apod.url | safe: 'resourceUrl'" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<div>
+  <span *ngIf="apod.copyright" class="copy">&copy; {{ apod.copyright }} </span>
+  {{ apod.date }}
+</div>
+```
+
+Update the scss file with the following.
+
+*src/app/apod/apod.component.scss*
+```scss
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+*{
+  font-family: 'Orbitron', sans-serif;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.3rem;
+}
+
+main{
+  width: 800px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+img{
+  width: 100%;
+  max-width: 100%;
+}
+
+button {
+  width: 100%;
+  display: block;
+  background: #ff1493;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  padding: 1rem 0;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.copy{
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+#video {
+	position: relative;
+	padding-bottom: 56.25%;
+	padding-top: 25px;
+	height: 0;
+}
+
+iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+```
+
+Commit your changes
+```sh
+# Style the app
+git add .
+git commit -a
+```
 
 Additional Resources
 
