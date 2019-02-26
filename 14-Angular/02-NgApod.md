@@ -1130,6 +1130,11 @@ git commit -a
 ```
 
 ## Progress Web App (PWA)
+
+A Progressive Web App (PWA) is an HTML5 application that can be installed on a mobile device without requiring the use of an app store. There are three core requirements for a PWA: a manifest file
+
+   
+
 https://angular.io/guide/service-worker-getting-started
 
 
@@ -1182,11 +1187,9 @@ Finally, change the title tag in the head of the HTML document to match the name
 
 With your mobile device and laptop on the same WIFI network. Run ```ifconfig``` to get your IP Address. From your device navigate to your laptops IP Address and click on the ng-apod folder.
 
-On Android you will be prompted to install the PWA.
-
-On IOS you can install a PWA by tapping the share icon followed by "Add to Home Screen".
-
-Once the PWA is installed it will behave like normal app.
+* On Android you will be prompted to install the PWA.
+* On IOS you can install a PWA by tapping the share icon followed by "Add to Home Screen".
+* Once the PWA is installed it will behave like normal app.
 
 Technically this app is running in offline mode meaning you do not need a connection to the server but you will need a connection to the internet in order to complete the API requests.
 
@@ -1197,9 +1200,16 @@ git add .
 git commit -a
 ```
 
-Additional Resources
+## Summary
+
+In this section you 
+* Learned the basics of Angular
+* Built an Angular application that interacts with an API
+* Packaged and Launched a PWA
+
+## Additional Resources
 
 * [Tour of Heros](https://angular.io/docs/ts/latest/tutorial/)
 * [Angular Docs](https://angular.io/docs)
 
-[Next: TOur of Heroes](03-TourOfHeroes.md)
+[Next: Tour of Heroes](03-TourOfHeroes.md)
