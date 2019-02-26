@@ -1129,7 +1129,73 @@ git add .
 git commit -a
 ```
 
+## Progress Web App (PWA)
+https://angular.io/guide/service-worker-getting-started
 
+
+```sh
+ng add @angular/pwa
+```
+
+Update *manifest.json*
+
+*src/manifest.json*
+```json
+  "name": "NASA APOD",
+  "short_name": "NASA",
+  "theme_color": "#1976d2",
+  "background_color": "#fafafa",
+  "display": "standalone",
+  "scope": "/ng-apod/",
+  "start_url": "index.html",
+```
+
+
+Add Apple Touch Icons
+
+The PWA tool we just ran creates a few icons and creates a manifest that will load these icon where applicable. Sadly, Safari does not yet support loading icons from a manifest. If you want your PWA to load the proper icon on IOS then you will need to add a few ```apple-touch-icon``` tags to the head of your HTML document. You could create new icons, each perfectly sized to every apple device, or you ballpark it and scale down using the images we have. Either option is fine in my opinion. I recocmend the following thread [Is there any need for the 6 different apple-touch icons when just one will work?](https://github.com/h5bp/html5-boilerplate/issues/1367). PWA BUilder offers a free [App Image Generator](https://www.pwabuilder.com/imageGenerator) should you want to create every possible icon for all devices. I recommend running the at least once and exam the assets to get a real feel for all the different devices out there.
+
+Place the following in the head of *src/index.html*
+
+*src/index.html*
+```html
+  <!-- iPhone(first generation or 2G), iPhone 3G, iPhone 3GS -->
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/icons/icon-72x72.png">
+  <!-- iPad and iPad mini @1x -->
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/icons/icon-96x96.png">
+  <!-- iPhone 4, iPhone 4s, iPhone 5, iPhone 5c, iPhone 5s, iPhone 6, iPhone 6s, iPhone 7, iPhone 7s, iPhone8 -->
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/icons/icon-128x128.png">
+  <!-- iPad and iPad mini @2x -->
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/icon-192x192.png">
+  <!-- iPad Pro -->
+  <link rel="apple-touch-icon" sizes="167x167" href="assets/icons/icon-192x192.png">
+  <!-- iPhone X, iPhone 8 Plus, iPhone 7 Plus, iPhone 6s Plus, iPhone 6 Plus -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/icon-192x192.png">
+```
+
+Finally, change the title tag in the head of the HTML document to match the name element.
+
+*src/index.html*
+```html
+  <title>NASA Apod</title>
+```
+
+With your mobile device and laptop on the same WIFI network. Run ```ifconfig``` to get your IP Address. From your device navigate to your laptops IP Address and click on the ng-apod folder.
+
+On Android you will be prompted to install the PWA.
+
+On IOS you can install a PWA by tapping the share icon followed by "Add to Home Screen".
+
+Once the PWA is installed it will behave like normal app.
+
+Technically this app is running in offline mode meaning you do not need a connection to the server but you will need a connection to the internet in order to complete the API requests.
+
+Commit your changes
+```sh
+# Package your app as a PWA
+git add .
+git commit -a
+```
 
 Additional Resources
 
