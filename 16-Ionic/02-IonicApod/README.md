@@ -96,6 +96,7 @@ Update the routes array the app-routing module. Then remove the home directory *
 const routes: Routes = [
   { path: '', redirectTo: 'apod', pathMatch: 'full' },
   { path: 'apod', loadChildren: './apod/apod.module#ApodPageModule' },
+  { path: 'apod/:date', loadChildren: './apod/apod.module#ApodPageModule' },
 ];
 ```
 
@@ -162,4 +163,109 @@ export class ApodPage {
   }
 
 }
+```
+
+Install the SafePipeModule from NPM
+```sh
+npm install safe-pipe --save
+```
+
+*src/app/app.module.ts*
+```ts
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+
+import { IonicModule } from '@ionic/angular';
+
+import { ApodPage } from './apod.page';
+
+import { SafePipeModule } from 'safe-pipe';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: ApodPage
+  }
+];
+
+@NgModule({
+  imports: [
+    CommonModule,
+    FormsModule,
+    IonicModule,
+    SafePipeModule,
+    RouterModule.forChild(routes)
+  ],
+  declarations: [ApodPage]
+})
+export class ApodPageModule {}
+```
+
+```ts
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouteReuseStrategy } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+
+import { NgApodConfig } from '../../../config/ng-apod.config';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
+@NgModule({
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    NgApodConfig,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+```html
+<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="apod">{{ apod.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="apod"> 
+    <ion-button style="margin:0;" expand="full" size="large" [routerLink]="['/apod', date]">Random</ion-button>
+    <ion-img *ngIf="apod.media_type=='image'" [src]="apod.url" alt="{{ apod.title }}"></ion-img>
+    <div id="apodVideo" *ngIf="apod.media_type=='video'">
+      <iframe [src]="apod.url | safe: 'resourceUrl'" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <ion-card-header>
+      <ion-card-subtitle>
+        <span *ngIf="apod.copyright">&copy; {{  apod.copyright }},</span>
+        {{ apod.date | date }}
+      </ion-card-subtitle>
+      <ion-card-title>{{ apod.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      {{ apod.explanation }}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
 ```
