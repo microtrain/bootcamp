@@ -18,7 +18,7 @@ Node: 10.14.1
 OS: linux x64
 ```
 
-Create a new Angular project.
+[</> Code](https://github.com/microtrain/ng-apod/commit/c006f06a81ccb512631723bcaa30b9feb9f84b30) Create a new Angular project.
 ```sh
 cd ~
 ng new ng-apod
@@ -41,9 +41,15 @@ Note the *src* directory this is the directory that runs the local webserver, th
 * *app.component.scss* - Style definitions for use by a component.
 * *app.component.ts* - In Angular, code is broken down into components; the business logic of your app.
 
+There is no need to commit your changes, Angular automatically creates the first commit. You can verify this by running ```git status```
+
+```sh
+git status
+```
+
 ## Change the Application's Title
 
-Open *src/app/app.component.ts* and change the value of the ```title``` variable. In Angular every *.html* file has a corresponding *.ts*. The *.ts* file would execute like the JavaScript called at the bottom of a normal *.html* page.
+[</> Code](https://github.com/microtrain/ng-apod/commit/93b11d4e6f6d81888597eb93accb23c445e7dee8) Open *src/app/app.component.ts* and change the value of the ```title``` variable. In Angular every *.html* file has a corresponding *.ts*. The *.ts* file would execute like the JavaScript called at the bottom of a normal *.html* page.
 
 ```ts
 export class AppComponent {
@@ -139,7 +145,7 @@ export class AppComponent {
 
 ## The Apod component
 
-Reusable components based on the single responsibility principle are the basis for Angular. Ideally, a component is a self contained unit of executable code focused on a single task. We will create an Apod component geared towards displaying a given result from the APOD API. We will create our first component using the Angular CLI. This command will create a directory with four files and modify the *app.module.ts* file.
+[</> code](https://github.com/microtrain/ng-apod/commit/93b11d4e6f6d81888597eb93accb23c445e7dee8) Reusable components based on the single responsibility principle are the basis for Angular. Ideally, a component is a self contained unit of executable code focused on a single task. We will create an Apod component geared towards displaying a given result from the APOD API. We will create our first component using the Angular CLI. This command will create a directory with four files and modify the *app.module.ts* file.
 
 ```sh
 ng generate component apod
@@ -165,7 +171,7 @@ git commit -a
 
 ## Routing
 
-We want our Apod component to load by default when we start the app. To do this we will utilize routing. The file *app-routing.module.ts* controls routing and was created for us when we generated the application shell. On creation the file is as follows.
+[</> code](https://github.com/microtrain/ng-apod/commit/f621008cbb4d477b826bbf605d5190f9442c213b) We want our Apod component to load by default when we start the app. To do this we will utilize routing. The file *app-routing.module.ts* controls routing and was created for us when we generated the application shell. On creation the file is as follows.
 
 *src/app/app-routing.module.ts*
 ```ts
@@ -222,7 +228,7 @@ git commit -a
 ```
 
 ## Model the Apod data
-TypeScript is all about data types. We are getting a data object back from the API and we will use that to create a data object. This data object will be of type Apod, for this to work we will need to define the properties of the Apod object. You can get all of the fields in the data object by making a curl request to the  endpoint or checking the API documentation.
+[</> code](https://github.com/microtrain/ng-apod/commit/f621008cbb4d477b826bbf605d5190f9442c213b) TypeScript is all about data types. We are getting a data object back from the API and we will use that to create a data object. This data object will be of type Apod, for this to work we will need to define the properties of the Apod object. You can get all of the fields in the data object by making a curl request to the  endpoint or checking the API documentation.
 
 ```sh
 curl https://api.nasa.gov/planetary/apod?api_key=xxxxx
@@ -253,7 +259,7 @@ git commit -a
 ```
 
 ## Create a service
-In Angular, data is accessed through service providers (a service). Services are used asa data access layer. This is where you will make a call to an API or a databases. Your components will never interact directly with a datasource; interaction is the job of the service. Since we are dealing with an API I will add my service to a directory called api. We will do this using the Angular CLI.
+[</> code](https://github.com/microtrain/ng-apod/commit/f621008cbb4d477b826bbf605d5190f9442c213b) In Angular, data is accessed through service providers (a service). Services are used asa data access layer. This is where you will make a call to an API or a databases. Your components will never interact directly with a datasource; interaction is the job of the service. Since we are dealing with an API I will add my service to a directory called api. We will do this using the Angular CLI.
 
 ```sh
 ng generate service api/apod
@@ -291,7 +297,7 @@ git commit -a
 
 ## Connect to the service
 
-We have created a service, the next thing we will want to do is connect to it. I like to create create a simple method and connect to the service prior to implementing the details. This will make debugging the implementation details easier as I know the issue does not lie in connecting to the service. We will start by creating a method called ```getApod()``` that returns *Hello World*.
+[</> code](https://github.com/microtrain/ng-apod/commit/f621008cbb4d477b826bbf605d5190f9442c213b) We have created a service, the next thing we will want to do is connect to it. I like to create create a simple method and connect to the service prior to implementing the details. This will make debugging the implementation details easier as I know the issue does not lie in connecting to the service. We will start by creating a method called ```getApod()``` that returns *Hello World*.
 
 A method signature in Angular/TypeScript is as follows.
 * method name - getApod
@@ -364,7 +370,7 @@ git commit -a
 
 ## Secure your NASA key
 
-Again, never push an API key to a public repository. To do this we will create a .ts file with and export class from which we will export the key as a property of the class.
+[</> code](https://github.com/microtrain/ng-apod/commit/a0ca4c099c8f5d85973f7c2260a0ffd99a650392) Again, never push an API key to a public repository. To do this we will create a .ts file with and export class from which we will export the key as a property of the class.
 
 *~/config/ng-apod.config.ts*
 ```ts
@@ -406,7 +412,7 @@ import { NgApodConfig } from '../../../config/ng-apod.config';
 export class AppModule { }
 ```
 
-## Call the config file
+### Call the config file
 
 We will then need to call the config file from our apod service.
 
@@ -445,7 +451,7 @@ git commit -a
 
 ## Connect to the API
 
-We are ready to connect to the API. The following steps are required to make this work.
+[</> code](https://github.com/microtrain/ng-apod/commit/7702cc40f7d963a90ad25919ef3fd8895d831e6e) We are ready to connect to the API. The following steps are required to make this work.
 
 * Make an HTTP connection
 * Create an observable data stream
@@ -564,7 +570,7 @@ git commit -a
 
 ## Refactor the component
 
-Refactor the component and load the results into an instance variable.
+[</> code](https://github.com/microtrain/ng-apod/commit/7702cc40f7d963a90ad25919ef3fd8895d831e6e) Refactor the component and load the results into an instance variable.
 
 * Import the Apod model.
 * Create the instance variable ```apod:Apod```.
@@ -606,7 +612,7 @@ export class ApodComponent implements OnInit {
 
 ## Route to a given date
 
-Now that we can return the today's APOD we will want to be able to provide a date. We will use a parameterized route to pass to pass a date to the API. 
+[</> code](https://github.com/microtrain/ng-apod/commit/7702cc40f7d963a90ad25919ef3fd8895d831e6e) Now that we can return the today's APOD we will want to be able to provide a date. We will use a parameterized route to pass to pass a date to the API. 
 
 
 We will start by modifying the method signature of ```ApodService.getApod()``` to accept a date string. That date string will then be passed into the API call. 
@@ -641,7 +647,7 @@ git add .
 git commit -a
 ```
 
-Now that the API can accept a date, we will use routing to pass a date to the API. Starting in app routing module add a parameterized route ```{ path: 'apod/:date', component: ApodComponent }``` to the routes array. This will allow us to pass a date into the URL.
+[</> code](https://github.com/microtrain/ng-apod/commit/7702cc40f7d963a90ad25919ef3fd8895d831e6e) Now that the API can accept a date, we will use routing to pass a date to the API. Starting in app routing module add a parameterized route ```{ path: 'apod/:date', component: ApodComponent }``` to the routes array. This will allow us to pass a date into the URL.
 *src/app/app-routing.module.ts*
 ```ts
 const routes: Routes = [
@@ -713,7 +719,7 @@ Commit your changes
 git add .
 git commit -a
 ```
-Finally we will want the  the user to be able to multiple APODs. We will do this by providing a random date button in the applications UI. To accomplish this we will pass a random date into the a routerLink attached to the button. We will create a random date every time a new APOD loads and make that date available to the view. 
+[</> code](https://github.com/microtrain/ng-apod/commit/2a56d6d87bee367de8da1a316b58d0ecfb8248cd) Now we will want the  the user to be able to multiple APODs. We will do this by providing a random date button in the applications UI. To accomplish this we will pass a random date into the a routerLink attached to the button. We will create a random date every time a new APOD loads and make that date available to the view. 
 
 * Create date as an instance variable
 * Create a method that returns a random date
@@ -806,7 +812,7 @@ git commit -a
 
 ## Build the initial view
 
-Now we can start building our view. At this point adding a interpolating apod.title into an h1 tag will display the APOD's title.
+[</> code](https://github.com/microtrain/ng-apod/commit/f4d197b6b679b398200d54e698859a6b4b29e3cd) Now we can start building our view. At this point adding a interpolating apod.title into an h1 tag will display the APOD's title.
 
 ```html
 <h1>{{ apod.title }}</h1>
@@ -857,7 +863,9 @@ git add .
 git commit -a
 ```
 
-At this point we are able to display images but not video. We can use the media_type attribute to determine if we need to call ```img``` or ```iframe```. Navigate to [http://localhost:4200/apod/2013-06-06](http://localhost:4200/apod/2013-06-06) and you will see a missing/broken image. That is because the APOD for this date is a YouTube video and YouTube video are displayed in an ```iframe```.
+### SafePipe
+
+[</> code](https://github.com/microtrain/ng-apod/commit/f4d197b6b679b398200d54e698859a6b4b29e3cd) At this point we are able to display images but not video. We can use the media_type attribute to determine if we need to call ```img``` or ```iframe```. Navigate to [http://localhost:4200/apod/2013-06-06](http://localhost:4200/apod/2013-06-06) and you will see a missing/broken image. That is because the APOD for this date is a YouTube video and YouTube video are displayed in an ```iframe```.
 
 ```html
 <main *ngIf="apod">
@@ -938,7 +946,9 @@ git add .
 git commit -a
 ```
 
-To wrap-up our functionality we will add the Random button to our page. Will do this by binding routerLink to a button. At this point pressing the random button will load a new APOD.
+
+## Add a random button
+[</> code](https://github.com/microtrain/ng-apod/commit/e2da3484bfdaa46a73b6d5eb3b47035cc2d58809) To wrap-up our functionality we will add the Random button to our page. Will do this by binding routerLink to a button. At this point pressing the random button will load a new APOD.
 
 ```html
 <button *ngIf="date" [routerLink]="['/apod', this.date]">Random</button>
@@ -953,7 +963,7 @@ git commit -a
 
 ## Style the app
 
-Start by wrapping the ```iframe``` in a div with an id of video. Then adding ```class="copy"``` to the copyright span.
+[</> code](https://github.com/microtrain/ng-apod/commit/3e4d5e228f6708ba83569a7f9645dc77479c63b7) Start by wrapping the ```iframe``` in a div with an id of video. Then adding ```class="copy"``` to the copyright span.
 
 *src/app/apod/apod.component.html*
 ```html
@@ -1038,7 +1048,7 @@ git commit -a
 
 ## Build a production package
 
-Find the file *src/angular.json* and follow the JSON objects the tree until you get to your build options *project > architect > build > options*.
+[</> code](https://github.com/microtrain/ng-apod/commit/2a50006ba0489c102a7cf4829830d77ae5f09a03) Find the file *src/angular.json* and follow the JSON objects the tree until you get to your build options *project > architect > build > options*.
 
 Update your build options as follows.
 
@@ -1073,7 +1083,7 @@ git commit -a
 
 ## Add deep links
 
-As I said, navigating to [http://localhost/ng-apod](http://localhost/ng-apod) will show a working application. Clicking on the Random button will show a random APOD. Refreshing the URL will show a Page Not Found error. The question noe is why does it stop working? This is because Apache is looking for a file structure. When you navigate to */ng-apod* the server loads */ng-apod/index.html* which inturn loads the Angular application. Clicking the Random button changes the URL, the app detects the change in URL and reads in the date params. This all happens in JavaScript once the Angular application is up and running, the page never reloads, thus it does not make a new HTTP request. Once I reload the page, the browser requests /ng-apod/apod/2013-06-06 and since this is a full HTTP request Apache tries to resolve the full path looking for an index.html file under a directory called 2013-06-06. This bypasses /ng-apod/index.html meaning the Angular app never has a chance to load. We can resolve this by adding a HasStrategy to our routes. Instead of /ng-apod/apod/2013-06-06 we will route to /ng-apod/#/apod/2013-06-06. The server cannot read the hash tag or anything after it, this means we can deep link into the app and always load /ng-apd/index.html. The good news we can do this with only two lines of code.
+[</> code](https://github.com/microtrain/ng-apod/commit/06eb8b4a9994a012982263d7d1c1e7b3cd678c7c) As I said, navigating to [http://localhost/ng-apod](http://localhost/ng-apod) will show a working application. Clicking on the Random button will show a random APOD. Refreshing the URL will show a Page Not Found error. The question noe is why does it stop working? This is because Apache is looking for a file structure. When you navigate to */ng-apod* the server loads */ng-apod/index.html* which inturn loads the Angular application. Clicking the Random button changes the URL, the app detects the change in URL and reads in the date params. This all happens in JavaScript once the Angular application is up and running, the page never reloads, thus it does not make a new HTTP request. Once I reload the page, the browser requests /ng-apod/apod/2013-06-06 and since this is a full HTTP request Apache tries to resolve the full path looking for an index.html file under a directory called 2013-06-06. This bypasses /ng-apod/index.html meaning the Angular app never has a chance to load. We can resolve this by adding a HasStrategy to our routes. Instead of /ng-apod/apod/2013-06-06 we will route to /ng-apod/#/apod/2013-06-06. The server cannot read the hash tag or anything after it, this means we can deep link into the app and always load /ng-apd/index.html. The good news we can do this with only two lines of code.
 
 * ```import { LocationStrategy, HashLocationStrategy } from '@angular/common';```
 * Add the following declaration to your providers list ```{ provide: LocationStrategy, useClass: HashLocationStrategy }```
@@ -1131,7 +1141,7 @@ git commit -a
 
 ## Progress Web App (PWA)
 
-A Progressive Web App (PWA) is an HTML5 application that can be installed on a mobile device without requiring the use of an app store. There are three core requirements for a PWA: a manifest file
+[</> code](https://github.com/microtrain/ng-apod/commit/fcb68b8cfd524a3122d57517216d576b1cb20310) A Progressive Web App (PWA) is an HTML5 application that can be installed on a mobile device without requiring the use of an app store. There are three core requirements for a PWA: a manifest file
 
    
 
@@ -1195,7 +1205,7 @@ Technically this app is running in offline mode meaning you do not need a connec
 
 Commit your changes
 ```sh
-# Package your app as a PWA
+# Package the app as a PWA
 git add .
 git commit -a
 ```
