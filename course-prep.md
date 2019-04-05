@@ -13,7 +13,7 @@ While this course is designed to go from zero to dev the more you know comming i
 ## Linux
 * [CompTIA Linux+ Certification Online Training Series](https://www.careeracademy.com/page/LinPlus_Series)
 
-##Cloud
+## Cloud
 * [CompTIA Cloud+ Basic Online Training Series](https://www.careeracademy.com/page/LNOCLDC_Series)
 * [Amazon Web Services : Basic Online Training Series](https://www.careeracademy.com/page/AWSP1_Series)
 * [Amazon Web Services: Intermediate Online Training Series](https://www.careeracademy.com/page/AWSP2_Series)
