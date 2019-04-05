@@ -2,7 +2,7 @@
 
 While this course is designed to go from zero to dev the more you know comming in the better. Running through the following Career Academy Courses will better prepare you to absorb the classroom material.
 
-## Web Dev
+## Web Development
 * [Introduction to Web Design Online Training Series](https://www.careeracademy.com/page/IWD_Series)
 * [HTML5 and CSS3 Fundamentals Online Training Series](https://www.careeracademy.com/page/HTML5_Series)
 * [Fundamentals of Javascript Online Training Series](https://www.careeracademy.com/page/FundJava_Series)
