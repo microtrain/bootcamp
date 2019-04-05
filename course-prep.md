@@ -1,23 +1,25 @@
 # Course Prep
 
-While this course is designed to go from zero to dev the more you know comming in the better. Running through the following Udemy Courses will better prepare you to absorb the classroom material.
+While this course is designed to go from zero to dev the more you know comming in the better. Running through the following Career Academy Courses will better prepare you to absorb the classroom material.
 
-## HTML/CSS
-* https://microtrain1218.udemy.com/learn-to-make-an-html-5-website-with-a-video-background/
-* https://microtrain1218.udemy.com/1-hour-css/
-* https://microtrain1218.udemy.com/build-beautiful-html5-website/
-* https://microtrain1218.udemy.com/css-grid/
+## Web Dev
+* [Introduction to Web Design Online Training Series](https://www.careeracademy.com/page/IWD_Series)
+* [HTML5 and CSS3 Fundamentals Online Training Series](https://www.careeracademy.com/page/HTML5_Series)
+* [Fundamentals of Javascript Online Training Series](https://www.careeracademy.com/page/FundJava_Series)
+* [Bootstrap 4: Exploring New Features Online Training Series](https://www.careeracademy.com/page/Bootstrap4_Series)
+* [Starting with Angular 5 Online Training Series](https://www.careeracademy.com/page/NG5_Series)
+* [Build an eCommerce Site with Angular 5 Online Training Series](https://www.careeracademy.com/page/SRAng5_Series)
 
-## JAVASCIPT
-* https://microtrain1218.udemy.com/javascript-basics-for-beginners/
-* https://microtrain1218.udemy.com/javascript-intermediate-mastering-the-dom/
-* https://microtrain1218.udemy.com/javascript-intermediate-mastering-functions/
-* https://microtrain1218.udemy.com/javascript-intermediate-json-course/
-* https://microtrain1218.udemy.com/top-javascript-interview-questions-and-answers/
+## Linux
+* [CompTIA Linux+ Certification Online Training Series](https://www.careeracademy.com/page/LinPlus_Series)
 
-## SASS
-* https://microtrain.udemy.com/sasscourse/
+##Cloud
+* [CompTIA Cloud+ Basic Online Training Series](https://www.careeracademy.com/page/LNOCLDC_Series)
+* [Amazon Web Services : Basic Online Training Series](https://www.careeracademy.com/page/AWSP1_Series)
+* [Amazon Web Services: Intermediate Online Training Series](https://www.careeracademy.com/page/AWSP2_Series)
 
-## SQL
+## Security
 
-[Intro to SQL](https://www.khanacademy.org/computing/computer-programming/sql)
+* [Digital Security Awareness Training for Business and Home Users Online Training Series](https://www.careeracademy.com/page/DSA_Series)
+* [Certified Secure Web Application Engineer (CSWAE) Online Training Series](https://www.careeracademy.com/page/CSWAE_Series)
+
