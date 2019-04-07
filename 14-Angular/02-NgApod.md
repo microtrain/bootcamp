@@ -2,7 +2,7 @@
 
 ## Create an Angular App
 
-This app will allow a user to login and out of your ExpressJS app using an Angular application that connects to the API.
+This app will allow a user to view a random APOD via NASA's REST API.
 
 Install the angular shell and check the installed version.
 
