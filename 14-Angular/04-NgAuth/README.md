@@ -1,0 +1,588 @@
+# NgAuth - Authentication via REST API
+
+## Create an Angular App
+
+This app will allow a user to login and out of your ExpressJS app using an Angular application that connects to the API.
+
+Install the angular shell and check the installed version.
+
+[</> Code]() Create a new Angular project.
+```sh
+cd ~
+ng new ng-auth
+```
+
+You will be asked two questions:
+* Would you like to add Angular routing? (y/N) *Type the letter __y__ and press enter*
+* Which stylesheet format would you like to use? *Depending on you options choose __Sass__ or __Scss__*
+
+Start a dev server, this serve will compile changes in real time and live reload.
+```sh
+cd ng-apod
+ng serve --open
+```
+
+Start a dev server, this serve will compile changes in real time and live reload.
+```sh
+cd ng-apod
+ng serve --open
+```
+
+In the browser return to *[http://localhost:4200](http://localhost:4200)* and you'll see the message *"Welcome to APOD!"*
+
+## Create the components.
+
+[</> code]() This project will require 3 components: login, logout, and register.
+
+```sh
+ng generate component login
+ng generate component logout
+ng generate component register
+```
+
+As with the APOD project each of these components will be created in there own directory each containing 4 files. The resulting structure will look something like this.
+
+```
++-- app
+|   +-- login
+|   |   +-- login.component.html
+|   |   +-- login.component.scss
+|   |   +-- login.component.spec.ts
+|   |   +-- login.component.ts
+|   +-- logout
+|   |   +-- logout.component.html
+|   |   +-- logout.component.scss
+|   |   +-- logout.component.spec.ts
+|   |   +-- logout.component.ts
+|   +-- register
+|   |   +-- register.component.html
+|   |   +-- register.component.scss
+|   |   +-- register.component.spec.ts
+|   |   +-- register.component.ts
+```
+
+Commit your changes
+```
+# Generate login, logout, and register components
+git add .
+git commit -a
+```
+
+## Routing
+
+We will need to be able to route to each of our new components. To do this we will import each component and add them to our routing file.
+
+*/src/app/app-routing.module.ts*
+```ts
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { RegisterComponent } from './register/register.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: 'login', component: LoginComponent },
+  { path: 'logout', component: LogoutComponent },
+  { path: 'register', component: RegisterComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+Remove most of the placeholder content from app.component.html leaving only the router-outlet tag.
+
+*/src/app/component.html*
+```html
+<router-outlet></router-outlet>
+```
+
+Now routing to [http://localhost:4200](http://localhost:4200) will redirect to [http://localhost:4200/login](http://localhost:4200/login). From there you can navigate to [http://localhost:4200/logout](http://localhost:4200/logout) and [http://localhost:4200/register](http://localhost:4200/register) will display **login works!**, **logout works!**, and **register works!** respectively.
+
+Commit your changes
+```
+# Route to login, logout, and register components
+git add .
+git commit -a
+```
+
+## Users model
+
+The only data we are working with is a user. So determine the fields our app will need to work with and create a user object (aka: schema or model).
+
+*/src/app/models/user.ts*
+```ts
+export class User{
+  email:string;
+  username:string;
+  first_name:string;
+  last_name:string;
+  password:string;
+}
+```
+
+Commit your changes
+```
+# Add a user object
+git add .
+git commit -a
+```
+
+## Users service
+
+Now that we have a data model we can use it to retrieve data from an API. FOr this, we will want to create a service.
+
+```ts
+ng generate service services/user
+```
+
+Once a service has been generated I like to add a test method. This is a simple method that does little more than a return a string. I'll connect this to a service and call the the test method. If this returns a result I know I have everything wired up correctly. By making small changes and testing these changes, you will save yourself some debugging headaches. 
+
+Add a test method to the generated service.
+
+*/src/app/services/user.service.ts*
+```ts
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+
+  constructor() { }
+
+  test(): string{
+    return 'success!';
+  }
+}
+```
+
+Wire the service up to the login component and call the test method. We will use a ```console.log()``` to call the test method from the constructor. 
+
+```ts
+import { Component, OnInit } from '@angular/core';
+// 1. Import the service
+import { UserService } from '../services/user.service';
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit {
+
+  // 2. Inject the service into the constructor
+  constructor(private userService: UserService) {
+
+    // 3. Call the test method from the service
+    console.log(this.userService.test());
+  }
+
+  ngOnInit() {}
+
+}
+```
+
+Navigating to [http://localhost:4200](http://localhost:4200) and exploring th JS console will reveal the following.
+
+
+Commit your changes
+```
+# Create and test
+git add .
+git commit -a
+```
+
+![Success](/img/ng/auth/success.png)
+
+### Implement the service
+
+Now that we have have successfully connected our service to the login component. We can begin implementing the details.
+
+Since our app is acting as a client making and HTTP request, we will start by adding the ```HttpClientModule``` to *app.module.ts*.
+
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+// 1. Import the app module
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { RegisterComponent } from './register/register.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    LogoutComponent,
+    RegisterComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    // 2. Add the module to the list of imports.
+    HttpClientModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+```
+
+Commit your changes
+```
+# Import HttpClientModule
+git add .
+git commit -a
+```
+
+Importing HttpClientModule at the AppModule level gives us access to HttpClient in the lower levels of the system. For our service provider to work we will need to import HttpClient and inject it into the constructor, import Observable from the rxjs library and finally, import the User model.
+
+```ts
+import { Injectable } from '@angular/core';
+// 1. Import HttpClient
+import { HttpClient } from '@angular/common/http';
+
+// 2. Import Observable 
+import { Observable } from 'rxjs';
+
+
+// 3. Import User
+import { User } from '../models/user';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+
+  constructor(
+    // 5. Inject HttpClient into the constructor
+    private http:HttpClient
+  ) { }
+
+  test(): string{
+    return 'success!';
+  }
+}
+```
+
+Once we have imported all the objects we will be working with, we can establish an HTTP connection.
+
+*/src/app/services/user.service.ts*
+```ts
+  //Return an Observable array or User objects
+  test(): Observable<User[]>{
+    let url = 'http://localhost:3000/api/users'
+    //Make a get request over HTTP
+    return this.http.get<User[]>(url);
+  }
+```
+
+Update the constructor so that it subscribes to the test method. 
+*/src/app/login/login.component.ts*
+```ts
+  constructor(private userService: UserService) {
+    this.userService.test().subscribe(
+      (response)=>{
+        console.log(response);
+      }
+    );
+  }
+```
+
+For this test go the *~/mean.example.com/app.js* and turn off the whitelist. Start the stack and load [http://localhost:4200/login](http://localhost:4200/login). Check your JS console, if everything is working you will see something like the following. This tells us we are able to connect to the API at this point we can turn white listing back on and implement the authentication functionality.
+
+![API Success](/img/ng/auth/api-success.png)
+
+```sh
+# Successful API connection 
+git add .
+git commit -a
+```
+
+Now that we know we can connect to the API, lets convert our test logic over to working code. There are a few things we will need to do to our service.
+1. Import HttpHeaders, this will allow us to POST JSON data.
+2. Create a JSON header, this will be appended to our HTTP request.
+3. Add URL as an instance variable.
+4. Change test() to login() and accept a user object as an argument.
+5. Expect a User object instead of an array of User objects.
+6. Change from a GET to a POST request.
+7. Pass the user object and the HTTP headers into the POST request.
+
+*src/app/services/users.service.ts*
+```ts
+import { Injectable } from '@angular/core';
+// 1. Import HttpHeaders, this will allow us to POST JSON data
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
+
+import { User } from '../models/user';
+
+// 2. Create a JSON header
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+  // 3. Add URL as an instance variable
+  private url:string = 'http://localhost:3000/api/auth';
+
+  constructor(
+    private http:HttpClient
+  ) { }
+
+  // 4. Change test() to login() and accept a user object as an argument
+  // 5. Expect a User object instead of an array of User objects
+  // 6. Change from a GET to a POST request
+  // 7. Pass the user object and the HTTP headers into the POST request
+  login(user: User): Observable<User> {
+    return this.http.post<User>(`${this.url}/login`, user, httpOptions);
+  }
+}
+```
+
+Now, a few tweaks to the LoginComponent and we can test a full post request. 
+1. Import the user model
+2. Instantiate a new user
+3. Add a login method
+4. Call the login method in the constructor
+
+```ts
+import { Component, OnInit } from '@angular/core';
+
+import { UserService } from '../services/user.service';
+// 1. Import the user model
+import { User } from '../models/user';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit {
+
+  // 2. Instantiate a new user
+  user:User = new User();
+
+  // 4. Call the login method in the constructor
+  constructor(private userService: UserService) {
+    this.login();
+  }
+
+  ngOnInit() {}
+
+  // 3. Add a login method
+  login(): void{
+
+    this.user.username = 'testuser3';
+    this.user.password = 'test123';
+
+    this.userService.login(this.user).subscribe(
+      (response)=>{
+        console.log(response);
+      }
+    );
+  }
+
+}
+```
+
+For this test go the *~/mean.example.com/app.js* and turn off the whitelist. Start the stack and load [http://localhost:4200/login](http://localhost:4200/login). Check your JS console, if everything is working you will see something like the following. This tells us we are able to connect to the API at this point we can turn white listing back on and implement the authentication functionality.
+
+![Login Success](/img/ng/auth/login-success.png)
+
+
+Now we are ready to build the login form. We will start by updating the component. We will remove the constructor's implementation as well as the hard coded credentials from the ```login()``` method.
+
+
+```ts
+import { Component, OnInit } from '@angular/core';
+
+import { UserService } from '../services/user.service';
+
+import { User } from '../models/user';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit {
+
+  user:User = new User();
+
+  // 1. Remove the login call from the constructor
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {}
+
+  login(): void{
+
+    // 2. Remove the hard coded credentials
+    this.userService.login(this.user).subscribe(
+      (response)=>{
+        console.log(response);
+      }
+    );
+  }
+
+}
+```
+
+Now we can build the login form by completing the following tasks.
+
+1. Import FormsModule to allow for two-way binding
+2. Add a form to login.component.html
+3. Style the form via login.component.scss 
+4. Update the user service
+5. Update the login component
+
+*src/app/app.module.ts*
+```ts
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+// 1. Import FormsModule 
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { RegisterComponent } from './register/register.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    LogoutComponent,
+    RegisterComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    // 2. Add FormsModule to the imports list
+    FormsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+*src/app/services/user.service*
+```ts
+import { Injectable } from '@angular/core';
+// 1. Import HttpHeaders
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { Observable } from 'rxjs';
+
+// 2. Import the User object (model)
+import { User } from '../models/user';
+
+// 3. Create a JSON header to be attached to outbound post requests
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserService {
+  // 4. Set the domain portion of the url
+  private url:string = 'http://localhost:3000/api/auth';
+
+  constructor(
+    private http:HttpClient
+  ) { }
+
+  // 5. Replace the test method with a working implementation of login.
+  login(user: User): Observable<User> {
+    return this.http.post<User>(`${this.url}/login`, user, httpOptions);
+  }
+}
+```
+
+*src/app/login/login.component.ts*
+```ts
+import { Component, OnInit } from '@angular/core';
+
+import { UserService } from '../services/user.service';
+
+// 1. Import the User object (model)
+import { User } from '../models/user';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
+})
+export class LoginComponent implements OnInit {
+  // 2. Create a new instance of the User object
+  user:User = new User();
+  // 3. Instantiate an errors array
+  error: any;
+
+  // 4. Clear out the contructor login
+  constructor(private userService: UserService) {}
+
+  ngOnInit() {}
+
+  // 5. Add a login method
+  login(): void{
+
+    this.userService.login(this.user).subscribe(
+      (response:any)=>{
+        console.log(response);
+
+        if(response.success == false){
+          this.error=true;
+        }
+
+      }
+    );
+  }
+
+}
+```
+
+*src/app/login/login.component.html*
+```html
+<form (ngSubmit)="login()">
+
+  <div *ngIf="error" class="alert-error">Invalid Credentials</div>
+
+  <label>Username</label>
+  <input [(ngModel)]="user.username" name="username">
+
+  <label>Password</label>
+  <input [(ngModel)]="user.password" name="password">
+
+  <input type="submit">
+</form>
+```
+
+
+
+
+
+
+
+
+
+
+
