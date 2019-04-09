@@ -1,17 +1,17 @@
-# Syllabus (03/25/2019 - 06/03/2019)
+# Syllabus (N/A - N/A)
 
 * Class Hours: Monday-Friday, 9am-5pm
-* First Day: Monday, March 25, 2019
-* Last Day: Monday, June 3rd, 2019
-* Class will NOT meet on Monday, May 3rd.
-  
+* First Day: N/A
+* Last Day: N/A
+* Class will NOT meet on N/A.
+
 ## Expectations
 * Class starts promptly at 9am, you are expected to have your systems booted up and to be ready to go by 9am. 
 * Please avoid cell phone use during lecture; we reserve the right to ban cell phone usage during class.
 * Tentative break schedule; we will take an hour for lunch around noon, ~10 minutes around 10:30am and ~15 minutes around 3pm. Unless we are in lab at which point you may break as needed.
 * Class is scheduled until 5pm; we do make an attempt to wrap early but there are no guarantees.
  
- ## Contact
+## Contact
 * Join the [Slack Channel](https://join.slack.com/t/stack-x/shared_invite/enQtMzk3OTg3NzAzODc5LTA2NzA4M2FmZmFhN2EzMjhhNjhlOTE3ODVmODMyMTAwZWQ2MTRlNmU3MTYyM2Y4OTI2ODYwMjRiZTkyZjdkMGM)
 * Email bootcamp@microtrain.net
 
@@ -22,16 +22,6 @@ The [courseware](https://github.com/microtrain/bootcamp) is available on GitHub.
 
 ## Description 
 The class is 40 hours a week for 10 weeks. It is comprised of a series of units with each unit corresponding to a chapter in the courseware. A unit or chapter is comprised of working lectures, exercises, labs and additional resources. The goal of this class is to provide a working knowledge of web and mobile application development. This course is not a deep dive on any one topic, rather it is intended to provide a working foundation that will allow you to hit the ground running and give you the knowledge base upon which to build a career. In most cases you will get a light introduction to a topic; typically with in a specific context. We will build on these topics as we progress through the course. The syllabus is tentative and may be adjusted to the pace of the class as a whole. The last two to three weeks of class are open and are intended for to allow each student to complete a single or multiple projects to add to their portfolio.
-
-### Keys to Success
-
-* Read ahead in the syllabus.
-* Study/code outside of class (6-9 hours a week depending on experience).
-  * Follow the links under "Additional Resources"
-  * Write code outside of the classroom assignments.
-  * Google any topics that are not quite clear.
-  * Read through the comments in StackOverflow questions.
-* Complete all labs and in-class assignments everything builds on the previous lessons.
 
 ## Unit Composition
 
