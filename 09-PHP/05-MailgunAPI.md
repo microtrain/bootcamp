@@ -201,17 +201,17 @@ require 'vendor/autoload.php';
 use Mailgun\Mailgun;
 
 # Instantiate the client.
-$mgClient = new Mailgun('key-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+$mgClient = new Mailgun('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'); //MailGun key
 $domain = "sandboxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org";
 
 # Make the call to the client.
 $result = $mgClient->sendMessage("$domain",
           array('from'    => 'Mailgun Sandbox <postmaster@sandboxdxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org>',
-                'to'      => 'YOUR-NAME <YOUR-EMAIL-ADDRESS>';
+                'to'      => 'YOUR-NAME <YOUR-EMAIL-ADDRESS>',
                 'subject' => 'Hello YOUR-NAME',
-                'text'    => 'Congratulations YOUR-NAME, you just sent an email with Mailgun! You are truly awesome! '));
+                'text'    => 'Congratulations YOUR-NAME, you just sent an email with Mailgun! You are truly awesome!'));
 
-var_dump($reults);
+var_dump($result);
 ```
 
 From a browser window, navigate to *http://localhost/YOUR-PROJECT-NAME/test.php* and you should get a json string similar to:
