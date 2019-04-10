@@ -152,7 +152,7 @@ git checkout -B feature/mailgun
 
 If you get the message *Switched to a new branch 'feature/mailgun'* you are ready to proceed.
 ```sh
-composer require mailgun/mailgun-php php-http/curl-client guzzlehttp/psr7
+composer require mailgun/mailgun-php kriswallsmith/buzz nyholm/psr7
 ```
 
 This may take a minute or so. The install was successful if you see a series of *Installing* messages ending with
