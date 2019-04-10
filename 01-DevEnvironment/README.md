@@ -4,13 +4,13 @@ A development (dev) environment is just as it sounds. It is any system or config
 
 In the section you will learn:
 * How to a dev environment from scratch.
-* Linux basics.
+* Basic Linux Commands.
 * How to install Linux software.
 * How to install the LAMP stack.
 * The basics of NodeJS and NPM.
 * The basics of Git and GitHub.
 * How to use and SSH key for authentication.
 
-The goal of this section is to gain an understanding of the  dev environment and gain some comfort on a Linux command line.
+The goal of this section is to gain an understanding of the dev environment and gain some comfort on a Linux command line.
 
 [Next: Install Ubuntu](01-InstallUbuntuLinux.md)

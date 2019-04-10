@@ -2,4 +2,11 @@
 
 In this chapter you will gain a basic understanding as to how the internet handles traffic and how servers deal with requests.
 
+In this section you will learn:
+* Basic DNS concepts
+* How web addresses are structured
+* Request/response handling
+
+The goal of this section is to provide a basic understanding of how the internet works.
+
 [Next: URL](01-URL.md)
