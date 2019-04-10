@@ -21,5 +21,8 @@ In this chapter we will
   * ng-auth
   * ng-users
   * ng-cms
+* Build and package PWA
+
+The goals of this chapter is to provide the student with a working knowledge of Angular and produce an Angular application that can be used with our REST API from the previous chapter; thus completing the MEAN stack.
 
 [Next: TypeScript](01-TypeScript.md)
