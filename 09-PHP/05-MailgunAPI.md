@@ -152,7 +152,7 @@ git checkout -B feature/mailgun
 
 If you get the message *Switched to a new branch 'feature/mailgun'* you are ready to proceed.
 ```sh
-composer require mailgun/mailgun-php php-http/curl-client guzzlehttp/psr7
+composer require mailgun/mailgun-php kriswallsmith/buzz nyholm/psr7
 ```
 
 This may take a minute or so. The install was successful if you see a series of *Installing* messages ending with
@@ -201,17 +201,17 @@ require 'vendor/autoload.php';
 use Mailgun\Mailgun;
 
 # Instantiate the client.
-$mgClient = new Mailgun('key-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+$mgClient = new Mailgun('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'); //MailGun key
 $domain = "sandboxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org";
 
 # Make the call to the client.
 $result = $mgClient->sendMessage("$domain",
           array('from'    => 'Mailgun Sandbox <postmaster@sandboxdxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org>',
-                'to'      => 'YOUR-NAME <YOUR-EMAIL-ADDRESS>';
+                'to'      => 'YOUR-NAME <YOUR-EMAIL-ADDRESS>',
                 'subject' => 'Hello YOUR-NAME',
-                'text'    => 'Congratulations YOUR-NAME, you just sent an email with Mailgun! You are truly awesome! '));
+                'text'    => 'Congratulations YOUR-NAME, you just sent an email with Mailgun! You are truly awesome!'));
 
-var_dump($reults);
+var_dump($result);
 ```
 
 From a browser window, navigate to *http://localhost/YOUR-PROJECT-NAME/test.php* and you should get a json string similar to:
