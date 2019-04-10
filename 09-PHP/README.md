@@ -11,4 +11,6 @@ We will re-review programming basics with in the context of PHP. Cover object or
 * SEO and meta data
 * Miscellaneous items for rounding out a website.
 
+The goal of this chapter is to provide a functional PHP website.
+
 [Next: PHP Basics](01-PHPBasics.md)

@@ -1,6 +1,6 @@
 # MySQL with PHP
 
-In this lesson we will use PHP's PDO library to work with our database.
+In this lesson we will use PHP's PDO library to work with our database. 
 
 The first step is to create a connection to your database. You connection script will likely be part of larger configuration.
 
@@ -67,7 +67,7 @@ echo $content;
 ```
 
 Add the template
-```
+```php
 <?php
 include '../core/db_connect.php';
 
@@ -363,16 +363,21 @@ function slug($string){
 }
 ```
 
-#### Add Validataion
+#### Add Validation
 
-```sh
-
-```
+This would be an extension of the validation for contact.php
 
 ### Update a Post
 Make a copy of add.php and rename it edit.php
 
-```sh
+### Delete a Post
+This could be anything from a blank page with a redirect after deletion to a page that returns some details and asks you to confirm your delete.
 
 
-```
+## Create a Users CRUD
+
+You may start by creating a copy of the posts folder and doing a find and replace for the words post and user. Then you will adjust the column names accordingly.
+
+[Commit Log Previous Class](https://github.com/microtrain1812/example.com/commits/master)
+
+
