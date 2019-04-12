@@ -212,16 +212,29 @@ ALTER TABLE users
 >Never store a password in plain text, always store a hashed version of the password. Always create a user specific salt this will protect against [rainbow table attacks](https://en.wikipedia.org/wiki/Rainbow_table).
 
 
-
+Insert mulitple records
 ```sql
-INSERT INTO users SET id=UUID(), first_name='Sally', last_name='Smith', email='sally@example.com';
+INSERT INTO users 
+  (id, ,first_name, last_name, email)
+VALUES
+  (UUID(), 'Sally', 'Smith', 'sally@example.com'),
+  (UUID(), 'Pat', 'Willams', 'pwilliams@example.com');  
+  
+SELECT * FROM users;
+```
+
+Update a record
+```sql
 UPDATE users SET email='ssmith@example.com' WHERE email='sally@example.com';
 
-INSERT INTO users SET id=UUID(), first_name='Pat', last_name='Willams', email='pwilliams@example.com';
+SELECT * FROM users;
+```
+
+Delete a record
+```sql
+DELETE FROM users WHERE email='pwilliams@example.com';
 
 SELECT * FROM users;
-
-DELETE FROM users WHERE email='pwilliams@example.com';
 ```
 
 
