@@ -215,7 +215,7 @@ ALTER TABLE users
 Insert mulitple records
 ```sql
 INSERT INTO users 
-  (id, ,first_name, last_name, email)
+  (id, first_name, last_name, email)
 VALUES
   (UUID(), 'Sally', 'Smith', 'sally@example.com'),
   (UUID(), 'Pat', 'Willams', 'pwilliams@example.com');  
