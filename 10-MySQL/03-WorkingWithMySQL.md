@@ -211,6 +211,22 @@ ALTER TABLE users
 >**Security Checkpoint**  
 >Never store a password in plain text, always store a hashed version of the password. Always create a user specific salt this will protect against [rainbow table attacks](https://en.wikipedia.org/wiki/Rainbow_table).
 
+
+
+```sql
+INSERT INTO users SET id=UUID(), first_name='Sally', last_name='Smith', email='sally@example.com';
+UPDATE users SET email='ssmith@example.com' WHERE email='sally@example.com';
+
+INSERT INTO users SET id=UUID(), first_name='Pat', last_name='Willams', email='pwilliams@example.com';
+
+SELECT * FROM users;
+
+DELETE FROM users WHERE email='pwilliams@example.com';
+```
+
+
+
+
 ## Additional Resources
 * [Safe Password Hashing](http://php.net/manual/en/faq.passwords.php)
 * [Rainbow Tables](https://en.wikipedia.org/wiki/Rainbow_table)
