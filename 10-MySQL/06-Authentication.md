@@ -38,6 +38,36 @@ require '../core/sessions.php';
 //checkSession();
 ```
 
+*public/logout.php*
+```php
+<?php
+require '../core/session.php';
+
+$_SESSION=[];
+header('LOCATION: /');
+```
+
+*public/login.php*
+```php
+<?php
+require '../core/session.php';
+
+if(!empty($_POST)){
+    $_SESSION['user'] = [];
+    $_SESSION['user']['id']=12345;
+    header('LOCATION: ' . $_POST['goto']);
+}
+
+$content=<<<EOT
+<form method="post">
+    <input name="goto" value="{$_GET['goto']}">
+    <input type="submit" class="btn btn-primary">
+</form>
+EOT;
+
+require '../core/layout.php';
+```
+
 
 ## Additional Resources
 * [$_SESSION](https://www.php.net/manual/en/reserved.variables.session.php)
