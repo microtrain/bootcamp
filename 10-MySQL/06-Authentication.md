@@ -120,8 +120,516 @@ DESCRIBE users;
 
 Create the file */public/register.php*
 
+We will start by requiring some files.
+
 */public/register.php*
 ```php
+<?php
+require '../core/session.php';
+require '../core/db_connect.php';
+
+$meta=[];
+$content='';
+
+require '../core/layout.php';
+```
+
+```php
+We will start by implementing a basic contact form, using heredoc syntax, containing the following fields:
+  * first_name
+  * last_name
+  * email
+  * password
+  * confirm_password 
+
+
+
+*/public/register.php*
+```php
+<?php
+require '../core/session.php';
+require '../core/db_connect.php';
+
+$input = filter_input_array(INPUT_POST,[
+    'first_name'=>FILTER_SANITIZE_STRING,
+    'last_name'=>FILTER_SANITIZE_STRING,
+    'email'=>FILTER_SANITIZE_EMAIL,
+    'password'=>FILTER_UNSAFE_RAW,
+    'confirm_password'=>FILTER_UNSAFE_RAW,
+]);
+
+if(!empty($input)){
+  var_dump($input);
+}
+
+$meta=[];
+$meta['title']="Register";
+
+$content=<<<EOT
+<h1>{$meta['title']}</h1>
+<form method="post">
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            class="form-control" 
+            id="email" 
+            name="email" 
+            type="email"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input 
+            class="form-control" 
+            id="first_name" 
+            name="first_name" 
+        >
+    </div>
+
+
+    <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input 
+            class="form-control" 
+            id="last_name" 
+            name="last_name" 
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+            class="form-control" 
+            id="password" 
+            name="password" 
+            type="password"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="confirm_password">Password</label>
+        <input 
+            class="form-control" 
+            id="password" 
+            name="confirm_password" 
+            type="confirm_password"
+        >
+    </div>
+
+    <input type="submit" class="btn btn-primary">
+
+</form>
+EOT;
+require '../core/layout.php';
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```php
+<?php
+require '../core/session.php';
+require '../core/db_connect.php';
+
+$input = filter_input_array(INPUT_POST,[
+    'first_name'=>FILTER_SANITIZE_STRING,
+    'last_name'=>FILTER_SANITIZE_STRING,
+    'email'=>FILTER_SANITIZE_EMAIL,
+    'password'=>FILTER_UNSAFE_RAW
+]);
+
+if(!empty($input)){
+
+    $hash = password_hash($input['password'], PASSWORD_DEFAULT); 
+
+    $sql='INSERT INTO 
+        users 
+    SET 
+        id=UUID(),
+        email=:email,
+        first_name=:first_name,
+        last_name=:last_name,
+        hash=:hash
+    ';
+
+    $stmt=$pdo->prepare($sql);
+    if($stmt->execute([
+        'email'=>$input['email'],
+        'first_name'=>$input['first_name'],
+        'last_name'=>$input['last_name'],
+        'hash'=>$hash
+    ])){
+        header('LOCATION: /login.php');
+    }
+    
+}
+$meta=[];
+$meta['title']="Register";
+
+$content=<<<EOT
+<h1>{$meta['title']}</h1>
+<form method="post">
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            class="form-control" 
+            id="email" 
+            name="email" 
+            type="email"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input 
+            class="form-control" 
+            id="first_name" 
+            name="first_name" 
+        >
+    </div>
+
+
+    <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input 
+            class="form-control" 
+            id="last_name" 
+            name="last_name" 
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+            class="form-control" 
+            id="password" 
+            name="password" 
+            type="password"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="confirm_password">Password</label>
+        <input 
+            class="form-control" 
+            id="password" 
+            name="confirm_password" 
+            type="confirm_password"
+        >
+    </div>
+
+    <input type="submit" class="btn btn-primary">
+
+</form>
+EOT;
+
+require '../core/layout.php';
+```
+
+
+
+
+
+
+
+
+*core/About/src/Validation/Validate.php*
+```php
+<?php
+
+namespace About\Validation;
+
+class Validate{
+
+
+    public $validation = [];
+
+    public $errors = [];
+
+    private $data = [];
+
+    public function notEmpty($value){
+
+        if(!empty($value)){
+            return true;
+        }
+
+        return false;
+    }
+
+    public function email($value){
+
+        if(filter_var($value, FILTER_VALIDATE_EMAIL)){
+            return true;
+        }
+
+        return false;
+
+    }
+
+    public function strength($value){
+
+        $strong=0;
+
+        if(strlen($value)>=8){
+            $strong++;
+        }
+
+        if(preg_match("([\W]{1,})", $value)){
+            $strong++;
+        }
+
+        if(preg_match("([a-z]{1,})", $value)){
+            $strong++;
+        }
+
+        if(preg_match("([A-Z]{1,})", $value)){
+            $strong++;
+        }
+
+        if(preg_match("([0-9]{1,})", $value)){
+            $strong++;
+        }
+
+        return $strong===5?true:false;
+    }
+
+    function matchPassword($value){
+
+        if($this->data['password'] === $value){
+            return true;
+        }
+
+        return false;
+    }
+
+    public function check($data){
+
+    
+
+        $this->data = $data;
+
+        foreach(array_keys($this->validation) as $fieldName){
+            
+            $this->rules($fieldName);
+        }
+
+    }
+
+    public function rules($field){
+        foreach($this->validation[$field] as $rule){
+
+            if($this->{$rule['rule']} ($this->data[$field]) === false){
+                $this->errors[$field] = $rule;
+            }
+        }
+    }
+
+    public function error($field){
+        if(!empty($this->errors[$field])){
+            return $this->errors[$field]['message'];
+        }
+
+        return false;
+    }
+
+    public function userInput($key){
+        return (!empty($this->data[$key])?$this->data[$key]:null);
+    }
+
+}
+```
+
+*/public/register.php*
+```php
+<?php
+require '../core/session.php';
+require '../core/db_connect.php';
+require '../core/About/src/Validation/Validate.php';
+
+use About\Validation;
+
+$valid = new About\Validation\Validate();
+$message=null;
+
+$input = filter_input_array(INPUT_POST,[
+    'first_name'=>FILTER_SANITIZE_STRING,
+    'last_name'=>FILTER_SANITIZE_STRING,
+    'email'=>FILTER_SANITIZE_EMAIL,
+    'password'=>FILTER_UNSAFE_RAW,
+    'confirm_password'=>FILTER_UNSAFE_RAW
+]);
+
+if(!empty($input)){
+    $valid->validation = [
+
+        'email'=>[[
+            'rule'=>'email',
+            'message'=>'Please enter a valid email'
+        ],[
+            'rule'=>'notEmpty',
+            'message'=>'Please enter a email'
+        ]],
+
+        'first_name'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please enter a first name'
+        ]],
+
+        'last_name'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please enter a last name'
+        ]],
+
+        'password'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please enter a password'
+        ],[
+            'rule'=>'strength',
+            'message'=>'Must contain [\Wa-zA-Z0-9]'
+        ]],
+
+        'confirm_password'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please confirm your password'
+        ],[
+            'rule'=>'matchPassword',
+            'message'=>'Passwords do not match'
+        ]],
+
+    ];
+
+    $valid->check($input);
+
+    if(empty($valid->errors)){
+        //Strip white space, begining and end
+        $input = array_map('trim', $input);
+        $hash = password_hash($input['password'], PASSWORD_DEFAULT); 
+
+        $sql='INSERT INTO 
+            users 
+        SET 
+            id=UUID(),
+            email=:email,
+            first_name=:first_name,
+            last_name=:last_name,
+            hash=:hash
+        ';
+
+        $stmt=$pdo->prepare($sql);
+
+        try {
+
+            $stmt->execute([
+                'email'=>$input['email'],
+                'first_name'=>$input['first_name'],
+                'last_name'=>$input['last_name'],
+                'hash'=>$hash
+            ]);
+
+            header('LOCATION: /login.php');
+
+        } catch(PDOException $e) {
+            $message="<div class=\"alert alert-danger\">{$e->errorInfo[2]}</div>";
+        }
+    }else{
+        //3. If validation fails create a message, DO NOT forget to add the validation 
+        //methods to the form.
+        $message = "<div class=\"alert alert-danger\">Your form has errors!</div>";
+    }
+
+    
+}
+
+$meta=[];
+$meta['title']="Register";
+
+$content=<<<EOT
+<h1>{$meta['title']}</h1>
+{$message}
+<form method="post" autocomplete="off">
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            class="form-control" 
+            id="email" 
+            name="email" 
+            type="email"
+            value="{$valid->userInput('email')}"
+        >
+        <div class="text text-danger">{$valid->error('email')}</div>
+    </div>
+
+    <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input 
+            class="form-control" 
+            id="first_name" 
+            name="first_name"
+            value="{$valid->userInput('first_name')}"
+        >
+        <div class="text text-danger">{$valid->error('first_name')}</div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input 
+            class="form-control" 
+            id="last_name" 
+            name="last_name" 
+            value="{$valid->userInput('last_name')}"
+        >
+        <div class="text text-danger">{$valid->error('last_name')}</div>
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+            class="form-control" 
+            id="password" 
+            name="password" 
+            type="password"
+            value="{$valid->userInput('password')}"
+        >
+        <div class="text text-danger">{$valid->error('password')}</div>
+    </div>
+
+    <div class="form-group">
+        <label for="confirm_password">Confirm Password</label>
+        <input 
+            class="form-control" 
+            id="confirm_password" 
+            name="confirm_password" 
+            type="password"
+            value="{$valid->userInput('confirm_password')}"
+        >
+        <div class="text text-danger">{$valid->error('confirm_password')}</div>
+    </div>
+
+    <input type="submit" class="btn btn-primary">
+
+</form>
+EOT;
+
+require '../core/layout.php';
+
 
 ```
 
