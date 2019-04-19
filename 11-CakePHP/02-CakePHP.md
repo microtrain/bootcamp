@@ -222,7 +222,7 @@ CREATE TABLE posts (
     meta_keywords VARCHAR(255) COMMENT 'Meta data for SEO',
     meta_description VARCHAR(255) COMMENT 'Meta data for SEO',
     body TEXT COMMENT 'The coment of the blog post',
-    user_id VARCHAR(36) COMMENT 'The creator of the blog post',
+    user_id CHAR(36) COMMENT 'The creator of the blog post',
     created DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp of creation',
     modified DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp of last modification' 
 ) ENGINE=INNODB;
