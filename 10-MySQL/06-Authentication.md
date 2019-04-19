@@ -220,7 +220,7 @@ EOT;
 require '../core/layout.php';
 ```
 
-Once the form has been created we can filter the form fields and process the form. We will start by adding input filters.
+Once the form has been created we can filter the form fields and process the form. We will start by adding input filters and use a simple ```var_dump()``` to verify all the inputs (aka: POST parameters) are getting passed. 
 
 */public/register.php*
 ```php
@@ -246,7 +246,7 @@ $meta['title']="Register";
 /* For brevity we will omit the heredoc, you should not... */
 ```
 
-
+Next we will hash and ```var_dump()``` the password field. Then we will add create an insert statement to create the user record.
 */public/register.php*
 ```php
 <?php
@@ -262,59 +262,11 @@ $input = filter_input_array(INPUT_POST,[
 ]);
 
 if(!empty($input)){
-  var_dump($input);
-}
-
-$meta=[];
-$meta['title']="Register";
-/* For brevity we will omit the heredoc, you should not... */
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```php
-<?php
-require '../core/session.php';
-require '../core/db_connect.php';
-
-$input = filter_input_array(INPUT_POST,[
-    'first_name'=>FILTER_SANITIZE_STRING,
-    'last_name'=>FILTER_SANITIZE_STRING,
-    'email'=>FILTER_SANITIZE_EMAIL,
-    'password'=>FILTER_UNSAFE_RAW
-]);
-
-if(!empty($input)){
-
+    // 1. Hash the user password
     $hash = password_hash($input['password'], PASSWORD_DEFAULT); 
+    //var_dump($hash);
 
+    // 2. Create and execute an INSERT statement
     $sql='INSERT INTO 
         users 
     SET 
@@ -326,85 +278,27 @@ if(!empty($input)){
     ';
 
     $stmt=$pdo->prepare($sql);
+
     if($stmt->execute([
         'email'=>$input['email'],
         'first_name'=>$input['first_name'],
         'last_name'=>$input['last_name'],
         'hash'=>$hash
     ])){
+        //3. On success redirect the user to the login page
         header('LOCATION: /login.php');
     }
-    
+
 }
+
 $meta=[];
 $meta['title']="Register";
-
-$content=<<<EOT
-<h1>{$meta['title']}</h1>
-<form method="post">
-
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input 
-            class="form-control" 
-            id="email" 
-            name="email" 
-            type="email"
-        >
-    </div>
-
-    <div class="form-group">
-        <label for="first_name">First Name</label>
-        <input 
-            class="form-control" 
-            id="first_name" 
-            name="first_name" 
-        >
-    </div>
-
-
-    <div class="form-group">
-        <label for="last_name">Last Name</label>
-        <input 
-            class="form-control" 
-            id="last_name" 
-            name="last_name" 
-        >
-    </div>
-
-    <div class="form-group">
-        <label for="password">Password</label>
-        <input 
-            class="form-control" 
-            id="password" 
-            name="password" 
-            type="password"
-        >
-    </div>
-
-    <div class="form-group">
-        <label for="confirm_password">Password</label>
-        <input 
-            class="form-control" 
-            id="password" 
-            name="confirm_password" 
-            type="confirm_password"
-        >
-    </div>
-
-    <input type="submit" class="btn btn-primary">
-
-</form>
-EOT;
-
-require '../core/layout.php';
+/* For brevity we will omit the heredoc, you should not... */
 ```
 
+## Extend Validation
 
-
-
-
-
+Add validation methods to test password strength and compare the ```password``` to ```compare_password```. 
 
 
 *core/About/src/Validation/Validate.php*
@@ -441,6 +335,7 @@ class Validate{
 
     }
 
+    // 1. Password strength 
     public function strength($value){
 
         $strong=0;
@@ -468,6 +363,7 @@ class Validate{
         return $strong===5?true:false;
     }
 
+    // 2. Compare passwords 
     function matchPassword($value){
 
         if($this->data['password'] === $value){
@@ -513,6 +409,9 @@ class Validate{
 
 }
 ```
+
+
+Now that we have extended our validation to account for new password rules we will add validation to our registration page.
 
 */public/register.php*
 ```php
@@ -688,8 +587,6 @@ $content=<<<EOT
 EOT;
 
 require '../core/layout.php';
-
-
 ```
 
 
