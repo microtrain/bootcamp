@@ -18,6 +18,7 @@ start_session();
 //Redirects a user to a login page if there is no active session
 function checkSession(){
 
+  $goto='/';
   $hasSession=false;
   if(!empty($_SESSION['user']['id'])){
     $hasSession=true;
@@ -34,30 +35,19 @@ function checkSession(){
 }
 ```
 
-Any page for which we want to use and/or check sessions.
+Add the following to every page on the the website. The key is the first line ```session_start()```. Call this on every page to assure state is not lost.
 ```php
-//Usage
 require '../core/sessions.php';
-//checkSession();
 ```
 
-There is not much to a logout. We will blank out the session array then call ```session_destroy()```. The user will be redirected to the home page. Either of the aforementioned tactics would work with the above check session method. You may also choose to only blank out the user array ```$_SESSION['user']``` this would allow you to have addition session keys in parallel that would continue to work regardless of state.
+Add the following to every page that would require authentication. This would force the user back to the home page anytime ```$_SESSION['user']['id']``` equates to empty.
 
-*public/logout.php*
 ```php
-<?php
-require '../core/session.php';
-
-//Write an empty array to the session
-$_SESSION=[];
-
-//Destroy the session file for this session
-session_destroy();
-
-header('LOCATION: /');
+checkSession();
 ```
 
-We will add some proof of concept code to help us better understand how the session works.
+### Login (Mock Up)
+We will add some proof of concept code to help us better understand how the session works. This is will create a valid user session without performing the normal authentication logic. This is concept is often referred to as a mock up.
 
 *public/login.php*
 ```php
@@ -68,10 +58,11 @@ require '../core/session.php';
 
 // 2. Listen for a POST request. On Post set a session. 
 // In the next iteration we replace this with authentication logic.
+$_POST['id']=12345;//Force a valid POST
 if(!empty($_POST)){
     $_SESSION['user'] = [];
-    $_SESSION['user']['id']=12345;
-    header('LOCATION: ' . $_POST['goto']);
+    $_SESSION['user']['id']=$_POST['id'];
+    header('LOCATION: ' . $_GET['goto']);
 }
 
 // 3. Provide just enough of a form to initiate a POST
@@ -101,9 +92,29 @@ Add login, logout and register links to your layout (We will create register.php
 </li>
 ```
 
+### Logout
+
+There is not much to a logout. We will blank out the session array then call ```session_destroy()```. The user will be redirected to the home page. Either of the aforementioned tactics would work with the above check session method. You may also choose to only blank out the user array ```$_SESSION['user']``` this would allow you to have addition session keys in parallel that would continue to work regardless of state.
+
+*public/logout.php*
+```php
+<?php
+require '../core/session.php';
+
+//Write an empty array to the session
+$_SESSION=[];
+
+//Destroy the session file for this session
+session_destroy();
+
+header('LOCATION: /');
+```
+
+#### Try It Out
 Try to access users by clicking on the users link and you will be redirected to the login page. Clicking the submit button initiate a POST request and populate ```$_SESSION['user']['id']```. The *goto* parameter will be appended to the LOCATION header and you will be redirected to the users page. Having an active session you will now have access to every file calling ```checkSession()```. At ant point, clicking the Logout link will end the session and deny you further access to the restricted areas.
 
 ## Authentication
+
 Now that we can create a session we will need to provide a means of user authentication. We will do this by adding a hash to our users table and creating a user authentication page. 
 
 Open a MySQL cli and log into the database.
@@ -134,15 +145,12 @@ $content='';
 require '../core/layout.php';
 ```
 
-```php
-We will start by implementing a basic contact form, using heredoc syntax, containing the following fields:
+Now we can create a basic contact form, using heredoc syntax, containing the following fields:
   * first_name
   * last_name
   * email
   * password
   * confirm_password 
-
-
 
 */public/register.php*
 ```php
@@ -150,20 +158,7 @@ We will start by implementing a basic contact form, using heredoc syntax, contai
 require '../core/session.php';
 require '../core/db_connect.php';
 
-$input = filter_input_array(INPUT_POST,[
-    'first_name'=>FILTER_SANITIZE_STRING,
-    'last_name'=>FILTER_SANITIZE_STRING,
-    'email'=>FILTER_SANITIZE_EMAIL,
-    'password'=>FILTER_UNSAFE_RAW,
-    'confirm_password'=>FILTER_UNSAFE_RAW,
-]);
-
-if(!empty($input)){
-  var_dump($input);
-}
-
 $meta=[];
-$meta['title']="Register";
 
 $content=<<<EOT
 <h1>{$meta['title']}</h1>
@@ -224,6 +219,70 @@ $content=<<<EOT
 EOT;
 require '../core/layout.php';
 ```
+
+Once the form has been created we can filter the form fields and process the form. We will start by adding input filters.
+
+*/public/register.php*
+```php
+<?php
+require '../core/session.php';
+require '../core/db_connect.php';
+
+$input = filter_input_array(INPUT_POST,[
+    'first_name'=>FILTER_SANITIZE_STRING,
+    'last_name'=>FILTER_SANITIZE_STRING,
+    'email'=>FILTER_SANITIZE_EMAIL,
+    'password'=>FILTER_UNSAFE_RAW,
+    'confirm_password'=>FILTER_UNSAFE_RAW,
+]);
+
+if(!empty($input)){
+  //Start with a var_dump() to verify the inputs
+  var_dump($input);
+}
+
+$meta=[];
+$meta['title']="Register";
+/* For brevity we will omit the heredoc, you should not... */
+```
+
+
+*/public/register.php*
+```php
+<?php
+require '../core/session.php';
+require '../core/db_connect.php';
+
+$input = filter_input_array(INPUT_POST,[
+    'first_name'=>FILTER_SANITIZE_STRING,
+    'last_name'=>FILTER_SANITIZE_STRING,
+    'email'=>FILTER_SANITIZE_EMAIL,
+    'password'=>FILTER_UNSAFE_RAW,
+    'confirm_password'=>FILTER_UNSAFE_RAW,
+]);
+
+if(!empty($input)){
+  var_dump($input);
+}
+
+$meta=[];
+$meta['title']="Register";
+/* For brevity we will omit the heredoc, you should not... */
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
