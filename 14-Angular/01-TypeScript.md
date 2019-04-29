@@ -32,4 +32,4 @@ tsc hello.ts
 
 * [TypeScript](https://www.typescriptlang.org/)
 
-[Next: Tour of Heroes](02-TourOfHeroes.md)
+[Next: Tour of Heroes](02-NgApod.md)
