@@ -44,7 +44,7 @@ and add the entry
 127.0.0.102    loc.mean.example.com
 ```
 
-Open a browser and navigate to [loc.mean.example.com](loc.mean.example.com)
+Open a browser and navigate to [http://loc.mean.example.com](loc.mean.example.com)
 ## Additional Resources
 
 * [Advantages of a reverse proxy in front of Node.JS
