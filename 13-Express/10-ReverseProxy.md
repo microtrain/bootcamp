@@ -9,7 +9,7 @@ sudo a2enmod proxy_http
 ```
 
 Create a VHOST
-*/etc/apache2/sites-available/mean.example.com*
+*/etc/apache2/sites-available/mean.example.com.conf*
 ```apache
 <VirtualHost 127.0.0.102:80>
 
