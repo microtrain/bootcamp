@@ -298,10 +298,10 @@ $meta['title']="Register";
 
 ## Extend Validation
 
-Add validation methods to test password strength and compare the ```password``` to ```compare_password```. 
-
+Add validation methods to test password strength and compare ```password``` to ```compare_password```. 
 
 *core/About/src/Validation/Validate.php*
+
 ```php
 <?php
 
@@ -335,27 +335,34 @@ class Validate{
 
     }
 
-    // 1. Password strength 
+    // 1. Password strength - functions by incrementing a local var each time a 
+    // requirement is met. Validation passes if a set number of requirements are 
+    // met
     public function strength($value){
 
         $strong=0;
 
+        //Set a min length
         if(strlen($value)>=8){
             $strong++;
         }
 
+        //Force at least 1 special char
         if(preg_match("([\W]{1,})", $value)){
             $strong++;
         }
 
+        //Force at least 1 lower case alpha char
         if(preg_match("([a-z]{1,})", $value)){
             $strong++;
         }
 
+        //Force at least 1 upper case alpha char
         if(preg_match("([A-Z]{1,})", $value)){
             $strong++;
         }
 
+        //Force at least 1 numeric char
         if(preg_match("([0-9]{1,})", $value)){
             $strong++;
         }
@@ -364,7 +371,7 @@ class Validate{
     }
 
     // 2. Compare passwords 
-    function matchPassword($value){
+    public function matchPassword($value){
 
         if($this->data['password'] === $value){
             return true;
@@ -434,6 +441,7 @@ $input = filter_input_array(INPUT_POST,[
 ]);
 
 if(!empty($input)){
+
     $valid->validation = [
 
         'email'=>[[
@@ -475,7 +483,7 @@ if(!empty($input)){
     $valid->check($input);
 
     if(empty($valid->errors)){
-        //Strip white space, begining and end
+        //Strip white space, beginning and end
         $input = array_map('trim', $input);
         $hash = password_hash($input['password'], PASSWORD_DEFAULT); 
 
@@ -589,7 +597,195 @@ EOT;
 require '../core/layout.php';
 ```
 
+Now we have the ability to register a user. Now we need to allow that user to login.
 
+## Authenticating a User
+
+Let us revisit the login mockup in which we
+
+* required a session file
+* listened for a post request
+* created a session on post
+* provided just enough of a form to create a post
+
+*public/login.php*
+```php
+<?php
+// 1. Require your session file, this contains session_start()
+require '../core/session.php';
+
+
+// 2. Listen for a POST request. On Post set a session. 
+// In the next iteration we replace this with authentication logic.
+$_POST['id']=12345;//Force a valid POST
+if(!empty($_POST)){
+    // 3. On post, create a user session
+    $_SESSION['user'] = [];
+    $_SESSION['user']['id']=$_POST['id'];
+    header('LOCATION: ' . $_GET['goto']);
+}
+
+// 4. Provide just enough of a form to initiate a POST
+$content=<<<EOT
+<form method="post">
+    <input name="goto" value="{$_GET['goto']}">
+    <input type="submit" class="btn btn-primary">
+</form>
+EOT;
+
+require '../core/layout.php';
+```
+
+Now that we have a refreshed look at the mockup, lets implement a complete login form.
+
+* Replace the heredoc containing the form with:
+  * email
+  * password
+* Wrap the form fields in bootstrap classes
+* Add a title and metadata to the page
+
+
+*public/login.php*
+```php
+<?php
+
+require '../core/session.php';
+
+$_POST['id']=12345;//Force a valid POST
+if(!empty($_POST)){
+    // 3. On post, create a user session
+    $_SESSION['user'] = [];
+    $_SESSION['user']['id']=$_POST['id'];
+    header('LOCATION: ' . $_GET['goto']);
+}
+
+// 3. Add a page title
+$meta=[];
+$meta['title']="Login";
+
+$content=<<<EOT
+<!-- 3 Add page title -->
+<h1>{$meta['title']}</h1>
+
+<form method="post" autocomplete="off">
+
+    <!-- 1.1 Add email -->
+    <!-- 2 Add bootstrap classes -->
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            class="form-control"
+            id="email"
+            name="email"
+            type="email"
+        >
+    </div>
+
+    <!-- 1.2 Add password -->
+    <!-- 3 Add bootstrap classes -->
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+            class="form-control" 
+            id="password" 
+            name="password" 
+            type="password"
+        >
+    </div>
+
+    <input name="goto" value="{$goto}" type="hidden">
+    <input type="submit" class="btn btn-primary">
+
+</form>
+EOT;
+
+require '../core/layout.php';
+```
+
+Now that we have a login form, we will need to process the data.
+
+* Connect to the database so that we can look up the credentials supplied by the user
+* Filter the user inputs
+* Check for a post request to determine if we have data to process
+* Query the database for the requested user
+* If the query was successful
+  * Attempt a password match
+* If the password match was successful
+  * set a session
+  * redirect the user the desired location (if applicable)
+
+
+
+
+*public/login.php*
+```php
+<?php
+require '../bootstrap.php';
+// 1. Connect to the database
+require '../core/db_connect.php';
+
+// 2. Filter the user inputs
+$input = filter_input_array(INPUT_POST,[
+    'email'=>FILTER_SANITIZE_EMAIL,
+    'password'=>FILTER_UNSAFE_RAW
+]);
+
+// 3. Check for a POST request
+if(!empty($input)){
+
+    // 4. Query the database for the requested user
+    $input = array_map('trim', $input);
+    $sql='SELECT id, hash FROM users WHERE email=:email';
+    $stmt=$pdo->prepare($sql);
+    $stmt->execute([
+        'email'=>$input['email']
+    ]);
+    $row=$stmt->fetch();
+
+    if($row){
+        // 5. Attempt a password match
+        $match = password_verify($input['password'], $row['hash']);
+        if($match){
+            // 6.1 Set a session
+            $_SESSION['user'] = [];
+            $_SESSION['user']['id']=$row['id'];
+
+            // 6.2 Redirect the user
+            header('LOCATION: ' . $_POST['goto']);
+        }
+    }
+}
+$meta=[];
+$meta['title']="Login";
+
+$content=<<<EOT
+<h1>{$meta['title']}</h1>
+<form method="post" autocomplete="off">
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+            class="form-control"
+            id="email"
+            name="email"
+            type="email"
+        >
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input 
+            class="form-control" 
+            id="password" 
+            name="password" 
+            type="password"
+        >
+    </div>
+    <input name="goto" value="{$goto}" type="hidden">
+    <input type="submit" class="btn btn-primary">
+</form>
+EOT;
+
+require '../core/layout.php';
+```
 
 ## Additional Resources
 * [$_SESSION](https://www.php.net/manual/en/reserved.variables.session.php)
