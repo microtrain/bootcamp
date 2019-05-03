@@ -787,6 +787,29 @@ EOT;
 require '../core/layout.php';
 ```
 
+## Bootstraping
+
+Currently we have a several includes at the top of every page, soe of which are common to all pages. When this occurs a common practice to load what is known as a bootstrap file aptly named *bootstrap.php*. One issue posed by bootstraping is the use of includes in the bootstrap file. Any time a file is included/required it executes as though it is code written in the calling page. Our application is written is a tree structure which means including via relative paths will not work when traversing a nested folder structure. Another common practice is to define a *ROOT* constant which will be used to prefix all includes with the exception of the bootstrap file.
+
+```php
+<?php
+// 1. Define a ROOT constant
+define('ROOT', '/var/www/example.com');
+
+//2. Call common files
+require ROOT . '/core/session.php';
+require ROOT . '/config/keys.php';
+```
+
+Now replace all instances of *[../]../core/session.php* and *[../]../config/keys.php* with a call to *[../]../core/bootstrap.php* as needed.
+
+## Labs
+
+* Throw an error message if user authentication fails
+* Remove admin links for non-admins
+* Implement a password reset
+* Create a password reset request process.
+
 ## Additional Resources
 * [$_SESSION](https://www.php.net/manual/en/reserved.variables.session.php)
 * [Session Handling in PHP](https://www.php.net/manual/en/book.session.php)
