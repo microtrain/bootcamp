@@ -58,7 +58,7 @@ node_modules
 
 Gulp is an ES6 (JavaScript) script designed for frontend compilations. These are typically written as small, single script programs.
 
-*gulpfile.js*
+*/var/www/YOUR-GITHUB-USERNAME/github.io/gulpfile.js*
 ```js
 var gulp = require('gulp');
 var watch = require('gulp-watch');
@@ -93,7 +93,7 @@ gulp.task('build-css', function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch('./public/src/scss/**/*.scss', ['build-css']);
+  gulp.watch('./src/scss/**/*.scss', ['build-css']);
 });
 ```
 
