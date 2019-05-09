@@ -21,7 +21,7 @@ Use this template for each of the following exercises.
   </head>
   <body>
     
-    <a id="a" href="#">Demo Link</a>
+    <p>Fun with <a id="a" href="#">Pangrams</a>.</p>
     <p id="bold">The quick brown fox jumped over the lazy dog.</p>
     <p class="b blue">Jaded zombies acted quaintly but kept driving their oxen forward.</p>
     <blockquote class="a b">The five boxing wizards jump quickly.</blockquote>
