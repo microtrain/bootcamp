@@ -215,7 +215,7 @@ document.write(msg);
 
 ## Exercise - Do...While
 
-Add the following to the path _/var/www/mtbc/js/do_while.php_.
+Add the following to the path */var/www/mtbc/js/do_while.html*.
 ```html
 <script>
 var items = [
@@ -244,6 +244,7 @@ document.write(msg);
 
 ## Exercise - Switch Statement
 
+Add the following to the path */var/www/mtbc/js/switch.html*.
 ```html
 <script>
 
