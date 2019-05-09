@@ -85,7 +85,7 @@ Now we will clone this repository into the root directory of our web server. Thi
 
 ```sh
 cd /var/www
-git clone git@github.com:[your-github-user-name]/mtbc
+git clone git@github.com:YOUR-GITHUB-USERNAME/mtbc
 ```
 
 Now use the ```ls``` command to verify the existence of mtbc. If you open your browser and navigate to [http://localhost/mtbc](http://localhost/mtbc) you will see the following directory structure.
