@@ -23,7 +23,8 @@ Use this template for each of the following exercises.
     
     <a id="a" href="#">Demo Link</a>
     <p id="bold">The quick brown fox jumped over the lazy dog.</p>
-    <p class="b blue">Hello world, this is a paragraph.</p>
+    <p class="b blue">Jaded zombies acted quaintly but kept driving their oxen forward.</p>
+    <blockquote class="a b">The five boxing wizards jump quickly.</blockquote>
 
     <input name="email" type="email">
     <script>
