@@ -6,6 +6,7 @@ Programming is little more that reading data and piecing together statements tha
 
 Create the following path */var/www/mtbc/js/if_else.html* and open it VSC. Then add the following lines.
 
+*/var/www/mtbc/js/if_else.html*
 ```html
 <script>
 
@@ -116,6 +117,8 @@ document.write(`<div style="color:${color}">The color is ${label}</div>`);
 ## Exercise - For Loop
 
 Add the following to the path _/var/www/mtbc/js/for.html_.
+
+_/var/www/mtbc/js/for.html_
 ```js
 <script>
 var items = [
@@ -141,6 +144,8 @@ document.write(msg);
 ## Exercise - For...in Loop
 
 Add the following to the path _/var/www/mtbc/js/forin.html_.
+
+_/var/www/mtbc/js/forin.html_
 ```html
 <script>
 var items = {
@@ -166,6 +171,8 @@ document.write(msg);
 ## Exercise - For...of Loop
 
 Add the following to the path _/var/www/mtbc/js/forof.html_.
+
+_/var/www/mtbc/js/forof.html_
 ```html
 <script>
 var items = [
@@ -189,7 +196,7 @@ document.write(msg);
 ```
 
 ## Exercise  - While Loop
-
+_/var/www/mtbc/js/while.html_
 ```html
 <script>
 var items = [
@@ -216,6 +223,8 @@ document.write(msg);
 ## Exercise - Do...While
 
 Add the following to the path */var/www/mtbc/js/do_while.html*.
+
+*/var/www/mtbc/js/do_while.html*
 ```html
 <script>
 var items = [
@@ -245,6 +254,8 @@ document.write(msg);
 ## Exercise - Switch Statement
 
 Add the following to the path */var/www/mtbc/js/switch.html*.
+
+*/var/www/mtbc/js/switch.html*
 ```html
 <script>
 
