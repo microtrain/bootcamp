@@ -37,7 +37,7 @@ Clone the restart_apache repository onto your local development machine.
 
 ```sh
 cd ~
-git clone git@github.com:YOUR-USERNAME/restart_apache
+git clone git@github.com:YOUR-GITHUB-USERNAME/restart_apache
 ```
 
 [</> code](https://github.com/stack-x/restart_apache/commit/2557e8cc6c43736c4965e0d6aa89f3a9020ec17c) **Proof of Concept**
