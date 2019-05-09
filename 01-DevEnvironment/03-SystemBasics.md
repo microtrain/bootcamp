@@ -114,7 +114,8 @@ sudo apt install curl
 touch ~/Templates/Empty\ Document
 ```
 
-Rather than running each of the above statements as one off statements, we can combine them into a single command.
+Rather than running each of the above statements as one off statements, we can combine them into a single command using ```&&``` to concatenate the commands.
+
 ```sh
 sudo apt install terminator vim filezilla curl -y && touch ~/Templates/Empty\ Document
 ```
