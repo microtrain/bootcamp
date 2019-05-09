@@ -114,9 +114,9 @@ sudo apt install curl
 touch ~/Templates/Empty\ Document
 ```
 
-You can combine commands
+Rather than running each of the above statements as one off statements, we can combine them into a single command.
 ```sh
-sudo apt install terminator vim FileZilla curl -y && touch ~/Templates/Empty\ Document
+sudo apt install terminator vim filezilla curl -y && touch ~/Templates/Empty\ Document
 ```
 
 ## Summary
