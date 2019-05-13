@@ -13,6 +13,8 @@ sudo npm install -g gulp
 ## Configure NPM for you local project
 Add a file named package.json to you GitHub Pages project. This must be added to the projects top level directory. Gulp is built in NodeJS and lives in the NPM ecosystem. You run a series of NPM commands to initialize you project as an NPM project and install each dependency manually or you can use a prebuilt config file. The latter is the path we will take for this project. Add the following to you package.json file.
 
+
+*/var/www/YOUR-GITHUB-USERNAME.github.io/package.json*
 ```json
 {
   "name": "YOUR-GITHUB-USERNAME.github.io",
@@ -58,6 +60,7 @@ node_modules
 
 Gulp is an ES6 (JavaScript) script designed for frontend compilations. These are typically written as small, single script programs.
 
+*/var/www/YOUR-GITHUB-USERNAME/github.io/gulpfile.js*
 ```js
 var gulp = require('gulp');
 var watch = require('gulp-watch');
@@ -92,7 +95,7 @@ gulp.task('build-css', function(){
 });
 
 gulp.task('watch', function(){
-  gulp.watch('./public/src/scss/**/*.scss', ['build-css']);
+  gulp.watch('./src/scss/**/*.scss', ['build-css']);
 });
 ```
 

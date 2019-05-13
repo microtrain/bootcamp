@@ -16,6 +16,7 @@ Variables in Sass. Sass denotes variables with a _$_ dollar sign. For these less
 
 Create the paths */var/www/mtbc/scss/index.html* and */var/www/mtbc/scss/main.scss* and add the following to *index.html*,
 
+*/var/www/mtbc/scss/index.html*
 ```html
 <!DOCTYPE html>
 <html>
@@ -57,6 +58,7 @@ Create the paths */var/www/mtbc/scss/index.html* and */var/www/mtbc/scss/main.sc
 
 Load the page [https://localhost/mtbc/sass](https://localhost/mtbc/sass). Then add the following the to *main.scss*
 
+*/var/www/mtbc/scss/main.scss*
 ```scss
 /* variables */
 
@@ -88,6 +90,7 @@ sass /var/www/mtbc/scss/main.scss /var/www/mtbc/scss/main.css
 
 This will create the file main.css which is a compiled version of your scss file.
 
+*/var/www/mtbc/scss/main.css*
 ```css
 * {
   box-sizing: border-box;
@@ -146,6 +149,8 @@ I have always viewed ```.clearfix``` as a containment element for any number of 
 ## Exercise 3
 
 Create a ```.clearfix``` mixin by adding the following to the top of *main.scss*.
+
+*/var/www/mtbc/scss/main.scss*
 ```scss
 /* mixins */
 /* clear floats */
@@ -158,8 +163,9 @@ Create a ```.clearfix``` mixin by adding the following to the top of *main.scss*
 }
 ```
 
-Then you can create two classes applying ```clearfix()``` to both classes. We will go ahead and add a column class. We will discuss columns in greater detail in later lessons. For now we will use to demo other concepts.
+Then you can create two classes applying ```clearfix()``` to both classes. We will go ahead and add a column class. We will discuss columns in greater detail in later lessons.
 
+*/var/www/mtbc/scss/main.scss*
 ```scss
 /* variables */
 $success-color: #3c763d;
@@ -201,6 +207,7 @@ Another method of reuse in SASS is *@extend* so ```.sample{@extend .example;}```
 
 Add the following classes to main.scss update the style declarations so that redundant values are called as variables.
 
+*/var/www/mtbc/scss/main.scss*
 ```scss
   .text-success {
     color: $success-color;
@@ -242,19 +249,27 @@ Add the following classes to main.scss update the style declarations so that red
 
 ## Exercise 5 - Implement sass in your project
 
-Move *dist/css/main.css* to *src/scss/main.scss*
+Move *scss/main.css* to *src/scss/main.scss*
 
 ```sh
 cd /var/www/YOUR-GITHUB-USERNAME.github.io
 mkdir -p src/scss
-mv dist/css/main.css src/scss/main.scss
+mv scss/main.scss src/scss/main.scss
 ```
 
 Then compile the sass file
 
 ```sh
+mkdir -p src/scss
 sass src/scss/main.scss dist/css/main.css
 ```
+
+In index.html change the link element to point to ```./dist/css/main.css```
+```html
+<link href="./dist/css/main.css" type="text/css" rel="stylesheet">
+```
+
+This gives us a webpack style file hierarchy which seperates source (src - the code we write) from distirbution (dist - the code we want the machine to read) files.
 
 ## Additional Resources
 * [SASS Reference](http://sass-lang.com/documentation/file.SASS_REFERENCE.html)

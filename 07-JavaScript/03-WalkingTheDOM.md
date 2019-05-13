@@ -12,6 +12,28 @@ In the previous lesson we used ```document.getElementById();``` this method quer
 > When a collection is created, a filter and a root are associated with it.<sup>1</sup>
 > The collection then represents a view of the subtree rooted at the collection's root, containing only nodes that match the given filter. The view is linear. In the absence of specific requirements to the contrary, the nodes within the collection must be sorted in tree order. <sup>1</sup>
 
+Use this template for each of the following exercises.
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Walking the DOM</title>
+  </head>
+  <body>
+    
+    <p>Fun with <a id="a" href="#">Pangrams</a>.</p>
+    <p id="bold">The quick brown fox jumped over the lazy dog.</p>
+    <p class="b blue">Jaded zombies acted quaintly but kept driving their oxen forward.</p>
+    <blockquote class="a b">The five boxing wizards jump quickly.</blockquote>
+
+    <input name="email" type="email">
+    <script>
+
+    </script>
+  </body>
+</html>
+```
+
 ## By ID
 
 *document.getElementById(id_string)*
