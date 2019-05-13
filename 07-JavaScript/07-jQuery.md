@@ -156,7 +156,7 @@ randomDate: function(start, end) {
 Update the init() method as follows.
 ```js
 let date = this.randomDate(new Date(1995, 5, 16), new Date());
-var url = "https://api.nasa.gov/planetary/apod?api_key=LcGRMR8ReXp7B91eLkhqcSag0JYHQKh2Y5MAAXHY&date=" + date;
+var url = "https://api.nasa.gov/planetary/apod?api_key=YOUR-DATA-DOT-GOV-API-KEY&date=" + date;
 ```
 
 Now when you refresh the page you will see different JSON strings.
@@ -189,7 +189,7 @@ var apod = {
     // Application Constructor
     init: function() {
         let date = this.randomDate(new Date(1995, 5, 16), new Date());
-        var url = "https://api.nasa.gov/planetary/apod?api_key=LcGRMR8ReXp7B91eLkhqcSag0JYHQKh2Y5MAAXHY&date=" + date;
+        var url = "https://api.nasa.gov/planetary/apod?api_key=YOUR-DATA-DOT-GOV-API-KEY&date=" + date;
 
         $.ajax({
             url: url
@@ -328,7 +328,7 @@ buildDOM: function(result) {
 getRequest: function() {
   let _this = this;
   let date = this.randomDate(new Date(1995, 5, 16), new Date());
-  let url = "https://api.nasa.gov/planetary/apod?api_key=LcGRMR8ReXp7B91eLkhqcSag0JYHQKh2Y5MAAXHY&date=" + date;
+  let url = "https://api.nasa.gov/planetary/apod?api_key=YOUR-DATA-DOT-GOV-API-KEY&date=" + date;
   $.ajax({
       url: url
   }).done(function(result){
