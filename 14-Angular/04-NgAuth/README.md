@@ -18,12 +18,6 @@ You will be asked two questions:
 
 Start a dev server, this serve will compile changes in real time and live reload.
 ```sh
-cd ng-apod
-ng serve --open
-```
-
-Start a dev server, this serve will compile changes in real time and live reload.
-```sh
 cd ng-auth
 ng serve --open
 ```
