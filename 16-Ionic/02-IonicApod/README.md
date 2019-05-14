@@ -10,7 +10,7 @@ cd ionicApod
 ionic serve
 ```
 
-```ionic serve``` works like ```ng serve``` in that it serve the application in a browser window. If your building in Ionic, I'm assuming your focus is mobile. Launching ```ionic serve``` with the labs argument will launch Ionic in a split mobile view.
+```ionic serve``` works like ```ng serve``` in that it serve the application in a browser window. If your building in Ionic, I'm assuming your focus is mobile. Launching ```ionic serve``` with the labs argument will launch Ionic in a split mobile view. Terminate the current instance using [ctrl]+[c] and launch with the serve argument.
 
 ```
 ionic serve --lab
