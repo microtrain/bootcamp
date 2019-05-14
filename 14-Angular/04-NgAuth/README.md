@@ -24,7 +24,7 @@ ng serve --open
 
 Start a dev server, this serve will compile changes in real time and live reload.
 ```sh
-cd ng-apod
+cd ng-auth
 ng serve --open
 ```
 
