@@ -22,7 +22,7 @@ cd ng-auth
 ng serve --open
 ```
 
-In the browser return to *[http://localhost:4200](http://localhost:4200)* and you'll see the message *"Welcome to APOD!"*
+In the browser return to *[http://localhost:4200](http://localhost:4200)* and you'll see the message *"Welcome to NgAuth!"*
 
 ## Create the components.
 
