@@ -1,10 +1,18 @@
 # Ionic: NASA - Astronomy Pic of the Day
 
+For this lesson we will run a CLI program called *ionic*. The ionic command serves as both an alias for Angular's ```ng``` command and it's own progam as it adds some Ionic sugar on top of the Angualr CLI.   
+
 ```sh
 cd ~
 ionic start ionicApod blank
 # Install the free Ionic Appflow SDK and connect your app? (Y/n) No
 cd ionicApod
+ionic serve
+```
+
+```ionic serve``` works like ```ng serve``` in that it serve the application in a browser window. If your building in Ionic, I'm assuming your focus is mobile. Launching ```ionic serve``` with the labs argument will launch Ionic in a split mobile view.
+
+```
 ionic serve --lab
 # Install @ionic/lab? Yes
 ```
