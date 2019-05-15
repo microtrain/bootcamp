@@ -44,7 +44,7 @@ $( "#colorChanger" ).on( "click", function( event ) {
 * Add normalize.css and jQuery to your Gulp file
 * Start your watcher
 
-Create a basic HTML structure and add it to _index.html_. For this example, lets use NPM and those types of tools???
+Create a basic HTML structure and add it to _index.html_.
 ```html
 <!DOCTYPE html>
 <html>
