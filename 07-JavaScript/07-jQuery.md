@@ -35,16 +35,83 @@ $( "#colorChanger" ).on( "click", function( event ) {
 ## Exercise - NASA API
 
 * Get an [API KEY from NASA](https://api.nasa.gov/index.html#getting-started) by filling out the form and checking your email.
-* Clone the html-starter project to */var/www*
-* Rename the project to *nasa*
-* Add the remotes from your newly created GitHub Project.
+* Create a new project on github called jquery-apod
+* Clone the html-starter project to */var/www* as jquery-apod
+* Add the remotes to your newly created GitHub Project.
 * Install your NPM dependencies
 * Install normalize.css (NPM)
 * Install JQuery (NPM)
 * Add normalize.css and jQuery to your Gulp file
 * Start your watcher
 
+
+```sh
+cd /var/www && git clone https://github.com/microtrain/html-starter jquery-apod
+cd /var/www/jquery-apod && rm .git -fR && git init
+git remote add origin git@github.com:YOUR-GITHUB-USERNAME/jquery-apod.git
+npm install
+npm install normalize.css --save-dev
+npm install jquery --save-dev
+```
+
+Update the build tasks to include Normalize and jQuery. You will need to include each file twice. Once for the combined version and once for the minified version.
+
+*/var/www/jquery-apod/gulpfile.js*
+```js
+gulp.task('build-css', function(){
+  //Create an unminified version
+  var full = gulp.src([
+    // 1. Include normalize
+    'node_modules/normalize.css/normalize.css',
+    'src/scss/main.scss'
+  ])
+  . pipe(scss())
+  . pipe(concat('main.css'))
+  . pipe(gulp.dest('dist/css'));
+
+  //Create a minified version
+  var min = gulp.src([
+    // 2. Include normalize
+    'node_modules/normalize.css/normalize.css',
+    'src/scss/main.scss'
+  ])
+  . pipe(scss())
+  . pipe(cleanCSS())
+  . pipe(concat('main.min.css'))
+  . pipe(gulp.dest('dist/css'));
+
+  return merge(full, min);
+});
+
+
+gulp.task('build-js', function() {
+  var full = gulp.src([
+    // 3. Include jQuery
+    'node_modules/jquery/jquery/dist/jquery.js',
+    'src/js/main.js'
+  ])
+  .pipe(concat('main.js'))
+  .pipe(gulp.dest('dist/js'));
+
+  var min = gulp.src([
+    // 4. Include jQuery
+    'node_modules/jquery/jquery/dist/jquery.js',
+    'src/js/main.js'
+  ])
+  .pipe(concat('main.min.js'))
+  .pipe(uglify())
+  .pipe(gulp.dest('dist/js'));
+
+  return merge(full, min);
+});
+```
+
+```sh
+gulp watch
+```
+
 Create a basic HTML structure and add it to _index.html_.
+*/var/www/jquery-apod/index.html*
 ```html
 <!DOCTYPE html>
 <html>
@@ -63,7 +130,7 @@ Create a basic HTML structure and add it to _index.html_.
 
 Let's create an object (in the form of a closure) called apod (Astronomy Picture of the Day). We will make an AJAX call to the API which will return a JSON string, this is what we will use to build the program. We will test our API access by returning the result of the AJAX request to a console log. Press [F12] and find the console tab in your browsers developer tools.
 
-Add the following to _src/js/main.js_.
+*/var/www/jquery-apod/src/js/main.js*
 ```js
 var apod = {
     // Application Constructor
@@ -84,7 +151,7 @@ var apod = {
 apod.init();
 ```
 
-and add the follow to _src/scss/main.scss_.
+*/var/www/jquery-apod/src/scss/main.scss*
 ```css
 body {
   padding: 0;
@@ -128,7 +195,7 @@ If everything worked you will see results similar to the following.
 
 In looking at the JSON data you'll notice a date field. By default only pull today's picture, looking at the query parameters section in the [API documentation](https://api.nasa.gov/api.html#apod) I see I can pass a date in the form of _YYYY-MM-DDD_ as an additional GET parameter. To make things interesting lets add pass a random date every time we call the API.
 
-Add a random date function to the apod object. A good place to start would be [MDN's date documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). A qucik Google search will return [this gist](https://gist.github.com/miguelmota/5b67e03845d840c949c4) which provides us a good randomizer for an unformatted date in between a given start and date. This is important because the date cannot be greater than today or less that the first apod _June 16, 1995_.
+Add a random date function to the apod object. A good place to start would be [MDN's date documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). A quick Google search will return [this gist](https://gist.github.com/miguelmota/5b67e03845d840c949c4) which provides us a good randomizer for an unformatted date in between a given start and date. This is important because the date cannot be greater than today or less that the first apod _June 16, 1995_.
 
 ```js
 //Create a random date
