@@ -61,7 +61,8 @@ Create a basic HTML structure and add it to _index.html_.
 </html>
 ```
 
-Let's create an object (and clos ure) called apod (Astronomy Picture of the Day). We will make an AJAX call to the API which will return a JSON string, this is what we will use to build the program. We will test our API access by returning the result of the AJAX request to a console log. Press [F12] and find the console tab in your browsers developer tools.
+Let's create an object (in the form of a closure) called apod (Astronomy Picture of the Day). We will make an AJAX call to the API which will return a JSON string, this is what we will use to build the program. We will test our API access by returning the result of the AJAX request to a console log. Press [F12] and find the console tab in your browsers developer tools.
+
 Add the following to _src/js/main.js_.
 ```js
 var apod = {
