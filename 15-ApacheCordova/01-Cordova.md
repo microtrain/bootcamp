@@ -4,7 +4,7 @@
 [Android Studio](https://developer.android.com/studio/index.html) is the official IDE (Integrated Dev Environment) for building Andorid applicators, this provides everything you will need to build Android applications. There are however a few dependencies.
 
 >> **Changes since last class**<br>
->> * The version of Orcale's Java is no longer supported<br>
+>> * Orcale's Java-JDK is no longer supported by Oracle<br>
 >> * OpenJDk is now suported<br>
 >> * Android Studio now ships with Gradle<br>
 >> * The Linux download is now in the format of tar.gz instead of .zip<br>
@@ -125,7 +125,7 @@ If you were to build an Android application from scratch, this is what you would
 
 ```sh
 cd ~/Downloads
-sudo unzip android-studio-ide-*-linux.zip -d /usr/local
+<strike>sudo unzip android-studio-ide-*-linux.zip -d /usr/local</strike>
 cd /usr/local/android-studio/bin
 ./studio.sh
 ```
