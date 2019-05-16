@@ -25,96 +25,34 @@ sudo npm install -g cordova
 ```
 
 ## Install the Java SDK
-Android runs on top of Java (and Java compatible APIs) we will need to install Java so we can compile our web based build into Java. We will use Oracle's JDK for this (there are rumors that Google will switch future build to Open-JDK).
-
-Start by adding Oracle's PPA.
-
-```sh
-sudo add-apt-repository ppa:webupd8team/java
+Android runs on top of Java (and Java compatible APIs) we will need to install Java so we can compile our web based build into Java, we will use OpenJDK.
 ```
+Now set the path using your favorite editor. In my case the path is at _/usr/lib/jvm/java-8-oracle/jre/bin/java_ so I will add this lines 
 
-Update your list of apt repositories
-
-```sh
-sudo apt-get update
-```
-
-Install the JDK
-
-```sh
-sudo apt-get install oracle-java8-installer
-```
-
-Choose the desired installation
-Run the command ```sudo update-alternatives --config java``` and chose from the resulting menu, which should be similar to the following. In this case, I selected option 0 _auto mode_
-
-```
-  Selection    Path                                     Priority   Status
-------------------------------------------------------------
-  0            /usr/lib/jvm/java-8-oracle/jre/bin/java   1081      auto mode
-* 1            /usr/lib/jvm/java-8-oracle/jre/bin/java   1081      manual mode
-```
-
-You will need to set your JAVA_HOME Environment Variable (so that running programs can  find Java). To do this you will need to find your Java path; do this with the following command (the result of which will contain your Java path).
-
-```sh
-sudo update-alternatives --config java
-```
-
-Now set the path using your favorite editor. In my case the path is at _/usr/lib/jvm/java-8-oracle/jre/bin/java_ so I will add this line ```JAVA_HOME="/usr/lib/jvm/java-8-oracle"``` to the .bashrc file.
-
+Open your .bashrc file
 ```sh
 vim ~/.bashrc
 ```
 
-Once you have added the that line, you will want to reload the file.
+and add the follolwing lines to the end of the file. You can use [shift] + [g] to jump to the end of the file.
+```sh
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export PATH=${PATH}:${JAVA_HOME}/bin
+``` 
 
+Once you have added the those lines, you will want to reload the file.
 ```sh
 source ~/.bashrc
 ```
-
-```sh
+Then run ```java -version```, if eveything is working you will openJDK version >= 11.0.2.
+```
 java -version
-```
-
-## Install Gradle
-
-In short Gradle is a the build system used by Android. Stack Overflow has a [more detailed answer](https://stackoverflow.com/questions/16754643/what-is-gradle-in-android-studio). You can install this using Apt, but the Ubuntu repos are a little behind on this one, so it's better to install it manually.
-
-### Download and Unpack Gradle
-
-```sh
-cd ~/Downloads
-wget https://services.gradle.org/distributions/gradle-5.2-bin.zip
-sudo mkdir /opt/gradle
-sudo unzip -d /opt/gradle gradle-5.2-bin.zip
-```
-
-### Add an Environmental Variable on Startup
-
-Open the _environment_ file
-
-```sh
-vim ~/.bashrc
-```
-
-add the following lines, the first is for Gradle, the others you will need later so add them now.
-
-```sh
-export PATH=$PATH:/opt/gradle/gradle-5.2/bin
-export ANDROID_HOME=/home/$USER/Android/Sdk
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-```
-
-### Restart environment
-```sh
-source ~/.bashrc
 ```
 
 Install additional 32 bit libraries
 
 ```sh
-sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+sudo apt install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
 ```
 
 ## Install the Android SDK
@@ -125,7 +63,27 @@ If you were to build an Android application from scratch, this is what you would
 
 ```sh
 cd ~/Downloads
-<strike>sudo unzip android-studio-ide-*-linux.zip -d /usr/local</strike>
+sudo tar xvzf android-studio-ide-*-linux.tar.gz /usr/local
+```
+
+Android studio also requires some environmental variables. Let's go ahead and add those by opening .bashrc
+
+```sh
+vim ~/.bashrc
+```
+
+and adding the following lines to the end of the file.
+```sh
+export ANDROID_HOME=/home/$USER/Android/Sdk
+export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+```
+then restart the environemnt.
+```sh
+source ~/.bashrc
+```
+
+Now we can start Android Studio 
+```sh
 cd /usr/local/android-studio/bin
 ./studio.sh
 ```
@@ -144,8 +102,8 @@ Now it's time to create an (AVD (Android Virtual Device))[https://developer.andr
 
 Tools > Android > AVD Manager
 Click the _Create Virtual Device_ button
-Choose Nexus 5x
-Click on the _x86 images_ tab and choose _Nougat 25 x86_64_ (Download if required)
+Choose Pixel 2
+Click on the _x86 images_ tab and choose _Q x86_64 Andorid 9.+ (Google Play)_  (Download then choose if required)
 Choose the default options from the AVD screen and click _Finish_
 From the _Your Virtual Devices_ dialog click the green arrow beside our new device.
 
