@@ -1,5 +1,7 @@
 # Users App
 
+In this lesson we will begin building an application for user management. Since this is our third time building this app and since Ionic is essentially Angular we will not dive into detail. Rather, we will build this on our own and review the build after the fact. You may use the following as a reference, but I would really like to see each of you come up with a unique application.
+
 ```sh
 ionic start ionicUsers sidemenu
 git remote add origin git@github.com:GITHUBUSERNAME/ionicUsers.git

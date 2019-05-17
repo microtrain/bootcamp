@@ -17,9 +17,10 @@ ionic serve --lab
 # Install @ionic/lab? Yes
 ```
 
-Follow previous directions for ionicApod using and referring to components from ng-Auth
-You will be creating a three page app/ in Ionic
+You will be creating a three page app/ in Ionic.
 
-login
-logout
-register
+* login
+* logout
+* register
+
+Follow previous directions for ionicApod using and referring to components from ng-auth. Since this is our third time building this app and since Ionic is essentially Angular we will not dive into detail. Rather, we will build this on our own and review the build after the fact.
