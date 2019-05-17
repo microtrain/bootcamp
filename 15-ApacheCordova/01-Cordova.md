@@ -6,6 +6,7 @@
 In this lesson we will install
 * Apache Cordova
 * Java
+* Gradle
 * Android studio
 * A few 32 bit binaries.
 
@@ -19,18 +20,21 @@ sudo npm install -g cordova
 
 ## Install the Java SDK
 Android runs on top of Java (and Java compatible APIs) we will need to install Java so we can compile our web based build into Java, we will use OpenJDK.
+```sh
+sudo apt install openjdk-8-jdk
 ```
-Now set the path using your favorite editor. In my case the path is at _/usr/lib/jvm/java-8-oracle/jre/bin/java_ so I will add this lines 
+Now set the path using your favorite editor. In my case the path is at _/usr/lib/jvm/java-8-openjdk-amd64_ so I will add this lines 
 
 Open your .bashrc file
 ```sh
 vim ~/.bashrc
 ```
 
-and add the follolwing lines to the end of the file. You can use [shift] + [g] to jump to the end of the file.
+:q
+
+and add the follolwing line to the end of the file. You can use [shift] + [g] to jump to the end of the file.
 ```sh
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
-export PATH=${PATH}:${JAVA_HOME}/bin
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 ``` 
 
 Once you have added the those lines, you will want to reload the file.
@@ -46,6 +50,34 @@ Install additional 32 bit libraries
 
 ```sh
 sudo apt install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:i386
+```
+
+## Download and Unpack Gradle
+
+```sh
+cd ~/Downloads
+wget https://services.gradle.org/distributions/gradle-5.4.1-bin.zip
+sudo mkdir /opt/gradle
+sudo unzip -d /opt/gradle gradle-5.4.1-bin.zip
+```
+
+### Add an Environmental Variable on Startup
+
+Open the _.bashrc_ file
+
+```sh
+vim ~/.bashrc
+```
+
+add the following line above your JAVA export.
+
+```sh
+export PATH=$PATH:/opt/gradle/gradle-5.4.1/bin
+```
+
+### Restart environment
+```sh
+source ~/.bashrc
 ```
 
 ## Install the Android SDK
@@ -70,6 +102,15 @@ and adding the following lines to the end of the file.
 export ANDROID_HOME=/home/$USER/Android/Sdk
 export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 ```
+
+Your final .bashrc file should include the following
+```sh
+export PATH=$PATH:/opt/gradle/gradle-5.4.1/bin
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export ANDROID_SDK_ROOT=/home/$USER/Android/Sdk
+export PATH=${PATH}:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools
+```
+
 then restart the environemnt.
 ```sh
 source ~/.bashrc
