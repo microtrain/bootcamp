@@ -167,3 +167,5 @@ ionic generate page user-create
 * Implement an edit users page.
 * Add the ability to delete a user.
     * This may be it's own page or a method built into another component.
+
+[Next: ionic-users](/05-IonicUsers/README.md)
