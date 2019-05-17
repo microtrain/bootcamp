@@ -178,7 +178,7 @@ Install the SafePipeModule from NPM
 npm install safe-pipe --save
 ```
 
-*src/app/app.module.ts*
+*src/app/apod.module.ts*
 ```ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -210,7 +210,7 @@ const routes: Routes = [
 })
 export class ApodPageModule {}
 ```
-
+*src/app/app.module.ts*
 ```ts
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -249,6 +249,7 @@ import { environment } from '../environments/environment';
 export class AppModule {}
 ```
 
+*src/app/apod/apod.page.html*
 ```html
 <ion-header>
   <ion-toolbar>
