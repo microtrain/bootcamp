@@ -93,7 +93,7 @@ You should now have a running instance of  Android Studio. Add a desktop entry _
 
 Now it's time to create an (AVD (Android Virtual Device))[https://developer.android.com/studio/run/managing-avds.html]
 
-Tools > Android > AVD Manager
+Tools > AVD Manager
 Click the _Create Virtual Device_ button
 Choose Pixel 2
 Click on the _x86 images_ tab and choose _Q x86_64 Andorid 9.+ (Google Play)_  (Download then choose if required)
