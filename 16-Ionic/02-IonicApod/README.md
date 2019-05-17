@@ -278,3 +278,5 @@ export class AppModule {}
   </ion-card>
 </ion-content>
 ```
+
+[Next: ionic-auth](02-IonicAuth/README.md)

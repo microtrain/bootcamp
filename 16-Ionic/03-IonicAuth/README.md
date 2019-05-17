@@ -24,3 +24,5 @@ You will be creating a three page app/ in Ionic.
 * register
 
 Follow previous directions for ionicApod using and referring to components from ng-auth. Since this is our third time building this app and since Ionic is essentially Angular we will not dive into detail. Rather, we will build this on our own and review the build after the fact.
+
+[Next: ionic-users](02-IonicUsers/README.md)
