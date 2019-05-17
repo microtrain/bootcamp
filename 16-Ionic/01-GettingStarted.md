@@ -11,4 +11,4 @@ ionic start myApp tabs
 ```
 
 * Review the file structure and draw comparisons to Angular.
-* Exit this program and create the CMS app
+* Exit this program and create the APOD app
