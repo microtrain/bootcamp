@@ -14,7 +14,7 @@ At this point the browser will pop open running the default Cordova application.
 
 ```
 cordova platform add android
-cordova browser android
+cordova run android
 ```
 
 ## Port over the jQuery version of NASA Apod
