@@ -210,6 +210,23 @@ adb logcat ActivityManager:I Cam:V -e INFO:CONSOLE*
 Camera Plugin
 https://cordova.apache.org/docs/en/latest/reference/cordova-plugin-camera/
 
+
+## Eratta
+
+> **WARNING** 
+> DO NOT proceed with the eratta section unless you are having issues with Java, Android Studio, or Cordova.
+
+Oracle has recently discontiued JDK8 PPA if you have walked through the previous version of this lesson or have installed other versions of either Oracle's Java or OpenJDK and are having issues with Cordova you may need to unistall all versions of Java then install openjdk-8-jdk. It seems Cordova has issues finding OpenJDK 8 if other versions of Java are isntalled.
+
+```sh
+sudo apt-get remove openjdk*
+sudo apt-get remove --auto-remove openjdk*
+sudo apt-get purge openjdk*
+sudo apt-get purge --auto-remove openjdk*
+```
+
+Then proceed to the begining of this lesson and follow the Java installation instructions.
+
 ## Additional Resources
 [Use SQLite In Ionic 2 Instead Of Local Storage](https://www.thepolyglotdeveloper.com/2015/12/use-sqlite-in-ionic-2-instead-of-local-storage/)
 
