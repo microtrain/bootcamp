@@ -56,7 +56,7 @@ If you were to build an Android application from scratch, this is what you would
 
 ```sh
 cd ~/Downloads
-sudo tar xvzf android-studio-ide-*-linux.tar.gz /usr/local
+sudo tar xvzf android-studio-ide-*-linux.tar.gz -C /usr/local
 ```
 
 Android studio also requires some environmental variables. Let's go ahead and add those by opening .bashrc
