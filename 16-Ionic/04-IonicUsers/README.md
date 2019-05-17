@@ -168,4 +168,4 @@ ionic generate page user-create
 * Add the ability to delete a user.
     * This may be it's own page or a method built into another component.
 
-[Next: ionic-users](/05-IonicUsers/README.md)
+[Next: ionic-users](../05-IonicUsers/README.md)
