@@ -16,8 +16,7 @@ ng serve
 ```
 cd ~/ionicApod #OR ionicCMS
 ionic serve
-
-cd ~/ionicApod #OR ionicCMS
+#OR
 With IonicDevApp installed on mobile device
 Enable and connect to WiFi
 Connect computer to same network
