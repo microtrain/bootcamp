@@ -92,12 +92,12 @@ Why: The separation of classic web stacks into Data APIs and front end applicati
 
 ### js-cms
 
-A subset of *man.example.com*, this project walks the student through the development of a JavaScript application for interacting with a JavaScript API.
+A subset of *mean.example.com*, this project walks the student through the development of a JavaScript application for interacting with a JavaScript API.
 Reinforces: HTML, CSS, JavaScript, Gulp
 
 ### PM2 and Reverse Proxies in Apache
 
-A subset of *man.example.com*, this project walks the student through launching a production instance of an ExpressJS project.
+A subset of *mean.example.com*, this project walks the student through launching a production instance of an ExpressJS project.
 
 ## ng-apod
 
