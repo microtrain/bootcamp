@@ -1,4 +1,4 @@
-# Appdendix
+# Appendix
 
 Default Application Ports
 
@@ -12,7 +12,7 @@ npm start
 cd ~/ng-nasa #OR ng-cms
 ng serve
 ```
-* Ionic http://localhot:8100
+* Ionic http://localhost:8100
 ```
 cd ~/ionic-nasa #OR ionic-cms
 ionic serve
