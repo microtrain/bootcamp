@@ -9,17 +9,23 @@ npm start
 ```
 * Angular http://localhost:4200
 ```
-cd ~/ng-nasa #OR ng-cms
+cd ~/ngApod #OR ngCMS
 ng serve
 ```
 * Ionic http://localhost:8100
 ```
-cd ~/ionic-nasa #OR ionic-cms
+cd ~/ionicApod #OR ionicCMS
 ionic serve
+
+cd ~/ionicApod #OR ionicCMS
+With IonicDevApp installed on mobile device
+Enable and connect to WiFi
+Connect computer to same network
+ionic serve --devapp
 ```
 * Ionic Labs http://localhost:8200
 ```
-cd ~/ionic-nasa #OR ionic-cms
+cd ~/ionicApod #OR ionicCMS
 ionic serve --lab
 ```
 * CakePHP http://localhost:8765
