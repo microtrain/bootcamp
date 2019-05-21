@@ -21,10 +21,10 @@ For each of these files, copy the content from the ioncAuth project.
 
 ## Create a users page and wire it into navigation.
 
-1. Import the UserProvider (aka Service in Angular)
+1. Import the UserService (also Service in Angular)
 2. Declare users as an Array containing user objects
-3. Inject the UserProvider
-4. Create a wrapper for the users provider
+3. Inject the UserService
+4. Create a wrapper for the users service
 5. call the getUsers() wrapper
 
 ```sh
@@ -37,42 +37,42 @@ Declare UsersPage in app.module.ts
 [</>  code](https://github.com/microtrain/ionic-cms/commit/52c30d29da7b72ffa6920aa95ae50900bbad07f5)
 Add the UserPage to your side menu.
 
-Create a data provider to connect to the users API.
+Create a data service to connect to the users API.
 
 ```sh
-ionic generate provider user
+ionic generate service user
 ```
 
-UserProvider will give us access to a users API. We will create a getUsers() method that will return a list of users; this is the goal of UsersPage. To allow UsersPage to access UserProvider we will need to import and inject it into UsersPage.
+UserService will give us access to a users API. We will create a getUsers() method that will return a list of users; this is the goal of UsersPage. To allow UsersPage to access UserProvider we will need to import and inject it into UsersPage.
 
-[</> code](https://github.com/microtrain/ionic-cms/commit/708980c169ca58a8e6b76a3aa036430ab361c3e7) Import the UserProvider and inject it into UserPage.
+[</> code](https://github.com/microtrain/ionic-cms/commit/708980c169ca58a8e6b76a3aa036430ab361c3e7) Import the UserService and inject it into UserPage.
 
 At this point your application should crash when attempting to access the UsersPage. This is because the data provider (UserProvider) is a calling HttpClient but HttpClientModule is not getting loaded. To resolve this issue we will load it into app.module.ts.
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/f71c37d378356286e1430d57af46163965bef089) Add HttpClientModule
 
-It's always good to build one piece at a time. We want to make sure the connection between our provider and controller (UsersPage) is working. While we may not yet be ready to implement each provider method it's a good practice to make sure we've accounted for everything we will need to work with the API. In this case we will be dealing with basic CRUD (Create, Read, Update, Delete) logic. This tranlates in to
+It's always good to build one piece at a time. We want to make sure the connection between our service and controller (UsersPage) is working. While we may not yet be ready to implement each provider method it's a good practice to make sure we've accounted for everything we will need to work with the API. In this case we will be dealing with basic CRUD (Create, Read, Update, Delete) logic. This tranlates in to
 * get a user ```getUser()```
 * get many users ```getUsers()```
 * create a user ```createUser()```
 * update a user ```updateUser()```
 * delete a user ```deleteUser()```
 
-[</> code](https://github.com/microtrain/ionic-cms/commit/7101ff4bb7163d3e6a7781317bae6502208f775a) Stub out the user provider with the soon to be used methods. Start with a having each method execute simple ```console.log()```.
+[</> code](https://github.com/microtrain/ionic-cms/commit/7101ff4bb7163d3e6a7781317bae6502208f775a) Stub out the user service with the soon to be used methods. Start with a having each method execute simple ```console.log()```.
 
 We will want to create a user data object, other paradigms may refer to this as a model or a schema. For the sake of argument we will call it a model. For now we will just define the class. Create a models dirctory and user model *models/user/user.ts*
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/2a47fa9797f86e22e163dc101e926534b343d8bd) Stub a User object.
 
-[</> code](https://github.com/microtrain/ionic-cms/commit/635f989e910a2aa409d78b190855753bd5d3b41e) Import the User object (model) into UserProvider.
+[</> code](https://github.com/microtrain/ionic-cms/commit/635f989e910a2aa409d78b190855753bd5d3b41e) Import the User object (model) into UserService.
 
-Before we begining implementing UserProvider against the API lets create a wrapper in out UserPage and test the connection to the provider. To do this we will create a private method that calls the ```getUsers()``` method in UserProvider. We will call that method from the UserPage constructor. Opening the JS console in the dev tools panel then navigationg to the users page in our app will now display "Get Users". At this point we know we have a good connection and we can focus on implementing the ```getUsers()``` logic.
+Before we begining implementing UserService against the API lets create a wrapper in out UserPage and test the connection to the service. To do this we will create a private method that calls the ```getUsers()``` method in UserService. We will call that method from the UserPage constructor. Opening the JS console in the dev tools panel then navigationg to the users page in our app will now display "Get Users". At this point we know we have a good connection and we can focus on implementing the ```getUsers()``` logic.
 
 [</> code](https://github.com/microtrain/ionic-cms/commit/2bc571d53cc0fc4a29fb1ed5d63cbb8e278301c5) Implement a basic wrapper for ```getUsers()```.
 
-Now that we have a basic connection between UserProvider and UserPage we will want to implement an API call against ```UserProvider.getUsers()```. This will require the following steps.
+Now that we have a basic connection between UserService and UserPage we will want to implement an API call against ```UserService.getUsers()```. This will require the following steps.
 1. Import Observable from rxjs
-1. Set the base URL inside of UserProvider
+1. Set the base URL inside of UserService
 1. Create an Observable of type User and implement the get logic
 1. Subscribe to the observable and catch the response.
 
