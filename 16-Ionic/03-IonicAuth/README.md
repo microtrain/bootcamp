@@ -21,18 +21,19 @@ ionic serve --lab
 # Install @ionic/lab? Yes
 ```
 
-You will be creating a four page app/ in Ionic.
+You will be creating a three page app/ in Ionic.
 ionic generate page *name
 * login
 * logout
 * register
-* users
+
 
 Create an authentication route. 
 ionic generate page login
 
 After each page is generated be sure to update each supporting *.page.html, *.page.ts, *.module.ts
-Import, Constructor and Routes
+Import, Constructor, Routes and Model
+users.ts
 
 Follow previous directions for ionicApod using and referring to components from ng-auth. Since this is our third time building this app and since Ionic is essentially Angular we will not dive into detail. Rather, we will build this on our own and review the build after the fact.
 
