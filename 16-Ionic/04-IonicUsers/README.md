@@ -35,7 +35,7 @@ ionic generate page users
 Declare UsersPage in app.module.ts
 
 [</>  code](https://github.com/microtrain/ionic-cms/commit/52c30d29da7b72ffa6920aa95ae50900bbad07f5)
-Add the UserPage to your side menu.
+Add the UsersPage to your side menu.
 
 Create a data service to connect to the users API.
 
