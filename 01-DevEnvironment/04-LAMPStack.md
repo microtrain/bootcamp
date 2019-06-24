@@ -61,11 +61,11 @@ PHP was installed as a part of ```lamp-server^``` give this a quick test. Open a
 ```sh
 php -v
 
-PHP 7.0.13-0ubuntu0.16.04.1 (cli) ( NTS )
-Copyright (c) 1997-2016 The PHP Group
-Zend Engine v3.0.0, Copyright (c) 1998-2016 Zend Technologies
-    with Zend OPcache v7.0.13-0ubuntu0.16.04.1, Copyright (c) 1999-2016, by Zend Technologies
-    with Xdebug v2.4.0, Copyright (c) 2002-2016, by Derick Rethans
+PHP 7.2.19-0ubuntu0.18.04.1 (cli) ( NTS )
+Copyright (c) 1997-2018 The PHP Group
+Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
+    with Zend OPcache v7.2.19-0ubuntu0.18.04.1, Copyright (c) 1999-2018, by Zend Technologies
+    with Xdebug v2.4.0, Copyright (c) 2002-2018, by Derick Rethans
 ```
 
 * ```php -v``` This one is pretty simple, we are just asking PHP for it's version number. If you see something begining with _PHP 7._ then is up and running. Make a note of [PHP's documentation](http://php.net/manual/en/intro-whatis.php) to review at your leisure.
@@ -89,6 +89,7 @@ mysql -u root
 FLUSH PRIVILEGES;
 USE mysql; 
 
+*** In mysql> *** 
 UPDATE user SET authentication_string=PASSWORD("password") WHERE User='root';
 UPDATE user SET plugin="mysql_native_password" WHERE User='root';
 quit  
