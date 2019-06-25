@@ -111,24 +111,43 @@ DocumentRoot /var/www
 ```
 
 and change them to
-
+*/etc/apache2/sites-available/000-default.conf*
 ```apache
 ServerAdmin webmaster@localhost
 
 RewriteEngine On
 RewriteCond %{HTTPS} !=on
 RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-
-# DocumentRoot /var/www
+DocumentRoot /var/www
 ```
+
 * ```RewriteEngine On``` - Activates mod_rewrite
 * ```RewriteCond %{HTTPS} !=on``` - Check for a conditions, it this case the https protocol is not active
 * ```RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]``` - If the condition is true http is rewritten to https as a permanent redirect.
-* \# DocumentRoot /var/www - Comment out the DocumentRoot directive. While not required it would gaurentee no files get served should the redirect fails (in theory).
+* You may choose to comment out the DocumentRoot directive ```#DocumentRoot /var/www``` - While not required it would gaurentee no files get served should the redirect fails (in theory).
 
+```sh
+sudo a2dissite 0* && sudo service apache2 reload && sudo a2ensite 0* && sudo service apache2 reload
+```
 
 In a browser navigate to *http://localhost/* and you will be redirected to
 *https://localhost/*
+
+We are working in a locahost and this redirect is for demonstration purposes only. Always forcing a redirect of http://localhost will likely cause us some issues in later lessons. The important thing is understanding how this works; for now we will back out the reidrect.
+
+*/etc/apache2/sites-available/000-default.conf*
+```apache
+ServerAdmin webmaster@localhost
+
+#RewriteEngine On
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+DocumentRoot /var/www
+```
+
+```sh
+sudo a2dissite 0* && sudo service apache2 reload && sudo a2ensite 0* && sudo service apache2 reload
+```
 
 ## Summary
 In this lesson you learned
