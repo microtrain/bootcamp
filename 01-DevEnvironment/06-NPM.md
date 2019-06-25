@@ -19,7 +19,7 @@ node -v
 npm -v
 ```
 
-These should return versions >= 10.14.1 and 6.4.1 respectively.
+These should return versions >= 10.16.0 and 6.9.0 respectively.
 
 ## Summary
 In this lesson you learned
