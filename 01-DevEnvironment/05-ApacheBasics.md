@@ -63,6 +63,8 @@ sudo vim default-ssl.conf
 
 As in the  previous configuration we are only concerned with the ```DocumentRoot``` directive. Move your cursor down to line with this directive and remove _/html_ from the end of this line. Remember ```i``` enters insert mode and ```Esc``` followed by ```:x``` saves the file.
 
+Change ```DocumentRoot /var/www/html``` to ```DocumentRoot /var/www```
+
  While the ```DocumentRoot``` is all we need to change lets take another look at the file. Reopen the file but this time with out ```sudo```. Around line 25 you will see the ```SSLEngine``` directive is set to on. This tells Apache that this configuration wants to use the SSL module, which we have not enabled yet.
 Notice lines 32 and 33
 
