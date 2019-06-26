@@ -32,6 +32,18 @@ Item 3, the current working directory is what we want to focus on at the moment.
 * ```chmod``` - CHange MODe, changes file permissions.
 * ```chmod +x filename``` - Makes a file executable.
 
+* ```apt``` - Retrieves and maintains packages from authenticated sources.
+* ```apt list``` - List packages based on package names.
+* ```apt search``` - Search in package descriptions.
+* ```apt show``` - Show package details.
+* ```apt install [package]``` - Install a given package.
+* ```apt remove [package]``` - Remove a given package.
+* ```apt autoremove``` - Remove automatically all unused packages.
+* ```apt update``` - Update list of available packages.
+* ```apt upgrade``` - Upgrade the system by installing/upgrading packages.
+* ```apt full-upgrade``` - Upgrade the system by removing/installing/upgrading packages.
+* ```apt edit-sources``` - Edit the source information file.
+
 * ```apt-get``` - Retrieves and maintains packages from authenticated sources.
 * ```apt-get install [package]``` - Installs a target package from a repository.
 * ```apt-get update``` - Update your package list..\
