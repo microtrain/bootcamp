@@ -1265,4 +1265,4 @@ Now that you can add basic shapes to the canvas lets work on the colors.
 * [Pythagorean Theorem](https://www.khanacademy.org/math/basic-geo/basic-geometry-pythagorean-theorem/geo-pythagorean-theorem/v/the-pythagorean-theorem)
 
 
-[Next: jQuery](06-jQuery.md)
+[Next: Game](06-Game.md)
