@@ -49,7 +49,7 @@ Finally, we will access the [```fillRect()```](https://developer.mozilla.org/en-
 </script>
 ```
 
-Save the follow to _/var/www/mtbc/draw/rand.html_. We will use [```Math.random()```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) to draw a square in a random location in the canvas. We will set this to be 100 pixels shy of the canvas height and width so that the box will always appear in range. Navigate to [http://localhost/mtbc/draw/rand.html](http://localhost/mtbc/draw/rand.html) and refresh the screen a few times to watch the box move.
+We will use [```Math.random()```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) to draw a square in a random location in the canvas. We will set this to be 100 pixels shy of the canvas height and width so that the box will always appear in range. Navigate to [http://localhost/mtbc/draw/rand.html](http://localhost/mtbc/draw/rand.html) and refresh the screen a few times to watch the box move.
 
 ```html
 <!DOCTYPE html>
