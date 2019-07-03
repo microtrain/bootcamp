@@ -1431,6 +1431,6 @@ window.addEventListener('keyup', function(){
 });
 ```
 
-[Next: jQuery](06-jquery.md)
+[Next: jQuery](07-jQuery.md)
 
 
