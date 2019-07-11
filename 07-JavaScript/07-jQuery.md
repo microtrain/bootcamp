@@ -87,7 +87,7 @@ gulp.task('build-css', function(){
 gulp.task('build-js', function() {
   var full = gulp.src([
     // 3. Include jQuery
-    'node_modules/jquery/jquery/dist/jquery.js',
+    'node_modules/jquery/dist/jquery.js',
     'src/js/main.js'
   ])
   .pipe(concat('main.js'))
@@ -95,7 +95,7 @@ gulp.task('build-js', function() {
 
   var min = gulp.src([
     // 4. Include jQuery
-    'node_modules/jquery/jquery/dist/jquery.js',
+    'node_modules/jquery/dist/jquery.js',
     'src/js/main.js'
   ])
   .pipe(concat('main.min.js'))
