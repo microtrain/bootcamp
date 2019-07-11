@@ -300,7 +300,8 @@ Update _index.html_ with the following.
 
 Hard code the date _6/6/2013_ as follows and you will notice there is no image. That is because the picture of the day for this date is a video. In this situation we will want to tell our program how to render a video.
 ```js
-let date = new Date(2013,6,6);//new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+   let date = "2013-06-06";
+   //let date = this.randomDate(new Date(1995, 5, 16), new Date());
 ```
 
 If we refer to the JSON string produced by the API we see that there is a _media_type_ field. We can use this to tell our application how to handle the url.
