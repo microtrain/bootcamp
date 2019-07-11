@@ -271,6 +271,7 @@ var apod = {
         });
     },
 };
+apod.init();
 ```
 
 Now it's time to build the UI. We will start by deciding what we want to show on the page. For this exercise we will use the _result.url_ (to show the image), _result.copyright_ to give proper attribution, _result.date_, _apodTitle_ and _result.explanation_.
