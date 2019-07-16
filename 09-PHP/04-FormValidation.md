@@ -99,7 +99,7 @@ The end result will be as follows
 ```
 
 Now, lets inspect a post request.
-* Open the Chrome browser and navigate to [http://loc.example.com](http://loc.example.com).
+* Open the Chrome browser and navigate to [http://localhost.example.com/public/contact.php](http://localhost.example.com/public/contact.php).
 * Press the [f12] key to open Chrome's developer tools.
 * Click on the network tab.
 * Refresh the page.
@@ -109,7 +109,7 @@ Now, lets inspect a post request.
 ![Installation type](/img/devtools/devtools.png)
 
 * Fill out the web form and submit the data.
-* Once again, find and click on form.html from the network panel.
+* Once again, find and click on contact.php from the network panel.
 * Under the headers tab you will see the contents of your web form as key to value pairs. This is how the data will be given to the server.s
 
 ![Installation type](/img/devtools/form_data.png)
