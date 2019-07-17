@@ -234,18 +234,19 @@ mkdir -p /var/www/example.com/config
 vim /var/www/example.com/config/keys.php
 ```
 
-Add the following line to your .gitignore file and commit your changes to the *feature/mailgun* branch.
-
-```sh
-/config/keys.php
-```
-
 Add the following (Where YOUR-KEY-HERE is the key provided by Mailgun):
 ```php
 <?php
 define('MG_KEY', 'dYOUR-KEY-HERE');
 define('MG_DOMAIN', 'YOUR-DOMAIN-HERE');
 ```
+
+Add the following line to your .gitignore file and commit your changes to the *feature/mailgun* branch.
+
+```sh
+/config/keys.php
+```
+
 Add the following to the top of *http://localhost/YOUR-PROJECT-NAME/test.php*
 ```php
 require '../config/keys.php';
@@ -307,7 +308,7 @@ An about me web site.
 Clone this project into a web directory
 ```sh
 cd /var/www
-git clone git@github.com:jasonsnider/example.com.git
+git clone git@github.com:<YOUR-GITHUB-NAME>/example.com.git
 ```
 
 Install composer dependencies
