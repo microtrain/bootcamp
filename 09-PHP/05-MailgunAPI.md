@@ -191,6 +191,8 @@ git add .
 git commit -m 'Added mailgun lib'
 git push origin feature/mailgun
 ```
+> **Security Check Point DO NOT PUSH the file below to GitHub**
+> Never push a key to a public repository, use a key file the exists outside of the public repo
 
 Create the file */var/www/example.com/test.php* and copy and paste the PHP sample code from the Mailgun landing page. Below the pasted code add the line ```var_dump($results);```.
 
