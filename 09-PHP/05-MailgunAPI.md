@@ -173,7 +173,7 @@ composer.lock
 vendor/
 ```
 
-We do not want to commit the vendor directory to our repo. So we will create a *.gitignore* file. From the VSC explorer create a file called *.gitignore* under the about project (Do not forget the preceding dot) and add the following line.
+We do not want to commit the vendor directory to our repo. So we will create a *.gitignore* file. From the VSC explorer create a file called *.gitignore* under the /example.com project (Do not forget the preceding dot) and add the following line.
 ```sh
 /vendor
 ```
