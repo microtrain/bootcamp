@@ -127,7 +127,7 @@ Create the path */var/www/example.com/core/layout.php* and add the following lin
 
 ```
 
-Change the path */var/www/example.com/public/contact.php* to the following. Pay special attenention to the echo statements, these are now treated as variables being passed into a string such that ```<?php echo $valid->userInput('first_name'); ?>``` becomes ```{$valid->userInput('first_name')}```.
+Copy, Rename and Change the path */var/www/example.com/public/contact.php* to the following *core/processContactForm.php* Pay special attenention to the echo statements, these are now treated as variables being passed into a string such that ```<?php echo $valid->userInput('first_name'); ?>``` becomes ```{$valid->userInput('first_name')}```.
 
 ```php
 <?php
