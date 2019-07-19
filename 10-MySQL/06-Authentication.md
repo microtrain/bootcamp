@@ -111,7 +111,7 @@ header('LOCATION: /');
 ```
 
 #### Try It Out
-Try to access users by clicking on the users link and you will be redirected to the login page. Clicking the submit button initiate a POST request and populate ```$_SESSION['user']['id']```. The *goto* parameter will be appended to the LOCATION header and you will be redirected to the users page. Having an active session you will now have access to every file calling ```checkSession()```. At ant point, clicking the Logout link will end the session and deny you further access to the restricted areas.
+Try to see session data in F12 >>Application by clicking on the users link and you will be redirected to the login page. Clicking the submit button initiate a POST request and populate ```$_SESSION['user']['id']```. The *goto* parameter will be appended to the LOCATION header and you will be redirected to the users page. Having an active session you will now have access to every file calling ```checkSession()```. At ant point, clicking the Logout link will end the session and deny you further access to the restricted areas.
 
 ## Authentication
 
