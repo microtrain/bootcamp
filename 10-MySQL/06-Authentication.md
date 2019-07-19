@@ -13,7 +13,7 @@ PHP provides a ```$_SESSION``` super global. You may access this super global di
 ```php
 <?php
 //Any page that  works with session data MUST include start_session()
-start_session();
+session_start();
 
 //Redirects a user to a login page if there is no active session
 function checkSession(){
