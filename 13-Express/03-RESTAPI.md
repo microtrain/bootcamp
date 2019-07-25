@@ -239,6 +239,7 @@ git push origin master
 *routes/api/users.js*
 ```js
 var Users = require('../../models/users');
+var router = express.Router();
 
 router.get('/', function(req, res, next) {
   Users.find({},function(err, users){
@@ -248,6 +249,8 @@ router.get('/', function(req, res, next) {
     return res.json({'success':true, 'users': users});
   });
 });
+
+module.exports = router;
 ```
 
 Test by running a curl command from a terminal window.
