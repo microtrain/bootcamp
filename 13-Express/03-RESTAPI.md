@@ -238,8 +238,9 @@ git push origin master
 
 *routes/api/users.js*
 ```js
-var Users = require('../../models/users');
+var express = require('express');
 var router = express.Router();
+var Users = require('../../models/users');
 
 router.get('/', function(req, res, next) {
   Users.find({},function(err, users){
