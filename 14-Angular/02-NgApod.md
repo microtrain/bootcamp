@@ -627,7 +627,7 @@ getApod(date:string): Observable<Apod>{
 
 Next we will focus on the apod component. We will start by passing the current date into the ```getApod()``` method.
 
-*src/app/apod/apod.service.ts*
+*src/app/apod/apod.component.ts*
 ```ts
   getApod(): void{
     let date = new Date().toISOString().slice(0,10);
