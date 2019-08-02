@@ -312,7 +312,7 @@ A method signature in Angular/TypeScript is as follows.
 
 Place the method inside ApodService class. 
 
-*src/api/apod.service.ts*
+*src/app/api/apod.service.ts*
 ```ts
 import { Injectable } from '@angular/core';
 
@@ -337,6 +337,7 @@ To connect the service to the the component we will need to
 * Call the method getApod method from ```ngOnInit()```
 
 The resulting component will be as follows.
+*src/app/apod/apod.component.ts
 ```ts
 import { Component, OnInit } from '@angular/core';
 
