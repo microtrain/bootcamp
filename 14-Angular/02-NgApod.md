@@ -385,6 +385,7 @@ In order to use the key we will need to add it to the providers list in our app 
 * Import the config ```import { NgApodConfig } from '../../../config/ng-apod.config';```
 * List the config class as a provider ```providers: [NgApodConfig],```
 
+*src/app.module.ts*
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -1089,6 +1090,7 @@ git commit -a
 * ```import { LocationStrategy, HashLocationStrategy } from '@angular/common';```
 * Add the following declaration to your providers list ```{ provide: LocationStrategy, useClass: HashLocationStrategy }```
 
+*src/app.module.ts*
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
