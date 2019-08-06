@@ -67,7 +67,7 @@ The service is how we interact with an API. There are some things we already kno
 We will use AngularCLI to generate the service and automatically import it into AppModule.
 
 ```sh
-ng generate service users --module=app
+ng generate service users/users
 ```
 
 Update *src/app/user.service.ts* as follows.
