@@ -7,9 +7,9 @@ Create the users component
 ng generate component users
 ```
 
-Bring the users component into scope, to do this we will replace the contents of *src/app/users/app.component.html* with the following.
+Bring the users component into scope, to do this we will replace the contents of *src/app/app.component.html* with the following.
 
-*src/app/users/app.component.html*
+*src/app/app.component.html*
 ```js
 <app-users></app-users>
 ```
