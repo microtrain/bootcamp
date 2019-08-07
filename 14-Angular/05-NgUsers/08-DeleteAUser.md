@@ -1,6 +1,6 @@
 # Delete a User
 
-Update *user.service.ts*
+Update *users.service.ts*
 ```js
 deleteUser (id: string): Observable<User> {
   return this.http.delete<User>(`${this.url}/${id}`);
