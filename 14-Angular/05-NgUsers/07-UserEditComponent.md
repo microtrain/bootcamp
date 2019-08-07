@@ -37,7 +37,7 @@ editUser (user: User): Observable<User> {
 }
 ```
 
-*user-view/user-edit.component.ts*
+*app/user-edit.component.ts*
 ```js
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
