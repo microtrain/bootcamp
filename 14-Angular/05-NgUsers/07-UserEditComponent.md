@@ -72,7 +72,9 @@ export class UserEditComponent implements OnInit {
 
   getUser(id): void {
     this.usersService.getUser(id).subscribe(
-      user => this.user = user.user
+      (response:any) => {
+        this.user = response.user
+      }
     );
   }
 
