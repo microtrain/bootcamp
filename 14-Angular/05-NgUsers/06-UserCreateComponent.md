@@ -55,7 +55,7 @@ git add .
 git commit -a
 ```
 
-*user.service.ts*
+*users.service.ts*
 ```js
   createUser (user: User): Observable<User> {
     return this.http.post<User>(this.url, user, httpOptions);
