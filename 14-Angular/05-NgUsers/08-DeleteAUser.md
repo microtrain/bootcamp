@@ -25,7 +25,7 @@ constructor(
 ...
 //3. Implement the deleteUser() method
 deleteUser(id: string): void {
-  if(confirm("Are you sure to delete " + this.user.user.username)) {
+  if(confirm("Are you sure to delete " + this.user.username)) {
     this.usersService.deleteUser(id).subscribe(
       ()=>{this.router.navigate(['/users'])}
     );
