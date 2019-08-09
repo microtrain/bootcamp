@@ -71,7 +71,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Apod } from './apod';
 
-import { NgApodConfig } from '../../../config/ng-apod.config';
+import { NgApodConfig } from '../../../ng-apod/config/ng-apod.config';
 
 @Injectable({
   providedIn: 'root'
