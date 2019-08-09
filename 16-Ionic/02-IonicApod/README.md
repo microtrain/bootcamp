@@ -64,7 +64,7 @@ Open a new tab and create the apod service.
 ionic generate service apod
 ```
 
-*src/app/apod.service.ts*
+*src/app/apod/apod.service.ts*
 ```js
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
