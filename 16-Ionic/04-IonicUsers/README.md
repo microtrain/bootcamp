@@ -14,8 +14,8 @@ ionic serve --lab
 ```sh
 ionic generate service auth
 ionic generate page login
-ionic generate page login
-ionic generate page regsiter
+ionic generate page logout
+ionic generate page register
 ```
 For each of these files, copy the content from the ioncAuth project.
 
