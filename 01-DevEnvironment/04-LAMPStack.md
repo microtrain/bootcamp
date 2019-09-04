@@ -150,7 +150,7 @@ The first line is just a comment so that you or future dev, admin's, etc will kn
 
 Now you will want to restart Apache to upadate the configuration.
 ```sh
-sudo service apache2 restart
+sudo systemctl restart apache2
 ```
 
 * [```service```](http://manpages.ubuntu.com/manpages/zesty/man8/service.8.html) - Apache runs a service so all this command does is tell the system to restart the Apache service.
