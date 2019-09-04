@@ -91,6 +91,8 @@ Now when you navigate to *https://localhost* you will get an insecure warning. A
 
 ## [```mod_rewrite```](http://httpd.apache.org/docs/current/mod/mod_rewrite.html)
 
+> OPTIONAL: The following section should be considered informational only. **DO NOT** proceed without guidance from the instructor.
+
 Mod_rewrite provide a rules based rewriting engine to Apache. This allows the servers admin to rewrite a users request to do something else. Let's use mod_rewrite to force SSL connections when the user makes an http request.
 
 Be sure the mod_rewrite is enabled
