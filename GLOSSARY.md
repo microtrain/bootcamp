@@ -1,5 +1,10 @@
 # Glossary
 
+## *nix
+A common short hand for a Unix based system. While there are a number of Unix 
+based systems, this generally refers to Linux and BSD (Berkley Standard 
+Distribution od Unix).ss
+
 ## Address
 1. A storage location in memory.
 2. The location of a given server on the internet. An IP address either IPv4 or IPv6.
@@ -95,3 +100,6 @@ Uniform Resource Locator a type of URI to which an access mechanism has been pre
 ## Variable
 
 A reference to a location in memory (an address) which has an identifier, a value, and a data type.
+
+## VI/VIM
+(vee-eye) - a command line editor.
