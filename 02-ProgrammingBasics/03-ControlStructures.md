@@ -85,14 +85,14 @@ var a=1;
 
 //if/if-then
 if(a === 1){
-    echo 'Match!';
+    console.log('Match!');
 }
 
 //if-then/if-then-else
 if(a === 1){
-    echo 'Match!';
+    console.log('Match!');
 }else{
-    echo 'Mot a match';
+    console.log('Mot a match');
 }
 ```
 
