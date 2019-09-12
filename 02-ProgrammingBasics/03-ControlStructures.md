@@ -48,7 +48,7 @@ For the following statements assume a = 0 and b = 1
 * switch - Execute something depending on the state of a given condition.
 
 ```php
-var $a=1;
+$a=1;
 
 //if/if-then
 if($a === 1){
