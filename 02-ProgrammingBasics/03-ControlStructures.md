@@ -97,6 +97,7 @@ if(a === 1){
 ```
 
 ```bash
+#!/bin/bash
 a=1;
 
 #if/if-then
