@@ -29,8 +29,26 @@ cd YOUR-GITHUB-USERNAME.github.io.git
     </body>
 </html>
 ```
-1. [</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/f69b30352160c084a385ec13bbaef1d4c3421f98) Commit your changes.
-1. Push your changes to master
+
+### Commit you changes and push them to GitHub
+
+```sh
+git add .
+git commit -a
+```
+
+VI will open an ask you to enter a commit message. 
+1. Press the letter [i] to enter insert mode. 
+1. Then type the message _Proof of concept version_. 
+1. Press [esc] followed by [:x] and enter to save the commit message.
+
+Push your changes to the master branch.
+
+```sh
+git push origin master
+```
+Once you have committed and pushed your changes to master you will be ready to view your changes in both dev and production environments. Dev is aka local changes is where you do your work and/or preview you work prior to making it available to the public. Production is the live version of your website, code, project, etc.
+
 1. Navigate to [http://localhost/YOUR-GITHUB-USERNAME.github.io/](http://localhost/YOUR-GITHUB-USERNAME.github.io/) to view your changes locally.
 1. Navigate to [YOUR-GITHUB-USERNAME.github.io/](YOUR-GITHUB-USERNAME.github.io/) to view your changes in production.
 
