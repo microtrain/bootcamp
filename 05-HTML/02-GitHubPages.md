@@ -47,7 +47,7 @@ Push your changes to the master branch.
 ```sh
 git push origin master
 ```
-Once you have committed and pushed your changes to master you will be ready to view your changes in both dev and production environments. Dev is aka local changes is where you do your work and/or preview you work prior to making it available to the public. Production is the live version of your website, code, project, etc.
+[]</> code(https://github.com/microtrain/microtrain.github.io/commit/eb9899ff31d1781498444289ab6561adb5b21bc2) Once you have committed and pushed your changes to master you will be ready to view your changes in both dev and production environments. Dev is aka local changes is where you do your work and/or preview you work prior to making it available to the public. Production is the live version of your website, code, project, etc.
 
 1. Navigate to [http://localhost/YOUR-GITHUB-USERNAME.github.io/](http://localhost/YOUR-GITHUB-USERNAME.github.io/) to view your changes locally.
 1. Navigate to [YOUR-GITHUB-USERNAME.github.io/](YOUR-GITHUB-USERNAME.github.io/) to view your changes in production.
