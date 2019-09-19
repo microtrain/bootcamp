@@ -23,7 +23,7 @@ cd YOUR-GITHUB-USERNAME.github.io.git
 <!DOCTYPE html>
 <html>
     <head>
-       <title>Jason Snider</title>
+       <title>Alan Smithee</title>
     </head>
     <body>
     </body>
@@ -66,7 +66,7 @@ This portfolio site will start off with three pages.
 
 We will start by adding navigation and and an header to our form. This version of your site might look a bit odd. Don't worry, we will add some CSS later, this will make it look a modern website.
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/4c22c5695fdfc3fe766664661e1b330668127aae) First add navigation to index.html.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/4520f8ccfd4c091dd13beec77ed2ad9ccb263940) First add navigation to index.html.
 
 ```html
 <nav>
@@ -78,7 +78,7 @@ We will start by adding navigation and and an header to our form. This version o
 </nav>
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/858a314ef74ad3eae3ebd8fc91bce38b726cbdf7) Make two copies of index.html and rename them to resume.html and contact.html. Locally you will no be able click through all three pages. Commit your changes and push master. Go to the production version of you website and test your changes.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/1881d80c0638fd77bf0a64d7b7d8bd3c227ed75e) Make two copies of index.html and rename them to resume.html and contact.html. Preview your changes locally, clicking the links will not cause the page to change. Keep an eye on your browsers address bar, if this changes and the page displays no errors, your are ready to push to production. Commit your changes and push master. Go to the production version of you website and test your changes.
 
 ## Exercise 3 - HTML Validation
 Sometimes our pages do not display as we expect, this is often due to invalid HTML. You can check the validity of your HTML using the W3C Markup Validation Service.
@@ -88,7 +88,7 @@ Sometimes our pages do not display as we expect, this is often due to invalid HT
 3. Enter the address of your GitHub pages site and press the _Check_ button.
 
 ## Meta Data
-Meta data is data about data. For a typical web page, the data is the content that falls between the opening and closng heade tags. Meta data helps to describe and classify that data and/or the functionality of your web page. Meta data can be an attribute of a single element or added to the ```head``` of a document in the form of a meta tag.
+Meta data is data about data. For a typical web page, the data is the content that falls between the opening and closing header tags. Meta data helps to describe and classify that data and/or the functionality of your web page. Meta data can be an attribute of a single element or added to the ```head``` of a document in the form of a meta tag.
 
 Best practices are things that ought to be done given there is not a good reason not to and provided their is not an alternative that better suits a given situation. If I had to pick three pieces of meta data that should always be implemented, they would be as follows.
 
