@@ -108,7 +108,7 @@ a.indigo:visited,{
 
 ### Add a Stylesheet
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/4176f6290178cdce30034c521f360c1100a4035a) In your GitHub Pages project create the directory path *dist/css* and add the file *main.css*. To the document head in index.html use the [```link```](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) element to reference the stylesheet. 
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/8fb938e5e66ac7fabc2b79b4d2937d22b9876de6) In your GitHub Pages project create the directory path *dist/css* and add the file *main.css*. To the document head in index.html use the [```link```](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/link) element to reference the stylesheet. 
 
 ```html
 <link rel="stylesheet" type="text/css" href="./dist/css/main.css">
@@ -118,7 +118,7 @@ You can verify the file loads by checking networking tab in dev tools.
 
 ### Remove the Inline Styles
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/7f785b482d30531da730bb383c4c2bb17fef38e7) We will start by removing the inline style we added to our index.html file. We will start by adding an avatar class to our stylesheet.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/f24bbe891e72947d027418fea78ee8680625df9b) We will start by removing the inline style we added to our index.html file. We will start by adding an avatar class to our stylesheet.
 
 **dist/css/main.css**
 ```css
@@ -249,16 +249,22 @@ Use dev tools to toggle the device toolbar (enter mobile testing mode) and choos
 }
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/a8d8884c747e1794e45cc55b4ef786a06fe00b55) Or you could set the default ```max-width``` to **90%** which is what we will do here.
+Or you could set the default ```max-width``` to **90%** which is what we will do here. Semantically speaking this method is closer to mobile first than the max-width media query. That is because that particular breakpoint assumes a desktop then changes to mobile when the proper breakpoint is encountered. 
 
 ```css
   /* For smaller screens to not exceed the max screen width */
   max-width: 90%;
 ```
 
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/150c64c16b01ecf1d6c6ba90ac92eafeed982118)  You may notice your page does not respond to breakpoints. Depending on the browser, you may need to tell it to. You can do this by adding the following meta tag to the head of your document
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+```
+
 #### Switch to Vertical Navigation on Small Devices
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/0ac63879c014f1c258be71e5e0f4535faf389ec9) It's common practice, on smaller screens, to change from a horizontal navigation in the header to a hidden vertical navigation that appears on a button press. We can do this by setting the nav display to none.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/b1c5c5f3342b8335038fad6ebed9879973020520) It's common practice, on smaller screens, to change from a horizontal navigation in the header to a hidden vertical navigation that appears on a button press. We can do this by setting the nav display to none.
 
 ```css
 @media only screen and (max-width: 960px)  {
@@ -270,7 +276,7 @@ Use dev tools to toggle the device toolbar (enter mobile testing mode) and choos
 }
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/60f60ab4f68f3125529c40363fef51135d849a7c) Add an anchor element to the ```header``` element right before the ```nav``` element. This will act as the control to toggle the menu on smaller screens. Give this element and ```id``` attribute with a value value of *toggleMenu*.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/c21cd92767f844ca64db9b5a02009eccd5f8c40b) Add an anchor element to the ```header``` element right before the ```nav``` element. This will act as the control to toggle the menu on smaller screens. Give this element and ```id``` attribute with a value value of *toggleMenu*.
 
 ```html
 <a id="toggleMenu">Menu<a>
@@ -291,10 +297,13 @@ Create a CSS selector for the toggleMenu attribute. This style will be similar t
     float: right;
     line-height: 50px;
   }
-  ...
+
+  nav {
+    display:none;
+  }
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/c1d7817d7a356f4450b4d293467a428ce63e7ad8) We will cover JavaScript in great detail later, for now copy and paste the following into index.html right before the closing body tag.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/0d6ce1804090c131e5ec19f80222c8336cfafc8a) We will cover JavaScript in great detail later, for now copy and paste the following into index.html right before the closing body tag.
 
 ```html
     <script>
@@ -314,7 +323,7 @@ Create a CSS selector for the toggleMenu attribute. This style will be similar t
     </script>
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/53cd932bba3279823f34b26b80794c08a4edd316) Now if you reload the page, move the width to less than 960px and press menu, you notice not much has changed. We will fix this by setting the nav to a block level component.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/a8e3a289b4bcb84645b35f5a7de03dd1246d427c) Now if you reload the page, move the width to less than 960px and press menu, you notice not much has changed. We will fix this by setting the nav to a block level component.
 
 ```css
 @media only screen and (max-width: 960px)  {
@@ -342,7 +351,7 @@ Create a CSS selector for the toggleMenu attribute. This style will be similar t
 
 Reload the page and make sure the resolution in under 960px, press the Menu button. It's now more closely resembles a traditional fly out menu. Make the resolution small and you'll notice the position of the menu changes. To fix this you will absolutely position ```nav``` relative to ```header```.
 
-Start by making assigning the relative position to the ```header``` element. Then assign an absolute position to the ```nav``` element. When an absolute element is the child a relative element the positioning of the absolute element is relative to that of it's parent.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/51a8366bd3c8713a51020b68ee3ee9a821f93bff) Start by making assigning the relative position to the ```header``` element. Then assign an absolute position to the ```nav``` element. When an absolute element is the child a relative element the positioning of the absolute element is relative to that of it's parent.
 
 ```css
 @media only screen and (max-width: 960px)  {
@@ -356,13 +365,29 @@ Start by making assigning the relative position to the ```header``` element. The
     display: none;
     background: #000;
   }
-  ...
+
+  nav ul li a,
+  nav ul li a:link,
+  nav ul li a:visited{
+    display: block;
+    border-bottom: 1px solid #777;
+  }
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/1352f688889414017be500c793bdf971d4fe9d56) Next you will want to position the menu. By default the menu will want to position itself in the top left corner. If you were to think of a box as having four boundaries: top, left, right and bottom; then ```top```, ```left```, ```right```, ```bottom``` are commands that move the top left corner of a target element a set distance from the specified boundaries. In this case we will set top to ```50px``` this will allow it to clear the 50px height of the header element. By setting ```left``` and ```right``` to ```0``` you will stretch nav element to the width of the entire screen.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/83e18c222b7c42bd95449f7be55980203ee3fc55) Next you will want to position the menu. By default the menu will want to position itself in the top left corner. If you were to think of a box as having four boundaries: top, left, right and bottom; then ```top```, ```left```, ```right```, ```bottom``` are commands that move the top left corner of a target element a set distance from the specified boundaries. In this case we will set top to ```50px``` this will allow it to clear the 50px height of the header element. By setting ```left``` and ```right``` to ```0``` you will stretch nav element to the width of the entire screen.
 
 ```css
 @media only screen and (max-width: 960px)  {
+
+  header {
+    position: relative;
+  }
+
+  #toggleMenu {
+    display: block;
+    float: right;
+    line-height: 50px;
+  }
 
   header {
     position: relative;
@@ -376,7 +401,13 @@ Start by making assigning the relative position to the ```header``` element. The
     left: 0;
     right: 0;
   }
-  ...
+
+  nav ul li a,
+  nav ul li a:link,
+  nav ul li a:visited{
+    display: block;
+    border-bottom: 1px solid #777;
+  }
 ```
 
 
