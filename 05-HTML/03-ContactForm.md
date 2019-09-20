@@ -146,24 +146,24 @@ Add the file thanks.html (this should be a copy of contact.html) to your GitHub 
 
 ## Exercise 2 - Thank You
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/3635c9538c3028bda528e642c3df7d7655685d2d) Make a copy of the file resume.html and name it *thanks.html*. Change the title to say "Thank You" and add a nice massage for the user.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/f6709fa1160bea5422b2b57a00fed7db6213dc66) Make a copy of the file resume.html and name it *thanks.html*. Change the title to say "Thank You" and add a nice massage for the user. You could copy any page, I only chose resume because it had the least amount of code to remove.
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/1c1b31da8ac02e1d81d782222baf5dc06f940265) Add a hidden field to your form and set the name to *_next* add a value attribute the points to the thanks.html page on you GitHub pages site. This use another special feature of Formspree that the sends the user to a target page after the form submit. 
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/fc6f187148f64a86976948d745c28efcf8abc799) Add a hidden field to your form and set the name to *_next* add a value attribute the points to the thanks.html page on you GitHub pages site. This use another special feature of Formspree that the sends the user to a target page after the form submit. You could add this anywhere between the form tags. Since there is no chance I'll ever bring this to the surface, I will add it to the very end of the form.
 
 ```html
 <input type="hidden" name="_next" value="//YOUR-GITHUB-USERNAME.github.io/thanks.html">
 ```
 
 ## Exercise 3 - Captcha and Honeypots
-Completely Automated Public Turing (Captcha) is any test that would be trivial for a human to solve but difficult if not impossible for a computer to solve. We use these to reduce spam and wasted resources by attempting to filter out robots (or non-human traffic) all Formspree forms provide captcha by default.
+Completely Automated Public Turing (Captcha) is any test that would be trivial for a human to solve but difficult if not impossible for a computer to solve. We use these to reduce spam and wasted resources by attempting to filter out robots (or non-human traffic) all Formspree forms provide captcha by default. In the same way *_subject* and *_next* send commands to Formspree *_gotcha* works in a similar fashion. This is another special feature of Formspree that rejects any form for which the honeypot is not empty. This is a second layer on top of Captcha making it redundant but we show it to demonstrate another technique for dealing with spam.
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/55e2d6aaf839dae77db4c74eeeaeb53316826e1e) Add a hidden field to your form and set the name to *_next* add a value attribute the points to the thanks.html page on you GitHub pages site. This uses another special feature of Formspree that rejects any form for which the honeypot is not empty. This is a second layer on top of Captcha making it redundant but we show it to demonstrate another technique for dealing with spam.
-
-> Any bot that is is aware of Formspree has likely been updated to account for the _gotcha name field. This would be more effective on a custom for, we will discuss this in later lessons.
+> Any bot that is is aware of Formspree has likely been updated to account for the _gotcha name field. In addition this may trip up screen readers or accessability tools. For those reasons we will not add it to our form but I will still show you an example.
 
 ```html
 <input type="text" name="_gotcha" style="display:none">
 ```
+
+Why does the *_gotcha* example use ```style="display:none"``` instead ```type="hidden"```? When bots see a hidden field they assume they should leave it alone. Hiding it with CSS means the bot wouldn't understand it's not suppose to be hidden. At this point we are playing a game of whack-a-mole. This uses inline style which a bot could easily be written to interpret. Our response would be to move this to an external style sheet. Of course, a good bit writer would also be able to detect that. We would then have another round of back and fourth. Each round would eliminate less sophisticated bots but there would always someone defeating this. In other words, this solution is far weaker than captcha, so just use captcha.
 
 ## Summary
 In this lesson you learned how to
