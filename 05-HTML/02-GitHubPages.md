@@ -181,7 +181,7 @@ Image has two required attributes src and alt ```<img src="..." alt="...">```. S
 
 Before you can add an image, you will need an image to link to. Lets use a Gravatar. Gravatar is a free service that allows a user to upload an avatar that will follow them from site to site by hashing the users email address into the name of a file. This is popular in the dev community and used by other services such as GitHub.
 
-[Head over to Gravatar](https://en.gravatar.com/) and create a profile and use the provided URL, if you do not want to create a Gravatar account use the following URL.
+[Gravatar](https://en.gravatar.com/) is a service that provides avatar hosting. For the shake of expedience we will use the default mystery man. Later, If you decide you would like to use this service [head over to Gravatar](https://en.gravatar.com/). Read more about [Gravatar URL settings and parameters](https://en.gravatar.com/site/implement/images/).
 
 * *https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm&s=64*
 
