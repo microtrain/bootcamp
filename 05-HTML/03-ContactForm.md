@@ -127,7 +127,7 @@ When building a contact form think about what information you need. This will be
 </div>
 ```
 
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/47346c24fe699a610caf7826acf668082318c7d4) We will create a hidden form field with the name of _subject. This will access another feature for dealing with the email subject. We will make this a hidden field so that we can control what it looks like in our inbox.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/47346c24fe699a610caf7826acf668082318c7d4) We will create a hidden form field with the name of _subject. This will access another feature for dealing with the email subject. We will make this a hidden field so that we can control what it looks like in our inbox. We will put this at the top of the form. That way if you decide you want the user to control the subject line all you will need to do is change the type to from *hidden* to *text* and the field will already be in a logical location.
 ```html
 <div>
   <input type="hidden" name="_subject" value="New submission!">
