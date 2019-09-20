@@ -51,7 +51,7 @@ div > *.info{
 
 ## Specificity Rules
 
-The following list from the weakest to stringest selectors when it comes to implementing css rules. Inline style trump all, while ```!important``` can force an override of a higher lower level selector; this should be used sparingly. 
+The following list from the weakest to strongest selectors when it comes to implementing css rules. Inline style trump all, while ```!important``` can force an override of a higher lower level selector; this should be used sparingly. 
 
 * universal selector (*)
 * element selector (h1, p, a)
@@ -131,9 +131,9 @@ You can verify the file loads by checking networking tab in dev tools.
 
 ### Reset the body element
 
-Now we can start buildinga layout, we will start by reseting the body elements, adding a base font and then we will move on to navigation.
+Now we can start building a layout, we will start by resetting the body elements, adding a base font and then we will move on to navigation.
 
-It's common practice to remove the defualt padding and margin from the body, add the following to main.css.
+It's common practice to remove the default padding and margin from the body, add the following to main.css.
 ```css
 body{
   padding: 0;
