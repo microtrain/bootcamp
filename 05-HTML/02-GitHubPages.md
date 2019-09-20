@@ -192,7 +192,7 @@ You would mark this up as:
 
 ### Exercise 5 - Introduce Yourself
 
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/27fa7e9eea8dd055be18320f6bf44097ce8270ec) Update index.html such that
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/edbc9749f53452564d6e99e8c12902574ac63f2d) Update index.html such that
 * The title tag reads *Hello, I am YOUR-NAME*
 * Add an H1 element to the body of the document.
   * The contents of this tag SHOULD read *Hello I am YOUR-NAME*
@@ -209,7 +209,7 @@ Cascading Style Sheets (CSS) is a language for describing the style of an elemen
 
 This exercise introduces you to inline styles. Due to there blocking nature we will not use these in production. We will learn more about inline styles in latter lessons.
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/9585e5771ff4885b81d17f332f6e6b09de388ac0) Change index.html such that 
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/ca89eafcd0659bd5a3f98ee3561316b3641318bc) Change index.html such that 
 * Text wraps around the image.
 * The image provide some margin between itself the the text.
 * The image is presented as a circle.
