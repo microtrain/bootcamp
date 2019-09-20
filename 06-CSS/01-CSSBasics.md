@@ -382,7 +382,7 @@ Start by making assigning the relative position to the ```header``` element. The
 
 ## Exercise - Restyle All Pages
 
-Apply the new navigation to all pages.
+Apply the new navigation and main element to all pages.
 
 ## Additional Resources
 * [Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
