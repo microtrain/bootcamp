@@ -88,19 +88,19 @@ Label elements use the [for attribute](https://developer.mozilla.org/en-US/docs/
 ## Formspree
 Normally you would implement a contact form by implementing some back end code on your webserver. Since GitHub Pages does not allow you to execute server side (aka back end) code we will use a free service called Formspree. This will allow up to 1000 emails per month through our web form. Head over to [Formspree](https://formspree.io/) and give it a test, you will be sent a confirmation email which you must confirm to continue using the product.
 
-> By adding your email address to this form you are making it publicly available(or you could say potentially increasing it's public exposure). If this is an issue for you create an email account for soley for this purpose or even a service such a [https://www.mailinator.com/](https://www.mailinator.com/). *If you choose the latter be aware that these inboxes are temporary and public.*
+> By adding your email address to this form you are making it publicly available(or you could say potentially increasing it's public exposure). If this is an issue for you create an email account for solely for this purpose or even a service such a [https://www.mailinator.com/](https://www.mailinator.com/). *If you choose the latter be aware that these inboxes are temporary and public.*
 
 
 ## Exercise 1 - Basic Form
 
 When building a contact form think about what information you need. This will be a simple form so we will only ask for a few things: name, email and a message. This gives us a total of three form fields.
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/bd95f614abb50427158958e259fe69ddd32280a5) Open *contact.html* and add opening and closing ```form``` tags.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/3cbd8fe96310fce03587f5809c8aa95e798ae679) Open *contact.html* and add opening and closing ```form``` tags.
 ```html
 <form action="https://formspree.io/YOUREMAIL@EXAMPLE.COM" method="POST"></form>
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/065df8d95a3b44b6c5ab3c0d9494631e5daf0912) Collect the name of the person contacting you. We use N/name as the label content, for, id, and name values. Note the div tags, they are not required but they will help us later when we go to style the form.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/151012337f237d8dd3bc95f3f8604dbd64dcbc57) Collect the name of the person contacting you. We use N/name as the label content, for, id, and name values. Note the div tags, they are not required but they will help us later when we go to style the form.
 
 
 ```html
@@ -110,7 +110,7 @@ When building a contact form think about what information you need. This will be
 </div>
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/ea4f408a5612ab4e17d488d1ff54efae603c28af) Collect the email of the person contacting you. We use E/email as the label content, for and id values but we will change the name to _replyTo this will allow us to access Formsprees relpyTo feature of setting the replyTo address to the user supplied value. 
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/57c689d5cd557bc20b4419b9fb532a1cafbe27dc) Collect the email of the person contacting you. We use E/email as the label content, for and id values but we will change the name to _replyTo this will allow us to access Formspree's relpyTo feature of setting the replyTo address to the user supplied value. 
 
 ```html
 <div>
@@ -119,7 +119,7 @@ When building a contact form think about what information you need. This will be
 </div>
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/39445543be06aff85614210916f31990c9ac9663) We will create a label and a text area to collect the mesage from the person contacting us.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/686962cfc1dff5f7d36fc8aa06d51583e974efff) We will create a label and a text area to collect the message from the person contacting us.
 ```html
 <div>
   <label for="message">Message</label>
@@ -127,14 +127,14 @@ When building a contact form think about what information you need. This will be
 </div>
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/3f7a18bd88c2314e3d2ae8ea507ebb9c01b1ce06) We will create a hidden form field with the name of _subject. This will aceess another feature for dealing with the email subject. We will make this a hidden field so that we can control what it looks like in our inbox.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/47346c24fe699a610caf7826acf668082318c7d4) We will create a hidden form field with the name of _subject. This will access another feature for dealing with the email subject. We will make this a hidden field so that we can control what it looks like in our inbox.
 ```html
 <div>
   <input type="hidden" name="_subject" value="New submission!">
 </div>
 ```
 
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/a57888da75deb63502e70ff33c24dc652654fedd) Finally, we will add a submit button.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/649cb8fad274e0e882f2c457f21d123c89ec8631) Finally, we will add a submit button.
 ```html
 <div>
   <input type="submit" value="Send">
