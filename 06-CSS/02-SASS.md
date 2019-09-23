@@ -56,7 +56,7 @@ Create the paths */var/www/mtbc/scss/index.html* and */var/www/mtbc/scss/main.sc
 </html>
 ```
 
-Load the page [https://localhost/mtbc/sass](https://localhost/mtbc/sass). Then add the following the to *main.scss*
+Load the page [https://localhost/mtbc/scss](https://localhost/mtbc/scss). Then add the following the to *main.scss*
 
 */var/www/mtbc/scss/main.scss*
 ```scss
