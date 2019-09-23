@@ -7,7 +7,7 @@ SASS is a a CSS preprocessor is a superset of CSS which means all CSS syntax is 
 Install ruby-sass via apt.
 
 ```sh
-sudo apt-get install ruby-sass
+sudo apt install ruby-sass
 ```
 
 Variables in Sass. Sass denotes variables with a _$_ dollar sign. For these lessons we will use the newer SCSS syntax for writing our sass files. These files must have the _.scss_ extensions.
