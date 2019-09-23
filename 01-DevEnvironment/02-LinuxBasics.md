@@ -32,8 +32,9 @@ Item 3, the current working directory is what we want to focus on at the moment.
 * ```chmod``` - CHange MODe, changes file permissions.
 * ```chmod +x filename``` - Makes a file executable.
 
-*```hostname``` - Returns the name of the current machine
-**```hostname Dev01``` - Changes the name of the current machine to Dev01.
+* ```hostname``` - Returns the name of the current machine
+* ```hostname Dev01``` - Changes the name of the current machine to Dev01.
+* ```passwd``` - Changes the password for the current user
 
 * ```apt``` - Retrieves and maintains packages from authenticated sources.
 * ```apt list``` - List packages based on package names.
