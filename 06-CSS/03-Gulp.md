@@ -7,7 +7,7 @@ Globally install Gulp
 
 ```sh
 cd ~
-sudo npm install -g gulp
+sudo npm install -g gulp -save-dev
 ```
 
 ## Configure NPM for you local project
@@ -25,14 +25,12 @@ Add a file named package.json to you GitHub Pages project. This must be added to
   },
   "dependencies": {},
   "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-clean-css": "^4.0.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-uglify-es": "^1.0.4",
-    "gulp-watch": "^5.0.1",
-    "merge-stream": "^1.0.1"
   }
 }
 ```
@@ -48,7 +46,7 @@ npm install
 
 ### .gitignore
 
-Git will stage every file it sees. There are cases in which you project requres files that you will never want to stage and commit. You can try to track these manually but that will inevitably fail. Add a file called .gitignore to your project and these files will not available for staging. Create a file called .gitignore in the top level of your project and add the following.
+Git will stage every file it sees. There are cases in which you project requires files that you will never want to stage and commit. You can try to track these manually but that will inevitably fail. Add a file called .gitignore to your project and these files will not available for staging. Create a file called .gitignore in the top level of your project and add the following.
 
 ```git
 node_modules
@@ -62,49 +60,79 @@ Gulp is an ES6 (JavaScript) script designed for frontend compilations. These are
 
 */var/www/YOUR-GITHUB-USERNAME/github.io/gulpfile.js*
 ```js
+
 var gulp = require('gulp');
-var watch = require('gulp-watch');
 var cleanCSS = require('gulp-clean-css');
 var uglify = require('gulp-uglify-es').default;
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
-var merge = require('merge-stream');
 var scss = require('gulp-sass');
 
-gulp.task('default', ['watch']);
+/**
+ * Define the paths upon which the files to be *gulped* will resided.
+ * # styles - the name of a collection (this can be anything you like)
+ * # src - the files to be gulped, multiple paths would be listed inside of an 
+ * array
+ * # dest - the output location
+ * 
+ */
+var paths = {
+  styles: {
+    src: 'src/scss/**.scss',
+    dest: 'dist/css/',
+  }
+};
 
-gulp.task('build-css', function(){
-  //Create an unminified version
-  var full = gulp.src([
-    'src/scss/main.scss'
-  ])
-  . pipe(scss())
-  . pipe(concat('main.css'))
-  . pipe(gulp.dest('dist/css'));
+/**
+ * Define our tasks using plain functions
+ */
+function buildCSS() {
+  return gulp.src(paths.styles.src)
+    .pipe(scss())
+    .pipe(cleanCSS())
+    // pass in options to the stream
+    .pipe(rename({
+      basename: 'main',
+      suffix: '.min'
+    }))
+    .pipe(gulp.dest(paths.styles.dest));
+}
 
-  //Create a minified version
-  var min = gulp.src([
-    'src/scss/main.scss'
-  ])
-  . pipe(scss())
-  . pipe(cleanCSS())
-  . pipe(concat('main.min.css'))
-  . pipe(gulp.dest('dist/css'));
+/**
+ * Define a list of tasks to be executed when `gulp watch` is executed.s
+ */
+function watch() {
+  gulp.watch(paths.styles.src, buildCSS);
+}
 
-  return merge(full, min);
-});
+exports.buildCSS = buildCSS;
+exports.watch = watch;
 
-gulp.task('watch', function(){
-  gulp.watch('./src/scss/**/*.scss', ['build-css']);
-});
+/**
+ * Specify if tasks run in series or parallel using `gulp.series` and 
+ * `gulp.parallel`
+ */
+var build = gulp.series(gulp.parallel(buildCSS));
+
+/**
+ * Create a list of tasks that can be ran manually
+ * Running `gulp styles` fom the cli would execute the styles task
+ */
+gulp.task('build', build);
+
+/**
+ * Define default task that can be called by just running `gulp` from cli
+ * this would be the same as running `gulp watch`
+ */
+gulp.task('default', watch);
 ```
 
-Run any of the following commands execute your Gulp script.
+Run any of the following commands to execute your Gulp script.
 
 ```sh
 gulp
 gulp watch
-gulp build-css
+gulp buildCSS
 ```
 
 Since we defined ```gulp watch``` as our NPM start up script you can use ```npm start``` execute the watcher.
