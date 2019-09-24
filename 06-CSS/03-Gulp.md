@@ -48,7 +48,7 @@ npm install
 
 #### .gitignore
 
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/b9f760dc9e4080281ced2c530bc5a07d8f8ee984) Git will stage every file it sees. 
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/4963f8b4722a4379e680bf7702e24cee85877ee3) Git will stage every file it sees. 
 
 ```sh
 git status
