@@ -48,14 +48,16 @@ npm install
 
 #### .gitignore
 
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/4963f8b4722a4379e680bf7702e24cee85877ee3) Git will stage every file it sees. 
+Git will stage every file it sees. 
 
 ```sh
 git status
 ```
 
 There are cases in which you project requires files that you will never want to stage and commit. You can try to track these manually but that will inevitably fail. 
-Add a file called .gitignore to your project and these files will not available for staging. Create a file called .gitignore in the top level of your project and add the following.
+
+
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/4963f8b4722a4379e680bf7702e24cee85877ee3) Add a file called .gitignore to your project and these files will not available for staging. Create a file called .gitignore in the top level of your project and add the following.
 
 ```git
 node_modules
