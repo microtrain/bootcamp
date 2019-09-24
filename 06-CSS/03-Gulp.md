@@ -11,7 +11,7 @@ sudo npm install -g gulp -save-dev
 ```
 
 ## Configure NPM for you local project
-Add a file named package.json to you GitHub Pages project. This must be added to the projects top level directory. Gulp is built in NodeJS and lives in the NPM ecosystem. You run a series of NPM commands to initialize you project as an NPM project and install each dependency manually or you can use a prebuilt config file. The latter is the path we will take for this project. Add the following to you package.json file.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/5d889b1b371d5f64ffad5f4b93fdb356dab7e044) Add a file named package.json to you GitHub Pages project. This must be added to the projects top level directory. Gulp is built in NodeJS and lives in the NPM ecosystem. You can run a series of NPM commands to initialize this project as an NPM project and install each dependency manually or you can use a prebuilt config file. The latter is the path we will take for this project. Add the following to your *package.json* file.
 
 
 */var/www/YOUR-GITHUB-USERNAME.github.io/package.json*
