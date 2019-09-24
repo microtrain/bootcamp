@@ -11,7 +11,7 @@ sudo npm install -g gulp -save-dev
 ```
 
 ## Configure NPM for you local project
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/5d889b1b371d5f64ffad5f4b93fdb356dab7e044) Add a file named package.json to you GitHub Pages project. This must be added to the projects top level directory. Gulp is built in NodeJS and lives in the NPM ecosystem. You can run a series of NPM commands to initialize this project as an NPM project and install each dependency manually or you can use a prebuilt config file. The latter is the path we will take for this project. Add the following to your *package.json* file.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/b401f28f4539db6c7286bb0081855649c371736f) Add a file named package.json to you GitHub Pages project. This must be added to the projects top level directory. Gulp is built in NodeJS and lives in the NPM ecosystem. You can run a series of NPM commands to initialize this project as an NPM project and install each dependency manually or you can use a prebuilt config file. The latter is the path we will take for this project. Add the following to your *package.json* file.
 
 
 */var/www/YOUR-GITHUB-USERNAME.github.io/package.json*
@@ -35,18 +35,27 @@ sudo npm install -g gulp -save-dev
 }
 ```
 
+Commit your changes and push to master.
+
 ### Install all Packages
 
-By virtue of having a package.json file your project is an NPM project. At this point we have defined the project dependencies; now we need to install them. Run the following from the command line. 
+By virtue of having a package.json file your project is an NPM project. At this point we have defined the project dependencies; now we need to install them. Run the following from the command line. DO NOT commit until you have added a *.gitignore* file.
 
 ```sh
 cd /var/www/YOUR-GITHUB-USERNAME/github.io
 npm install
 ```
 
-### .gitignore
+#### .gitignore
 
-Git will stage every file it sees. There are cases in which you project requires files that you will never want to stage and commit. You can try to track these manually but that will inevitably fail. Add a file called .gitignore to your project and these files will not available for staging. Create a file called .gitignore in the top level of your project and add the following.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/b9f760dc9e4080281ced2c530bc5a07d8f8ee984) Git will stage every file it sees. 
+
+```sh
+git status
+```
+
+There are cases in which you project requires files that you will never want to stage and commit. You can try to track these manually but that will inevitably fail. 
+Add a file called .gitignore to your project and these files will not available for staging. Create a file called .gitignore in the top level of your project and add the following.
 
 ```git
 node_modules
