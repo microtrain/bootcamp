@@ -14,9 +14,9 @@ GitHub provides a free hosting service called [GitHub Pages](https://pages.githu
 ```sh
 cd /var/www
 git clone git@github.com:YOUR-GITHUB-USERNAME/YOUR-GITHUB-USERNAME.github.io.git
-cd YOUR-GITHUB-USERNAME.github.io.git
+cd YOUR-GITHUB-USERNAME.github.io
 ```
-1. Add YOUR-GITHUB-USERNAME.github.io.git to your VSCode workspace.
+1. Add YOUR-GITHUB-USERNAME.github.io to your VSCode workspace.
 1. Create the file index.html
 1. Add the minimal template with your name as title content
 ```html
