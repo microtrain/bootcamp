@@ -39,7 +39,10 @@ Commit your changes and push to master.
 
 ### Install all Packages
 
-By virtue of having a package.json file your project is an NPM project. At this point we have defined the project dependencies; now we need to install them. Run the following from the command line. DO NOT commit until you have added a *.gitignore* file.
+By virtue of having a package.json file your project is an NPM project. At this 
+point we have defined the project dependencies; now we need to install them. 
+Run the following from the command line. DO NOT commit until you have added a 
+*.gitignore* file.
 
 ```sh
 cd /var/www/YOUR-GITHUB-USERNAME/github.io
@@ -48,26 +51,66 @@ npm install
 
 #### .gitignore
 
-Git will stage every file it sees. 
+Git will stage every file it sees. A quick status check show you everything 
+Git has access to. This will show you both tracked and untracked files.
+Untracked files are brand new files that. The git does not yet have history on.
+When git tracks a file, it is really tracking that files history. History starts
+once the file has been added to the list of trackable files
+```git add [FILE_NAME]```.
 
 ```sh
 git status
 ```
 
-There are cases in which you project requires files that you will never want to stage and commit. You can try to track these manually but that will inevitably fail. 
+A quick status check will show something like the following. You results will
+likely vary and that's OK. What were are really focusing on here is the 
+*node_modules/* directory.
+
+![Untracked Files](/img/git/untracked.png)
 
 
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/4963f8b4722a4379e680bf7702e24cee85877ee3) Add a file called .gitignore to your project and these files will not available for staging. Create a file called .gitignore in the top level of your project and add the following.
+There are cases in which you project requires files that you will never want to 
+stage and commit. You can try to track these manually but that will inevitably 
+fail. In our case *node_modules/* is a directory maintained by NPM. This could 
+contain thousands of files and millions of lines of supporting code for our 
+project. This is managed by NPM and we do not want to push these to our own
+own repository. We reference what we need in out *package.json* file then we 
+can ignore the *node_modules* directory. 
 
-```git
+
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/4963f8b4722a4379e680bf7702e24cee85877ee3) 
+Add a file called *.gitignore* to your project and these files will not available 
+for staging. Create a file called *.gitignore* in the top level of your project 
+and add the following. Sass will create caching directories as a general rule
+you will never want to push cache or tpm file to your repository. We will go
+ahead and ignore these now to prevent future confusion. 
+
+> Ignore as much as you can upfront. Aa quick Google search will reveal pre 
+> gitignore files that many projects use as a template.
+
+
+Create the file .gitignore and add the following.
+
+*/var/www/YOUR-GITHUB-USERNAME/github.io/.gitignore*
+```sh
 node_modules
 .gulp-scss-cache
 .sass-cache
 ```
 
+Running ```git status``` for a second time will yield results similar to the 
+following. Again, results will vary. The details to focus on are the omission 
+of *node_modules/* and the addition of *..gitigore*.
+
+![Untracked Files](/img/git/untracked2.png)
+
+At point you can add files to tracking, commit your changes and push to master.
+
 ## gulpfile.js
 
-Gulp is an ES6 (JavaScript) script designed for frontend compilations. These are typically written as small, single script programs.
+Gulp is an ES6 (JavaScript) script designed for frontend compilations (aka - 
+front-end tooling, automating workflows, etc.). These are 
+typically written as small, single script programs.
 
 */var/www/YOUR-GITHUB-USERNAME/github.io/gulpfile.js*
 ```js
