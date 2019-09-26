@@ -413,7 +413,10 @@ Reload the page and make sure the resolution in under 960px, press the Menu butt
 
 ## Exercise - Restyle All Pages
 
-Apply the new navigation and main element to all pages.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/e914d84dcfd4df4b9977c2a14aa3c4c04fad650b) 
+Apply the stylesheet, new navigation, and main element to all HTML pages. You 
+may consider adding additional elements and content such as adding an ```<h1>```
+tag to each page. 
 
 ## Additional Resources
 * [Specificity](https://developer.mozilla.org/en-US/docs/Web/CSS/Specificity)
