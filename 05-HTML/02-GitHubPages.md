@@ -99,8 +99,6 @@ Best practices are things that ought to be done given there is not a good reason
 * ```<meta charset="UTF-8">``` - Defines the character set you are using so that there will be no confusion between your source code and the rendering engine. For a data driven web site you will want your websites encoding to match that of your database; UTF-8 is the most common encoding.
 * ```<meta name="viewport" content="width=device-width, initial-scale=1.0">``` - Used by the browser to allow the developer of the site to declare how the site should be viewed across devices.
 
-At this point, rerunning the W3C markup validation service should yield positive results. If it does not, look for broken tags. 
-
 ### Exercise 4 - Meta Data Best Practices
 Update all pages on your GitHub site so that
 * The language is declared as _English_.
@@ -108,6 +106,8 @@ Update all pages on your GitHub site so that
 * The view port is declared as _content="width=device-width, initial-scale=1.0_.
 
 Commit all changes and push all changes to master
+
+> At this point, rerunning the W3C markup validation service should yield positive results. If it does not, look for broken tags. 
 
 ## [HTML Elements](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html)
 
