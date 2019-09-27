@@ -195,6 +195,9 @@ gulp buildCSS
 [</> code](https://github.com/microtrain/microtrain.github.io/commit/24a233f5efa0e397ace02d30ae28eef2b226ebdb)
 Now we will need to change our CSS ref from *./dist/css/main.css* to *./dist/css/main.min.css*.
 
+
+### Gulp Watch
+Since we defined gulp watch as our NPM start up script you can use npm start execute the watcher.
 ```sh
 npm start
 ```
