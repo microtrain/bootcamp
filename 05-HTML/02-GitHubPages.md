@@ -97,7 +97,7 @@ Best practices are things that ought to be done given there is not a good reason
 * ```<meta name="viewport" content="width=device-width, initial-scale=1.0">``` - Used by the browser to allow the developer of the site to declare how the site should be viewed across devices.
 
 ### Exercise 4 - Meta Data Best Practices
-[</> code](https://github.com/jasonsnider/jasonsnider.github.io/commit/a9675d93f89d43f3a829db78597c616ba786cde0) Update all pages on your GitHub site so that
+Update all pages on your GitHub site so that
 * The language is declared as _English_.
 * The charset is declared as _UTF-8_.
 * The view port is declared as _content="width=device-width, initial-scale=1.0_.
