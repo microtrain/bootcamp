@@ -108,13 +108,12 @@ At point you can add files to tracking, commit your changes and push to master.
 
 ## gulpfile.js
 
-Gulp is an ES6 (JavaScript) script designed for frontend compilations (aka - 
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/134b619fad09caa723ed25215266e00c8a5e69ac) Gulp is an ES6 (JavaScript) script designed for frontend compilations (aka - 
 front-end tooling, automating workflows, etc.). These are 
 typically written as small, single script programs.
 
 */var/www/YOUR-GITHUB-USERNAME/github.io/gulpfile.js*
 ```js
-
 var gulp = require('gulp');
 var cleanCSS = require('gulp-clean-css');
 var uglify = require('gulp-uglify-es').default;
@@ -181,15 +180,20 @@ gulp.task('build', build);
 gulp.task('default', watch);
 ```
 
-Run any of the following commands to execute your Gulp script.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/4ce0737782e4cfb7c219b37887f7ea8467d32742) 
+The gulpfile is written to scan a course directory, convert all SASS to CSS and 
+write the output to a file called *main.min.css*. To do this we will need to 
+rename the path *dist/css/main.css* to *src/scss/main.scss*.
+
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/014cecf4f0d0666b4c1f72aadab0f781279b410b)
+Run the following command to execute your Gulp script.
 
 ```sh
-gulp
-gulp watch
 gulp buildCSS
 ```
 
-Since we defined ```gulp watch``` as our NPM start up script you can use ```npm start``` execute the watcher.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/24a233f5efa0e397ace02d30ae28eef2b226ebdb)
+Now we will need to change our CSS ref from *./dist/css/main.css* to *./dist/css/main.min.css*.
 
 ```sh
 npm start
