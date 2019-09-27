@@ -197,11 +197,31 @@ Now we will need to change our CSS ref from *./dist/css/main.css* to *./dist/css
 
 
 ### Gulp Watch
-Gulp Watch will watch all files in the scss directory, when it detects a change it will auto compile the changes. Since we defined gulp watch as our NPM start up script you can use npm start execute the watcher.
+```gulp.watch()``` is a process that watches a given set of files for changes.
+If any changes are detected in that set of files ```gulp.watch()``` will execute
+a set of given commands. In our case we created a task called ```buildCSS()```
+which is called any time ```gulp..watch()``` detects a change.
+
+```buildCSS()``` converts all of the SASS in the */src/scss* directory to css
+and writes the output to *dist/src/main.min.css*. We can initiate the watcher in
+a few different ways.
+
+By calling it directly, this executes the ```watch()``` task from out gulpfile.
+```sh
+gulp watch
+```
+
+By calling gulp with no params. In our gulp file we defined a ```default()```,
+This task is the default task and gets called running gulp with no params.
+
+```sh
+gulp
+```
+
+By calling ```npm start```. Since we defined ```gulp watch``` under *scripts > 
+start* in our *package.json* calling ```npm start``` execute the watcher.
 ```sh
 npm start
 ```
-
-We can also run any ```gulp``` or ```gulp watch```.
 
 [Next: CSS Layouts](04-CSSLayouts.md)
