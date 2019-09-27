@@ -152,7 +152,7 @@ function buildCSS() {
 }
 
 /**
- * Define a list of tasks to be executed when `gulp watch` is executed.s
+ * Define a list of tasks to be executed when `gulp watch` is executed.
  */
 function watch() {
   gulp.watch(paths.styles.src, buildCSS);
