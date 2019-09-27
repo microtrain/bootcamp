@@ -86,6 +86,9 @@ Sometimes our pages do not display as we expect, this is often due to invalid HT
 1. Open a browser and go to the [W3C Markup Validation Service](https://validator.w3.org/).
 2. Select the third tab _Validate by URI_
 3. Enter the address of your GitHub pages site and press the _Check_ button.
+4. I expect validation to fail due to not defining a language. We will cover that in the next section.
+
+> The most common error we tend to face is the improper closure of tags. The validator will return line numbers check those lines in your code for broekn tags such as ```<a href="/">My Website<a>``` instead of ```<a href="/">My Website</a>```. The issue here being the omission of the ```/``` in the closing ```<a>``` tag. 
 
 ## Meta Data
 Meta data is data about data. For a typical web page, the data is the content that falls between the opening and closing header tags. Meta data helps to describe and classify that data and/or the functionality of your web page. Meta data can be an attribute of a single element or added to the ```head``` of a document in the form of a meta tag.
