@@ -169,7 +169,7 @@ var build = gulp.series(gulp.parallel(buildCSS));
 
 /**
  * Create a list of tasks that can be ran manually
- * Running `gulp styles` fom the cli would execute the styles task
+ * Running `gulp build` fom the cli would execute the build task
  */
 gulp.task('build', build);
 
