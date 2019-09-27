@@ -197,9 +197,11 @@ Now we will need to change our CSS ref from *./dist/css/main.css* to *./dist/css
 
 
 ### Gulp Watch
-Since we defined gulp watch as our NPM start up script you can use npm start execute the watcher.
+Gulp Watch will watch all files in the scss directory, when it detects a change it will auto compile the changes. Since we defined gulp watch as our NPM start up script you can use npm start execute the watcher.
 ```sh
 npm start
 ```
+
+We can also run any ```gulp``` or ```gulp watch```.
 
 [Next: CSS Layouts](04-CSSLayouts.md)
