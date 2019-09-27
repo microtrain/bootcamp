@@ -107,7 +107,7 @@ Update all pages on your GitHub site so that
 
 Commit all changes and push all changes to master
 
-> At this point, rerunning the W3C markup validation service should yield positive results. If it does not, look for broken tags. 
+> At this point, rerunning the W3C markup validation service should yield positive results. If it does not, look for broken tags. Don't get to hung up on this yet. We will have plenty of time to review and correct any of these issues before finishing the course.
 
 ## [HTML Elements](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html)
 
