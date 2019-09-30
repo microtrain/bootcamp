@@ -8,7 +8,7 @@ MetaData comes in many forms from the ```meta``` elements in the the document he
 
 ### Improve SEO with ```<meta>```
 
-Search Engine Optimization (SEO) is the practice of improving your site compatibility with a search engine which, in theory, should help to increase your traffic. Metadata is one ingredient. We will start with the classics, *description* and *keywords*. When writing a site description you're looking to sum up a page in 25 words or less. The *description* MUST be relevant to the content on the page. The same idea applies to keywords; 25 keywords or less. Keywords are delimited by commas and may be single words or short phrases that are relevant to the page in question. Google will penalize you if you try to cheat. In both cases we will use the meta tag with the name and description attributes.
+Search Engine Optimization (SEO) is the practice of improving your site compatibility with a search engine which in theory, should help to increase your traffic. Metadata is one ingredient. We will start with the classics, *description* and *keywords*. When writing a site description you're looking to sum up a page in 25 words or less. The *description* MUST be relevant to the content on the page. The same idea applies to keywords; 25 keywords or less. Keywords are delimited by commas and may be single words or short phrases that are relevant to the page in question. Google will penalize you if you try to cheat. In both cases we will use the meta tag with the name and description attributes.
 
 The name attribute denotes the type of metadata while the content attribute contains the description, keywords, etc.
 
