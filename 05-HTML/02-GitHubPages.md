@@ -1,6 +1,6 @@
 # Github Pages
 
-GitHub provides a free hosting service called [GitHub Pages](https://pages.github.com/). This is a standard GitHub repository that is hosted as a website. This allows you to post static web content (HTML, CSS, JavaScript, images, videos, etc) to a repository and that content will be served as a live webpage. This is a front-end only service. The exercises in this section will focus on building a website personal web site tailored to developing a personal brand, building a portfolio, etc.
+GitHub provides a free hosting service called [GitHub Pages](https://pages.github.com/). This is a standard GitHub repository that is hosted as a website. This allows you to post static web content (HTML, CSS, JavaScript, images, videos, etc) to a repository. That content will be served as a live webpage. This is a front-end only service. The exercises in this section will focus on building a website personal web site that is tailored to developing a personal brand and building a portfolio.
 
 ## Exercise 1 - Create your GitHub Pages Repository.
 1. Login to github
@@ -47,7 +47,9 @@ Push your changes to the master branch.
 ```sh
 git push origin master
 ```
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/eb9899ff31d1781498444289ab6561adb5b21bc2) Once you have committed and pushed your changes to master you will be ready to view your changes in both dev and production environments. Dev is aka local changes is where you do your work and/or preview you work prior to making it available to the public. Production is the live version of your website, code, project, etc.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/eb9899ff31d1781498444289ab6561adb5b21bc2) Once you have committed and pushed your changes to master you will be ready to view your changes in both dev and production environments. Dev (aka local changes) is where you do your work and/or preview you work prior to making it available to the public. Production is the live version of your website (code, project, etc).
+
+> Replace *YOUR-GITHUB-USERNAME* with your GitHub username.
 
 1. Navigate to [http://localhost/YOUR-GITHUB-USERNAME.github.io/](http://localhost/YOUR-GITHUB-USERNAME.github.io/) to view your changes locally.
 1. Navigate to [YOUR-GITHUB-USERNAME.github.io/](YOUR-GITHUB-USERNAME.github.io/) to view your changes in production.
@@ -64,7 +66,7 @@ This portfolio site will start off with three pages.
 * resume.html - An HTML based resume.
 * contact.html - A form that will allow people to contact you.
 
-We will start by adding navigation and and an header to our form. This version of your site might look a bit odd. Don't worry, we will add some CSS later, this will make it look a modern website.
+We will start by adding navigation and and a header to our form. This version of your site might look a bit odd. Don't worry, we will add some CSS later, this will make it look a modern website.
 
 [</> code](https://github.com/microtrain/microtrain.github.io/commit/4520f8ccfd4c091dd13beec77ed2ad9ccb263940) First add navigation to index.html.
 
