@@ -2,7 +2,7 @@
 
 MetaData comes in many forms from the ```meta``` elements in the the document head to microdata and aria attributes applied directly to your HTML tags or even in a separate text file.
 
-> This section serves as an overview of metadata. There will be no code to apply in this lesson.
+> This section serves as an overview of metadata, there is no code to apply in this lesson.
 
 ## HTML
 
