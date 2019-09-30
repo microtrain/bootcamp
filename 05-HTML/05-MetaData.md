@@ -2,11 +2,13 @@
 
 MetaData comes in many forms from the ```meta``` elements in the the document head to microdata and aria attributes applied directly to your HTML tags or even in a separate text file.
 
+> This section serves as an overview of meta data. There will be no code to apply in this lesson.
+
 ## HTML
 
 ### Improve SEO with ```<meta>```
 
-Search Engine Optimization (SEO) is the practice of improving your site compatibility with a search engine which, in theory, should help to increase your traffic. Meta data is one ingredient. We will start with the classics *description* and *keywords*. When writing a site description your looking to sum up a page in 25 words or less the description MUST be relevant to the content on the page. The same idea applies to keywords 25 or less comma separated words or short phrases that are relevant to the page in question. Google will penalize you if you try to cheat. In both cases we will use the meta tag with the name and description attributes.
+Search Engine Optimization (SEO) is the practice of improving your site compatibility with a search engine which, in theory, should help to increase your traffic. Meta data is one ingredient. We will start with the classics, *description* and *keywords*. When writing a site description you're looking to sum up a page in 25 words or less. The *description* MUST be relevant to the content on the page. The same idea applies to keywords 25 words or less. These are comma separated words or short phrases that are relevant to the page in question. Google will penalize you if you try to cheat. In both cases we will use the meta tag with the name and description attributes.
 
 The name attribute denotes the type of meta data while the content attribute contains the description, keywords, etc.
 ```html
