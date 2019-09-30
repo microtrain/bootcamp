@@ -90,17 +90,17 @@ Sometimes our pages do not display as we expect, this is often due to invalid HT
 
 > The most common error we tend to face is the improper closure of tags. The validator will return line numbers check those lines in your code for broekn tags such as ```<a href="/">My Website<a>``` instead of ```<a href="/">My Website</a>```. The issue here being the omission of the ```/``` in the closing ```<a>``` tag. 
 
-## Meta Data
-Meta data is data about data. For a typical web page, the data is the content that falls between the opening and closing header tags. Meta data helps to describe and classify that data and/or the functionality of your web page. Meta data can be an attribute of a single element or added to the ```head``` of a document in the form of a meta tag.
+## Metadata
+Metadata is data about data. For a typical web page, the data is the content that falls between the opening and closing header tags. Metadata helps to describe and classify that data and/or the functionality of your web page. Metadata can be an attribute of a single element or added to the ```head``` of a document in the form of a meta tag.
 
-Best practices are things that ought to be done given there is not a good reason not to and provided their is not an alternative that better suits a given situation. If I had to pick three pieces of meta data that should always be implemented, they would be as follows.
+Best practices are things that ought to be done given there is not a good reason not to and provided their is not an alternative that better suits a given situation. If I had to pick three pieces of metadata that should always be implemented, they would be as follows.
 
 * ```<html lang="en">``` - Defines the language of the web page. This would most likely be used by assistive technologies such as screen readers or an automated translator.
 * ```<meta charset="UTF-8">``` - Defines the character set you are using so that there will be no confusion between your source code and the rendering engine. For a data driven web site you will want your websites encoding to match that of your database; UTF-8 is the most common encoding.
 * ```<meta name="viewport" content="width=device-width, initial-scale=1.0">``` - Used by the browser to allow the developer of the site to declare how the site should be viewed across devices.
 
-### Exercise 4 - Meta Data Best Practices
-Update all pages on your GitHub site so that
+### Exercise 4 - Metadata Best Practices
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/fcc3fb47ed9ecb8fd2c05d8c38734fe58651b9e0) Update all pages on your GitHub site so that
 * The language is declared as _English_.
 * The charset is declared as _UTF-8_.
 * The view port is declared as _content="width=device-width, initial-scale=1.0_.
