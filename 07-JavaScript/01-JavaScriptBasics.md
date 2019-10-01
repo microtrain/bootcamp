@@ -18,9 +18,9 @@ Create the file ```/var/www/mtbc/js/console.html``` that contains the following 
   </head>
   <body>
     <p>Using the development console. Press [f12] and click the console tab.</p>
-		<script>
+    <script>
       console.log();
-		</script>
+    </script>
   </body>
 </html>
 ```
