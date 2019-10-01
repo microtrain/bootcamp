@@ -37,8 +37,7 @@ Find the ```<script>``` tags in the markup you just added to the new file. You w
 ```
 Open a browser and navigate to [http://localhost/mtbc/js/console.html](http://localhost/mtbc/js/console.html). Once the page opens, press [f12] and click on the console tab. You will see the text _Hello World_ followed by the file name and line number.
 
-##### Notes
-The command ```console.log()``` call the log() function from the console API. This is what is know as dot concatenation, in this case ```log()``` is a property (method, function or variable) of the ```console``` API. This syntax is also used in object oriented programming (OOP) in which it would read something like ```ObjectX.propertyY``` or  ```ObjectX.methodZ()```. Some languages such a PHP use ```->``` instead of a dot, but the idea is the same ```$ObjectX->propertyY``` or ```$ObjectX->methodZ()```.
+> The command ```console.log()``` call the log() function from the console API. This is what is know as dot concatenation, in this case ```log()``` is a property (method, function or variable) of the ```console``` API. This syntax is also used in object oriented programming (OOP) in which it would read something like ```ObjectX.propertyY``` or  ```ObjectX.methodZ()```. Some languages such a PHP use ```->``` instead of a dot, but the idea is the same ```$ObjectX->propertyY``` or ```$ObjectX->methodZ()```.
 
 While not required, most function (or method) calls will accept an argument. In this case, the console APIs ```log()``` method accepts a single parameter, the data to be printed to the screen. This data may be of any type number, string, array, object, etc. In exercise 1.1 we passed a static string. You can read more about JavaScript data types [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures).
 
@@ -93,8 +92,7 @@ console.log(result);
 
 As in the previous example we are adding _7_ to _35_, only this time we have added quotes to _35_. Adding quotes changes the data type from a number to a string so rather than adding two numeric values we are concatenating two strings.
 
-##### Notes
-JavaScript is loosely typed, meaning it will try to resolve the data type in to something that makes since to a given problem. Since, in this case we are adding a number to a string the JavaScript interpreter will conclude (since a number can always fit into a string, but a string cannot always fit into a number) that we are attempting to concatenate two strings rather than add two numbers which will result in a value of _357_.
+> JavaScript is loosely typed, meaning it will try to resolve the data type in to something that makes since to a given problem. Since, in this case we are adding a number to a string the JavaScript interpreter will conclude (since a number can always fit into a string, but a string cannot always fit into a number) that we are attempting to concatenate two strings rather than add two numbers which will result in a value of _357_.
 
 ### Exercise 2 - Write to the page
 Duplicate ```/var/www/mtbc/js/console.html``` to ```/var/www/mtbc/js/write.html``` that contains the following markup and add an element of type ```div``` to the body of the HTML document. Give the ```div``` an attribute of type ```id``` with a value of _MyText_ ```<div id="MyText"></div>```.
@@ -116,8 +114,7 @@ In the js.html file change ```<div id="MyText"></div>``` to ```<div id="MyText">
 
 Inside the script tags, write some JavaScript that will read the content of _MyText_ and write it to _NewText_.
 
-##### Notes
-The ```innerHTML``` property hold the content of a target element.
+> The ```innerHTML``` property hold the content of a target element.
 
 ## Additional Resources
 * [MDN - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
