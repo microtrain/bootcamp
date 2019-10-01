@@ -107,7 +107,7 @@ var msg = 'Hello World';
 
 document.getElementById('MyText').innerHTML = msg;
 ```
-Checkyour changes at [http://localhost/mtbc/js/write.html(http://localhost/mtbc/js/write.html)
+Check your changes at [http://localhost/mtbc/js/write.html(http://localhost/mtbc/js/write.html)
 
 In this exercise we are calling the ```getElementById()``` method of the ```document``` API. This accepts a single attribute and that is the id of the element we want to access. ```innerHTML``` is a property of the element. This property represents all of the content that appears between the opening and closing tags of the target element. In the exercise we are setting the value of ```innerHTML```.
 
