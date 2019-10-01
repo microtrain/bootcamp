@@ -118,7 +118,12 @@ In the *write.html* file change ```<div id="MyText"></div>``` to ```<div id="MyT
 
 Inside the script tags, write some JavaScript that will read the content of _MyText_ and write it to _NewText_.
 
-> The ```innerHTML``` property hold the content of a target element.
+> The ```innerHTML``` property holds the content of a target element.
+
+```js
+var msg = document.getElementById('MyText').innerHTML;
+document.getElementById('NewText').innerHTML = msg;
+```
 
 ## Additional Resources
 * [MDN - JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
