@@ -35,7 +35,7 @@ Find the ```<script>``` tags in the markup you just added to the new file. You w
   console.log('Hello World');
 </script>
 ```
-Then open a browser and navigate to [http://localhost/mtbc/js/console.html(http://localhost/mtbc/js/console.html). Once the page opens, press [f12] and click on the console tab. You will see the text _Hello World_ followed by the file name and line number.
+Open a browser and navigate to [http://localhost/mtbc/js/console.html(http://localhost/mtbc/js/console.html). Once the page opens, press [f12] and click on the console tab. You will see the text _Hello World_ followed by the file name and line number.
 
 ##### Notes
 The command ```console.log()``` call the log() function from the console API. This is what is know as dot concatenation, in this case ```log()``` is a property (method, function or variable) of the ```console``` API. This syntax is also used in object oriented programming (OOP) in which it would read something like ```ObjectX.propertyY``` or  ```ObjectX.methodZ()```. Some languages such a PHP use ```->``` instead of a dot, but the idea is the same ```$ObjectX->propertyY``` or ```$ObjectX->methodZ()```.
