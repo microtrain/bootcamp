@@ -30,6 +30,21 @@ Create the file ```/var/www/mtbc/js/console.html``` that contains the following 
 #### Exercise 1.1 - Pass a static string as an argument
 Find the ```<script>``` tags in the markup you just added to the new file. You will see a single line of code that reads ```console.log()```. Modify this line to read ```console.log('Hello World');```. Then open a browser and navigate to [http://localhost/mtbc/js/console.html(http://localhost/mtbc/js/console.html). Once the page opens, press [f12] and click on the console tab. You will see the text _Hello World_ followed by the file name and line number.
 
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Using the development console.</title>
+  </head>
+  <body>
+    <p>Using the development console. Press [f12] and click the console tab.</p>
+    <script>
+      console.log('Hello World');
+    </script>
+  </body>
+</html>
+```
+
 ##### Notes
 The command ```console.log()``` call the log() function from the console API. This is what is know as dot concatenation, in this case ```log()``` is a property (method, function or variable) of the ```console``` API. This syntax is also used in object oriented programming (OOP) in which it would read something like ```ObjectX.propertyY``` or  ```ObjectX.methodZ()```. Some languages such a PHP use ```->``` instead of a dot, but the idea is the same ```$ObjectX->propertyY``` or ```$ObjectX->methodZ()```.
 
