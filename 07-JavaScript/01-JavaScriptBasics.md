@@ -77,7 +77,7 @@ console.log(result);
 
 In this example we are adding the values of ```num1``` and ```num2```.
 
->Notice we are not adding quotes to the value of these variables. That is because we want to treat these values as numbers not strings. This will only work with numbers, if we were to set the value of ```num1``` to _ab_ instead of _'ab'_ we would get an error, this is because _ab_ is not a number. If on the other hand, we had a variable named ```ab``` and that variable had a numeric value, it would treat ```ab``` as a numeric data type.
+> Notice we are not adding quotes to the value of these variables. That is because we want to treat these values as numbers not strings. This will only work with numbers, if we were to set the value of ```num1``` to _ab_ instead of _'ab'_ we would get an error, this is because _ab_ is not a number. If on the other hand, we had a variable named ```ab``` and that variable had a numeric value, it would treat ```ab``` as a numeric data type.
 
 #### Exercise 1.4 - Working with mixed data types
 Modify the contents of the script tags to read as follows.
@@ -95,7 +95,11 @@ As in the previous example we are adding _7_ to _35_, only this time we have add
 > JavaScript is loosely typed, meaning it will try to resolve the data type in to something that makes since to a given problem. Since, in this case we are adding a number to a string the JavaScript interpreter will conclude (since a number can always fit into a string, but a string cannot always fit into a number) that we are attempting to concatenate two strings rather than add two numbers which will result in a value of _357_.
 
 ### Exercise 2 - Write to the page
-Duplicate ```/var/www/mtbc/js/console.html``` to ```/var/www/mtbc/js/write.html``` that contains the following markup and add an element of type ```div``` to the body of the HTML document. Give the ```div``` an attribute of type ```id``` with a value of _MyText_ ```<div id="MyText"></div>```.
+For this exercise we want to create a new file. The markup in *console.html* suites out needs. Rather than create a new file we can reuse *console.html* and mak some changes to the  code.
+
+* Duplicate ```/var/www/mtbc/js/console.html``` to ```/var/www/mtbc/js/write.html```.
+* Add an element of type ```div``` to the body of the HTML document. 
+* Give the ```div``` an attribute of type ```id``` with a value of _MyText_ ```<div id="MyText"></div>```.
 
 #### Exercise 2.1 - Working with mixed data types
 Replace the contents of the script tags with the following.
@@ -105,7 +109,7 @@ var msg = 'Hello World';
 
 document.getElementById('MyText').innerHTML = msg;
 ```
-Check your changes at [http://localhost/mtbc/js/write.html(http://localhost/mtbc/js/write.html)
+Check your changes at [http://localhost/mtbc/js/write.html](http://localhost/mtbc/js/write.html)
 
 In this exercise we are calling the ```getElementById()``` method of the ```document``` API. This accepts a single attribute and that is the id of the element we want to access. ```innerHTML``` is a property of the element. This property represents all of the content that appears between the opening and closing tags of the target element. In the exercise we are setting the value of ```innerHTML```.
 
