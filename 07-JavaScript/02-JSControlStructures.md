@@ -1,6 +1,6 @@
 # [JavaScript Control Structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
 
-Programming is little more that reading data and piecing together statements that take action on that data. Every language will have it's own set of control structures. For most languages a given set of control structures will be almost identical. In the Programming Basics and Bash lessons we learned about several control structures. These same structures exist in JavaScript. While the syntax may be a little different, the logic remains the same.
+Programming is little more that reading data and piecing together statements that take action on that data. Every language will have it's own set of control structures. For most languages, a given set of control structures will be almost identical. In previous lessons we learned about several control structures. These same structures exist in JavaScript. While the syntax may be a little different, the logic remains the same.
 
 ## Exercise - If, Else If, Else
 
