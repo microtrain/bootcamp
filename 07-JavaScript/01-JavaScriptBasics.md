@@ -111,7 +111,7 @@ document.getElementById('MyText').innerHTML = msg;
 ```
 Check your changes at [http://localhost/mtbc/js/write.html](http://localhost/mtbc/js/write.html)
 
-In this exercise we are calling the ```getElementById()``` method of the ```document``` API. This accepts a single attribute and that is the id of the element we want to access. ```innerHTML``` is a property of the element. This property represents all of the content that appears between the opening and closing tags of the target element. In the exercise we are setting the value of ```innerHTML```.
+In this exercise we are calling the ```getElementById()``` method of the ```document``` API. This accepts a single attribute; the id of the element we want to access. ```innerHTML``` is a property of that element. This property represents all of the content that appears between the opening and closing tags of the target element. In exercise 2.1 we set the value of ```innerHTML```.
 
 #### Exercise 2.1 - Working with mixed data types
 In the js.html file change ```<div id="MyText"></div>``` to ```<div id="MyText">Hello World</div>``` and add a new element ```<div id="NewText"></div>```
