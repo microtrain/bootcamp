@@ -78,8 +78,7 @@ console.log(result);
 
 In this example we are adding the values of ```num1``` and ```num2```.
 
-##### Notes
-Notice we are not adding quotes to the value of these variables. That is because we want to treat these values as numbers not strings. This will only work with numbers, if we were to set the value of ```num1``` to _ab_ instead of _'ab'_ we would get an error, this is because _ab_ is not a number. If on the other hand, we had a variable named ```ab``` and that variable had a numeric value, it would treat ```ab``` as a numeric data type.
+>Notice we are not adding quotes to the value of these variables. That is because we want to treat these values as numbers not strings. This will only work with numbers, if we were to set the value of ```num1``` to _ab_ instead of _'ab'_ we would get an error, this is because _ab_ is not a number. If on the other hand, we had a variable named ```ab``` and that variable had a numeric value, it would treat ```ab``` as a numeric data type.
 
 #### Exercise 1.4 - Working with mixed data types
 Modify the contents of the script tags to read as follows.
