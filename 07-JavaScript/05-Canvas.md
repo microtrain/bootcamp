@@ -14,7 +14,7 @@ git clone https://github.com/microtrain/html-starter.git draw
 cd draw
 rm -fR .git
 ```
-In github.com/<your-name>. Create a repository called draw, No ReadMe, No License and add the remote to your local project. 
+In ```github.com/<your-name>```. Create a repository called draw, No ReadMe, No License and add the remote to your local project. 
 Replace XXX with your GitHub username.
 ```sh
 git init
@@ -24,7 +24,7 @@ git remote add origin git@github.com:XXX/draw.git
 git push origin master
 ```
 
-Add the following code before the </body> in ```draw/index.html``` 
+Add the following code before the ```</body>``` in ```draw/index.html``` 
 ```html
 <canvas id="canvas" height="600px" width="800px"></canvas>
 ```
