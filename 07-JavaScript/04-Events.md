@@ -68,7 +68,7 @@ A change event listens for a change to a target element. Change events are typic
 
 ### Exercise 3 - Catch a Change
 
-In your browser navigate to *mtbc/js/events/events/onchange.html* and open to corresponding file in your editor. Add the following to the body tag of the document and refresh the page.
+In your browser navigate to *mtbc/js/events/onchange.html* and open to corresponding file in your editor. Add the following to the body tag of the document and refresh the page.
 
 Add the following to the form tag. Be sure to start the list with an empty option.
 ```html
