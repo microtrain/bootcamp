@@ -351,7 +351,7 @@ drawRect: function(x,y,h,w) {
 
   ctx.fillRect (x1,y1,(x2-x1),(y2-y1));
 
-}
+},
 ```
 
 Now we need to add two methods to set the starting and ending coordinates. Add the following bellow the writeXY() function. In OOP this kind of method is typically referred to a setter. In that the purpose of this method is to set/change the value of a property, typically a private property.
