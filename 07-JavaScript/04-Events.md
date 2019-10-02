@@ -97,7 +97,7 @@ list.addEventListener("change", ()=>{
 
 While an interval is not technically and event, it does provide a trigger for an interaction to occur. In this case we will use it with a click event to grow another form element on the screen.
 
-In your browser navigate to *mtbc/js/events/interval.html* and open to corresponding file in your editor. Add the following to the script tags of the document and refresh the page. Be sure to read the comments and understand the reasoning behind each lie of code.
+In your browser navigate to *mtbc/js/events/interval.html* and open to corresponding file in your editor. Add the following to the document and refresh the page. Be sure to read the comments and understand the reasoning behind each lie of code.
 ```html
 
 <style>
@@ -114,7 +114,10 @@ In your browser navigate to *mtbc/js/events/interval.html* and open to correspon
 <script>
 
 </script>
+```
 
+Add the following to the script tags of the document and refresh the page.
+```html
 
 function Grower() {
   //Get current width of the target element
