@@ -5,7 +5,7 @@ Events allow a user to interact with a web page. Listeners are used to detect an
 
 ## Click Event
 
-Add the following to the path /var/www/mtbc/events/onclick.html and open to corresponding file in your editor. In your browser navigate to *mtbc/js/events/onclick.html* .Add the following to the body tag of the document and refresh the page.
+Add the following to the path */mtbc/js/events/onclick.html* and open to corresponding file in your editor. In your browser navigate to *localhost.mtbc/js/events/onclick.html*. Add the following to the body tag of the document and refresh the page.
 
 ### Exercise 1 - Catch the Click
 ```html
