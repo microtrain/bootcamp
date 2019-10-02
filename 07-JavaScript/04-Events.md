@@ -99,6 +99,23 @@ While an interval is not technically and event, it does provide a trigger for an
 
 In your browser navigate to *mtbc/js/events/interval.html* and open to corresponding file in your editor. Add the following to the script tags of the document and refresh the page. Be sure to read the comments and understand the reasoning behind each lie of code.
 ```html
+
+<style>
+    #demo{
+    background: #000;
+    height: 50px;
+    width: 50px;
+    }
+</style>
+
+<div id="demo"></div>
+<button id="GrowBtn">Grow</button>
+
+<script>
+
+</script>
+
+
 function Grower() {
   //Get current width of the target element
   this.width  = document.getElementById('demo').offsetWidth;
