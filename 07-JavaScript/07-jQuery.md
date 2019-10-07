@@ -249,7 +249,7 @@ randomDate: function(start, end) {
   let m = date.getMonth() + 1; //In JS months start at 0
   let y = date.getFullYear();
 
-  //Change the maonth and day strings so that they match the documented format.
+  //Change the month and day strings so that they match the documented format.
   if(m < 10){
     m = '0'+m
   }
@@ -303,12 +303,9 @@ var apod = {
         $.ajax({
             url: url
         }).done(function(result){
-          $("#apodImg").attr("src", result.url);
-          $("#apodCopyright").text("Copyright: " + result.copyright);
-          $("#apodDate").text("Date: " + date);
-          $("#apodDesc").text(result.explanation);
-        }).fail(function(data){
-          console.log(data);
+          console.log(result);
+        }).fail(function(result){
+          console.log(result);
         });
     },
 };
