@@ -388,7 +388,7 @@ var game = (function(){
     h: 25,
     w: 25,
     fill: '#fff',
-    die: 'right',
+    dir: 'right',
     //1. Add a speed property to the player this is the number of pixels 
     //the player will move each frame
     speed: 5
