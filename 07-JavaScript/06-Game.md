@@ -344,7 +344,7 @@ var game = (function(){
       }else if(player.dir === 'right'){
         player.dir = 'left';
       }
-    }
+    },
 
     animate: function(){
       this.player();
