@@ -189,7 +189,7 @@ RegEx is extremely powerful, flexible and worth learning. Having said that there
 **Security Check Point**
 _Never trust user input. User input is anything come into the server from the client. Even if you have written client side JavaScript to filter out malicious code, the filtered input is still left alone with the client and can be manipulated prior to transit (or even in transit). If it has ever existed outside of the server it CANNOT be trusted._
 
-##Exercise 3 - Adding a Validation Class
+## Exercise 3 - Adding a Validation Class
 Replace the contents of _/var/www/example.com/public/contact.php_ with the following.
 
 Explain the code to the class.
@@ -203,7 +203,7 @@ Explain the code to the class.
             1. Do not clear the form data on error
         1. If no errors, send the user to a thank you page
 
-2.1 - Loop through each form feild and test that field for errors.
+2.1 - Loop through each form field and test that field for errors.
 
 2.2 - Set truthy/falsey value or a boolean on error. This will tell the system how to rpoceed after the form is processed.
 
