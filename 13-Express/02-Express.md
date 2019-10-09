@@ -25,7 +25,7 @@ In the above snippet, ```router.get()``` routes a GET request, meaning the the c
 
 > In class examples may differ from the attached GitHub repositories. 
 
-## Create an ExpressJS based Project
+## Create an Express based Project
 
 Go to GitHub and create a new project *mean.example.com*. You can change this to your own domain name if you have one *mean.YOUR-DOMAIN.TLD*. If you use your own domain, moving forward, remember to replace example.com with that of your domain. 
 
