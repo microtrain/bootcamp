@@ -92,6 +92,8 @@ routes/
 views/
 ```
 
+#### Default File Structure
+
 **app.js**
 
 This is the application. If you wanted to, you could code your entire site into this file but most people wouldn't do that. This tends to serve as the entry point to your website. This file initializes critical functionality and setups routing.
@@ -126,6 +128,8 @@ All server endpoints.
 
 Page templates, in this class we will use a templating language called pug. This is where your pug files will live.
 
+
+### Ignore Node Modules
 The *node_modules* directory contains third party software that should not be a part of our repository. Npm will handle these dependencies so we do not need them in our repo. Open VSC and add *mean.example.com* as a project folder.
 
 [</code>](https://github.com/microtrain/mean.example.com/commit/819be3c16875eb10aa6d3f27345c20f3c800155b) Add a .gitignore file to exclude *node_modules* from future commits.
@@ -151,16 +155,57 @@ git push origin master
 
 Navigate to Then [http://localhost:3000/](http://localhost:3000/) to access your new app.
 
-## Exercise - Express Basics
+## Exercise - Pug and Express Basics
 
-In this exercise we will make a few basic changes to familiarize ourselves with the basics of ExpressJS. If something breaks don't worry; our last commit created a rollback point. At the end of this exercise we will stash out changes and roll back to our last commit. From the VSC explorer open *mean.example.com/routes/index.js* and change the following
+In this exercise we will make a few basic changes to familiarize ourselves with the basics of Express. If something breaks don't worry; our last commit created a rollback point. At the end of this exercise we will stash our changes and roll back to our last commit. From the VSC explorer open *mean.example.com/routes/index.js* and change the following
 
 ```js
 //change
-{ title: 'Express'}
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
 //to
-{ title: 'Express', name: 'YOUR-NAME'}
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express', name: 'YOUR-NAME'});
+});
 ```
+
+The following code snippet routes the default home page for the express project. The first argument ```router.get('/',``` says "I will handle all GET requests to the home page". The callback arguments *req*, *res*, and *next* represent *request*. *response*, and *next* respectively. 
+
+```js
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Express' });
+});
+```
+```res.render()``` calls the the ```render()``` method from the response object. The accepts two arguments; the path to a template and a JSON string for passing data to the template file. The first argument assumes you are looking for a *pug* file in you projects *view* directory. Thus, ```'index'``` correlates to */view/index.pug*. The second argument is a JSON object that allows us to create variables that we can pass toa template. The string ```{ title: 'Express', name: 'YOUR-NAME'})``` will make the variables *title* and *name* both available to the template (aka: view). 
+
+
+### Templates, Views, and Pug
+
+In this context a *template* (aka: layout) is a file that contains common elements to be used by multiple pages. A template may provide something similar to the following. The terms templates and view are often used interchangeably so don't get ti hung up on the term. 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <!-- Inject a view here -->
+  </body>
+</html>
+```
+Notice the comment ```<!-- Inject a view here -->```. In this context the view is a snippet that get injected into the page such as
+
+```html
+<h1>Hello World</h1>
+<p>I'm not a complete webpage but when you inject me into a template we complete the picture.</p>
+```
+
+By default, Express uses a templating language called pug. Pug is a special syntaxt that represents HTML elements. Pug is processed by the server and converted to HTML. The HTML makes up the response we return to the client.
 
 From the VSC explorer navigate to *mean.example.com/views/index.pug* and change the following. Please note the indentation, indentation matters when it comes to Pug.
 
