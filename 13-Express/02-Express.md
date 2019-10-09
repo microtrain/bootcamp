@@ -5,7 +5,7 @@ Express is a web application framework for NodeJS. In short, Express is a librar
 If you recall from Chapter 4 the Internet works on an IPO model.
 * Input - a *request* from the client to the server.
 * Process - Taking action on the client request.
-* Output - Using the production or processing to send a *response* to the client.
+* Output - Using the product of our processing to send a *response* to the client.
 
 In Express, each endpoint is middleware. That is to www.example.com/hello will likely resolve to a file (aka: route to and endpoint) that contains a function called
 
