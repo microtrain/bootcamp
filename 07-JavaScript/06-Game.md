@@ -800,7 +800,7 @@ window.addEventListener('keyup', function(){
 
 [</> code]() Add collision detection and end game on collision
 
-1. Add the animation frames to a variable the we can kill later
+1. Add the animation frames to a variable that we can kill later
 2. Track the state of game over
 3. When each spawn move detect if that spawn shares common pixels with the player. 
    1. If so this is a collision.
@@ -839,7 +839,7 @@ var game = (function(){
   var spawner = null;
 
   //1. Add the animation frames to a variable
-  //the we can kill later
+  //that we can kill later
   var animation  = null;
 
   //2. Track the state of game over
@@ -871,6 +871,9 @@ var game = (function(){
 
 
   return {
+    //Note: For collision detection to work, spawns and players need a common scope. 
+    //For now we are focused on a proof of concept so we will move the moveSpawns() method
+    //to within the return object. We will refactor this later.
     moveSpawns: function(){
 
       if(Object.keys(spawns).length>0){
