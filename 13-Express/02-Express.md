@@ -91,18 +91,39 @@ routes/
 views/
 ```
 
-@todo - Explain routing and the express file structure.
+**app.js* *
 
-* app.js
-* bin/
-* node_modules/
-* package.json
-* package-lock.json
+This is the application. If you wanted to, you could code your entire site into this file but most people wouldn't do that. This tends to serve as the entry point to your website. This file initializes critical functionality and setups routing.
+
+**bin/**
+
+This contains a file called WWW. This is the first and last file to execute.
+
+**node_modules/**
+
+Third party libraries. Anytime you run ```npm install``` you are installing third party libraries. When you run that command without the ```-g``` option you are installing that library in the current project and opposed to installing it at the system level.
+
+**package.json**
+
+This tracks every third party library you have installed. If you need to rebuild you project you can run ```npm install``` and that will read from *project.json* as opposed to installing each library individually. 
+
+**package-lock.json**
+
+Most third party libraries will be dependent upon other thrid party libraries. Every third party library you install brings these libraries with them. The *package.json* file tracks the exact version of each library that was installed and prevent the same library from being installed twice (in the case of mutlple dependencies relying on that library.
     * [package.json vs package-lock.json](https://stackoverflow.com/questions/45052520/do-i-need-both-package-lock-json-and-package-json)
     * [Everything You Wanted To Know About package-lock.json But Were Too Afraid To Ask](https://medium.com/@Quigley_Ja/everything-you-wanted-to-know-about-package-lock-json-b81911aa8ab8)
-* public/
-* routes/
-* views/
+    
+**public/**
+
+Publicaly accessable code and assets. This where you would host CSS, JavaScript, images, PDFs, static web pages, etc. 
+
+**routes/**
+
+All server endpoints.
+
+**views/**
+
+Page templates, in this class we will use a templating language called pug. This is where your pug files will live.
 
 The *node_modules* directory contains third party software that should not be a part of our repository. Npm will handle these dependencies so we do not need them in our repo. Open VSC and add *mean.example.com* as a project folder.
 
