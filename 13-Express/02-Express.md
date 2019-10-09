@@ -34,7 +34,8 @@ We will
 * Create a project on GitHub.
 * Clone the project to our home directory.
 * Use Express Generator to create a skeleton for our project.
-* Cover basic coding concepts in Express.
+* Cover some very basic coding concepts in Express.
+* Introduce ourselves to Pug.
 * Create an [editorconfig](https://editorconfig.org/) file.
 
 Install the Express Generator
