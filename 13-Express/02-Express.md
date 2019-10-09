@@ -258,6 +258,6 @@ git git push origin master
 ```
 
 ## Additional Resources
-* https://medium.com/@LindaVivah/the-beginners-guide-understanding-node-js-express-js-fundamentals-e15493462be1
+* [THE BEGINNER’S GUIDE: Understanding Node.js & Express.js fundamentals](https://medium.com/@LindaVivah/the-beginners-guide-understanding-node-js-express-js-fundamentals-e15493462be1)
 
 [Next: REST API](03-RESTAPI.md)
