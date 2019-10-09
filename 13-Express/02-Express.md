@@ -29,6 +29,14 @@ In that above snippet, ```router.get()``` routes a GET request, meaning the the 
 
 Go to GitHub and create a new project *mean.example.com*. You can change this to your own domain name if you have one *mean.YOUR-DOMAIN.TLD*. If you use your own domain, moving forward, remember to replace example.com with that of your domain. 
 
+We will 
+* Install Express Generator 
+* Create a project on GitHub.
+* Clone the project to our home directory.
+* Use Express Generator to create a skeleton for our project.
+* Cover basic coding concepts in Express.
+* 
+
 Install the Express Generator
 
 ```sh
@@ -248,5 +256,8 @@ git add .
 git commit -a
 git git push origin master
 ```
+
+## Additional Resources
+* https://medium.com/@LindaVivah/the-beginners-guide-understanding-node-js-express-js-fundamentals-e15493462be1
 
 [Next: REST API](03-RESTAPI.md)
