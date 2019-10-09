@@ -258,7 +258,7 @@ git push origin master
 
 #### User Login/Logout
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/9330c1d01aa872e7adc9d8aebb7494d4ed7954fc) Create a GET and POST end points for login
+[</> code](https://github.com/microtrain/mean.example.com/commit/eca150a53a71c5ec55efb3d58c9cc48a720ef057) Create a GET and POST end points for login
 
 *routes/api/auth.js*
 For a traditional web application Passport would allow you to create a login with just a few lines of code. Since we are building a REST API we need to crack open the black box and manage error handling on our own. Fortunately Passport exposes many of it's internals to the outside world making this a simple task. See the [Passport Documentation](http://www.passportjs.org/docs/authenticate/) for more details.
@@ -312,6 +312,7 @@ Commit your changes
 git commit -a
 ```
 
+[</> code](https://github.com/microtrain/mean.example.com/commit/980218012b2c0334d6c01468c4bcb83157d1839e) Add an endpoint for logging out of a session.
 ```js
 router.get('/logout', function(req, res){
   req.logout();
