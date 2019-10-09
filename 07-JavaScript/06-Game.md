@@ -801,14 +801,14 @@ window.addEventListener('keyup', function(){
 [</> code]() Add collision detection and end game on collision
 
 1. Add the animation frames to a variable the we can kill later
-1. Track the state of game over
-1. When each spawn move detect if that spawn shares common pixels with the player. 
-  * If so this is a collision.
-1. If there is a collision.
-  1. Set ```gameOver``` to true.
-  1. Kill the animation frames.
-  1. Kill the spawner.
-1. Only animate if the game is not over.
+2. Track the state of game over
+3. When each spawn move detect if that spawn shares common pixels with the player. 
+   1. If so this is a collision.
+4. If there is a collision.
+   1. Set ```gameOver``` to true.
+   2. Kill the animation frames.
+   3. Kill the spawner.
+5. Only animate if the game is not over.
 
 ```js
 var game = (function(){
