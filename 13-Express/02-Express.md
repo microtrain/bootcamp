@@ -170,19 +170,20 @@ router.get('/', function(req, res, next) {
 });
 ```
 
-The following code snippet routes the default home page for the express project. The first argument ```router.get('/',``` says "I will handle all GET requests to the home page". The callback arguments *req*, *res*, and *next* represent *request*. *response*, and *next* respectively. 
+The following code snippet routes the default home page for the express project. The first argument ```router.get('/',``` says "I will handle all GET requests to the home page". The callback arguments *req*, *res*, and *next* represent *request*, *response*, and *next* respectively. 
 
 ```js
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 ```
+
 ```res.render()``` calls the the ```render()``` method from the response object. The accepts two arguments; the path to a template and a JSON string for passing data to the template file. The first argument assumes you are looking for a *pug* file in you projects *view* directory. Thus, ```'index'``` correlates to */view/index.pug*. The second argument is a JSON object that allows us to create variables that we can pass toa template. The string ```{ title: 'Express', name: 'YOUR-NAME'})``` will make the variables *title* and *name* both available to the template (aka: view). 
 
 
 ### Templates, Views, and Pug
 
-In this context a *template* (aka: layout) is a file that contains common elements to be used by multiple pages. A template may provide something similar to the following. The terms templates and view are often used interchangeably so don't get ti hung up on the term. 
+In this context a *template* (aka: layout) is a file that contains common elements to be used by multiple pages. A template may provide something similar to the following. The terms templates and view are often used interchangeably so don't get too hung up on the term. 
 
 ```html
 <!DOCTYPE html>
@@ -198,14 +199,14 @@ In this context a *template* (aka: layout) is a file that contains common elemen
   </body>
 </html>
 ```
-Notice the comment ```<!-- Inject a view here -->```. In this context the view is a snippet that get injected into the page such as
+Notice the comment ```<!-- Inject a view here -->```. In this context the view is a snippet that gets injected into the page such as
 
 ```html
 <h1>Hello World</h1>
 <p>I'm not a complete webpage but when you inject me into a template we complete the picture.</p>
 ```
 
-By default, Express uses a templating language called pug. Pug is a special syntaxt that represents HTML elements. Pug is processed by the server and converted to HTML. The HTML makes up the response we return to the client.
+By default, Express uses a templating language called pug. Pug is a special syntax that represents HTML elements. Pug is processed by the server and converted to HTML. The HTML makes up the response we return to the client.
 
 From the VSC explorer navigate to *mean.example.com/views/index.pug* and change the following. Please note the indentation, indentation matters when it comes to Pug.
 
