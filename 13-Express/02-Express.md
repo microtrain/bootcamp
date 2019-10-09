@@ -1,6 +1,25 @@
 # Express
 
-Express is a web application framework for NodeJS.
+Express is a web application framework for NodeJS. In short, Express is a library that provides server side functionality to JavaScript. We will use it to spin up a web server via NodeJS. Express provides middleware that allows us hook into a server request by routing it to a target endpoint, process that request, then hook the response object to send the sum of our processing back to the client.
+
+If you recall from Chapter 4 the Internet works on an IPO model.
+* Input - a *request* from the client to the server.
+* Process - Taking action on the client request.
+* Output - Using the production or processing to send a *response* to the client.
+
+In Express, each endpoint is middleware. That is to www.example.com/hello will likely resolve to a file (aka: route to and endpoint) that contains a function called
+
+```js
+router.get('/hello', function(request, response, next) {
+  //process the request...
+  //Send a reponse to the clinet
+  response.render(//the sum of the processing) 
+  //OR send the request to the next piece of middleware 
+  next()
+});
+```
+In that above snippet, ```router.get()``` routes a GET request, meaning the the client has made an HTTP GET request. The method signature consits of the name of the endpoint and a piece of middleware, which in this case is a callback method. In this example *example.com/hello* routes to the first argument of this method ```'/hello'```. The way you would read this
+```router.get('/hello', function(request, response, next){...})``` is "When a client makes a GET request to *example.com/hello* execute the folowing callback method as defined by the second argument, thin case the callback method ```function(request, response, next){...}```.
 
 [Getting Started with Express](https://expressjs.com/)
 
@@ -8,7 +27,7 @@ Express is a web application framework for NodeJS.
 
 ## Create an ExpressJS based Project
 
-Go to GitHub and create a new project *mean.example.com*. You can change this to your own domain name if you have one *mean.YOUR-DOMAIN*.
+Go to GitHub and create a new project *mean.example.com*. You can change this to your own domain name if you have one *mean.YOUR-DOMAIN.TLD*. If you use your own domain, moving forward, remember to replace example.com with that of your domain. 
 
 Install the Express Generator
 
