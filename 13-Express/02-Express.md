@@ -7,7 +7,7 @@ If you recall from Chapter 4 the Internet works on an IPO model.
 * Process - Taking action on the client request.
 * Output - Using the product of our processing to send a *response* to the client.
 
-In Express, each endpoint is middleware. That is to www.example.com/hello will likely resolve to a file (aka: route to and endpoint) that contains a function called
+In Express, each endpoint is middleware. That is to say, www.example.com/hello will likely resolve to a file (aka: route to and endpoint) that contains a function that references */hello*.
 
 ```js
 router.get('/hello', function(request, response, next) {
@@ -18,8 +18,8 @@ router.get('/hello', function(request, response, next) {
   next()
 });
 ```
-In that above snippet, ```router.get()``` routes a GET request, meaning the the client has made an HTTP GET request. The method signature consits of the name of the endpoint and a piece of middleware, which in this case is a callback method. In this example *example.com/hello* routes to the first argument of this method ```'/hello'```. The way you would read this
-```router.get('/hello', function(request, response, next){...})``` is "When a client makes a GET request to *example.com/hello* execute the folowing callback method as defined by the second argument, thin case the callback method ```function(request, response, next){...}```.
+In the above snippet, ```router.get()``` routes a GET request, meaning the the client has made an HTTP GET request. The method signature consits of the name of the endpoint and a piece of middleware, which in this case is a callback method. In this example *example.com/hello* routes to the first argument of the method ```'/hello'```. The way you would read 
+```router.get('/hello', function(request, response, next){...})``` is as follows. "When a client makes a GET request to *example.com/hello* execute the following callback method as defined by the second argument; in this case it is the callback ```function(request, response, next){...}```.
 
 [Getting Started with Express](https://expressjs.com/)
 
