@@ -234,7 +234,7 @@ iframe {
 If everything worked you will see results similar to the following.
 ![results](/img/jquery/results.png)
 
-In looking at the JSON data you'll notice a date field. By default only pull today's picture, looking at the query parameters section in the [API documentation](https://api.nasa.gov/api.html#apod) I see I can pass a date in the form of _YYYY-MM-DDD_ as an additional GET parameter. To make things interesting lets add pass a random date every time we call the API.
+In looking at the JSON data you'll notice a date field. By default only pull today's picture, looking at the query parameters section in the [API documentation](https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY) I see I can pass a date in the form of _YYYY-MM-DDD_ as an additional GET parameter. To make things interesting lets add pass a random date every time we call the API.
 
 Add a random date function to the apod object. A good place to start would be [MDN's date documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). A quick Google search will return [this gist](https://gist.github.com/miguelmota/5b67e03845d840c949c4) which provides us a good randomizer for an unformatted date in between a given start and date. This is important because the date cannot be greater than today or less that the first apod _June 16, 1995_.
 
