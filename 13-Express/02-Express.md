@@ -178,7 +178,7 @@ router.get('/', function(req, res, next) {
 });
 ```
 
-```res.render()``` calls the the ```render()``` method from the response object. The accepts two arguments; the path to a template and a JSON string for passing data to the template file. The first argument assumes you are looking for a *pug* file in you projects *view* directory. Thus, ```'index'``` correlates to */view/index.pug*. The second argument is a JSON object that allows us to create variables that we can pass toa template. The string ```{ title: 'Express', name: 'YOUR-NAME'})``` will make the variables *title* and *name* both available to the template (aka: view). 
+```res.render()``` calls the the ```render()``` method from the response object. The accepts two arguments; the path to a template and a JSON string for passing data to the template file. The first argument assumes you are looking for a *pug* file in you projects *view* directory. Thus, ```'index'``` correlates to */view/index.pug*. The second argument is a JSON object that allows us to create variables that we can pass to a template. The string ```{ title: 'Express', name: 'YOUR-NAME'})``` will make the variables *title* and *name* both available to the template (aka: view). 
 
 
 ### Templates, Views, and Pug
@@ -210,6 +210,22 @@ Notice the comment ```<!-- Inject a view here -->```. In this context the view i
 
 By default, Express uses a templating language called pug. Pug is a special syntax that represents HTML elements. Pug is processed by the server and converted to HTML. The HTML makes up the response we return to the client.
 
+In lieu of tags, pug uses keywords and indentation. Instead of ```<!doctype html>``` we have ```doctype html``` likewise instead of ```<p>Hello world</p>``` we would have ```p Hello World```. Rather than nesting tags inside of tags we use indentation such that
+```html
+<div>
+  <p>Hello</p>
+</div>
+```
+
+becomes 
+
+```pug
+div
+    p Hello
+```
+
+Pug has two ways of reading in variables. You can use an equals sign against an element ```title= title``` or you can use a has tag with curly brances ```p Welcome to #{title}```. The latter allows you to inject the variable into a string whereas the former requires the variable to be the only data in the element. Pug has additional keywords such as ```extends``` which is used to call a particular template and ```block``` which is used to create a block of content to inject into a template. Don't worry if this doesn't make sense we will cover this again in a few minutes.
+
 From the VSC explorer navigate to *mean.example.com/views/index.pug* and change the following. 
 
 > Please note the indentation, **indentation matters** when it comes to Pug.
@@ -233,7 +249,8 @@ block content
 
 From the same terminal in which your NodeJS server is running press [ctrl+c] then type ```npm start``` this will restart the server. Navigate to [http://localhost:3000/](http://localhost:3000/) and refresh the page. You will now see a tag line which states "My name is _YOUR-NAME_"
 
-Let's break this down a bit. In the routing file *mean.example.com/routes/index.js* you define your application's end points (aka actions) by calling an HTTP request request type (typically get or post) in the form of a router method against the router object. The first argument of this method names the end point, the second argument is a call back function that defines the server side functionality for the action.
+#### Another Look
+Let's take a minute to reiterate what is happening. In the routing file *mean.example.com/routes/index.js* you define your application's end points (aka actions) by calling an HTTP request request type (typically get or post) in the form of a router method against the router object. The first argument of this method names the end point, the second argument is a call back function that defines the server side functionality for the action.
 
 ```js
 router.get('/', function(req, res, next) {
