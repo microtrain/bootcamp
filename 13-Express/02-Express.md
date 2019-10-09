@@ -92,7 +92,7 @@ routes/
 views/
 ```
 
-**app.js* *
+**app.js**
 
 This is the application. If you wanted to, you could code your entire site into this file but most people wouldn't do that. This tends to serve as the entry point to your website. This file initializes critical functionality and setups routing.
 
