@@ -84,3 +84,5 @@ module.exports = mongoose.model('Articles', Articles);
 * This API MUST allow one article for which the published date is in the past to be returned by passing a slug using the HTTP GET method.
 * This API MUST allow one article to be edited using the HTTP PUT method.
 * This API MUST allow one article to be deleted using the HTTP DELETE method.
+
+[Next: Articles App](09-ArticlesApp.md)
