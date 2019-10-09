@@ -30,7 +30,7 @@ In the above snippet, ```router.get()``` routes a GET request, meaning the the c
 Go to GitHub and create a new project *mean.example.com*. You can change this to your own domain name if you have one *mean.YOUR-DOMAIN.TLD*. If you use your own domain, moving forward, remember to replace example.com with that of your domain. 
 
 We will 
-* Install Express Generator 
+* Install Express Generator.
 * Create a project on GitHub.
 * Clone the project to our home directory.
 * Use Express Generator to create a skeleton for our project.
