@@ -210,7 +210,9 @@ Notice the comment ```<!-- Inject a view here -->```. In this context the view i
 
 By default, Express uses a templating language called pug. Pug is a special syntax that represents HTML elements. Pug is processed by the server and converted to HTML. The HTML makes up the response we return to the client.
 
-From the VSC explorer navigate to *mean.example.com/views/index.pug* and change the following. Please note the indentation, indentation matters when it comes to Pug.
+From the VSC explorer navigate to *mean.example.com/views/index.pug* and change the following. 
+
+> Please note the indentation, **indentation matters** when it comes to Pug.
 
 ```js
 //change
