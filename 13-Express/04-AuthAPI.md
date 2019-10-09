@@ -167,7 +167,7 @@ Commit your changes
 git commit -a
 ```
 
-[</>code](https://github.com/microtrain/mean1.example.com/commit/28c347207038ac9bb5e853753cbe8a25a40f81dd) Require and use Passport Local Strategy as defined in the user model
+[</>code](https://github.com/microtrain/mean.example.com/commit/28c347207038ac9bb5e853753cbe8a25a40f81dd) Require and use Passport Local Strategy as defined in the user model
 
 *app.js*
 ```js
@@ -258,7 +258,7 @@ git push origin master
 
 #### User Login/Logout
 
-[</> code](https://github.com/microtrain/mean1.example.com/commit/9330c1d01aa872e7adc9d8aebb7494d4ed7954fc) Create a GET and POST end points for login
+[</> code](https://github.com/microtrain/mean.example.com/commit/9330c1d01aa872e7adc9d8aebb7494d4ed7954fc) Create a GET and POST end points for login
 
 *routes/api/auth.js*
 For a traditional web application Passport would allow you to create a login with just a few lines of code. Since we are building a REST API we need to crack open the black box and manage error handling on our own. Fortunately Passport exposes many of it's internals to the outside world making this a simple task. See the [Passport Documentation](http://www.passportjs.org/docs/authenticate/) for more details.
