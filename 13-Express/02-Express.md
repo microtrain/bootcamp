@@ -183,7 +183,9 @@ router.get('/', function(req, res, next) {
 
 ### Templates, Views, and Pug
 
-In this context a *template* (aka: layout) is a file that contains common elements to be used by multiple pages. A template may provide something similar to the following. The terms templates and view are often used interchangeably so don't get too hung up on the term. 
+In this context a *template* (aka: layout) is a file that contains common elements to be used by multiple pages. A template may provide something similar to the following. 
+
+> The terms templates and view are often used interchangeably so don't get too hung up on the term. 
 
 ```html
 <!DOCTYPE html>
