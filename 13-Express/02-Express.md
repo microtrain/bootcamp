@@ -35,7 +35,7 @@ We will
 * Clone the project to our home directory.
 * Use Express Generator to create a skeleton for our project.
 * Cover basic coding concepts in Express.
-* 
+* Create an [editorconfig](https://editorconfig.org/) file.
 
 Install the Express Generator
 
