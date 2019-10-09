@@ -195,7 +195,7 @@ FROM
   posts, 
   users 
 WHERE 
-  posts.created_user_id = users.id ;
+  posts.user_id = users.id ;
 ```
 
 For full authentication you will want to add password and salt columns 
