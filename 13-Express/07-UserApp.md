@@ -758,3 +758,4 @@ Delete the user onclick
   Yes delete ${data.user.username}
 </a>
 ```
+[Next: Articles API](08-ArticlesAPI.md)
