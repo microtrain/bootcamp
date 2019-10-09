@@ -53,7 +53,7 @@ use cms
 Show a list of all databases.
 
 ```sh
-show Databases
+show databases
 ```
 
 You will not see your new database listed until you insert at least on document into it. This will create a collection called users.
