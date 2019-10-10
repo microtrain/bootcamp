@@ -1,6 +1,6 @@
 # Authentication App
 
-In this lesson we will build a JavaScript application that works with our REST API. In order to access this application we will need to provide a non-API endpoint, that is to a say a traditional webpage that will allow us to load the application. One of the keys to this chapter will be the ability to differentiate between front end JavaScript and back end JavaScript. Until now, everything we have done in Express has been back end JavaScript. 
+In this lesson, we will build a JavaScript application that works with our REST API. To access this application, we will need to provide a non-API endpoint, which is to a say a traditional webpage that will allow us to load the application. One of the keys to this chapter will be the ability to differentiate between front-end JavaScript and back end JavaScript. Until now, everything we have done in Express has been back-end JavaScript. 
 
 ## Non API Endpoint
 [</> code](https://github.com/microtrain/mean.example.com/commit/73c9706453a0b5df15c34c2f7dfa174b09d3686f) Add a non-API endpoint for accessing the authentication app. This will be a new file called *auth.js* and will be placed directly under the *routes* directory. Where this endpoint differs from our API endpoints is in what the endpoint returns. Previously we returned a JSON string ```res.json()``` this time we will render a view ```res.render()```.
@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 ```
 
-Next, we will create a view for the auth endpoint. By default, all views are expected to be in the *views* directory. To keep things organized each routing file will have it's own view directory. Our view will extend the layout, call content from the view file, provide a div into which we will load our JavaScript application, and call the app into the script tag.
+Next, we will create a view for the auth endpoint. By default, all views are expected to be in the *views* directory. To keep things organized each routing file will have a corresponding view directory. Our view will extend the layout, call content from the view file, provide a div into which we will load our JavaScript application, and call the app into the script tag.
 
 *views/auth/index.pug*
 ```pug
@@ -51,7 +51,7 @@ Open a browser and navigate to [http://localhost:3000/auth](http://localhost:300
 ![User Authentication](/img/auth/title.png)
 
 ```sh
-# Add a non-API end point for accessing the authentication app
+# Add a non-API endpoint for accessing the authentication app
 git status
 git add .
 git commit -a
@@ -60,7 +60,7 @@ git push origin master
 
 ## Login Form
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/39364af9ef5f989b882dbeed2e9a09c41a5aae4e) We will start by loading a closure into a variable called ```authApp```. Then we will add a method to create a form, load that form into to the view and update the styles. 
+[</> code](https://github.com/microtrain/mean.example.com/commit/39364af9ef5f989b882dbeed2e9a09c41a5aae4e) We will start by loading a closure into a variable called ```authApp```. We will add a method to create and load a form into the view, then we will update the styles. 
 
 Before we start writing code we will run ```gulp watch``` this will automatically compile all changes made to source code into distribution code.
 
@@ -112,7 +112,7 @@ var authApp = (function() {
 })();
 ```
 
-Add a return statement to your closure. This statement will return a JSON object that is accessible outside of the closure and will have access to everything that is outside of the return statement. In other words we have public access to the JSON object and the JSON object has private access the rest of the closure. Calling ```authApp.load();``` from outside the closure will execute the ```loginForm()``` logic.
+Add a return statement to your closure. This statement will return a JSON object that is accessible outside of the closure and will have access to everything that is outside of the return statement. In other words, we have public access to the JSON object and the JSON object has private access to the rest of the closure. Calling ```authApp.load();``` from outside the closure will execute the ```loginForm()``` logic.
 
 Emulate private and public properties and load the login form.
 *src/js/auth.app.js*
@@ -168,7 +168,7 @@ git commit -a
 
 ### Responsive Form
 
-Add this point the form is using bootstraps default block level styles and the error message displays by default. If we add a few lines of SASS we can contain this to something that looks reasonable on a desktop or large device while maintaining it's block level style on a smaller device.
+Add this point the form is using bootstraps default block-level styles and the error message displays by default. If we add a few lines of SASS we can contain this to something that looks reasonable on a desktop or large device while maintaining it's block-level style on a smaller device.
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/3e2c8a4516b90b46fec1acf55e029819779c8c16) Add responsive styles.
 
@@ -247,8 +247,8 @@ git commit -a
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/32dc98ab94ef82008516280f436ec61230e8bf80) Add error/success handling to the login form. 
 
-* If the submit returns a success message redirect the user to the homepage. 
-* If the submit returns an error message display an error message on the screen.
+* If the submit returns a success message, redirect the user to the homepage. 
+* If the submit returns an error message, display an error message on the screen.
 
 ```js
   //~line 52
@@ -276,7 +276,7 @@ router.get('/', function(req, res, next) {
 });
 ```
 
-Now, navigate to the login page [http://localhost:3000/auth](http://localhost:3000/auth) and login. A successful login will redirect you to the home page. Check the terminal window in which the Express server is running and look for the passport object.
+Now, navigate to the login page [http://localhost:3000/auth](http://localhost:3000/auth) and log in. A successful login will redirect you to the home page. Check the terminal window in which the Express server is running and look for the passport object.
 
 ![terminal view](/img/auth/passport.png)
 
@@ -328,7 +328,7 @@ git push origin master
 
 ## Implement a GUI for User Registration
 
-In the last lesson we created a user by making a curl request to an API. The login for we just created allows us to login with that user. Now we will build a form to allow for user registration using our app. Start by removing the call to ```loginForm()``` at the end of the file and replace it with the a new method called ```registrationForm()```. We will then call the ```registrationForm()``` method.
+In the last lesson, we created a user by making a curl request to an API. The login form we just created allows us to log in with that user. Now we will build a form to allow for user registration using our app. Start by removing the call to ```loginForm()``` at the end of the file and replace it with a new method called ```registrationForm()```. We will then call the ```registrationForm()``` method.
 
 ### Create the Registration Form
 [</> code](https://github.com/microtrain/mean.example.com/commit/c9ce0a1d30091ccf04ed4f5f25c7b0a6e8aa3856) We will create this the same way we created the login form. The main difference will be the field names and the addition of [HTML5 validation](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation).
@@ -406,12 +406,11 @@ git commit -a
 
 ### Extending HTML5 Validation
 
-We can invoke [HTML5 validation](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation) by adding the required attribute. HTML provides front end validation, front end validation meaning a savvy user can shut it off. It should be used with, not in lieu of back end validation. Front end has the advantage of not requiring a full form submission and when done well can create a better user experience. For the sake of this lesson we will only focus on front end validation.
+We can invoke [HTML5 validation](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation) by adding the required attribute. HTML provides front-end validation, front-end validation meaning a savvy user can shut it off. It should be used with, not in place of, back-end validation. Front-end validation has the advantage of not requiring the form to be submitted to the server. When done well front-end validation can create a better user experience. For the sake of this lesson, we will only focus on front-end validation.
 
-The addition of the ```required``` attribute will at the very least force a non-empty field. When applied to an input field of a specific type such as ```type="email"``` it would require the data to be of the correct type. You can use JavaScript to override HTML's default validation rules and customize front end validation to your needs. 
+The addition of the ```required``` attribute will at the very least force a non-empty field. When applied to an input field of a specific type such as ```type="email"``` it would require the data to be of the correct type. You can use JavaScript to override HTML's default validation rules and customize front-end validation to your needs. 
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/c47c8e3734129da3e48fc81fe08d2492815fcf4a) Create a validation object and bind it the click event of the submit button. This will trigger custom validation just before the submit event fires thus blocking the submit if any of the fields fail validation. 
-
+[</> code](https://github.com/microtrain/mean.example.com/commit/c47c8e3734129da3e48fc81fe08d2492815fcf4a) Create a validation object and bind it to the click event of the submit button. This will hook the click event and trigger custom validation. If any of the fields fail validation, the form submission will be blocked. If all of the form fields pass validation, the form will be submitted as normal.
 ```js
 // ~line 121
 var validate = (function() {
@@ -494,7 +493,7 @@ git commit -a
 
 Now that we can create a proper and login to the system, creating a user session; we will want to work with the session data.
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/ba9906db766cb5e6d0d6b04eac548918a9121d77) Use Express middleware to expose session data to the views. This exposes the the session data to the view through a variable called ```session```.
+[</> code](https://github.com/microtrain/mean.example.com/commit/ba9906db766cb5e6d0d6b04eac548918a9121d77) Use Express middleware to expose session data to the views. This exposes the session data to the view through a variable called ```session```.
 
 *app.js*
 ```js
@@ -513,7 +512,7 @@ git commit -a
 
 ### Controlling the UI with Session Data
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/eb72758f6bb9189dd3f45e5c7a4aa8499679a464) The session contains a passport object which is empty prior to session instantiation. Upon instantiation, a user object is added to the passport object. We can use the presence of the user object or lack there of to determine which links to turn on or off in the navigation. If we detect a session we can hide the login and register links and show the logout link. We can reverse this when we no longer detect the session.
+[</> code](https://github.com/microtrain/mean.example.com/commit/eb72758f6bb9189dd3f45e5c7a4aa8499679a464) The session contains a passport object which is empty prior to session instantiation. Upon instantiation, a user object is added to the passport object. We can use the presence of the user object or lack thereof to determine which links to turn on or off in the navigation. If we detect a session we can hide the login and register links and show the logout link. We can reverse this when we no longer detect the session.
 
 *views/includes/navbar.pug*
 ```js
@@ -535,13 +534,13 @@ git commit -a
 ```
 
 ### Authenticated Whitelist
-By default all endpoints are publicly accessible. Some endpoints should only be accessible by authenticated users. There are several ways to do this, I prefer the whitelist approach. This means unauthenticated access is denied to all endpoints by default; unauthenticated access is granted as needed.
+By default, all endpoints are publicly accessible. Some endpoints should only be accessible by authenticated users. There are several ways to do this, I prefer the whitelist approach. This means unauthenticated access is denied to all endpoints by default; unauthenticated access is granted as needed.
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/ac8b8657e3fe7907eaf69c89c088436781a6d112) Deny unauthenticated access to all end points by default. Create a whitelist that will allow unauthenticated access to specific endpoints.
+[</> code](https://github.com/microtrain/mean.example.com/commit/ac8b8657e3fe7907eaf69c89c088436781a6d112) Deny unauthenticated access to all endpoints by default. Create a whitelist that will allow unauthenticated access to specific endpoints.
 
 ```js
 //~line 78
-//Session based access control
+//Session-based access control
 app.use(function(req,res,next){
   //Uncomment the following line to allow access to everything.
   //return next();
@@ -563,7 +562,7 @@ app.use(function(req,res,next){
     return next();
   }
 
-  //Allow access to dynamic end points
+  //Allow access to dynamic endpoints
   var subs = [
     '/public/',
     '/api/auth/'
@@ -584,7 +583,7 @@ app.use(function(req,res,next){
   }
 
   //There is no session nor are there any whitelist matches. Deny access and
-  //redirect the user to the login screen.
+  //Redirect the user to the login screen.
   return res.redirect('/auth#login');
 });
 ```
