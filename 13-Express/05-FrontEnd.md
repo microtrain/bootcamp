@@ -1,11 +1,11 @@
 # Front End
 
-In the next section we will build an Authentication App using JavaScript. Before we do that we need to do a little bit of setup. We will use Bootstrap and Font Awesome to layout our website, Make a few changes to our directory structure, configure Gulp, and clean a few things up.
+In the next section, we will build an Authentication App using JavaScript. Before we do that we need to do a little bit of setup. We will use Bootstrap and Font Awesome to layout our website, Make a few changes to our directory structure, configure Gulp, and clean a few things up.
 
 ## EditorConfig
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/a07aebd4814372b5ebeaf82de19730f15c365296)
-If you have not already done so, add an .editorconfig file.
+If you have not already done so, add a .editorconfig file.
 
 *.editorconfig*
 ```sh
@@ -37,7 +37,7 @@ git commit -a
 
 ## Integrate Bootstrap and Font Awesome
 
-We will use Bootstrap to give us an out of the box responsive UI and prebuilt styles. This will allow us to better focus on building our application taking the website's build out of our head space. Font Awesome provides a robust icon library. Rather than installing these products we will access them over a CDN. 
+We will use Bootstrap to give us an out of the box responsive UI and prebuilt styles. This will allow us to better focus on building our application, taking the website's build, out of our headspace. Font Awesome provides a robust icon library. Rather than installing these products, we will access them over a CDN. 
 
 ### Basic Layout
 [</> code](https://github.com/microtrain/mean.example.com/commit/0501a18cd310af6e091bdbeb213499140b465404) For this commit we will replace the existing layout with something similar to [Bootstrap's starter template](https://getbootstrap.com/docs/4.1/getting-started/introduction/#starter-template). The difference will be [linking to Font Awesome](https://fontawesome.com/start) and converting the sample [HTML to Pug](https://html-to-pug.com/). Replace the code in *views/layouts.pug* with the following.
@@ -75,7 +75,7 @@ Go to [http://localhost:3000](http://localhost:3000) and you will see something 
 
 ### Navigation
 
-Development will be a little easier if we can click a link to test our changes rather than manually entering the URL. We will add a few links to the layout. Rather than just throwing some raw links on the page we will use [Bootstrap's Navbar](https://getbootstrap.com/docs/4.0/components/navbar/). Navbar provides some out of the box branding which can include a site logo and title. To keep things simple, we will use [Font Awesome's Asterisk](https://fontawesome.com/icons/asterisk?style=solid) as our logo and MY API as our site name. To keep things organized we will create a directory called *includes* inside of our *views* directory in which we will have a file called *navbar.pug*.
+We can make development will be a little easier if we can click a link to test our changes rather than manually entering the URL. We will add a few links to the layout. Rather than just throwing some raw links on the page we will use [Bootstrap's Navbar](https://getbootstrap.com/docs/4.0/components/navbar/). Navbar provides some out of the box branding which can include a site logo and title. To keep things simple, we will use [Font Awesome's Asterisk](https://fontawesome.com/icons/asterisk?style=solid) as our logo and MY API as our site name. To keep things organized we will create a directory called *includes* inside of our *views* directory in which we will have a file called *navbar.pug*.
 
 * Home - */*
 * Login - */auth#logout*
@@ -136,7 +136,7 @@ git push origin master
 
 ## File Structure 
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/dece4428fe65ec663f9410bdf75b3ce1e7b98c27) By default, ExpressJS stores CSS in a directory called *public/stylesheets*. We will change this to a webpack style structure in which all (S)CSS and JavaScript will be written to a top level directory called *src* (source) with the sub directories of *src/js* and *src/css*. The term source indicative of hand written source code. We will use a Gulp process to combine and minify source code into distribution package. The term distribution is indicative of machine readable code that has been compiled from source. The distribution packages will be written to *public/dist* where they can be accessible by a web page. All front end assets are stored in the *public* directory. The *public* directory is not visible in the URL but anything inside that directory skips Express routing and is served like a traditional web request. For example *public/dist/css/main.css* would be accessed using *http://localhost:3000/dist/css/main.css where localhost:3000 is the domain name. If the domain is example.com then *public/dist/css/main.css* would be accessed using *http://example.com/dist/css/main.css*.
+[</> code](https://github.com/microtrain/mean.example.com/commit/dece4428fe65ec663f9410bdf75b3ce1e7b98c27) By default, ExpressJS stores CSS in a directory called *public/stylesheets*. We will change this to a webpack style structure in which all (S)CSS and JavaScript will be written to a top-level directory called *src* (source) with the subdirectories of *src/js* and *src/css*. The term source indicative of handwritten source code. We will use a Gulp process to combine and minify source code into a distribution package. The term distribution is indicative of machine-readable code that has been compiled from source. The distribution packages will be written to *public/dist* where they can be accessible by a web page. All front end assets are stored in the *public* directory. The *public* directory is not visible in the URL but anything inside that directory skips Express routing and is served as a traditional web request. For example, *public/dist/css/main.css* would be accessed using *http://localhost:3000/dist/css/main.css where localhost:3000 is the domain name. If the domain is example.com then *public/dist/css/main.css* would be accessed using *http://example.com/dist/css/main.css*.
 
 You can manually edit the file structure or you can use the commands listed below.
 
