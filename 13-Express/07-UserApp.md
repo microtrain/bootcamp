@@ -1,6 +1,6 @@
 # User App
 
-In this lesson we will build a JavaScript application (or a GUI) for managing users. For this app will:
+In this lesson, we will build a JavaScript application (or a GUI) for managing users. For this app will:
 
 * Build a users view.
 * Provide a basic navigation structure.
@@ -12,7 +12,7 @@ In this lesson we will build a JavaScript application (or a GUI) for managing us
 
 ## Prep
 
-As with the authentication application we will need to to a little bit of prep before we build the app. We will need to add a non-API endpoint, update our Gulp process, and stub out (create a placeholder) for our users application.
+As with the authentication application, we will need to do a little bit of prep before we build the app. We will need to add a non-API endpoint, update our Gulp process, and stub out (create a placeholder) for our users application.
 
 ### Non-API Endpoint
 
@@ -110,7 +110,7 @@ var usersApp = (function() {
 usersApp.load();
 ```
 
-Rebuid the Js files
+Rebuild the Js files
 ```js
 gulp build-js
 ```
@@ -233,9 +233,9 @@ git push origin master
 
 ## Provide a Basic Navigation Structure
 
-We will set up the load function so that we can navigation a full CRUD application. This will be a switch statement similar to the one in the we did for the authentication app. We will start by providing mock up for each case in the switch statement. We will replace these with implementation logic as we develop the logic.
+We will set up the load function so that we can navigation a full CRUD application. This will be a switch statement similar to the one in the one we did for the authentication app. We will start by providing a mock-up for each case in the switch statement. We will replace these with implementation logic as we develop the logic.
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/7bedf36cc9a13d3b336d0034c39bd48b2642c35f) Mock up the navigation
+[</> code](https://github.com/microtrain/mean.example.com/commit/7bedf36cc9a13d3b336d0034c39bd48b2642c35f) Mock-up the navigation
 
 ```js
 //~line 
@@ -268,7 +268,7 @@ load: function(){
 ```
 
 ```sh
-# Mock up the navigation
+# Mock-up the navigation
 git add .
 git commit -a
 ```
@@ -353,7 +353,7 @@ case '#create':
   break;	    
 ```
 
-Make the submit button responsive. While a block level button makes sense on a small screen, it looks odd spanning the width of a desktop monitor. We can resolve this this by making the button responsive. Make sure Gulp is running and add the following to *src/scss/form.scss*. You can test this by opening dev tools and toggling between mobile and desktop views.
+Make the submit button responsive. While a block-level button makes sense on a small screen, it looks odd spanning the width of a desktop monitor. We can resolve this by making the button responsive. Make sure Gulp is running and add the following to *src/scss/form.scss*. You can test this by opening dev tools and toggling between mobile and desktop views.
 
 *src/scss/form.scss*
 ```scss
