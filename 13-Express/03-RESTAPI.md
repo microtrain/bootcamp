@@ -1,6 +1,6 @@
 # REST API
 
-An API end point (in this case a data API) is a server response that does not render an HTML view. Rather, the end point would return json, jsonp, xml, soap or the like. Typically, the point of an API is to either accept a data request or return a server response in the form of unformatted data. The intent is to create an end point that can interact with other software rather than a human. For example, */api/users/create* could allow a user to be created from a web app, desktop app, mobile app, console app, etc. The point is having a single end point that can serve data between to any medium. Our applications will use HTTP verbs (GET, PUT, POST, DELETE) to create a CRUD based REST API that interacts with JSON data.
+An API endpoint (in this case a data API) is a server response that does not render an HTML view. Rather, the endpoint would return json, jsonp, XML, soap or the like. Typically, the point of an API is to either accept a data request or return a server response in the form of unformatted data. The intent is to create an endpoint that can interact with other software rather than a human. For example, */api/users/create* could allow a user to be created from a web app, desktop app, mobile app, console app, etc. The point is having a single endpoint that can serve data to any medium. Our applications will use HTTP verbs (GET, PUT, POST, DELETE) to create a CRUD based REST API that interacts with JSON data.
 
 * Relevant HTTP Verbs - POST, GET, PUT, DELETE
 * CRUD - Create, Read, Update, Delete
@@ -15,7 +15,7 @@ An API end point (in this case a data API) is a server response that does not re
 
 ## Create a Data Model
 
-We will start with a JSON based users API. This will provide end points for creating and managing users. This is also known as a data API, since this deals with data; the data model is a logical place to start.
+We will start with a JSON based users API. This will provide endpoints for creating and managing users. This is also known as a data API since this deals with data; the data model is a logical place to start.
 
 
 ## Create the Database
@@ -76,7 +76,7 @@ git commit -a
 git push origin master
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/9524d63b356770436c5f648b1d10d3210d51b441) Validation is a key feature of Mongoose. Executes before making a save to MongoDB. This allows us to define rules at the model level. We will want to make sure usernames and email addresses are unique. Mongoose does not have a built in validator for this but the community does. We will install the [mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator) plugin and set uniqueness as needed.
+[</> code](https://github.com/microtrain/mean.example.com/commit/9524d63b356770436c5f648b1d10d3210d51b441) Validation is a key feature of Mongoose. Executes before making a save to MongoDB. This allows us to define rules at the model level. We will want to make sure usernames and email addresses are unique. Mongoose does not have a built-in validator for this but the community does. We will install the [mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator) plugin and set uniqueness as needed.
 
 ```sh
 # Install mongoose-unique-validator
@@ -197,7 +197,7 @@ git push origin master
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/8ca083840f50b796f6d16113127991558546a4fd) Add api/users route to app.js
 
-The following lines will import the route into the ```apiUsersRouter``` variable (~line 10) then bind that route to a URL endpoint (~line 32) which means any url that starts with */api/users* will look into the */api/users.js* file to complete the request.
+The following lines will import the route into the ```apiUsersRouter``` variable (~line 10) then bind that route to a URL endpoint (~line 32) which means any URL that starts with */api/users* will look into the */api/users.js* file to complete the request.
 
 *app.js*
 ```js
@@ -345,7 +345,7 @@ git push origin master
 
 ### PUT/Update
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/3f688eacef3db03d098dd55ae8d9f63cbfbd279d) Sending a json payload with an id, over a PUT request to the *api/users* endpoint shall update an exisiting user record.
+[</> code](https://github.com/microtrain/mean.example.com/commit/3f688eacef3db03d098dd55ae8d9f63cbfbd279d) Sending a json payload with an id, over a PUT request to the *api/users* endpoint shall update an existing user record.
 
 * HTTP verb - PUT
 * CRUD action - update
@@ -476,7 +476,7 @@ git push origin master
 
 ### Auto Update the Modified Date When a Document is Saved
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/51ec33a5666ac84e52586e82c1556f8e1204c53c) Modifying an exisiting user shall automatically update the modified date.
+[</> code](https://github.com/microtrain/mean.example.com/commit/51ec33a5666ac84e52586e82c1556f8e1204c53c) Modifying an existing user shall automatically update the modified date.
 
 *models/users.js*
 ```js

@@ -8,9 +8,12 @@
         "formspree's",
         "gitignore",
         "minified",
+        "mongod",
         "picklist",
         "prepopulate",
+        "sitewide",
         "templating",
+        "testuser",
         "unstyled"
     ]
 }
