@@ -1,11 +1,11 @@
 # Authentication API
-In the previous section we created a REST API that performs CRUD operations against a users API. In this section we will build an API that that will allow for user authentication and session creation.
+In the previous section, we created a REST API that performs CRUD operations against a users API. In this section, we will build an API that will allow for user authentication and session creation.
 
 ## User Authentication with Passport
-We will use [express-session](https://www.npmjs.com/package/express-session) as our session manager and store our session data in our mongo database using [connect-mongo](https://www.npmjs.com/package/connect-mongo). We will use a combonation of [Passport](http://www.passportjs.org/) modules to manage authentication.
+We will use [express-session](https://www.npmjs.com/package/express-session) as our session manager and store our session data in our mongo database using [connect-mongo](https://www.npmjs.com/package/connect-mongo). We will use a combination of [Passport](http://www.passportjs.org/) modules to manage authentication.
 
 ### Passport Local Strategy
-[</> code](https://github.com/microtrain/mean.example.com/commit/5b9cdccf310b15c295ac5d864110903de0d1fd1a) Install all the packages needed for building a passport session and storing it in the database. The commit points to the package.json files, you can install these pacakges using the following npm commands or you can update your package.json file from the repo and run a single ```npm install```.
+[</> code](https://github.com/microtrain/mean.example.com/commit/5b9cdccf310b15c295ac5d864110903de0d1fd1a) Install all the packages needed for building a passport session and storing it in the database. The commit points to the package.json files, you can install these packages using the following npm commands or you can update your package.json file from the repo and run a single ```npm install```.
 
 ```sh
 npm install passport
@@ -190,7 +190,7 @@ git push origin master
 ```
 
 ##### Post the Registration Form to the Users API
-[</> code](https://github.com/microtrain/mean.example.com/commit/5ef260abec56a72e219d3d8fdceb9eb60f384ba1) Add a registration end point the the users API. */users/register* is a GET request that will load a registration form. */api/users/register* is a POST request that creates a user record complete with salt and has values. For now, registartion will end with duping a JSON string onto the screen. Later we can convert this to an AJAX application.
+[</> code](https://github.com/microtrain/mean.example.com/commit/5ef260abec56a72e219d3d8fdceb9eb60f384ba1) Add a registration endpoint the users API. */users/register* is a GET request that will load a registration form. */api/users/register* is a POST request that creates a user record complete with salt and has values. For now, registration will end with duping a JSON string onto the screen. Later we can convert this to an AJAX application.
 
 Create the file *routes/api/auth.js* and add the following content
 
@@ -258,10 +258,10 @@ git push origin master
 
 #### User Login/Logout
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/eca150a53a71c5ec55efb3d58c9cc48a720ef057) Create a GET and POST end points for login
+[</> code](https://github.com/microtrain/mean.example.com/commit/eca150a53a71c5ec55efb3d58c9cc48a720ef057) Create a GET and POST endpoints for login
 
 *routes/api/auth.js*
-For a traditional web application Passport would allow you to create a login with just a few lines of code. Since we are building a REST API we need to crack open the black box and manage error handling on our own. Fortunately Passport exposes many of it's internals to the outside world making this a simple task. See the [Passport Documentation](http://www.passportjs.org/docs/authenticate/) for more details.
+For a traditional web application Passport would allow you to create a login with just a few lines of code. Since we are building a REST API we need to crack open the black box and manage error handling on our own. Fortunately, Passport exposes many of it's internals to the outside world making this a simple task. See the [Passport Documentation](http://www.passportjs.org/docs/authenticate/) for more details.
 
 *Black box implementation*, this works by injecting the ```passport.authenticate()``` middleware into method signature. The downside to this is either you're logged in or your not. You use redirects to convey the authentication state.
 ```js
@@ -270,7 +270,7 @@ router.post('/login', passport.authenticate('local'), function(req, res){
 });
 ```
 
-*API implementation*, this works by using the ```passport.authenticate()``` middleware as a callback function. At this point you have access to errors and additional information that you can use to halt execution and return a JSON string denoting an error. At this point the black box functionality has been removed and you'll need to manually invoke the session. You can do this by accessing ```req.logIn()``` which will either return an error or create a session. Since we are testing with curl, with curl we do not have access to the browsers session cookie meaning the session sill not persist beyond the server request that created it. To test session creation we will ```console.log()``` the ```req.session``` variable. A successful login will create a session and return a JSON string with an error message and unsuccessful login will return an JSON string with ae error message. 
+*API implementation*, this works by using the ```passport.authenticate()``` middleware as a callback function. At this point, you have access to errors and additional information that you can use to halt execution and return a JSON string denoting an error. At this point, the black box functionality has been removed and you'll need to manually invoke the session. You can do this by accessing ```req.logIn()``` which will either return an error or create a session. Since we are testing with curl, with curl we do not have access to the browsers session cookie meaning the session sill not persist beyond the server request that created it. To test session creation we will ```console.log()``` the ```req.session``` variable. A successful login will create a session and return a JSON string with an error message, An unsuccessful login will return a JSON string with an error message. 
 ```js
 //~line 37
 router.post('/login', function(req, res, next) {
@@ -319,13 +319,13 @@ router.get('/logout', function(req, res){
 });
 ```
 
-Commit your changes and push to to master
+Commit your changes and push to master
 ```sh
 # Add an endpoint for logging out of the session
 git commit -a
 git push origin master
 ```
 
-In the next section we will  build a JavaScript application to manage user authentication.
+In the next section, we will  build a JavaScript application to manage user authentication.
 
 [Next: Front End Prep](05-FrontEnd.md)
