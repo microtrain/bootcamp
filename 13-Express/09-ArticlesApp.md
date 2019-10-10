@@ -1,11 +1,11 @@
 # Lab - Articles App
 
-Build an articles application using the the knowledge acquired in the previous lessons.
+Build an articles app using the knowledge acquired in the previous lessons.
 * This will require 1 routing file and 3 views (app, index, view)
 * This app MUST provide at least two non-API endpoints.
-  * index - pulls all articles
-  * view - pulls a single article by slug
-  * cms - pull the articles application
+  * index - A view that displays all articles.
+  * view - A view that displays a single article.
+  * cms - Provides a view for the articles app.
 * The JavaScript app MUST provide full CRUD functionality.
 
 We will get you started by providing an outline of the API and non-API routes You'll just need to implement the details.

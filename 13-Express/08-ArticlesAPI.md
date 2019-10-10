@@ -1,17 +1,17 @@
 # Lab - Articles API
 
-Build an articles API using the the knowledge acquired in the previous lessons. 
+Build an articles API using the knowledge acquired in the previous lessons. 
 
 ## Create a Model
 We will start with an articles model. Our model will provide all the fields that are common to a web page.
-* title - The title of the articles
+* title - The title of the article.
 * slug - A slug of the title; converted to lower case with all special chars removed or converted to a hyphen.
-* body - The article
-* keywords - Meta data, not used much search engines these days, but can provide some value.
-* description - Meta data, ~25 word summary of the article.
+* body - The article.
+* keywords - Metadata, This is not much-used search engines these days but it can provide some value.
+* description - Metadata, a ~25 word summary of the article.
 * published - The date the article is to go live. This will allow articles to be written in advance of the intended publication date.
-* created - When the article was created
-* modified - When the article was last modified
+* created - When the article was created.
+* modified - When the article was last modified.
 
 Use NPM to install a slug package.
 ```sh
