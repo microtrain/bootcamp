@@ -1,30 +1,30 @@
 # System Basics
-In this section we will learn use some of the basic Linux commands from the previous section to install a few basic software packages.
+In this section, we will use some of the basic Linux commands from the previous section to install a few basic software packages.
 
-Login in to your system and open a terminal window using ```Ctrl + Alt + T```. Then type the following commands. Pressing enter after each command.
+Log into your system and open a terminal window using ```Ctrl + Alt + T```. Then type the following commands. Pressing enter after each command.
 
 ```sh
 sudo apt update
 sudo apt upgrade
 ```
-Lets look at these commands a little closer.
-* [sudo](https://help.ubuntu.com/community/RootSudo) - in short ```sudo``` will run what ever commands that follow it with root level privileges.
+Let's look at these commands a little closer.
+* [sudo](https://help.ubuntu.com/community/RootSudo) - in short ```sudo``` will run whatever commands that follow it with root-level privileges.
 * [```apt```](http://manpages.ubuntu.com/manpages/zesty/man8/apt.8.html) - [Apt](https://help.ubuntu.com/lts/serverguide/apt.html) is a package manager for Linux. This works by maintaining a list of remote repositories from which packages can be installed. Most of the management is done automatically.
     * ```apt update``` - tells the system to update everything it knows about the repositories.   
     * ```apt upgrade``` - tells the system to upgrade all packages to their latest versions.
 
 ## [Terminator](https://gnometerminator.blogspot.com/p/introduction.html)
 
-Terminator is a terminal emulator that allows for multiple tabs and split screens. This makes life a lot easier when you are dealing with several command line applications and background processes all at once.
+Terminator is a terminal emulator that allows for multiple tabs and split screens. This makes life a lot easier when you are dealing with several command-line applications and background processes all at once.
 
 ```sh
 sudo apt install terminator
 ```
-Now close your terminal window and use [Dash](https://help.ubuntu.com/lts/ubuntu-help/unity-dash-intro.html) to find and open Terminator. Open Dash ```Super + F``` and type _terminator_ into the search field. Click the Terminator icon to launch Terminator. You'll notice the Terminator icon is now in the [Launcher](https://help.ubuntu.com/stable/ubuntu-help/unity-launcher-intro.html) right click the Terminator icon and select _Lock to Launcher_ from the context menu.
+Now close your terminal window and use [Dash](https://help.ubuntu.com/lts/ubuntu-help/unity-dash-intro.html) to find and open Terminator. Open Dash ```Super + F``` and type _terminator_ into the search field. Click the Terminator icon to launch Terminator. You'll notice the Terminator icon is now in the [Launcher](https://help.ubuntu.com/stable/ubuntu-help/unity-launcher-intro.html) right-click the Terminator icon and select _Lock to Launcher_ from the context menu.
 
 ## [VIM](http://www.vim.org/)
 
-An old school command line text editor. This is really nice to know when you need to edit files on a server or directly on a command line.
+An old school command-line text editor. This is nice to know when you need to edit files on a server or directly on a command-line.
 
 ```sh
 sudo apt install vim
@@ -39,7 +39,7 @@ cd ~/Downloads
 
 * [```cd```](http://manpages.ubuntu.com/manpages/zesty/man1/cd.1posix.html) - Changes your working directory (Change Directory)
 * [```~```](http://www.gnu.org/software/bash/manual/html_node/Tilde-Expansion.html) -
-Tilde Expansion in this case it's a short cut to the home directory (~ evaluates to /home/jason). So ```cd ~/Downloads``` will change my current working directory to ```/home/jason/Downloads```.
+Tilde Expansion, in this case, it's a short cut to the home directory (~ evaluates to /home/jason). So ```cd ~/Downloads``` will change my current working directory to ```/home/jason/Downloads```.
 
 You will have downloaded a file called google-chrome-stable_current_amd64.deb. [```.deb```](https://www.debian.org/doc/manuals/debian-faq/ch-pkg_basics.en.html) files are software packages designed for Debian based Linus distros.
 
@@ -53,7 +53,7 @@ sudo dpkg --install google-chrome-stable_current_amd64.deb
 sudo apt install -f
 ```
 
-Use the search box from the activity panel to find and open Chrome. Click the Chrome icon to launch the Chrome browser. You'll notice the Chrome icon is now in the [Launcher](https://help.ubuntu.com/stable/ubuntu-help/unity-launcher-intro.html) right click the Chrome icon and select _Lock to Launcher_ from the context menu. Now right click the FireFox icon in the launcher and click choose _Unlock from Launcher_ from the context menu.
+Use the search box from the activity panel to find and open Chrome. Click the Chrome icon to launch the Chrome browser. You'll notice the Chrome icon is now in the [Launcher](https://help.ubuntu.com/stable/ubuntu-help/unity-launcher-intro.html) right-click the Chrome icon and select _Lock to Launcher_ from the context menu. Now right-click the FireFox icon in the launcher and click choose _Unlock from Launcher_ from the context menu.
 
 ## [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -89,7 +89,7 @@ rm ~/Downloads/*
 * \* - A [wildcard](http://www.tldp.org/LDP/GNU-Linux-Tools-Summary/html/x11655.htm)
 for matching all characters and strings. ```rm ~/Downloads/*``` will remove everything on the ~/Downloads path
 
-Now typing ```ls ~/Downloads``` into the command line will return an empty result set.
+Now typing ```ls ~/Downloads``` into the command-line will return an empty result set.
 
 
 ## [Filezilla](https://filezilla-project.org/)
@@ -108,20 +108,20 @@ The best way to think of cURL is as a browser that is used by code.
 sudo apt install curl
 ```
 
-## Enable new file creation via right click
+## Enable new file creation via right-click
 
 ```sh
 touch ~/Templates/Empty\ Document
 ```
 
-Rather than running each of the above statements as one off statements, we can combine them into a single command using ```&&``` to concatenate the commands.
+Rather than running each of the above statements as one-off statements, we can combine them into a single command using ```&&``` to concatenate the commands.
 
 ```sh
 sudo apt install terminator vim filezilla curl -y && touch ~/Templates/Empty\ Document
 ```
 
 ## Summary
-In this lesson you learned
+In this lesson, you learned
 * how to install programs using apt (Linux)
 * how to install Debian package using dpkg (Linux)
 * how to force a broken install using apt (Linux)

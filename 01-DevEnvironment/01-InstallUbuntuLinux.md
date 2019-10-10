@@ -1,5 +1,5 @@
 # Install Ubuntu 18.04
-Your development (dev) environment is any system upon which your develop your applications. When possible, building your dev environment as close to production (prod) as possible is helpful. When this is not possible running tests in an emulator is a good option. This course will make use of both methods. Lets start by installing the operating system; Ubuntu Linux.
+Your development (dev) environment is any system upon which you develop your applications. When possible, building your dev environment as close to production (prod) as possible is helpful. When this is not possible running tests in an emulator is a good option. This course will make use of both methods. Let's start by installing the operating system; Ubuntu Linux.
 
 Insert the preloaded Ubuntu 18.04 dongle into an open USB port and power up the system. Press f12 when the Dell splash screen appears and choose _USB Storage Device_ under legacy boot legacy.
 
@@ -23,11 +23,11 @@ This sets your systems local timezone. For _Keyboard layout_ choose English (US)
 
 ![Keyboard layout](/img/install_ubuntu/keyboard.jpg)
 
-On the _Who are you?_ screen enter _Your name:_ as your first an last name, accept the default computer and usernames and choose a password. Do not forget your password, we are not able to recover this for you. Be sure the _Require my password to log in_ option is select and that the _Encrypt my home folder_ option __IS NOT__ selected. Click the continue button and wait for the system to install.
+On the _"Who are you?"_ screen enter _Your name:_ as your first and last name, accept the default computer and usernames and choose a password. Do not forget your password, we are not able to recover this for you. Be sure the _Require my password to log in_ option is select and that the _Encrypt my home folder_ option __IS NOT__ selected. Click the continue button and wait for the system to install.
 
 ![Who are you](/img/install_ubuntu/who.jpg)
 
-While the system installs, you will see series of flash screens telling you the features of Ubuntu.
+While the system installs, you will a series of flash screens telling you the features of Ubuntu.
 
 ![Installing System](/img/install_ubuntu/installing.jpg)
 
@@ -39,7 +39,7 @@ You should see a prompt that says _Please remove the installation medium, then p
 Pull the dongle from the USB drive and press the enter key.
 
 ## Summary
-In this lesson you learned
+In this lesson, you learned
 * how to install Ubuntu Linux (Ubuntu, Linux)
 
 ## Additional Recourses

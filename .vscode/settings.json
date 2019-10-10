@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "Apod",
         "Nginx",
         "PDFs",
         "RESTAPI",
@@ -14,8 +15,10 @@
         "picklist",
         "prepopulate",
         "sitewide",
+        "superset",
         "templating",
         "testuser",
+        "transpiled",
         "unstyled"
     ]
 }
