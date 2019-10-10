@@ -1,6 +1,6 @@
 # Porting an App
 
-While we are building for mobile, spinning up an emulator for each little change can be a time suck. I recommend adding the browser platform in addition to any mobile platforms you will be using. The brower will allow for faster testing on non-native features.
+While we are building for mobile, spinning up an emulator for each little change can be a time suck. I recommend adding the browser platform in addition to any mobile platforms you will be using. The browser will allow for faster testing on non-native features.
 
 ```sh
 cd ~
@@ -10,7 +10,7 @@ cordova platform add browser
 cordova browser run
 ```
 
-At this point the browser will pop open running the default Cordova application. You may now add you mobile platforms. We will use Android.
+At this point, the browser will pop open running the default Cordova application. You may now add your mobile platforms. We will use Android.
 
 ```
 cordova platform add android
@@ -27,12 +27,12 @@ Find the path *~/apod/www* copy your dist directory to this path. Then replace t
 cordova run android
 ```
 
-Each Cordova project has it's own build path for each platform, note the following path *~/apod/platforms/android/app/build/outputs/apk/debug/app-debug.apk*. That path */apod/platforms* provides a list of platforms, in this case android. After that it's a matter of finding the package. In this case it's an .apk file.
+Each Cordova project has its own build path for each platform, note the following path *~/apod/platforms/android/app/build/outputs/apk/debug/app-debug.apk*. The path */apod/platforms* provides a list of platforms, in this case android. After that it's a matter of finding the package. In this case it's an .apk file.
 
 
 ## Port over the Angular version of NASA Apod
 
-Porting an Anugular app is similar to porting a native app. At this point it's more about understanding how each of your apps work that it is about understanding Cordova's platform. Refer to the buid of your NgApod project. This will be a distribution directory containing an index.html file and any assets that wre required for the application. Place the index.html file directly under *~/apod/www* and place the assets relative to the manner in which they are called by the Angular application.
+Porting an Angular app is similar to porting a native app. At this point it's more about understanding how each of your apps work that it is about understanding Cordova's platform. Refer to the build of your NgApod project. This will be a distribution directory containing an index.html file and any assets that wre required for the application. Place the index.html file directly under *~/apod/www* and place the assets relative to the manner in which they are called by the Angular application.
 
 ```sh
 cordova run android
