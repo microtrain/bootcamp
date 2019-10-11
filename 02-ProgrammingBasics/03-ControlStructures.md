@@ -119,7 +119,7 @@ fi
 * for - executes a fixed number of repetitive operations
 * foreach/for-in/for-of - executes a repetitive operation for each element in a set
 * while - executes a repetitive operation while a condition is (or is not) true. Requires 1 truth prior to execution.
-* do-while - executes a repetitive operation while a condition is (or is not) true. Executes prior to first truth. 
+* do-while - executes a repetitive operation while a condition is (or is not) true. Executes prior to first-truth. 
 
 ```php
 
