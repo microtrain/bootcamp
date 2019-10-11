@@ -5,18 +5,32 @@ In JavaScript, hello + 1 would return 'Hello1', that is because JavaScript is lo
 
 In PHP ```20 + '20'``` would return 40 and ```'hello' + 1``` would return 1. While PHP is a loosely typed it treats operators differently. In PHP  ```+``` is strictly a mathematical operator. As such, PHP assumes both sides of the equation are numbers. In the former, since the string can be a number it is converted to a number in the later, the value of 'hello' cannot be numeric but PHP will still try to make sense of it, so 'hello' equates to 0;
 
-These are both examples of loosely or dynamically typed languages. In a strongly typed language such a Java or TypeScript ```'20' + 20``` would throw a type error.
+These are both examples of loosely or dynamically typed languages. In a strongly typed language, such a Java or TypeScript ```'20' + 20``` would throw a type error.
 
 ## DataTypes in Various Languages
-Every language, has it's own specific set of data types, as well as its own set of rules for those types. Most languages, will have some notion of the following data types 
-* **strings** - For most languages, this is anything in quotes or anything in quotes and lacking a mathematical operator. ```'Hello', "20", "Hello World"``` would all be examples of strings.
-* **booleans** - True or false, generally speaking, ```'true'``` (note the quotes) is not a boolean value while ```true``` is a boolean value.
-* **numbers** - For most languages, this would include all unquoted numbers; in some languages this would include strings with mathematical operators. Typical examples include ```10, 20, 30```; or in some languages (PHP) a mathematical operator ```'10' + '20' + "30"``` could cause a string to become numeric.
-* **null** - no value, no effect, nothing, nil, empty, zero.
-* **arrays** - An array is a variable that contains other variables that are identified as key-to-value pairs. In the example, ```a = ['A', 'B', 'C']``` ```a[0]``` would equate to **A**  and ```a = ['A', 'B', 'C']``` ```a[0]``` would equate to **B**.
-* **objects** - Primarily found in higher-level languages, an object can be thought of as a container for properties. Properties consist of variables (data for a given instance) and methods (actions to take on an instance). For example a ```File``` object might have properties such as ```open()```, ```read()```, ```write()```, or ```size```. I might invoke the method open ```File.open()``` which could then allow me to read from ```File.read()``` or write to ```File.write('Hello, I\'m content')``` the file. ```File.size```, (notice the lack of parenthesis) would be the data about a given instance.
+Every language has its own specific set of data types, as well as its own set of rules for those types. Most languages will have some notion of the following data types 
 
-You are encouraged to read up on data types by following the links below.
+### Strings
+For most languages, this is anything in quotes or anything in quotes and lacking a mathematical operator. ```'Hello', "20", "Hello World"``` would all be examples of strings.
+
+### Booleans
+True or false, generally speaking, ```'true'``` (note the quotes) is not a boolean value while ```true``` is a boolean value.
+
+### Numbers
+
+For most languages, numbers, more precisely integers (1,2,3, etc) and floats (1.1, 1.21, 1.3, etc) would include all unquoted numbers; in some languages, this would include strings with mathematical operators. Typical examples include ```10, 20, 30```; or in some languages (PHP) a mathematical operator ```'10' + '20' + "30"``` could cause a string to become numeric.
+
+### Null
+No value, no effect, nothing, nil, empty, zero.
+
+### Arrays
+An array is a variable that contains other variables that are identified as key-to-value pairs. In the example, ```a = ['A', 'B', 'C']``` ```a[0]``` would equate to **A**  and ```a = ['A', 'B', 'C']``` ```a[0]``` would equate to **B**.
+
+### Objects
+Primarily found in higher-level languages, an object can be thought of as a container for properties. Properties consist of variables (data for a given instance) and methods (actions to take on an instance). For example a ```File``` object might have properties such as ```open()```, ```read()```, ```write()```, or ```size```. I might invoke the method open ```File.open()``` which could then allow me to read from ```File.read()``` or write to ```File.write('Hello, I\'m content')``` the file. ```File.size```, (notice the lack of parenthesis) would be the data about a given instance.
+
+If some of the data types are not making sense to you, don't worry, this is just an overview. We will cover these concepts in far greater details as we progress through the course. You are encouraged to read up on data types by following the links below.
+
 * [PHP](http://php.net/manual/en/language.types.intro.php)
 * [Bash](http://tldp.org/LDP/abs/html/declareref.html)
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
