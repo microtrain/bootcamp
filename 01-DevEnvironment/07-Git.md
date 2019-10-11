@@ -147,7 +147,7 @@ You will see a message that indicates the README.md file has been changed.
 git commit README.md
 ```
 
-This will open an editor window that asks you to enter a commit message. Enter _Changed the header_ and save the file. You will see a message that indicates the changes to the README.md file have been committed.
+This will open an editor window that asks you to enter a commit message. Enter _Changed the header_ and save the file. You will see a message that indicating changes to the file have been committed.
 
 ![Modified](/img/git/commit.png)
 
