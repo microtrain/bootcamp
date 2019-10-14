@@ -1,15 +1,16 @@
 # Bash Scripting Basics
-In this section you will learn haw to create a Bash script to automate repetitive tasks.
+In this section, you will learn how to create a Bash script to automate repetitive tasks.
 
 ## Exercise 1 - Scripting Repetitive Tasks
-In the previous lesson you learned the four commands for reloading virtual-host configuration. While that may not seem to cumbersome when your not updating your site all that often; it gets a little annoying when your testing updates. We will write a Bash script to reduce the burden of this task. A typical Bash script is little more than scripted arrangement or sequence of Linux commands. In addition to Linux commands shell scripts may accept parameters, may utilize control statements, variables, and functions.
+In a previous lesson, you learned the four commands for reloading a virtual-host configuration. While that may not seem too cumbersome when your not updating your site all that often; it gets a little annoying when your testing updates. We will write a Bash script to reduce the burden of this task. A typical Bash script is an arrangement or sequence of Linux commands wrapped in a control structure. In addition to Linux commands shell scripts may accept parameters, utilize control statements, variables, and functions.
 
 
 **Requirements**
 
 Write a bash script that will reduce the four commands for reloading a virtual host configuration and restarting a server on a Debian based LAMP stack to a single command.
 
-In the previous lesson we used the following four command to reload a vhost configuration and restart the Apache web server.
+In a previous lesson, we used the following four commands to reload a virtual-host configuration and restart the Apache webserver.
+
 ```sh
 sudo a2dissite * && sudo service apache2 reload && sudo a2ensite * && sudo service apache2 restart
 ```
@@ -22,11 +23,11 @@ sudo service apache2 reload
 sudo a2ensite *
 sudo service apache2 restart
 ```
-Anding these statements togeather makes a copy/paste easier but that is about the only advantage.
+Anding these statements together makes a copy/paste easier but that is about the only advantage.
 
 [</> code](https://github.com/stack-x/restart_apache/commit/5292f0793b7d55e7afbec0d40876ff9e00a294e8) **Create a repository and initial commit**
 
-On GitHib [create a repository](https://help.github.com/articles/create-a-repo/) called *restart_apache*.
+On GitHub [create a repository](https://help.github.com/articles/create-a-repo/) called *restart_apache*.
 
 ![Create a Repo](/img/bash/create_repo.png)
 
@@ -42,7 +43,7 @@ git clone git@github.com:YOUR-GITHUB-USERNAME/restart_apache
 
 [</> code](https://github.com/stack-x/restart_apache/commit/2557e8cc6c43736c4965e0d6aa89f3a9020ec17c) **Proof of Concept**
 
-Often times I like to start with a simple proof of concept, this is working code working code that either gives you a starting point or talking point. I some projects proof of concept code may represent a complete working solution but may not be considered the optimal solution.
+Often times I like to start with a simple proof of concept, this is working code that either gives you a starting point or talking point. I some projects proof of concept code may represent a complete working solution but may not be considered the optimal solution.
 
 Add *~/restart_apache* as a [new folder](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in your VSC workspace and and create a new file *re.sh*.
 
