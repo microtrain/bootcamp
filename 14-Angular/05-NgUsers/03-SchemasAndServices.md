@@ -1,9 +1,9 @@
 # Schemas and Services
 
-In Angular we can represent the data (or model) layer in the form of a service and a schema. A service is a class that will interact with the data in this case an API and schema is a class that defines the data.
+In Angular, we can represent the data (or model) layer in the form of service and schema. A service is a class that will interact with the data in this case an API and schema is a class that defines the data.
 
 ## The Schema
-Build the user schema for now we can define this as an empty class, we can build this out later. Create the file *src/app/user.ts*.
+Build the user schema, for now, we can define this as an empty class, we can build this out later. Create the file *src/app/user.ts*.
 
 *src/app/user.ts*
 ```js
@@ -51,16 +51,16 @@ git commit src
 
 The service is how we interact with an API. There are some things we already know that will help us set up the service for later use.
 
-1. We are working with a web based API.
+1. We are working with a web-based API.
   * Import HttpClient from Angular.
-  * inject HttpClient into the the service constructor.
+  * inject HttpClient into the service constructor.
 2. We will post JSON data to the API.
   * Import HttpHeaders from Angular.
   * Create JSON headers for post requests.
 3. We will be using observables.
-  * Import Observable from the rxjs library.
+  * Import Observable from the RxJS library.
 4. We will be working with the User object.
-  * Import our newly craeted User schema.
+  * Import our newly created User schema.
 5. I know the URL of the API endpoints.
   * Set up URL variables accordingly.
 

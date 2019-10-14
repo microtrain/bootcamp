@@ -2,7 +2,8 @@
 
 Routing allows the URL to control the flow of the site.
 
-*** DO NOT RUN *** The following will generate the file *src/app/app-routing.module.ts*.
+The following will generate the file *src/app/app-routing.module.ts*.
+> **DO NOT RUN THE FOLLOWING COMMAND** unless you have verified the file *src/app/app-routing.module.ts* to be missing.
 
 ```sh
 ng generate module app-routing --flat --module=app
