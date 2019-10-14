@@ -188,7 +188,7 @@ We have reduced four repetitive commands down to a single command, but there is 
 
 Our new shell will take two arguments; the target virtual host configuration and the service directive. Bash accepts arguments using a numeric index which starts at zero, zero, however, is the name of the script so the argument that sits at index one will access the first parameter. In Bash, the value of a stored variable is accessed using a dollar sign. Combining a dollar sign with a number ```"$1"``` will allow you to access a given argument.
 
-Our first argument will be the virtual host configuration we want to work with and the second argument will be the service command. We will set these to an aptly named variable to make them easier to work with. We will store the first argument in a variable called _CONFG_ and the second in a variable called _COMMAND_. When referencing a variable in bash it advisable to always [quote the variable](http://tldp.org/LDP/abs/html/quotingvar.html).
+Our first argument will be the virtual host configuration we want to work with and the second argument will be the service command. We will set these to an aptly named variable to make them easier to work with. We will store the first argument as a variable named CONFG and the second as a variable named COMMAND. When referencing a variable in bash it advisable to always [quote the variable](http://tldp.org/LDP/abs/html/quotingvar.html).
 
 [</> code](https://github.com/stack-x/restart_apache/commit/868e8670b543040460e0ffbc6468e1bbd2a21b29) Add the following lines right after _#!/bin/bash_.
 
@@ -372,7 +372,9 @@ git push origin --tags
 
 ## Exercise 4 - Loops and Arrays
 
-When I think of a loop I'm usually thinking about iterating over or parsing out some sort of a list. This might be an array of service commands or all of the configuration files in the _/etc/apache2/sites-available/_ directory. In this exercise we build an array of valid service commands and iterate over those commands.
+When I think of a loop I'm usually thinking about iterating over or parsing out some sort of a list. This might be an array of service commands or all of the configuration files in the _/etc/apache2/sites-available/_ directory. 
+
+In this exercise, we will build an array of valid service commands and iterate over those commands.
 
 For each element in the COMMANDS array where an element is defined by the variable COMMAND, if an element exists (meaning we have not iterated past the end of the list) ```do``` echo the value of COMMAND back to the user otherwise ```break``` the loop or _do echo the value of COMMAND until the list is done_.
 
@@ -411,7 +413,7 @@ Commit your code and push it to the master branch of the mtbc project.
 
 ### Summary
 
-In this exercise you learned
+In this exercise, we learned
 * how to create an array
 * how to iterate over an array
 * how to create a file using the *touch* command
@@ -442,12 +444,12 @@ Commit your code and push it to the master branch of the mtbc project.
 
 ### Summary
 
-In this exercise you learned
+In this exercise, we learned
 * loop through files in a directory
 
 ## Exercise 6 - Strings
 
-String concatenation is the addition of one string to another typically through the use of variables.
+String concatenation is the addition of one string to another, typically through the use of variables.
 Create an executable Bash file at _/var/www/mtbc/bash/string.sh_ and add the following code.
 
 ```sh
@@ -464,7 +466,7 @@ Commit your code and push it to the master branch of the mtbc project.
 
 ### Summary
 
-In this exercise you learned how to
+In this exercise, we learned how to
 * concatenate two strings.
 
 
@@ -476,9 +478,9 @@ _-z_ is an equality check for zero.
 
 Create an executable Bash file at _/var/www/mtbc/notEmpty.sh_ and add the following logic.
 
-* While the variable STRING is not equal to _"Hello World"_ continually check the value of string.
+* While the variable STRING is not equal to _"Hello World"_ continually check the value of STRING.
 * If STRING has a length of zero change the value of STRING to _"Hello"_.
-* If STRING has anything other than a zero length append _" World"_ to the current value.
+* If STRING has anything other than a zero-length append _" World"_ to the current value.
 
 ```sh
 #!/bin/bash
@@ -504,18 +506,18 @@ Commit your code and push it to the master branch of the mtbc project.
 
 ## Exercise 8 - String Position
 
-String position allows you extract parts of a string by specifying a numeric index starting at 0. Bash allows you to define string positions using colons with a variable. 
+String-position allows you to extract parts of a string by specifying a numeric index starting at 0. Bash allows you to define string positions using colons with a variable. 
 
 A starting position of 0 will return the entire string.
 ```sh
 ${VARIABLE:starting-position} 
 ```
-A starting position of 0 and end position of 4 will return the first four characters of a string. 
+A starting position of 0 and an end position of 4 will return the first four characters of a string. 
 ```sh
 ${VARIABLE:starting-position:length}
 ```
 
-A starting position of 0 and end position of -4 will return everything between first character and fourth from the end.
+A starting position of 0 and an end position of -4 will return everything between the first character and the fourth character from the end.
 ```sh
 ${VARIABLE:starting-position:end-position}
 ```
@@ -541,20 +543,20 @@ lazy
 ## Lab
 
 Update the re.sh script such that
-* The user will recieve an error message if they attempt to reload/restart a virtual-host file that does not exist in /etc/apache2/sites-available.
+* The user will receive an error message if they attempt to reload/restart a virtual-host file that does not exist in /etc/apache2/sites-available.
 * The system will return a list of valid files as a part of the error message.
 * The system will exit prior to evaluating the reload command if an invalid virtual-host has been chosen.
 
 ### Extra Credit
 
-Google "formatting bash", find and read some results about fomatting output text in bash. Look for things like escape characters,font colors, bold and italic text, carrige returns/newlines etc. Using this new knowledge improve the output of the error messages so that they may read in a more intuitive, scan friendly manner.
+Google "formatting bash", find and read some results about formatting output text in bash. Look for things like escape characters, font colors, bold and italic text, carriage returns/newlines, etc. Using this new knowledge, improve the output of the error messages so that they may read in a more intuitive, scan friendly manner.
 
 ## Questions
 
 1. In Bash, why should you quote variables when referencing them?
 1. In Bash, what is *-z*?
 1. In Bash, when do you prefix a variable with a dollar sign?
-1. How many ways can you come up with to create an array in Bash.
+1. How many ways can you come up with to create an array in Bash?
 1. What is an array?
 1. What does the __*__ in _/etc/apache2/sites-available/*.conf_ do?
 
