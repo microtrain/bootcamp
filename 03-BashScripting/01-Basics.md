@@ -43,11 +43,11 @@ git clone git@github.com:YOUR-GITHUB-USERNAME/restart_apache
 
 [</> code](https://github.com/stack-x/restart_apache/commit/2557e8cc6c43736c4965e0d6aa89f3a9020ec17c) **Proof of Concept**
 
-Often times I like to start with a simple proof of concept, this is working code that either gives you a starting point or talking point. I some projects proof of concept code may represent a complete working solution but may not be considered the optimal solution.
+I like to start with a simple proof of concept, this is working code provides either a starting or talking point. For some projects, a proof of concept code may represent a complete working solution but may not be considered the optimal solution.
 
-Add *~/restart_apache* as a [new folder](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in your VSC workspace and and create a new file *re.sh*.
+Add *~/restart_apache* as a [new folder](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in your VSC workspace and create a new file *re.sh*.
 
-By default, Ubuntu executes shell scripts using the Dash interpreter. Dash is faster than Bash by virtue of a lack of features and limited syntax, making it ideal for quickly parsing out a large number of simple start up scripts. Bash is better suited for interactive scripts, since these are typically run as one off programs the performance hit is a non-issue. Our scripts will invoke the Bash shell. Add the following to *re.sh*, this will allow you reload all apache configurations with a single command.
+By default, Ubuntu executes shell scripts using the Dash interpreter. Dash is faster than Bash by virtue of a lack of features and limited syntax, making it ideal for quickly parsing out a large number of simple startup scripts. Bash is better suited for interactive scripts. Since start-up scripts are typically run as one-off programs the performance hit is a non-issue. Our scripts will invoke the Bash shell. Add the following to *re.sh*, this will allow you reload all Apache configurations with a single command.
 
 A shebang ```#!``` followed by a path is used to invoke an interpreter, this must be the first line of the file.
 
@@ -55,8 +55,7 @@ A shebang ```#!``` followed by a path is used to invoke an interpreter, this mus
 #!/bin/bash
 ```
 
-In Bash any line that begins with a _#_ denotes a comment and does not processed by the interpreter. Comments are used to explain the program to other humans.
-
+In Bash, any line that begins with a # denotes a comment. Comments are not processed by the interpreter. Comments are used to explain the program to other humans.
 ```sh
 # Move the current execution state to the proper directory
 cd /etc/apache2/sites-available
@@ -94,7 +93,7 @@ To activate the new configuration, you need to run:
   service apache2 reload
 ```
 
-### Commit you changes and push them to GitHub
+### Commit your changes and push them to GitHub
 
 ```sh
 git add .
@@ -114,7 +113,7 @@ git push origin master
 
 #### [Semantic Versioning](https://semver.org/)
 
-[</> code](https://github.com/stack-x/restart_apache/commit/8666e8d3070669e171b9e3c6d2e40abcfb72b0ee) Semantic versioning is s community standard that helps you communicate the backwards compatibility of a change. We will use it here as an introduction to the concept.
+[</> code](https://github.com/stack-x/restart_apache/commit/8666e8d3070669e171b9e3c6d2e40abcfb72b0ee) Semantic versioning is s community standard that helps you communicate the compatibility of a change. We will use it here as an introduction to the concept.
 
 1. Create the file VERSION.txt
 1. Add the text _0.0.1_
@@ -134,7 +133,7 @@ git push origin master
 
 #### Add a tag
 
-In addition to Semantic Versioning a common practice is to tag significant versions.
+In addition to Semantic Versioning, a common practice is to tag significant versions.
 
 1. git tag 0.0.1
 1. git push origin --tags
@@ -143,7 +142,7 @@ Go to your project on GitHub and find everything that is tagged.
 
 ### Summary
 
-In this exercise you learned how 
+In this exercise, you learned how 
 * to create a basic shell script (Bash, Programming)
 * commit your code changes (Git)
 * apply semantic versioning (Git)
@@ -172,12 +171,12 @@ Arguments or parameters are additional data that are supplied when invoking a pr
 
 Examples
 * vim hello.txt - Opens vim and loads the file hello.txt
-* add(1, 2) - Passes two arguments into a function called add (the values 1 and 2). Once might suspect that this would return the number 3.
+* add(1, 2) - Passes two arguments into a function called add (the values 1 and 2). One might suspect that this would return the number 3.
 * Check.word('random') - This passes _random_ as an argument into the word method of the (fictitious) Check class. Perhaps we are checking the spelling of the word _random_ or maybe this is an argument that tells the method to return a random word.
 
 ## Exercise 2 - Working with Arguments and Conditionals
 
-In this exercise we will work with the file *~/restart_apache/re.sh* on a *branch called feature/arguments*.
+In this exercise, we will work with the file *~/restart_apache/re.sh* on a *branch called feature/arguments*.
 Create a [feature branch](https://www.atlassian.com/agile/branching) called _feature/arguments_.
 
 ```sh
@@ -185,11 +184,11 @@ cd ~/restart_apache
 git checkout -B feature/arguments
 ```
 
-We have reduced four repetitive commands down to a single command, but there is a problem. This only works with a single immutable configuration and an immutable single service directive. It would be far more useful if we could specify which virtual host configuration and which service directive we wanted to use. Lets rewrite re.sh to take some arguments.
+We have reduced four repetitive commands down to a single command, but there is a problem. This only works with a single immutable configuration and an immutable single service directive. It would be far more useful if we could specify which virtual host configuration and which service directive we wanted to use. Let's rewrite re.sh to take some arguments.
 
-Our new shell will take two arguments; the target virtual host configuration and the service directive. Bash accepts arguments using a numeric index which starts at zero, zero however, is the name of the script so the argument that sits at index one will access the first parameter. In Bash, the value of stored variables are accessed using a dollar sign. Combining a dollar sign with a number ```"$1"``` will allow you to access a given argument.
+Our new shell will take two arguments; the target virtual host configuration and the service directive. Bash accepts arguments using a numeric index which starts at zero, zero, however, is the name of the script so the argument that sits at index one will access the first parameter. In Bash, the value of a stored variable is accessed using a dollar sign. Combining a dollar sign with a number ```"$1"``` will allow you to access a given argument.
 
-Our first argument will be the virtual host configuration we want to work with and the second argument will be the service command. We will set these to an aptly named variable to make them easier to work with. We will store the first argument in a variable called _CONFG_ and the second in a variable called _COMMAND_. When referencing a variable in bash it advisable to always [quote the varaible](http://tldp.org/LDP/abs/html/quotingvar.html).
+Our first argument will be the virtual host configuration we want to work with and the second argument will be the service command. We will set these to an aptly named variable to make them easier to work with. We will store the first argument in a variable called _CONFG_ and the second in a variable called _COMMAND_. When referencing a variable in bash it advisable to always [quote the variable](http://tldp.org/LDP/abs/html/quotingvar.html).
 
 [</> code](https://github.com/stack-x/restart_apache/commit/868e8670b543040460e0ffbc6468e1bbd2a21b29) Add the following lines right after _#!/bin/bash_.
 
@@ -198,9 +197,9 @@ CONFIG="$1"
 COMMAND="$2"
 ```
 
-The first thing we want our program to do is to verify we have the correct number of arguments. We will do this with an equality check (if-then-else). In Bash ```$#``` will return the number of input parameters (starting at index number one). We can check this with an if/then statement _if [ $# -ne 2 ] then_. In this context _-ne_ translates to _not equal_ or in plain English _if the number of input parameters is not equal to 2 then do something_. In our case we will want to provide the user feedback about the expected arguments and exit the program.
+The first thing we want our program to do is to verify we have the correct number of arguments. We will do this with an equality check (if-then-else). In Bash ```$#``` will return the number of input parameters (starting at index number one). We can check this with an if/then statement _if [ $# -ne 2 ] then_. In this context _-ne_ translates to _not equal_ or in plain English _if the number of input parameters is not equal to 2 then do something_. In our case, we will want to provide the user with feedback about the expected arguments and exit the program.
 
-Add the following lines to the file. Bellow the CONFIG and COMMAND variables but above the lines from the previous example. In bash ```echo``` is a command that writes it arguments to the standard output while ```exit``` stops the execution of the program and returns control back to the caller. In this case both the standard output and the caller would be the terminal.
+Add the following lines to the file. Bellow the CONFIG and COMMAND variables but above the lines from the previous example. In Bash, ```echo``` is a command that writes its arguments to the standard output while ```exit``` stops the execution of the program and returns control back to the caller. In this case, both the standard output and the caller would be the terminal.
 
 ```sh
 if [ $# -ne 2 ]
@@ -235,7 +234,7 @@ git push origin feature/arguments
 ## Usage
 Clone the repository or download the latest release. 
 
-From a command line call re.sh with two arguments.
+From a command-line call re.sh with two arguments.
 1. The vhost configuration
 1. The service directive {restart|reload}
 ```sh
@@ -282,7 +281,7 @@ git push origin :feature/arguments
 
 ### Summary
 
-In this exercise you learned how 
+In this exercise, you learned how 
 * work with arguments and variables (Bash, Programming)
 * use an if-then statement (Bash, Programming)
 * create a feature branch (Git)
@@ -296,11 +295,11 @@ For this exercise, create a feature branch called *feature/validate*. When you a
 
 **Requirements**
 
-The product owner has requested that we only be allowed to pass *reload* or *restart* into the service command. To achieve we will need to run a test against the second argument to verify it matches a valid command.
+The product owner has requested that we only pass *reload* or *restart* into the service command. To achieve this we will need to run a test against the second argument to verify it matches a valid command.
 
-To accomplish this we can then test against the value of the $COMMAND argument to make sure it is in the approved list. If it is then we can allow the program to proceed. Otherwise we will return an error message to the user.
+To accomplish this we can then test against the value of the $COMMAND argument to make sure it is in the approved list. If it is then we can allow the program to proceed. Otherwise, we will return an error message to the user.
 
-We will start with a simple if-then-else statement. This if statement is differs from the previous exercise in that it adds an OR statement. In Bash OR statements are represented as a double pipe ```||```. If either of these conditions are true then the code inside the ```then``` block will execute. Otherwise we will drop into the ```else``` block. 
+We will start with a simple if-then-else statement. This if-statement differs from the previous exercise in that it adds an OR statement. In Bash OR statements are represented as a double pipe ```||```. If either of these conditions equates to true then the code inside the ```then``` block will execute. Otherwise, we will drop into the ```else``` block. 
 
 ```sh
 # only allow reload or restart.
@@ -353,7 +352,7 @@ git push origin --tags
 
 ### Attention to Detail
 
-[</> code](https://github.com/stack-x/restart_apache/commit/122e30e7396d219a0fba9c8b29a2a7875965732d) Check out the format of our new error message. It begins with the word _ERROR:_ in all caps. This is good UX in that it remove any ambiguity about what the message. To keep user feedback consistent prefix the error message in the first if statement with _ERROR:_.
+[</> code](https://github.com/stack-x/restart_apache/commit/122e30e7396d219a0fba9c8b29a2a7875965732d) Check out the format of our new error message. It begins with the word _ERROR:_ in all caps. This is good UX in that it removes any ambiguity about the message. To keep user feedback consistent prefix the error message in the first if statement with _ERROR:_.
 
 ```sh
 git commit -am 'Improved messaging'
