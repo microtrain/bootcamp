@@ -27,6 +27,6 @@ cd ng-cms
 ng serve --open
 ```
 
-At this point we will have a browser window running the default Angular application.
+At this point, we will have a browser window running the default Angular application.
 
 [Next: UsersComponent](./02-UsersComponent.md)
