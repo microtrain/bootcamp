@@ -1,6 +1,6 @@
 # Next Steps
 
-Now it's time to add some navigation and the components for creating content. We added the users components together. Now it's time to take what you've learned and build the Articles components on you own.
+Let's add some navigation and the components for creating content.
 
 ## Navigation
 Add some navigation to the app component.
@@ -18,6 +18,8 @@ Add some navigation to the app component.
 ```
 
 ## ArticlesComponent
+
+Togeather, we've added the components for managing users. Now we will take that knowledge and apply it towards managing content, in this case, articles.
 
 Generate ArticlesComponent
 ```sh
