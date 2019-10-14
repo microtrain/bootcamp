@@ -14,9 +14,9 @@ ng new ng-auth
 
 You will be asked two questions:
 * Would you like to add Angular routing? (y/N) *Type the letter __y__ and press enter*
-* Which stylesheet format would you like to use? *Depending on you options choose __Sass__ or __Scss__*
+* Which stylesheet format would you like to use? *Depending on your options choose __Sass__ or __Scss__*
 
-Start a dev server, this serve will compile changes in real time and live reload.
+Start a dev server, this server will compile changes in real-time and provide live reload.
 ```sh
 cd ng-auth
 ng serve --open
@@ -34,8 +34,7 @@ ng generate component logout
 ng generate component register
 ```
 
-As with the APOD project each of these components will be created in there own directory each containing 4 files. The resulting structure will look something like this.
-
+As with the APOD project each of these components will be created in their own directory each containing 4 files. The resulting structure will look something like this.
 ```
 +-- app
 |   +-- login
@@ -96,18 +95,18 @@ Remove most of the placeholder content from app.component.html leaving only the 
 <router-outlet></router-outlet>
 ```
 
-Now routing to [http://localhost:4200](http://localhost:4200) will redirect to [http://localhost:4200/login](http://localhost:4200/login). From there you can navigate to [http://localhost:4200/logout](http://localhost:4200/logout) and [http://localhost:4200/register](http://localhost:4200/register) will display **login works!**, **logout works!**, and **register works!** respectively.
+Now routing to [http://localhost:4200](http://localhost:4200) will redirect to [http://localhost:4200/login](http://localhost:4200/login). From there you can navigate to [http://localhost:4200/logout](http://localhost:4200/logout) and [http://localhost:4200/register](http://localhost:4200/register) will display **"login works!"**, **"logout works!"**, and **"register works!"** respectively.
 
 Commit your changes
 ```
-# Route to login, logout, and register components
+# Route to the login, logout, and register components
 git add .
 git commit -a
 ```
 
 ## Users model
 
-The only data we are working with is a user. So determine the fields our app will need to work with and create a user object (aka: schema or model).
+The only data we are working with is a user. To determine the fields our app will need to work with and create a user object (aka, schema or model).
 
 */src/app/models/user.ts*
 ```ts
@@ -129,13 +128,13 @@ git commit -a
 
 ## Users service
 
-Now that we have a data model we can use it to retrieve data from an API. FOr this, we will want to create a service.
+Now that we have a data model we can use it to retrieve data from an API. For this, we will want to create a service.
 
 ```ts
 ng generate service services/user
 ```
 
-Once a service has been generated I like to add a test method. This is a simple method that does little more than a return a string. I'll connect this to a service and call the the test method. If this returns a result I know I have everything wired up correctly. By making small changes and testing these changes, you will save yourself some debugging headaches. 
+Once a service has been generated I like to add a test method. This is a simple method that does little more than a return a string. I'll connect this to a service and call the test method. If this returns a result I know I have everything wired up correctly. By making small changes and testing these changes, you will save yourself some debugging headaches. 
 
 Add a test method to the generated service.
 
@@ -181,7 +180,7 @@ export class LoginComponent implements OnInit {
 }
 ```
 
-Navigating to [http://localhost:4200](http://localhost:4200) and exploring th JS console will reveal the following.
+Navigating to [http://localhost:4200](http://localhost:4200) and exploring the JS console will reveal the following.
 
 
 Commit your changes
@@ -195,7 +194,7 @@ git commit -a
 
 ### Implement the service
 
-Now that we have have successfully connected our service to the login component. We can begin implementing the details.
+Now that we have successfully connected our service to the login component. We can begin implementing the details.
 
 Since our app is acting as a client making and HTTP request, we will start by adding the ```HttpClientModule``` to *app.module.ts*.
 
@@ -238,7 +237,7 @@ git add .
 git commit -a
 ```
 
-Importing HttpClientModule at the AppModule level gives us access to HttpClient in the lower levels of the system. For our service provider to work we will need to import HttpClient and inject it into the constructor, import Observable from the rxjs library and finally, import the User model.
+Importing HttpClientModule at the AppModule level gives us access to HttpClient in the lower levels of the system. For our service provider to work we will need to import HttpClient and inject it into the constructor, import Observable from the RxJS library and finally, import the User model.
 
 ```ts
 import { Injectable } from '@angular/core';
@@ -292,17 +291,17 @@ Update the constructor so that it subscribes to the test method.
   }
 ```
 
-For this test go the *~/mean.example.com/app.js* and turn off the whitelist. Start the stack and load [http://localhost:4200/login](http://localhost:4200/login). Check your JS console, if everything is working you will see something like the following. This tells us we are able to connect to the API at this point we can turn white listing back on and implement the authentication functionality.
+For this test go the *~/mean.example.com/app.js* and turn off the whitelist. Start the stack and load [http://localhost:4200/login](http://localhost:4200/login). Check your JS console, if everything is working you will see something like the following. This tells us we can connect to the API at this point we can turn the whitelist login on and implement the authentication functionality.
 
 ![API Success](/img/ng/auth/api-success.png)
 
 ```sh
-# Successful API connection 
+# Successful API connection
 git add .
 git commit -a
 ```
 
-Now that we know we can connect to the API, lets convert our test logic over to working code. There are a few things we will need to do to our service.
+Now that we know we can connect to the API, let's convert our test logic to functional code. There are a few things we will need to do for our service.
 1. Import HttpHeaders, this will allow us to POST JSON data.
 2. Create a JSON header, this will be appended to our HTTP request.
 3. Add URL as an instance variable.
@@ -393,12 +392,12 @@ export class LoginComponent implements OnInit {
 }
 ```
 
-For this test go the *~/mean.example.com/app.js* and turn off the whitelist. Start the stack and load [http://localhost:4200/login](http://localhost:4200/login). Check your JS console, if everything is working you will see something like the following. This tells us we are able to connect to the API at this point we can turn white listing back on and implement the authentication functionality.
+For this test go the *~/mean.example.com/app.js* and turn off the whitelist. Start the stack and load [http://localhost:4200/login](http://localhost:4200/login). Check your JS console, if everything is working you will see something like the following. This tells us we can connect to the API at this point we can turn the whitelist logic back on and implement the authentication functionality.
 
 ![Login Success](/img/ng/auth/login-success.png)
 
 
-Now we are ready to build the login form. We will start by updating the component. We will remove the constructor's implementation as well as the hard coded credentials from the ```login()``` method.
+Now we are ready to build the login form. We will start by updating the component. We will remove the constructor's implementation as well as the hardcoded credentials from the ```login()``` method.
 
 
 ```ts
@@ -424,7 +423,7 @@ export class LoginComponent implements OnInit {
 
   login(): void{
 
-    // 2. Remove the hard coded credentials
+    // 2. Remove the hardcoded credentials
     this.userService.login(this.user).subscribe(
       (response)=>{
         console.log(response);
