@@ -1,4 +1,4 @@
-# User Request and Server Reponse
+# User Request and Server Response
 
 Every web page is created by a server responding to a user request. The user makes a request, the server process that request and creates a response. That response is most commonly in the form of an HTML document. In reality this response could be sent in any imaginable document format. This is an accurate but simplistic view of an IPO (input, process, output model). In practice, this process may be repeated multiple times in loading/interacting with a single web page.
 
