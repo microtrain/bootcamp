@@ -1,6 +1,6 @@
 # Ionic: Auth
 
-For this lesson we will re-create Auth based on command run a CLI program called *ionicAuth*. The ionic command serves as both an alias for Angular's ```ng``` command and it's own progam as it adds some Ionic sugar on top of the Angular CLI.   
+For this lesson, we will re-create Auth based on command run a CLI program called *ionicAuth*. The ionic command serves as both an alias for Angular's ng command and it's own program as it adds some Ionic sugar on top of the Angular CLI. 
 
 ```sh
 cd ~
@@ -13,7 +13,7 @@ cd ionicAuth
 ionic serve
 ```
 
-```ionic serve``` works like ```ng serve``` in that it serve the application in a browser window http://localhost:8100.
+```ionic serve``` works like ```ng serve``` in that it serves the application in a browser window http://localhost:8100.
 Launching ```ionic serve``` with the labs argument will launch Ionic in a split mobile view. Terminate the current instance using [ctrl]+[c] and launch with the serve argument.
 cd ionicAuth
 ```
@@ -21,7 +21,7 @@ ionic serve --lab
 # Install @ionic/lab? Yes
 ```
 
-You will be creating a three page app/ in Ionic.
+You will be creating a three-page app/ in Ionic.
 ionic generate page *name
 * login
 * logout
