@@ -1,8 +1,8 @@
-# Build a CMS
+# Build a Users App
 
-In Angular build a basic CRUD application for managing users via the users API provided by the *mean.example.com* project. Name this project *ng-cms*.
+In Angular build a basic CRUD application for managing users via the users API provided by the *mean.example.com* project. Name this project *ng-users*.
 
-Before just dive into code stop and think about what you already know about the application you are about to build, this will help you find a starting point.
+Before we dive in, let's stop and think about what you already know about the application you are about to build. This will help you find a starting point.
 
 ## What do I know?
 
@@ -19,11 +19,11 @@ Before just dive into code stop and think about what you already know about the 
     * a user schema
     * a user service
 
-First things first, let's use the AngularCLI to create our project. Create then cd into the project. Adding the *--style-scss* flag will default AngularCLI generation commands to .scss instead of vanilla .css.
+First things first, let's use the AngularCLI to create our project. Create and ```cd``` into the project. Adding the *--style-scss* flag will default AngularCLI generation commands to .scss instead of vanilla .css.
 
 ```sh
 ng new ng-cms --style=scss
-cd ng-cms
+cd ng-users
 ng serve --open
 ```
 
