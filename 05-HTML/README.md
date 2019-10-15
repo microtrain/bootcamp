@@ -1,8 +1,8 @@
 # Chapter 5: HTML
 
-In this chapter we will focus on the fundamentals of HTML and building a personal website aimed at personal branding. The [Mozilla Developer Network](https://developer.mozilla.org/en-US/) (MDN) is great resource for development. Many of the lessons and pre-reading assignments will refer to MDN. 
+In this chapter, we will focus on the fundamentals of HTML and building a personal website aimed at personal branding. The [Mozilla Developer Network](https://developer.mozilla.org/en-US/) (MDN) is great resource for development. Many of the lessons and pre-reading assignments will refer to MDN. 
 
-In this section you will learn:
+In this chapter, you will learn:
 * How to build a basic web page with HTML
 * How to publish a website on GitHub
 * How to build a web form

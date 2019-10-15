@@ -1,8 +1,8 @@
 # Chapter 7: JavaScript
 
-In this chapter we apply programming concepts to JavaScript.
+In this chapter, we apply programming concepts to JavaScript.
 
-In this chapter we will learn
+In this chapter, we will learn
 
 * JavaScript syntax
 * How to apply programming concepts to JavaScript

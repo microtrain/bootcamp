@@ -1,8 +1,8 @@
 # Chapter 13: Express
 
-In this chapter we will discuss NodeJS and Express. Express is a web application framework for NodeJS. In this chapter we will learn about NodeJS and Express. Use NodeJS and Express build a web site that provides an API, non-API endpoints, JavaScript applications that provide authentication, user and content management, Gulp tooling, integration with Bootstrap, and process management with PM2. As a bonus we will even take a dive into web sockets.
+In this chapter, we will discuss NodeJS and Express. Express is a web application framework for NodeJS. In this chapter we will learn about NodeJS and Express. Use NodeJS and Express build a web site that provides an API, non-API endpoints, JavaScript applications that provide authentication, user and content management, Gulp tooling, integration with Bootstrap, and process management with PM2. As a bonus we will even take a dive into web sockets.
 
-In this chapter we will
+In this chapter, we will
 * Learn the fundamentals of NodeJS
 * Learn the fundamentals of the Express Web Framework
 * Learn how to implement Pug templates
