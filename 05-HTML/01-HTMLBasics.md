@@ -142,7 +142,7 @@ The following would appear inside the body tags.
 
 <h2>Semantics</h2>
 
-<p>New elements such as <em>article, header, footer, nav, section, aside</em> allow screen readers to better understand your pages layout. This make the web a better place for people with vision problems.</p>
+<p>New elements such as <em>article, header, footer, nav, section, aside</em> allow screen readers to better understand your pages layout. This makes the web a better place for people with vision problems.</p>
 
 <ul>
   <li><strong>article</strong> - a self contained composition.</li>
@@ -228,7 +228,7 @@ The following represents the minimal template for a valid [HTML5](https://www.w3
 
 #### Exercise 1 - Display a Basic Page
 
-Complete the following task, after each task commit your changes to Git. When all tasks are complete push all changes to the mtbc project on GitHub.
+Complete the following task, after each task, commit your changes to Git. When all tasks are complete push all changes to the mtbc project on GitHub.
 
 [</> code](https://github.com/stack-x/mtbc/commit/2dc5f0bbfa21a50da6026b0c131d5c4594dbc37a) Create the path */var/www/mtbc/html/basic.html* and paste the above template into the file. Then navigate to [http://localhost/mtbc/html/basic.html](http://localhost/mtbc/html/basic.html) and note the tab in the browser.
 
@@ -238,10 +238,10 @@ Complete the following task, after each task commit your changes to Git. When al
 
 ##### Summary
 
-In this exercise you learned how to
-* build a basic web page (HTML)
-* update a page title (HTML)
-* view local changes in a browser (Dev)
+In this lesson, you learned how to
+* Build a basic web page (HTML).
+* Update a page title (HTML).
+* View local changes in a browser (Dev).
 
 
 ## Additional Resources
