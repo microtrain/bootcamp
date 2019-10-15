@@ -173,7 +173,7 @@ In the same way, ```_subject``` and ```_next``` send commands to Formspree; ```_
 <input type="text" name="_gotcha" style="display:none">
 ```
 
-Why does the ```_gotcha``` example use ```style="display:none"``` instead ```type="hidden"```? When bots see a hidden field they assume they should leave it alone. Hiding it with CSS means the bot wouldn't understand it's not supposed to be hidden. At this point, we are playing a game of whack-a-mole. This uses an inline style that a bot could easily be written to interpret. Our response would be to move this to an external style sheet. Of course, a good bot writer would also be able to detect that. We would then have another round of back and fourth. Each round would eliminate less sophisticated bots but there would always someone defeating this. In other words, this solution is far weaker than a captcha, so just use a captcha.
+Why does the ```_gotcha``` example use ```style="display:none"``` instead ```type="hidden"```? When bots see a hidden field they assume they should leave it alone. Hiding it with CSS means the bot wouldn't understand it's not supposed to be hidden. At this point, we are playing a game of whack-a-mole. This uses an inline style that a bot could easily be written to interpret. Our response would be to move this to an external style sheet. Of course, a good bot writer would also be able to detect that. We would then have another round of back and forth. Each round would eliminate less sophisticated bots but there would always someone defeating this. In other words, this solution is far weaker than a captcha, so just use a captcha.
 
 ## Summary
 In this lesson, you learned how to
