@@ -3,7 +3,7 @@
 GitHub provides a free hosting service called [GitHub Pages](https://pages.github.com/). This is a standard GitHub repository that is hosted as a website. This allows you to post static web content (HTML, CSS, JavaScript, images, videos, etc) to a repository. That content will be served as a live webpage. This is a front-end only service. The exercises in this section will focus on building a website personal web site that is tailored to developing a personal brand and building a portfolio.
 
 ## Exercise 1 - Create your GitHub Pages Repository.
-1. Login to github
+1. Login to GitHub
 1. Create a new repository 
     * Repository Name: **YOUR-GITHUB-USERNAME.github.io**
     * Description: *My GitHub Pages Site*. 
@@ -47,7 +47,7 @@ Push your changes to the master branch.
 ```sh
 git push origin master
 ```
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/eb9899ff31d1781498444289ab6561adb5b21bc2) Once you have committed and pushed your changes to master you will be ready to view your changes in both dev and production environments. Dev (aka local changes) is where you do your work and/or preview you work prior to making it available to the public. Production is the live version of your website (code, project, etc).
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/eb9899ff31d1781498444289ab6561adb5b21bc2) Once you have committed and pushed your changes to master you will be ready to view your changes in both dev and production environments. Dev (aka local changes) is where you do your work and/or preview your work before making it available to the public. Production is the live version of your website (code, project, etc).
 
 > Replace *YOUR-GITHUB-USERNAME* with your GitHub username.
 
@@ -56,17 +56,18 @@ git push origin master
 
 ### Summary 
 
-In this section you learned how to
+In this section, you learned how to
 * launch a GitHub Pages site
 
 ## Exercise 2 - Getting Started
 
-This portfolio site will start off with three pages.
+We will begin by building a three-page website. Our three pages are as follows:
+
 * index.html - Your home page, an introduction.
 * resume.html - An HTML based resume.
 * contact.html - A form that will allow people to contact you.
 
-We will start by adding navigation and and a header to our form. This version of your site might look a bit odd. Don't worry, we will add some CSS later, this will make it look a modern website.
+We will begin by adding navigation and a header to our website. This version of your site might look a bit odd. Don't worry, we will add some CSS later, this will make it look a modern website.
 
 [</> code](https://github.com/microtrain/microtrain.github.io/commit/4520f8ccfd4c091dd13beec77ed2ad9ccb263940) First add navigation to index.html.
 
@@ -88,20 +89,20 @@ Sometimes our pages do not display as we expect, this is often due to invalid HT
 1. Open a browser and go to the [W3C Markup Validation Service](https://validator.w3.org/).
 2. Select the third tab _Validate by URI_
 3. Enter the address of your GitHub pages site and press the _Check_ button.
-4. I expect validation to fail due to not defining a language. We will cover that in the next section.
+4. **NOTE:** I expect validation to fail due to not defining a language. We will cover that in the next section.
 
-> The most common error we tend to face is the improper closure of tags. The validator will return line numbers check those lines in your code for broekn tags such as ```<a href="/">My Website<a>``` instead of ```<a href="/">My Website</a>```. The issue here being the omission of the ```/``` in the closing ```<a>``` tag. 
+> The most common error we tend to face is the improper closure of tags. The validator will return line numbers check those lines in your code for broken tags such as ```<a href="/">My Website<a>``` instead of ```<a href="/">My Website</a>```. The issue here is the omission of the ```/``` in the closing ```<a></a>``` tag. 
 
 ## Metadata
-Metadata is data about data. For a typical web page, the data is the content that falls between the opening and closing header tags. Metadata helps to describe and classify that data and/or the functionality of your web page. Metadata can be an attribute of a single element or added to the ```head``` of a document in the form of a meta tag.
+Metadata is data about data. For a typical web page, the data is the content that falls between the opening and closing header tags. Metadata helps to describe and classify your page content and functionality. Metadata can be an attribute of a single element or added to the ```<head></head>``` of a document in the form of a meta tag.
 
-Best practices are things that ought to be done given there is not a good reason not to and provided their is not an alternative that better suits a given situation. If I had to pick three pieces of metadata that should always be implemented, they would be as follows.
+Best practices are things that ought to be done provided (a) there is not a good reason not to and (b) there is not an alternative that better suits a given situation. If I had to pick three pieces of metadata that should always be implemented, they would be as follows.
 
 * ```<html lang="en">``` - Defines the language of the web page. This would most likely be used by assistive technologies such as screen readers or an automated translator.
-* ```<meta charset="UTF-8">``` - Defines the character set you are using so that there will be no confusion between your source code and the rendering engine. For a data driven web site you will want your websites encoding to match that of your database; UTF-8 is the most common encoding.
+* ```<meta charset="UTF-8">``` - Defines the character set you are using so that there will be no confusion between your source code and the rendering engine. For a data-driven website, you will want your websites encoding to match that of your database; UTF-8 is the most common encoding.
 * ```<meta name="viewport" content="width=device-width, initial-scale=1.0">``` - Used by the browser to allow the developer of the site to declare how the site should be viewed across devices.
 
-### Exercise 4 - Metadata Best Practices
+### Exercise 4 - Implement the Metadata Best Practices
 [</> code](https://github.com/microtrain/microtrain.github.io/commit/fcc3fb47ed9ecb8fd2c05d8c38734fe58651b9e0) Update all pages on your GitHub site so that
 * The language is declared as _English_.
 * The charset is declared as _UTF-8_.
@@ -113,7 +114,7 @@ Commit all changes and push all changes to master
 
 ## [HTML Elements](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html)
 
-As stated in the previous lesson; HTML elements more commonly know as tags are bits of markup that provide semantic meaning to text and objects. This markup is interpreted by outside programs (such as browsers, bots, spiders, crawlers, etc) which will often act on your content based on that contents markup. For example ```<h1>title</h1><h2>Sub Title</h2>``` tells the program reading your page that _Sub Title_ belongs to _title_ and that _title_ should be treated as title of the page (or all content until the next ```<h1>``` tag is encountered) while __Sub Title__ identifies the next block of or all content until the next ```<h2>``` or ```<h1>``` tag is encountered. The original goal of HTML was to provide a common format in which we could send academic research papers over the wire. In short, HTML was designed to mimic a word processor. The body of one of those documents may resemble the following. In most cases your HTML elements will have both an opening and a closing tag. Elements open with ```<[element]>``` and close with ```</[element]>``` the difference here is ```<``` vs ```</```.
+As stated in the previous lesson; HTML elements more commonly know as tags are bits of markup that provide semantic meaning to text and objects. This markup is interpreted by outside programs (such as browsers, bots, spiders, crawlers, etc) which will often act on your content based on that contents markup. For example ```<h1>title</h1><h2>Sub Title</h2>``` tells the program reading your page that _Sub Title_ belongs to _title_ and that _title_ should be treated as title of the page (or all content until the next ```<h1>``` tag is encountered) while __Sub Title__ identifies the next block of or all content until the next ```<h2>``` or ```<h1>``` tag is encountered. The original goal of HTML was to provide a common format in which we could send academic research papers over the wire. In short, HTML was designed to mimic a word processor. The body of one of those documents may resemble the following. In most cases, your HTML elements will have both an opening and a closing tag. Elements open with ```<[element]>``` and close with ```</[element]>``` the difference here is ```<``` vs ```</```.
 
 ### Sample Markup
 
@@ -182,13 +183,13 @@ Attributes bring your markup to life. Attributes allow for programming hooks, st
 
 ### Image Tag
 
-When it comes to working with attributes, the image (img) element is a great place to start. Image is a self-closing tag. Self-closing tags do not require a closing tag because they do not contain any content, they only use attributes to mark content to the screen.
+When it comes to working with attributes, the image ```img``` element is a great place to start. ```<img>``` is a self-closing tag. Self-closing tags do not require a closing tag because they do not contain any content, they only use attributes to mark content to the screen.
 
-Image has two required attributes src and alt ```<img src="..." alt="...">```. Src tells the document where to find the image to be displayed while alt displays alternative text in case the image cannot be displayed. In most cases an attribute will always have a value, this is written as attribute="Some Value". This is often referred to as a key-value pair. The attribute or left side of the equation is the key and the right side of the equation is the value (conceptually speaking it's key="value").
+```<img>``` has two required attributes ```src``` and ```alt```, ```<img src="..." alt="...">```. ```src``` tells the document where to find the image to be displayed while ```alt``` displays alternative text in case the image cannot be displayed. In most cases an attribute will always have a value, this is written as ```attribute="Some Value"```. This is often referred to as a key-to-value (or a key-value) pair. The attribute or left side of the equation is the key and the right side of the equation is the value (conceptually speaking it's key="value").
 
-Before you can add an image, you will need an image to link to. Lets use a Gravatar. Gravatar is a free service that allows a user to upload an avatar that will follow them from site to site by hashing the users email address into the name of a file. This is popular in the dev community and used by other services such as GitHub.
+Before you can add an ```<img>```, you will need an image to link to. Let's use a Gravatar. Gravatar is a free service that allows a user to upload an avatar that will follow them from site to site by hashing the user's email address into the name of a file. This is popular in the dev community and used by other services such as GitHub.
 
-[Gravatar](https://en.gravatar.com/) is a service that provides avatar hosting. For the shake of expedience we will use the default mystery man. Later, If you decide you would like to use this service [head over to Gravatar](https://en.gravatar.com/). Read more about [Gravatar URL settings and parameters](https://en.gravatar.com/site/implement/images/).
+[Gravatar](https://en.gravatar.com/) is a service that provides avatar hosting. For the sake of expedience, we will use the default mystery man. Later, If you decide you would like to use this service [head over to Gravatar](https://en.gravatar.com/). Read more about [Gravatar URL settings and parameters](https://en.gravatar.com/site/implement/images/).
 
 * *https://www.gravatar.com/avatar/4678a33bf44c38e54a58745033b4d5c6?d=mm&s=64*
 
@@ -210,7 +211,7 @@ You would mark this up as:
 
 ### The Style Attribute
 
-Cascading Style Sheets (CSS) is a language for describing the style of an element. The style attribute in HTML allows you to add a CSS description to a single HTML element. Describing a font's color is a common use of CSS. In CSS we describe style using property's which are key to value pairs separated by a colon [key]:[value]. Using the color property will allow me to describe the font color of an element. We will do a deep dive on CSS late, for now we will give you what you need.
+Cascading Style Sheets (CSS) is a language for describing the style of an element. The style attribute in HTML allows you to add a CSS description to a single HTML element. Describing a font's color is a common use of CSS. In CSS we describe style using property's which are key to value pairs separated by a colon [key]:[value]. Using the color property will allow me to describe the font color of an element. We will do a deep dive on CSS later, for, now we will give you what you need.
 
 ### Exercise 6 - Style an Element
 
