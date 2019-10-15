@@ -14,7 +14,7 @@ Most HTML documents start with a header. Headers are marked up ```<h*>``` the * 
 
 #### [Headers](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)
 
-Headers are used for creating sections on a web page. A typical webpage only has a single **h1** tag which servers as a page or article title. Everything under the **h1** tag should be in some way related to that title. **h2** is the first sub-heading and creates a sub-section under **h1**. Likewise **h3** creates a sub section under **h2** and this repeats all the way down to **h6**. A second **h2** tag creates a new sub section that should be related to **h1** but not necessarily to the first **h2** element. This same notion holds true for all tags all the way down to **h6**.
+Headers are used for creating sections on a web page. A typical webpage only has a single ```<h1></h1>``` tag serving as the title of the page (article, post, etc). Everything under the ```<h1></h1>``` tag should be in some way related to that title. ```<h2></h2>``` is the first sub-heading and creates a sub-section under ```<h1></h1>```. Likewise, ```<h3></h3>``` creates a subsection under ```<h2></h2>``` and this repeats all the way down to ```<h6></h6>```. A second ```<h2></h2>``` tag creates a new subsection that should be related to ```<h1></h1>``` but not necessarily to the first ```<h2></h2>``` element. This same notion holds true for all tags all the way down to ```<h6></h6>```.
 
 ```html
 <h1>This is a level 1 header.</h1>
@@ -27,17 +27,17 @@ Headers are used for creating sections on a web page. A typical webpage only has
 
 #### Paragraphs
 
-As it's name suggests a paragraph element holds a pargraph. In the academic paper on or many paragraphs may appear under a single header.
+As its name suggests a paragraph element holds a paragraph. In the academic paper on or many paragraphs may appear under a single header.
 
 ```html
-<p>This is a paragraph, paragraphs have an opening and closing tags. Paragraphs are block level elements with margins on the top and bottom.</p>
+<p>This is a paragraph, paragraphs have an opening and closing tags. Paragraphs are block-level elements with margins on the top and bottom.</p>
 ```
 
 #### [Images](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img)
 
-The image element **img** is used to reference an image. Modern graphical browsers display these as a part of the webpage. Adding an image tag does not place in image in your page. Rather it creates a reference to an image and may define a space for that image. It is up to the browser to get the image and display as per the authors wishes. 
+The image element ```<img>``` is used to reference an image. Modern graphical browsers display these as a part of the webpage. Adding an image tag does not place an image on your page. Rather, it creates a reference to an image and may define a space for that image. It is up to the browser to fetch and display the image as per the author's wishes. 
 
-An image has two required attributes **src** and **alt**. **src** is the URI of the image while **alt** holds a non graphical description.
+An image has two required attributes ```src``` and ```alt```. ```src``` is the URI of the image while ```alt``` holds a non-graphical description.
 
 ```html
 <img src="https://www.w3.org/html/logo/badge/html5-badge-h-css3-semantics.png" alt="The Semantic Web">
@@ -45,9 +45,9 @@ An image has two required attributes **src** and **alt**. **src** is the URI of 
 
 #### [Links](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
 
-Anchor **a** elements are used to create hyperlinks commonly called links. These are used to link documents together on the web.
+Anchor elements ```<a></a>``` are used to create hyperlinks commonly called links. These are used to link documents together on the web.
 
-An image has one required attribute **href**. This is the URL to any web resource to which you want to link the current document.
+An image has one required attribute; ```href```. The value of ```href``` is the URL to any web resource to which you want to link the current document.
 
 ```html
 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a">The a tag (HTML Anchor Element)</a>
@@ -55,14 +55,14 @@ An image has one required attribute **href**. This is the URL to any web resourc
 
 #### [Bold](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/strong)
 
-The *strong* element is typcially rendered in boldfaced type as is the *b* element. The *b* element is considered irrelevent on today's web.
+The ```<strong></strong>``` element is rendered in boldfaced type as is the ```<b></b>``` element. The ```<b></b>``` element is considered irrelevant on today's web.
 
 ```html
 <strong>details of strong importance</strong>
 ```
 
 #### [Italic](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em)
-The *em* element is typcially rendered in italic type as is the *i* element. The *i* element is considered irrelevent on today's web.
+The ```<em></em>``` element is rendered in italic type as is the ```<i></i>``` element. The ```<i></i>``` element is considered irrelevant on today's web.
 
 ```html
 <em>emphasis placed here</em>
@@ -70,7 +70,7 @@ The *em* element is typcially rendered in italic type as is the *i* element. The
 
 #### Lists
 
-[Ordered](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol) **ol** and [unordered](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul) **ul** present a list of items in a numeric or bulleted format. Each item in a list must be represented as a [list item](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) element **li**. 
+[Ordered](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol) ```<ol></ol>``` and [unordered](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul) ```<ul></ul>``` present a list of items in a numeric or bulleted format. Each item in a list must be represented as a [list item](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li) element ```<li></li>```. 
 
 ```html
 <ol>
@@ -149,7 +149,7 @@ The following would appear inside the body tags.
   <li><strong>header</strong> - introductory content for a given section.</li>
   <li><strong>footer</strong> - generally contains meta data for a given section. </li>
   <li><strong>nav</strong> - provides navigation links for a website/page.</li>
-  <li><strong>section</strong> - a stand alone section similar to **div**.</li>
+  <li><strong>section</strong> - a stand alone section similar to ```<div></div>```.</li>
   <li><strong>aside</strong> - indirectly related to the main content.</li>
 </ul>
 
@@ -157,7 +157,7 @@ The following would appear inside the body tags.
 <p><a href="https://www.w3.org/TR/html-aria/">ARIA</a> allows developer to specify page landmarks by assigning roles to specific elements. Much like semantic elements these landmarks mak it easier for screen reader to understand a webpage.</p>
 
 <h2>Multimedia</h2>
-<p>New elements such as <em>audio, video and canvas</em> add built in support for audio, video, gamming and web applications.</p>
+<p>New elements such as <em>audio, video and canvas</em> add built in support for audio, video, gaming and web applications.</p>
 
 <h3>Audio</h3>
 <p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio">audio</a> element embeds audio into a webpage without the use of awkward embed or object elements.</p>
@@ -228,11 +228,11 @@ The following represents the minimal template for a valid [HTML5](https://www.w3
 
 #### Exercise 1 - Display a Basic Page
 
-Complete the following task, after each task commit your chagnes to Git. When all tasks are complete push all changes to the mtbc project on GitHub.
+Complete the following task, after each task commit your changes to Git. When all tasks are complete push all changes to the mtbc project on GitHub.
 
 [</> code](https://github.com/stack-x/mtbc/commit/2dc5f0bbfa21a50da6026b0c131d5c4594dbc37a) Create the path */var/www/mtbc/html/basic.html* and paste the above template into the file. Then navigate to [http://localhost/mtbc/html/basic.html](http://localhost/mtbc/html/basic.html) and note the tab in the browser.
 
-[</> code](https://github.com/stack-x/mtbc/commit/b0c50d3d23a7177cd6a942997375a032d1c2af6c) The **title** element is on of the few required elements and will be displayed in the browser tab. Change the value of the **title** element to *HTML5* and refresh the page.
+[</> code](https://github.com/stack-x/mtbc/commit/b0c50d3d23a7177cd6a942997375a032d1c2af6c) The ```<title></title>``` element is on of the few required elements and will be displayed in the browser tab. Change the value of the ```<title></title>``` element to *HTML5* and refresh the page.
 
 [</> code](https://github.com/stack-x/mtbc/commit/09f64186264b2ca11039d2ab6995c50926676b23) Finally add the page content from the example above.
 
