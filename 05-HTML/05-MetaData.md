@@ -1,6 +1,9 @@
-# MetaData
+# Metadata
 
-MetaData comes in many forms from the ```meta``` elements in the the document head to microdata and aria attributes applied directly to your HTML tags or even in a separate text file.
+Metadata comes in many forms. The most common forms are
+* [```meta```](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta) elements - these are elements that appear in the ```head``` of your HTML document. 
+* [microdata](https://www.w3.org/TR/microdata/) - attributes that are applied directly your HTML elements.
+* external files - External files serve as another source of meta data. These files are typically either informational ir serve as some sort of configuration for a third-party service.
 
 > This section serves as an overview of metadata, there is no code to apply in this lesson.
 
@@ -8,9 +11,9 @@ MetaData comes in many forms from the ```meta``` elements in the the document he
 
 ### Improve SEO with ```<meta>```
 
-Search Engine Optimization (SEO) is the practice of improving your site compatibility with a search engine which in theory, should help to increase your traffic. Metadata is one ingredient. We will start with the classics, *description* and *keywords*. When writing a site description you're looking to sum up a page in 25 words or less. The *description* MUST be relevant to the content on the page. The same idea applies to keywords; 25 keywords or less. Keywords are delimited by commas and may be single words or short phrases that are relevant to the page in question. Google will penalize you if you try to cheat. In both cases we will use the meta tag with the name and description attributes.
+Search Engine Optimization (SEO) is the practice of improving your site compatibility with a search engine which in theory, should help to increase your traffic. Metadata is one ingredient. We will start with the classics, *description* and *keywords*. When writing a site description you're looking, to sum up, a page in 25 words or less. The *description* MUST be relevant to the content on the page. The same idea applies to keywords; 25 keywords or less. Keywords are delimited by commas and may be single words or short phrases that are relevant to the page in question. Google will penalize you if you try to cheat. In both cases, we will use the meta tag with the name and description attributes.
 
-The name attribute denotes the type of metadata while the content attribute contains the description, keywords, etc.
+The ```name``` attribute denotes the type of metadata while the ```content``` attribute contains the description, keywords, etc.
 
 ```html
 <meta name="description" content="The best thing about hello world is the greeting">
