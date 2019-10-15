@@ -1,14 +1,14 @@
 # HTML Basics
 Hypertext Markup Language (HTML) is a system of elements and attributes that defines the layout of a web page. This system uses markup tags to represent elements (```<p>This is a paragraph.</p>```) and attributes (```<p style="color: blue;">This is a paragraph with blue text.</p>```) to further describe these elements; to define the context of text and objects on a page.
 
-The official HTML documentation is available from the [W3C](https://www.w3.org/TR/html/) this is the standards version of the documentation aimed at browser makers. The [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML) in my opinion is a better practical source of documentation.
+The official HTML documentation is available from the [W3C](https://www.w3.org/TR/html/) this is the standards version of the documentation aimed at browser makers. The [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/HTML), in my opinion, is a better source of practical documentation.
 
 ## [HTML Elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element)
 A typical web page is rendered an an HTML document. HTML documents are made up of HTML elements (aks tags). HTML has two types of elements; inline elements and block-level elements. An HTML element will typically have an opening and a closing tag. <[element]>Closing tags have a slash</[element]>.
 
 ### A Basic Web Page
 
-The World Wide Web started off as a markup standard for sharing academic research over the internet. In those days you get by with just a few tags. In most cases you can think about laying out a webpage in the same way you might layout a college paper. A headers, sub headers, paragraphs, images, links, bold, italic, lists and tables. Let's start by exploring a basic web page in the form of an academic paper.
+The World Wide Web started as a markup standard for sharing academic research over the internet. In those days you get by with just a few tags. In most cases, you can think about laying out a webpage in the same way you might layout an academic paper. A header, subheaders, paragraphs, images, links, bold, italic, lists, and tables. Let's start by exploring a basic web page in the form of an academic paper.
 
 Most HTML documents start with a header. Headers are marked up ```<h*>``` the * can be any value between *1-6* with **1** being the highest. ```<h1>``` opens a header while ```</h1>``` closes a header. Thus these are called opening and closing tags respectively. ```<h1>``` is generally accepted as a page title
 
