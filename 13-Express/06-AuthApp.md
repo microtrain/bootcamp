@@ -293,7 +293,7 @@ router.get('/logout', function(req, res){
 });
 ```
 
-We can determine success by testing for a user object inside the passport object. If this no longer exists the logout was successful. 
+We can determine success by testing for a user object inside the passport object. If this no longer exists the logout was successful. Comment out the ```router.get(...);``` method above and add.
 
 *routes/api/auth.js*
 ```js
@@ -333,7 +333,7 @@ In the last lesson, we created a user by making a curl request to an API. The lo
 ### Create the Registration Form
 [</> code](https://github.com/microtrain/mean.example.com/commit/c9ce0a1d30091ccf04ed4f5f25c7b0a6e8aa3856) We will create this the same way we created the login form. The main difference will be the field names and the addition of [HTML5 validation](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Form_validation).
 
-*src/js/app.auth.js*
+*src/js/auth.app.js*
 ```js
 //~line 29
   function registrationForm(){
