@@ -272,6 +272,9 @@ router.post('/login', passport.authenticate('local'), function(req, res){
 
 *API implementation*, this works by using the ```passport.authenticate()``` middleware as a callback function. At this point, you have access to errors and additional information that you can use to halt execution and return a JSON string denoting an error. At this point, the black box functionality has been removed and you'll need to manually invoke the session. You can do this by accessing ```req.logIn()``` which will either return an error or create a session. Since we are testing with curl, with curl we do not have access to the browsers session cookie meaning the session sill not persist beyond the server request that created it. To test session creation we will ```console.log()``` the ```req.session``` variable. A successful login will create a session and return a JSON string with an error message, An unsuccessful login will return a JSON string with an error message. 
 ```js
+//~line 4
+var passport = require('passport');
+
 //~line 37
 router.post('/login', function(req, res, next) {
   //
