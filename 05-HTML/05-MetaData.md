@@ -3,7 +3,7 @@
 Metadata comes in many forms. The most common forms are
 * [```meta```](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta) elements - these are elements that appear in the ```head``` of your HTML document. 
 * [microdata](https://www.w3.org/TR/microdata/) - attributes that are applied directly your HTML elements.
-* external files - External files serve as another source of meta data. These files are typically either informational ir serve as some sort of configuration for a third-party service.
+* external files - External files serve as another source of metadata. These files are typically either provide information or serve as a configuration for a third-party service.
 
 > This section serves as an overview of metadata, there is no code to apply in this lesson.
 
@@ -11,7 +11,7 @@ Metadata comes in many forms. The most common forms are
 
 ### Improve SEO with ```<meta>```
 
-Search Engine Optimization (SEO) is the practice of improving your site compatibility with a search engine which in theory, should help to increase your traffic. Metadata is one ingredient. We will start with the classics, *description* and *keywords*. When writing a site description you're looking, to sum up, a page in 25 words or less. The *description* MUST be relevant to the content on the page. The same idea applies to keywords; 25 keywords or less. Keywords are delimited by commas and may be single words or short phrases that are relevant to the page in question. Google will penalize you if you try to cheat. In both cases, we will use the meta tag with the name and description attributes.
+Search Engine Optimization (SEO) is the practice of improving your site compatibility with a search engine which in theory, should help to increase your traffic. Metadata is one ingredient. We will start with the classics; ```description``` and ```keywords```. When writing a site description you're looking, to sum up, a page in 25 words or less. The *description* MUST be relevant to the content on the page. The same idea applies to keywords; 25 keywords or less. Keywords are delimited by commas and may be single words or short phrases that are relevant to the page in question. Google will penalize you if you try to cheat. In both cases, we will use the meta tag with the name and description attributes.
 
 The ```name``` attribute denotes the type of metadata while the ```content``` attribute contains the description, keywords, etc.
 
@@ -22,7 +22,7 @@ The ```name``` attribute denotes the type of metadata while the ```content``` at
 
 ### MicroData
 
-A search engine is the most common classifier of web pages. Typically, web pages are classified using seed data against a machine learning type of algo. Some of these are very good while others are not. Applying a micro data schema to your pages markup can help these algos better classify your data. Typically these will be waited against some sort of AI as a means of fraud detection. For instance, Google will likely honor meta data so long as it doesn't think you you are trying to game the system, if it detects something of that sort, it may de-index your site.
+A search engine is the most common classifier of web pages. Typically, web pages are classified using seed data against a machine learning type of algorithm. Some of these are very good while others are not. Applying a microdata schema to your page's markup can help these algorithms better classify your data. Typically, these will be weighted against some sort of AI as a means of fraud detection. For instance, Google will likely honor metadata so long as it doesn't think you are trying to game the system. If it detects something of that sort, it may lower your rankings or de-index your site.
 
 A good example would be a [job posting](http://schema.org/JobPosting). If I'm posing job ads I would want to apply this schema assuming other services are interested in pull in job ads and making use of its data.  
 
@@ -34,7 +34,7 @@ Accessible Rich Internet Applications (ARIA) is a standard for helping a web pag
 
 ### [robots.txt](http://www.robotstxt.org/) 
 
-robots.txt is a file that sits in your sites root directory. This tells allows you to provide a set of preferences to well behaved search engines. At the very least you should allow all bots until you have a reason not to. Bad bots will ignore this so trying to keep those out using a robots.txt file is pointless, keep it simple and assume all bots are good. This will prevent you from making mistakes that block the good bots.
+robots.txt is a file that sits in your site's root directory. This tells allows you to provide a set of preferences for well-behaved search engines. At the very least you should allow all bots until you have a reason not to. Bad bots will ignore this so trying to keep those out using a robots.txt file is pointless, keep it simple and assume all bots are good. This will prevent you from making mistakes that block the good bots.
 
 ### Exercise
 Create the path */var/www/robots.txt* and add the following lines.
@@ -44,7 +44,7 @@ Disallow:
 ```
 
 ### [humnas.txt](http://humanstxt.org/) 
-humans.txt is a file that gives credit to the sites creators. While it is not required it's a nice touch and if they solve the spam problem they will give you a way to submit your site to there directory, which is a link back so that is always good.
+humans.txt is a file that gives credit to the site's creators. While it is not required it's a nice touch and if they solve the spam problem they will give you a way to submit your site to there directory, which is a link back so that is always good.
 
 humans.txt requires a tag in the head plus the text file with all of the content
 
