@@ -1,6 +1,6 @@
 # [JavaScript Control Structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling)
 
-Programming is little more that reading data and piecing together statements that take action on that data. Every language will have it's own set of control structures. For most languages, a given set of control structures will be almost identical. In previous lessons we learned about several control structures. These same structures exist in JavaScript. While the syntax may be a little different, the logic remains the same.
+Programming is little more than reading data and piecing together statements that take action on that data. Every language will have its own set of control structures. For most languages, a given set of control structures will be almost identical. In previous lessons, we learned about several control structures. These same structures exist in JavaScript. While the syntax may be a little different, the logic remains the same.
 
 ## Exercise - If, Else If, Else
 
@@ -55,7 +55,7 @@ document.write(`<div style="color:${color}">The color is ${label}</div>`);
 </script>
 ```
 
-Now open a browser and navigate to https://localhost/mtbc/js/if_else.html and you will see the message _The color is unknown_. Now add the following string to the end of the URL [_?color=ff0000_](https://localhost/mtbc/js/if_else.html?color=ff0000). Now your message will read _The color is red_ and it will be written in red font. That string you added to the end of the URL is know as a [query string](https://en.wikipedia.org/wiki/Query_string). A query string allows you to pass arguments into a URL. A query string consists of the query string Identifier (a question mark) _?_ and a series of key to value pairs that are separated by an ampersand (_&_). In our example the the _key is color_ color_ and the _value is ff0000_. If you wanted to submit a query of a first and last name that might look like _?first=bob&last=smith_ where first and last are your keys (aka your GET params) bob and smith are your values.
+Now open a browser and navigate to https://localhost/mtbc/js/if_else.html and you will see the message _The color is unknown_. Now add the following string to the end of the URL [_?color=ff0000_](https://localhost/mtbc/js/if_else.html?color=ff0000). Now your message will read _The color is red_ and it will be written in red font. That string you added to the end of the URL is known as a [query string](https://en.wikipedia.org/wiki/Query_string). A query string allows you to pass arguments into a URL. A query string consists of the query string Identifier (a question mark) _?_ and a series of key-to-value pairs that are separated by an ampersand (_&_). In our example, the key is color and the value is ff0000. If you wanted to submit a query of a first and last name that might look like _?first=bob&last=smith_ where first and last are your keys (aka your GET params) bob and smith are your values.
 
 Now let's take a close look at the code. Initializing your variables is a [good practice](https://stackoverflow.com/questions/30955639/is-it-necessary-to-initialize-declare-variable-in-php).
 
