@@ -1,8 +1,8 @@
 # SASS
 
-SASS is a a CSS preprocessor is a superset of CSS which means all CSS syntax is considered valid _.scss_ it's a superset because because it extends CSS with programming like capabilities; variables and limited control statements. This is advantageous especially when building large front-end frameworks such [Bootstrap](http://getbootstrap.com/) or creating a product with a customizable theme. For example, Bootstrap has a default shade of red _#dc3545_ <sup>1</sup>. If we were to change that color globally we would have to track down every instance of the color and change it manually or we could make a single change to the variable that holds that color.
+SASS as a program is a CSS preprocessor, SASS as a language is a superset of CSS. As a superset, all CSS syntax is considered valid SASS. What makes it a superset is that it extends CSS with programming like capabilities; variables and limited control statements. This is advantageous, especially when building large front-end frameworks such as [Bootstrap](http://getbootstrap.com/) or creating a product with a customizable theme. For example, Bootstrap has a default shade of red _#dc3545_ <sup>1</sup>. If we were to change that color globally we would have to track down every instance of the color and change it manually or we could make a single change to the variable that holds that color. SASS has two file extensions; ```.sass``` and ```.scss``` with ```.scss``` being the extension for SASS version 3. SASS version 3 is the version we will use for this class.
 
-### Install [Sass](http://sass-lang.com/)
+### Install [Sass](http://sass-.com/)
 
 Install ruby-sass via apt.
 
@@ -10,7 +10,7 @@ Install ruby-sass via apt.
 sudo apt install ruby-sass
 ```
 
-Variables in Sass. Sass denotes variables with a _$_ dollar sign. For these lessons we will use the newer SCSS syntax for writing our sass files. These files must have the _.scss_ extensions.
+Variables in Sass. Sass denotes variables with a _$_ dollar sign. For these lessons, we will use the newer SCSS syntax for writing our sass files. These files must have the _.scss_ extensions.
 
 ### Exercise 1 - Sass Variables
 
@@ -82,7 +82,7 @@ body {
 
 ```
 
-Compilation is the next step. From the command line we will compile sass into css.
+The next step is to compile SASS into CSS. We can do this from the command-line.
 
 ```sh
 sass /var/www/mtbc/scss/main.scss /var/www/mtbc/scss/main.css
@@ -108,7 +108,7 @@ body {
 
 ### Exercise 2 - Live Reload / Watch a File
 
-The downside to a preprocessor is the compilation step. This takes time and slows down development. We remedy this by creating a *watcher* this watches a target file for changes and rebuilds it's CSS version in the background. This is one less thing you need to think about which can help keep you in flow. Open a split console window and run the following command in one of the panels.
+The downside to a preprocessor is the compilation step. This takes time and slows down development. We remedy this by creating a *watcher* this watches a target file for changes and rebuilds its CSS version in the background. This is one less thing you need to think about. Open a split console window and run the following command in one of the panels.
 
 ```sh
 sass --watch /var/www/mtbc/scss/main.scss:/var/www/mtbc/scss/main.css
@@ -123,7 +123,7 @@ You will see the following output
 
 ```
 
-In the second panel open the scss file in vim, make a change and save it using [esc] then ```:x```; You'll notice a change in the first console window with the following output.
+In the second panel open the scss file in vim, make a change and save it by pressing [esc] then type  ```:x```. You'll notice a change in the first console window with the following output.
 
 ```sh
 >>> Change detected to: main.scss
@@ -136,7 +136,7 @@ Open the file */var/www/mtbc/scss/main.css* and verify your changes.
 
 ## Mixins
 
-Later we will learn about the Bootstrap framework. Bootstrap is among the most popular frameworks and as such it gets a lot of criticism. One of the those criticisms is the practice of calling mulitple class on a single element. The claim is that this can increase load time. For example styling a button in Bootstrap often looks as follows ```class="btn btn-default btn-xs"```. The idea is the it would be faster to combine all of those classes into a single definition in which case something like ```class="btn-default-xs"``` would load faster. In native CSS this would mean having a lot of duplicate code. SASS allows us to reuse style deifintions, meaning we can write them once a call them as many times as we need to. This means we can globally chane an entire style sheet by changing only one line of code. Rather that calling multiple classes we can define mixins and extend base classes making all of our code reusable..
+Later we will learn about the Bootstrap framework. Bootstrap is among the most popular frameworks and as such it gets a lot of criticism. One of the criticisms is the practice of calling multiple classes on a single element. The claim is that this can increase load time. For example, styling a button in Bootstrap often looks as follows ```class="btn btn-default btn-xs"```. The idea is that it would be faster to combine all of those classes into a single definition in which case something like ```class="btn-default-xs"``` would load faster. In native CSS this would mean having a lot of duplicate code. SASS allows us to reuse style definitions; meaning we could write a definition once and reuse it as a part of other definitions. Reuse allows us to globally change an entire style sheet by changing only one line of code. Rather than calling multiple classes, we can define mixins and extend base classes making all of our code reusable.
 
 ### Clearfix
 
