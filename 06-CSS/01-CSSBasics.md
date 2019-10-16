@@ -1,10 +1,10 @@
 # CSS
 
-Cascading Style Sheets (CSS) is a language that describes the style of a web page. CSS uses selectors and definitions to apply the these style descriptions or styles to a page.
+Cascading Style Sheets (CSS) is a language that describes the style of a web page. CSS uses selectors and definitions to apply a CSS definition (commonly called a style or styles) to a page.
 
-Lets look at [CSS Zen Garden](http://www.csszengarden.com), click on the download example html file link and open the file in your browser. This is just a plain HTML file, now download the example CSS file and refresh the page. This is what you can do with a few CSS definition. Now go the the [design gallery](http://www.mezzoblue.com/zengarden/alldesigns/) each of these examples uses the came HTML file the only changes here are to the style definitions.
+Let's look at [CSS Zen Garden](http://www.csszengarden.com), click on the download example HTML file link and open the file in your browser. This is just a plain HTML file, now download the example CSS file and refresh the page. This is what you can do with a few CSS definitions. Now go the [design gallery](http://www.mezzoblue.com/zengarden/alldesigns/) each of these examples uses the came HTML file the only changes here are to the style definitions.
 
-Selectors correspond to HTML elements, there attributes, decedents and and siblings.
+Selectors correspond to HTML elements, there attributes, decedents and siblings.
 
 ## Common Selectors
 
@@ -143,7 +143,7 @@ body{
 
 ### Set a base font
 
-Next we will add a base font. To assure consistency across all platforms we will pull a font from a font foundry, we will use [Google Fonts](https://fonts.google.com/) and use [Open Sans](https://fonts.google.com/specimen/Open+Sans). We will import the font style into our style sheet and use a universal selector to set all elements to this font by default.
+Next, we will add a base font. To assure consistency across all platforms we will pull a font from a font foundry, we will use [Google Fonts](https://fonts.google.com/) and use [Open Sans](https://fonts.google.com/specimen/Open+Sans). We will import the font style into our style sheet and use a universal selector to set all elements to this font by default.
 
 ```css
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
@@ -155,7 +155,7 @@ Next we will add a base font. To assure consistency across all platforms we will
 
 ### Header and Navigation
 
-No we are ready to tackle navigation, lets start by wrapping the ```nav``` elements in a ```header``` element. We will add a ```span``` element with a class of ```.logo``` outside of the ```nav``` with the navigation. We will align all navigation links horizontally and pull them to the top right corner of the screen.
+Now we are ready to tackle navigation, let's start by wrapping the ```nav``` elements in a ```header``` element. We will add a ```span``` element with a class of ```.logo``` outside of the ```nav``` with the navigation. We will align all navigation links horizontally and pull them to the top right corner of the screen.
 
 ```html
 <header>
@@ -237,7 +237,7 @@ main {
 
 ### Make it Responsive
 
-Use dev tools to toggle the device toolbar (enter mobile testing mode) and choose the responsive option. Set the width to 960px and drag in and out crossing back and fourth over that 960px mark. Notice the padding, we loose all of padding under 960px meaning the text runs to the edge of the screen. Popular opinion is that makes for a better read if you can get some separation from the edge of the screen. You could use a media query and change the page width on a break point such as below. 
+Use dev tools to toggle the device toolbar (enter mobile testing mode) and choose the responsive option. Set the width to 960px and drag in and out, crossing back and forth over that 960px mark. Notice the padding, we lose all padding under 960px meaning the text runs to the edge of the screen. Popular opinion is that makes for a better read if you can get some separation from the edge of the screen. You could use a media query and change the page width on a breakpoint such as below. 
 
 #### Add Gutters to Small Screens
 
@@ -249,7 +249,7 @@ Use dev tools to toggle the device toolbar (enter mobile testing mode) and choos
 }
 ```
 
-Or you could set the default ```max-width``` to **90%** which is what we will do here. Semantically speaking this method is closer to mobile first than the max-width media query. That is because that particular breakpoint assumes a desktop then changes to mobile when the proper breakpoint is encountered. 
+Or you could set the default ```max-width``` to **90%** which is what we will do here. Semantically speaking this method is closer to mobile-first than the max-width media query. That is because that particular breakpoint assumes a desktop then changes to mobile when the proper breakpoint is encountered. 
 
 ```css
   /* For smaller screens to not exceed the max screen width */
@@ -264,7 +264,7 @@ Or you could set the default ```max-width``` to **90%** which is what we will do
 
 #### Switch to Vertical Navigation on Small Devices
 
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/b1c5c5f3342b8335038fad6ebed9879973020520) It's common practice, on smaller screens, to change from a horizontal navigation in the header to a hidden vertical navigation that appears on a button press. We can do this by setting the nav display to none.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/b1c5c5f3342b8335038fad6ebed9879973020520) It's common practice, on smaller screens, to change from horizontal navigation in the header to hidden vertical navigation that appears on a button press. We can do this by setting the ```nav``` ```display``` to ```none```.
 
 ```css
 @media only screen and (max-width: 960px)  {
@@ -276,7 +276,7 @@ Or you could set the default ```max-width``` to **90%** which is what we will do
 }
 ```
 
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/c21cd92767f844ca64db9b5a02009eccd5f8c40b) Add an anchor element to the ```header``` element right before the ```nav``` element. This will act as the control to toggle the menu on smaller screens. Give this element and ```id``` attribute with a value value of *toggleMenu*.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/c21cd92767f844ca64db9b5a02009eccd5f8c40b) Add an anchor element to the ```header``` element right before the ```nav``` element. This will act as the control to toggle the menu on smaller screens. Give this element and ```id``` attribute with a value of *toggleMenu*.
 
 ```html
 <a id="toggleMenu">Menu<a>
@@ -303,7 +303,7 @@ Create a CSS selector for the toggleMenu attribute. This style will be similar t
   }
 ```
 
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/0d6ce1804090c131e5ec19f80222c8336cfafc8a) We will cover JavaScript in great detail later, for now copy and paste the following into index.html right before the closing body tag.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/0d6ce1804090c131e5ec19f80222c8336cfafc8a) We will cover JavaScript in great detail later, for now, copy and paste the following into index.html right before the closing body tag.
 
 ```html
     <script>
@@ -349,9 +349,9 @@ Create a CSS selector for the toggleMenu attribute. This style will be similar t
 }
 ```
 
-Reload the page and make sure the resolution in under 960px, press the Menu button. It's now more closely resembles a traditional fly out menu. Make the resolution small and you'll notice the position of the menu changes. To fix this you will absolutely position ```nav``` relative to ```header```.
+Reload the page and make sure the resolution in under 960px, press the Menu button. It's now more closely resembles a traditional fly out menu. Make the resolution small and you'll notice the position of the menu changes. To fix this you will give the ```nav``` a ```position``` or ```absolute``` relative to ```header```.
 
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/51a8366bd3c8713a51020b68ee3ee9a821f93bff) Start by making assigning the relative position to the ```header``` element. Then assign an absolute position to the ```nav``` element. When an absolute element is the child a relative element the positioning of the absolute element is relative to that of it's parent.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/51a8366bd3c8713a51020b68ee3ee9a821f93bff) Start by assigning ```position:relative``` to the ```header``` element. Then assign a ```position:absolute``` to the ```nav``` element. When an element with absolute positioning is a child of an element with relative positioning, the element with absolute positioning, is positioned relative to the parent element.
 
 ```css
 @media only screen and (max-width: 960px)  {
@@ -374,7 +374,7 @@ Reload the page and make sure the resolution in under 960px, press the Menu butt
   }
 ```
 
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/83e18c222b7c42bd95449f7be55980203ee3fc55) Next you will want to position the menu. By default the menu will want to position itself in the top left corner. If you were to think of a box as having four boundaries: top, left, right and bottom; then ```top```, ```left```, ```right```, ```bottom``` are commands that move the top left corner of a target element a set distance from the specified boundaries. In this case we will set top to ```50px``` this will allow it to clear the 50px height of the header element. By setting ```left``` and ```right``` to ```0``` you will stretch nav element to the width of the entire screen.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/83e18c222b7c42bd95449f7be55980203ee3fc55) Next you will want to position the menu. By default, the menu will want to position itself in the top left corner. If you were to think of a box as having four boundaries: top, left, right and bottom; then ```top```, ```left```, ```right```, ```bottom``` are commands that move the top left corner of a target element a set distance from the specified boundaries. In this case, we will set ```top:50px``` this will allow it to clear the 50px height of the header element. By setting ```left``` and ```right:0``` you will stretch nav element to the width of the entire screen.
 
 ```css
 @media only screen and (max-width: 960px)  {

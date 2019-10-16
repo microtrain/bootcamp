@@ -8,6 +8,6 @@ In this chapter, you will learn the basics of
 * Gulp
 * CSS Based Layouts
 
-The goal of this section it to provide an understanding CSS, the styling of HTML content and front end workflows.
+The goal of this section is to provide an understanding of CSS, the styling of HTML content and front end workflows.
 
 [Next: CSS Basics](01-CSSBasics.md)
