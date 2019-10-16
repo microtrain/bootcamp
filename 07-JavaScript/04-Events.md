@@ -1,11 +1,11 @@
 # Events
 
-Events allow a user to interact with a web page. Listeners are used to detect an event being triggered. One might say the web page listens for a click event.
+Events allow a user to interact with a web page. Listeners are background processes that detect (listen for) the triggering of an event. One might say the web page listens for a click event.
 
 
 ## Click Event
 
-Add the following to the path */mtbc/js/events/onclick.html* and open to corresponding file in your editor. In your browser navigate to *localhost.mtbc/js/events/onclick.html*. Add the following to the body tag of the document and refresh the page.
+Add the following to the path */mtbc/js/events/onclick.html* and open to the corresponding file in your editor. In your browser navigate to *localhost.mtbc/js/events/onclick.html*. Add the following to the body tag of the document and refresh the page.
 
 ### Exercise 1 - Catch the Click
 ```html
@@ -95,9 +95,9 @@ list.addEventListener("change", ()=>{
 ```
 ## Intervals
 
-While an interval is not technically and event, it does provide a trigger for an interaction to occur. In this case we will use it with a click event to grow another form element on the screen.
+While an interval is not technically an event, it does provide a trigger for an interaction to occur. In this case, we will use it with a click event to grow another form element on the screen.
 
-In your browser navigate to *mtbc/js/events/interval.html* and open to corresponding file in your editor. Add the following to the document and refresh the page. Be sure to read the comments and understand the reasoning behind each line of code.
+In your browser navigate to *mtbc/js/events/interval.html* and open to the corresponding file in your editor. Add the following to the document and refresh the page. Be sure to read the comments and understand the reasoning behind each line of code.
 ```html
 
 <style>
