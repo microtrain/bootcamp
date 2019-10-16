@@ -1,8 +1,8 @@
 # Walking the DOM
 
-The Document Object Model (DOM) is an API  that treats markup languages (xml, xhtml, html, ect) as a tree structures. A easier way to think of this might be as an interface that allows a programmer to access tags and the attributes of tags. Later we will learn about jQuery; a library for querying the DOM (among other things). First we will learn basic manipulation using straight JavaScript.
+The Document Object Model (DOM) is an API  that treats markup languages (XML, XHTML, HTML, etc) as a tree structure. An easier way to think of this might be as an interface that allows a programmer to access tags and the attributes of tags. Later we will learn about jQuery; a library for querying the DOM (among other things). First, we will learn basic manipulation using straight JavaScript.
 
-In the previous lesson we used ```document.getElementById();``` this method queries the DOM for an element with a matching id. There are many similar methods.
+In the previous lesson, we used ```document.getElementById();``` this method queries the DOM for an element with a matching id. There are many similar methods.
 
 ## [Collection Live vs Static (not live)](https://www.w3.org/TR/dom/#concept-collection)
 
