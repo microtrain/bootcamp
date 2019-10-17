@@ -1,6 +1,6 @@
 # Templates
 
-Now that we have all of our styles into a single style sheet, it is time use a single template for managing our layout. This will allow us to store out sites main layout in a single file while the page itself will only hold the content specific to that page. This is a huge win once your site exceeds more that a few pages. HTML does not offer such a system so we will either need to choose a template engine such as [Pug](https://pugjs.org/api/getting-started.html) or build a template using a programming language. We will learn about Pug once we get into the section about the MEAN stack. For now we will use PHP.
+Now that we have all of our styles into a single style sheet, it is time to use a single template for managing our layout. This will allow us to store our site's main layout in a single file while the page itself will only hold the content specific to that page. This is a huge win once your site exceeds more that a few pages. HTML does not offer such a system so we will either need to choose a template engine such as [Pug](https://pugjs.org/api/getting-started.html) or build a template using a programming language. We will learn about Pug once we get into the section about the MEAN stack. For now, we will use PHP.
 
 
 ![TempEngWeb016.svg](https://upload.wikimedia.org/wikipedia/en/a/a2/TempEngWeb016.svg)
@@ -10,18 +10,18 @@ Now that we have all of our styles into a single style sheet, it is time use a s
 The general flow is as follows.
 1. The user asks the server for an endpoint perhaps *https://localhost/example.com/public/contact.php*.
 1. The server processes data and business logic as required by that endpoint.
-  1. This may include calls from a database, a flat file, an API, etc.
-1. The server generates the content to be presented to the user for that end point.
-  1. This may be from a database, a flat file, an API, etc.
+  1. This may include calls from a database, a flat-file, an API, etc.
+1. The server generates the content to be presented to the user for that endpoint.
+  1. This may be from a database, a flat-file, an API, etc.
 1. The server calls the template for that endpoint.
 1. The server passes the content into the template.
 1. The endpoint presents the data to the user. This may be in the form of an HTML document, a PDF, XML/JSON file or whatever else may be required.
 
 ## [Heredoc](http://php.net/manual/en/language.types.string.php#language.types.string.syntax.heredoc)
 
-A heredoc allows large amount of text to be written as a string without the need of escaping. Heredoc will process any PHP code it encounters, which makes it a subtitle candidate for our simple use case. I should note this a very simple example of a template system and is intended simply as an introduction to the concept. We will discuss more complex examples in later lessons.
+A ```heredoc``` allows a large amount of text to be written as a string without the needing to escape special characters. Heredoc will process any PHP code it encounters, which makes it a subtitle candidate for our simple use case. I should note this a very simple example of a template system and is intended simply as an introduction to the concept. We will discuss more complex examples in later lessons.
 
-In previous lessons we used ```echo``` to write the value of some variables into an HTML document. This is a good way to view a template system. This is something that allows you to have a single or a select few templates that treat the contents in which the content of a page is being passed as a variable onto the template.
+In previous lessons, we used ```echo``` to write the value of some variables into an HTML document. This is a good way to view a template system. This is something that allows you to have a single or a select few templates that treat the contents in which the content of a page is being passed as a variable onto the template.
 
 The basic idea is as follows. We are simply passing the variable ```$content``` into an HTML document using PHP's echo statement.
 
@@ -176,7 +176,7 @@ EOT;
 require 'core/layout.php';
 ```
 
-Navigate to *https://loc.example.com/public/contact.php* and submit the form. The functionality should not have changed in anyway but the code is now cleaner and easier to maintain this is know as a [refactoring](https://martinfowler.com/books/refactoring.html).
+Navigate to *https://loc.example.com/public/contact.php* and submit the form. The functionality should not have changed in any way but the code is now cleaner and easier to maintain this is known as a [refactoring](https://martinfowler.com/books/refactoring.html).
 
 
 ## Additional Resources
