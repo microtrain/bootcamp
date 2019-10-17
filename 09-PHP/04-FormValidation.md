@@ -1,11 +1,16 @@
 # [HTML Forms](https://www.w3.org/TR/html401/interact/forms.html) with PHP Validation
 
-Traditionally, forms have been the most common way to collect data from a user. A form submission is the simplest way to post data to a server. This section will start with a simple POST request and end with complex processing.
+Forms are one of the most common ways to collect data from a user. Submitting a 
+form is one of the simplest ways to post data to a server. This lesson will 
+start with a simple POST request and end with complex processing.
 
-Form tags ```<form></form>``` are used for creating forms in HTML. Every form should have at least two attributes _action_ and _method_.
+The ```form``` element ```<form></form>``` is used for creating forms in HTML. 
+Every ```form``` should have at least two attributes ```action``` and 
+```method```.
 
-* action - the web address to which the form data will be sent.
-* method - the type of request the form should make (probably GET or POST).
+* ```action``` - the web address to which the form data will be sent.
+* ```method``` - the type of request the form should make (probably GET or 
+POST).
 
 ## Exercise 1 - Create and Inspect a Contact Form
 
@@ -101,16 +106,16 @@ The end result will be as follows
 Now, lets inspect a post request.
 * Open the Chrome browser and navigate to [http://localhost.example.com/public/contact.php](http://localhost.example.com/public/contact.php).
 * Press the [f12] key to open Chrome's developer tools.
-* Click on the network tab.
+* Click on the Network tab.
 * Refresh the page.
 * Find and click on contact.php
 * The headers tab should now be highlighted.
 
 ![Installation type](/img/devtools/devtools.png)
 
-* Fill out the web form and submit the data.
+* Fill out the webform and submit the data.
 * Once again, find and click on contact.php from the network panel.
-* Under the headers tab you will see the contents of your web form as key to value pairs. This is how the data will be given to the server.s
+* Under the headers tab, you will see the contents of your webform as key-to value-pairs. This is how the data will be given to the server.
 
 ![Installation type](/img/devtools/form_data.png)
 
@@ -184,34 +189,34 @@ var_dump($errors);
 ?>
 ```
 
-RegEx is extremely powerful, flexible and worth learning. Having said that there are a million and one libraries for validating form submissions. I would advise finding a well supported library that meets your projects needs. As of PHP5 [data filters](http://php.net/manual/en/book.filter.php) have been natively supported by the language.
+RegEx is extremely powerful, flexible and worth learning. Having said that there are a million and one libraries for validating form submissions. I would advise finding a well-supported library that meets the needs of your project. As of PHP5 [data filters](http://php.net/manual/en/book.filter.php) have been natively supported by the language.
 
 **Security Check Point**
-_Never trust user input. User input is anything come into the server from the client. Even if you have written client side JavaScript to filter out malicious code, the filtered input is still left alone with the client and can be manipulated prior to transit (or even in transit). If it has ever existed outside of the server it CANNOT be trusted._
+_Never trust user input. User input is anything that comes into the server from the client. Even if you have written client-side JavaScript to filter out malicious code, the filtered input is still left alone with the client and can be manipulated before transit (or even in transit). If it has ever existed outside of the server it CANNOT be trusted._
 
 ## Exercise 3 - Adding a Validation Class
 Replace the contents of _/var/www/example.com/public/contact.php_ with the following.
 
 Explain the code to the class.
 
-1. The user completes and submits a web form
+1. The user completes and submits a web form.
 1. The system
-    1. Validates each field for errors
-        1. If error return a message to the user
-            1. Show a page level message
-            1. Show each field level mesasge
-            1. Do not clear the form data on error
-        1. If no errors, send the user to a thank you page
+    1. Validates each field for errors.
+        1. If an error occurs, return a message to the user
+            1. Show a page-level message.
+            1. Show each field-level message.
+            1. Do not clear the form data if an error occurs.
+        1. If no errors, send the user to a thank you page.
 
 2.1 - Loop through each form field and test that field for errors.
 
-2.2 - Set truthy/falsey value or a boolean on error. This will tell the system how to rpoceed after the form is processed.
+2.2 - Set a truthy/falsy value or a boolean on error. This will tell the system how to proceed after the form is processed.
 
 2.2.1 - See 2.2
 
-2.2.2 - Store each error in an array using the the name of the field as the array key. The value will be the error message to display to the user. The form will call a method in the validate array using the name of the field as the argument. This will retireve any error messages for that field.
+2.2.2 - Store each error in an array using the name of the field as the array key. The value will be the error message to display to the user. The form will call a method in the validate array using the name of the field as the argument. This will retrieve any error messages for that field.
 
-2.2.3 - Store POST data in an instance varaible using key value pairs in which the key is the name of the form field and value is the user submitted data. Set the value attribute of each form field to a method in the Validate class and pass the name of the field as the methods argument. This will retrieve the original data as submitted by the user and pre-populate that form field.
+2.2.3 - Store POST data in an instance variable using key-value pairs in which the key is the name of the form field and value is the user-submitted data. Set the value attribute of each form field to a method in the Validate class and pass the name of the field as the method's argument. This will retrieve the original data as submitted by the user and pre-populate that form field.
 
 ```php
 <?php
@@ -412,9 +417,9 @@ include '/var/www/example.com/util.php';
 ```
 
 ### Namespace
-At the end of the day a name space is simply a way to disambiguate name collisions. Earlier we created a class called Validate(). Validation classes are fairly common and let's say you liked specific methods from two different vendors both of who named the class Validate, suddenly you have a collision.
+At the end of the day, a namespace is a way to disambiguate name collisions. Earlier we created a class called Validate(). Validation classes are fairly common and let's say you liked specific methods from two different vendors both of who named the class Validate, suddenly you have a collision.
 
-Lets say we have two vendors Sally and Bob and I like Sally's email method and Bob's phone method. I want to load this class from both vendors but without a name space the autoloader would not know which class to load into a given object. I might try to include then instantiate but there is no guarantee this will work as classes tend to get cached.
+Let's say we have two vendors Sally and Bob and I like Sally's email method and Bob's phone method. I want to load this class from both vendors but without a namespace, the autoloader would not know which class to load into a given object. I might try to include then instantiate but there is no guarantee this will work as classes tend to get cached.
 
 ```php
 include 'vendor/Sally/src/Validation/Validate.php';
@@ -426,7 +431,7 @@ $v2 = new Validate();
 $v2->Validate->phone($phone); //Sally's version of the class may or may not be cached so the method we want may or may not be there.
 ```
 
-With name spaces.
+With namespaces.
 ```php
 // You can probably use an autoloader so you will not have to worry about this.
 include 'vendor/Sally/src/Validation/Validate.php';
@@ -510,7 +515,7 @@ class Validate{
     }
 
     /**
-     * Returns the user submitted value for a give key
+     * Returns the user-submitted value for a give key
      * @param  string $key
      * @return string
      */
