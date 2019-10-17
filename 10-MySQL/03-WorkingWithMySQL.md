@@ -14,9 +14,11 @@ mysql -u root -p -h localhost
 * ```-h``` - _-h_ host; locally this will be localhost a remote connection would likely be an IP address or a URL.
 
 As you may have guessed; by entering the aforementioned command you will be prompted a password.
+
 ![Connecting](/img/mysql/connect.png)
 
-Upon connection you will be presented with a MySQL prompt.
+Upon connection, you will be presented with a MySQL prompt.
+
 ![Connected](/img/mysql/connected.png)
 
 At the prompt the following command to get a list of databases.
@@ -24,7 +26,7 @@ At the prompt the following command to get a list of databases.
 show databases;
 ```
 
-You will see something similar to the following. By default MySQL installs a few system databases that it uses for it's own purposes. It is unlikely you ever need to access these yourselves. Just be sure not to delete them.
+You will see something similar to the following. By default, MySQL installs a few system databases that it uses for its own purposes. It is unlikely you ever need to access these yourselves. Just be sure not to delete them.
 ```sh
 +----------------------+
 | Database             |
@@ -36,12 +38,12 @@ You will see something similar to the following. By default MySQL installs a few
 3 rows in set (0.03 sec)
 ```
 
-Now let's create a databases.
+Now let's create a database.
 ```sql
 CREATE DATABASE bootcamp;
 ```
 
-You should get something similar to the following response. What you are really looking for is an affected row count.
+You should get something similar to the following response. What you are looking for is an affected row count.
 ```sh
 Query OK, 1 row affected (0.00 sec)
 ```
@@ -51,7 +53,7 @@ Now verify the database has been created. Run the following command and you will
 SHOW DATABASES;
 ```
 
-Now lets use our new database.
+Now, let's use our new database.
 ```sql
 USE bootcamp;
 SHOW TABLES;
@@ -59,13 +61,13 @@ SHOW TABLES;
 
 _show tables;_ shows a list of tables from the current database. After running this command the DBMS should respond with _Empty set (0.00 sec)_.
 
-Let's say we were going to build our own blogging software in the form of a web application. We will start by gathering some requirements.
-* As a blogger I need to be able to create blog posts.
+Let's say we were going to build our blogging software in the form of a web application. We will start by gathering some requirements.
+* As a blogger, I need to be able to create blog posts.
 * As a web site owner I need to assure that only authorized people can post to the blog.
 
-From a data perspective the first item can be achieved with a table named _users_ the second with a table named _posts_.
+From a data perspective, the first item can be achieved with a table named _users_ the second with a table named _posts_.
 
-Tables are created using the _CREATE TABLE_ command. ```CREATE TABLE _tablename_()``` where _tablename_ is the name of the table to be created. The columns in your table are passed into the parentheses as comma separated values.
+Tables are created using the _CREATE TABLE_ command. ```CREATE TABLE _tablename_()``` where _tablename_ is the name of the table to be created. The columns in your table are passed into the parentheses as comma-separated values.
 
 Add the following table to your bootcamp database.
 
@@ -85,14 +87,14 @@ We already talked about _CREATE TABLE_ now lets look at the columns definitions.
 * id - This is the name of the column. Most tables will have an id column.
 * VARCHAR(36) - This allows any character on the keyboard but caps the length at 36 characters. This is usually indicative of a UUID or GUID.
 * PRIMARY KEY - Every table SHOULD have a primary id. This serves as a unique index for that table.
-* COMMENT 'Primary Key UUID' - A short description about the purpose of this column. In practice I wouldn't comment obvious fields.
+* COMMENT 'Primary Key UUID' - A short description stating the purpose of this column. In practice, I wouldn't comment obvious fields.
 
 Lets jump to the modified column _modified DATETIME DEFAULT CURRENT&#95;TIMESTAMP ON UPDATE CURRENT&#95;TIMESTAMP_
 
 * modified - The name of the column.
 * DATETIME - Sets the datatype to a mysql time stamp _YYYY-MM-DD HH:MM:SS_
 * DEFAULT CURRENT_TIMESTAMP - When a new row is created the modified column will default to the time of creation.
-* ON UPDATE CURRENT_TIMESTAMP - When a new row is created the modified column will change to the time of update.
+* ON UPDATE CURRENT_TIMESTAMP - When a new row is created the modified column will change to the time of the update.
 
 Now let's create the table for holding our blog posts.
 
@@ -101,8 +103,8 @@ CREATE TABLE posts (
     id CHAR(36) PRIMARY KEY COMMENT 'Primary Key UUID',
     title VARCHAR(255) COMMENT 'The title of the blog post',
     slug VARCHAR(255) COMMENT 'A human and SEO friendly lookup key',
-    meta_keywords VARCHAR(255) COMMENT 'Meta data for SEO',
-    meta_description VARCHAR(255) COMMENT 'Meta data for SEO',
+    meta_keywords VARCHAR(255) COMMENT 'Metadata for SEO',
+    meta_description VARCHAR(255) COMMENT 'Metadata for SEO',
     body TEXT COMMENT 'The content of the blog post',
     user_id CHAR(36) COMMENT 'The creator of the blog post',
     created DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'When the post was created',
@@ -120,7 +122,7 @@ SHOW COLUMNS FROM users;
 DESCRIBE posts;
 ```
 
-Now that we have created a couple of tables. Let's add some data. Run the following command from your bootcamp database replacing xxxx with you information.
+Now that we have created a couple of tables. Let's add some data. Run the following command from your bootcamp database replacing xxxx with your information.
 
 ```sql
 INSERT INTO users SET id=UUID(), first_name='xxxx', last_name='xxxx', email='xxxx';
@@ -147,7 +149,7 @@ WHERE
   email='xxxx';
 ```
 
-Id rather see the user's name in a single column formatted as _last, first_
+I'd rather see the user's name in a single column formatted as _last, first_
 ```sql
 SELECT
   CONCAT('last_name', ', ', first_name) AS user
@@ -168,7 +170,7 @@ SET
   email='bsmith@exampl.com';
 ```
 
-Let's find all users with a _.com_ and sort in ascending order by last name.
+Let's find all users with a _.com_ and sort in ascending order by the last name column.
 ```sql
 SELECT
   CONCAT('last_name', ' ', first_name) AS user
@@ -198,21 +200,20 @@ WHERE
   posts.user_id = users.id ;
 ```
 
-For full authentication you will want to add password and salt columns 
+For full authentication, you will want to add password and salt columns 
 * password VARCHAR(60) COMMENT 'A salted hash of the password'
-* salt VARCHAR(128) COMMENT 'User specific salt'
+* salt VARCHAR(128) COMMENT 'User-specific salt'
 
 ```sql
 ALTER TABLE users
   ADD COLUMN password VARCHAR(60) DEFAULT NULL COMMENT 'A salted hash of the password',
-  ADD COLUMN salt VARCHAR(128) DEFAULT NULL  COMMENT 'User specific salt';
+  ADD COLUMN salt VARCHAR(128) DEFAULT NULL  COMMENT 'User-specific salt';
 ```
 
 >**Security Checkpoint**  
->Never store a password in plain text, always store a hashed version of the password. Always create a user specific salt this will protect against [rainbow table attacks](https://en.wikipedia.org/wiki/Rainbow_table).
+>Never store a password in plain text, always store a hashed version of the password. Always create a user-specific salt this will protect against [rainbow table attacks](https://en.wikipedia.org/wiki/Rainbow_table).
 
-
-Insert mulitple records
+Insert multiple records
 ```sql
 INSERT INTO users 
   (id, first_name, last_name, email)
