@@ -1,6 +1,6 @@
 # Game
 
-The purpose of this section is to cover basic concepts for build a game using HTML5.
+The purpose of this section is to cover some basic concepts of building games using HTML5.
 
 1. Creating a canvas.
 1. Drawing a player sprite.
@@ -199,9 +199,9 @@ game.init();
 
 1. Add a default direction for player movement.
 1. Add x pixels to move the player to the right
-1. Change the player direction when the player touches the edge of the canvas.
+1. Change the player's direction when the player touches the edge of the canvas.
 1. Subtract x pixels to move the player to the left.
-1. Change the player direction when the player touches the edge of the canvas.
+1. Change the player's direction when the player touches the edge of the canvas.
 
 ```js
 var game = (function(){
@@ -801,7 +801,7 @@ window.addEventListener('keyup', function(){
 [</> code]() Add collision detection and end game on collision
 
 1. Add the animation frames to a variable that we can kill later
-2. Track the state of game over
+2. Track the state of game-over
 3. When each spawn move detect if that spawn shares common pixels with the player. 
    1. If so this is a collision.
 4. If there is a collision.
@@ -842,7 +842,7 @@ var game = (function(){
   //that we can kill later
   var animation  = null;
 
-  //2. Track the state of game over
+  //2. Track the state of game-over
   var gameOver = false;
 
 
@@ -872,7 +872,7 @@ var game = (function(){
 
   return {
     //Note: For collision detection to work, spawns and players need a common scope. 
-    //For now we are focused on a proof of concept so we will move the moveSpawns() method
+    //For now, we are focused on a proof of concept so we will move the moveSpawns() method
     //to within the return object. We will refactor this later.
     moveSpawns: function(){
 
@@ -903,7 +903,7 @@ var game = (function(){
 
             ctx.restore();
 
-            //3. When each spawn move detect if that spawn shares common pixels
+            //3. When each spawn moves detect if that spawn shares common pixels
             //with the player. If so this is a collision.
             //@see https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection
             if (
@@ -1011,7 +1011,7 @@ window.addEventListener('keyup', function(){
 [</> code]() Add a scoring mechanism
 
 1. Create a variable to hold the score.
-1. Increment the score when any time an enemy sprite move off screen.
+1. Increment the score when any time an enemy sprite moves off screen.
 1. Write the score to a separate div.
 1. Over lay the score on the top left corner of the canvas.
 1. Add a preset score div to the HTML page.
