@@ -9,7 +9,7 @@ Before we dive into the Mailgun API we should take a moment to talk about JavaSc
 
 Curly braces _{}_ encapsulates a JSON string (creates an object in JS)
 
-Colons _:_ separate key to value pairs, fields are comma separated (aka CSV or comma separated values).
+Colons _:_ separate key-to-value pairs, fields are comma-separated (aka CSV or comma-separated values).
 ```json
 {
   '_id':1234,
@@ -94,13 +94,13 @@ $user = $users->get(1234);
 echo $user['firstname'];
 ```
 
-The Mailgun SDK abstracts most of the JSON interaction away from us, so we are left working mostly with PHP objects. JSON will come up again so this seems a good time introduce it.
+The Mailgun SDK abstracts most of the JSON interaction away from us, so we are left working mostly with PHP objects. JSON will come up again so this seems a good time to introduce it.
 
 ## Mailgun API
 
 ### Exercise - Getting Started with Mailgun.
 
-Go to [mailgun.com](https://www.mailgun.com/) and create a free account. You may choose not to add a credit card as we will be working with the sandbox. You will need to activate your account via email and SMS, this requires a phone number that receive texts. If you do not have one try creating a Google Voice account.
+Go to [mailgun.com](https://www.mailgun.com/) and create a free account. You may choose not to add a credit card as we will be working with the sandbox. You will need to activate your account via email and SMS, this requires a phone number that can receive texts. If you do not have one try creating a Google Voice account.
 
 The landing page will provide you the details you need need to send a test email. Start by creating a shell script and pasting the curl example into the shell.
 
@@ -130,7 +130,7 @@ chmod +x mailgun.sh
 ./mailgun.sh
 ```
 
-If you see a [json](http://www.json.org/) response similar to this, your sand box account is working.
+If you see a [json](http://www.json.org/) response similar to this, your sandbox account is working.
 
 ```json
 {
@@ -185,7 +185,7 @@ composer.json
 composer.lock
 ```
 
-Commit these files and push to the new feature branch.
+Commit these files and push them to the new feature branch.
 ```sh
 git add .
 git commit -m 'Added mailgun lib'
