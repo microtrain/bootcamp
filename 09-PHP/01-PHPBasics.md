@@ -1,8 +1,8 @@
 # PHP Basics
 
-PHP (the P in LAMP stack) is a popular server side scripting language. Once you have a LAMP server up an running, getting started with PHP is pretty easy.
+PHP (the P in LAMP stack) is a popular server-side scripting language. Once you have a LAMP server up and running, getting started with PHP is pretty easy.
 
-Since this is a dev environment we want to able to debug errors. Lets tell Apache to show us errors when accessing PHP files.
+Since this is a dev environment we want to able to debug errors. Let's tell Apache to show us errors when accessing PHP files.
 
 ```sh
 sudo vim /etc/php/7.2/apache2/php.ini
@@ -15,7 +15,7 @@ sudo service apache2 reload
 ```
 
 >**Security Check Point**  
->It is never advisable to show errors in a productions environment. This provides information to hackers that can be used to compromise your system.
+>It is never advisable to show errors in a production environment. This provides information to hackers that can be used to compromise your system.
 
 ## Hello World
 
