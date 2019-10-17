@@ -1,23 +1,23 @@
 # CakePHP
 
-CakePHP is and MVC (Model, View, Controller) based rapid application development (RAD) framework built using PHP. CakePHP has a solid eco-system and is designed around test driven development (TDD).
+CakePHP is an MVC (Model, View, Controller) based rapid application development (RAD) framework built using PHP. CakePHP has a solid eco-system and is designed around test-driven development (TDD).
 
 ## CRUD
 
 Create, Read, Update, Delete
 
 ## Migrations
-Rolling snapshots of the database structure. These allow you migrate your database's structure forward and backwards across snapshots.
+Rolling snapshots of the database structure. These allow you to migrate your database's structure forward and backward across snapshots.
 
 ## Create a Repository on GitHub
 
-* Create the  repository *cake.example.com*.
+* Create the repository *cake.example.com*.
 * **DO NOT** Initialize with a README
 * **DO NOT** Add the MIT License
 
 ## Installation
 
-First make sure you have installed internationalization functions for PHP.
+First, make sure you have installed internationalization functions for PHP.
 ```sh
 sudo apt-get install php-intl
 ```
@@ -44,11 +44,11 @@ Spin up a development web server.
 bin/cake server
 ```
 
-In a browser go to [http://localhost:8765/](http://localhost:8765/). You will be presented a default home page that shows that gives you plenty of resources to help you learn CakePHP and it will return a system status that makes sure you system is set up correctly. Everything should be green except for the database.
+In a browser go to [http://localhost:8765/](http://localhost:8765/). You will be presented with a default home page that shows that gives you plenty of resources to help you learn CakePHP and it will return a system status that makes sure you system is set up correctly. Everything should be green except for the database.
 
 ![default home page](/img/cakephp/default_home.png)
 
-Add *cake.example.com* as a project to VSC. Navigate to *config/app.php* this is the default configuration file for your application. CakePHP stores it configuration as an array, find the *Datasources* attribute somewhere around the the line *220* (you can use the shortcut [ctrl] + [g] and enter *220*). You will notice two child attributes *default* and *test*. *default* holds the configuration for your application's database while test holds the configuration for running unit tests.
+Add *cake.example.com* as a project to VSC. Navigate to *config/app.php* this is the default configuration file for your application. CakePHP stores its configuration as an array, find the *Datasources* attribute somewhere around the line *220* (you can use the shortcut [ctrl] + [g] and enter *220*). You will notice two-child attributes *default* and *test*. *default* holds the configuration for your application's database while test holds the configuration for running unit tests.
 
 ### Setup Your Database
 
@@ -80,7 +80,7 @@ Return to http://localhost:8765/](http://localhost:8765/) and refresh the page, 
 
 ### Configure Apache
 
-Let's set up an Apache configuration with a local hosts entry for development purposes.
+Let's set up an Apache configuration with a localhost entry for development purposes.
 
 ````sh
 sudo vim /etc/apache2/sites-available/cake.example.com.conf
@@ -123,12 +123,12 @@ Add the following to */etc/hosts*
 127.0.0.101      loc.cake.example.com
 ```
 
-and finally load the new site.
+and finally, load the new site.
 ```sh
 sudo a2ensite cake.example.com && sudo service apache2 restart
 ```
 
-Navigate to [http://loc.cake.example.com/](http://loc.cake.example.com/) and you should encounter write permission issues. Resolve this by changing ownership of these files to the Apache process (www-data) and Yourself (replace jason with your Ubuntu username).
+Navigate to [http://loc.cake.example.com/](http://loc.cake.example.com/) and you should encounter write permission issues. Resolve this by changing ownership of these files to the Apache process (www-data) and the current user ($USER).
 ```sh
 sudo chown www-data:$USER logs
 sudo chown www-data:$USER logs/*
@@ -140,9 +140,9 @@ sudo chown www-data:$USER tmp/*/*/*
 
 Return to [http://loc.cake.example.com/](http://loc.cake.example.com/) and all systems should now be a go.
 
-### Merge with the Exisiting GitHub Project
+### Merge with the Existing GitHub Project
 
-[</> Code](https://github.com/stack-x/cake.example.com/commit/5206abb675ad8decf9664a543e2d3022c42a17f5) Run the following commands, be sure to replace YOUR-GITHUB-USERNAME with your github username.
+[</> Code](https://github.com/stack-x/cake.example.com/commit/5206abb675ad8decf9664a543e2d3022c42a17f5) Run the following commands, be sure to replace YOUR-GITHUB-USERNAME with your GitHub username.
 
 ```sh
 cd /var/www/cake.example.com
@@ -154,15 +154,15 @@ git commit -am 'Initial build'
 git push origin master
 ```
 
-### Cake File Structure, Callbacks and Routing
+### Cake File Structure, Callbacks, and Routing
 
 @todo navigate to src, explain the directory structure Model, Views and Controller
-@todo callback methods and life cycles as it pertains a CakePHP and Programming in general.
+@todo callback methods and life cycles as it pertains to a CakePHP and Programming in general.
 
 <!--
 ## Build a Blog
 
-We will start by using Composer to install CakeDC's [User Authentication plugin](https://github.com/CakeDC/users). We will then bake an Posts CRUD which we will use for posting to our blog. In your console, please navigate to **/var/www/cake.example.com**, this tutorial assumes **/var/www/cake.example.com** as the base path for all cd, file and folder creation commands.
+We will start by using Composer to install CakeDC's [User Authentication plugin](https://github.com/CakeDC/users). We will then bake a Posts CRUD which we will use for posting to our blog. In your console, please navigate to **/var/www/cake.example.com**, this tutorial assumes **/var/www/cake.example.com** as the base path for all cd, file and folder creation commands.
 -->
 ### Users
 
@@ -195,11 +195,11 @@ bin/cake migrations migrate -p CakeDC/Users
 
 7. Navigate to [http://loc.cake.example.com/users/users/login](http://loc.cake.example.com/users/users/login) and have a look around. Use the navigation links to find the registration page and create an account.
 
-8. Notice you will not be able to login, this is because you have not yet clicked the autorization link out of your email. THe local server cannot send emails so you will have manually flip that switch in the database.
+8. Notice you will not be able to log in, this is because you have not yet clicked the authorization link out of your email. The local server cannot send emails so you will have manually flip that switch in the database.
 
 9. Login to PhpMyAdmin, find your user record in the cake_app database and flip the active and superuser flags to 1.
 
-10. Now return to the login page and try to login. On success you will be redirected to the CakePHP debug page.
+10. Now return to the login page and try to log in. On success, you will be redirected to the CakePHP debug page.
 
 
 ### Posts CRUD
@@ -208,7 +208,7 @@ We will keep our blog posts in a table called posts.
 #### Add the Database Tables
 
 * Login to phpMyAdmin [https://localhost/phpmyadmin](https://localhost/phpmyadmin)
-* Click into cake > cake_app from the side bar
+* Click into cake > cake_app from the sidebar
 * Click on the SQL tab
 * Copy and Paste the following the text area and hit submit
 * Repeat this process for cake > cake_test
@@ -218,10 +218,10 @@ We will keep our blog posts in a table called posts.
 CREATE TABLE posts (
     id CHAR(36) PRIMARY KEY COMMENT 'Primary Key UUID',
     title VARCHAR(255) COMMENT 'Title of a blog post',
-    slug VARCHAR(255) COMMENT 'An SEO and human friendly lookup key',
-    meta_keywords VARCHAR(255) COMMENT 'Meta data for SEO',
-    meta_description VARCHAR(255) COMMENT 'Meta data for SEO',
-    body TEXT COMMENT 'The coment of the blog post',
+    slug VARCHAR(255) COMMENT 'An SEO and human-friendly lookup key',
+    meta_keywords VARCHAR(255) COMMENT 'Metadata for SEO',
+    meta_description VARCHAR(255) COMMENT 'Metadata for SEO',
+    body TEXT COMMENT 'The comment of the blog post',
     user_id CHAR(36) COMMENT 'The creator of the blog post',
     created DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Timestamp of creation',
     modified DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Timestamp of last modification' 
@@ -239,7 +239,7 @@ INSERT INTO posts (id,title,slug,body,user_id)
 ```
 
 #### Bake the Model
-Since we have the table in our database we can automate the build by *baking* the CRUD (model, views and controllers). Run the following command and take note of what files get created. In addition to creating an Entity and a Table classes, fixtures and tests will be created, thie will provide a placeholder for building unit tests. 
+Since we have the table in our database we can automate the build by *baking* the CRUD (model, views, and controllers). Run the following command and take note of what files get created. In addition to creating an Entity and a Table classes, fixtures and tests will be created, this will provide a placeholder for building unit tests. 
 
 ```sh
 bin/cake bake model Posts
@@ -286,7 +286,7 @@ public function initialize()
 
 ### Create Slugs in the Background
 
-We will move our slug creation logic from the Posts controller to the Posts table. Here we will use a callback to create slugs in the background. We will create a unit test to verifiy our slug creation logic.
+We will move our slug creation logic from the Posts controller to the Posts table. Here we will use a callback to create slugs in the background. We will create a unit test to verify our slug creation logic.
 
 Call the namespace for the Utility class.
 *src/Model/Table/PostsTable.php*
@@ -360,7 +360,7 @@ vendor/bin/phpunit tests/TestCase/Model/Table/PostsTableTest
 ```
 
 ### Add User Authentication
-[</> code](https://github.com/stack-x/cake.example.com/commit/9d8a65128621e75f8f17c95925ad27219e5b786b) Add an instance variable to hold the session object, set this variable during initialization. The following reads as set this instance of ```$session``` to the session object from this instance of the request object. This will provide a short hand for accessing the session data in controllers.
+[</> code](https://github.com/stack-x/cake.example.com/commit/9d8a65128621e75f8f17c95925ad27219e5b786b) Add an instance variable to hold the session object, set this variable during initialization. The following reads as "set this instance of ```$session``` to the session object from this instance of the request object." This will provide a short hand for accessing the session data in controllers.
 
 *src/Controller/AppController.php*
 ```php
@@ -422,7 +422,7 @@ Navigate to [http://loc.cake.example.com/users/users](http://loc.cake.example.co
 
 ### Lab 1 - Composer
 
-Using the documentation for the users plugin add the ability to login using a social media platform of your choice.
+Using the documentation for the users plugin, add the ability to log in using a social media platform of your choice.
 
 ### Lab 2 - Comment System
 
@@ -432,8 +432,8 @@ Using the documentation for the users plugin add the ability to login using a so
   * first_name - the first name of the reader making a comment
   * last_name - the last name of the reader making a comment
   * email - the email of the reader making a comment
-  * comment - the readers comment
-  * created - current time stamp at the time of submission
+  * comment - the reader's comment
+  * created - current timestamp at the time of submission
 1. At the bottom of each article provide a form that will collect the above data and on submit
   * Save the data to the comments table
 
