@@ -1,12 +1,12 @@
 # Working with MongoDB
 
-MongoDB is a distributed noSQL noSchema document database designed for scalability, high availability, and high performance.
+MongoDB is a distributed NoSQL NoSchema document database designed for scalability, high availability, and high performance.
 
 ## Install MongoDB
 
 [Install MongoDB on Ubuntu 16.04](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
 
-By default the Ubuntu package manager does not know about the MongoDB repository so you'll need to add it to your system. First add MongoDB's private key to the package manager. Then, update the repository list. Finally, reload the package database.
+By default, the Ubuntu package manager does not know about the MongoDB repository so you'll need to add it to your system. First, add MongoDB's private key to the package manager. Then, update the repository list. Finally, reload the package database.
 
 ```sh
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
@@ -56,7 +56,7 @@ Show a list of all databases.
 show databases
 ```
 
-You will not see your new database listed until you insert at least on document into it. This will create a collection called users.
+You will not see your new database listed until you insert at least one document into it. This will create a collection called users.
 
 ```sh
 db.users.insert({"email":"youremail@example.com","firstname":"YourFirstName","lastname":"YourLastName"})
@@ -68,7 +68,7 @@ _db_ this calls the database object.
 
 _insert()_ is a method of the collection object, this inserts a record into a target collection. The JSON string contains the key/value pairs that will be inserted into the document. Documents in MongoDB are JSON strings.
 
-_users_ this is the collection upon which collection methods are called. If a collection does not exists, calling insert against the collection will create the collection.
+_users_ this is the collection upon which collection methods are called. If a collection does not exist, calling insert against the collection will create the collection.
 
 
 Now if run you ```sh show databases``` you will see _cms_ in the list. Next, you will want to look up your list of collections.
@@ -114,7 +114,7 @@ Full document replacement by ommiting the update modifier
 db.users.update({ "_id" : ObjectId(PASTE TARGET ID HERE)}, {"email":"new@email.com"})
 ```
 
-The same JSON string you build for looking up documents can be used for deletion by passing that string into the remove method of collection.
+The same JSON string you build for looking up documents can be used for deletion bypassing that string into the remove method of collection.
 
 ```sh
 db.users.find()
