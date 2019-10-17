@@ -38,7 +38,7 @@ Start by defining a canvas, this tells JavaScript which element to use as the ca
 </script>
 ```
 
-Then add a context, we will start with the 2D context. A canvas may have only one context so everything you draw gets merged into a single bitmap. Once drawn it is a ll a single image. When the canvas was created it was stored in the object we named ```canvas``` to apply a fill color access the [```getContext()```](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext) method of the ```canvas``` object.
+Then add a context, we will start with the 2D context. A canvas may have only one context so everything you draw gets merged into a single bitmap. Once drawn it is all a single image. When the canvas was created it was stored in an object named ```canvas```. To add a fill color to the object, access the [```getContext()```](https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/getContext) method of the ```canvas``` object.
 ```html
 <script>
   var canvas = document.getElementById('canvas');
@@ -46,7 +46,7 @@ Then add a context, we will start with the 2D context. A canvas may have only on
 </script>
 ```
 
-We will start by drawing a rectangle, the first thing you will want to do is choose a fill color for your rectangle. Let's choose this at random. When the context was created it was stored in the object we named ```ctx``` to apply a fill color access the [```fillStyle```](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle) property of the ```ctx``` object.
+We will start by drawing a rectangle, the first thing you will want to do is choose a fill color for your rectangle. Let's choose this at random. When the context was created it was stored in the object we named ```ctx``` to add a fill color access the [```fillStyle```](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/fillStyle) property of the ```ctx``` object.
 
 ```html
 <script>
@@ -107,7 +107,7 @@ We will use [```Math.random()```](https://developer.mozilla.org/en-US/docs/Web/J
 ```
 
 ### Add a circle
-[CanvasRenderingContext2D.arc()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc) is the method used for drawing a circle. For a rectangle the x,y coordinates represent the the top left corner of a the rectangle for a circle x,y represents the center of a circle. Where the third and fourth arguments of fillRect represent the height and width the third and fourth arguments represent the start and ending point of the arc to be drawn, for a complete circle you will always start at 0 and end at tau or pi^2 (2*pi).
+[CanvasRenderingContext2D.arc()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc) is the method used for drawing a circle. For a rectangle the x,y coordinates represent the top left corner of the rectangle for a circle x,y represents the center of a circle. Where the third and fourth arguments of fillRect represent the height and width the third and fourth arguments represent the start and ending point of the arc to be drawn, for a complete circle you will always start at 0 and end at tau or pi^2 (2*pi).
 
 Add the following to the bottom of the script tags in your _/var/www/mtbc/draw/rand.html_ file and refresh the page.
 ```js
@@ -119,7 +119,7 @@ ctx.stroke();
 
 ## Drawing Program
 
-For this exercise we will create a drawing program. This will allow the user to choose shapes and colors then they will be able to drop images onto the canvas.
+For this exercise, we will create a drawing program. This will allow the user to choose shapes and colors then they will be able to drop images onto the canvas.
 
 Create the paths
 * _/var/www/draw/program.html_
@@ -221,9 +221,9 @@ nav ul li button {
 }
 ```
 
-Navigate to [http://localhost/draw/program.html](http://localhost/draw/program.html) and you'll see a canvas beside a space for a side nav. The canvas will have two rectangles.
+Navigate to [http://localhost/draw/program.html](http://localhost/draw/program.html) and you'll see a canvas to the right of a grey sidebar. The canvas will have two rectangles.
 
-In order to be able to draw a we will need to know where our cursor is on the canvas. Let's start by tracking our mouse movements adding an [event listener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) to the canvas. The listener will will trigger functionality every time the pixel position changes by a pixel. We will use [Element.getBoundingClientRect()](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) to get the position of the cursor.
+To be able to draw we will need to know where our cursor is on the canvas. Let's start by tracking our mouse movements adding an [event listener](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener) to the canvas. The listener will trigger functionality every time the pixel position changes by a pixel. We will use [Element.getBoundingClientRect()](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect) to get the position of the cursor.
 
 ```js
 //Track the x,y position
@@ -245,8 +245,8 @@ As you move your mouse around the canvas you'll notice the x,y cords now appear 
 
 ### Refactoring
 
-So far all of our code has been written out in the global name space which means the data also lives in the global name space. It is considered good practice to restrict access to you program data and methods (functions) to a non-global scope. For this we will use a
-(closure)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures]. To me more precise we will use a [closure that emulates private data](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#Emulating_private_methods_with_closures).
+So far all of our code has been written out in the global namespace which means the data also lives in the global namespace. A common practice is to restrict access to your program data and methods (functions) to a non-global scope. For this, we will use a
+(closure)[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures]. To be more precise we will use a [closure that emulates private data](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures#Emulating_private_methods_with_closures).
 
 Replace your JavaScript with the following closure.
 ```js
@@ -320,7 +320,7 @@ draw.getCanvas().addEventListener('mousemove', function(evt) {
 draw.drawRect();
 ```
 
-The previous code creates a draw object which will live on the global name space. The advantage is that the objects data and methods are encapsulated within the closure so they are protected from manipulation from any code that might share a common property name. For example, ```x``` might be a variable name in a third party library you have included in your project, the value of that libraries x could interfere (or collide) with the value of your programs x. Encapsulating as draw.x reduces the chance of collision; treating this a private property protects this even further. You could further protect the draw method by creating a namespace. Reversing your domain name is a common practice for namespacing. The real goal is to try and create something that is as unique as possible, a domain name you own should accomplish this, but it is not required. For the sake of this exercise we will forgo the use of a namespace.
+The previous code creates a draw object which will live on the global namespace. The advantage is that the data and methods of the object are encapsulated within the closure so they are protected from manipulation from any code that might share a common property name. For example, ```x``` might be a variable name in a third party library you have included in your project, the value of that libraries x could interfere (or collide) with the value of your programs x. Encapsulating as draw.x reduces the chance of collision; treating this a private property protects this even further. You could further protect the draw method by creating a namespace. Reversing your domain name is a common practice for creating a namespace. The real goal is to try and create something as unique as possible, a domain name you own should accomplish this, but it is not required. For the sake of this exercise, we will forgo the use of a namespace.
 ```js
 var com.example.app = com.example.app || {};  
 com.example.app.draw = (function() {});
@@ -334,7 +334,7 @@ Remove the following from your JavaScript
 draw.drawRect();
 ```
 
-In order to draw a rectangle we need to know the x,y coordinates of the top left corner as well as the desired height and width. The ```mousemove``` event tells us where we are on the canvas but we need to know where the user wants to draw the triangle and how big they want it. We can figure this out by using two more events ```mousedown``` and ```mouseup```. This will give us the starting and ending points of a mouse drag. ```mousedown``` gives us the starting x,y coordinates or x1,y1. ```mouseup``` gives us the ending x,y coordinates or x2,y2. from tis we can calculate the height and width as _width=x2-x1_ and _h=y2-y1_
+To draw a rectangle, we need to know the x,y coordinates of the top left corner as well as the desired height and width. The ```mousemove``` event tells us where we are on the canvas but we need to know where the user wants to draw the triangle and how big they want it. We can figure this out by using two more events ```mousedown``` and ```mouseup```. This will give us the starting and ending points of a mouse drag. ```mousedown``` gives us the starting x,y coordinates or x1,y1. ```mouseup``` gives us the ending x,y coordinates or x2,y2. from this, we can calculate the height and width as _width=x2-x1_ and _h=y2-y1_
 
 We will start by adding variables for x1,y1,x2,y2.
 
@@ -372,7 +372,7 @@ drawRect: function(x,y,h,w) {
 },
 ```
 
-Now we need to add two methods to set the starting and ending coordinates. Add the following bellow the writeXY() function. In OOP this kind of method is typically referred to a setter. In that the purpose of this method is to set/change the value of a property, typically a private property.
+Now we need to add two methods to set the starting and ending coordinates. Add the following bellow the writeXY() function. In OOP this kind of method is typically referred to as a setter. The purpose of a setter is to set/change the value of a property, typically a private property.
 ```js
 setStart: function() {
   x1=x;
@@ -394,7 +394,7 @@ draw.getCanvas().addEventListener('mousedown', function() {
 
 ```
 
-To get the ending position we add a ```mouseup``` listener to the canvas and call the ```setEnd()``` method. At this point x1,y1,x2 and y2 are all set, this all we need to draw the rectangle, so we will also call the ```drawRect()``` function. Add the following to the end of your JavaScript.
+To get the ending position we add a ```mouseup``` listener to the canvas and call the ```setEnd()``` method. At this point x1,y1,x2,y2 are all set, this all we need to draw the rectangle, so we will also call the ```drawRect()``` function. Add the following to the end of your JavaScript.
 ```js
 draw.getCanvas().addEventListener('mouseup', function() {
   draw.setEnd();
@@ -504,12 +504,12 @@ draw.getCanvas().addEventListener('mouseup', function() {
 }, false);
 ```
 
-At some point we want to draw shapes other than a rectangle. Let's start by creating a button that allows to choose a rectangle then we can add more buttons for more shapes. Let's by adding a rectangle button to the navigation list. We will give this button an id of _btnRect_.
+At some point, we will want to draw shapes other than a rectangle. Let's start by creating a button that allows us to choose a rectangle then we can add more buttons for more shapes. Let's by adding a rectangle button to the navigation list. We will give this button an id of _btnRect_.
 ```html
 <li><button id="btnRect">Rectangle</button></li>
 ```
 
-We will need to two things to make this work (1) wire the button up to an ```onclick``` event listener and (2) wire that ```onclick``` event up draw object so that the object knows what to do. Let's start by adding a shape variable as a private property of the draw object.
+We will need to do two things to make this work (1) wire the button up to an ```onclick``` event listener and (2) wire that ```onclick``` event up draw object so that the object knows what to do. Let's start by adding a shape variable as a private property of the draw object.
 
 Let's change
 ```js
@@ -528,7 +528,7 @@ y2=0,
 shape='';
 ```
 
-Now we will need a setter, add the following below the setEnd() method.
+Now we will need a setter, add the following below the ```setEnd()``` method.
 ```js
 //Sets the shape to be drawn
 setShape: function(shp) {
@@ -578,7 +578,7 @@ draw: function() {
 },
 ```
 
-Now we want to add more shapes, let's start with a [line](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo). To begin drawing a line you need to begin a path, set x1,y1 and x2,y2, then call the stroke method to draw the line. Which looks like the following.
+Now we want to add more shapes, let's start with a [line](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/lineTo). To begin drawing a line you need to begin a path, set x1, y1 and x2, y2, then call the stroke method to draw the line. Which looks like the following.
 ```js
 ctx.beginPath();
 ctx.moveTo(x1, y1);
@@ -628,7 +628,7 @@ document.getElementById('btnLine').addEventListener('click',function(){
 }, false);
 ```
 
-Repeat the previous steps but in the context of drawing a circle. The ```drawCircle()``` will simply create an ```alert()``` stating it doesn't do anything. At this point your JavaScript should read as follows.
+Repeat the previous steps but in the context of drawing a circle. The ```drawCircle()``` will simply create an ```alert()``` stating it doesn't do anything. At this point, your JavaScript should read as follows.
 ```js
 var draw = (function() {
 
@@ -814,14 +814,14 @@ and the HTML
 
 We have everything we need to draw a [circle](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc) which in this context is a 360 degree arc. Our starting x,y position (x1, y1) represents the center of the circle our stopping point (x2,y2) rests on the circumference of the circle. With these two points we can use Pythagoreans theorem A<sup>2</sup> + B<sup>2</sup> = C<sup>2</sup> to calculate the radius of the circle.
 
-In code this might look like.
+In code, this might look like.
 ```js
 let a = (x1-x2)
 let b = (y1-y2)
 let radius = Math.sqrt( a*a + b*b );
 ```
 
-I think the first three arguments in the ```arc()``` method are pretty clear _x,y,radius_. _x,y_ defines the center of the circle and of course _radius_ is what we just calculated. That leaves us with _startAngle_ and _endAngle_. Since we are drawing a complete circle the angle will always start where it ends. This is represented as 0 and 2 times pi ```2*Math.PI```.
+Three arguments in the ```arc()``` method are _x,y,radius_. _x,y_ defines the center of the circle and _radius_ is what we just calculated. That leaves us with _startAngle_ and ```endAngle```. Since we are drawing a complete circle the angle will always start where it ends. This is represented as 0 and 2 times pi ```2*Math.PI```.
 
 Update your ```drawCircle()``` method to the following.
 ```js
@@ -844,14 +844,14 @@ drawCircle: function() {
 
 ### Drawing Paths
 
-We will define a path as a line the follows your cursor during a _mousedown_ (drag) event. There is no context method for this so we will need to create one. How would we define this in code? We start by understanding what it is we want to do.
+We will define a path as a line the follows your cursor during a ```mousedown``` (drag) event. There is no context method for this so we will need to create one. How would we define this in code? We start by understanding what it is we want to do.
 
 1. Select a shape called _path_ this will tell the object that we want to draw a path.
-1. On _mousedown_ we will start drawing.
-1. On _mouseup_ we will stop drawing.
-1. Between the _mouseup_ and _mousedown_ we will draw a line every time the mouse reports a move event.
+1. On ```mousedown```, we will start drawing.
+1. On ```mouseup```, we will stop drawing.
+1. Between the ```mouseup``` and ```mousedown```, we will draw a line every time the mouse reports a ```move``` event.
   1. This line will connect the previously reported coordinates to the current coordinates.
-    * OR you could say we a drawing a one pixel by one pixel line everytime the mouse moves by one pixel in any direction.
+    * OR you could say we a drawing a one-pixel by one-pixel line any time the mouse moves by one pixel in any direction.
 
 We will start by adding a new button and listener for drawing the path.
 
@@ -895,9 +895,9 @@ draw: function() {
 },
 ```
 
-At this point, for all previous draw* methods we would complete our implementation details by hooking a few context methods and we would be done with it. For this method to work we need to track the previous x,y state and draw on _mousemove_ instead of _mouseup_ which means we also need to capture a drawing state (we will call that _isDrawing_).
+At this point, for all previous draw* methods we would complete our implementation details by hooking a few context methods and we would be done with it. For this method to work we need to track the previous x,y state and draw on ```mousemove``` instead of ```mouseup``` which means we also need to capture a drawing state (we will call that ```isDrawing```).
 
-Lets start with by tracking the previous coordinates, we will call these lx,ly (short hand for _last x_ and _last y_).
+Let's start by tracking the previous coordinates, we will call these; lx, ly (shorthand for _last-x_ and _last-y_).
 
 Add the following variables to as private properties.
 ```js
@@ -906,7 +906,7 @@ lx = false,
 ly = false,
 ```
 
-Update your setXY() method so that it updates lx,ly.
+Update your setXY() method so that it updates lx, ly.
 ```js
 //Set the x,y coords based on current event data
 setXY: function(evt) {
@@ -921,14 +921,14 @@ setXY: function(evt) {
 },
 ```
 
-Now we need to call the draw method from our _mousemove_ listener but only if we have chosen to draw a path. This means we need to expose the private _path_ property through a public api we will call this _getShape()_.
+Now we need to call the draw method from our ```mousemove``` listener but only if we have chosen to draw a path. This means we need to expose the private _path_ property through a public api we will call this _getShape()_.
 ```js
 getShape: function() {
   return shape;
 },
 ```
 
-Now that the draw object has a way to report its shape we can use that call the _draw()_ method from the _mousemove_ listener.
+Now that the draw object has a way to report its shape we can use that call the _draw()_ method from the ```mousemove``` listener.
 ```js
 draw.getCanvas().addEventListener('mousemove', function(evt) {
   draw.setXY(evt);
@@ -951,9 +951,9 @@ drawPath: function() {
 },
 ```
 
-Now choosing the path shape and mousing over the canvas will start drawing with out a mouse click. We want a drag to define weather or not the mouse movement should draw we will do this by capturing a state called _isDrawing_.
+Now choosing the path shape and mousing over the canvas will start drawing with out a mouse click. We want a drag to define weather or not the mouse movement should draw we will do this by capturing a state called ```isDrawing```.
 
-Add the a  _isDrawing_ variable as a private property.
+Add the a  ```isDrawing``` variable as a private property.
 ```js
 isDrawing=false;
 ```
@@ -969,7 +969,7 @@ getIsDrawing: function() {
 },
 ```
 
-Now that we have an accessible _isDrawing_ property that we can be toggled from true to false we can use this with our _mousedown_ and _mouseup_ events to control the when and how the path is drawn.
+Now that we have an accessible ```isDrawing``` property that we can be toggled from true to false we can use this with our ```mousedown``` and ```mouseup``` events to control the when and how the path is drawn.
 ```js
 draw.getCanvas().addEventListener('mousemove', function(evt) {
   draw.setXY(evt);
@@ -980,7 +980,7 @@ draw.getCanvas().addEventListener('mousemove', function(evt) {
 }, false);
 ```
 
-At this point your JavaScript should appear as follows.
+At this point, your JavaScript should appear as follows.
 ```js
 var draw = (function() {
 
