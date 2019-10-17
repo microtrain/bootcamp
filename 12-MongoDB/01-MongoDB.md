@@ -109,7 +109,7 @@ Update only, using the update modifier.
 db.users.update({ "_id" : ObjectId(PASTE TARGET ID HERE)}, {$set:{"email":"new@email.com"}})
 ```
 
-Full document replacement by ommiting the update modifier
+Full document replacement by omitting the update modifier
 ```sh
 db.users.update({ "_id" : ObjectId(PASTE TARGET ID HERE)}, {"email":"new@email.com"})
 ```
