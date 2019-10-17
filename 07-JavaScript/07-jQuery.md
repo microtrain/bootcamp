@@ -4,13 +4,13 @@ According to the jQuery website "jQuery is a fast, small, and feature-rich JavaS
 
 *Why we really use it*
 
-* Cross browser compatibility.
+* Cross browser-compatibility.
 * Simply DOM manipulation.
 * Nicely encapsulates AJAX functionality.
 * A good eco-system, lots of third party plugins.
   * A requirement for Bootstrap.
 
-jQuery allows you to simply manipulate the DOM by calling CSS selectors. This is a little more consistent than the native [_querySelector_](https://stackoverflow.com/questions/11503534/jquery-vs-document-queryselectorall). Legacy browsers do not support _querySelector()_ but that is less of a problem now-a-days.
+jQuery allows you to simply manipulate the DOM by calling CSS selectors. This is a little more consistent than the native [_querySelector_](https://stackoverflow.com/questions/11503534/jquery-vs-document-queryselectorall). Legacy browsers do not support _querySelector()_ but that is less of a problem nowadays.
 
 ```js
 // When an element with the id of _colorChanger_ is clicked apply a red font to all _paragraphs_
@@ -35,7 +35,7 @@ $( "#colorChanger" ).on( "click", function( event ) {
 ## Exercise - NASA API
 
 * Get an [API KEY from NASA](https://api.nasa.gov/index.html#getting-started) by filling out the form and checking your email.
-* Create a new project on github called jquery-apod
+* Create a new project on GitHub called jquery-apod
 * Clone the html-starter project to */var/www* as jquery-apod
 * Add the remotes to your newly created GitHub Project.
 * Install your NPM dependencies
@@ -169,7 +169,7 @@ Create a basic HTML structure and add it to _index.html_.
 </html>
 ```
 
-Let's create an object (in the form of a closure) called apod (Astronomy Picture of the Day). We will make an AJAX call to the API which will return a JSON string, this is what we will use to build the program. We will test our API access by returning the result of the AJAX request to a console log. Press [F12] and find the console tab in your browsers developer tools.
+Let's create an object (in the form of a closure) called apod (Astronomy Picture of the Day). We will make an AJAX call to the API which will return a JSON string, this is what we will use to build the program. We will test our API access by returning the result of the AJAX request to a console log. Press [F12] and find the console tab in your browser's developer tools.
 
 */var/www/jquery-apod/src/js/main.js*
 ```js
@@ -234,9 +234,9 @@ iframe {
 If everything worked you will see results similar to the following.
 ![results](/img/jquery/results.png)
 
-In looking at the JSON data you'll notice a date field. By default only pull today's picture, looking at the query parameters section in the [API documentation](https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY) I see I can pass a date in the form of _YYYY-MM-DDD_ as an additional GET parameter. To make things interesting lets add pass a random date every time we call the API.
+In looking at the JSON data you'll notice a date field. By default only pull today's picture, looking at the query parameters section in the [API documentation](https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY) I see I can pass a date in the form of _YYYY-MM-DDD_ as an additional GET parameter. To make things interesting let's add pass a random date every time we call the API.
 
-Add a random date function to the apod object. A good place to start would be [MDN's date documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). A quick Google search will return [this gist](https://gist.github.com/miguelmota/5b67e03845d840c949c4) which provides us a good randomizer for an unformatted date in between a given start and date. This is important because the date cannot be greater than today or less that the first apod _June 16, 1995_.
+Add a random date function to the apod object. A good place to start would be [MDN's date documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date). A quick Google search will return [this gist](https://gist.github.com/miguelmota/5b67e03845d840c949c4) which provides us a good randomizer for an unformatted date in between a given start and date. This is important because the date cannot be greater than today or less than the first APOD on _June 16, 1995_.
 
 ```js
 //Create a random date
@@ -270,7 +270,7 @@ var url = "https://api.nasa.gov/planetary/apod?api_key=YOUR-DATA-DOT-GOV-API-KEY
 
 Now when you refresh the page you will see different JSON strings.
 
-At this point your JS should resemble the following.
+At this point, your JS should resemble the following.
 ```js
 var apod = {
     //Create a random date
@@ -283,7 +283,7 @@ var apod = {
       let m = date.getMonth() + 1; //In JS months start at 0
       let y = date.getFullYear();
 
-      //Change the maonth and day strings so that they match the documented format.
+      //Change the month and day strings so that they match the documented format.
       if(m < 10){
         m = '0'+m
       }
@@ -312,7 +312,7 @@ var apod = {
 apod.init();
 ```
 
-Now it's time to build the UI. We will start by deciding what we want to show on the page. For this exercise we will use the _result.url_ (to show the image), _result.copyright_ to give proper attribution, _result.date_, _apodTitle_ and _result.explanation_.
+Now it's time to build the UI. We will start by deciding what we want to show on the page. For this exercise, we will use the _result.url_ (to show the image), _result.copyright_ to give proper attribution, _result.date_, _apodTitle_ and _result.explanation_.
 
 Replace the success callback in your AJAX call with the following. This assumes the DOM has an element for each of the following ids.
 * [.attr()](http://api.jquery.com/attr/)
@@ -364,7 +364,7 @@ Add the following markup either above or below _apodImg__. Refer to the CSS to s
 
 ##  Single Responsibility Principle
 
-The Single Responsibility Principle is the notion that a class, module, method, etc should only be responsible for one thing. For instance a method called _writeName()_ might be expected to write a name to something. If the method were written as follows, it would be a good example of single responsibility.
+The Single Responsibility Principle is the notion that a class, module, method, etc should only be responsible for one thing. For instance, a method called ```writeName()``` might be expected to write a name to something. If the method were written as follows, it would be a good example of single-responsibility.
 ```js
 writeName(name) {
   $('#firstName').text(name);
@@ -379,13 +379,13 @@ writeName(id) {
   $('#firstName').text(results.name);
 }
 ```
-it would be a bad example of single responsibility in that the _writeName()_ method is now responsible for
+it would be a bad example of single responsibility in that the ```writeName()``` method is now responsible for
 * Connecting to a database
 * Executing a query to to find the name of the desired user.
-* Then writing the users name to the DOM.
+* Then writing the user's name to the DOM.
 And we have not even mentioned error handling yet.
 
-As you can see based on a few comments, trying to d o to much on a single method can get out of hand pretty quickly.
+As you can see based on a few comments, trying to do too much on a single method can get out of hand pretty quickly.
 ```js
 writeName(id) {
   let db = new DB{'user': 'root', 'password':'1234', 'db':'crm'});
@@ -405,14 +405,14 @@ In our current implementation we are asking a lot of out _init()_ method.
 * Processes the results
 * Deals with errors (kind of)
 * Rebuilds the DOM on success
-* It initializes the page onload
-* Rebuilds the page onclick
+* It initializes the page ```onload```
+* Rebuilds the page ```onclick```
 
-My original intent for the _init()_ method was to build the page onload. It's sole responsibility then should be to call the methods required to make that happen.
+My original intent for the ```init()``` method was to build the page ```onload```. It's sole-responsibility then should be to call the methods required to make that happen.
 
-Straight away I see at least to new methods that get me object closer to SRP.
-* _buildDOM()_
-* _getRequest()_
+Straight away I see at least to new methods that get my object closer to SRP.
+* ```buildDOM()```
+* ```getRequest()```
 
 ```js
 //Injects the results of the API call into the DOM
@@ -452,7 +452,7 @@ init: function() {
 },
 ```
 
-This may cause my execution to change as follows. You could also call _apod.gerRequest()_ onload or call _apod.init()_ on click. This is a simple example so the _init()_ method may make a little less sense, in a more complex example the page load would likely have different responsibilities than the click event. In this case one might argue that calling a set of responsibilities in an _init()_ method violates SRP and that these methods should be called individually in a script and I could not argue. At some point you have to make a decision and go with it.
+This may cause my execution to change as follows. You could also call ```apod.getRequest()``` on page load or call ```apod.init()``` on a mouse click. This is a simple example, so the existence od an ```init()``` method may make a little less sense. In more complex examples, the page load would likely have different responsibilities than the click event. In this case, one might argue that calling a set of responsibilities in an ```init()``` method violates SRP and that these methods should be called individually in a script; I would not argue this point. At some point, you have to make a decision and go with it.
 
 ```js
 apod.init();
@@ -474,7 +474,7 @@ NASA API in Vanilla JS
 * Clone html-stater or your existing apod project.
 * Rewrite the project without the use of jQuery.
 
-Using the jQuery based code from the previous example as a guide, create the same functionality using vanilla JS. This will give you experience in writing AJAX logic using both jQuery and Vanilla JS.
+Using the jQuery-based code from the previous example as a guide, create the same functionality using vanilla JS. This will give you experience in writing AJAX logic using both jQuery and Vanilla JS.
 
 ## Lab 3 - Port to jQuery
 Create the project draw-jquery.
