@@ -37,7 +37,7 @@ SELECT phone FROM customers WHERE id = 123
 1 result
 (555) 861-2025, (555) 122-1111
 
-Thrid normal form would change this so that the customer data and phone numbers are sotred in seprate tables and associated using the customer_id. 
+Third normal form would change this so that the customer data and phone numbers are stored in separate tables and associated using the customer_id. 
 
 <table>
 <caption>customers</caption>

@@ -2,11 +2,11 @@
 
 This section will cover the basics of sessions, user authentication, and registration.
 
-Simply stated, sessions provide a way to maintain state between a client and a server. A typical session has an id and expiration timestamp. A server will create a session with an id, the server will then send a cookie to the client. This cookie will have a session id. This id is how a given client is able to maintain a unique state with a given server. In the context of authentication, anytime a client makes a request to a server it sends the cookie along with the request, the server reads the id from the it's session store. If the server can match the id provide by the cookie to a record in the session store and that cookie has not expired then the user is considered to have been authenticated under an active session. The actual authentication would have ocurred during a login in which a user would have provided credentials; typically a username and password to the server. Upon the server verifying these credentials a session record would be stored serve side and a cookie would be sent to the browser. Sessions and cookies may both store additional data depending on the needs of the session and or cookie. By default, PHP stores sessions in a flat file on the server the originated the session. This can be configured to use any data store either on the origination server or against a central data store. While classic databases such as Oracle, MySQL and MongoDB are not uncommon, in memory databases such as Reddis are gaining popularity.
+Simply stated, sessions provide a way to maintain state between a client and a server. A typical session has an id and expiration timestamp. A server will create a session with an id, the server will then send a cookie to the client. This cookie will have a session id. This id is how a given client is able to maintain a unique state with a given server. In the context of authentication, anytime a client makes a request to a server it sends the cookie along with the request, the server reads the id from its session store. If the server can match the id provided by the cookie to a record in the session store and that cookie has not expired then the user is considered to have been authenticated under an active session. The actual authentication would have occurred during a login in which a user would have provided credentials; typically a username and password to the server. Upon the server verifying these credentials, a session record would be stored server-side and a cookie would be sent to the browser. Sessions and cookies may both store additional data depending on the needs of the session and or cookie. By default, PHP stores sessions in a flat-file on the server the originated the session. This can be configured to use any data store either on the origination server or against a central data store. While classic databases such as Oracle, MySQL and MongoDB are not uncommon, in-memory databases such as Redis are gaining popularity.
 
 ## Working with Sessions
 
-PHP provides a ```$_SESSION``` super global. You may access this super global directly or through an abstraction layer. PHP also provides a [SessionHandlerInterface](https://www.php.net/manual/en/class.sessionhandlerinterface.php) for more complicated configurations. While working with directly with a super global tends o be discouraged we will do it here because I want to focus on the functionality.
+PHP provides a ```$_SESSION``` superglobal. You may access this superglobal directly or through an abstraction layer. PHP also provides a [SessionHandlerInterface](https://www.php.net/manual/en/class.sessionhandlerinterface.php) for more complicated configurations. While working directly with a superglobal tends to be discouraged we will do it here because I want to focus on the functionality.
 
 
 */var/www/example.com/core/session.php*
@@ -35,7 +35,7 @@ function checkSession(){
 }
 ```
 
-Add the following to every page on the the website. The key is the first line ```session_start()```. Call this on every page to assure state is not lost.
+Add the following to every page on the website. The key is the first line ```session_start()```. Call this on every page to assure the state is not lost.
 ```php
 require '../core/sessions.php';
 ```
@@ -46,8 +46,8 @@ Add the following to every page that would require authentication. This would fo
 checkSession();
 ```
 
-### Login (Mock Up)
-We will add some proof of concept code to help us better understand how the session works. This is will create a valid user session without performing the normal authentication logic. This is concept is often referred to as a mock up.
+### Login (Mock-Up)
+We will add some proof of concept code to help us better understand how the session works. This is will create a valid user session without performing the normal authentication logic. This is concept is often referred to as a mock-up.
 
 *public/login.php*
 ```php
@@ -117,7 +117,7 @@ Try to see session data in F12 >>Application by clicking on the users link and y
 
 Now that we can create a session we will need to provide a means of user authentication. We will do this by adding a hash to our users table and creating a user authentication page. 
 
-Open a MySQL cli and log into the database.
+Open a MySQL CLI and log into the database.
 ```sh
 mysql -u root -p
 ```
@@ -220,7 +220,7 @@ EOT;
 require '../core/layout.php';
 ```
 
-Once the form has been created we can filter the form fields and process the form. We will start by adding input filters and use a simple ```var_dump()``` to verify all the inputs (aka: POST parameters) are getting passed. 
+Once the form has been created we can filter the form fields and process the form. We will start by adding input filters and use a simple ```var_dump()``` to verify all the inputs (aka, POST parameters) are getting passed. 
 
 */public/register.php*
 ```php
@@ -601,7 +601,7 @@ Now we have the ability to register a user. Now we need to allow that user to lo
 
 ## Authenticating a User
 
-Let us revisit the login mockup in which we
+Let us revisit the login mock-up in which we
 
 * required a session file
 * listened for a post request
@@ -636,7 +636,7 @@ EOT;
 require '../core/layout.php';
 ```
 
-Now that we have a refreshed look at the mockup, lets implement a complete login form.
+Now that we have a refreshed look at the mock-up, lets implement a complete login form.
 
 * Replace the heredoc containing the form with:
   * email
@@ -789,7 +789,7 @@ require '../core/layout.php';
 
 ## Bootstraping
 
-Currently we have a several includes at the top of every page, soe of which are common to all pages. When this occurs a common practice to load what is known as a bootstrap file aptly named *bootstrap.php*. One issue posed by bootstraping is the use of includes in the bootstrap file. Any time a file is included/required it executes as though it is code written in the calling page. Our application is written is a tree structure which means including via relative paths will not work when traversing a nested folder structure. Another common practice is to define a *ROOT* constant which will be used to prefix all includes with the exception of the bootstrap file.
+Currently, we have several includes at the top of every page, some of which are common to all pages. When this occurs a common practice to load what is known as a bootstrap file aptly named *bootstrap.php*. One issue posed by bootstraping is the use of includes in the bootstrap file. Any time a file is included/required it executes as though it is code written on the calling page. Our application is written is a tree structure which means including via relative paths will not work when traversing a nested folder structure. Another common practice is to define a *ROOT* constant which will be used to prefix all includes with the exception of the bootstrap file.
 
 ```php
 <?php

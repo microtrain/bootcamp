@@ -1,6 +1,6 @@
 # Chapter 10: MySQL
 
-In this chapter we learn the basics of SQL as a language and the MySQL as a product. We will use SQL and PHP to produce a functional CSM (Content Management System).
+In this chapter, we learn the basics of SQL as a language and the MySQL as a product. We will use SQL and PHP to produce a functional CSM (Content Management System).
 
 In this chapter we will: 
 * Learn the basics of SQL and MySQL

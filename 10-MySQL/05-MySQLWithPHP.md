@@ -1,8 +1,8 @@
 # MySQL with PHP
 
-In this lesson we will use PHP's PDO library to work with our database. 
+In this lesson, we will use PHP's PDO library to work with our database. 
 
-The first step is to create a connection to your database. You connection script will likely be part of larger configuration.
+The first step is to create a connection to your database. Your connection script will likely be part of a larger configuration.
 
 Under your example.com create the file *core/db_connect.php*
 
@@ -116,7 +116,7 @@ $content .= "<h1>{$row['title']}</h1>";
 
 echo $content;
 ```
-In short, we are trustung user input. If I were to replace the $_GET param as follows we will get the same result. Why is this terrifying?  
+In short, we are trusting user input. If I were to replace the $_GET param as follows we will get the same result. Why is this terrifying?  
 
 ```php
 <?php
@@ -153,7 +153,7 @@ $stmt = $pdo->prepare('SELECT * FROM posts WHERE slug = :slug');
 $stmt->execute(['slug' => $slug]);
 ```
 
-The other issue is that we are directly accessing super globals which now-a-days is considered bad practice. To further restrict the user input sanitize the slug by forcing it into a predefined format.
+The other issue is that we are directly accessing superglobals which nowadays is considered bad practice. To further restrict the user input sanitize the slug by forcing it into a predefined format.
 ```php
 <?php
 include '../core/db_connect.php';
