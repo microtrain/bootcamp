@@ -10,6 +10,6 @@ I would describe HTML5 Boilerplate as a collection of good practices, especially
 Material Design is Google's take on UI.
 
 ## [Bootstrap](http://getbootstrap.com/)
-A responsive, mobile first front end library.
+A responsive, mobile-first front end library.
 
 [Next: Bootstrap](02-Bootstrap.md)

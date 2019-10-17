@@ -2,7 +2,7 @@
 
 Bootstrap is a front end component library designed to allow for rapid front end development of responsive websites.
 
-Lets start by creating a basic minimal Bootstrap layout that loads the Bootstrap assets from a CDN. Create the path and add the following _/var/www/bootstrap/index.html_.
+Let's start by creating a basic minimal Bootstrap layout that loads the Bootstrap assets from a CDN. Create the path and add the following _/var/www/bootstrap/index.html_.
 ```html
 <DOCTYPE html>
 <html lang="en">
