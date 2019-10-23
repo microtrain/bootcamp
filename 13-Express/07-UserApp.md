@@ -279,7 +279,7 @@ git commit -a
 //~line 28
 else
   li.nav-item
-    a.nav-link(href='/users/app) Users
+    a.nav-link(href='/users/app') Users
 ```
 
 ```sh
