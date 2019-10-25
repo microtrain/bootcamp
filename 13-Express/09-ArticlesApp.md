@@ -5,7 +5,7 @@ Build an articles app using the knowledge acquired in the previous lessons.
 * This app MUST provide at least two non-API endpoints.
   * index - A view that displays all articles.
   * view - A view that displays a single article.
-  * cms - Provides a view for the articles app.
+  * app - Provides a view for the articles app.
 * The JavaScript app MUST provide full CRUD functionality.
 
 We will get you started by providing an outline of the API and non-API routes You'll just need to implement the details.
@@ -80,9 +80,9 @@ block content
     div!= article.body
 ```
 
-A stater template for the cms view.
+A stater template for the app view.
 
-*views/articles/cms.pug*
+*views/articles/app.pug*
 ```pug
 extends ../layout
 
