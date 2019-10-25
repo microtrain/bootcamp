@@ -43,8 +43,8 @@ router.get('/:slug', function(req, res, next) {
   res.render('articles/view', { title: 'xxx' });
 });
 
-router.get('/cms', function(req, res, next) {
-  res.render('articles/cms', { title: 'CMS' });
+router.get('/app', function(req, res, next) {
+  res.render('articles/app', { title: 'app' });
 });
 
 module.exports = router;
