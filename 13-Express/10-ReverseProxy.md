@@ -2,13 +2,21 @@
 
 A reverse proxy allows another web server such as Apache, IIS, Nginx, etc to stand in front of ExpressJS and is recommended as a [production best practice](https://expressjs.com/en/advanced/best-practice-performance.html) by the ExpressJS team. In this example ExpressJS will run on localhost:3000 and Apache will field the requests to *http:loc.mean.example.com* (over port 80) and direct those to *http://localhost:3000*
 
-Install the required Apache mods.
+## Install the required Apache modules.
+
+> Don't panic if you get a message saying they are already installed. Simply, move on to hte next step. 
+
 ```sh
 sudo a2enmod proxy
 sudo a2enmod proxy_http
 ```
 
-Create a VHOST
+## Create a VHOST
+
+```
+sudo vim /etc/apache2/sites-available/mean.example.com.conf
+```
+
 */etc/apache2/sites-available/mean.example.com.conf*
 ```apache
 <VirtualHost 127.0.0.102:80>
@@ -33,7 +41,7 @@ Create a VHOST
 </VirtualHost>
 ```
 
-Update your hosts file
+## Update your hosts file
 
 ```sh
 sudo vim /etc/hosts
@@ -42,6 +50,13 @@ sudo vim /etc/hosts
 and add the entry
 ```sh
 127.0.0.102    loc.mean.example.com
+```
+
+## Reload the Virtual Host Configuration
+
+```sh
+sudo a2ensite mean.example.com
+sudo systemctl reload apache2
 ```
 
 Open a browser and navigate to [http://loc.mean.example.com](loc.mean.example.com)
