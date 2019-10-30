@@ -11,7 +11,7 @@ sudo a2enmod proxy
 sudo a2enmod proxy_http
 ```
 
-## Create a VHOST
+## Configure a New Virtual Host (VHOST)
 
 ```
 sudo vim /etc/apache2/sites-available/mean.example.com.conf
@@ -41,7 +41,7 @@ sudo vim /etc/apache2/sites-available/mean.example.com.conf
 </VirtualHost>
 ```
 
-## Update your hosts file
+## Update Your Hosts File
 
 ```sh
 sudo vim /etc/hosts
@@ -52,7 +52,7 @@ and add the entry
 127.0.0.102    loc.mean.example.com
 ```
 
-## Reload the Virtual Host Configuration
+## Enable the VHOST
 
 ```sh
 sudo a2ensite mean.example.com
