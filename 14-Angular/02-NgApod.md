@@ -418,14 +418,14 @@ export class AppModule { }
 
 We will then need to call the config file from our apod service.
 
-* Import the service ```import { NgApodConfig } from '../../../../config/ng-apod.config';```
+* Import the service ```import { NgApodConfig } from '../../../config/ng-apod.config';```
 * Inject the service into the constructor ```constructor(private ngApodConfig: NgApodConfig) { }```
 * Access the key property from the NgApodConfig class ```return this.ngApodConfig.key;```
 
 ```ts
 import { Injectable } from '@angular/core';
 
-import { NgApodConfig } from '../../../../config/ng-apod.config';
+import { NgApodConfig } from '../../../config/ng-apod.config';
 
 @Injectable({
   providedIn: 'root'
@@ -508,7 +508,7 @@ import { Observable } from 'rxjs';
 //Import Apod
 import { Apod } from '../models/apod';
 
-import { NgApodConfig } from '../../../../config/ng-apod.config';
+import { NgApodConfig } from '../../../config/ng-apod.config';
 
 @Injectable({
   providedIn: 'root'
