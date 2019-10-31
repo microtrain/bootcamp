@@ -535,6 +535,7 @@ export class ApodService {
 
 Finally, we will update ngOnInit() so that it subscribes to the ```getApod()``` method in the service.
 
+*src/app/apod/apod.component.ts*
 ```ts
 import { Component, OnInit } from '@angular/core';
 
@@ -560,7 +561,7 @@ export class ApodComponent implements OnInit {
 }
 ```
 
-At this point navigating *[http://localhost:4200](http://localhost:4200)* and pressing f12 will show Hello World in the console. 
+At this point navigating *[http://localhost:4200](http://localhost:4200)* and pressing f12 will show 'NASA-API-JSON-Data' in the console. 
 
 ![API Request](/img/ng/api-request.png)
 
