@@ -441,7 +441,7 @@ export class ApodService {
 }
 ```
 
-At this point navigating *[http://localhost:4200](http://localhost:4200)* and pressing f12 will show Hello World in the console. 
+At this point navigating *[http://localhost:4200](http://localhost:4200)* and pressing f12 will show 'YOUR-API-KEY=XXXX' in the console. 
 
 ![Log the key](/img/ng/log-key.png)
 
