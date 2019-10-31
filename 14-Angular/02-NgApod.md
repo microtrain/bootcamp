@@ -643,6 +643,8 @@ Next we will focus on the apod component. We will start by passing the current d
   }
 ```
 
+At this point navigating *[http://localhost:4200](http://localhost:4200)* and pressing f12 will show 'NASA-API-JSON-Current-Date' in the Network 'apod?api-key=' console. 
+
 Commit your changes
 ```sh
 # Pass the current date to the API
