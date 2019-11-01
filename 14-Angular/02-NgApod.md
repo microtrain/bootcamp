@@ -1158,9 +1158,9 @@ https://angular.io/guide/service-worker-getting-started
 ng add @angular/pwa
 ```
 
-Update *manifest.json*
+Update *manifest.webmanifest* previously manifest.json
 
-*src/manifest.json*
+*src/manifest.webmanifest*
 ```json
   "name": "NASA APOD",
   "short_name": "NASA",
