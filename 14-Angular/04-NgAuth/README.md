@@ -192,6 +192,29 @@ git commit -a
 
 ![Success](/img/ng/auth/success.png)
 
+### Updating CORS Policy
+
+Although we have successfully connected our service to the login component. We are requesting resources ```Users``` from a different domain. CORS is industry standard for accessing web resources on different domains. It is a very important security concept implemented by web browers to prevent Javascript or CSS code from making requests against a different origin.
+
+![Error!](/img/ng/auth/cors_error.png)
+
+Since our app is acting as a client making and HTTP request to localhost:3000, we will start by adding a ```CORS Policy``` to *app.js*. This statement should be added above the whitelist *~/mean.example.com/app.js* around line ~78.
+
+```js
+//Set up CORS
+app.use(function(req, res, next) {
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+  if ('OPTIONS' == req.method) {
+    res.send(200);
+  } else {
+    next();
+  }
+});
+```
+
 ### Implement the service
 
 Now that we have successfully connected our service to the login component. We can begin implementing the details.
