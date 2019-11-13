@@ -29,18 +29,6 @@ git commit -a
 
 Since we know we will be making API calls we should go ahead and load the *HttpClientModule*. Add the following to *src/app/app.module.ts*
 
-*src/app/app.module.ts*
-```js
-import { HttpClientModule } from '@angular/common/http';
-...
-imports: [
-...
-HttpClientModule,
-...
-],
-...
-```
-
 **Commit your changes** with the message *Import  HttpClientModule*.
 
 ```sh
