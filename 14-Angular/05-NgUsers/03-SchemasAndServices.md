@@ -135,7 +135,7 @@ git add .
 git commit src
 ```
 
-Remove the ```console.log()``` from *src/app/users/users.component.ts* 
+Remove the ```console.log()``` and add ```response.JSONobject``` from *src/app/users/users.component.ts* 
 
 ```
   getUsers(): void {
