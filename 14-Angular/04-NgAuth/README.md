@@ -404,7 +404,7 @@ export class LoginComponent implements OnInit {
   // 3. Add a login method
   login(): void{
 
-    this.user.username = 'testuser3';
+    this.user.username = 'testuser5';
     this.user.password = 'test123';
 
     this.userService.login(this.user).subscribe(
