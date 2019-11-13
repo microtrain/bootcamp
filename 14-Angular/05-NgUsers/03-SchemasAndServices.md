@@ -114,7 +114,7 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
-  // 5. Craete a local wrapper for
+  // 5. Create a local wrapper for
   getUsers(): void {
     this.usersService.getUsers().subscribe(
       (response) => {
