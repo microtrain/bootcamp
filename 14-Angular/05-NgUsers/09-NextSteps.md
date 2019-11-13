@@ -60,4 +60,4 @@ Style the application anyway you like.
 * Either add authentication components and services to the exisitng APP
 or create a specific angular app for authentication.
 
-[Next: NgCMS](/14-Angular/06-NgCMS.md)
+[Next: NgCMS](/14-Angular/06-NgCMS)
