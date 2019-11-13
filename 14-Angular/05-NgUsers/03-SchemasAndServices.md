@@ -117,7 +117,7 @@ export class UsersComponent implements OnInit {
   // 5. Create a local wrapper for
   getUsers(): void {
     this.usersService.getUsers().subscribe(
-      (response.any) => {
+      (response) => {
         this.users = response,
         console.log(this.users)
       }
@@ -135,8 +135,19 @@ git add .
 git commit src
 ```
 
-Remove the ```console.log()``` from *src/app/users/users.component.ts* and loop through the list of users using [ngForOf](https://angular.io/api/common/NgForOf).
+Remove the ```console.log()``` from *src/app/users/users.component.ts* 
 
+```
+  getUsers(): void {
+    this.usersService.getUsers().subscribe(
+      (response.any) => {
+        this.users = response.users
+        //console.log(this.users)
+      }
+    );
+  }
+```
+and loop through the list of users using [ngForOf](https://angular.io/api/common/NgForOf).
 *src/app/users/users.component.html*
 ```html
 <h1>Users</h1>
