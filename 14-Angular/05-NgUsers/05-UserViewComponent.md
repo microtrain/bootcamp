@@ -88,7 +88,7 @@ export class UserViewComponent implements OnInit {
 
   getUser(id): void {
     this.usersService.getUser(id).subscribe(
-      (response) => {
+      (response.any) => {
         this.user = response.user
       }
     );
