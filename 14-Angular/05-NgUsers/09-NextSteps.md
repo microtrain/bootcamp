@@ -19,7 +19,7 @@ Add some navigation to the app component.
 
 ## ArticlesComponent
 
-Togeather, we've added the components for managing users. Now we will take that knowledge and apply it towards managing content, in this case, articles.
+Together, we've added the components for managing users. Now we will take that knowledge and apply it towards managing content, in this case, articles.
 
 Generate ArticlesComponent
 ```sh
@@ -60,5 +60,4 @@ Style the application anyway you like.
 * Either add authentication components and services to the exisitng APP
 or create a specific angular app for authentication.
 
-
-[Next: Apache Cordova](/15-ApacheCordova/README.md)
+[Next: NgCMS](/14-Angular/06-NgCMS.md)
