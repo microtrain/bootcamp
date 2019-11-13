@@ -64,11 +64,6 @@ git commit -a
 
 *user-create/user-create.component.ts*
 ```js
-import { NgForm } from '@angular/forms';
-```
-
-*user-create/user-create.component.ts*
-```js
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from "@angular/router";
