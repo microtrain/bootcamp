@@ -116,7 +116,7 @@ import { User } from '../user';
 export class UsersComponent implements OnInit {
 
   // 3. Create a users property of type user
-  users: User;
+  users: User[];
 
   // 4. Inject the UsersService into the constructor
   constructor(private usersService: UsersService) { }
@@ -130,7 +130,7 @@ export class UsersComponent implements OnInit {
   getUsers(): void {
     this.usersService.getUsers().subscribe(
       (response) => {
-        this.users = response.users,
+        this.users = response,
         console.log(this.users)
       }
     );
