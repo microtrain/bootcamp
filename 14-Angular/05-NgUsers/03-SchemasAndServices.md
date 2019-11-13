@@ -34,8 +34,8 @@ Since we know we will be making API calls we should go ahead and load the *HttpC
 import { HttpClientModule } from '@angular/common/http';
 ...
 imports: [
-  BrowserModule,
-  HttpClientModule
+...
+HttpClientModule
 ],
 ...
 ```
