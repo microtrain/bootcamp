@@ -22,8 +22,8 @@ Before we dive in, let's stop and think about what you already know about the ap
 First things first, let's use the AngularCLI to create our project. Create and ```cd``` into the project. Adding the *--style-scss* flag will default AngularCLI generation commands to .scss instead of vanilla .css.
 
 ```sh
-ng new ng-users --style=scss
-cd ng-users
+ng new ng-cms --style=scss
+cd ng-cms
 ng serve --open
 ```
 
