@@ -1,23 +1,43 @@
 # Ionic: NASA - Astronomy Pic of the Day
 
-For this lesson, we will run a CLI program called *ionic*. The ionic command wraps Angular's ```ng``` command with additional functionality. Ionic runs on top of the AngularCLI.   
+For this lesson, we will run a CLI program called *ionic*. The ionic command 
+wraps Angular's ```ng``` command with additional functionality. Ionic runs on 
+top of the AngularCLI.   
 
 ```sh
 cd ~
 ionic start ionicApod blank
-# Install the free Ionic Appflow SDK and connect your app? (Y/n) No
+```
+You will be asked to choose a version; **CHOOSE ANGULAR**.
+
+![Choose a Version](/img/ionic/apod/choose_version.png)
+
+If the installation was successful you will see some instructions for the 
+*Next Steps*.
+
+![Choose a Version](/img/ionic/apod/next_steps.png)
+
+We are only concerned with the first two steps. The last two steps are links to 
+documentation; I will post those in the additional resources section.
+
+```sh
 cd ionicApod
 ionic serve
 ```
 
-```ionic serve``` works like ```ng serve``` in that it serves the application in a browser window. If your building in Ionic, I'm assuming your focus is mobile. Launching ```ionic serve``` with the labs argument will launch Ionic in a split mobile view. Terminate the current instance using [ctrl]+[c] and launch with the serve argument.
+```ionic serve``` works like ```ng serve``` in that it serves the application in 
+a browser window. If your building in Ionic, I'm assuming your focus is mobile. 
+Launching ```ionic serve``` with the labs argument will launch Ionic in a split 
+mobile view. Terminate the current instance using [ctrl]+[c] and launch with the 
+serve argument.
 
 ```
+npm i @ionic/lab
 ionic serve --lab
-# Install @ionic/lab? Yes
 ```
 
-Before we start building our app lets add the .editorconfig file.
+Before we start building our app lets add the `.editorconfig` file. We will 
+start by adding 
 
 *.editorconfig*
 ```sh
@@ -40,9 +60,10 @@ insert_final_newline = true
 trim_trailing_whitespace = false
 ```
 
-Now that our IDE has been configured let start building the app by defining the Apod object.
+Now that our IDE has been configured let start building the app by defining the 
+Apod object.
 
-*src/app/apod.ts*
+*src/app/apod.model.ts*
 ```js
 export class Apod {
   copyright:string;
@@ -56,22 +77,50 @@ export class Apod {
 }
 ```
 
+At this point, verify you still have your config file from the `ng-apod`
+lesson. This should be under `~/config/ng-apod.config.ts`. If you do not have 
+this file and directory, you can create them now.
+
+```sh
+cd ~
+mkdir config && touch config/ng-apod.config.ts
+gedit config/ng-apod.config.ts
+```
+
+Add the following lines to the file. Be sure to replace `xxxxx` with the
+API key that was provided to you during the first APOD project.
+
+```ts
+export class NgApodConfig {
+  key:string = 'xxxxx';
+}
+```
+
 Next, we will create the ApodService.
 
-Open a new tab and create the apod service.
+Open a new terminal tab and create the apod service.
 
 ```sh
 ionic generate service apod
 ```
+As in NgApod the `ApodService` will need to perform the following tasks.
+
+1. Connect to an API over HTTP
+2. Return results in the form of an Observable
+3. Use the Apod data Model
+4. Load an API key from a configuration file
+
+The code will be almost identical to that of the `ApodService` from the 
+`ng-apod` project.
 
 *src/app/apod/apod.service.ts*
 ```js
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Apod } from './apod';
+import { Apod } from './apod.model';
 
-import { NgApodConfig } from '../../../ng-apod/config/ng-apod.config';
+import { NgApodConfig } from '../../../config/ng-apod.config';
 
 @Injectable({
   providedIn: 'root'
@@ -93,11 +142,44 @@ export class ApodService {
 }
 ```
 
+Since we are importing `HttpClient` and `NgConfig` into the service be sure to 
+add this as an import to *app.module.ts*.
+
+Add the following line to the top of the file.
+```ts
+import { HttpClientModule } from '@angular/common/http';
+import { NgApodConfig } from '../../../config/ng-apod.config';
+```
+
+Update the imports array as follows.
+```ts
+imports: [
+  BrowserModule,
+  IonicModule.forRoot(),
+  AppRoutingModule,
+  HttpClientModule
+],
+```
+
+Update the providers array as follows.
+```ts
+providers: [
+  StatusBar,
+  SplashScreen,
+  NgApodConfig,
+  { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+],
+```
+
+Now we will generate an apod page. This equates to generating a component in 
+Angular.
+
 ```sh
 ionic generate page apod
 ```
 
-Update the routes array the app-routing module. Then remove the home directory *src/app/home* directory.
+Update the routes array in the app-routing module. Replace the `routes` constant 
+with the following snippet. 
 
 *app-routing.module.js*
 ```js
@@ -108,7 +190,9 @@ const routes: Routes = [
 ];
 ```
 
-The Apod page will not change all that much from the Apod component in the ng-apod project. The main difference will be changing ```onInit()``` to ```ionViewWillEnter()```.
+`ApodPage` will not change all that much from `ApodComponent` in the 
+ng-apod project. The main difference will be changing ```onInit()``` to 
+```ionViewWillEnter()```.
 
 *src/app/apod/apod.page.ts*
 ```js
@@ -116,7 +200,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ApodService } from '../apod.service';
-import { Apod } from '../apod';
+import { Apod } from '../apod.model';
 
 @Component({
   selector: 'app-apod',
@@ -178,6 +262,10 @@ Install the SafePipeModule from NPM
 npm install safe-pipe --save
 ```
 
+In the ng-apod project declared `safe-pipe` in out `AppModule`. In addition to 
+`AppModule`, Ionic uses page level modules for granular control. Declare safe 
+pipe as follows (Replace the entire file with the following). 
+
 *src/app/apod.module.ts*
 ```ts
 import { NgModule } from '@angular/core';
@@ -210,44 +298,8 @@ const routes: Routes = [
 })
 export class ApodPageModule {}
 ```
-*src/app/app.module.ts*
-```ts
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
-import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
-import { StatusBar } from '@ionic-native/status-bar/ngx';
-
-import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-
-import { NgApodConfig } from '../../../config/ng-apod.config';
-import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment';
-
-@NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
-  imports: [
-    BrowserModule,
-    IonicModule.forRoot(),
-    AppRoutingModule,
-    HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
-  ],
-  providers: [
-    StatusBar,
-    SplashScreen,
-    NgApodConfig,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
-  ],
-  bootstrap: [AppComponent]
-})
-export class AppModule {}
-```
+Finally, we can implement the UI.
 
 *src/app/apod/apod.page.html*
 ```html
@@ -278,5 +330,9 @@ export class AppModule {}
   </ion-card>
 </ion-content>
 ```
+
+## Additional Recourses
+* https://ion.link/scaffolding-docs
+* https://ion.link/running-docs
 
 [Next: ionic-auth](../03-IonicAuth/README.md)
