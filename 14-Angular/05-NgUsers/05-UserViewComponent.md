@@ -46,7 +46,7 @@ git commit -a
 
 Add ```getUser()``` method the ```UserService``` this method will expect _id_ as an argument.
 
-*src/app/user.service.ts*
+*src/app/users.service.ts*
 ```js
 getUser(id: string): Observable<User> {
   return this.http.get<User>(`${this.url}/${id}`);
