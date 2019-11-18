@@ -594,10 +594,41 @@ export class LoginComponent implements OnInit {
 </form>
 ```
 
+If you provide submit valid credentials to the server you will receive a success 
+message. 
 
+![Success!](/img/ng/auth/success.png)
 
+Despite successful authentication, you will not be able to create an active 
+session. To do this your application needs to be served from the same domain.
+We have been running Angular in development mode (aka, the dev environnement). 
+This is OK for building applications but at some point, you need to do a 
+production build using the `ng build` command. By default, this builds into the 
+`dist` directory. We can do a build, make a few tweaks, then move the production
+code to the dev environment or we can configure our build to do that for us.
+ 
+Add the following lines to *angular.json*
 
+You will be adding these lines to the options object of the architect object of 
+the projects object.
 
+*angular.json - projects > architect > options*. 
+
+```json
+"baseHref": "/ng-auth/",
+"outputPath": "/home/jason/mean.example.com/public/ng-auth",
+```
+
+![angular.json](/img/auth/angular_json.png)
+
+Now that you have updated the angular.json file you can run a production build.
+
+```sh
+ng build --prod
+```
+
+Navigating to [http://localhost:3000/ng-auth/login](http://localhost:3000/ng-auth/login)
+will now allow you authenticate your credentials and create a session.
 
 
 
