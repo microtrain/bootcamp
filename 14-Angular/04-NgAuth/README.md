@@ -630,7 +630,12 @@ ng build --prod
 Navigating to [http://localhost:3000/ng-auth/login](http://localhost:3000/ng-auth/login)
 will now allow you authenticate your credentials and create a session.
 
+If you so choose, you can (1) build out the registration and logout components, (2) integrate ng-auth into mean stack's login endpoint, (3) point the login link to the Angular app, or (4) forget about this app altogether.
 
+1. Use the knowledge gained in the previous lessons to build the remaining functionality.
+1. Using the index.html file found in *~/mean.example.com/public/ng-auth* add an element called `app-root` to a target pug file. This may be login.pug. Once the element has been applied, link to the CSS and JS files as shown in index.html.
+1. Change the link in layout.pug to point the ng-auth.
+1. We will cover this again in Ionic, so there will another opportunity to review.
 
 
 
