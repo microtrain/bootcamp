@@ -1,6 +1,6 @@
-# Amazon Web Services (AWS)
+# Amazon Web Services (AWS) Basics
 
-In this unit we will launch a cloud infrastructure. This will include 
+In this section we will launch a cloud infrastructure. This will include 
 * Creating an AWS account
 * Spinning up a web server on EC2
 * Configuraing an Elastic IP
@@ -94,19 +94,129 @@ mv Downloads/MY-AWS-SERVER-KEY.pem ~/.ssh/
 chmod 400 .ssh/MY-AWS-SERVER-KEY.pem
 ssh ubuntu@YOUR-PUBLIC-DNS -i .ssh/my-aws-serverKey.pem
 ```
+> Create a document in Text Editor, copy and paste *ssh ubuntu@YOUR-PUBLIC-DNS -i .ssh/my-aws-serverKey.pem*
+name and save the *AWS Server* in /Documents
+
 Now that your server is accessible let's install a LAMP stack.
 
 ux console
 ```
 sudo apt update
 sudo apt upgrade
-
-sudo apt install lamp-server^
-sudo mysql_secure_installation
-
-sudo service mysql stop
-sudo mkdir -p /var/run/mysqld
-sudo chown mysql:mysql /var/run/mysqld
-sudo /usr/sbin/mysqld --skip-grant-tables --skip-networking &
-jobs
 ```
+
+# [LAMP Stack](https://en.wikipedia.org/wiki/LAMP_(software_bundle))
+
+The LAMP stack (Linux, Apache, MySQL, PHP) is one of the oldest and most mature and popular technology stacks on the web. Ubuntu allows you to install the entire stack with a single command.
+
+```sh
+sudo apt install lamp-server^
+```
+
+**DO NOT LEAVE THE MYSQL PASSWORD FIELD BLANK**, when prompted; enter the password for the MySQL root user. Since this is a local development environment just enter *password*; **NEVER** use *password* as your password on a public-facing server.
+
+
+## Apache Configuration
+
+Open a browser and navigate to http://your-amazon-ip.compute.amazonaws.com and you will land on your AWS default apache landing page. That is because the default Apache's configuration points to the path */var/www/html*, html is a folder that contains a single file called index.html. By default, Apache looks for files named index.\* (where \* can be any file extension). Let's configure Apache's default path to */var/www* and see what happens.
+
+First, open a command line an navigate to sites-available. On Debian based systems this is where Apache stores per-site configurations aka, VHOST (virtual host) files, on non-Debian systems these may be part of a larger configuration file. Once in the sites-available directory run the command to list the directory contents.
+
+```sh
+cd /etc/apache2/sites-available
+ls
+```
+
+The ls command should yield the following results.
+
+```sh
+000-default.conf  default-ssl.conf
+```
+
+000-default.conf is the default configuration for Apache on Debian based systems. Let's take a look at its contents. You can read this file without sudo but we want to make some changes to it, so let's ```sudo```.
+
+```sh
+sudo vim 000-default.conf
+```
+
+You will notice a few default settings more commonly called directives in Apache terms. Right now we are only concerned with the ```DocumentRoot``` directive.   Move your cursor down to line 12 and remove _/html_ from the end of this line. Remember ```i``` enters insert mode and ```Esc``` followed by ```:x``` saves the file.
+
+The final result will be.
+```apache
+DocumentRoot /var/www
+```
+
+Now we want to tell apache to reload the configuration. This is a four-step process.
+* Disable the site configuration ```sudo a2dissite 000-default```
+* Reload Apache ```sudo  apache reload```
+* Enable the new site configuration ```sudo a2ensite 000-default```
+* Reload Apache ```sudo service apache2 reload```
+
+You can execute all four commands at once with the following.
+```sh
+sudo a2dissite 0* && sudo service apache2 reload && sudo a2ensite 0* && sudo service apache2 reload
+```
+
+The double ampersand ```&&``` appends two commands running them one after the other. For example
+
+```sh
+cd /etc/apache2/sites-available && vim 0*
+```
+
+Would change your current working directory to _/etc/apache2/sites-available && vim 0*_ and use vim to open any files that match the pattern _0*_, in this case, it would only match one file _000-default.conf_. Using wild cards can save a few keystrokes and cut down on typos. But be careful you don't open the wrong files.
+
+Once you have reloaded the configuration, open your browser and return to *http://your-amazon-ip.compute.amazonaws.com*. Now, rather than the default Apache landing page, you will see a directory listing with a link to the *html* directory. Clicking this will open the default Apache landing page.
+
+Restart Apache
+
+```sh
+sudo service apache2 restart
+```
+
+Test Apache by entering your domain name into a browser window. If you see a page that says *Apache2 Ubuntu Default Page* then your Apache web server is working.
+
+> Due to firewall settings this may not yet work in the classroom.
+
+
+## Set up your Github
+
+Git should already be installed. You can verify this by running ```git --version```.
+
+#### [Create an SSH key and add it to the ssh-agent](https://help.github.com/articles/generating-ssh-keys/)
+Accept the defaults for the following. Do not change the file paths, do not enter any passwords.
+
+```ssh
+ssh-keygen -t rsa -b 4096 -C "YOUR-EMAIL-ADDRESS"
+```[] Enter, [] Enter, [] Enter```
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_rsa
+```
+
+#### [Adding a new SSH key to your GitHub account](https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/)
+Intall x-xlip and copy the contents of the key to your clipboard
+
+```sh
+sudo apt install -y xclip
+xclip -sel clip < ~/.ssh/id_rsa.pub
+```
+
+Log into your GitHub account and find _Settings_ in the top right corner under your avatar. Then click on SSH and GPG Keys in the left-hand navigation and click the green **New SSH Key** button. Enter a title, this should be something that identifies your machine (I usually use the machine name) and paste the SSH key into the key field.
+
+![Add Your SSH Key](/img/git/account.png)
+
+#### [Testing your SSH connection](https://help.github.com/articles/testing-your-ssh-connection/)
+
+```sh
+ssh -T git@github.com
+```
+
+#### [First-Time Git Setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+
+Set up your git identity, replace my email and name with your own. For this class, we will use VIM (VI) as our Git editor.
+```sh
+git config --global user.email "YOUR-EMAIL-ADDRESS"
+git config --global user.name "YOUR-FIRST-LAST-NAME"
+git config --global core.editor "vim"
+```
+
+Additional support
