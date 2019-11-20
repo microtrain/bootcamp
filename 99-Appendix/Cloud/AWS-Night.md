@@ -1,9 +1,7 @@
 # Amazon Web Services (AWS)
 
 In this unit we will launch a cloud infrastructure. This will include 
-* Registering a domain name
 * Creating an AWS account
-* Creating a thrid party database
 * Spinning up a web server on EC2
 * Configuraing an Elastic IP
 * Creating a valid TLS connection against a real CA.
