@@ -59,7 +59,6 @@ sudo mkdir /opt/gradle
 sudo unzip -d /opt/gradle gradle-5.6.2-bin.zip
 
 ### Restart environment
-```sh
 source ~/.bashrc
 ```
 
@@ -120,7 +119,7 @@ Now it's time to create an (AVD (Android Virtual Device))[https://developer.andr
 Tools > AVD Manager
 Click the _Create Virtual Device_ button
 Choose Pixel 2
-Click on the _x86 images_ tab and choose _Q x86_64 Android 9.+ (Google Play)_  (Download then choose if required)
+Click on the _x86 images_ tab and choose _Q x86_64 Android 10.+ (Google Play)_  (Download then choose if required)
 Choose the default options from the AVD screen and click _Finish_
 From the _Your Virtual Devices_ dialog click the green arrow beside our new device.
 
