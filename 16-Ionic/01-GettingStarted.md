@@ -1,8 +1,6 @@
 # Getting Started with Ionic
 
-* [Sign up](https://dashboard.ionicjs.com/signup) for Ionic Pro.
-* Choose the free kick starter plan.
-* Go to the [Getting Started](https://ionicframework.com/getting-started) guide.
+* Check out the [documentation and installation guide](https://ionicframework.com/docs/installation/cli).
 * Install Ionic and create your first app
 
 ```sh
