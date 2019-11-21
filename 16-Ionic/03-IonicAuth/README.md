@@ -1,16 +1,22 @@
 # Ionic: Auth
 
-For this lesson, we will re-create Auth based on command run a CLI program called *ionicAuth*. The ionic command serves as both an alias for Angular's ng command and it's own program as it adds some Ionic sugar on top of the Angular CLI. 
+For this lesson, we will re-create the Auth program. We will use the CLI to create a package called *ionicAuth*. The `ionic` command is an alias Angular's `ng` command that adds some *Ionic sugar* on top of the Angular CLI. This app will use a blank template.
 
 ```sh
 cd ~
 ionic start ionicAuth blank
+```
+Choose Angular as your framework.
+```sh
 # Integrate your new app with Cordova to target native iOS and Android? (Y/n) No
-*** May do this automatically > git init 
-#Initialized empty Git repository in /home/YOURNAME/ionicAuth/.git/ ***
-# Install the free Ionic Appflow SDK and connect your app? (Y/n) No
-cd ionicAuth
-ionic serve
+Pick a framework! 😁
+
+Please select the JavaScript framework to use for your new app. To bypass this
+prompt next time, supply a value for the --type option.
+
+? Framework: (Use arrow keys)
+❯ Angular | https://angular.io 
+  React   | https://reactjs.org 
 ```
 
 ```ionic serve``` works like ```ng serve``` in that it serves the application in a browser window http://localhost:8100.
