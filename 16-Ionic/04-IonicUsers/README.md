@@ -3,11 +3,27 @@
 In this lesson, we will begin building an application for user management. Since this is our third time building this app and since Ionic is essentially Angular we will not dive into detail. Rather, we will build this on our own and review the build after the fact. You may use the following as a reference, but I would like to see each of you come up with a unique application.
 
 ```sh
+cd ~
 ionic start ionicUsers sidemenu
+
+Choose Angular as your framework.
+# Integrate your new app with Cordova to target native iOS and Android? (Y/n) No
+Pick a framework! 😁
+
+Please select the JavaScript framework to use for your new app. To bypass this
+prompt next time, supply a value for the --type option.
+
+? Framework: (Use arrow keys)
+❯ Angular | https://angular.io 
+  React   | https://reactjs.org 
+```
+
+Create an empty reposiroty called *ionicUsers* on GitHub and push your project to the new repository. Don't worry about the intial commit as Ionic has taken care of this for you.
+
+```sh
 git remote add origin git@github.com:GITHUBUSERNAME/ionicUsers.git
 git push origin master
-ionic serve --lab
-# Answer yes to install Ionic lab
+ionic serve
 ```
 ## Add the Authentication logic from the ionicAuth app
 
@@ -17,7 +33,7 @@ ionic generate page login
 ionic generate page logout
 ionic generate page register
 ```
-For each of these files, copy the content from the ioncAuth project.
+For each of the generated files, you should be able to copy most of the content from either *ionicAuth* or *ngAuth*. If you prefer you can test your progress by writing you own logic from scratch or modifiying the logic from past projects. 
 
 ## Create a users page and wire it into navigation.
 
