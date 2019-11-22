@@ -33,7 +33,7 @@ serve argument.
 
 ```
 npm i @ionic/lab
-ionic serve --lab
+ionic lab
 ```
 
 Before we start building our app lets add the `.editorconfig` file. We will 
