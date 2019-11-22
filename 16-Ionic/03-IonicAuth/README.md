@@ -23,8 +23,7 @@ prompt next time, supply a value for the --type option.
 Launching ```ionic serve``` with the labs argument will launch Ionic in a split mobile view. Terminate the current instance using [ctrl]+[c] and launch with the serve argument.
 cd ionicAuth
 ```
-ionic serve --lab
-# Install @ionic/lab? Yes
+ionic serve
 ```
 
 You will be creating a three-page app/ in Ionic.
