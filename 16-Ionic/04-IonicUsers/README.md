@@ -47,6 +47,8 @@ For each of the generated files, you should be able to copy most of the content 
 ionic generate page users
 ```
 
+> The following snippets were written in Ionic Version 5.0.3. The current version is >= 5.6.3. According to Semantic Versioning rules the following snippets should still work. While the following code is still valid, PLEASE BE AWARE there may be some differneces in code generation.
+
 [</> code](https://github.com/microtrain/ionic-cms/commit/e596528a24bc6e432fc634808fc378756610a3f0)
 Declare UsersPage in app.module.ts
 
