@@ -2,30 +2,31 @@
 
 In this lesson, we will begin building an application for user management. Since this is our third time building this app and since Ionic is essentially Angular we will not dive into detail. Rather, we will build this on our own and review the build after the fact. You may use the following as a reference, but I would like to see each of you come up with a unique application.
 
+> Based on Ionic 5.4.5
+
 ```sh
 cd ~
-ionic start ionicUsers sidemenu
-
-Choose Angular as your framework.
-# Integrate your new app with Cordova to target native iOS and Android? (Y/n) No
-Pick a framework! 😁
-
-Please select the JavaScript framework to use for your new app. To bypass this
-prompt next time, supply a value for the --type option.
-
-? Framework: (Use arrow keys)
-❯ Angular | https://angular.io 
-  React   | https://reactjs.org 
+ionic start ionicUsers sidemenu --type angular
 ```
 
-Create an empty reposiroty called *ionicUsers* on GitHub and push your project to the new repository. Don't worry about the intial commit as Ionic has taken care of this for you.
+Create an empty repository called *ionicUsers* on GitHub and push your project to the new repository. Don't worry about the initial commit as Ionic has taken care of this for you.
 
 ```sh
 git remote add origin git@github.com:GITHUBUSERNAME/ionicUsers.git
 git push origin master
 ionic serve
 ```
-## Add the Authentication logic from the ionicAuth app
+## Authentication
+
+We will start by providing an authentication mechanism. This will provide a 
+service that gives us access to the login, logout, and register endpoints in the 
+auth API. This will require the following assets.
+
+* An authentication service
+* a login page
+* a logout page
+* a registration page
+* a user model (or schema/object)
 
 ```sh
 ionic generate service auth
@@ -33,7 +34,77 @@ ionic generate page login
 ionic generate page logout
 ionic generate page register
 ```
-For each of the generated files, you should be able to copy most of the content from either *ionicAuth* or *ngAuth*. If you prefer you can test your progress by writing you own logic from scratch or modifiying the logic from past projects. 
+
+Using VSC create the file *~/ionicUsers/src/app/user.model.ts* 
+
+Test everything is working by navigating to the pages you just created.
+* [http://localhost:8100/login](http://localhost:8100/login)
+* [http://localhost:8100/logout](http://localhost:8100/logout
+* [http://localhost:8100/register](http://localhost:8100/register)
+
+[</> code](https://github.com/microtrain/ionicUsers/commit/44728844c94acec8d88faf84016616541b3c83db) At this point we have generated clean asset files. This is good place to commit as it would give us a clean rollback point.
+
+
+```sh
+# Added authentication assets
+git add .
+git commit -a
+git push origin master
+```
+
+[</> code](https://github.com/microtrain/ionicUsers/commit/781014014b86801a855e030bf41798aeea7a8541) User
+
+Our user model should provide a schema. In other words, the model defines the 
+properties we expect the application to use.
+
+```ts
+export class User{
+    _id: string;
+    email: string;
+    first_name: string;
+    last_name: string;
+    username: string;
+    password: string;
+}
+```
+
+[</> code](https://github.com/microtrain/ionicUsers/commit/27edefd8c4f66db50dcc529359337053260d78e3) AppModule
+
+Import HttpClientModule into AppModule. You will want to add this to the imports
+list.
+
+[</> code](https://github.com/microtrain/ionicUsers/commit/573544231d896443344791df5a0716f4fd0dc408) AuthService
+
+Now that we have defined the user object we will use it to implement the 
+authentication service.
+
+[</> code](https://github.com/microtrain/ionicUsers/commit/03fe1a23481e620ff183d0417a9855a25cf53cd8) LoginPage
+
+We will a call to each of the AuthService methods by calling them in ngOnInit 
+and reading the console logs. All we really care about at this point is a 200
+response from each of the API endpoints.
+
+[</> code](https://github.com/microtrain/ionicUsers/commit/e90908d87e6dcca0f00cd11fd23410047a5b88ee) Clean Up
+
+We can now remove HomePage and ListPage and update the menu so that it points 
+to our authentication pages.
+
+* Remove ListPage
+* Remove HomePage
+* Update AppRoutingModule
+* Update AppComponent
+
+At this point the home page will be blank. We will set this to something useful
+later in the lesson.
+
+
+
+
+
+
+
+
+> Based on an older lesson plan and Ionic 5.0.3. Please adjust accordingly
 
 ## Create a users page and wire it into navigation.
 

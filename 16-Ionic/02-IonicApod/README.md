@@ -335,4 +335,4 @@ Finally, we can implement the UI.
 * https://ion.link/scaffolding-docs
 * https://ion.link/running-docs
 
-[Next: ionic-auth](../03-IonicAuth/README.md)
+[Next: ionic-auth](../03-IonicUsers/README.md)
