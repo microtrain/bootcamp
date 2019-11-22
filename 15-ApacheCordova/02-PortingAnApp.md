@@ -5,9 +5,10 @@ While we are building for mobile, spinning up an emulator for each little change
 ```sh
 cd ~
 cordova create apod com.example.apod Apod
+cd apod
 
 cordova platform add browser
-cordova browser run
+cordova run browser
 ```
 
 At this point, the browser will pop open running the default Cordova application. You may now add your mobile platforms. We will use Android.
