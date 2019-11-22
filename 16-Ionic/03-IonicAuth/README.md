@@ -27,10 +27,10 @@ ionic serve
 ```
 
 You will be creating a three-page app/ in Ionic.
-ionic generate page *name
-* login
-* logout
-* register
+`ionic generate page [name of page]`
+* login `ionic generate page login`
+* logout `ionic generate page logout`
+* register `ionic generate page register`
 
 
 Create an authentication route. 
