@@ -244,6 +244,25 @@ ionic generate service users
 You can test API access by implementing a users service and wiring your
 users page up to the API. Use a console log to test the output.
 
+### Logout
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/29c9b187dbc9a054affc0f729058596fd73e6c5a)
+
+Provide a simple logout with a fall back to allow the user to retry the logout should the logout fail.
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/77a0d41bda23be4dfb7ff6c2a245427d934517ab) Clean up
+
+Missed a `console.log()`
+
+### Register
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/db72e3b65196532f75dce65753271cb6d1f49a18) Build a registration form
+
+[</> Code]() Process user input
+
+
+
+
 > Based on an older lesson plan and Ionic 5.0.3. Please adjust accordingly
 
 ## Create a users page and wire it into navigation.
