@@ -84,7 +84,7 @@ We will a call to each of the AuthService methods by calling them in ngOnInit
 and reading the console logs. All we really care about at this point is a 200
 response from each of the API endpoints.
 
-[</> code](https://github.com/microtrain/ionicUsers/commit/e90908d87e6dcca0f00cd11fd23410047a5b88ee) Clean Up
+[</> code](https://github.com/microtrain/ionicUsers/commit/e90908d87e6dcca0f00cd11fd23410047a5b88ee) Clean Up and Navigation
 
 We can now remove HomePage and ListPage and update the menu so that it points 
 to our authentication pages.
@@ -97,12 +97,152 @@ to our authentication pages.
 At this point the home page will be blank. We will set this to something useful
 later in the lesson.
 
+### Login
 
+[</> Code](https://github.com/microtrain/ionicUsers/commit/53988d7b334e513f21072d4f2a8ff77ab2eaf06f) Remove test code and add `onSubmit()`
 
+We will start by removing our test code and placing the call to 
+`UsersService::login()` in a new method called `onSubmit()`.
 
+[</> Code](https://github.com/microtrain/ionicUsers/commit/f1291f58f6d3c913141cceaa8d6a895067363fd7) Add a login form
 
+Add the markup for a login form then wire that up to the submit button. At this
+point you will be able to receive a successful login message from the API.
 
+[</> Code](https://github.com/microtrain/ionicUsers/commit/ca701f8ce3b8cb581a8cfc9024952211d1b5a969) Error Handling
 
+For the sake of brevity we will flag all errors as *Invalid Credentials*. We 
+could deal with errors in the `onSubmit()` but this would violate SRP. Instead,
+we will add a `response()` method that is responsible for processing the 
+response we get back from the API. We could take this a step further and methods 
+for dealing with error and success conditions.
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/b4c164eeab7a6d37a2b8f028fc7adc8cd3d0d5ad) Handle success
+
+On success we will want to redirect the user to the users page. There are a 
+couple of things we need to do first.
+
+* Generate the users page
+* Turn on hashStrategy
+
+```sh
+ionic generate page users
+```
+
+Once we have added the users page we will want to import `LocationStrategy` and
+`HasLocationStrategy` from `@angular/common` and add them to your providers list
+as `{ provide: LocationStrategy, useClass: HashLocationStrategy }`.
+
+#### Test the Functionality
+
+* Update your production build path.
+* Add `/ionicUsers` to your whitelist's list of subs.
+* Toggle the whitelist on and off depending on you environnement.
+
+##### Testing in Production
+
+[</> Code]() Update Ionic's Build Parameters
+
+If we want to verify sessions are getting set, it is best to run a production 
+build. 
+
+You will be adding the following lines to the options object of the architect 
+object of the projects object.
+
+*angular.json - projects > architect > options*. 
+
+```json
+"baseHref": "/ng-auth/",
+"outputPath": "/home/jason/mean.example.com/public/ng-auth",
+```
+
+![angular.json](/img/auth/angular_json.png)
+
+Now that you have updated the angular.json file you can run a production build.
+
+```sh
+ionic build
+```
+
+Add `/ionicUsers` to the subs section of your whitelist. 
+
+*~/mean.example.com/app.js*
+```js
+//Session-based access control
+app.use(function(req,res,next){
+  //Uncomment the following line to allow access to everything.
+  //return next();
+
+  //Allow any endpoint that is an exact match. The server does not
+  //have access to the hash so /auth and /auth#xxx would bot be considered
+  //exact matches.
+  var whitelist = [
+    '/',
+    '/auth',
+    '/articles'
+  ];
+
+  //req.url holds the current URL
+  //indexOf() returns the index of the matching array element
+  //-1, in this context means not found in the array
+  //so if NOT -1 means is found in the whitelist
+  //return next(); stops execution and grants access
+  if(whitelist.indexOf(req.url) !== -1){
+    return next();
+  }
+
+  //Allow access to dynamic endpoints
+  var subs = [
+    '/public/',
+    '/api/auth/',
+    '/articles',
+    '/ionicUsers'
+  ];
+
+  //The query string provides a partial URL match beginning
+  //at position 0. Both /api/auth/login and /api/auth/logout would would
+  //be considered a match for /api/auth/
+  for(var sub of subs){
+    if(req.url.substring(0, sub.length)===sub){
+      return next();
+    }
+  }
+
+  //There is an active user session, allow access to all endpoints.
+  if(req.isAuthenticated()){
+    return next();
+  }
+
+  //There is no session nor are there any whitelist matches. Deny access and
+  //Redirect the user to the login screen.
+  return res.redirect('/auth#login');
+});
+```
+
+##### Testing in Dev
+When running in dev mode via [http://localhost:8100](http://localhost:8100) we 
+should turn off the whitelist found in *~/mean.example.com/app.js* 
+
+*~/mean.example.com/app.js*
+```js
+app.use(function(req,res,next){
+  //Uncomment the following line to allow access to everything.
+  return next();
+```
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/a37e9f37413cf242e858101aaa2bb5ce73304591) Redirect the user
+
+Now that we have our whitelist and build parameters up to date; we can redirect 
+the user after a successful login.
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/d1495e60be63ecca1c35219b16362d3e98853f44) Wire users to the API
+
+```sh
+ionic generate service users
+```
+
+You can test API access by implementing a users service and wiring your
+users page up to the API. Use a console log to test the output.
 
 > Based on an older lesson plan and Ionic 5.0.3. Please adjust accordingly
 
@@ -114,23 +254,9 @@ later in the lesson.
 4. Create a wrapper for the users service
 5. call the getUsers() wrapper
 
-```sh
-ionic generate page users
-```
 
 > The following snippets were written in Ionic Version 5.0.3. The current version is >= 5.6.3. According to Semantic Versioning rules the following snippets should still work. While the following code is still valid, PLEASE BE AWARE there may be some differneces in code generation.
 
-[</> code](https://github.com/microtrain/ionic-cms/commit/e596528a24bc6e432fc634808fc378756610a3f0)
-Declare UsersPage in app.module.ts
-
-[</>  code](https://github.com/microtrain/ionic-cms/commit/52c30d29da7b72ffa6920aa95ae50900bbad07f5)
-Add the UsersPage to your side menu.
-
-Create a data service to connect to the users API.
-
-```sh
-ionic generate service user
-```
 
 UserService will give us access to a users API. We will create a getUsers() method that will return a list of users; this is the goal of UsersPage. To allow UsersPage to access UserProvider we will need to import and inject it into UsersPage.
 
