@@ -272,4 +272,4 @@ Missed a `console.log()`
 * Either create a user page or assume all users are created using the 
 registration form. I will leave this up to you.
 
-[Next: ionic-cms](../04-IonicCMS/README.md)
+[Next: ionicCMS](../04-IonicCMS/README.md)
