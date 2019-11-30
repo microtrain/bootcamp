@@ -262,8 +262,39 @@ Missed a `console.log()`
 
 ## User Management
 
-* Build a view for all users
-* Build a view for a single user
+### All Users
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/95a8c441c1473d8431d62162d2d5b607f8e9c585) Build a view for all users
+
+
+### A Single User
+[</> Code](https://github.com/microtrain/ionicUsers/commit/7b293ee36ecb62368a1d90e0663165845f829b0c) Generate the user page
+```sh
+ionic generate page user
+```
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/5b71d0c10a98738dae3f120264ab6a61ca9ce9dc) Allow parameters to be passed into the user view
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/6ed1f4b0920ae4fca423c0a4cef255f0a58e56da) Add `getUser()` to the users service
+
+This commit has a syntax error, see the following commit.
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/522307276b9e34e7b6a21d02f0cef619d1de2388) Errata
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/95a8c441c1473d8431d62162d2d5b607f8e9c585) Add a `getUser()` wrapper to the user page
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/c02bc9eaf7b316abb0bb2988b4e348a6936da689) Build a view for a single user
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/1df1afb1f951c7762277e9f3f05ec785ffbb9197) Deprecated CSS attributes
+In you console, you may see an error similar to the following, read the the 
+entire error, it will tell you what to do. 
+
+```sh
+[DEPRECATED][CSS] Ionic CSS attributes are deprecated.
+```
+
+[</> Code](https://github.com/microtrain/ionicUsers/commit/1df1afb1f951c7762277e9f3f05ec785ffbb9197) Add users to the side menu
+
 
 ## LAB - Edit and Delete Users
 * Implement an edit users page.
