@@ -152,8 +152,8 @@ object of the projects object.
 *angular.json - projects > architect > options*. 
 
 ```json
-"baseHref": "/ng-auth/",
-"outputPath": "/home/jason/mean.example.com/public/ng-auth",
+"baseHref": "/ionicUsers/",
+"outputPath": "/home/jason/mean.example.com/public/ionicUsers",
 ```
 
 ![angular.json](/img/auth/angular_json.png)
