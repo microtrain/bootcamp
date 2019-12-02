@@ -156,13 +156,15 @@ object of the projects object.
 "outputPath": "/home/jason/mean.example.com/public/ionicUsers",
 ```
 
-![angular.json](/img/auth/angular_json.png)
+![angular.json](/img/ionic/angular.json.png)
 
 Now that you have updated the angular.json file you can run a production build.
 
 ```sh
 ionic build
 ```
+
+> Those changes only apply if you are running the `ionic build` command. If you are running `ionic serve` remove `baseHref` and revert `outputPath` back to `www`.
 
 Add `/ionicUsers` to the subs section of your whitelist. 
 
