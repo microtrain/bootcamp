@@ -299,10 +299,10 @@ entire error, it will tell you what to do.
 
 
 ## LAB - Edit and Delete Users
-* Implement an edit users page.
-* Add the ability to delete a user.
+* [</> Code](https://github.com/microtrain/ionicUsers/commit/5db75fa341242c264ec522b187fd103fdd666922) Implement an edit users page.
+* [</> Code](https://github.com/microtrain/ionicUsers/commit/a0aa5b28525d567c1898b67481e525db86b9a639) Add the ability to delete a user.
     * This may be its own page or a method built into another component.
-* Either create a user page or assume all users are created using the 
+* [</> Code](https://github.com/microtrain/ionicUsers/commit/7e3d5ee18377e2402838cdc18abff4eab75e4011) Either create a user page or assume all users are created using the 
 registration form. I will leave this up to you.
 
 [Next: ionicCMS](../04-IonicCMS/README.md)
