@@ -249,7 +249,7 @@ Add the following classes to main.scss update the style declarations so that red
 
 ## Exercise 5 - Implement sass in your project
 
-Move *scss/main.css* to *src/scss/main.scss*
+Move *css/main.css* to *src/scss/main.scss*
 
 ```sh
 cd /var/www/YOUR-GITHUB-USERNAME.github.io
