@@ -254,7 +254,7 @@ Move *css/main.css* to *src/scss/main.scss*
 ```sh
 cd /var/www/YOUR-GITHUB-USERNAME.github.io
 mkdir -p src/scss
-mv ../mtbc/scss/main.scss src/scss/main.scss
+mv dist/css/main.css src/scss/main.scss
 ```
 
 Then compile the sass file
