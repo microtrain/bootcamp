@@ -67,7 +67,7 @@ Finally, we will access the [```fillRect()```](https://developer.mozilla.org/en-
 </script>
 ```
 
-We will use [```Math.random()```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) to draw a square in a random location in the canvas. We will set this to be 100 pixels shy of the canvas height and width so that the box will always appear in range. Navigate to [http://localhost/mtbc/draw/rand.html](http://localhost/draw/rand.html) and refresh the screen a few times to watch the box move.
+We will use [```Math.random()```](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) to draw a square in a random location in the canvas. We will set this to be 100 pixels shy of the canvas height and width so that the box will always appear in range. Navigate to [http://localhost/draw/rand.html](http://localhost/draw/rand.html) and refresh the screen a few times to watch the box move.
 
 ```html
 <!DOCTYPE html>
@@ -109,7 +109,7 @@ We will use [```Math.random()```](https://developer.mozilla.org/en-US/docs/Web/J
 ### Add a circle
 [CanvasRenderingContext2D.arc()](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/arc) is the method used for drawing a circle. For a rectangle the x,y coordinates represent the top left corner of the rectangle for a circle x,y represents the center of a circle. Where the third and fourth arguments of fillRect represent the height and width the third and fourth arguments represent the start and ending point of the arc to be drawn, for a complete circle you will always start at 0 and end at tau or pi^2 (2*pi).
 
-Add the following to the bottom of the script tags in your _/var/www/mtbc/draw/rand.html_ file and refresh the page.
+Add the following to the bottom of the script tags in your _/var/www/draw/rand.html_ file and refresh the page.
 ```js
 //Create a circle
 ctx.beginPath();
