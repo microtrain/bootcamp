@@ -126,6 +126,11 @@ In this lesson, you learned
 * how to install Debian package using dpkg (Linux)
 * how to force a broken install using apt (Linux)
 
+## Required Reading and Videos
+* [VIDEO - Getting Started with VSCode](https://code.visualstudio.com/docs/introvideos/basics)
+* [VSCode User Interface](https://code.visualstudio.com/docs/getstarted/userinterface)
+* [Navigating Files and Directories](https://datacarpentry.org/shell-genomics/02-the-filesystem/index.html)
+* [VIDEO - Linux/Mac Terminal Tutorial: Navigating your Filesystem](https://www.youtube.com/watch?v=j6vKLJxAKfw)
 
 ## Additional Resources
 * [VIM Book](http://ftp.vim.org/pub/vim/doc/book/vimbook-OPL.pdf)
@@ -133,5 +138,6 @@ In this lesson, you learned
 * [VSC Docs](https://code.visualstudio.com/docs)
 * [Filezilla Docs](https://wiki.filezilla-project.org/Documentation)
 * [SSH Man Page](http://linuxcommand.org/man_pages/ssh1.html)
+
 
 [Next: LAMP Stack](04-LAMPStack.md)
