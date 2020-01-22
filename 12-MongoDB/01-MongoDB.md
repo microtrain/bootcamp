@@ -147,7 +147,7 @@ Atlas is a cloud service that provides paid MongoDB clusters. They offer a free 
 
 ## Additional Resources
 
-# [Compass](https://www.mongodb.com/products/compass)
+## [Compass](https://www.mongodb.com/products/compass)
 
 Compass is a GUI for MongoDB. Optional install through Ubuntu Software Applilcations 
 
