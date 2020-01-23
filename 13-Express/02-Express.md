@@ -27,12 +27,12 @@ In the above snippet, ```router.get()``` routes a GET request, meaning the clien
 
 ## Create an Express-based Project
 
-Go to GitHub and create a new project *mean.example.com*. You can change this to your domain name if you have one *mean.YOUR-DOMAIN.TLD*. If you use your domain, moving forward, remember to replace example.com with that of your domain. 
+Go to GitHub and create a new repository *mean.example.com*. You can change this to your domain name if you have one *mean.YOUR-DOMAIN.TLD*. If you use your domain, moving forward, remember to replace example.com with that of your domain. 
 
 We will 
 * Install Express Generator.
-* Create a project on GitHub.
-* Clone the project to our home directory.
+* Create a repository on GitHub.
+* Clone the repository to our home directory.
 * Use Express Generator to create a skeleton for our project.
 * Cover some very basic coding concepts in Express.
 * Introduce ourselves to Pug.
@@ -58,7 +58,7 @@ An Express-based web site and REST API with user authentication.
 Add gitignore: None
 Add a license: MIT License
 
-Clone the project into your home directory. Replace YOUR-GITHUB-ACCOUNT with the actual account details (for the sale of this lesson we will refer to this as *mean.example.com*).
+Clone the repository into your home directory. Replace YOUR-GITHUB-ACCOUNT with the actual account details (for the sale of this lesson we will refer to this as *mean.example.com*).
 
 ```sh
 cd ~/
