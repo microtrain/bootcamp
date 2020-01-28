@@ -231,13 +231,13 @@ From the VSC explorer navigate to *mean.example.com/views/index.pug* and change 
 > Please note the indentation, **indentation matters** when it comes to Pug.
 
 ```js
-//change
+//- change
 extends layout
 
 block content
   h1= title
   p Welcome to #{title}
-//to
+//- to
 extends layout
 
 block content
