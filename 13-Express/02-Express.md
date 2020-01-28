@@ -269,19 +269,19 @@ Take note of the line ```res.render('index', { title: 'Express', name: 'YOUR_NAM
 The view is a _.pug_ file. Pug is a template engine designed for NodeJS. Pug files are processed server-side and the resulting HTML is sent to the user. Calling ```res.render('index', { title: 'Express', name: 'YOUR-NAME'});``` pass two variables ```title``` and ```name``` into the view files *mean.example.com/views/index.pug* and build the HTML document that will be served to the user. A pug can handle variables in one of two ways.
 
 ```pug
-//An element in which the innerHTML consists of only the variable
+//-An element in which the innerHTML consists of only the variable
 h1= title
 
-//An element in which the variable is injected into a string
+//-An element in which the variable is injected into a string
 p Welcome to #{title} how do you do?
 ```
 
 *index.pug*
 ```pug
-//The layout into which this page will be injected
+//-The layout into which this page will be injected
 extends layout
 
-//creates a content variable, everything below this will be injected into the layout
+//-creates a content variable, everything below this will be injected into the layout
 block content
   // Pug flavored markup
   h1= title
@@ -290,14 +290,14 @@ block content
 
 *layout.pug*
 ```
-//standard markup
+//-standard markup
 doctype html
 html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    //the content block of index.pug will be injected here.
+    //-the content block of index.pug will be injected here.
     block content
 ```
 Open a browser and navigate to [http://localhost:3000/](http://localhost:3000/users). You'll see an unstyled web page that says "respond with a resource". This because this endpoint is not calling ```res.render()``` rather it is calling ```res.send()```. The ```send()``` method will not attempt to render a view, this method simply prints any text passed into it to the screen. This is similar to ```res.json()``` in that no view is rendered.
