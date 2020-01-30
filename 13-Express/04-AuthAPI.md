@@ -317,9 +317,16 @@ git commit -a
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/980218012b2c0334d6c01468c4bcb83157d1839e) Add an endpoint for logging out of a session.
 ```js
-router.get('/logout', function(req, res){
-  req.logout();
-});
+  router.delete('/logout', function(req, res){
+    req.session.destroy(function (err) {
+      if(err){
+        return res.json({success: 'false'});
+      }else{
+        return res.json({success: 'true'});
+      }
+    });
+  });
+
 ```
 
 Commit your changes and push to master
