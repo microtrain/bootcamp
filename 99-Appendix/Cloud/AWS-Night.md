@@ -199,6 +199,11 @@ Intall x-xlip and copy the contents of the key to your clipboard
 sudo apt install -y xclip
 xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
+If you receive AWS Server Error: Can't open display: (null)
+Use
+```
+cat ~/.ssh/id_rsa.pub
+```
 
 Log into your GitHub account and find _Settings_ in the top right corner under your avatar. Then click on SSH and GPG Keys in the left-hand navigation and click the green **New SSH Key** button. Enter a title, this should be something that identifies your machine (I usually use the machine name) and paste the SSH key into the key field.
 
