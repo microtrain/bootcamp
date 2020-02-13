@@ -474,7 +474,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ApodComponent } from './apod/apod.component';
 
-import { NgApodConfig } from '../../../config/ng-apod.config';
+import { NgApodConfig } from '../../config/ng-apod.config';
 
 @NgModule({
   declarations: [
@@ -918,7 +918,7 @@ import { ApodComponent } from './apod/apod.component';
 //Import the pipe from node_modules
 import { SafePipeModule } from 'safe-pipe';
 
-import { NgApodConfig } from '../../../config/ng-apod.config';
+import { NgApodConfig } from '../../config/ng-apod.config';
 
 @NgModule({
   declarations: [
@@ -1107,7 +1107,7 @@ import { ApodComponent } from './apod/apod.component';
 
 import { SafePipeModule } from 'safe-pipe';
 
-import { NgApodConfig } from '../../../config/ng-apod.config';
+import { NgApodConfig } from '../../config/ng-apod.config';
 
 @NgModule({
   declarations: [
