@@ -382,7 +382,7 @@ export class NgApodConfig {
 
 To use the key. we will need to add it to the providers' list in our app module.
 
-* Import the config ```import { NgApodConfig } from '../../../config/ng-apod.config';```
+* Import the config ```import { NgApodConfig } from '../../config/ng-apod.config';```
 * List the config class as a provider ```providers: [NgApodConfig],```
 
 *src/app.module.ts*
@@ -395,7 +395,7 @@ import { AppComponent } from './app.component';
 import { ApodComponent } from './apod/apod.component';
 
 // Relative import from the current directory to your PC's file system
-import { NgApodConfig } from '../../../config/ng-apod.config';
+import { NgApodConfig } from '../../config/ng-apod.config';
 
 @NgModule({
   declarations: [
