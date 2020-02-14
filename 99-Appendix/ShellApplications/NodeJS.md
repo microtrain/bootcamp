@@ -25,27 +25,27 @@ sudo systemctl reload apache2
 ```
 Anding these statements together allows them to run in a single buffer. The following script will utilize both techniques.
 
-[</> code](https://github.com/stack-x/restart_apache/commit/) **Create a repository and initial commit**
+[</> code](https://github.com/microtrain/node_reload_apache/commit/ef611663cfbfcf9c0750b9408649a11695398792) **Create a repository and initial commit**
 
-On GitHub [create a repository]() called *restart_apache*.
+On GitHub [create a repository](https://help.github.com/en/github/getting-started-with-github/create-a-repo) called *node_reload_apache*.
 
 ![Create a Repo](/img/bash/create_repo.png)
 
-Clone the restart_apache repository onto your local development machine.
+Clone the node_reload_apache repository onto your local development machine.
 
 ![Create a Repo](/img/bash/clone.png)
 
 
 ```sh
 cd ~
-git clone git@github.com:YOUR-GITHUB-USERNAME/restart_apache
+git clone git@github.com:YOUR-GITHUB-USERNAME/node_reload_apache
 ```
 
-[</> code]() **Proof of Concept**
+[</> code](https://github.com/microtrain/node_reload_apache) **Proof of Concept**
 
 I like to start with a simple proof of concept, this is working code provides either a starting or talking point. For some projects, a proof of concept code may represent a complete working solution but may not be considered the optimal solution.
 
-Add *~/restart_apache* as a [new folder](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in your VSC workspace and create a new file *re.js*.
+Add *~/node_reload_apache* as a [new folder](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in your VSC workspace and create a new file *re.js*.
 
 ```js
 const { exec } = require("child_process");
@@ -110,22 +110,22 @@ If there are no errors, write the output of the shell command(s) back to the ter
 console.log(stdout);
 ```
 
-Now you can open a terminal and run your program. We will start by moving to the restart_apache folder located in our home directory. Once there, we will call `node` and pass the path to our script as an argument.
+Now you can open a terminal and run your program. We will start by moving to the node_reload_apache folder located in our home directory. Once there, we will call `node` and pass the path to our script as an argument.
 ```sh
-cd ~/restart_apache
+cd ~/node_reload_apache
 node re.js
 ```
 
-Another way to call an application from the terminal is to make it executable. 
+[</> code](https://github.com/microtrain/node_reload_apache/commit/eb822cd98b1c277561880ef62ebb5b0d1ba705de) Another way to call an application from the terminal is to make it executable. 
 ```sh
-cd ~/restart_apache
+cd ~/node_reload_apache
 chmod +x re.js
 ```
 
 You now have two new way to call this file `source re.js` which tells the terminal to run the file as source code or you can say `./re.js` in which case `./` is shorthand for `source `.
 
 ```sh
-cd ~/restart_apache
+cd ~/node_reload_apache
 ./re.js
 ```
 
@@ -141,9 +141,81 @@ When you call your script using node `node re.js` you are invoking the node inte
 #!/usr/bin/env node
 ```
 
+Now if you rerun the script you will execute with no errors.
+
+```sh
+cd ~/node_reload_apache
+./re.js
+```
+
+[</> code](https://github.com/microtrain/node_reload_apache/commit/6ebacf8dffc06885d7eb3161ac84b924331549f5) Execute as an NPM package
+
+Adding a package.json file will give you an NPM package. Setting the start script will allow you to execute the package using `npm start`. 
+
+Create a file called package.json and add the following.
+
+*package.json*
+```json
+{
+    "scripts": {
+        "start": "sudo node re.js"
+    }
+}
+```
+
+Now that you have an NPM package you can use NPM to run your code.
+
+```sh
+cd ~/node_reload_apache
+./re.js
+```
+
+[</> code](https://github.com/microtrain/node_reload_apache/commit/6ebacf8dffc06885d7eb3161ac84b924331549f5) While the previous package.json example is enough for NPM to run your code the recommended to build a package.json file is to use `npm init`.
+
+```sh
+cd ~/node_reload_apache
+npm init
+```
+
+NPM will ask you some questions, you may reply as follows.
+```sh
+package name: (node_reload_apache) 
+version: (1.0.0) 0.0.1
+entry point: (re.js) 
+git repository: (https://github.com/microtrain/node_reload_apache.git) 
+keywords: 
+author: 
+license: (ISC) MIT
+About to write to /home/jason/node_reload_apache/package.json:
+
+{
+  "scripts": {
+    "start": "sudo node re.js"
+  },
+  "name": "node_reload_apache",
+  "description": "A NodeJS application for reloading Apache virtual hosts.",
+  "version": "0.0.1",
+  "main": "re.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microtrain/node_reload_apache.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/microtrain/node_reload_apache/issues"
+  },
+  "homepage": "https://github.com/microtrain/node_reload_apache#readme"
+}
+
+Is this OK? (yes) yes
+```
+
+
+
 ## Exercise 2 - Passing Arguments into a Shell
 
-Arguments can be used to tell the program what to target and/or how to function. An example of this is invoking this program using node `node re.js`. In this example we called a program named node and passed a relative path as the argument.
+[</> code](https://github.com/microtrain/node_reload_apache/commit/ddd7005639b6bb191c9e146eb82e29b598e26b05) Arguments can be used to tell the program what to target and/or how to function. An example of this is invoking this program using node `node re.js`. In this example we called a program named node and passed a relative path as the argument.
 
 Node.js ships with access to an object called [process](https://nodejs.org/api/process.html). You can read read all arguments passed into your program by calling [process.argv](https://nodejs.org/api/process.html#process_process_argv).
 
@@ -157,14 +229,14 @@ console.log(process.argv);
 
 Open a terminal and run your program.
 ```sh
-cd ~/restart_apache
+cd ~/node_reload_apache
 node re.js
 ```
 
 Executing your program with no arguments will produce output similar to the following. This is an array containing a list of arguments. The first argument (array element 0) is the path to the interpreter being used for this shell. The second (array element 1), is a the absolute path of the shell that was just invoked.
 
 ```sh
-[ '/usr/bin/node', '/home/dev/restart_apache/re.js' ]
+[ '/usr/bin/node', '/home/dev/node_reload_apache/re.js' ]
 ```
 
 Rerun the command, only this time pass the default virtual-host file as an argument. 
@@ -175,7 +247,7 @@ node re.js 000-default
 Executing your program with arguments will produce output similar to the following. The first two elements are the same as above but now we have a third element (array element 2). This is the first argument passed by the user.  
 ```sh
 [ '/usr/bin/node',
-  '/home/jsnider/restart_apache/re.js',
+  '/home/jsnider/node_reload_apache/re.js',
   '000-default' ]
 ```
 
