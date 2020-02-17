@@ -116,6 +116,28 @@ cd ~/node_reload_apache
 node re.js
 ```
 
+### Commit your changes and push them to GitHub
+
+```sh
+git add .
+git commit -a
+```
+
+VI will open an ask you to enter a commit message. 
+1. Press the letter [i] to enter insert mode. 
+1. Then type the message _Proof of concept_. 
+1. Press [esc] followed by [:x] and enter to save the commit message.
+
+Push your changes to the master branch.
+
+> We use the convention of first comment to denote a potential commit message. For the following snippet *Proof of concept* would be the suggested commit message.
+
+```sh
+# Proof of concept
+git push origin master
+```
+
+### Execute as Source (aka, with Shebang (aka, Standalone Execution))
 [</> code](https://github.com/microtrain/node_reload_apache/commit/eb822cd98b1c277561880ef62ebb5b0d1ba705de) Another way to call an application from the terminal is to make it executable. 
 ```sh
 cd ~/node_reload_apache
@@ -148,6 +170,14 @@ cd ~/node_reload_apache
 ./re.js
 ```
 
+```sh
+# Stand alone execution
+git add .
+git commit -a
+git push origin master
+```
+
+### Create an NPM Package
 [</> code](https://github.com/microtrain/node_reload_apache/commit/6ebacf8dffc06885d7eb3161ac84b924331549f5) Execute as an NPM package
 
 Adding a package.json file will give you an NPM package. Setting the start script will allow you to execute the package using `npm start`. 
@@ -211,7 +241,12 @@ About to write to /home/jason/node_reload_apache/package.json:
 Is this OK? (yes) yes
 ```
 
-
+```sh
+# Create an NPM package
+git add .
+git commit -a
+git push origin master
+```
 
 ## Exercise 2 - Passing Arguments into a Shell
 
@@ -298,3 +333,9 @@ The line `var targetSite = '*';` creates a default state which allows us to run 
 The line `var args  = process.argv;` creates an array called args. An array is a variable containing multiple key-to-value pairs know as elements. An array element is access by passing the array key on a set of square brackets attached to the array's variable name. In this case, I can access the first user passed argument (array element 2) by calling `args[2]`. The line `if(args[2]){` is a test to see if `args[2]` has a value. If not, the body of the statement is ignored. If `args[2]` has a value then the line `targetSite = args[2];` will change the value of `targetSite` from `*` to the user supplied value; in our case, `000-default`. If `targetSite` is set to `*` then we will reload all site configurations otherwise, we will only reload a single site configuration.
 
 
+```sh
+# Accept arguments
+git add .
+git commit -a
+git push origin master
+```
