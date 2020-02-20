@@ -7,7 +7,7 @@ Create the user view component
 ng generate component user-view
 ```
 
-Bring the users component into scope, to do this we will replace the contents of *src/app/user-view/user-view.component.html* with the following.
+Bring the users component into scope, to do this we will replace the contents of *src/app/user-view/user-view.component.html* later in lesson.
 
 Add the user-view component to the routing module.
 *src/app/app-routing.module.ts*
