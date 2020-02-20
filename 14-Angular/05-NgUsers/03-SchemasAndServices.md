@@ -153,7 +153,7 @@ Remove the ```console.log()``` and add ```response.JSONobject``` from *src/app/u
 ```
   getUsers(): void {
     this.usersService.getUsers().subscribe(
-      (response.any) => {
+      (response:any) => {
         this.users = response.users
         //console.log(this.users)
       }
