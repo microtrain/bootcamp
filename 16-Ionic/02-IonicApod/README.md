@@ -113,7 +113,7 @@ As in NgApod the `ApodService` will need to perform the following tasks.
 The code will be almost identical to that of the `ApodService` from the 
 `ng-apod` project.
 
-*src/app/apod/apod.service.ts*
+*src/app/apod.service.ts*
 ```js
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
