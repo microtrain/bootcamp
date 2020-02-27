@@ -181,7 +181,7 @@ ionic generate page apod
 Update the routes array in the app-routing module. Replace the `routes` constant 
 with the following snippet. 
 
-*app-routing.module.js*
+*app-routing.module.ts*
 ```js
 const routes: Routes = [
   { path: '', redirectTo: 'apod', pathMatch: 'full' },
