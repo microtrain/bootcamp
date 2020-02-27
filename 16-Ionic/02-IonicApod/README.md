@@ -196,6 +196,7 @@ ng-apod project. The main difference will be changing ```onInit()``` to
 
 *src/app/apod/apod.page.ts*
 ```js
+apod.page.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -222,19 +223,20 @@ export class ApodPage {
       (params)=>{
         if(params['date']){
           this.getApod(params['date']);
-        }else{
-          this.getApod(new Date().toISOString().slice(0, 10));
-        }
+      }else{
+        var date=new Date;
+        date.setDate(date.getDate()-1);
+        this.getApod(date.toISOString().slice(0, 10));
       }
+    }
     );
   }
   
   randomDate(start, end){
-
     let date = new Date(
       start.getTime() + Math.random() * (end.getTime() - start.getTime())
     );
-
+    
     return new Date(
       (date.getTime() - date.getTimezoneOffset()*60000)
     ).toISOString().slice(0, 10);
