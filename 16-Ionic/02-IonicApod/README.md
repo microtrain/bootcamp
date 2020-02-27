@@ -77,8 +77,8 @@ export class Apod {
 }
 ```
 
-At this point, verify you still have your config file from the `ng-apod`
-lesson. This should be under `~/config/ng-apod.config.ts`. If you do not have 
+At this point, VERIFY you still have your config file from the `ng-apod`
+lesson. This should be under `~/config/ng-apod.config.ts`. If YOU DO NOT have 
 this file and directory, you can create them now.
 
 ```sh
