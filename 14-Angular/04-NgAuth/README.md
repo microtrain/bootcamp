@@ -156,7 +156,7 @@ export class UserService {
 ```
 
 Wire the service up to the login component and call the test method. We will use a ```console.log()``` to call the test method from the constructor. 
-
+*/src/app/login/login.component.ts*
 ```ts
 import { Component, OnInit } from '@angular/core';
 // 1. Import the service
