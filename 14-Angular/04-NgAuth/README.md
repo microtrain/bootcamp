@@ -26,7 +26,7 @@ In the browser return to *[http://localhost:4200](http://localhost:4200)* and yo
 
 ## Create the components.
 
-[</> code]() This project will require 3 components: login, logout, and register.
+This project will require 3 components: login, logout, and register.
 
 ```sh
 ng generate component login
