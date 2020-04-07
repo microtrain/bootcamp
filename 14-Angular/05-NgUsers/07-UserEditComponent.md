@@ -55,7 +55,7 @@ import { User } from '../user';
 export class UserEditComponent implements OnInit {
 
   user: User;
-  errors: Array<any> = [];
+  errors: any = [];
   errorMessage: string;
 
   constructor(
