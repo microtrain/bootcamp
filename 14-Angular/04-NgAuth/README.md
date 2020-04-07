@@ -191,7 +191,7 @@ Although we have successfully connected our service to the login component. We a
 
 Since our app is acting as a client making and HTTP request to localhost:3000, we will start by adding a ```CORS Policy``` to *app.js*. This statement should be added above the whitelist *~/mean.example.com/app.js* around line ~78.
 
-*/src/app/app.ts*
+*~/mean.example.com/app.js*
 ```js
 //Set up CORS
 app.use(function(req, res, next) {
