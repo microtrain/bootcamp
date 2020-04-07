@@ -79,7 +79,8 @@ import { User } from '../user';
 export class UserCreateComponent implements OnInit {
 
   user = new User();
-  errors: Array<any> = [];
+  // errors: Array<any> = [];
+  errors: any = [];
   errorMessage: string;
 
   constructor(
