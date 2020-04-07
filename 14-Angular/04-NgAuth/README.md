@@ -6,7 +6,7 @@ This app will allow a user to login and out of your ExpressJS app using an Angul
 
 Install the angular shell and check the installed version.
 
-[</> Code]() Create a new Angular project.
+Create a new Angular project.
 ```sh
 cd ~
 ng new ng-auth
@@ -156,6 +156,7 @@ export class UserService {
 ```
 
 Wire the service up to the login component and call the test method. We will use a ```console.log()``` to call the test method from the constructor. 
+
 */src/app/login/login.component.ts*
 ```ts
 import { Component, OnInit } from '@angular/core';
@@ -190,6 +191,7 @@ Although we have successfully connected our service to the login component. We a
 
 Since our app is acting as a client making and HTTP request to localhost:3000, we will start by adding a ```CORS Policy``` to *app.js*. This statement should be added above the whitelist *~/mean.example.com/app.js* around line ~78.
 
+*/src/app/app.ts*
 ```js
 //Set up CORS
 app.use(function(req, res, next) {
@@ -223,6 +225,8 @@ Now that we have successfully connected our service to the login component. We c
 
 Since our app is acting as a client making and HTTP request, we will start by adding the ```HttpClientModule``` to *app.module.ts*.
 
+
+*/src/app/app.module.ts*
 ```ts
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -264,6 +268,7 @@ git commit -a
 
 Importing HttpClientModule at the AppModule level gives us access to HttpClient in the lower levels of the system. For our service provider to work we will need to import HttpClient and inject it into the constructor, import Observable from the RxJS library and finally, import the User model.
 
+*/src/app/services/user.service.ts*
 ```ts
 import { Injectable } from '@angular/core';
 // 1. Import HttpClient
@@ -377,6 +382,7 @@ Now, a few tweaks to the LoginComponent and we can test a full post request.
 3. Add a login method
 4. Call the login method in the constructor
 
+*/src/app/login/login.component.ts*
 ```ts
 import { Component, OnInit } from '@angular/core';
 
@@ -424,7 +430,7 @@ For this test go the *~/mean.example.com/app.js* and turn off the whitelist. Sta
 
 Now we are ready to build the login form. We will start by updating the component. We will remove the constructor's implementation as well as the hardcoded credentials from the ```login()``` method.
 
-
+*/src/app/login/login.component.ts*
 ```ts
 import { Component, OnInit } from '@angular/core';
 
