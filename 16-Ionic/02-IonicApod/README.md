@@ -78,7 +78,7 @@ export class Apod {
 ```
 
 At this point, VERIFY you still have your config file from the `ng-apod`
-lesson. This should be under `~/config/ng-apod.config.ts`. If YOU DO NOT have 
+lesson. This should be under `~/ng-apod/config/ng-apod.config.ts`. If YOU DO NOT have 
 this file and directory, you can create them now.
 
 ```sh
@@ -120,7 +120,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Apod } from './apod.model';
 
-import { NgApodConfig } from '../../../config/ng-apod.config';
+import { NgApodConfig } from '../../../ng-apod/config/ng-apod.config';
 
 @Injectable({
   providedIn: 'root'
@@ -148,7 +148,7 @@ add this as an import to *app.module.ts*.
 Add the following line to the top of the file.
 ```ts
 import { HttpClientModule } from '@angular/common/http';
-import { NgApodConfig } from '../../../config/ng-apod.config';
+import { NgApodConfig } from '../../../ng-apod/config/ng-apod.config';
 ```
 
 Update the imports array as follows.
