@@ -196,7 +196,7 @@ ng-apod project. The main difference will be changing ```onInit()``` to
 
 *src/app/apod/apod.page.ts*
 ```js
-apod.page.ts
+
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
