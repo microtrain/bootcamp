@@ -295,7 +295,7 @@ entire error, it will tell you what to do.
 [DEPRECATED][CSS] Ionic CSS attributes are deprecated.
 ```
 
-[</> Code](https://github.com/microtrain/ionicUsers/commit/1df1afb1f951c7762277e9f3f05ec785ffbb9197) Add users to the side menu
+[</> Code](https://github.com/microtrain/ionicUsers/commit/5db75fa341242c264ec522b187fd103fdd666922) Add users to the side menu
 
 
 ## LAB - Edit and Delete Users
