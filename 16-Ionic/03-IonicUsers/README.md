@@ -153,7 +153,7 @@ object of the projects object.
 
 ```json
 "baseHref": "/ionicUsers/",
-"outputPath": "/home/jason/mean.example.com/public/ionicUsers",
+"outputPath": "/home/dev/mean.example.com/public/ionicUsers",
 ```
 
 ![angular.json](/img/ionic/angular.json.png)
