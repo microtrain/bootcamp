@@ -1,7 +1,7 @@
 # AWS Foundations: Getting Started with the AWS Cloud Essentials
 Learn about the foundations of getting started in the AWS Cloud. In this course, you learn about the AWS Cloud architecture and the services in the Compute, Storage, Database, Networking, and Security categories. This course can help you can build and validate an overall understanding of the AWS Cloud, key terminology, and help advance your AWS Cloud skills.
 
-##Course objectives
+## Course objectives
 In this course, you will learn to:
 
 * Describe the AWS Cloud value proposition
@@ -9,17 +9,6 @@ In this course, you will learn to:
 * Describe and differentiate between AWS service domains
 * Explain the Shared Responsibility model
 * Describe AWS pricing
-
-# Amazon Web Services (AWS) Basics
-
-In this section we will launch a cloud infrastructure. This will include 
-* Creating an AWS account
-* Spinning up a web server on EC2
-* Configuraing an Elastic IP
-* Creating a valid TLS connection against a real CA.
-
-[AWS](https://aws.amazon.com "AWS's Homepage")
-is an auxiliary of Amazon.com that provides on-demand cloud computing platforms such as IaaS, PaaS and SaaS. AWS offers compute power, database storage, content delivery and other functionality to help businesses scale and grow.
 
 ## Terminology
 
@@ -67,6 +56,18 @@ AWS Free Tier offers 12 months of semi free service and AWS products. Notable se
 | SNS           |               |        |
 | CloudFront    | 50GB          |        |
 
+
+# Amazon Web Services (AWS) Basics
+
+In this section we will launch a cloud infrastructure. This will include 
+* Creating an AWS account
+* Spinning up a web server on EC2
+* Configuraing an Elastic IP
+* Creating a valid TLS connection against a real CA.
+
+[AWS](https://aws.amazon.com "AWS's Homepage")
+is an auxiliary of Amazon.com that provides on-demand cloud computing platforms such as IaaS, PaaS and SaaS. AWS offers compute power, database storage, content delivery and other functionality to help businesses scale and grow.
+
 ## Register an AWS Account
 Head over to [AWS](https://aws.amazon.com "AWS's Homepage") hompage and signup.
 1. Create AWS Account with credentials.
@@ -75,6 +76,7 @@ Head over to [AWS](https://aws.amazon.com "AWS's Homepage") hompage and signup.
 4. Enter code for Identity Verification. *Sent to phone*
 5. Select Support Plan - Basic(Free).
 6. Sign in to the Console.
+
 
 ## Amazon EC2
 
