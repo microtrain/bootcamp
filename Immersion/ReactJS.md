@@ -32,8 +32,33 @@ Type YES (Y/no) to launch my-app in the browser on another port instead [localho
 
 Create React App doesn’t handle backend logic or databases; it just creates a frontend build pipeline, so you can use it with any backend you want. Under the hood, it uses Babel and webpack, but you don’t need to know anything about them.
 
-When you’re ready to deploy to production, running ```npm run build``` will create an optimized build of your app in the ```build``` folder.
+When app creation is complete, you will see the following in your Terminal window
+```sh
+Created git commit.
 
+Success! Created tic-tac-toe at /home/dev/tic-tac-toe
+Inside that directory, you can run several commands:
+
+  npm start
+    Starts the development server.
+
+  npm run build
+    Bundles the app into static files for production.
+
+  npm test
+    Starts the test runner.
+
+  npm run eject
+    Removes this tool and copies build dependencies, configuration files
+    and scripts into the app directory. If you do this, you can’t go back!
+
+We suggest that you begin by typing:
+
+  cd <project-name>
+  npm start
+  
+Happy hacking!  
+```
 
 ## Exercise 1 - CAROUSEL
 
@@ -531,4 +556,5 @@ When you’re ready to deploy to production, running ```npm run build``` will cr
 * Review ```<image: "/path"> <name: "celebrity name">``` in */src/characters.json 
 * Replace image sources and names with your own interest
 * Change Title, Description and Style the App */src/App.css
+
 
