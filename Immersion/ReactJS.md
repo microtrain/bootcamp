@@ -32,7 +32,7 @@ Type YES (Y/no) to launch my-app in the browser on another port instead [localho
 
 Create React App doesn’t handle backend logic or databases; it just creates a frontend build pipeline, so you can use it with any backend you want. Under the hood, it uses Babel and webpack, but you don’t need to know anything about them.
 
-When you’re ready to deploy to production, running ```npm run build``` will create an optimized build of your app in the build folder.
+When you’re ready to deploy to production, running ```npm run build``` will create an optimized build of your app in the ```build``` folder.
 
 
 ## Exercise 1 - CAROUSEL
@@ -73,7 +73,7 @@ function App() {
 </div>
 <div>
 <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_65/c_fill,w_480,h_384/cities/c1cklkyp6ms02tougufx.webp" alt="Singapore"/>
-<p className="legend"></p>
+<p className="legend">Singapore</p>
 </div>
 <div>
 <img src="https://res.klook.com/image/upload/fl_lossy.progressive,q_65/c_fill,w_480,h_384/cities/e8fnw35p6zgusq218foj.webp" alt="Japan"/>
@@ -102,6 +102,8 @@ npm start
 ```
 If you receive a warning Something is already running on Port 3000, Would you like to run the app on another port instead?
 Type YES (Y/no) to launch my-app in the browser on another port instead [localhost:3001](http://localhost:3001/)
+
+When you’re ready to deploy to production, running ```npm run build``` will create an optimized build of your app in the ```build``` folder.
 
 
 ## Exercise 2 - MEMORY GAME
@@ -514,5 +516,19 @@ Create a file: */src/characters.json
 ```sh
 npm start
 ```
+If you receive a warning Something is already running on Port 3000, Would you like to run the app on another port instead?
+Type YES (Y/no) to launch my-app in the browser on another port instead [localhost:3001](http://localhost:3001/)
 
+When you’re ready to deploy to production, running ```npm run build``` will create an optimized build of your app in the ```build``` folder.
+
+
+## Lab 1 - CAROUSEL
+* Review ```<img src="/path" alt="name">``` in */src/App.js 
+* Replace image source and legends with your own interest
+* Add Title and Description to App page
+ 
+## Lab 2 - MEMORY GAME
+* Review ```<image: "/path"> <name: "celebrity name">``` in */src/characters.json 
+* Replace image sources and names with your own interest
+* Change Title, Description and Style the App */src/App.css
 
