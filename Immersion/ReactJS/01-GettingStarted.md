@@ -3,13 +3,15 @@
 * You’ll need to have Node >= 8.10 and npm >= 5.6 on your machine
 * Follow the installation instructions to make a new project
 
+## Exercise 1 - MYAPP
+
 ```sh
 npx create-react-app my-app
 cd my-app
 npm start
 ```
-If you receive a warning Something is already running on Port 3000, Would you like to run the app on another port instead?
-Type YES (Y/no) to launch my-app in the browser on another port instead [localhost:3001](http://localhost:3001/)
+If you receive a ***Warning Something is already running on Port 3000, Would you like to run the app on another port instead?***
+Type ```YES (Y/no)``` to launch my-app in the browser on another port instead [localhost:3001](http://localhost:3001/)
 
 Create React App doesn’t handle backend logic or databases; it just creates a frontend build pipeline, so you can use it with any backend you want. Under the hood, it uses Babel and webpack, but you don’t need to know anything about them.
 
@@ -40,3 +42,10 @@ We suggest that you begin by typing:
   
 Happy hacking!  
 ```
+
+Open the created project in VSCode and explore the file and folder structure created.
+* Review ```.gitignore``` contents
+* Review ```.package.json``` contents
+* Edit */public/index.html
+
+[Next: Carousel](02-Carousel.md)
