@@ -43,7 +43,7 @@ User-agent: *
 Disallow:
 ```
 
-### [humnas.txt](http://humanstxt.org/) 
+### [humans.txt](http://humanstxt.org/) 
 humans.txt is a file that gives credit to the site's creators. While it is not required it's a nice touch and if they solve the spam problem they will give you a way to submit your site to there directory, which is a link back so that is always good.
 
 humans.txt requires a tag in the head plus the text file with all of the content
