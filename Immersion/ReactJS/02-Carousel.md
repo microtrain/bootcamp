@@ -1,4 +1,4 @@
-## Exercise 1 - CAROUSEL
+## Exercise 2 - CAROUSEL
 
 This is a simple responsive Carousel loading images from third-party sites and generating thumbnails automatically. We will use React Responsive Carousel package which you need to first install and using Carousel component available in package we design our carousel.
 
@@ -68,7 +68,9 @@ Type YES (Y/no) to launch my-app in the browser on another port instead [localho
 
 When you’re ready to deploy to production, running ```npm run build``` will create an optimized build of your app in the ```build``` folder.
 
-## Lab 1 - CAROUSEL
+## Lab 2 - CAROUSEL
 * Review ```<img src="/path" alt="name">``` in */src/App.js 
 * Replace image source and legends with your own interest
 * Add Title and Description to App page
+
+[Next: Memory Game](03-MemoryGame.md)
