@@ -316,6 +316,7 @@ git branch -D feature/some-feature
 
 In this exercise, you learned 
 * how to create a new branch with the checkout command (Git)
+* how to serve a static page from your github repository (Git)
 * basic Git commands (Git)
 
 
