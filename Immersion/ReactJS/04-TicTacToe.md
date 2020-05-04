@@ -1,4 +1,4 @@
-## Exercise 3 - TIC TAC TOE
+## Exercise 4 - TIC TAC TOE
 Using the ReactJS [Tic-Tac-Toe tutorial](https://reactjs.org/tutorial/tutorial.html) as a guide, we’ll build an interactive tic-tac-toe game with React.
  
 This tutorial is designed for people who prefer to learn by doing. If you prefer learning concepts from the ground up, check out our [step-by-step guide](https://reactjs.org/docs/hello-world.html). You might find this tutorial and the guide complementary to each other.
@@ -566,22 +566,11 @@ git commit -an 'Completed Tic Tac Toe App'
 git push origin master
 ```
 
-## Lab 3 - Tic Tac Toe
+## Lab 4 - TIC TAC TOE
 Here are some ideas for improvements that you could make to the tic-tac-toe game which are listed in order of increasing difficulty:
 * Change Title, Description and Style the App */src/App.css
 * Make it possible to “go back in time” to the previous moves in the game.
 * Bold the currently selected item in the move list.
 * When someone wins, highlight the three squares that caused the win.
 
-
-
-
-
-
-
-
-
-
-
-
- 
+[Next: Minesweeper](05-Minesweeper.md)
