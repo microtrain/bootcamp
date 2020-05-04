@@ -195,6 +195,60 @@ git merge dev
 
 Technically, there is no right or wrong way to use git. Each project would have a set of guidelines. If you were to deviate from those guidelines then your usage within the context of working on that project would be considered wrong. [The Diaspora* Project](https://wiki.diasporafoundation.org/Git_workflow) has a very well defined branching model that is typical of what you will see in the real world. If I had to come up with one and only one rule it would be to never build on the master branch.
 
+## Exercise 3 - Serve Static Page From GitHub Repository
+In Visual Studio Code click into the workspace `/mtbc`.
+
+Right-click and choose "New File" to the workspace.
+
+Create an `index.html` page */mtbc/index.html*.
+
+Add the following code.
+```sh
+<html>
+<header><title>GitHub Page Example</title></header>
+<body>
+Hello world, Welcome to My GitHub.io
+</body>
+</html>
+```
+Save the file.
+
+Open a terminal (command line or CLI) and navigate to the *cd ~ /var/www/mtbc* directory.
+Check your repository for changes, `git status` will return a list of dirty files.
+
+```sh
+git status
+```
+Use git add . to track changed file
+```sh
+git add .
+```
+Commit your *index.html* file addition
+```sh
+git commit
+```
+VI will open an ask you to enter a commit message. 
+1. Press the letter [i] to enter insert mode. 
+1. Then type the message _Github Page Example_. 
+1. Press [esc] followed by [:x] and enter to save the commit message.
+
+Push your changes to the master branch.
+
+```sh
+git push origin master
+```
+
+Log in to your GitHub account and click on the repositories tab then find the `mtbc` Repository folder.
+* Choose **_Settings_** in the far right corner
+* Scroll down to **_GitHub Pages_**
+* Under Source dropdown select **_master branch_**
+
+**Note**
+> Message will change to _Your site is ready to be published at [https://`<yourname>`.github.io/mtbc]_
+
+* Right click on the GItHub pages link to Navigate to your site url.
+
+
 ## Git Guidelines
 
 A basic set of guidelines for working with a git repository.
