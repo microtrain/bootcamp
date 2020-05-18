@@ -31,7 +31,7 @@ DocumentRoot /var/www
 
 Now we want to tell apache to reload the configuration. This is a four-step process.
 * Disable the site configuration ```sudo a2dissite 000-default```
-* Reload Apache ```sudo  apache reload```
+* Reload Apache ```sudo  apache2 reload```
 * Enable the new site configuration ```sudo a2ensite 000-default```
 * Reload Apache ```sudo service apache2 reload```
 
