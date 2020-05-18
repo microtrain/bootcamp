@@ -148,7 +148,7 @@ DocumentRoot /var/www
 
 Now we want to tell apache to reload the configuration. This is a four-step process.
 * Disable the site configuration ```sudo a2dissite 000-default```
-* Reload Apache ```sudo  apache reload```
+* Reload Apache ```sudo  apache2 reload```
 * Enable the new site configuration ```sudo a2ensite 000-default```
 * Reload Apache ```sudo service apache2 reload```
 
@@ -156,6 +156,8 @@ You can execute all four commands at once with the following.
 ```sh
 sudo a2dissite 0* && sudo service apache2 reload && sudo a2ensite 0* && sudo service apache2 reload
 ```
+After running command reload with the following.
+``sudo systemctl reload apache2``
 
 The double ampersand ```&&``` appends two commands running them one after the other. For example
 
