@@ -93,7 +93,7 @@ readers communicate to visually impaired users.
 ```
 
 ## Formspree
-Normally you would implement a contact form by implementing some back end code on your webserver. Since GitHub Pages does not allow you to execute server-side (aka back end) code we will use a free service called Formspree. This will allow up to 1000 emails per month through our web form. Head over to [Formspree](https://formspree.io/) and give it a test, you will be sent a confirmation email which you must confirm to continue using the product.
+Normally you would implement a contact form by implementing some back end code on your webserver. Since GitHub Pages does not allow you to execute server-side (aka back end) code we will use a free service called Formspree. This will allow up to 50 emails per month through our web form. Head over to [Formspree](https://formspree.io/) and give it a test, you will be sent a confirmation email which you must confirm to continue using the product.
 
 > By adding your email address to this form you are making it publicly available(or you could say potentially increasing its public exposure). If this is an issue for you, you can create an email account solely for this purpose. Alternatively, you could choose a service such a [https://www.mailinator.com/](https://www.mailinator.com/). *If you choose the latter, be aware that these inboxes are temporary and public.*
 
