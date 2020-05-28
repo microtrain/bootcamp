@@ -35,8 +35,6 @@ sudo npm install -g gulp -save-dev
 }
 ```
 
-Commit your changes and push to master.
-
 ### Install all Packages
 
 By adding a package.json file, your project becomes an NPM project. At this 
