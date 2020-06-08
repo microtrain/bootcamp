@@ -113,11 +113,11 @@ Add the following lines
 
 ```sh
 #!/bin/bash
-curl -s --user 'api:YOUR_API_KEY' \
-    https://api.mailgun.net/v3/YOUR_DOMAIN_NAME/messages \
-    -F from='Excited User <mailgun@YOUR_DOMAIN_NAME>' \
-    -F to=YOU@YOUR_DOMAIN_NAME \
-    -F subject='Hello' \
+curl -s --user 'api:your-api-key' \
+    https://api.mailgun.net/v3/your-sandbox-account/messages \
+    -F from='Mailgun Sandbox <postmaster@your-sandbox-account>' \
+    -F to='Your Name <yourname@your-email.com>' \
+    -F subject='Hello from Mailgun' \
     -F text='Testing some Mailgun awesomness!'
 ```
 
