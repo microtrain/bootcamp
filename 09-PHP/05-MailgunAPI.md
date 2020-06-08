@@ -139,6 +139,24 @@ If you see a [json](http://www.json.org/) response similar to this, your sandbox
 }
 ```
 
+If you see ``"forbidden can't execute mailgun.sh"`` The file is probably not owned by you.
+
+try running ``sudo chmod og=rw mailgun.sh``
+
+You can see who owns it with ``ls -l`` 
+
+Read ownership should read `"-rwxrw-rw-  1 dev dev 391 Jun  8 16:17 mailgun.sh"`
+
+Change owner with ``sudo chown dev:dev mailgun.sh``
+
+* Make the file executable.
+* Execute the script.
+
+```sh
+chmod +x mailgun.sh
+./mailgun.sh
+```
+
 ### Exercise 2 - Mailgun and PHP
 
 The first thing you will want to do is [Mailgun's PHP](https://github.com/mailgun/mailgun-php) library to your project. You will do this via Composer.
