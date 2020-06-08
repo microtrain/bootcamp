@@ -29,6 +29,7 @@ Create the path _/var/www/mtbc/php_ and that as a project to the VSC explorer. T
 
 //Great the user with a hello message
 echo "Hello World";
+?>
 ```
 
 ```php
@@ -93,7 +94,7 @@ echo "Hello World";
   $count=5;
   $price=3.00;
   //Note the escape character before the dollar sign
-  $msg = "I see you have {$count} oranges, that will be \${$price]}";
+  $msg = "I see you have {$count} oranges, that will be \${$price}";
 
 ?>
 <!DOCTYPE html>
