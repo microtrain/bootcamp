@@ -212,7 +212,7 @@ git push origin feature/mailgun
 > **Security Check Point DO NOT PUSH the file below to GitHub**
 > Never push a key to a public repository, use a key file the exists outside of the public repo
 
-Create the file */var/www/example.com/test.php* and copy and paste the PHP sample code from the Mailgun landing page. Below the pasted code add the line ```var_dump($results);```.
+Create the file */var/www/example.com/test.php* and copy and paste the PHP sample code from the [Mailgun landing page](https://documentation.mailgun.com/en/latest/quickstart-sending.html?highlight=API%20Hostname#send-via-api). Below the pasted code add the line ```var_dump($result);```.
 
 ```sh
 <?php
@@ -221,20 +221,21 @@ require 'vendor/autoload.php';
 use Mailgun\Mailgun;
 
 # Instantiate the client.
-$mgClient = new Mailgun('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'); //MailGun key
-$domain = "sandboxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org";
+$mgClient = Mailgun::create('key-XXXXXXXXXXXXXXXXXX', 'https://api.mailgun.net/v3/sandboxXXXXXXXXXXXXXXXXXX.mailgun.org/messages'); //MailGun key 
+$domain = 'sandboxXXXXXXXXXXXXXXXXXX.mailgun.org'; //API Hostname
+$result = array (
+    'from'    => 'Mailgun Sandbox <postmaster@sandboxXXXXXXXXXXXXXXXXXX.mailgun.org>',
+    'to'      => 'Your name <your@mailgun.email>',
+    'subject' => 'Hello again',
+    'text'    => 'Testing some Mailgun awesomness2!'
+);
 
 # Make the call to the client.
-$result = $mgClient->sendMessage("$domain",
-          array('from'    => 'Mailgun Sandbox <postmaster@sandboxdxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org>',
-                'to'      => 'YOUR-NAME <YOUR-EMAIL-ADDRESS>',
-                'subject' => 'Hello YOUR-NAME',
-                'text'    => 'Congratulations YOUR-NAME, you just sent an email with Mailgun! You are truly awesome!'));
-
+$mgClient->messages()->send($domain, $result);
 var_dump($result);
 ```
 
-From a browser window, navigate to *http://localhost/YOUR-PROJECT-NAME/test.php* and you should get a json string similar to:
+From a browser window, navigate to *http://localhost/YOUR-PROJECT-NAME/test.php* and you should get a json string similar to in `Elements`:
 ```php
 object(stdClass)#24 (2) { ["http_response_body"]=> object(stdClass)#19 (2) { ["id"]=> string(91) "<20171009164718.79178.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org>" ["message"]=> string(18) "Queued. Thank you." } ["http_response_code"]=> int(200) }
 ```
