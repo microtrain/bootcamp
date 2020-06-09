@@ -139,7 +139,7 @@ If you see a [json](http://www.json.org/) response similar to this, your sandbox
 }
 ```
 
-If you see ``"forbidden can't execute mailgun.sh"`` The file is probably not owned by you.
+If you see Error!``"forbidden"`` can't execute mailgun.sh The file is probably not owned by you.
 
 try running ``sudo chmod og=rw mailgun.sh``
 
@@ -148,7 +148,6 @@ You can see who owns it with ``ls -l``
 Read ownership should read `"-rwxrw-rw-  1 dev dev 391 Jun  8 16:17 mailgun.sh"`
 
 Change owner with ``sudo chown dev:dev mailgun.sh``
-
 * Make the file executable.
 * Execute the script.
 
@@ -159,7 +158,7 @@ chmod +x mailgun.sh
 
 ### Exercise 2 - Mailgun and PHP
 
-The first thing you will want to do is [Mailgun's PHP](https://github.com/mailgun/mailgun-php) library to your project. You will do this via Composer.
+The first thing you will want to do is add [Mailgun's PHP](https://github.com/mailgun/mailgun-php) library to your project. You will do this via Composer.
 
 Let's start by creating a feature branch. This will allow us to keep any changes separate from our production code until we are ready for it.
 
@@ -194,6 +193,7 @@ vendor/
 We do not want to commit the vendor directory to our repo. So we will create a *.gitignore* file. From the VSC explorer create a file called *.gitignore* under the /example.com project (Do not forget the preceding dot) and add the following line.
 ```sh
 /vendor
+test.php
 ```
 
 Now if you run ```git status``` you will see the following.
