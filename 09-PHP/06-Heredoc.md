@@ -127,8 +127,9 @@ Create the path */var/www/example.com/core/layout.php* and add the following lin
 
 ```
 
-Copy, Rename and Change the path */var/www/example.com/public/contact.php* to the following *core/processContactForm.php* Pay special attenention to the echo statements, these are now treated as variables being passed into a string such that ```<?php echo $valid->userInput('first_name'); ?>``` becomes ```{$valid->userInput('first_name')}```.
+Copy, Rename and Change the path */var/www/example.com/public/contact.php* to the following *core/processContactForm.php* Pay special attention to the echo statements, these are now treated as variables being passed into a string such that ```<?php echo $valid->userInput('first_name'); ?>``` becomes ```{$valid->userInput('first_name')}```.
 
+*public/contact.php
 ```php
 <?php
 
@@ -173,7 +174,72 @@ $content = <<<EOT
 </form>
 EOT;
 
-require 'core/layout.php';
+require '../core/layout.php';
+```
+*core/processContactForm.php
+```
+<?php
+require '../core/About/src/Validation/Validate.php';
+include '../vendor/autoload.php';
+require '../config/keys.php';
+use Mailgun\Mailgun;
+use About\Validation;
+
+$valid = new About\Validation\Validate();
+
+$filters = [
+    'name'=>FILTER_SANITIZE_STRING,
+    'email'=>FILTER_SANITIZE_EMAIL,
+    'message'=>FILTER_SANITIZE_STRING,
+];
+$input = filter_input_array(INPUT_POST, $filters);
+
+if(!empty($input)){
+    $valid->validation = [
+        'email'=>[[
+                'rule'=>'email',
+                'message'=>'Please enter a valid email'
+            ],[
+                'rule'=>'notEmpty',
+                'message'=>'Please enter an email'
+        ]],
+        'name'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please enter your first name'
+        ]],
+        'message'=>[[
+            'rule'=>'notEmpty',
+            'message'=>'Please add a message'
+        ]],
+    ];
+
+    $valid->check($input);
+
+    if(empty($valid->errors)){
+
+# Instantiate the client.
+$mgClient = Mailgun::create(MG_KEY,MG_API); //MailGun key 
+$domain = MG_DOMAIN; //API Hostname
+$from = "Mailgun Sandbox <postmaster@{$domain}>";
+
+# Make the call to the client.
+$result = $mgClient->messages()->send($domain,
+array   (  
+          'from'    => "{$input['name']} <{$input['email']}>",      
+          'to'      => 'Your Name <name@your-email.com>',
+          'subject' => 'Hello Your-Name',
+          'text'    => $input['message']
+        )
+    );   
+/* Use To Show Input When Needed
+var_dump($result);
+*/
+
+    $message = "<div class=\"message-success\">Your form has been submitted!</div>";
+    }else{
+        $message = "<div class=\"message-error\">Your form has errors!</div>";
+    }
+}
 ```
 
 Navigate to *https://loc.example.com/public/contact.php* and submit the form. The functionality should not have changed in any way but the code is now cleaner and easier to maintain this is known as a [refactoring](https://martinfowler.com/books/refactoring.html).
