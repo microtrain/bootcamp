@@ -221,8 +221,8 @@ require 'vendor/autoload.php';
 use Mailgun\Mailgun;
 
 # Instantiate the client.
-$mgClient = Mailgun::create('key-XXXXXXXXXXXXXXXXXX', 'https://api.mailgun.net/v3/sandboxXXXXXXXXXXXXXXXXXX.mailgun.org/messages'); //MailGun key 
-$domain = 'sandboxXXXXXXXXXXXXXXXXXX.mailgun.org'; //API Hostname
+$mgClient = Mailgun::create('key-XXXXXXXXXXXXXXXXXX', 'https://api.mailgun.net/v3/sandboxXXXXXXXXXXXXXXXXXX.mailgun.org/messages'); //MailGun Key & API
+$domain = 'sandboxXXXXXXXXXXXXXXXXXX.mailgun.org'; // Domain
 $result = array (
     'from'    => 'Mailgun Sandbox <postmaster@sandboxXXXXXXXXXXXXXXXXXX.mailgun.org>',
     'to'      => 'Your name <your@mailgun.email>',
@@ -256,8 +256,9 @@ vim /var/www/example.com/config/keys.php
 Add the following (Where YOUR-KEY-HERE is the key provided by Mailgun):
 ```php
 <?php
-define('MG_KEY', 'dYOUR-KEY-HERE');
-define('MG_DOMAIN', 'YOUR-DOMAIN-HERE');
+define('MG_KEY', 'YOUR-KEY-HERE');
+define('MG_API', 'https://api.mailgun.net/v3/sandboxXXXXXXXXXXXX.mailgun.org/messages');
+define('MG_DOMAIN', 'sandboxXXXXXXXXXXXX.mailgun.org');
 ```
 
 Add the following line to your .gitignore file and commit your changes to the *feature/mailgun* branch.
@@ -273,14 +274,14 @@ require '../config/keys.php';
 
 Change
 ```php
-$mgClient = new Mailgun('key-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-$domain = 'sandboxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org';
+$mgClient = new Mailgun('key-xxxxxxxxxxxxxxxxxxxx','https://api.mailgun.net/v3/sandboxXXXXXXXXXXXXXXXXXX.mailgun.org/messages');
+$domain = 'sandboxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org';
 
-$from = 'Mailgun Sandbox <postmaster@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org>';
+$from = 'Mailgun Sandbox <postmaster@xxxxxxxxxxxxxxxxxxxxxxxxxx.mailgun.org>';
 ```
 to
 ```php
-$mgClient = new Mailgun(MG_KEY);
+$mgClient = Mailgun::create(MG_KEY,MG_API);
 $domain = MG_DOMAIN;
 
 $from = "Mailgun Sandbox <postmaster@{$domain}>";
@@ -291,14 +292,13 @@ Instead of passing static values into the method pass variables.
 * Remove the var_dump($results);
 
 ```php
-$from = "Mailgun Sandbox <postmaster@{$domain}>";
 $to = 'YOUR-NAME <YOUR-EMAIL-ADDRESS>';
 $subject = 'Hello YOUR-NAME';
 $text = 'Congratulations YOUR-NAME, you just sent an email with Mailgun! You are truly awesome!';
 
-$result = $mgClient->sendMessage(
-  $domain,
-  array('from'    => $from,
+    $result = $mgClient->messages()->send($domain,
+    array(
+        'from'    => $from,
         'to'      => $to,
         'subject' => $subject,
         'text'    => $text
