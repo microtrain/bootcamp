@@ -184,4 +184,4 @@ Navigate to *https://loc.example.com/public/contact.php* and submit the form. Th
 * [Web template system](https://en.wikipedia.org/wiki/Web_template_system)
 * [Output Buffering Control](http://php.net/manual/en/book.outcontrol.php)
 
-[Next: Meta Data](07-MetaData.md)
+[Next: Meta Data](07-Metadata.md)
