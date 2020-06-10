@@ -133,48 +133,50 @@ Copy, Rename and Change the path */var/www/example.com/public/contact.php* to th
 ```php
 <?php
 
-require 'core/processContactForm.php';
+require '../core/processContactForm.php';
 
 $content = <<<EOT
-<form method="post" action="contact.php">
-  {$message}
-  <div>
-    <label for="firstName">First Name</label><br>
-    <input type="text" name="first_name" id="firstName" value="{$valid->userInput('first_name')}">
-    <div class="text-error">{$valid->error('first_name')}</div>
+<form action="contact.php" method="POST">
+    {$message}
+    <input type="hidden" name="subject" value="New submission!">
+  
+  <div class="form-control">
+  <label for="name">Name</label>
+    <input id="name" type="text" name="name" value="{$valid->userInput('name')}">
+    <div class="text-error">{$valid->error('name')}</div>
   </div>
-
-  <div>
-    <label for="lastName" id="lastName">Last Name</label><br>
-    <input type="text" name="last_name" value="{$valid->userInput('last_name')}">
-    <div class="text-error">{$valid->error('last_name')}</div>
-  </div>
-
-  <div>
-    <label for="email" id="email">Email</label><br>
-    <input type="text" name="email" value="{$valid->userInput('email')}">
+  <div class="form-control">
+  <label for="email">Email</label>
+    <input id="email" type="text" name="email" value="{$valid->userInput('email')}">
     <div class="text-error">{$valid->error('email')}</div>
   </div>
-
-  <div>
-    <label for="subject" id="subject">Subject</label><br>
-    <input type="text" name="subject" value="{$valid->userInput('subject')}">
-    <div class="text-error">{$valid->error('subject')}</div>
-  </div>
-
-  <div>
-    <label for="message" id="message">Message</label><br>
-    <textarea name="message">{$valid->userInput('message')}</textarea>
+  <div class="form-control">
+  <label for="message">Message</label>
+    <textarea id="message" name="message">{$valid->userInput('message')}</textarea>
     <div class="text-error">{$valid->error('message')}</div>
   </div>
-
-
-  <input type="submit">
-
+  <div class="form-control">
+  <input type="submit" value="Send">
+  </div>
 </form>
+<script>
+  var toggleMenu = document.getElementById('toggleMenu');
+  var nav = document.querySelector('nav');
+  toggleMenu.addEventListener(
+    'click',
+    function(){
+      if(nav.style.display=='block'){
+        nav.style.display='none';
+      }else{
+        nav.style.display='block';
+      }
+    }
+  );
+</script>
 EOT;
 
-require '../core/layout.php';
+include '../core/layout.php';
+
 ```
 *core/processContactForm.php
 ```
