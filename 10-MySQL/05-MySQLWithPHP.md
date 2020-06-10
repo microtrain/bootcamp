@@ -380,4 +380,6 @@ You may start by creating a copy of the posts folder and doing a find and replac
 
 [Commit Log Previous Class](https://github.com/microtrain1812/example.com/commits/master)
 
+[Next: Authentication with MySQL and PHP](06-Authentication.md)
+
 
