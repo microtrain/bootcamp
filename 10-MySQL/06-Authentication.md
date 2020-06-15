@@ -37,7 +37,7 @@ function checkSession(){
 
 Add the following to every page on the website. The key is the first line ```session_start()```. Call this on every page to assure the state is not lost.
 ```php
-require '../core/sessions.php';
+require '../core/session.php';
 ```
 
 Add the following to every page that would require authentication. This would force the user back to the home page anytime ```$_SESSION['user']['id']``` equates to empty.
@@ -785,6 +785,47 @@ $content=<<<EOT
 EOT;
 
 require '../core/layout.php';
+```
+
+Check and set session on page load. Add sanitized content login form, we will need to process the data.
+* Replace top content through `<meta charset="UTF-8">` with:
+
+*core/layout.php*
+```
+<!-- Set session in php -->
+<?php
+function active($name){
+  $current = $_SERVER['REQUEST_URI'];
+  if($current === $name){
+    return 'active';
+  }
+
+  return null;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<!-- Add sanitized content -->
+  <?php if(!empty($meta)): ?>
+
+<?php if(!empty($meta['title'])): ?>
+  <title><?php echo $meta['title']; ?></title>
+<?php endif; ?>
+
+<?php if(!empty($meta['description'])): ?>
+  <meta name="description" content="<?php echo $meta['description']; ?>">
+<?php endif; ?>
+
+<?php if(!empty($meta['keywords'])): ?>
+  <meta name="keywords" content="<?php echo $meta['keywords']; ?>">
+<?php endif; ?>
+
+<?php endif; ?>
+<!-- End sanitized content -->
+
+      <meta charset="UTF-8">
 ```
 
 ## Bootstraping
