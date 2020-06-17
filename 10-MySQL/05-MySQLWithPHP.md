@@ -378,6 +378,22 @@ This could be anything from a blank page with a redirect after deletion to a pag
 
 You may start by creating a copy of the posts folder and doing a find and replace for the words post and user. Then you will adjust the column names accordingly.
 
+### View Users
+Make a copy of index.php
+
+### Create a User
+Make a copy of add.php
+
+### Read a User
+Make a copy of view.php
+
+### Update a User
+Make a copy of edit.php
+
+### Delete a User
+This could be anything from a blank page with a redirect after deletion to a page that returns some details and asks you to confirm your delete. delete.php
+
+
 [Commit Log Previous Class](https://github.com/microtrain1812/example.com/commits/master)
 
 [Next: Authentication with MySQL and PHP](06-Authentication.md)
