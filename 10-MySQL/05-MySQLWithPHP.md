@@ -374,7 +374,7 @@ Make a copy of add.php and rename it edit.php
 This could be anything from a blank page with a redirect after deletion to a page that returns some details and asks you to confirm your delete.
 
 
-## Create a Users CRUD
+## Lab Create a Users CRUD
 
 You may start by creating a copy of the posts folder and doing a find and replace for the words post and user. Then you will adjust the column names accordingly.
 
