@@ -33,6 +33,12 @@ Answer yes to the following
 Set Folder Permissions ? (Default to Y) [Y,n]?
 ```
 
+Update sqlite needed for file system and restart
+```
+sudo apt install sqlite3 php-sqlite3 -y
+sudo phpenmod sqlite3 && sudo systemctl restart apache2
+```
+
 ## Your First App
 Move into the new project folder
 ```sh
