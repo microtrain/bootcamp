@@ -82,7 +82,7 @@ _test_
 'database' => 'cake_test',
 ```
 
-Return to http://localhost:8765/](http://localhost:8765/) and refresh the page, all settings should now be green.
+Return to [http://localhost:8765/](http://localhost:8765/) and refresh the page, all settings should now be green.
 
 ### Configure Apache
 
@@ -181,13 +181,26 @@ We will start by using Composer to install CakeDC's [User Authentication plugin]
 ```sh
 composer require cakedc/users
 ```
+If you want to use social login features...
 
-3. Add the following line to the end of *config/bootstrap.php*, this bootstraps the plugin to application start up.
+```composer require league/oauth2-facebook:@stable
+composer require league/oauth2-instagram:@stable
+composer require league/oauth2-google:@stable
+composer require league/oauth2-linkedin:@stable
+composer require league/oauth1-client:@stable
+```
+NOTE: you'll need to enable social login if you want to use it, social login is disabled by default. Check the Configuration page for more details.
+
+```Configure::write('Users.Social.login', true); //to enable social login```
+
+3. Add the following under line 58 of *src/Application.php*, this bootstraps the plugin to application start up.
 ```php
-Plugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true]);
+// Load more plugins here
+$this->addPlugin(\CakeDC\Users\Plugin::class);
+$this->addPlugin('Migrations');
 ```
 
-4. Use [the migrations plugin](https://book.cakephp.org/3.0/en/migrations.html) to install the required tables.
+4. Use [the migrations plugin](https://book.cakephp.org/4/en/appendices/4-0-migration-guide.html) to install the required tables.
 
 ```sh
 bin/cake migrations migrate -p CakeDC/Users
@@ -199,7 +212,7 @@ bin/cake migrations migrate -p CakeDC/Users
 'className' => 'Debug',
 ```
 
-7. Navigate to [http://loc.cake.example.com/users/users/login](http://loc.cake.example.com/users/users/login) and have a look around. Use the navigation links to find the registration page and create an account.
+7. Navigate to [http://loc.cake.example.com/users/login](http://loc.cake.example.com/users/login) and have a look around. Use the navigation links to find the registration page and create an account.
 
 8. Notice you will not be able to log in, this is because you have not yet clicked the authorization link out of your email. The local server cannot send emails so you will have manually flip that switch in the database.
 
