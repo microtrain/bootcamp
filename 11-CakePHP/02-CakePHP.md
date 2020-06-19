@@ -54,7 +54,7 @@ In a browser go to [http://localhost:8765/](http://localhost:8765/). You will be
 
 ![default home page](/img/cakephp/default_home.png)
 
-Add *cake.example.com* as a project to VSC. Navigate to *config/app.php* this is the default configuration file for your application. CakePHP stores its configuration as an array, find the *Datasources* attribute somewhere around the line *220* (you can use the shortcut [ctrl] + [g] and enter *220*). You will notice two-child attributes *default* and *test*. *default* holds the configuration for your application's database while test holds the configuration for running unit tests.
+Add *cake.example.com* as a project to VSC. Navigate to *config/app.php* this is the default configuration file for your application. CakePHP stores its configuration as an array, find the *Datasources* attribute somewhere around the line *220* (you can use the shortcut [ctrl] + [g] and enter *261*). You will notice two-child attributes *default* and *test*. *default* holds the configuration for your application's database while test holds the configuration for running unit tests.
 
 ### Setup Your Database
 
@@ -180,7 +180,7 @@ We will start by using Composer to install CakeDC's [User Authentication plugin]
 ```sh
 composer require cakedc/users
 ```
-If you want to use social login features...
+#### If you want to use social login features...
 
 ```composer require league/oauth2-facebook:@stable
 composer require league/oauth2-instagram:@stable
@@ -196,7 +196,6 @@ NOTE: you'll need to enable social login if you want to use it, social login is 
 ```php
 // Load more plugins here
 $this->addPlugin(\CakeDC\Users\Plugin::class);
-$this->addPlugin('Migrations');
 ```
 
 4. Use [the migrations plugin](https://book.cakephp.org/4/en/appendices/4-0-migration-guide.html) to install the required tables.
@@ -204,52 +203,32 @@ $this->addPlugin('Migrations');
 ```sh
 bin/cake migrations migrate -p CakeDC/Users
 ```
-5. [</> code](https://github.com/stack-x/cake.example.com) Commit your changes with a message of *Added CakeDC's user plugin*.
 
-6. Set the mail transport to debug on line 196 of *config/app.php*
+5. [</> code](https://github.com/stack-x/cake.example.com) Commit your changes with a message of *Added CakeDC user plugin*.
+
+####  If you want to use the Users tables to store your users and social accounts:
+```bin/cake migrations migrate -p CakeDC/Users```
+
+6. Set the mail transport to debug on line 208 of *config/app.php*
 ```php 
+// turn on for email through server
+// 'className' => MailTransport::class,
 'className' => 'Debug',
 ```
 7. Navigate to [http://loc.cake.example.com/users/login](http://loc.cake.example.com/users/login) and have a look around. Use the navigation links to find the ``registration page`` and create an account.
 
 8. Notice you will not be able to log in, this is because you have not yet clicked the authorization link out of your email. The local server cannot send emails so you will have manually flip that switch in the database.
 
-9. Login to PhpMyAdmin, find your user record in the cake_app database and flip the active and superuser flags to 1.
+9. Login to PhpMyAdmin, find your user record in the cake_app database and flip the `active and superuser flags to 1`.
 
 10. Now return to the login page and try to log in. On success, you will be redirected to the CakePHP debug page.
 
-11. If registratins fails If can't find database users;
+> ### Troubleshooting 
+> If ERROR! Database can't be written repeat `write permission issues` above.
 
-#### Add a Users Database Tables
-* Login to phpMyAdmin [https://localhost/phpmyadmin](https://localhost/phpmyadmin)
-* Click into cake > cake_app from the sidebar
-* Click on the SQL tab
-* Copy and Paste the following the text area and hit submit
-* Repeat this process for cake > cake_test
-
-```sql
--- First, create our users table: 
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    first_name VARCHAR(50),
-    last_name VARCHAR(50),
-    token VARCHAR(255),
-    token_expires DATETIME,
-    api_token  VARCHAR(255),
-    activation_date DATETIME,
-    secret VARCHAR(32),
-    secret_verified TINYINT(1),
-    tos_date DATETIME,
-    active TINYINT(1),
-    is_superuser TINYINT(1),
-    role VARCHAR(255),
-    created DATETIME,
-    modified DATETIME
-);
-```
+> If registration fails or can't find database users;
+> You can create the first user, the super user by issuing the following command
+> `bin/cake users addSuperuser`
 
 ### Posts CRUD
 We will keep our blog posts in a table called posts.
