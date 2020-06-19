@@ -180,7 +180,13 @@ We will start by using Composer to install CakeDC's [User Authentication plugin]
 ```sh
 composer require cakedc/users
 ```
-#### If you want to use social login features...
+
+3. Add the following under line 58 of *src/Application.php*, this bootstraps the plugin to application start up.
+```php
+// Load more plugins here
+$this->addPlugin(\CakeDC\Users\Plugin::class);
+```
+> #### If you want to use social login features...
 
 ```composer require league/oauth2-facebook:@stable
 composer require league/oauth2-instagram:@stable
@@ -188,15 +194,29 @@ composer require league/oauth2-google:@stable
 composer require league/oauth2-linkedin:@stable
 composer require league/oauth1-client:@stable
 ```
-NOTE: you'll need to enable social login if you want to use it, social login is disabled by default. Check the Configuration page for more details.
-
-```Configure::write('Users.Social.login', true); //to enable social login```
-
-3. Add the following under line 58 of *src/Application.php*, this bootstraps the plugin to application start up.
-```php
-// Load more plugins here
-$this->addPlugin(\CakeDC\Users\Plugin::class);
+> NOTE: you'll need to enable social login if you want to use it, social login is disabled by default. 
 ```
+Configure::write('Users.config', ['users']);
+Configure::write('Users.Social.login', true); //to enable social login
+```
+> then in your config/users.php
+```
+return [
+    'OAuth.providers.facebook.options.clientId' => 'YOUR APP ID',
+    'OAuth.providers.facebook.options.clientSecret' => 'YOUR APP SECRET',
+    'OAuth.providers.twitter.options.clientId' => 'YOUR APP ID',
+    'OAuth.providers.twitter.options.clientSecret' => 'YOUR APP SECRET',
+    //etc
+];
+```
+> #### IMPORTANT: Remember you'll need to configure your social login application callback url to use the provider specific endpoint, for example:
+```
+Facebook App Callback URL --> http://yourdomain.com/auth/facebook
+Twitter App Callback URL --> http://yourdomain.com/auth/twitter
+Google App Callback URL --> http://yourdomain.com/auth/google
+etc.
+```
+> ### *Note: using social authentication is not required.* Check the [Configuration page](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Configuration.md) for more details.
 
 4. Use [the migrations plugin](https://book.cakephp.org/4/en/appendices/4-0-migration-guide.html) to install the required tables for *using CakeDC Users plugin* to store your users and social accounts:
 
