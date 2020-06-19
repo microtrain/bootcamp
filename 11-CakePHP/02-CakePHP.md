@@ -66,7 +66,7 @@ Go to [http://localhost/phpmyadmin](http://localhost/phpmyadmin) and login as wi
 
 ![phpMyAdmin](/img/cakephp/createdb.png)
 
-Update the database configurations as follows.
+Update the database configurations as follows. _app.php_ _app_local.php_ _app_local.example.php_
 
 _default_
 ```php
@@ -165,11 +165,10 @@ git push origin master
 @todo navigate to src, explain the directory structure Model, Views and Controller
 @todo callback methods and life cycles as it pertains to a CakePHP and Programming in general.
 
-<!--
 ## Build a Blog
 
 We will start by using Composer to install CakeDC's [User Authentication plugin](https://github.com/CakeDC/users). We will then bake a Posts CRUD which we will use for posting to our blog. In your console, please navigate to **/var/www/cake.example.com**, this tutorial assumes **/var/www/cake.example.com** as the base path for all cd, file and folder creation commands.
--->
+
 ### Users
 
 We will start by using Composer to install CakeDC's [User Authentication plugin](https://github.com/CakeDC/users). This will serve as the foundation of our application.
@@ -211,8 +210,7 @@ bin/cake migrations migrate -p CakeDC/Users
 ```php 
 'className' => 'Debug',
 ```
-
-7. Navigate to [http://loc.cake.example.com/users/login](http://loc.cake.example.com/users/login) and have a look around. Use the navigation links to find the registration page and create an account.
+7. Navigate to [http://loc.cake.example.com/users/login](http://loc.cake.example.com/users/login) and have a look around. Use the navigation links to find the <strong>registration page<strong> and create an account.
 
 8. Notice you will not be able to log in, this is because you have not yet clicked the authorization link out of your email. The local server cannot send emails so you will have manually flip that switch in the database.
 
@@ -220,6 +218,38 @@ bin/cake migrations migrate -p CakeDC/Users
 
 10. Now return to the login page and try to log in. On success, you will be redirected to the CakePHP debug page.
 
+11. If registratins fails If can't find database users;
+
+#### Add a Users Database Tables
+* Login to phpMyAdmin [https://localhost/phpmyadmin](https://localhost/phpmyadmin)
+* Click into cake > cake_app from the sidebar
+* Click on the SQL tab
+* Copy and Paste the following the text area and hit submit
+* Repeat this process for cake > cake_test
+
+```sql
+-- First, create our users table: 
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    token VARCHAR(255),
+    token_expires DATETIME,
+    api_token  VARCHAR(255),
+    activation_date DATETIME,
+    secret VARCHAR(32),
+    secret_verified TINYINT(1),
+    tos_date DATETIME,
+    active TINYINT(1),
+    is_superuser TINYINT(1),
+    role VARCHAR(255),
+    created DATETIME,
+    modified DATETIME
+);
+```
 
 ### Posts CRUD
 We will keep our blog posts in a table called posts.
