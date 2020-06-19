@@ -209,7 +209,7 @@ return [
     //etc
 ];
 ```
-> #### IMPORTANT: Remember you'll need to configure your social login application callback url to use the provider specific endpoint, for example:
+> ### **IMPORTANT:** Remember you'll need to configure your social login application callback url to use the provider specific endpoint, for example:
 ```
 Facebook App Callback URL --> http://yourdomain.com/auth/facebook
 Twitter App Callback URL --> http://yourdomain.com/auth/twitter
@@ -246,6 +246,10 @@ bin/cake migrations migrate -p CakeDC/Users
 > If registration fails or can't find database users;
 > You can create the first user, the super user by issuing the following command
 > `bin/cake users addSuperuser`
+
+11. To logout, add Logout at the end of URL [http://loc.example.com/logout](http://loc.cake.example.com/logout)
+
+12. Create 3 unique users, repeat Registration steps 7-11 above.
 
 ### Posts CRUD
 We will keep our blog posts in a table called posts.
