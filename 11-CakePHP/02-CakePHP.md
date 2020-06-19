@@ -198,7 +198,7 @@ NOTE: you'll need to enable social login if you want to use it, social login is 
 $this->addPlugin(\CakeDC\Users\Plugin::class);
 ```
 
-4. Use [the migrations plugin](https://book.cakephp.org/4/en/appendices/4-0-migration-guide.html) to install the required tables.
+4. Use [the migrations plugin](https://book.cakephp.org/4/en/appendices/4-0-migration-guide.html) to install the required tables for *using CakeDC Users plugin* to store your users and social accounts:
 
 ```sh
 bin/cake migrations migrate -p CakeDC/Users
@@ -206,10 +206,7 @@ bin/cake migrations migrate -p CakeDC/Users
 
 5. [</> code](https://github.com/stack-x/cake.example.com) Commit your changes with a message of *Added CakeDC user plugin*.
 
-####  If you want to use the Users tables to store your users and social accounts:
-```bin/cake migrations migrate -p CakeDC/Users```
-
-6. Set the mail transport to debug on line 208 of *config/app.php*
+6. Update the mail transport class to debug on line 208 of *config/app.php*
 ```php 
 // turn on for email through server
 // 'className' => MailTransport::class,
