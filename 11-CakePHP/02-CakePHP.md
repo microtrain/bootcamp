@@ -210,7 +210,7 @@ bin/cake migrations migrate -p CakeDC/Users
 ```php 
 'className' => 'Debug',
 ```
-7. Navigate to [http://loc.cake.example.com/users/login](http://loc.cake.example.com/users/login) and have a look around. Use the navigation links to find the <strong>registration page<strong> and create an account.
+7. Navigate to [http://loc.cake.example.com/users/login](http://loc.cake.example.com/users/login) and have a look around. Use the navigation links to find the ``registration page`` and create an account.
 
 8. Notice you will not be able to log in, this is because you have not yet clicked the authorization link out of your email. The local server cannot send emails so you will have manually flip that switch in the database.
 
