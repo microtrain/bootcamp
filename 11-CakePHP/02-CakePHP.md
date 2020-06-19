@@ -294,21 +294,7 @@ Since we have the table in our database we can automate the build by *baking* th
 bin/cake bake model Posts
 ```
 
-Navigate to the *src/Model* and check out the files in *Entity* and *Article* folders.
-
-##### Unit Tests
-
-[</> Code](https://github.com/stack-x/cake.example.com/commit/8b1fc8724e411ec254ae7f5c5e71f36540d4059f) Start by installing PHP unit
-```sh
-composer require --dev phpunit/phpunit:"^5.7|^6.0"
-```
-
-Run a unit test for each table
-```sh
-vendor/bin/phpunit tests/TestCase/Model/Table/PostsTableTest
-```
-
-Navigate to the *tests/TestCase/Model/Table* walk through the default test cases.
+Navigate to the *src/Model* and check out the files in *Entity* and *Table* folders.
 
 #### Bake the Controller
 
@@ -321,6 +307,8 @@ bin/cake bake controller Posts
 ```sh
 bin/cake bake template Posts
 ```
+
+Navigate to the [*/posts*](http://loc.cake.example.com/posts)
 
 
 ### From Basic CRUD to an App
