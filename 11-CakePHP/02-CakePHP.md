@@ -284,7 +284,7 @@ Navigate to the [*/posts*](http://loc.cake.example.com/posts)
 
 Add an initialization method to the Posts controller
 ```php
-public function initialize()
+public function initialize(): void
 {
     parent::initialize();
 }
@@ -337,16 +337,36 @@ Submit [New Post](http://loc.cake.example.com/posts)
 
 ## Exercise 2
 
+### Add Users CRUD
+*Bake the Model* ``bin/cake bake model Users``
+
+*Bake the Controller* ``bin/cake bake controller Users``
+
+*Bake the Template* ``bin/cake bake template Users``
+
+Add an initialization method to the Users controller
+```
+public function initialize():void
+{
+    parent::initialize();
+}
+```
+
+## Exercise 3
+
 ### Add User Authentication
 [</> code](https://github.com/stack-x/cake.example.com/commit/9d8a65128621e75f8f17c95925ad27219e5b786b) Add an instance variable to hold the session object, set this variable during initialization. The following reads as "set this instance of ```$session``` to the session object from this instance of the request object." This will provide a short hand for accessing the session data in controllers.
 
-*src/Controller/AppController.php*
+*src/Controller/AppController.php* add to Line 40 and line 47
 ```php
+    //line 40
     protected $session;
 
     public function initialize()
     {
         ...
+
+    //line 47
         $this->session = $this->getRequest()->getSession();
     }
 ```
@@ -355,7 +375,7 @@ Submit [New Post](http://loc.cake.example.com/posts)
 [</> code](https://github.com/stack-x/cake.example.com/commit/44f8149e1b6dda45d8ffa37f13f4b9d8852dafc3)
 *src/Controller/AppController.php*
 ```php
-public function initialize()
+public function initialize(): void
 {
     parent::initialize();
 
