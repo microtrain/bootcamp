@@ -186,39 +186,8 @@ composer require cakedc/users
 // Load more plugins here
 $this->addPlugin(\CakeDC\Users\Plugin::class);
 ```
-> #### If you want to use social login features...
 
-```composer require league/oauth2-facebook:@stable
-composer require league/oauth2-instagram:@stable
-composer require league/oauth2-google:@stable
-composer require league/oauth2-linkedin:@stable
-composer require league/oauth1-client:@stable
-```
-> NOTE: you'll need to enable social login if you want to use it, social login is disabled by default. 
-```
-Configure::write('Users.config', ['users']);
-Configure::write('Users.Social.login', true); //to enable social login
-```
-> then in your config/users.php
-```
-return [
-    'OAuth.providers.facebook.options.clientId' => 'YOUR APP ID',
-    'OAuth.providers.facebook.options.clientSecret' => 'YOUR APP SECRET',
-    'OAuth.providers.twitter.options.clientId' => 'YOUR APP ID',
-    'OAuth.providers.twitter.options.clientSecret' => 'YOUR APP SECRET',
-    //etc
-];
-```
-> ### **IMPORTANT:** Remember you'll need to configure your social login application callback url to use the provider specific endpoint, for example:
-```
-Facebook App Callback URL --> http://yourdomain.com/auth/facebook
-Twitter App Callback URL --> http://yourdomain.com/auth/twitter
-Google App Callback URL --> http://yourdomain.com/auth/google
-etc.
-```
-> ### *Note: using social authentication is not required.* Check the [Configuration page](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Configuration.md) for more details.
-
-4. Use [the migrations plugin](https://book.cakephp.org/4/en/appendices/4-0-migration-guide.html) to install the required tables for *using CakeDC Users plugin* to store your users and social accounts:
+4. Use [the migrations plugin](https://book.cakephp.org/4/en/appendices/4-0-migration-guide.html) to install the required tables for *using CakeDC Users plugin* to store your users and social accounts*:
 
 ```sh
 bin/cake migrations migrate -p CakeDC/Users
@@ -321,6 +290,7 @@ public function initialize()
 }
 ```
 
+## Exercise 1
 ### Create Slugs in the Background
 
 We will move our slug creation logic from the Posts controller to the Posts table. Here we will use a callback to create slugs in the background. We will create a unit test to verify our slug creation logic.
@@ -345,27 +315,6 @@ public function createSlug($title)
 }
 ```
 
-Add and run a unit test for the create slug method.
-*tests/TestCase/Model/Table/PostsTableTest.php*
-```php
-public function testCreateSlug()
-{
-    $result = $this->Posts->createSlug('Hello World');
-    $this->assertEquals('hello-world', $result);
-    $result = $this->Posts->createSlug('Hello!, World');
-    $this->assertEquals('hello-world', $result);
-    $result = $this->Posts->createSlug('Hello   World*$');
-    $this->assertEquals('hello-world', $result);
-    $result = $this->Posts->createSlug('Hello-   World-');
-    $this->assertEquals('hello-world', $result);
-}
-```
-
-Rerun the unit test
-```sh
-vendor/bin/phpunit tests/TestCase/Model/Table/PostsTableTest
-```
-
 Call ```createSlug()``` from the ```beforeMarshal()``` callback.
 *src/Model/Table/PostsTable.php*
 ```php
@@ -377,24 +326,16 @@ public function beforeMarshal($event, $data)
 }
 ```
 
-Test before marshal by creating a new record
-*tests/TestCase/Model/Table/PostsTableTest.php*
-```sh
-public function  testBeforeMarshal()
-{
-    $article = $this->Posts->newEntity();
-    $article = $this->Posts->patchEntity($article, ['title'=>'Hello World, It\'s a fine day']);
-    $this->Posts->save($article);
-
-    $result = $this->Posts->find()->first();
-    $this->assertEquals('hello-world-it-s-a-fine-day', $result['slug']);
-}
+Remove Slug Create field from Template
+*/Posts/add.php*
+```php
+// echo $this->Form->control('slug');
 ```
 
-Rerun the unit test
-```sh
-vendor/bin/phpunit tests/TestCase/Model/Table/PostsTableTest
-```
+Recreate a new post and run the create slug in background
+Submit [New Post](http://loc.cake.example.com/posts)
+
+## Exercise 2
 
 ### Add User Authentication
 [</> code](https://github.com/stack-x/cake.example.com/commit/9d8a65128621e75f8f17c95925ad27219e5b786b) Add an instance variable to hold the session object, set this variable during initialization. The following reads as "set this instance of ```$session``` to the session object from this instance of the request object." This will provide a short hand for accessing the session data in controllers.
@@ -410,7 +351,7 @@ vendor/bin/phpunit tests/TestCase/Model/Table/PostsTableTest
     }
 ```
 
-#### Deny Aceess by Default
+#### Deny Access by Default
 [</> code](https://github.com/stack-x/cake.example.com/commit/44f8149e1b6dda45d8ffa37f13f4b9d8852dafc3)
 *src/Controller/AppController.php*
 ```php
@@ -449,8 +390,6 @@ Router::connect(
 
 Now accessing [http://loc.cake.example.com](http://loc.cake.example.com) will redirect you to a login page.
 
-
-
 ### [Configuration](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Configuration.md)
 
 Navigate to [http://loc.cake.example.com/users/users](http://loc.cake.example.com/users/users) and create a user account.
@@ -460,6 +399,37 @@ Navigate to [http://loc.cake.example.com/users/users](http://loc.cake.example.co
 ### Lab 1 - Composer
 
 Using the documentation for the users plugin, add the ability to log in using a social media platform of your choice.
+> #### If you want to use social login features...
+
+```composer require league/oauth2-facebook:@stable
+composer require league/oauth2-instagram:@stable
+composer require league/oauth2-google:@stable
+composer require league/oauth2-linkedin:@stable
+composer require league/oauth1-client:@stable
+```
+> NOTE: you'll need to enable social login if you want to use it, social login is disabled by default. 
+```
+Configure::write('Users.config', ['users']);
+Configure::write('Users.Social.login', true); //to enable social login
+```
+> then in your config/users.php
+```
+return [
+    'OAuth.providers.facebook.options.clientId' => 'YOUR APP ID',
+    'OAuth.providers.facebook.options.clientSecret' => 'YOUR APP SECRET',
+    'OAuth.providers.twitter.options.clientId' => 'YOUR APP ID',
+    'OAuth.providers.twitter.options.clientSecret' => 'YOUR APP SECRET',
+    //etc
+];
+```
+> ### **IMPORTANT:** Remember you'll need to configure your social login application callback url to use the provider specific endpoint, for example:
+```
+Facebook App Callback URL --> http://yourdomain.com/auth/facebook
+Twitter App Callback URL --> http://yourdomain.com/auth/twitter
+Google App Callback URL --> http://yourdomain.com/auth/google
+etc.
+```
+> ### *Note: Choose your most used log-in type. Using social authentication is not required.* Check the [Configuration page](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Configuration.md) for more details.
 
 ### Lab 2 - Comment System
 
