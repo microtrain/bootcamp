@@ -9,7 +9,7 @@ MongoDB is a distributed NoSQL NoSchema document database designed for scalabili
 By default, the Ubuntu package manager does not know about the MongoDB repository so you'll need to add it to your system. First, add MongoDB's private key to the package manager. Then, update the repository list. Finally, reload the package database.
 
 ```sh
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2930ADAE8CAF5059EE73BB4B58712A2291FA4AD5
+wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
 
 echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
 
