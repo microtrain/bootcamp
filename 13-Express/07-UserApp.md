@@ -64,13 +64,6 @@ git push origin master
 
 *.gulpfile.js*
 ```js
-//~line 13
-//Compile all JS tasks
-gulp.task('build-js', [
-  'build-main-js',
-  'build-auth-js',
-  'build-users-js'
-]);
 
 //~line 49
 gulp.task('build-users-js', function() {
@@ -84,6 +77,15 @@ gulp.task('build-users-js', function() {
 
   return merge(userApp);
 });
+
+//~line 76
+//Compile all JS tasks
+gulp.task('build-js', [
+  'build-main-js',
+  'build-auth-js',
+  'build-users-js'
+]);
+
 ```
 
 Commit your code changes
