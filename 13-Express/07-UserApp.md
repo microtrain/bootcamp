@@ -157,6 +157,16 @@ function viewUsers(){
   }
 }
 ```
+Update the load: function
+
+```
+      return {
+      load: function(){
+        // alert('LOADED');
+        viewUsers();
+      }
+    }
+```
 
 If the AJAX request returns a success string similar to the following, everything is working as it should.
 ```json
