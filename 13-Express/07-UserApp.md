@@ -247,7 +247,7 @@ git push origin master
 
 We will set up the load function so that we can navigation a full CRUD application. This will be a switch statement similar to the one in the one we did for the authentication app. We will start by providing a mock-up for each case in the switch statement. We will replace these with implementation logic as we develop the logic.
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/7bedf36cc9a13d3b336d0034c39bd48b2642c35f) Mock-up the navigation
+[</> code](https://github.com/microtrain/mean.example.com/commit/7bedf36cc9a13d3b336d0034c39bd48b2642c35f) Mock-up the navigation. Update the load: function
 
 ```js
 //~line 
