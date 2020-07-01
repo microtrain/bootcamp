@@ -596,4 +596,13 @@ Commit your code changes
 git commit -a
 ```
 
+Turn off `!session.passport.user` We can reverse this when we no longer detect the session.
+
+*views/includes/navbar.pug*
+```js
+//~line 23
+//if !session.passport.user
+if !session.passport
+...
+```
 [Next: User App](07-UserApp.md)
