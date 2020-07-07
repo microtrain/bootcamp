@@ -1147,8 +1147,7 @@ git commit -a
 
 ## Progress Web App (PWA)
 
-[</> code](https://github.com/microtrain/ng-apod/commit/fcb68b8cfd524a3122d57517216d576b1cb20310) A Progressive Web App (PWA) is an HTML5 application that can be installed on a mobile device without requiring the use of an app store. There are three core requirements for a PWA: a manifest file
-
+[</> code](https://github.com/microtrain/ng-apod/commit/fcb68b8cfd524a3122d57517216d576b1cb20310) A Progressive Web App (PWA) is an HTML5 application that can be installed on a mobile device without requiring the use of an app store. There are three core requirements for a PWA: a web manifest file, be served using HTTPS, and must register a service worker with a fetch event handler.
    
 
 https://angular.io/guide/service-worker-getting-started
