@@ -622,7 +622,7 @@ the projects object.
 
 ```json
 "baseHref": "/ng-auth/",
-"outputPath": "/home/jason/mean.example.com/public/ng-auth",
+"outputPath": "/home/dev/mean.example.com/public/ng-auth",
 ```
 
 ![angular.json](/img/auth/angular_json.png)
