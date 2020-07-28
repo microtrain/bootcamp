@@ -1,0 +1,157 @@
+# Syllabus Remote- Live 2020
+
+* Class Meeting: Twice a week
+* Class Hours: 9 am – 5 pm
+* Class Support: 9 am - 5 pm, M - F   
+   
+## Expectations
+* Class starts promptly at 9am, you are expected to have your systems booted up and to be ready to go by 9am. 
+* Please avoid cell phone use during lecture; mute microphone when not communicating with class.
+* Tentative break schedule; we will take ~10 minutes around 10:30pm, ~60 minutes lunchtime and ~10 minutes around 2:30 pm. You may break as needed however student will be responsible for class material make-up.
+* Class is scheduled until 5pm; but there are no guarantees depending on syllabi.
+* Along with Class Schedule, Lab and Assignments require a 25+ Hour per week minimum commitment.
+ 
+ ## Contact
+* Join the [Slack Channel](https://join.slack.com/t/stack-x/shared_invite/enQtMzk3OTg3NzAzODc5LTRjYWFhM2JhZDRkOTBmMDcyZjkzYzc3NDYxMTVmZWI3MWJjMTZmYzAzNjdhZTdkYjhmNzAzZTYxMzc3MDhhYTY)
+* Email bootcamp@microtrain.net
+* Zoom classroom opens 15 minutes proir to start. Student link available from [Professional.Me](https://theprofessional.me/) Client Dashboard.
+
+## Courseware
+The [courseware](https://github.com/microtrain/bootcamp) is available on GitHub.
+* https://github.com/microtrain/bootcamp
+* Additional materials and career coaching are available via [Professional.Me](https://theprofessional.me/)
+* [Projects and code](https://github.com/microtrain2005) available on GitHub.
+
+## Description 
+The class is 16 hours a week for 12 weeks. It is comprised of a series of units with each unit corresponding to a chapter in the courseware. A unit or chapter is comprised of working lectures, exercises, and at-home labs and additional resources. The goal of this class is to provide a working knowledge of web and mobile application development. This course is not a deep dive on any one topic, rather it is intended to provide a working foundation that will allow you to hit the ground running and give you the knowledge base upon which to build a career. In most cases you will get a light introduction to a topic; typically with in a specific context. We will build on these topics as we progress through the course. The syllabus is tentative and may be adjusted to the pace of the class as a whole. The last two to three weeks of class are open and are intended to allow each student to complete a single or multiple projects to add to their portfolio.
+
+### Keys to Success
+
+* Read ahead in the syllabus.
+* Study/code outside of class (25-30 hours a week depending on experience).
+  * Follow and apply content from links under "Additional Resources"
+  * Write code outside of the classroom assignments.
+  * Google any topics that are not quite clear.
+  * Read through the comments in StackOverflow questions.
+* Complete all labs and in-class assignments everything builds on the previous lessons.
+* Plan your final project and presentation early.
+
+## Unit Composition
+
+### A Lecture
+An overview of the topic(s) at hand.
+
+### Exercises
+Guided application of the topic(s) at hand.
+
+### Coding Challenges
+Planned out of class assignments that will present new and old concepts as challenges to be solved in code.
+
+### Labs
+There is not much time for in-class labs. Everything you need to complete the labs in reading material. You are expected to read ahead and stay up to date with the labs as each new lab builds on previous work. If you get ahead, test and ensure the lab/project is working. If a lab/project fails to load, re-read previous topics, re-read installation, code and additional resources.
+
+### Additional Resources 
+This section provides links to additional reading, conversation, ebooks, videos online courses etc. While not required it is encouraged and expected that you will spend some time reviewing this material. These resources are provided by third-parties and as such we do not warrant the continuity of purpose, availability or continued fitness of these links for any particular use for any of these sites. 
+
+#### Career Academy
+We use Career Academy as supplemental material, while it is not required you are encouraged to utilize this tool. You will have access to Career Academy until at least the end of your program so even after this course is finished you can continue to learn in a structured environment.
+
+#### Khan Academy
+This provides free online learning for various topics. This is mostly included as a review of Algebra, Geometry, etc. We do not get to heavy with these topics but any one wanting a review can do so through the links provided.
+
+## TENTATIVE SCHEDULE
+
+### Day 1 - 2 (Intro, HTML, CSS)
+
+#### Review build and Understand a Development Environment
+
+#### Introduction to the Cloud
+* Intro to EC2 and AWS
+* Spin up a production server (free for a year but cc required)
+* Launch a production site in LAMP.
+
+#### Development Environment and Packages
+* Linux basics
+* System basics
+* NPM
+* Git
+
+#### Introduction to Web
+* The Anatomy of a URL
+* HTML
+ * Introduction to HTML
+ * GitHub Pages (Basic Website)
+ * Web Forms
+ * HTML Resume
+* CSS/Preprocessors
+  * CSS and Basic Styles 
+  * SASS/SCSS and Gulp Processes
+  * CSS Layouts (floating grids, CSS grids, flexbox) 
+  * Responsive CSS
+
+### Day 3 - 4 (Server Scripting, JavaScript)
+
+### JavaScript, jQuery, AJAX and Bootstrap
+* Programming Basics with JavaScript
+* Walking the DOM
+* Catch Events
+  * Programming the Canvas
+  * Programming the Game
+* jQuery Basics
+  * Ajax
+  * NASA API
+* Introduction to Bootstrap
+  * Redesign project UI
+
+### Day 5 - 6 (PHP, MySQL)
+  
+* PHP Basics and Concepts
+  * Programming basics with PHP
+  * Object-oriented programming
+  * Template engines
+* MySQL
+  * Learn the basics of SQL and MySQL
+  * Create data models
+  * Integrate MySQL into our PHP website
+
+### Day 7 - 11 (MongoDB, NoSQL, Web Frameworks)
+
+#### MongoDB, Express ~4 days
+* MongoDB Atlas
+* Run a MEAN stack in production
+* Express
+* REST API
+  * Create 1st CRUD
+  * Create 1st App
+* ReverseProxy
+* PM2
+* Web Sockets
+  * Create Chat App
+
+### Day 12 - 14 (Angular)
+
+#### Angular ~3 days
+* Interact with NASA API Apod
+* Tour of Heroes Tutorial
+* Interact with your REST API
+
+### Day 15 - 17 (Hybrid Mobile)
+
+#### Apache Cordova and Ionic ~3 days
+* Learn how to build mobile device emulators.
+* Learn how to emulate mobile devices using the Chrome browser and Dev Tools.
+* Run existing web code as a mobile app
+* Ionic Applications
+
+###  Day 18 – 21 (Final Projects and Course Wrap-up)
+Choose whatever you want to build. Start thinking of a project sooner than later.
+* Completion of Key Projects
+* Ensure working code and GitHub repository
+* How to Market Yourself Review and theprofessional.me
+* Review course, follow @MicroTrain Technologies #MicroTrain Facebook, LinkedIn
+* Final project presentation
+
+## Additional Policies
+
+### Reimbursement Policy
+Students may be reimbursed up to $25 for one domain name.
