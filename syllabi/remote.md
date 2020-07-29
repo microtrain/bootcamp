@@ -2,7 +2,7 @@
 
 * Class Meeting: Twice a week
 * Class Hours: 9 am – 5 pm
-* Class Support: 9 am - 5 pm, M - F   
+* Class Support: 1 pm - 5 pm, M - F
    
 ## Expectations
 * Class starts promptly at 9am, you are expected to have your systems booted up and to be ready to go by 9am. 
