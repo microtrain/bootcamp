@@ -538,7 +538,8 @@ use About\Validation;
 //Validate Declarations
 $valid = new About\Validation\Validate();
 $args = [
-  'name'=>FILTER_SANITIZE_STRING,
+  'first_name'=>FILTER_SANITIZE_STRING,
+  'last_name'=>FILTER_SANITIZE_STRING,
   'subject'=>FILTER_SANITIZE_STRING,
   'message'=>FILTER_SANITIZE_STRING,
   'email'=>FILTER_SANITIZE_EMAIL,
