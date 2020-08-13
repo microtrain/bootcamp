@@ -32,14 +32,14 @@ try {
 Create the file */var/www/example.com/public/posts/index.php*
 ```php
 <?php
-include '../core/db_connect.php';
+include '../../core/db_connect.php';
 ```
 Preview this file in your browser [http://localhost/example.com/public/posts/index.php](http://localhost/example.com/public/posts/index.php)
 
 Update posts/index.php as follows
 ```php
 <?php
-include '../core/db_connect.php';
+include '../../core/db_connect.php';
 
 $stmt = $pdo->query("SELECT * FROM posts");
 
@@ -52,7 +52,7 @@ while ($row = $stmt->fetch())
 Replace the ```var_dump()``` with real output
 ```php
 <?php
-include '../core/db_connect.php';
+include '../../core/db_connect.php';
 
 $content=null;
 $stmt = $pdo->query("SELECT * FROM posts");
@@ -69,7 +69,7 @@ echo $content;
 Add the template
 ```php
 <?php
-include '../core/db_connect.php';
+include '../../core/db_connect.php';
 
 $content=null;
 $stmt = $pdo->query("SELECT * FROM posts");
@@ -80,13 +80,13 @@ while ($row = $stmt->fetch())
     $content .= "<a href=\"view.php?slug={$row['slug']}\">{$row['title']}</a>";
 }
 
-include '../core/layout.php';
+include '../../core/layout.php';
 ```
 
 Create a copy of posts/index.php called view.php
 ```php
 <?php
-include '../core/db_connect.php';
+include '../../core/db_connect.php';
 
 $slug = "'{$_GET['slug']}'";
 
@@ -104,7 +104,7 @@ echo $content;
 Change as follows. Everything about this is wrong - why?
 ```php
 <?php
-include '../core/db_connect.php';
+include '../../core/db_connect.php';
 
 $slug = "'{$_GET['slug']}'";
 
@@ -120,7 +120,7 @@ In short, we are trusting user input. If I were to replace the $_GET param as fo
 
 ```php
 <?php
-include '../core/db_connect.php';
+include '../../core/db_connect.php';
 
 //$slug = "'{$_GET['slug']}'";
 $slug="(SELECT slug FROM posts WHERE slug = 'hello')";
@@ -156,7 +156,7 @@ $stmt->execute(['slug' => $slug]);
 The other issue is that we are directly accessing superglobals which nowadays is considered bad practice. To further restrict the user input sanitize the slug by forcing it into a predefined format.
 ```php
 <?php
-include '../core/db_connect.php';
+include '../../core/db_connect.php';
 
 $input = filter_input_array(INPUT_GET);
 $slug = preg_replace("/[^a-z0-9-]+/", "", $input['slug']);
