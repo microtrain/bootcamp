@@ -163,7 +163,9 @@ $i = 0;
 $li=null;
 do {
   $li .= "<li>{$items[$i++]}</li>";
-} while ($i > 0);
+} while ($i < 4);
+
+echo "<ul>{$li}</ul>";
 ```
 ## Additional Reading
 * [Which Loop](https://mathbits.com/MathBits/CompSci/looping/whichloop.htm)
