@@ -80,11 +80,11 @@ gulp.task('build-users-js', function() {
 
 //~line 76
 //Compile all JS tasks
-gulp.task('build-js', [
+gulp.task('build-js', gulp.series(
   'build-main-js',
   'build-auth-js',
   'build-users-js'
-]);
+));
 
 ```
 
