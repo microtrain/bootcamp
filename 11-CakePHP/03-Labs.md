@@ -4,19 +4,99 @@
 
 [</> code](https://github.com/stack-x/cake.example.com/commit/9d8a65128621e75f8f17c95925ad27219e5b786b) Add an instance variable to hold the session object, set this variable during initialization. The following reads as "set this instance of ```$session``` to the session object from this instance of the request object." This will provide a short hand for accessing the session data in controllers.
 
-*src/Controller/AppController.php* add to Line 40 and line 47
+*src/Controller/AppController.php* add to Line 31 and line 60
 ```php
-    //line 40
+class AppController extends Controller
+{
+    //line 31
     protected $session;
+        ...
 
-    public function initialize()
+    public function initialize(): void
     {
         ...
 
-    //line 47
+    //line 60
         $this->session = $this->getRequest()->getSession();
     }
 ```
+
+*src/Controller/AppController.php*
+```sh
+<?php
+declare(strict_types=1);
+
+/**
+ * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
+ * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ *
+ * Licensed under The MIT License
+ * For full copyright and license information, please see the LICENSE.txt
+ * Redistributions of files must retain the above copyright notice.
+ *
+ * @copyright Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
+ * @link      https://cakephp.org CakePHP(tm) Project
+ * @since     0.2.9
+ * @license   https://opensource.org/licenses/mit-license.php MIT License
+ */
+namespace App\Controller;
+
+use Cake\Controller\Controller;
+
+/**
+ * Application Controller
+ *
+ * Add your application-wide methods in the class below, your controllers
+ * will inherit them.
+ *
+ * @link https://book.cakephp.org/4/en/controllers.html#the-app-controller
+ */
+class AppController extends Controller
+{
+    protected $session;
+    // public function beforeFilter(\Cake\Event\EventInterface $event)
+    // {
+    //     parent::beforeFilter($event);
+    //     // for all controllers in our application, make index and view
+    //     // actions public, skipping the authentication check.
+    //     $this->Authentication->addUnauthenticatedActions(['index', 'view']);
+    // }
+
+    /**
+     * Initialization hook method.
+     *
+     * Use this method to add common initialization code like loading components.
+     *
+     * e.g. `$this->loadComponent('FormProtection');`
+     *
+     * @return void
+     */
+    public function initialize(): void
+    {
+        parent::initialize();
+
+        // Add this line to check authentication result and lock your site
+        // $this->loadComponent('Authentication.Authentication');
+
+        $this->loadComponent('RequestHandler');
+        $this->loadComponent('Flash');
+
+
+        $this->session = $this->getRequest()->getSession();
+
+        // Deny unauthorized access by default
+        // $this->Auth->deny();
+
+        /*
+         * Enable the following component for recommended CakePHP form protection settings.
+         * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
+         */
+        //$this->loadComponent('FormProtection');
+    }
+    
+}
+```
+
 
 #### Deny Access by Default
 [</> code](https://github.com/stack-x/cake.example.com/commit/44f8149e1b6dda45d8ffa37f13f4b9d8852dafc3)
@@ -26,39 +106,19 @@ public function initialize(): void
 {
     parent::initialize();
 
-    // Load the AUTH component
-    $this->loadComponent('Auth');
-
     $this->loadComponent('RequestHandler');
     $this->loadComponent('Flash');
+
     $this->session = $this->getRequest()->getSession();
 
     // Deny unauthorized access by default
-    $this->Auth->deny();
+    //$this->Auth->deny();
 }
-```
-
-At this point when you try to access [http://loc.cake.example.com](http://loc.cake.example.com) the application will try to redirect you to *users/login*. This will error out due to us (a) not having a UsersController at the top level and (b) not having a route that directs us to the CakeDC plugin. We will resolve this by adding a route.
-
-[</> code](https://github.com/stack-x/cake.example.com/commit/b32d232a8f74ff1e9512b0cb8c10e9afe332a977) Add the following at line 80 of *src/config/routes.php*
-
-```php
-
-Router::connect(
-    '/users/login',
-    [
-        'plugin' => 'CakeDC/Users',
-        'controller' => 'Users',
-        'action' => 'login'
-    ]
-);
-
 ```
 
 Now accessing [http://loc.cake.example.com](http://loc.cake.example.com) will redirect you to a login page.
 
 ### [Configuration](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Configuration.md)
-
 
 Navigate to [http://loc.cake.example.com/users/add](http://loc.cake.example.com/users/add) and create a user account.
 
