@@ -84,9 +84,6 @@ class AppController extends Controller
 
         $this->session = $this->getRequest()->getSession();
 
-        // Deny unauthorized access by default
-        // $this->Auth->deny();
-
         /*
          * Enable the following component for recommended CakePHP form protection settings.
          * see https://book.cakephp.org/4/en/controllers/components/form-protection.html
@@ -96,48 +93,43 @@ class AppController extends Controller
     
 }
 ```
-
-
-#### Deny Access by Default
-[</> code](https://github.com/stack-x/cake.example.com/commit/44f8149e1b6dda45d8ffa37f13f4b9d8852dafc3)
-*src/Controller/AppController.php*
-```php
-public function initialize(): void
-{
-    parent::initialize();
-
-    $this->loadComponent('RequestHandler');
-    $this->loadComponent('Flash');
-
-    $this->session = $this->getRequest()->getSession();
-
-    // Deny unauthorized access by default
-    //$this->Auth->deny();
-}
-```
-
 Now accessing [http://loc.cake.example.com](http://loc.cake.example.com) will redirect you to a login page.
 
 ### [Configuration](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Configuration.md)
 
 Navigate to [http://loc.cake.example.com/users/add](http://loc.cake.example.com/users/add) and create a user account.
 
-### Lab 2 - Composer
+### Lab 2 - Configuration for Social Login
 
 Using the documentation for the users plugin, add the ability to log in using a social media platform of your choice.
+For easier configuration, you can specify an array of config files to override the default plugin keys this way:
+*config/bootstrap.php*
+```sh
+// The following configuration setting must be set before loading the Users plugin
+Configure::write('Users.config', ['users']);
+Plugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true]);
+Configure::write('Users.Social.login', true); //to enable social login
+```
+
+Create the facebook, twitter, etc applications you want to use and setup the configuration like this: You'll need to add the providers to your composer.json file.
+
 > #### If you want to use social login features...
 
-```composer require league/oauth2-facebook:@stable
+```
+composer require league/oauth2-facebook:@stable
 composer require league/oauth2-instagram:@stable
 composer require league/oauth2-google:@stable
 composer require league/oauth2-linkedin:@stable
 composer require league/oauth1-client:@stable
 ```
-> NOTE: you'll need to enable social login if you want to use it, social login is disabled by default. 
+> NOTE: you'll need to enable social login if you want to use it, social login is disabled by default. *config/bootstrap.php*
+
 ```
 Configure::write('Users.config', ['users']);
 Configure::write('Users.Social.login', true); //to enable social login
 ```
+Or use the config override option when loading the plugin (see above)
+
 > then in your config/users.php
 ```
 return [
