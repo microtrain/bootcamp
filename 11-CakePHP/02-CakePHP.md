@@ -220,6 +220,8 @@ bin/cake migrations migrate -p CakeDC/Users
 
 12. Create 3 unique users, repeat Registration steps 7-11 above.
 
+13. Commit your changes with a message of *Added Cake Users CRUD*.
+
 ### Posts CRUD
 We will keep our blog posts in a table called posts.
 
