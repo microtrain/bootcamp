@@ -15,15 +15,15 @@ npm install express-session
 npm install connect-mongo
 ```
 
-Commit your changes and push to master
+Commit your changes and push to main
 ```sh
 # Added authentication packages
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
-Commit your changes and push to master
+Commit your changes and push to main
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/c6625250735e6ad3cb2dfa00a92afa8928593f3d) Import session and Passport packages.
 
@@ -116,7 +116,7 @@ Commit your changes
 ```sh
 # Serialize the session data
 git commit -a
-git push origin master
+git push origin main
 ```
 
 #### User Registration
@@ -186,7 +186,7 @@ Commit your changes
 ```sh
 # Define a local strategy for authentication
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ##### Post the Registration Form to the Users API
@@ -253,7 +253,7 @@ Commit your changes
 ```sh
 # Add an endpoint for user registration
 git commit -a
-git push origin master
+git push origin main
 ```
 
 #### User Login/Logout
@@ -329,11 +329,11 @@ git commit -a
 
 ```
 
-Commit your changes and push to master
+Commit your changes and push to main
 ```sh
 # Add an endpoint for logging out of the session
 git commit -a
-git push origin master
+git push origin main
 ```
 
 In the next section, we will  build a JavaScript application to manage user authentication.

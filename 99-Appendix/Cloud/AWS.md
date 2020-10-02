@@ -199,13 +199,13 @@ if(process.env.NODE_ENV==='production'){
 ```sh
 # Added the ability to connect to either a dev or prod config
 git commit -a
-git push origin master
+git push origin main
 ```
 
 From your server
 ```sh
 cd ~/mean.example.com
-git pull origin master
+git pull origin main
 ```
 
 Install pm2

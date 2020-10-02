@@ -125,13 +125,13 @@ include includes/navbar
 
 Reload the webpage at [http://localhost:3000](http://localhost:3000) and depending on your viewport you will either see a navbar with horizontal links or a collapsed navigation.
 
-Commit your changes and push to master
+Commit your changes and push to main
 ```sh
 # Add Bootstrap and navigation
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## File Structure 
@@ -255,13 +255,13 @@ gulp build-css
 
 You may have noticed all the files we created are blank. These are just place holders. We build these out in upcoming lessons. 
 
-Commit your changes and push to master
+Commit your changes and push to main
 ```sh
 # Add Gulp to the project
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 [Next: Authentication App](06-AuthApp.md)

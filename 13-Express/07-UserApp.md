@@ -48,14 +48,14 @@ cd ~/mean.example.com
 # press [ctl]+[c]
 npm start
 ```
-Open a browser and navigate to [http://localhost:3000/users/app](http://localhost:3000/users/app). If the tab reads "User Management" then everything is working as it should. Commit your changes and push to master.
+Open a browser and navigate to [http://localhost:3000/users/app](http://localhost:3000/users/app). If the tab reads "User Management" then everything is working as it should. Commit your changes and push to main.
 
 ```sh
 # Add a non-API endpoint for accessing the user app
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ### Update Our Gulp Process
@@ -125,7 +125,7 @@ Commit your code changes
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Build a Users View
@@ -178,7 +178,7 @@ If the AJAX request returns a success string similar to the following, everythin
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ### Build an HTML View
@@ -240,7 +240,7 @@ xhr.onload = function(){
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Provide a Basic Navigation Structure
@@ -299,7 +299,7 @@ else
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Build a Form to Create a User
@@ -375,13 +375,13 @@ Make the submit button responsive. While a block-level button makes sense on a s
 }
 ```
 
-Commit your changes and push to master.
+Commit your changes and push to main.
 ```sh
 # Add a user creation form
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Create a Common Method for Processing Web Forms
@@ -439,13 +439,13 @@ case '#create':
   break;
 ```
 
-Commit your changes and push to master.
+Commit your changes and push to main.
 ```sh
 # Add a common method for processing web forms
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Build a View for a Single User
@@ -498,13 +498,13 @@ case '#view':
   break;
 ```
 
-Commit your changes and push to master.
+Commit your changes and push to main.
 ```sh
 # Add a user view
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Build a Form to Edit a User
@@ -719,7 +719,7 @@ case '#delete':
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/abc86c083e6d267450c35f40faac99cef710a4cb) Create a public facing method for user deletion.

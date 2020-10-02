@@ -46,7 +46,7 @@ cd ~/mean.example.com
 npm start
 ```
 
-Open a browser and navigate to [http://localhost:3000/auth](http://localhost:3000/auth). If the tab reads "User Authentication" then everything is working as it should. Commit your changes and push to master.
+Open a browser and navigate to [http://localhost:3000/auth](http://localhost:3000/auth). If the tab reads "User Authentication" then everything is working as it should. Commit your changes and push to main.
 
 ![User Authentication](/img/auth/title.png)
 
@@ -55,7 +55,7 @@ Open a browser and navigate to [http://localhost:3000/auth](http://localhost:300
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Login Form
@@ -259,11 +259,11 @@ git commit -a
   }
 ```
 
-Commit your code changes and push to master
+Commit your code changes and push to main
 ```sh
 # Add error/success handling to the login form
 git commit -a
-git push origin master
+git push origin main
 ```
 
 Now that we can authenticate the user a create a session cookie the browser, lets test the session. By adding a ```console.log()``` to the index method we can verify the session survives a reload. Update the ```/``` endpoint as stated in the following code sample.
@@ -319,11 +319,11 @@ router.get('/logout', function(req, res){
 });
 ```
 
-Commit your code changes and push to master
+Commit your code changes and push to main
 ```sh
 # Add logout methods
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Implement a GUI for User Registration

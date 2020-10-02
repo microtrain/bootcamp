@@ -23,7 +23,7 @@ git init
 git add .
 git commit -am 'Initial Commit'
 git remote add origin git@github.com:XXX/game.git
-git push origin master
+git push origin main
 ```
 
 Run npm install and start a Gulp watcher.
@@ -60,7 +60,7 @@ canvas {
 # Add a canvas with a black background.
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 

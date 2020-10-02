@@ -13,7 +13,7 @@ Create an empty repository called *ionicUsers* on GitHub and push your project t
 
 ```sh
 git remote add origin git@github.com:GITHUBUSERNAME/ionicUsers.git
-git push origin master
+git push origin main
 ionic serve
 ```
 ## Authentication
@@ -49,7 +49,7 @@ Test everything is working by navigating to the pages you just created.
 # Added authentication assets
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 [</> code](https://github.com/microtrain/ionicUsers/commit/781014014b86801a855e030bf41798aeea7a8541) User

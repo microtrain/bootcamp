@@ -128,13 +128,13 @@ VI will open an ask you to enter a commit message.
 1. Then type the message _Proof of concept_. 
 1. Press [esc] followed by [:x] and enter to save the commit message.
 
-Push your changes to the master branch.
+Push your changes to the main branch.
 
 > We use the convention of first comment to denote a potential commit message. For the following snippet *Proof of concept* would be the suggested commit message.
 
 ```sh
 # Proof of concept
-git push origin master
+git push origin main
 ```
 
 ### Execute as Source (aka, with Shebang (aka, Standalone Execution))
@@ -174,7 +174,7 @@ cd ~/node_reload_apache
 # Stand alone execution
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ### Create an NPM Package
@@ -245,7 +245,7 @@ Is this OK? (yes) yes
 # Create an NPM package
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Exercise 2 - Passing Arguments into a Shell
@@ -337,5 +337,5 @@ The line `var args  = process.argv;` creates an array called args. An array is a
 # Accept arguments
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```

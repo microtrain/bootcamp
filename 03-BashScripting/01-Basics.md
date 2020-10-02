@@ -105,10 +105,10 @@ VI will open an ask you to enter a commit message.
 1. Then type the message _Proof of concept version_. 
 1. Press [esc] followed by [:x] and enter to save the commit message.
 
-Push your changes to the master branch.
+Push your changes to the main branch.
 
 ```sh
-git push origin master
+git push origin main
 ```
 
 #### [Semantic Versioning](https://semver.org/)
@@ -125,10 +125,10 @@ VI will open an ask you to enter a commit message.
 1. Then type the message _Version 0.0.1_. 
 1. Press [esc] followed by [:x] and enter to save the commit message.
 
-Push your changes to the master branch.
+Push your changes to the main branch.
  
 ```sh
-git push origin master
+git push origin main
 ```
 
 #### Add a tag
@@ -254,25 +254,25 @@ git commit -a
 git push origin feature/arguments
 ```
 
-Push your changes to the master branch.
+Push your changes to the main branch.
 
 ```sh
-git push origin master
+git push origin main
 ```
 
-Merge your changes into master
+Merge your changes into main
 
 ```sh
-git checkout master
+git checkout main
 git merge feature/arguments
-git push origin master
+git push origin main
 ```
 
 [</> code](https://github.com/stack-x/restart_apache/commit/a1d7c591db2bc6518c714063d01d1c1190dbbf70) Tag a new version
 1. git tag 0.1.0
 1. git push origin --tags
 
-Now that all code changes have been applied to master you can remove your working branch.
+Now that all code changes have been applied to main you can remove your working branch.
 
 ```sh
 git branch -D feature/arguments
@@ -285,13 +285,13 @@ In this exercise, you learned how
 * work with arguments and variables (Bash, Programming)
 * use an if-then statement (Bash, Programming)
 * create a feature branch (Git)
-* merge a feature branch into master (Git)
+* merge a feature branch into main (Git)
 * remove old working branches (Git)
 
 
 ## Exercise 3 - Reject unwanted service commands
 
-For this exercise, create a feature branch called *feature/validate*. When you are finished increment the version to 0.2.0 then merge into and push to master.
+For this exercise, create a feature branch called *feature/validate*. When you are finished increment the version to 0.2.0 then merge into and push to main.
 
 **Requirements**
 
@@ -335,16 +335,16 @@ fi
 ```sh
 git add .
 git commit -m 'Added the ability to reject unauthorized service directives'
-git checkout master
+git checkout main
 git merge feature/validate
-git push origin master
+git push origin main
 ```
  
 [</> code](https://github.com/stack-x/restart_apache/commit/170b1e43c47c346362440cbb939f3b9ca3733b38) Update VERSION.txt to 1.2.0
 ```sh
 git add .
 git commit -m 'Version 0.2.0'
-git push origin master
+git push origin main
 
 git tag 0.2.0
 git push origin --tags
@@ -356,14 +356,14 @@ git push origin --tags
 
 ```sh
 git commit -am 'Improved messaging'
-git push origin master
+git push origin main
 ```
 
 [</> code](https://github.com/stack-x/restart_apache/commit/708d8f60ca6694268d74dbb36df1fa0780d1da4d) Since this commit does not add or remove it is considered a patch so we will increment version as a patch.
 Update VERSION.txt to 0.2.1
 ```sh
 git commit -am 'Version 0.2.1'
-git push origin master
+git push origin main
 
 git tag 0.2.1
 git push origin --tags
@@ -408,7 +408,7 @@ Execute the code
 ```
 
 [</> code](https://github.com/stack-x/mtbc/commit/97af863e19d1aa0d38df2231f88c90eb52ea6bd0) 
-Commit your code and push it to the master branch of the mtbc project.
+Commit your code and push it to the main branch of the mtbc project.
 *Bash exercise 4 - loop example*
 
 ### Summary
@@ -439,7 +439,7 @@ Running ```./loop.sh``` will now yield the following.
 ```
 
 [</> code](https://github.com/stack-x/mtbc/commit/5539ba0cc994bc083779bd5fac435acbe6647159) 
-Commit your code and push it to the master branch of the mtbc project.
+Commit your code and push it to the main branch of the mtbc project.
 *Bash exercise 5 - loop example*
 
 ### Summary
@@ -461,7 +461,7 @@ echo "${STRING1} ${STRING2}"
 ```
 
 [</> code](https://github.com/stack-x/mtbc/commit/f7047686a4314f412e8829f836c4f2776399293e) 
-Commit your code and push it to the master branch of the mtbc project.
+Commit your code and push it to the main branch of the mtbc project.
 *Bash exercise 6 - string example*
 
 ### Summary
@@ -501,7 +501,7 @@ done
 ```
 
 [</> code](https://github.com/stack-x/mtbc/commit/edd6e7e924bf05dda48dcbed5ade53cd17c563fb) 
-Commit your code and push it to the master branch of the mtbc project.
+Commit your code and push it to the main branch of the mtbc project.
 *Bash exercise 7 - not empty example*
 
 ## Exercise 8 - String Position
@@ -538,7 +538,7 @@ dog
 quick
 lazy
 ```
-[</> code](https://github.com/stack-x/mtbc/commit/81c6b40bf64bdffb4617b20162d75de1821d976a) Commit your code and push it to the master branch of the mtbc project. Bash exercise 8 - string position example
+[</> code](https://github.com/stack-x/mtbc/commit/81c6b40bf64bdffb4617b20162d75de1821d976a) Commit your code and push it to the main branch of the mtbc project. Bash exercise 8 - string position example
 
 ## Lab
 
