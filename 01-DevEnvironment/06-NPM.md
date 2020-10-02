@@ -9,7 +9,7 @@ I always recommend building on the latest stable LTS version of a language or fr
 **Node.js v10.x**:
 
 ```sh
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
@@ -19,7 +19,7 @@ node -v
 npm -v
 ```
 
-These should return versions >= 10.16.0 and 6.9.0 respectively.
+These should return versions >= 12.18.4 and 6.14.6 respectively.
 
 ## Summary
 In this lesson, you learned
