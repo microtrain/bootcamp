@@ -62,7 +62,7 @@ Remove the ```console.log()``` and commit your code with the message *Create a s
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Install Mongoose
@@ -73,7 +73,7 @@ git push origin master
 # Install Mongoose
 npm install mongoose
 git commit -a 
-git push origin master
+git push origin main
 ```
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/9524d63b356770436c5f648b1d10d3210d51b441) Validation is a key feature of Mongoose. Executes before making a save to MongoDB. This allows us to define rules at the model level. We will want to make sure usernames and email addresses are unique. Mongoose does not have a built-in validator for this but the community does. We will install the [mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator) plugin and set uniqueness as needed.
@@ -82,7 +82,7 @@ git push origin master
 # Install mongoose-unique-validator
 npm install mongoose-unique-validator
 git commit -a
-git push origin master
+git push origin main
 ```
 
 Your *package.json* file should look something like the following, version numbers may vary.
@@ -125,7 +125,7 @@ mongoose.connect(config.mongodb, { useNewUrlParser: true });
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Define the Schema
@@ -169,7 +169,7 @@ module.exports  = mongoose.model('Users', Users);
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Implement the REST/CRUD Functionality
@@ -186,13 +186,13 @@ git push origin master
 Create an empty file.
 *routes/api/users.js*
 
-Commit your changes and push to master.
+Commit your changes and push to main.
 ```sh
 # Add a routing file for api/users
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/8ca083840f50b796f6d16113127991558546a4fd) Add api/users route to app.js
@@ -222,13 +222,13 @@ router.get('/', function(req, res, next) {
 module.exports = router;
 ```
 
-Commit your changes and push to master.
+Commit your changes and push to main.
 ```sh
 # Implement a route for api/users
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 [</> code](https://github.com/microtrain/mean.example.com/commit/95d133992ef597e6ed584b4a523d9e17cc8628cc) Accessing the */api/users/* route using a GET request shall return a list of all users.
@@ -259,13 +259,13 @@ Test by running a curl command from a terminal window.
 curl -H "Content-Type: application/json" -X GET http://localhost:3000/api/users/
 ```
 
-Commit your changes and push to master.
+Commit your changes and push to main.
 ```sh
 # Retrieve a list of all users
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ### GET/Read One
@@ -293,13 +293,13 @@ Test by running a curl command from a terminal window.
 curl -H "Content-Type: application/json" -X GET http://localhost:3000/api/users/5a763b67a5d70c115d81536a
 ```
 
-Commit your changes and push to master.
+Commit your changes and push to main.
 ```sh
 # Retrieve a single user by _id
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ### POST/Create
@@ -334,13 +334,13 @@ curl -d '{"email":"test2@example.com", "username":"testuser2", "first_name": "Bo
 
 curl -d '{"email":"test3@example.com", "username":"testuser3", "first_name": "Sally", "last_name": "Smith"}' -H "Content-Type: application/json" -X POST http://localhost:3000/api/users
 ```
-Commit your changes and push to master
+Commit your changes and push to main
 ```sh
 # Create a new user record
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ### PUT/Update
@@ -401,13 +401,13 @@ Test with a simple curl request
 curl -d '{"_id":"5b92c4a5aae3570145ed77e5", "first_name":"Robert"}' -H "Content-Type: application/json" -X PUT http://localhost:3000/api/users
 ```
 
-Commit your changes and push to master
+Commit your changes and push to main
 ```sh
 # Edit a user record
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ### DELETE/Delete
@@ -446,7 +446,7 @@ curl -H "Content-Type: application/json" -X DELETE http://localhost:3000/api/use
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ### Add Created and Modified Dates
@@ -471,7 +471,7 @@ git push origin master
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ### Auto Update the Modified Date When a Document is Saved
@@ -491,7 +491,7 @@ Users.pre('save', function(next){
 git status
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 [Next: Auth API](04-AuthAPI.md)

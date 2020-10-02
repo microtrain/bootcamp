@@ -154,10 +154,10 @@ Return to [http://loc.cake.example.com/](http://loc.cake.example.com/) and all s
 cd /var/www/cake.example.com
 git init
 git remote add origin git@github.com:YOUR-GITHUB-USERNAME/cake.example.com.git
-git pull origin master
+git pull origin main
 git add .
 git commit -am 'Initial build'
-git push origin master
+git push origin main
 ```
 
 ### Cake File Structure, Callbacks, and Routing

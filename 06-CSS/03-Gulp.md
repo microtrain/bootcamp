@@ -103,7 +103,7 @@ of *node_modules/* and the addition of *.gitigore*.
 
 ![Untracked Files](/img/git/untracked2.png)
 
-At point you can add files to tracking, commit your changes and push to master.
+At point you can add files to tracking, commit your changes and push to main.
 
 ## gulpfile.js
 

@@ -145,12 +145,12 @@ git add .gitignore
 git commit -m 'Ignore node_modules from future commits' .gitignore
 ```
 
-[</> code](https://github.com/microtrain/mean.example.com/commit/708e34a36597a23531fb1a4cc7f0b34d604316fe) Commit the remaining files created during setup and push both commits to the master branch.
+[</> code](https://github.com/microtrain/mean.example.com/commit/708e34a36597a23531fb1a4cc7f0b34d604316fe) Commit the remaining files created during setup and push both commits to the main branch.
 
 ```sh
 git add .
 git commit -am 'Setup ExpressJS with Pug'
-git push origin master
+git push origin main
 ```
 
 Navigate to Then [http://localhost:3000/](http://localhost:3000/) to access your new app.
@@ -345,7 +345,7 @@ trim_trailing_whitespace = false
 # Add .editorconfig
 git add .
 git commit -a
-git push origin master
+git push origin main
 ```
 
 ## Additional Resources

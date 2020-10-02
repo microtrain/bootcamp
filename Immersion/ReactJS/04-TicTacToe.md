@@ -20,7 +20,7 @@ npm start
 Create an empty repository called tic-tac-toe on GitHub and push your project to the new repository. Don't worry about the initial commit as ReactJS has taken care of this for you.
 ```sh
 git remote add origin git@github.com:GITHUBUSERNAME/tic-tac-toe.git
-git push origin master
+git push origin main
 ```
 Add the newly created app in VSCode, open the project folder and replace the placeholder content of *src/App.css with:
 ```sh
@@ -563,7 +563,7 @@ We can now change the Board’s ```handleClick``` function to return early by ig
 git status
 git add .
 git commit -an 'Completed Tic Tac Toe App'
-git push origin master
+git push origin main
 ```
 
 ## Lab 4 - TIC TAC TOE

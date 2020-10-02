@@ -17,7 +17,7 @@ You will follow that up with your desired job title in an ```h2```, then a parag
 
 ## Lab - HTML Resume
 
-Create an HTML version of your resume for your GitHub Pages site. Commit your changes and push them to master.
+Create an HTML version of your resume for your GitHub Pages site. Commit your changes and push them to main.
 
 ## Lab 2 - Semantic Meaning
 

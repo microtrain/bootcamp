@@ -42,12 +42,12 @@ VI will open an ask you to enter a commit message.
 1. Then type the message _Proof of concept version_. 
 1. Press [esc] followed by [:x] and enter to save the commit message.
 
-Push your changes to the master branch.
+Push your changes to the main branch.
 
 ```sh
-git push origin master
+git push origin main
 ```
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/eb9899ff31d1781498444289ab6561adb5b21bc2) Once you have committed and pushed your changes to master you will be ready to view your changes in both dev and production environments. Dev (aka local changes) is where you do your work and/or preview your work before making it available to the public. Production is the live version of your website (code, project, etc).
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/eb9899ff31d1781498444289ab6561adb5b21bc2) Once you have committed and pushed your changes to main you will be ready to view your changes in both dev and production environments. Dev (aka local changes) is where you do your work and/or preview your work before making it available to the public. Production is the live version of your website (code, project, etc).
 
 > Replace *YOUR-GITHUB-USERNAME* with your GitHub username.
 
@@ -81,7 +81,7 @@ We will begin by adding navigation and a header to our website. This version of 
 </nav>
 ```
 
-[</> code](https://github.com/microtrain/microtrain.github.io/commit/1881d80c0638fd77bf0a64d7b7d8bd3c227ed75e) Make two copies of index.html and rename them to resume.html and contact.html. Preview your changes locally, clicking the links will not cause the page to change. Keep an eye on your browsers address bar, if this changes and the page displays no errors, your are ready to push to production. Commit your changes and push master. Go to the production version of you website and test your changes.
+[</> code](https://github.com/microtrain/microtrain.github.io/commit/1881d80c0638fd77bf0a64d7b7d8bd3c227ed75e) Make two copies of index.html and rename them to resume.html and contact.html. Preview your changes locally, clicking the links will not cause the page to change. Keep an eye on your browsers address bar, if this changes and the page displays no errors, your are ready to push to production. Commit your changes and push main. Go to the production version of you website and test your changes.
 
 ## Exercise 3 - HTML Validation
 Sometimes our pages do not display as we expect, this is often due to invalid HTML. You can check the validity of your HTML using the W3C Markup Validation Service.
@@ -108,7 +108,7 @@ Best practices are things that ought to be done provided (a) there is not a good
 * The charset is declared as _UTF-8_.
 * The view port is declared as _content="width=device-width, initial-scale=1.0_.
 
-Commit all changes and push all changes to master
+Commit all changes and push all changes to main
 
 > At this point, rerunning the W3C markup validation service should yield positive results. If it does not, look for broken tags. Don't get to hung up on this yet. We will have plenty of time to review and correct any of these issues before finishing the course.
 

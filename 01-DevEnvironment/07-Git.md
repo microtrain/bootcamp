@@ -133,10 +133,10 @@ VI will open an ask you to enter a commit message.
 1. Then type the message _Proof of concept version_. 
 1. Press [esc] followed by [:x] and enter to save the commit message.
 
-Push your changes to the master branch.
+Push your changes to the main branch.
 
 ```sh
-git push origin master
+git push origin main
 ```
 
 You will see a message that indicates the README.md file has been changed.
@@ -154,12 +154,12 @@ This will open an editor window that asks you to enter a commit message. Enter _
 Finally, push your changes to GitHub.
 
 ```sh
-git push origin master
+git push origin main
 ```
 
 ![Modified](/img/git/push.png)
 
-In the previous example, we committed our code changes directly to the master branch. In practice, you will never work on a master branch. At the very least you should have a development branch (we call it dev). I like to create branches using the *checkout* command.
+In the previous example, we committed our code changes directly to the main branch. In practice, you will never work on a main branch. At the very least you should have a development branch (we call it dev). I like to create branches using the *checkout* command.
 
 ```sh
 git checkout -B dev
@@ -173,27 +173,27 @@ You will see the message _Switched to a new branch 'dev'_.
 
 In plain English ```git checkout -B dev``` says *"make a copy of the branch I am on, name it _dev_ and switch me to that branch"*.
 
-If you are working directly on your dev branch and want to push those changes into master; it might look like this.
+If you are working directly on your dev branch and want to push those changes into main; it might look like this.
 
 ```sh
-git checkout master
-git pull origin master
+git checkout main
+git pull origin main
 git checkout dev
-git rebase master
-git checkout master
+git rebase main
+git checkout main
 git merge dev
 ```
 
-1. ```git checkout master``` - Switch to the master branch.
-1. ```git pull origin master``` - Pull any new changes into master.
+1. ```git checkout main``` - Switch to the main branch.
+1. ```git pull origin main``` - Pull any new changes into main.
 1. ```git checkout dev``` - Switch back to the dev branch.
-1. ```git rebase master``` - Apply outside changes from master into the dev branch. This will rewind the branch and apply the outside changes. All of the commits you made after branch deviation will be applied on top of the branch deviation.
-1. ```git checkout master``` - Move back to the master branch.
-1. ```git pull origin master``` - Recheck for changes, if any new changes have been applied return to step 3 and repeat.
-1. ```git merge dev``` - Once you have a clean pull, merge your changes into master.
-1. ```git push origin master``` - Push your new changes to the repository.
+1. ```git rebase main``` - Apply outside changes from main into the dev branch. This will rewind the branch and apply the outside changes. All of the commits you made after branch deviation will be applied on top of the branch deviation.
+1. ```git checkout main``` - Move back to the main branch.
+1. ```git pull origin main``` - Recheck for changes, if any new changes have been applied return to step 3 and repeat.
+1. ```git merge dev``` - Once you have a clean pull, merge your changes into main.
+1. ```git push origin main``` - Push your new changes to the repository.
 
-Technically, there is no right or wrong way to use git. Each project would have a set of guidelines. If you were to deviate from those guidelines then your usage within the context of working on that project would be considered wrong. [The Diaspora* Project](https://wiki.diasporafoundation.org/Git_workflow) has a very well defined branching model that is typical of what you will see in the real world. If I had to come up with one and only one rule it would be to never build on the master branch.
+Technically, there is no right or wrong way to use git. Each project would have a set of guidelines. If you were to deviate from those guidelines then your usage within the context of working on that project would be considered wrong. [The Diaspora* Project](https://wiki.diasporafoundation.org/Git_workflow) has a very well defined branching model that is typical of what you will see in the real world. If I had to come up with one and only one rule it would be to never build on the main branch.
 
 ## Exercise 3 - Serve Static Page From GitHub Repository
 In Visual Studio Code click into the workspace `/mtbc`.
@@ -232,16 +232,16 @@ VI will open an ask you to enter a commit message.
 1. Then type the message _Github Page Example_. 
 1. Press [esc] followed by [:x] and enter to save the commit message.
 
-Push your changes to the master branch.
+Push your changes to the main branch.
 
 ```sh
-git push origin master
+git push origin main
 ```
 
 Log in to your GitHub account and click on the repositories tab then find the `mtbc` Repository folder.
 * Choose **_Settings_** in the far right corner
 * Scroll down to **_GitHub Pages_**
-* Under Source dropdown select **_master branch_**
+* Under Source dropdown select **_main branch_**
 
 **Note**
 > Message will change to _Your site is ready to be published at [https://`<yourname>`.github.io/mtbc]_
@@ -254,9 +254,9 @@ Log in to your GitHub account and click on the repositories tab then find the `m
 A basic set of guidelines for working with a git repository.
 See [RFC 2119](http://www.ietf.org/rfc/rfc2119.txt) for keyword usage.
 
-* master - pristine 
-    * You MUST NOT work on or apply changes directly to master.
-    * Only approved changes SHALL be merged into master.
+* main - pristine 
+    * You MUST NOT work on or apply changes directly to main.
+    * Only approved changes SHALL be merged into main.
 * dev - main working branch
     * You SHOULD NOT work on or apply changes directly to dev.
     * You SHOULD create a feature/bug (working) and commit changes to that branch.
@@ -296,13 +296,13 @@ git push origin dev
 
 ## After integration testing
 ## Integrate the changes with your production branch
-git checkout master
-git pull origin master
+git checkout main
+git pull origin main
 git checkout dev
-git rebase master
-git checkout master
+git rebase main
+git checkout main
 git merge dev
-git push origin master
+git push origin main
 
 ## Clean Up
 # Delete the remote branch

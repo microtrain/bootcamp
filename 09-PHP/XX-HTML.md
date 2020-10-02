@@ -132,7 +132,7 @@ cd /var/www/
 1. Add an ```h1``` element to the body of the page which also reads _Hello World_ ```<h1>Hello World</h1>```.  
 1. Now refresh your browser and you will see the text _Hello World_.
 1. Add a paragraph tag below the top level header that reads ```<p>Welcome to my web site.</p>```
-1. Commit your changes and push to master.
+1. Commit your changes and push to main.
 Stage new files to be committed, in this case _public/public/index.html_.
 ```sh
 git add .
@@ -142,9 +142,9 @@ Commit all files, you'll be asked for a commit message say something like *Initi
 git commit -a
 ```
 
-Add a comment like _Added the initial home page._ then [esc] _:x_ [enter] to save. Then push your changes to master.
+Add a comment like _Added the initial home page._ then [esc] _:x_ [enter] to save. Then push your changes to main.
 ```sh
-git push origin master
+git push origin main
 ```
 
 Now you can access your page through the following URL.
@@ -225,7 +225,7 @@ Update ex1.html so that
   * Commit with the  message _Set the default encoding to utf-8_
 * The view port is declared as _content="width=device-width, initial-scale=1.0_.
   * Commit with the  message _Added a responsive viewport_
-* Push all changes to master
+* Push all changes to main
 
 ## [HTML Elements](https://www.w3.org/TR/2011/WD-html5-20110525/elements.html)
 

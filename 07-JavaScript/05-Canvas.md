@@ -21,7 +21,7 @@ git init
 git add .
 git commit -am 'Initial Commit'
 git remote add origin git@github.com:XXX/draw.git
-git push origin master
+git push origin main
 ```
 
 Add the following code before the ```</body>``` in ```draw/index.html``` 
