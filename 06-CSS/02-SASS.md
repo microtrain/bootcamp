@@ -134,6 +134,15 @@ In the second panel open the scss file in vim, make a change and save it by pres
 
 Open the file */var/www/mtbc/scss/main.css* and verify your changes.
 
+**Ruby Sass 3.7.4** 
+If LoadError: cannot load such file -- sass-listen.
+Install sass-listen via gem
+
+```sh
+sudo gem install sass-listen
+```
+
+
 ## Mixins
 
 Later we will learn about the Bootstrap framework. Bootstrap is among the most popular frameworks and as such it gets a lot of criticism. One of the criticisms is the practice of calling multiple classes on a single element. The claim is that this can increase load time. For example, styling a button in Bootstrap often looks as follows ```class="btn btn-default btn-xs"```. The idea is that it would be faster to combine all of those classes into a single definition in which case something like ```class="btn-default-xs"``` would load faster. In native CSS this would mean having a lot of duplicate code. SASS allows us to reuse style definitions; meaning we could write a definition once and reuse it as a part of other definitions. Reuse allows us to globally change an entire style sheet by changing only one line of code. Rather than calling multiple classes, we can define mixins and extend base classes making all of our code reusable.
