@@ -43,7 +43,7 @@ Run the following from the command line. DO NOT commit until you have added a
 *.gitignore* file.
 
 ```sh
-cd /var/www/YOUR-GITHUB-USERNAME/github.io
+cd /var/www/YOUR-GITHUB-USERNAME.github.io
 npm install
 ```
 
@@ -90,7 +90,7 @@ ahead and ignore these now to prevent future confusion.
 
 Create the file .gitignore and add the following.
 
-*/var/www/YOUR-GITHUB-USERNAME/github.io/.gitignore*
+*/var/www/YOUR-GITHUB-USERNAME.github.io/.gitignore*
 ```sh
 node_modules
 .gulp-scss-cache
@@ -111,7 +111,7 @@ At point you can add files to tracking, commit your changes and push to main.
 front-end tooling, automating workflows, etc.). These are 
 typically written as small, single script programs.
 
-*/var/www/YOUR-GITHUB-USERNAME/github.io/gulpfile.js*
+*/var/www/YOUR-GITHUB-USERNAME.github.io/gulpfile.js*
 ```js
 var gulp = require('gulp');
 var cleanCSS = require('gulp-clean-css');
