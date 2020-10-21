@@ -210,7 +210,7 @@ Start by making a copy of your GitHub pages project
 ```sh
 cd /var/www
 mkdir -p example.com/public
-cp /var/www/YOUR-GITHUB-USERNAME /var/www/example.com
+cp -r /var/www/YOUR-GITHUB-USERNAME /var/www/example.com
 ```
 
 Move src, dist and all html files into the public directory. 
