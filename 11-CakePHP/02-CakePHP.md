@@ -25,7 +25,7 @@ sudo apt-get install php-intl
 Create a CakePHP project via composer. Sticking with the _example.com_ nomenclature we will call this one _cake.example.com_.
 ```sh
 cd /var/www
-composer create-project --prefer-dist cakephp/app cake.example.com
+composer create-project --prefer-dist cakephp/app:4.* cake.example.com
 ```
 
 Answer yes to the following
@@ -156,6 +156,7 @@ git init
 git remote add origin git@github.com:YOUR-GITHUB-USERNAME/cake.example.com.git
 git pull origin main
 git add .
+git checkout -b main
 git commit -am 'Initial build'
 git push origin main
 ```
@@ -195,7 +196,7 @@ bin/cake migrations migrate -p CakeDC/Users
 
 5. [</> code](https://github.com/stack-x/cake.example.com) Commit your changes with a message of *Added CakeDC user plugin*.
 
-6. Update the mail transport class to debug on line 208 of *config/app.php*
+6. Update the mail transport class to debug on line 224 of *config/app.php*
 ```php 
 // turn on for email through server
 // 'className' => MailTransport::class,
@@ -220,7 +221,7 @@ bin/cake migrations migrate -p CakeDC/Users
 
 12. Create 3 unique users, repeat Registration steps 7-11 above.
 
-13. Commit your changes with a message of *Added Cake Users CRUD*.
+13. Commit your changes with a message of *Added Cake Users Login*.
 
 ### Posts CRUD
 We will keep our blog posts in a table called posts.
