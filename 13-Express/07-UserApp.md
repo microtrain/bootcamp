@@ -365,9 +365,9 @@ case '#create':
   break;	    
 ```
 
-Make the submit button responsive. While a block-level button makes sense on a small screen, it looks odd spanning the width of a desktop monitor. We can resolve this by making the button responsive. Make sure Gulp is running and add the following to *src/scss/form.scss*. You can test this by opening dev tools and toggling between mobile and desktop views.
+Make the submit button responsive. While a block-level button makes sense on a small screen, it looks odd spanning the width of a desktop monitor. We can resolve this by making the button responsive. Make sure Gulp is running and add the following to *src/scss/forms.scss*. You can test this by opening dev tools and toggling between mobile and desktop views.
 
-*src/scss/form.scss*
+*src/scss/forms.scss*
 ```scss
 //~line 11
 @media all and (max-width:480px) {
