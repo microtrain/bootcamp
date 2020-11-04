@@ -517,7 +517,7 @@ git commit -a
 *views/includes/navbar.pug*
 ```js
 //~line 23
-if !session.passport.user
+if !session.passport
   li.nav-item
     a.nav-link(href='/auth#register') Register
   li.nav-item
