@@ -15,7 +15,7 @@ In this lesson, we will install
 Cordova is built on top of Node; we will use npm to do a global install.
 
 ```sh
-sudo npm install -g cordova
+sudo npm install -g cordova@9.0.0
 ```
 
 ## Install the Java SDK
