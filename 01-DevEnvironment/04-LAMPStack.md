@@ -61,11 +61,10 @@ PHP was installed as a part of ```lamp-server^``` give this a quick test. Open a
 ```sh
 php -v
 
-PHP 7.2.19-0ubuntu0.18.04.1 (cli) ( NTS )
-Copyright (c) 1997-2018 The PHP Group
-Zend Engine v3.2.0, Copyright (c) 1998-2018 Zend Technologies
-    with Zend OPcache v7.2.19-0ubuntu0.18.04.1, Copyright (c) 1999-2018, by Zend Technologies
-    with Xdebug v2.4.0, Copyright (c) 2002-2018, by Derick Rethans
+PHP 7.4.3 (cli) (built: Oct  6 2020 15:47:56) ( NTS )
+Copyright (c) The PHP Group
+Zend Engine v3.4.0, Copyright (c) Zend Technologies
+    with Zend OPcache v7.4.3, Copyright (c), by Zend Technologies
 ```
 
 * ```php -v``` This one is pretty simple, we are just asking PHP for its version number. If you see something beginning with _PHP 7_, then PHP is up and running. Make a note of [PHP's documentation](http://php.net/manual/en/intro-whatis.php) to review at your leisure.
