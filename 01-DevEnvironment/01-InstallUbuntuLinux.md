@@ -1,7 +1,7 @@
-# Install Ubuntu 18.04
+# Install Ubuntu 20.04
 Your development (dev) environment is any system upon which you develop your applications. When possible, building your dev environment as close to production (prod) as possible is helpful. When this is not possible running tests in an emulator is a good option. This course will make use of both methods. Let's start by installing the operating system; Ubuntu Linux.
 
-Insert the preloaded Ubuntu 18.04 dongle into an open USB port and power up the system. Press f12 when the Dell splash screen appears and choose _USB Storage Device_ under legacy boot legacy.
+Insert the preloaded Ubuntu 20.04 dongle into an open USB port and power up the system. Press f12 when the Dell splash screen appears and choose _USB Storage Device_ under legacy boot legacy.
 
 You will see a window titled _Install (as superuser)_ from this window choose English and click the _Install Ubuntu_ button.  
 
