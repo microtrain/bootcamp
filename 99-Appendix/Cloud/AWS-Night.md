@@ -74,7 +74,7 @@ EC2 web service interface provides you with complete control of your computing r
 
 1. Navigate Services tab for Amazon EC2.
 2. Launch Instance under Create Instance Header.
-3. Chose an (AMI) - Ubuntu Server 18.04 Free Tier 64-bit.
+3. Chose an (AMI) - Ubuntu Server 20.04 Free Tier 64-bit.
 4. Choose an Instance Type - t2.micro Free Tier.
 5. Configure Instance Details (Default).
 6. Add Storage (Default).
