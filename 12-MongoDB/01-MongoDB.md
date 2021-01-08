@@ -4,7 +4,7 @@ MongoDB is a distributed NoSQL NoSchema document database designed for scalabili
 
 ## Install MongoDB
 
-[Install MongoDB on Ubuntu 18.04](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
+[Install MongoDB on Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/)
 
 By default, the Ubuntu package manager does not know about the MongoDB repository so you'll need to add it to your system. First, add MongoDB's private key to the package manager. Then, update the repository list. Finally, reload the package database.
 
