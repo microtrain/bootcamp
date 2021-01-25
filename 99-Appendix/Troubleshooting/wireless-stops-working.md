@@ -60,8 +60,7 @@ Using 802.11 Linux STA wireless driver source from bcmwl-kernel-source (propriet
 
     • Apply Changes
 
-![Broadcom Wireless](/img/troubleshooting/broadcom_wireless.png)
-
+![Broadcom Wireless](/img/troubleshooting/broadcom_wireless.jpg)
 
 ### Once the drivers have been installed, you’ll see that Ubuntu now recognizes the wireless networks in range. Should now read;
 
