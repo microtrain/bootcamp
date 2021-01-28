@@ -335,12 +335,10 @@ fi
 ```sh
 git add .
 git commit -m 'Added the ability to reject unauthorized service directives'
-git checkout main
-git merge feature/validate
 git push origin main
 ```
  
-[</> code](https://github.com/stack-x/restart_apache/commit/170b1e43c47c346362440cbb939f3b9ca3733b38) Update VERSION.txt to 1.2.0
+[</> code](https://github.com/stack-x/restart_apache/commit/170b1e43c47c346362440cbb939f3b9ca3733b38) Update VERSION.txt to 0.2.0
 ```sh
 git add .
 git commit -m 'Version 0.2.0'
