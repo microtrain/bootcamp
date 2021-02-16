@@ -5,8 +5,9 @@ PHP (the P in LAMP stack) is a popular server-side scripting language. Once you 
 Since this is a dev environment we want to able to debug errors. Let's tell Apache to show us errors when accessing PHP files.
 
 ```sh
-sudo vim /etc/php/7.2/apache2/php.ini
+sudo vim /etc/php/7.4/apache2/php.ini
 ```
+> Version check ``php -v`` Should be 7.2+ or 7.4+
 
 Find the _display_errors_ directive by typing _\display_errors =_ in vim. This will be around line 426 enter insert mode and change *display_errors = Off* to *display_errors = On* then restart Apache.
 
