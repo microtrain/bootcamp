@@ -113,7 +113,7 @@ Add the following lines
 
 ```sh
 #!/bin/bash
-curl -s --user 'api:your-api-key' \
+curl -s --user 'api:your-private-api-key' \
     https://api.mailgun.net/v3/your-sandbox-account/messages \
     -F from='Mailgun Sandbox <postmaster@your-sandbox-account>' \
     -F to='Your Name <yourname@your-email.com>' \
