@@ -104,7 +104,7 @@ The end result will be as follows
 ```
 
 Now, lets inspect a post request.
-* Open the Chrome browser and navigate to [http://localhost.example.com/public/contact.php](http://localhost.example.com/public/contact.php).
+* Open the Chrome browser and navigate to [http://localhost/example.com/public/contact.php](http://localhost/example.com/public/contact.php).
 * Press the [f12] key to open Chrome's developer tools.
 * Click on the Network tab.
 * Refresh the page.
