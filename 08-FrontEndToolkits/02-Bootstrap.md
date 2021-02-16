@@ -49,10 +49,14 @@ Add the following to the _.container_ div below the paragraph. View this in both
 * Add cards in a grid
 * Add a jumbotron
 
+> In 5.0+  The jumbotron component is removed in favor of utility classes like .bg-light for the background color and .p-* classes to control padding.
+> Jumbotron is a lightweight, flexible component that can optionally extend the entire viewport to showcase key marketing messages on your site.
+> Use [Jumbotron v4.6](https://getbootstrap.com/docs/4.6/components/jumbotron/)
+
 
 ## LAB - Personal Website
 
-Add a _bootstrap_ directory to either example.com or you GitHub Pages project and redesign the UI using bootstrap.
+Add a _bootstrap_ directory to either /var/www or you GitHub Pages project and redesign the UI using bootstrap.
 
 
 ## Additional Resources
