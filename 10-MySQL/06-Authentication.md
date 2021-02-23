@@ -348,7 +348,7 @@ class Validate{
         }
 
         //Force at least 1 special char
-        if(preg_match("([\W]{1,})", $value)){
+        if(preg_match("([\!]{1,})", $value)){
             $strong++;
         }
 
@@ -467,7 +467,7 @@ if(!empty($input)){
             'message'=>'Please enter a password'
         ],[
             'rule'=>'strength',
-            'message'=>'Must contain [\Wa-zA-Z0-9]'
+            'message'=>'Must contain [\Wa-zA-Z0-9-!]'
         ]],
 
         'confirm_password'=>[[
