@@ -62,11 +62,11 @@ We will use PhpMyAdmin to create two databases
 * cake_app
 * cake_test
 
-Go to [http://localhost/phpmyadmin](http://localhost/phpmyadmin) and login as with _root:password_. Find the Databases tab and under the _Create database_ header enter *cake_app* as your first database. This will now ask you to create a table, skip this step and find your way back to the Databases tab and create another database called *cake_test* you can now close out of phpMyAdmin and return to the _app.php_ file in VSC.
+Go to [http://localhost/phpmyadmin](http://localhost/phpmyadmin) and login as with _root:password_. Find the Databases tab and under the _Create database_ header enter *cake_app* as your first database. This will now ask you to create a table, skip this step and find your way back to the Databases tab and create another database called *cake_test* you can now close out of phpMyAdmin and return to the _app_local.php_ file in VSC.
 
 ![phpMyAdmin](/img/cakephp/createdb.png)
 
-Update the database configurations as follows. _app.php_ _app_local.php_ _app_local.example.php_
+Update the database configurations as follows. _app_local.php_ _app_local.example.php_
 
 _default_
 ```php
@@ -154,11 +154,11 @@ Return to [http://loc.cake.example.com/](http://loc.cake.example.com/) and all s
 cd /var/www/cake.example.com
 git init
 git remote add origin git@github.com:YOUR-GITHUB-USERNAME/cake.example.com.git
-git pull origin main
+git status
 git add .
 git checkout -b main
 git commit -am 'Initial build'
-git push origin main
+git push -u origin main
 ```
 
 ### Cake File Structure, Callbacks, and Routing
@@ -182,7 +182,7 @@ We will start by using Composer to install CakeDC's [User Authentication plugin]
 composer require cakedc/users
 ```
 
-3. Add the following under line 58 of *src/Application.php*, this bootstraps the plugin to application start up.
+3. Add the following under line 68 of *src/Application.php*, this bootstraps the plugin to application start up.
 ```php
 // Load more plugins here
 $this->addPlugin(\CakeDC\Users\Plugin::class);
@@ -196,7 +196,7 @@ bin/cake migrations migrate -p CakeDC/Users
 
 5. [</> code](https://github.com/stack-x/cake.example.com) Commit your changes with a message of *Added CakeDC user plugin*.
 
-6. Update the mail transport class to debug on line 224 of *config/app.php*
+6. Update the mail transport class to debug on line 229 of *config/app.php*
 ```php 
 // turn on for email through server
 // 'className' => MailTransport::class,
@@ -285,7 +285,7 @@ Navigate to the [*/posts*](http://loc.cake.example.com/posts)
 
 ### From Basic CRUD to an App
 
-Add an initialization method to the Posts controller
+Add an initialization method to the Posts controller. Line 19
 ```php
 public function initialize(): void
 {
@@ -294,20 +294,39 @@ public function initialize(): void
 ```
 Commit your changes with a message of *Add POSTS CRUD*
 
+> ### Troubleshooting 
+> If ERROR! Can't find Table Users `Add Users CRUD` below.
 
 ## Exercise 1
+### Add Users CRUD
+*Bake the Model* ``bin/cake bake model Users``
+
+*Bake the Controller* ``bin/cake bake controller Users``
+
+*Bake the Template* ``bin/cake bake template Users``
+
+Add an initialization method to the Users controller. Line 19
+```
+public function initialize():void
+{
+    parent::initialize();
+}
+```
+Commit your changes with a message of *Add Users CRUD*
+
+## Exercise 2
 ### Create Slugs in the Background
 
 We will move our slug creation logic from the Posts controller to the Posts table. Here we will use a callback to create slugs in the background. We will create a unit test to verify our slug creation logic.
 
-Call the namespace for the Utility class.
+Call the namespace for the Utility class. Line 10
 *src/Model/Table/PostsTable.php*
 ```php
 // the Text class
 use Cake\Utility\Text;
 ```
 
-Create the method for creating a slug.
+Create the method for creating a slug. Line 96
 *src/Model/Table/PostsTable.php*
 ```php
 public function createSlug($title)
@@ -320,7 +339,7 @@ public function createSlug($title)
 }
 ```
 
-Call ```createSlug()``` from the ```beforeMarshal()``` callback.
+Call ```createSlug()``` from the ```beforeMarshal()``` callback. Line 105
 *src/Model/Table/PostsTable.php*
 ```php
 public function beforeMarshal($event, $data)
@@ -331,7 +350,7 @@ public function beforeMarshal($event, $data)
 }
 ```
 
-Remove Slug Create field from Template
+Remove Slug Create field from Template. Line 21
 */Posts/add.php*
 ```php
 // echo $this->Form->control('slug');
@@ -342,24 +361,6 @@ Submit [New Post](http://loc.cake.example.com/posts)
 
 Commit your changes with a message of *Create Slugs in the Background*
 
-## Exercise 2
-
-### Add Users CRUD
-*Bake the Model* ``bin/cake bake model Users``
-
-*Bake the Controller* ``bin/cake bake controller Users``
-
-*Bake the Template* ``bin/cake bake template Users``
-
-Add an initialization method to the Users controller
-```
-public function initialize():void
-{
-    parent::initialize();
-}
-```
-Commit your changes with a message of *Add Users CRUD*
-
 ## Exercise 3
 
 ### Add User Authentication
@@ -367,13 +368,14 @@ In CakePHP this is handled by the authentication plugin. Let’s start off by in
 ```sh
 composer require cakephp/authentication:^2.0
 ```
-Then add the following to your application’s bootstrap() method: *src/Application.php* add  to Line 119
+Then add the following to your application’s bootstrap() method: *src/Application.php* add  to Line 138
 ```sh
+`$this->addPlugin('Migrations');`
 $this->addPlugin('Authentication');
 ```
 
 Now, on every request, the AuthenticationMiddleware will inspect the request session to look for an authenticated user. If we are loading the /users/login page, it’ll inspect also the posted form data (if any) to extract the credentials. By default the credentials will be extracted from the email and password fields in the request data. The authentication result will be injected in a request attribute named authentication. 
-At this point we will want the /login to redirect to Posts. In your *src/Controller/UsersController.php*, add the following code: Line 41
+At this point we will want the /login to redirect to Posts. In your *src/Controller/UsersController.php*, add the following code: Line 38
 ```sh
 public function login()
 {
@@ -395,7 +397,7 @@ public function login()
     }
 }
 ```
-Add the logout action to the UsersController class: Line 61
+Add the logout action to the UsersController class: Line 58
 *src/Controller/UsersController.php*
 
 ```sh
@@ -415,7 +417,7 @@ You should then be sent to the login page.
 ## Exercise 4
 
 ### Simple Navigation Change
-Change links to point to Posts, Users *templates/layout/default.php* Line 44
+Change links to point to Posts, Users *templates/layout/default.php* Line 46
 ```sh
 <a href="/posts/">Posts</a>
 <a href="/users/">Users</a>
