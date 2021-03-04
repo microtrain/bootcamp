@@ -15,6 +15,16 @@ npm install express-session
 npm install connect-mongo
 ```
 
+## Fix! npm start error in Terminal
+> mean.example.com@0.0.0 start /home/dev/mean.example.com 
+> node ./bin/www
+> 
+> Check package.json for connect-mongo
+```sh 
+"dependencies": {
+"connect-mongo": "^3.2.0",
+```
+
 Commit your changes and push to main
 ```sh
 # Added authentication packages
