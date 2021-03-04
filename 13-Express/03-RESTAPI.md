@@ -117,7 +117,7 @@ var mongoose = require('mongoose');
 ...
 
 //Connect to MongoDB
-mongoose.connect(config.mongodb, { useNewUrlParser: true });
+mongoose.connect(config.mongodb, {useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
 ```
 
 ```sh
