@@ -688,7 +688,7 @@ import { Apod } from '../models/apod';
 })
 export class ApodComponent implements OnInit {
 
-  apod:Apod;
+  apod:Apod[] = [];
 
   constructor(
     private apodService: ApodService,
@@ -748,7 +748,7 @@ import { Apod } from '../models/apod';
 })
 export class ApodComponent implements OnInit {
 
-  apod:Apod;
+apod:Apod[] = [];
   //1. Create date as an instance variable
   date:string;
 
