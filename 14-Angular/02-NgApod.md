@@ -598,7 +598,7 @@ import { Apod } from '../models/apod';
 })
 export class ApodComponent implements OnInit {
 
-  apod:Apod;
+  apod:Apod[] = [];
 
   constructor(private apodService: ApodService) { }
 
