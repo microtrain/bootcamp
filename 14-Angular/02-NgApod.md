@@ -240,16 +240,20 @@ While not required I would create a directory called models and place my *apod.t
 *src/app/models/apod.ts*
 ```ts
 export class Apod {
-  copyright:string;
-  date:string;
-  explanation:string;
-  hdurl:string;
-  media_type:string;
-  service_version:string;
-  title:string;
-  url:string;
-}
+    copyright:string  = '';
+    date:string = '';
+    explanation:string  = '';
+    hdurl:string = '';
+    media_type:string = '';
+    service_version:string = '';
+    title:string = '';
+    url:string = '';
+  }
 ```
+### Declaring Model in Angular
+> Angular 11 :string = '';
+>
+> Angular 10 :string;
 
 Commit your changes
 ```sh
