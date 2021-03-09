@@ -750,7 +750,7 @@ export class ApodComponent implements OnInit {
 
 apod:Apod[] = [];
   //1. Create date as an instance variable
-  date:string;
+  date:string='';
 
   constructor(
     private apodService: ApodService,
@@ -778,7 +778,7 @@ apod:Apod[] = [];
   }
 
   //2. Create a method that returns a random date
-  randomDate(start, end): string{
+  randomDate(start:any, end:any): string{
     let date = new Date(
       start.getTime() + Math.random() *
         (end.getTime() - start.getTime())
