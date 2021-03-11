@@ -11,10 +11,10 @@ sudo npm install -g @angular/cli
 ng version
 ```
 
-Your Angular version should be 7.3.3 or higher.
+Your Angular version should be 10.10.X or higher.
 ```sh
-Angular CLI: 7.3.3
-Node: 10.14.1
+Angular CLI: 10.10.X
+Node: 12.21.10
 OS: linux x64
 ```
 
