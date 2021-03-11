@@ -1139,6 +1139,11 @@ Rebuild the production app
 ```sh
 ng build --prod
 ```
+Rebuild in Angular Version 11+
+> Open project folder in VSC Terminal. Save `apod.ts` file for compilation
+```sh
+ng build --watch
+```
 
 Now you will be able to deep link onto your app [http://localhost/ng-apod/#/apod/2010-07-07](http://localhost/ng-apod/#/apod/2010-07-07).
 
@@ -1202,6 +1207,18 @@ Finally, change the title tag in the head of the HTML document to match the name
 *src/index.html*
 ```html
   <title>NASA Apod</title>
+```
+
+Rebuild the production app
+
+```sh
+ng build --prod
+```
+
+Rebuild in Angular Version 11+
+> Open project folder in VSC Terminal. Save `apod.ts` file for compilation
+```sh
+ng build --watch
 ```
 
 With your mobile device and laptop on the same WIFI network. Run ```ifconfig``` to get your IP Address. From your device navigate to your laptops IP Address and click on the ng-apod folder.
