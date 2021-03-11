@@ -11,10 +11,10 @@ sudo npm install -g @angular/cli
 ng version
 ```
 
-Your Angular version should be 7.3.3 or higher.
+Your Angular version should be 10.10.X or higher.
 ```sh
-Angular CLI: 7.3.3
-Node: 10.14.1
+Angular CLI: 10.10.X
+Node: 12.21.10
 OS: linux x64
 ```
 
@@ -240,16 +240,20 @@ While not required I would create a directory called models and place my *apod.t
 *src/app/models/apod.ts*
 ```ts
 export class Apod {
-  copyright:string;
-  date:string;
-  explanation:string;
-  hdurl:string;
-  media_type:string;
-  service_version:string;
-  title:string;
-  url:string;
-}
+    copyright:string  = '';
+    date:string = '';
+    explanation:string  = '';
+    hdurl:string = '';
+    media_type:string = '';
+    service_version:string = '';
+    title:string = '';
+    url:string = '';
+  }
 ```
+### Declaring Model in Angular
+> Angular 11 :string = '';
+>
+> Angular 10 :string;
 
 Commit your changes
 ```sh
@@ -594,7 +598,7 @@ import { Apod } from '../models/apod';
 })
 export class ApodComponent implements OnInit {
 
-  apod:Apod;
+  apod:Apod[] = [];
 
   constructor(private apodService: ApodService) { }
 
@@ -684,7 +688,7 @@ import { Apod } from '../models/apod';
 })
 export class ApodComponent implements OnInit {
 
-  apod:Apod;
+  apod:Apod[] = [];
 
   constructor(
     private apodService: ApodService,
@@ -744,9 +748,9 @@ import { Apod } from '../models/apod';
 })
 export class ApodComponent implements OnInit {
 
-  apod:Apod;
+apod:Apod[] = [];
   //1. Create date as an instance variable
-  date:string;
+  date:string='';
 
   constructor(
     private apodService: ApodService,
@@ -774,7 +778,7 @@ export class ApodComponent implements OnInit {
   }
 
   //2. Create a method that returns a random date
-  randomDate(start, end): string{
+  randomDate(start:any, end:any): string{
     let date = new Date(
       start.getTime() + Math.random() *
         (end.getTime() - start.getTime())
@@ -1135,6 +1139,11 @@ Rebuild the production app
 ```sh
 ng build --prod
 ```
+Rebuild in Angular Version 11+
+> Open project folder in VSC Terminal. Save `apod.ts` file for compilation
+```sh
+ng build --watch
+```
 
 Now you will be able to deep link onto your app [http://localhost/ng-apod/#/apod/2010-07-07](http://localhost/ng-apod/#/apod/2010-07-07).
 
@@ -1198,6 +1207,18 @@ Finally, change the title tag in the head of the HTML document to match the name
 *src/index.html*
 ```html
   <title>NASA Apod</title>
+```
+
+Rebuild the production app
+
+```sh
+ng build --prod
+```
+
+Rebuild in Angular Version 11+
+> Open project folder in VSC Terminal. Save `apod.ts` file for compilation
+```sh
+ng build --watch
 ```
 
 With your mobile device and laptop on the same WIFI network. Run ```ifconfig``` to get your IP Address. From your device navigate to your laptops IP Address and click on the ng-apod folder.
