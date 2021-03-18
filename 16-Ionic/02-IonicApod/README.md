@@ -149,6 +149,9 @@ Add the following line to the top of the file.
 ```ts
 import { HttpClientModule } from '@angular/common/http';
 import { NgApodConfig } from '../../../ng-apod/config/ng-apod.config';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 ```
 
 Update the imports array as follows.
@@ -171,6 +174,13 @@ providers: [
 ],
 ```
 
+Install the Ionic-Native Dependencies; Core, StatusBar and SplashScreen from NPM
+```sh
+npm install @ionic-native/core --save
+npm install @ionic-native/splash-screen
+npm install @ionic-native/status-bar
+```
+
 Now we will generate an apod page. This equates to generating a component in 
 Angular.
 
@@ -183,6 +193,8 @@ with the following snippet.
 
 *app-routing.module.ts*
 ```js
+import { ApodPageModule } from './apod/apod.module';
+...
 const routes: Routes = [
   { path: '', redirectTo: 'apod', pathMatch: 'full' },
   { path: 'apod', loadChildren: './apod/apod.module#ApodPageModule' },
