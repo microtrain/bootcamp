@@ -61,6 +61,11 @@ sudo unzip -d /opt/gradle gradle-6.8.3-bin.zip
 ### Restart environment
 source ~/.bashrc
 ```
+> Just install gradle on linux, Even if Android Studio is installed,
+```sh
+sudo apt install gradle
+```
+
 
 ## Install the Android SDK
 
