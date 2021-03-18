@@ -18,6 +18,9 @@ cordova platform add android
 cordova run android
 ```
 
+#If Error! Failed to install the following Android SDK packages as some licenses have not been... 
+> ```yes | ~/Android/Sdk/tools/bin/sdkmanager --licenses``` 
+
 ## Port over the jQuery version of NASA Apod
 
 Copy the dist directory and the HTML from either the jQuery or Vanilla version of your APOD project.
