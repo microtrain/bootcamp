@@ -54,9 +54,9 @@ sudo apt install libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 libbz2-1.0:
 
 ```sh
 cd ~/Downloads
-wget https://services.gradle.org/distributions/gradle-5.6.2-bin.zip
+wget https://services.gradle.org/distributions/gradle-6.8.3-bin.zip
 sudo mkdir /opt/gradle
-sudo unzip -d /opt/gradle gradle-5.6.2-bin.zip
+sudo unzip -d /opt/gradle gradle-6.8.3-bin.zip
 
 ### Restart environment
 source ~/.bashrc
