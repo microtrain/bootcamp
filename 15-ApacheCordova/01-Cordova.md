@@ -21,9 +21,9 @@ sudo npm install -g cordova@9.0.0
 ## Install the Java SDK
 Android runs on top of Java (and Java-compatible APIs) we will need to install Java so we can compile our web-based build into Java, we will use OpenJDK.
 ```sh
-sudo apt install openjdk-8-jre openjdk-8-jdk
+sudo apt install openjdk-11-jre openjdk-11-jdk
 ```
-Now set the path using your favorite editor. In my case, the path is at _/usr/lib/jvm/java-8-openjdk-amd64_ so that is the path I will add to my .bashrc file. 
+Now set the path using your favorite editor. In my case, the path is at _/usr/lib/jvm/java-11-openjdk-amd64_ so that is the path I will add to my .bashrc file. 
 
 Open your .bashrc file
 ```sh
@@ -32,14 +32,14 @@ vim ~/.bashrc
 
 and add the following line to the end of the file. You can use [shift] + [g] to jump to the end of the file.
 ```sh
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 ``` 
 
 Once you have added those lines, you will want to reload the file.
 ```sh
 source ~/.bashrc
 ```
-Then run ```java -version```, if everything is working you will see *"openjdk version "1.8.0_222"*. The version number may vary within the patch indicator.
+Then run ```java -version```, if everything is working you will see *"openjdk version "11.0.XX"*. The version number may vary within the patch indicator.
 ```
 java -version
 ```
