@@ -283,7 +283,7 @@ This commit has a syntax error, see the following commit.
 
 [</> Code](https://github.com/microtrain/ionicUsers/commit/522307276b9e34e7b6a21d02f0cef619d1de2388) Errata
 
-[</> Code](https://github.com/microtrain/ionicUsers/commit/95a8c441c1473d8431d62162d2d5b607f8e9c585) Add a `getUser()` wrapper to the user page
+[</> Code](https://github.com/microtrain/ionicUsers/commit/be8c2bff78e75ab40a59dfc46c3db4d7f22fbafb) Add a `getUser()` wrapper to the user page
 
 [</> Code](https://github.com/microtrain/ionicUsers/commit/c02bc9eaf7b316abb0bb2988b4e348a6936da689) Build a view for a single user
 
