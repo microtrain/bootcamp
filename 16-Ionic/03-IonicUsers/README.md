@@ -122,16 +122,35 @@ for dealing with error and success conditions.
 On success we will want to redirect the user to the users page. There are a 
 couple of things we need to do first.
 
+* Install the Ionic-Native Dependencies; Core, StatusBar and SplashScreen from NPM
 * Generate the users page
 * Turn on hashStrategy
+
+```sh
+npm install @ionic-native/core --save
+npm install @ionic-native/splash-screen
+npm install @ionic-native/status-bar
+```
 
 ```sh
 ionic generate page users
 ```
 
 Once we have added the users page we will want to import `LocationStrategy` and
-`HasLocationStrategy` from `@angular/common` and add them to your providers list
-as `{ provide: LocationStrategy, useClass: HashLocationStrategy }`.
+`HashLocationStrategy` from `@angular/common` and add them to your providers list
+as `{ provide: LocationStrategy, useClass: HashLocationStrategy }` to *app.module.ts*
+```sh
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+...
+providers: [
+  StatusBar,
+  SplashScreen,
+  { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
+```
 
 #### Test the Functionality
 
