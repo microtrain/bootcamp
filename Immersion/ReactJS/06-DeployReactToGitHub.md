@@ -18,9 +18,8 @@ In the existing scripts property, add a predeploy property and a deploy property
 ```
 “scripts”: {
 //…
-,
 "predeploy": "npm run build",
-"deploy": "gh-pages -d build"
+"deploy": "gh-pages -d build",
 },
 ```
 The predeploy command helps to bundle the react app while the deploy command fires up the bundled file.
