@@ -2,15 +2,15 @@
 
 Make sure your react app code is already pushed to the GitHub account under some {Github-repo-name}.
 
-<strong>Step1: Install the gh-pages package as a “dev-dependency” of the app</strong>
+<strong>Step1: Add homepage property to package.json file</strong>
 
-`npm install gh-pages - save-dev`
+Open `package.json` and add a `homepage` under `"private": true,`
 
-<strong>Step2: Add homepage property to package.json file</strong>
+`"homepage": "https://{Github-username}.github.io/{Github-repo-name}",`
 
-Open package.json and add, under `"private": true,`
+<strong>Step2: Install the gh-pages package as a “dev-dependency” of the app</strong>
 
-`"homepage": "http://{Github-username}.github.io/{Github-repo-name}",`
+`npm install gh-pages --save-dev`
 
 <strong>Step3: Deploy scripts under 'package.json' file</strong>
 
@@ -37,7 +37,7 @@ Add it as remote: `git remote add origin your-github-repository-url.git`
 
 This command will create a branch named gh-pages at your GitHub repository. This branch hosts your app and homepage property you created in package.json file hold your link for a live preview.
 
-Go to {your-GitHub-code-repository} -> settings -> GitHub pages section and setup source to the gh-pages branch.
+Go to {your-GitHub-code-repository} -> settings -> GitHub pages section and setup source to the `gh-pages` branch.
 
 <strong>Step6: Update your repository code (optional)</strong>
 
