@@ -4,13 +4,13 @@ Make sure your react app code is already pushed to the GitHub account under some
 
 <strong>Step1: Install the gh-pages package as a “dev-dependency” of the app</strong>
 
-`npm install gh-pages — save-dev`
+`npm install gh-pages - save-dev`
 
 <strong>Step2: Add homepage property to package.json file</strong>
 
 Open package.json and add, under `"private": true,`
 
-`“homepage”: “http://{Github-username}.github.io/{Github-repo-name}"`
+`"homepage": "http://{Github-username}.github.io/{Github-repo-name}",`
 
 <strong>Step3: Deploy scripts under 'package.json' file</strong>
 
@@ -18,9 +18,10 @@ In the existing scripts property, add a predeploy property and a deploy property
 ```
 “scripts”: {
 //…
-“predeploy”: “npm run build”,
-“deploy”: “gh-pages -d build”
-}
+,
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build"
+},
 ```
 The predeploy command helps to bundle the react app while the deploy command fires up the bundled file.
 
