@@ -47,3 +47,7 @@ git add .
 git commit -m “Your commit message”
 git push origin main
 ```
+
+## Additonal Resources
+* [Create React App Deployment](https://create-react-app.dev/docs/deployment/#github-pages)
+* [Host your React app on GitHub](https://betterprogramming.pub/how-to-host-your-react-app-on-github-pages-for-free-919ad201a4cb)
