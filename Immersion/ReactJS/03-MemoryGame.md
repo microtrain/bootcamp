@@ -169,7 +169,7 @@ function Wrapper(props){
 export default Wrapper;
 ```
 
-Create the file: */Navbar.js
+Create the file: */src/Navbar.js
 ```sh
 import React from "react";
  
