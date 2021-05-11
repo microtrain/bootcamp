@@ -19,6 +19,7 @@ Accept the defaults for the following. Do not change the file paths, do not ente
 
 ```ssh
 ssh-keygen -t rsa -b 4096 -C "YOUR-EMAIL-ADDRESS"
+```[] Enter, [] Enter, [] Enter```
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 ```
@@ -48,6 +49,11 @@ Set up your git identity, replace my email and name with your own. For this clas
 git config --global user.email "YOUR-EMAIL-ADDRESS"
 git config --global user.name "YOUR-FIRST-LAST-NAME"
 git config --global core.editor "vim"
+```
+
+Confirm set-up.
+```sh
+git config --list
 ```
 
 In this lesson, you learned how to
