@@ -129,6 +129,8 @@ You can verify the file loads by checking networking tab in dev tools.
 }
 ```
 
+Add an `class="avatar"` to our index.html `<img src="/">`.
+
 ### Reset the body element
 
 Now we can start building a layout, we will start by resetting the body elements, adding a base font and then we will move on to navigation.
@@ -269,10 +271,8 @@ Or you could set the default ```max-width``` to **90%** which is what we will do
 ```css
 @media only screen and (max-width: 960px)  {
     nav {
-        nav {
             display:none;
         }
-    }
 }
 ```
 
