@@ -139,6 +139,7 @@ If LoadError: cannot load such file -- sass-listen.
 Install sass-listen via gem
 
 ```sh
+sudo apt-get install ruby-listen
 sudo gem install sass-listen
 ```
 
