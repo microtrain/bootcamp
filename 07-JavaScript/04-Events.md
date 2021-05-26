@@ -2,6 +2,22 @@
 
 Events allow a user to interact with a web page. Listeners are background processes that detect (listen for) the triggering of an event. One might say the web page listens for a click event.
 
+Use this template for each of the following exercises.
+
+```
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Events</title>
+  </head>
+  <body>
+
+<script>
+
+</script>
+  </body>
+</html>
+```
 
 ## Click Event
 
@@ -68,9 +84,10 @@ A change event listens for a change to a target element. Change events are typic
 
 ### Exercise 3 - Catch a Change
 
-In your browser navigate to *mtbc/js/events/onchange.html* and open to corresponding file in your editor. Add the following to the body tag of the document and refresh the page.
+In your browser navigate to *mtbc/js/events/onchange.html* and open to corresponding file in your editor.
 
-Add the following to the form tag. Be sure to start the list with an empty option.
+Add the following to the body tag of the document. Be sure to start the list with an empty option and refresh the page.
+
 ```html
 <select id="options">
   <option>--Pick an Option--</option>
