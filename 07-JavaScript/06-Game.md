@@ -33,6 +33,23 @@ npm install
 gulp
 ```
 
+If Error! ReferenceError: primordials is not defined
+Create a file *non-shrinwrap.json*
+```
+{
+  "dependencies": {
+    "graceful-fs": {
+        "version": "4.2.2"
+     }
+  }
+}
+```
+
+```sh
+npm install
+gulp
+```
+
 [</> code]() Add a canvas with a black background.
 
 Open *index.html* and update the title to read *HTML5 Game*
