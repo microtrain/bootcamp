@@ -23,6 +23,7 @@ git init
 git add .
 git commit -am 'Initial Commit'
 git remote add origin git@github.com:XXX/game.git
+git checkout -B main
 git push origin main
 ```
 
