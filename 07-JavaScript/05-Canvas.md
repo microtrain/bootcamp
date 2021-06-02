@@ -21,6 +21,7 @@ git init
 git add .
 git commit -am 'Initial Commit'
 git remote add origin git@github.com:XXX/draw.git
+git branch -B main
 git push origin main
 ```
 
@@ -124,7 +125,7 @@ For this exercise, we will create a drawing program. This will allow the user to
 Create the paths
 * _/var/www/draw/program.html_
 * _/var/www/draw/src/js/main.js_
-* _/var/www/draw/src/css/main.css_
+* _/var/www/draw/src/scss/main.scss_
 
 Add the following to program.html. In this exercise we load [Normailize.css](https://necolas.github.io/normalize.css/) to maintain consistency across browsers.
 
@@ -136,7 +137,7 @@ Add the following to program.html. In this exercise we load [Normailize.css](htt
        <title>Draw</title>
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-       <link rel="stylesheet" href="src/css/main.css">
+       <link rel="stylesheet" href="src/scss/main.scss">
     </head>
     <body>
       <div class="wrapper">
@@ -177,7 +178,7 @@ ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
 ctx.fillRect (30, 30, 55, 50);
 ```
 
-Add the following to _/var/www/draw/src/css/main.css_.
+Add the following to _/var/www/draw/src/scss/main.scss_.
 ```css
 html {
   font-family: sans-serif;
