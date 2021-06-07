@@ -164,6 +164,10 @@ Create a file */var/www/jquery-apod/npm-shrinkwrap.json
 ```
 
 ```sh
+npm install
+```
+
+```sh
 gulp watch
 ```
 
