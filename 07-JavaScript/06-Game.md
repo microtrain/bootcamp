@@ -34,7 +34,7 @@ gulp
 ```
 
 If Error! ReferenceError: primordials is not defined
-Create a file *non-shrinkwrap.json*
+Create a file *npm-shrinkwrap.json*
 ```
 {
   "dependencies": {
