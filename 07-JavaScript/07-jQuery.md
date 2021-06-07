@@ -151,8 +151,8 @@ gulp.task('watch', function(){
 gulp watch
 ```
 
-## ReferenceError: primordials is not defined
-Create a file */var/www/jquery-apod/npm-shrinkwrap.json
+### ReferenceError: primordials is not defined
+Create a file */var/www/jquery-apod/npm-shrinkwrap.json*
 ```sh
     {
       "dependencies": {
@@ -166,6 +166,7 @@ Create a file */var/www/jquery-apod/npm-shrinkwrap.json
 ```sh
 npm install
 ```
+Do not run _**npm audit fix**_
 
 ```sh
 gulp watch
