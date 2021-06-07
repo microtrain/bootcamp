@@ -151,6 +151,22 @@ gulp.task('watch', function(){
 gulp watch
 ```
 
+## ReferenceError: primordials is not defined
+Create a file */var/www/jquery-apod/npm-shrinkwrap.json
+```sh
+    {
+      "dependencies": {
+        "graceful-fs": {
+            "version": "4.2.2"
+         }
+      }
+    }
+```
+
+```sh
+gulp watch
+```
+
 Create a basic HTML structure and add it to _index.html_.
 */var/www/jquery-apod/index.html*
 ```html
