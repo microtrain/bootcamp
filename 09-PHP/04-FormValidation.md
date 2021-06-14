@@ -355,9 +355,15 @@ if(!empty($input)){
         <input type="hidden" name="subject" value="New submission!">
         
         <div>
-          <label for="name">Name</label>
-          <input id="name" type="text" name="name" value="<?php echo $valid->userInput('name'); ?>">
-          <div class="text-error"><?php echo $valid->error('name'); ?></div>
+          <label for="first_name">First Name</label>
+          <input id="first_name" type="text" name="first_name" value="<?php echo $valid->userInput('first_name'); ?>">
+          <div class="text-error"><?php echo $valid->error('first_name'); ?></div>
+        </div>
+
+        <div>
+          <label for="last_name">Last Name</label>
+          <input id="last_name" type="text" name="last_name" value="<?php echo $valid->userInput('last_name'); ?>">
+          <div class="text-error"><?php echo $valid->error('last_name'); ?></div>
         </div>
 
         <div>
