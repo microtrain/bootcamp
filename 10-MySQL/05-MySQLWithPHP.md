@@ -370,9 +370,171 @@ This would be an extension of the validation for contact.php
 ### Update a Post
 Make a copy of add.php and rename it edit.php
 
+```sh
+<?php
+require '../../core/functions.php';
+require '../../config/keys.php';
+require '../../core/db_connect.php';
+
+// Get the post
+$get = filter_input_array(INPUT_GET);
+$id = $get['id'];
+
+$stmt = $pdo->prepare("SELECT * FROM posts WHERE id=:id");
+$stmt->execute(['id'=>$id]);
+
+$row = $stmt->fetch();
+
+//If the id cannot be found kill the request
+if(empty($row)){
+  http_response_code(404);
+  die('Page Not Found <a href="/">Home</a>');
+}
+
+//var_dump($row);
+$meta=[];
+$meta['title']= "Edit: {$row['title']}";
+
+// Update the post
+$message=null;
+
+$args = [
+    'id'=>FILTER_SANITIZE_STRING, //strips HMTL
+    'title'=>FILTER_SANITIZE_STRING, //strips HMTL
+    'meta_description'=>FILTER_SANITIZE_STRING, //strips HMTL
+    'meta_keywords'=>FILTER_SANITIZE_STRING, //strips HMTL
+    'body'=>FILTER_UNSAFE_RAW  //NULL FILTER
+];
+
+$input = filter_input_array(INPUT_POST, $args);
+
+if(!empty($input)){
+
+    //Strip white space, begining and end
+    $input = array_map('trim', $input);
+
+    //Allow only whitelisted HTML
+    $input['body'] = cleanHTML($input['body']);
+
+    //Create the slug
+    $slug = slug($input['title']);
+
+    //Sanitized insert
+    $sql = 'UPDATE
+        posts
+      SET
+        title=:title,
+        slug=:slug,
+        body=:body,
+        meta_description=:meta_description,
+        meta_keywords=:meta_keywords
+      WHERE
+        id=:id';
+
+    if($pdo->prepare($sql)->execute([
+        'title'=>$input['title'],
+        'slug'=>$slug,
+        'body'=>$input['body'],
+        'meta_description'=>$input['meta_description'],
+        'meta_keywords'=>$input['meta_keywords'],
+        'id'=>$input['id']
+    ])){
+       header('LOCATION:./view.php?slug=' . $row['slug']);
+    }else{
+        $message = 'Something bad happened';
+    }
+}
+
+$content = <<<EOT
+<h1>Edit: {$row['title']}</h1>
+{$message}
+<form method="post">
+
+<input id="id" name="id" value="{$row['id']}" type="hidden">
+
+<div class="form-group">
+    <label for="title">Title</label>
+    <input id="title" value="{$row['title']}" name="title" type="text" class="form-control">
+</div>
+
+<div class="form-group">
+    <label for="body">Body</label>
+    <textarea id="body" name="body" rows="8"
+      class="form-control"
+      >{$row['body']}
+    </textarea>
+</div>
+
+<div class="row">
+    <div class="form-group col-md-6">
+        <label for="meta_description">Description</label>
+        <textarea id="meta_description" name="meta_description" rows="2"
+          class="form-control"
+          >{$row['meta_description']}</textarea>
+    </div>
+
+    <div class="form-group col-md-6">
+        <label for="meta_keywords">Keywords</label>
+        <textarea id="meta_keywords" name="meta_keywords" rows="2"
+          class="form-control"
+          >{$row['meta_keywords']}</textarea>
+    </div>
+</div>
+
+<div class="form-group">
+    <input type="submit" value="Submit" class="btn btn-primary">
+</div>
+</form>
+<br><hr><br>
+EOT;
+
+include '../../core/layout.php';
+```
+
 ### Delete a Post
 This could be anything from a blank page with a redirect after deletion to a page that returns some details and asks you to confirm your delete.
+```sh
+<?php
+require '../../config/keys.php';
+require '../../core/db_connect.php';
 
+$args=[
+  'id'=>FILTER_UNSAFE_RAW,
+  'confirm'=>FILTER_VALIDATE_INT
+];
+
+$input = filter_input_array(INPUT_GET, $args);
+$id=$input['id'];
+
+$stmt = $pdo->prepare("SELECT * FROM posts WHERE id=:id");
+$stmt->execute(['id'=>$id]);
+$row = $stmt->fetch();
+
+if(!empty($input['confirm'])){
+  $stmt = $pdo->prepare("DELETE FROM posts WHERE id=:id");
+  if($stmt->execute(['id'=>$id])){
+    header('Location: /example.com/public/posts/');
+  }
+}
+
+$meta=[];
+$meta['title']="DELETE: {$row['title']}";
+
+$content=<<<EOT
+<h1 class="text-danger text-center">DELETE: {$row['title']}</h1>
+<p class="text-danger text-center">Are you sure you want to delete {$row['title']}?</p>
+
+<div class="text-center">
+  <a href="./" class="btn btn-success btn-lg">Cancel</a>
+  <br><br>
+  <a href="delete.php?id={$row['id']}&confirm=1" class="btn btn-link text-danger">Delete</a>
+</div>
+<hr>
+<br>
+EOT;
+
+require '../../core/layout.php';
+```
 
 ## Lab Create a Users CRUD
 
