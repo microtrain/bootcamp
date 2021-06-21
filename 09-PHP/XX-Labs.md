@@ -1,16 +1,16 @@
 ## Lab 1 - Use a Layout
 
-Convert all existing pages under */var/www/about* to a layout.
+Convert all existing pages under */var/www/example.com* to a use layout.php.
 
 ## Lab 2 - Add Meta Data
 
-Add meta data to all pages under */var/www/about*. It is not advisable to create meta tags in any case in which content will be blank. For this reason do not allow the tag to be added to the layout if the content is empty.
+Add meta data to all pages under */var/www/example.com*. It is not advisable to create meta tags in any case in which content will be blank. For this reason do not allow the tag to be added to the layout if the content is empty.
 
 ## Lab 3 - Create ToS pages
 
 Add terms of service, privacy and cookie policies to your website.
 
-Create the following files on the */var/www/about* path and link to them from the footer of your template. Be sure all of these pages use websites common theme.
+Create the following files on the */var/www/example.com* path and link to them from the footer of your template. Be sure all of these pages use websites common theme.
 
 * terms.php
 * privacy.php
