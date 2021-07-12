@@ -6,7 +6,9 @@ In Angular, we can represent the data (or model) layer in the form of service an
 Build the user schema, for now, we can define this as an empty class, we can build this out later. Create the file *src/app/user.ts*.
 
 *src/app/user.ts*
-Angular 11+
+> Angular 11 :string = '';
+>
+> Angular 10 :string;
 
 ```js
 export class User {
