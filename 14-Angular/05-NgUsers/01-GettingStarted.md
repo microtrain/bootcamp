@@ -27,6 +27,20 @@ cd ng-users
 ng serve --open
 ```
 
+Add/Change the following in *tsconfig.json*
+
+```sh
+"compilerOptions": {
+...
+"noImplicitAny": false, 
+"strictPropertyInitialization": false, 
+...
+
+"angularCompilerOptions": {
+   ...
+   "strictTemplates": false
+}
+```
 At this point, we will have a browser window running the default Angular application.
 
 [Next: UsersComponent](./02-UsersComponent.md)
