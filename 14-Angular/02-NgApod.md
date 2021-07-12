@@ -47,6 +47,15 @@ There is no need to commit your changes, Angular automatically creates the first
 git status
 ```
 
+Add/Change the following in *tsconfig.json*
+
+```sh
+"angularCompilerOptions": {
+   ...
+   "strictTemplates": false
+}
+```
+
 ## Change the Application's Title
 
 [</> Code](https://github.com/microtrain/ng-apod/commit/93b11d4e6f6d81888597eb93accb23c445e7dee8) Open *src/app/app.component.ts* and change the value of the ```title``` variable. In Angular every *.html* file has a corresponding *.ts*. The .ts file would execute in the same way as any JavaScript called that is called at the bottom of a normal .html page.
