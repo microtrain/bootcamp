@@ -6,16 +6,17 @@ In Angular, we can represent the data (or model) layer in the form of service an
 Build the user schema, for now, we can define this as an empty class, we can build this out later. Create the file *src/app/user.ts*.
 
 *src/app/user.ts*
+Angular 11+
+
 ```js
 export class User {
-  _id: string;
-  email: string;
-  first_name: string;
-  last_name: string;
-  username: string;
-  admin: boolean;
-}
-
+    _id: string='';
+    email: string='';
+    first_name: string='';
+    last_name: string='';
+    username: string='';
+    admin: boolean=false ;
+  }
 ```
 
 **Commit your changes** with the message *Added a User schema*.
@@ -117,7 +118,7 @@ import { User } from '../user';
 export class UsersComponent implements OnInit {
 
   // 3. Create a users property of type user
-  users: User[];
+  users:User[] = [];
 
   // 4. Inject the UsersService into the constructor
   constructor(private usersService: UsersService) { }
