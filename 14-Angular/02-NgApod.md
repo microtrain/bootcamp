@@ -7,13 +7,13 @@ This app will allow a user to view a random APOD via NASA's REST API.
 Install the angular shell and check the installed version.
 
 ```sh
-sudo npm install -g @angular/cli
+sudo npm install -g @angular/cli@11
 ng version
 ```
 
-Your Angular version should be 10.10.X or higher.
+Your Angular version should be 11.10.X or higher.
 ```sh
-Angular CLI: 10.10.X
+Angular CLI: 11.10.X
 Node: 12.21.10
 OS: linux x64
 ```
