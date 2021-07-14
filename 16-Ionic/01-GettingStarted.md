@@ -4,16 +4,17 @@
 * Install Ionic and create your first app
 
 Check version of Node.js 6.x LTS+  ``node -v``
-Then, install the latest Cordova and Ionic  tools in your terminal
 
-```sh
-sudo npm install -g cordova ionic
-```
-
-If latest Cordova 10.0+ is installed ``cordova -v`` then install Ionic tools in your terminal
+If latest Cordova 10.0+ is installed ``cordova -v``. Install Ionic tools in your terminal
 ```sh
 sudo npm install -g ionic
 ionic start myApp tabs
+```
+
+If Cordova is not installed, install the latest Cordova and Ionic tools in your terminal
+
+```sh
+sudo npm install -g cordova ionic
 ```
 
 * Review the file structure and draw comparisons to Angular.
