@@ -8,7 +8,6 @@ Check version of Node.js 6.x LTS+  ``node -v``
 If latest Cordova 10.0+ is installed ``cordova -v``. Install Ionic tools in your terminal
 ```sh
 sudo npm install -g ionic
-ionic start myApp tabs
 ```
 
 If Cordova is not installed, install the latest Cordova and Ionic tools in your terminal
@@ -17,6 +16,10 @@ If Cordova is not installed, install the latest Cordova and Ionic tools in your 
 sudo npm install -g cordova ionic
 ```
 
+Create and launch Ionic App
+```sh
+ionic start myApp tabs
+```
 * Review the file structure and draw comparisons to Angular.
 * Exit this program and create the APOD app
 
