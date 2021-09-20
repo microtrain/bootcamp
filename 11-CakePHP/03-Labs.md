@@ -101,14 +101,24 @@ Navigate to [http://loc.cake.example.com/users/add](http://loc.cake.example.com/
 
 ### Lab 2 - Configuration for Social Login
 
-Using the documentation for the users plugin, add the ability to log in using a social media platform of your choice.
+Using the documentation for the users plugin [CakeDC/users](https://github.com/CakeDC/users), add the ability to log in using a social media platform of your choice.
+
+> ### *Note: Choose your most used log-in type. Using social authentication is not required.* Check the [Configuration page](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Configuration.md) for more details.
+
 For easier configuration, you can specify an array of config files to override the default plugin keys this way:
 *config/bootstrap.php*
 ```sh
 // The following configuration setting must be set before loading the Users plugin
-Configure::write('Users.config', ['users']);
-Plugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true]);
 Configure::write('Users.Social.login', true); //to enable social login
+Configure::write('Users.config', ['users']);
+```
+
+Add Plugins as required
+*src/Application.php*
+```sh
+// Social Media Connections
+$this->addPlugin('CakeDC/Users');
+$this->addPlugin('GoogleAuthenticate');
 ```
 
 Create the facebook, twitter, etc applications you want to use and setup the configuration like this: You'll need to add the providers to your composer.json file.
@@ -122,11 +132,12 @@ composer require league/oauth2-google:@stable
 composer require league/oauth2-linkedin:@stable
 composer require league/oauth1-client:@stable
 ```
-> NOTE: you'll need to enable social login if you want to use it, social login is disabled by default. *config/bootstrap.php*
-
+> NOTE: you'll need to enable social login if you want to use it, social login is disabled by default. Line 58 */vendor/cakedc/users/config/users.php*
 ```
-Configure::write('Users.config', ['users']);
-Configure::write('Users.Social.login', true); //to enable social login
+        'Social' => [
+            // enable social login, true
+            'login' => true,
+        ],
 ```
 Or use the config override option when loading the plugin (see above)
 
@@ -147,7 +158,9 @@ Twitter App Callback URL --> http://yourdomain.com/auth/twitter
 Google App Callback URL --> http://yourdomain.com/auth/google
 etc.
 ```
-> ### *Note: Choose your most used log-in type. Using social authentication is not required.* Check the [Configuration page](https://github.com/CakeDC/users/blob/master/Docs/Documentation/Configuration.md) for more details.
+
+> #### For full functionality sign up for a Developer API (e.g.) Facebook - https://developers.facebook.com/ 
+> #### *DO NOT PUSH THE APP-ID OR SECRET TO GITHUB*. REMOVE PRIOR TO SAVING
 
 ### Lab 3 - Comment System
 
