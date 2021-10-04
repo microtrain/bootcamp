@@ -24,7 +24,8 @@ cd ~
 ng new ng-apod
 ```
 
-You will be asked two questions:
+You will be asked three questions:
+* Do you want to enforce stricter type checking and stricter bundle budgets in the workspace? This setting helps improve maintainability and catch bugs ahead of time. For more information, see https://angular.io/strict (Y/n) *Type the letter __n__ and press enter* 
 * Would you like to add Angular routing? (y/N) *Type the letter __y__ and press enter*
 * Which stylesheet format would you like to use? *Depending on your options choose __Sass__ or __Scss__*
 
@@ -1098,6 +1099,12 @@ Commit your changes
 git add .
 git commit -a
 ```
+
+If upates or changes needed. Revert *Your build options above" back to local:4200 using ``ng serve --open``
+"options": {
+  "outputPath": "dist/ng-apod",
+  "..."
+} 
 
 ## Add deep links
 
