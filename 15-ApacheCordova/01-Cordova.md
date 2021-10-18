@@ -92,7 +92,7 @@ export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 Your final .bashrc file should include the following
 ```sh
-export PATH=$PATH:/opt/gradle/gradle-5.6.2/bin
+export PATH=$PATH:/opt/gradle/gradle-6.8.3/bin
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 export ANDROID_SDK_ROOT=/home/$USER/Android/Sdk
 export PATH=${PATH}:$ANDROID_SDK_ROOT/tools:$ANDROID_SDK_ROOT/platform-tools
