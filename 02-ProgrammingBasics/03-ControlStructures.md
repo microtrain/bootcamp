@@ -101,13 +101,13 @@ if(a === 1){
 a=1;
 
 #if/if-then
-if [ "$a" == 1 ]
+if [ "a" == 1 ]
 then
     echo 'Match!';
 fi
 
 #if-then/if-then-else
-if [ "$a" == 1 ]
+if [ "a" == 1 ]
 then
     echo "Match!"
 else
