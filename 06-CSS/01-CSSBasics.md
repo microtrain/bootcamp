@@ -355,6 +355,9 @@ Reload the page and make sure the resolution in under 960px, press the Menu butt
 
 ```css
 @media only screen and (max-width: 960px)  {
+  main {
+    max-width: 90%;
+  }
 
   header {
     position: relative;
@@ -378,6 +381,9 @@ Reload the page and make sure the resolution in under 960px, press the Menu butt
 
 ```css
 @media only screen and (max-width: 960px)  {
+  main {
+    max-width: 90%;
+  }
 
   header {
     position: relative;
