@@ -48,7 +48,11 @@ $( "#colorChanger" ).on( "click", function( event ) {
 ```sh
 cd /var/www && git clone https://github.com/microtrain/html-starter jquery-apod
 cd /var/www/jquery-apod && rm .git -fR && git init
+git add .
+git commit -am 'Initial Commit'
 git remote add origin git@github.com:YOUR-GITHUB-USERNAME/jquery-apod.git
+git checkout -B main
+git push origin main
 npm install
 npm install normalize.css --save-dev
 npm install jquery --save-dev
