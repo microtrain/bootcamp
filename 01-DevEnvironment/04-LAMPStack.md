@@ -89,6 +89,7 @@ USE mysql;
 UPDATE user SET plugin="mysql_native_password";
 FLUSH PRIVILEGES;
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES on *.* to 'mysql.infoschema'@'localhost';
 quit
 ```
 
