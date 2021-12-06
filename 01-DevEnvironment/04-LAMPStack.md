@@ -84,9 +84,10 @@ mysql -u root
 
 MySQL Terminal
 ```sql
-UPDATE USER SET plugin="mysql_native_password";
 FLUSH PRIVILEGES;
 USE mysql; 
+UPDATE user SET plugin="mysql_native_password";
+FLUSH PRIVILEGES;
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
 quit
 ```
