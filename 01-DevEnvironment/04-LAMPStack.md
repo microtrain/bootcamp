@@ -89,7 +89,6 @@ USE mysql;
 UPDATE user SET plugin="mysql_native_password";
 FLUSH PRIVILEGES;
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
-GRANT ALL PRIVILEGES on *.* to 'mysql.infoschema'@'localhost';
 quit
 ```
 
@@ -99,7 +98,6 @@ sudo pkill mysqld
 sudo systemctl start mysql
 
 mysql -u root --password='password'
-create user 'mysql.infoschema'@'localhost' identified by 'password';
 ```
 
 MySQL Terminal
@@ -119,6 +117,23 @@ mysql>
 ```
 
 We will work with MySQL later in the course, for now, bookmark the [MySQL Reference Manual](https://dev.mysql.com/doc/refman/5.7/en/). You'll want to familiarize yourself with this guide.
+
+
+If you encounter any issues involving the infoschema user run the following. If you are having issues install phpMyAdmin in the following section that may likely be an issue with the infoschema user.
+
+Linux Terminal
+```
+mysql -u root --password='password'
+```
+
+MySQL Terminal
+```
+DROP USER 'mysql.infoschema'@'localhost';
+GRANT ALL PRIVILEGES on *.* to 'mysql.infoschema'@'localhost';
+create user 'mysql.infoschema'@'localhost' identified by 'password';
+quit
+```
+
 
 ## [phpMyAdmin](https://www.phpmyadmin.net/)
 
