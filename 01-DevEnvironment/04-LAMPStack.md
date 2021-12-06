@@ -98,6 +98,7 @@ sudo pkill mysqld
 sudo systemctl start mysql
 
 mysql -u root --password='password'
+create user 'mysql.infoschema'@'localhost' identified by 'password';
 ```
 
 MySQL Terminal
