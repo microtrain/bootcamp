@@ -6,7 +6,7 @@ Node.js (Node) is an insanely popular platform that allows you to build cross-pl
 
 I always recommend building on the latest stable LTS version of a language or framework. As of this writing, the current LTS is version 10.x you can use the [Node release schedule](https://github.com/nodejs/Release#release-schedule) to verify the current LTS. Node uses even-numbered releases to denote LTS versions and odd-numbered releases would be short term (experimental, bleeding edge, etc) releases. I would not use a short term release for product development.
 
-**Node.js v10.x**:
+**Node.js v12.x**:
 
 ```sh
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
