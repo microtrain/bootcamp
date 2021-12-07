@@ -491,6 +491,13 @@ EOT;
 include '../../core/layout.php';
 ```
 
+#### Add Navigation
+
+Add to view.php
+```
+$content .="<p><a href=\"edit.php?id={$row['id']}\">Edit Post</a><br>";
+```
+
 ### Delete a Post
 This could be anything from a blank page with a redirect after deletion to a page that returns some details and asks you to confirm your delete.
 ```sh
@@ -535,6 +542,18 @@ EOT;
 
 require '../../core/layout.php';
 ```
+
+#### Add Navigation
+
+Add to view.php
+```
+$content .="<p><a href=\"delete.php?id={$row['id']}\">Delete</a><br>";
+```
+Add to index.php
+```
+$content .="<p><a href=\"add.php\">New Post</a><br>";
+```
+
 
 ## Lab Create a Users CRUD
 
