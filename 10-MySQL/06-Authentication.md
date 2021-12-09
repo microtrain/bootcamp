@@ -37,7 +37,7 @@ function checkSession(){
 
 Add the following to every page on the website. The key is the first line ```session_start()```. Call this on every page to assure the state is not lost.
 ```php
-require '../core/session.php';
+require '../../core/session.php';
 ```
 
 Add the following to every page that would require authentication. This would force the user back to the home page anytime ```$_SESSION['user']['id']``` equates to empty.
