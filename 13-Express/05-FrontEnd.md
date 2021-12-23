@@ -246,6 +246,11 @@ gulp.task('build-js', gulp.series(
   ));
 ```
 
+> To fix sass error! Replace/Downgrade version of Sass in gulpfile.js
+> 
+> "gulp-sass": "^4.1.0",
+
+
 Now that we have installed gulp in our project we can finish building our dist structure with the following commands.
 ```sh
 cd ~/mean.example.com
