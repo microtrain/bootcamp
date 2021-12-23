@@ -19,10 +19,13 @@ npm install connect-mongo
 > mean.example.com@0.0.0 start /home/dev/mean.example.com 
 > node ./bin/www
 > 
-> Check package.json for connect-mongo
+> Check package.json for connect-mongo, mongoose & mongoose-unique-validator
 ```sh 
 "dependencies": {
 "connect-mongo": "^3.2.0",
+
+"mongoose": "^6.0.8",
+"mongoose-unique-validator": "^2.0.3",
 ```
 
 Commit your changes and push to main
