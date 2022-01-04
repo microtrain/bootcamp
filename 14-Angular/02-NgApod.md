@@ -738,7 +738,7 @@ Commit your changes
 git add .
 git commit -a
 ```
-[</> code](https://github.com/microtrain/ng-apod/commit/2a56d6d87bee367de8da1a316b58d0ecfb8248cd) Now we will want the user to be able to multiple APODs. We will do this by providing a random date button in the applications UI. To accomplish this we will pass a random date into the routerLink attribute attached to the button. We will create a random date every time a new APOD loads, that date will be made accessible to the view. 
+[</> code](https://github.com/microtrain/ng-apod/commit/2a56d6d87bee367de8da1a316b58d0ecfb8248cd) Now we will want the user to be able to request multiple APODs. We will do this by providing a random date button in the applications UI. To accomplish this we will pass a random date into the routerLink attribute attached to the button. We will create a random date every time a new APOD loads, that date will be made accessible to the view. 
 
 * Create date as an instance variable
 * Create a method that returns a random date
