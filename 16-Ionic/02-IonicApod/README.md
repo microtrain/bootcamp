@@ -193,13 +193,33 @@ with the following snippet.
 
 *app-routing.module.ts*
 ```js
-import { ApodPageModule } from './apod/apod.module';
-...
+import { NgModule } from '@angular/core';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
 const routes: Routes = [
-  { path: '', redirectTo: 'apod', pathMatch: 'full' },
-  { path: 'apod', loadChildren: './apod/apod.module#ApodPageModule' },
-  { path: 'apod/:date', loadChildren: './apod/apod.module#ApodPageModule' },
+  {
+    path: '',
+    redirectTo: 'apod',
+    pathMatch: 'full'
+  },
+  {
+    path: 'apod',
+    loadChildren: () => import('./apod/apod.module').then( m => m.ApodPageModule)
+  },
+  { 
+    path: 'apod/:date', 
+    loadChildren: () => import('./apod/apod.module').then( m => m.ApodPageModule) 
+  },
 ];
+
+@NgModule({
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
 ```
 
 `ApodPage` will not change all that much from `ApodComponent` in the 
